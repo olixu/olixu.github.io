@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons8-dog-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons8-dog-16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="B9DN3IrX7m2gTbRqa4D1C1Lluvo_zP2P5KC0wh4-ej4">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.oliverxu.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="很多人都说使用Python开发WEB应用非常方便，那么对于WEB新手来说，到底有多方便呢？本文即将展示给你Python的魔法。 本文将通过一个实例：Flask实现计算机资源的实时监控，迅速带你入门Flask开发。 先说一下我的水平，博主的专业并不是做WEB开发的，对于WEB方面，只会写爬虫，因此，只能看懂html，略看得懂css与js，我估计有很多像我一样的小伙伴，因此，如果你的WEB掌握的水平">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flask速成项目：Flask实现计算机资源的实时监控">
+<meta property="og:url" content="https://blog.oliverxu.cn/2018/09/30/Flask%E9%80%9F%E6%88%90%E9%A1%B9%E7%9B%AE%EF%BC%9AFlask%E5%AE%9E%E7%8E%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%B5%84%E6%BA%90%E7%9A%84%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7/index.html">
+<meta property="og:site_name" content="Oliver xu&#39;s Blog">
+<meta property="og:description" content="很多人都说使用Python开发WEB应用非常方便，那么对于WEB新手来说，到底有多方便呢？本文即将展示给你Python的魔法。 本文将通过一个实例：Flask实现计算机资源的实时监控，迅速带你入门Flask开发。 先说一下我的水平，博主的专业并不是做WEB开发的，对于WEB方面，只会写爬虫，因此，只能看懂html，略看得懂css与js，我估计有很多像我一样的小伙伴，因此，如果你的WEB掌握的水平">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.oliverxu.cn/2018/09/30/Flask%E9%80%9F%E6%88%90%E9%A1%B9%E7%9B%AE%EF%BC%9AFlask%E5%AE%9E%E7%8E%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%B5%84%E6%BA%90%E7%9A%84%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7/1.png">
+<meta property="article:published_time" content="2018-09-30T11:29:48.000Z">
+<meta property="article:modified_time" content="2020-09-14T07:41:31.653Z">
+<meta property="article:author" content="Oliver xu">
+<meta property="article:tag" content="flask">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.oliverxu.cn/2018/09/30/Flask%E9%80%9F%E6%88%90%E9%A1%B9%E7%9B%AE%EF%BC%9AFlask%E5%AE%9E%E7%8E%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%B5%84%E6%BA%90%E7%9A%84%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7/1.png">
+
+<link rel="canonical" href="https://blog.oliverxu.cn/2018/09/30/Flask%E9%80%9F%E6%88%90%E9%A1%B9%E7%9B%AE%EF%BC%9AFlask%E5%AE%9E%E7%8E%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%B5%84%E6%BA%90%E7%9A%84%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Flask速成项目：Flask实现计算机资源的实时监控 | Oliver xu's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?473560aefa55cb0313599b95a2994bf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss.xml" title="Oliver xu's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Oliver xu's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-album">
+
+    <a href="/album/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.oliverxu.cn/2018/09/30/Flask%E9%80%9F%E6%88%90%E9%A1%B9%E7%9B%AE%EF%BC%9AFlask%E5%AE%9E%E7%8E%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%B5%84%E6%BA%90%E7%9A%84%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Oliver xu">
+      <meta itemprop="description" content="The most difficult thing in life is to know yourself">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oliver xu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Flask速成项目：Flask实现计算机资源的实时监控
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-30 11:29:48" itemprop="dateCreated datePublished" datetime="2018-09-30T11:29:48+00:00">2018-09-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-14 07:41:31" itemprop="dateModified" datetime="2020-09-14T07:41:31+00:00">2020-09-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/flask/" itemprop="url" rel="index"><span itemprop="name">flask</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/09/30/Flask%E9%80%9F%E6%88%90%E9%A1%B9%E7%9B%AE%EF%BC%9AFlask%E5%AE%9E%E7%8E%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%B5%84%E6%BA%90%E7%9A%84%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7/" class="post-meta-item leancloud_visitors" data-flag-title="Flask速成项目：Flask实现计算机资源的实时监控" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>很多人都说使用Python开发WEB应用非常<strong>方便</strong>，那么对于WEB新手来说，到底有多方便呢？本文即将展示给你Python的魔法。 本文将通过一个实例：<strong>Flask实现计算机资源的实时监控</strong>，迅速带你入门Flask开发。 先说一下我的水平，博主的专业并不是做WEB开发的，对于WEB方面，只会写<strong>爬虫</strong>，因此，只能看懂html，略看得懂css与js，我估计有很多像我一样的小伙伴，因此，如果你的WEB掌握的水平在我之上或与我相当，那么，这篇文章将是你迅速入门Flask的<strong>终极教程</strong>。</p>
+</blockquote>
+<p>先放上一张成果图： <img src="1.png" alt="结果" /> 访问，浏览器能够实时显示我的电脑的两个CPU的使用情况，这里特地采用两种显示方式，方便大家学习代码。 <a id="more"></a> ## flask介绍 Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions. And before you ask: It's BSD licensed! <strong>搞科研或者搞技术，还是直接看英文吧，英文是你走向NB的基础。</strong></p>
+<h2 id="flask安装">flask安装</h2>
+<p>可以参考我之前的文章：</p>
+<ol type="1">
+<li><a href="https://blog.oliverxu.cn/2018/09/16/Python%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.html">Python配置虚拟环境</a></li>
+<li><a href="https://blog.oliverxu.cn/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.html">Flask项目结构</a></li>
+</ol>
+<p>另外，需要安装<code>psutil</code>，<code>flask_socketio</code>包，可直接使用<strong>pip</strong>安装</p>
+<h2 id="构建flask项目结构">构建flask项目结构</h2>
+<p>在你的目录下新建如下的目录与文件： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects/CPU_memory$ tree</span><br><span class="line">.</span><br><span class="line">|-- app.py</span><br><span class="line">`-- templates</span><br><span class="line">    `-- index.html</span><br><span class="line"></span><br><span class="line">1 directory, 2 files</span><br></pre></td></tr></table></figure> <strong><em>非常形象的解释下flask完成的任务 </em></strong> 浏览器向服务器发送请求，服务器将html源代码发送给浏览器，浏览器将html解析成可视化的东西展示给用户。也就是说，用户接收到的总是一个html文件，那flask在整个过程中完成了什么任务呢？ 请把Flask想象成一个<strong>火腿肠加工厂</strong>，将<strong>肉</strong>输送给<strong>火腿肠加工厂</strong>，<strong>火腿肠加工厂</strong>生产出<strong>火腿肠</strong>。同样，将<strong>用户请求，例如访问 https://blog.oliverxu.cn 这一请求</strong>发送给<strong>flask</strong>，<strong>flask</strong>能够生产出<strong>html</strong>。 将<strong>请求发送给flask</strong>是通过<strong>flask中的路由</strong>来实现的，flask是通过<strong>直接返回或返回模板</strong>来生成<strong>html</strong>的。</p>
+<p>对于上述项目结构的构成，app.py中实现了路由及启动功能，templates文件夹中是模板文件，（<strong><em>这里插一句:我曾经看到很多人，在读某个用flask做的WEB项目的源码，一打开templates文件夹中，发现了很多css，js，html文件，一打开这些文件，发现几百上前行，一下子头都大了，立马放弃了读代码，哈哈哈哈</em></strong>），其实，对于像我一样专业不是做前端的小伙伴，完全可以不用担心，这些文件其实可以<strong>一行都不写</strong>，例如可以用Bootstrap框架来做前端，<strong>使用Bootstrap要写代码？兄弟，你不会用可视化编辑工具嘛！！！</strong> 等以后我们做大项目，我们主要写的也就是除了templates文件夹中以外的文件。前端不会别担心，我也不会。</p>
+<p>对于这篇文章所要实现的目标，我们做一个小结： 1. 执行app.py，计算机启动flask自带的服务器，开始允许WEB访问 2. 用户使用浏览器访问网址 3. flask接受到用户的请求后，app.py进行逻辑上的处理，将index.html传送给浏览器。</p>
+<h2 id="源码分析">源码分析</h2>
+<h3 id="app.py">app.py</h3>
+<p>源代码的分析在注释中，大家一定能看懂！ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">CPU_and_MEM_Monitor</span></span><br><span class="line"><span class="string">思路：后端后台线程一旦产生数据，即刻推送至前端。</span></span><br><span class="line"><span class="string">好处：不需要前端ajax定时查询，节省服务器资源。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> psutil    <span class="comment">#这个库可以用来获取系统的资源数据，详细可以看文档</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Lock</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, render_template, session, request</span><br><span class="line"><span class="keyword">from</span> flask_socketio <span class="keyword">import</span> SocketIO, emit</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set this variable to "threading", "eventlet" or "gevent" to test the</span></span><br><span class="line"><span class="comment"># different async modes, or leave it set to None for the application to choose</span></span><br><span class="line"><span class="comment"># the best option based on installed packages.</span></span><br><span class="line">async_mode = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config[<span class="string">'SECRET_KEY'</span>] = <span class="string">'secret!'</span></span><br><span class="line">socketio = SocketIO(app, async_mode=async_mode)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">thread = <span class="literal">None</span></span><br><span class="line">thread_lock = Lock()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 后台线程 产生数据，即刻推送至前端</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">background_thread</span><span class="params">()</span>:</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        socketio.sleep(<span class="number">2</span>)</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        t = time.strftime(<span class="string">'%M:%S'</span>, time.localtime()) <span class="comment"># 获取系统时间（只取分:秒）</span></span><br><span class="line">        cpus = psutil.cpu_percent(interval=<span class="literal">None</span>, percpu=<span class="literal">True</span>) <span class="comment"># 获取系统cpu使用率 non-blocking</span></span><br><span class="line">        socketio.emit(<span class="string">'server_response'</span>,</span><br><span class="line">                      &#123;<span class="string">'data'</span>: [t] + list(cpus)[<span class="number">0</span>:<span class="number">4</span>], <span class="string">'count'</span>: count&#125;,</span><br><span class="line">                      namespace=<span class="string">'/test'</span>) <span class="comment"># 注意：这里不需要客户端连接的上下文，默认 broadcast = True ！！！！！！！</span></span><br><span class="line">        <span class="keyword">print</span> [t] +list(cpus)[<span class="number">0</span>:<span class="number">4</span>]</span><br><span class="line">        <span class="keyword">print</span> <span class="number">100</span>*<span class="string">'*'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 当用户访问'/'时，执行index()函数。这也是python装饰器的用法。</span></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'index.html'</span>, async_mode=socketio.async_mode)</span><br><span class="line">    <span class="comment"># 每次执行render_template函数时，渲染器都会将index.html的变量值用其实际值替代。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 与前端建立 socket 连接后，启动后台线程</span></span><br><span class="line"><span class="meta">@socketio.on('connect', namespace='/test')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_connect</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> thread</span><br><span class="line">    <span class="keyword">with</span> thread_lock:</span><br><span class="line">        <span class="keyword">if</span> thread <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            thread = socketio.start_background_task(target=background_thread)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    socketio.run(app, debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="index.html">index.html</h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>CPU_and_MEM_Monitor<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/socket.io/1.5.1/socket.io.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- ECharts 3 引入 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://echarts.baidu.com/dist/echarts.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--为ECharts准备一个具备大小（宽高）的Dom--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"CPU1"</span> <span class="attr">style</span>=<span class="string">"height:500px;border:1px solid #ccc;padding:10px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"CPU2"</span> <span class="attr">style</span>=<span class="string">"height:500px;border:1px solid #ccc;padding:10px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">//--- 折柱 ---</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 3个全局变量：time、cpu1、cpu2</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> time = [<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>],</span></span><br><span class="line">        cpu1 = [0,0,0,0,0,0,0,0,0,0],</span><br><span class="line">        cpu2 = [0,0,0,0,0,0,0,0,0,0]</span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">//第一张echarts图初始化</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> CPU1 = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'CPU1'</span>));</span></span><br><span class="line">    CPU1.setOption(&#123;</span><br><span class="line">        title: &#123;</span><br><span class="line"><span class="actionscript">            text: <span class="string">'CPU1'</span></span></span><br><span class="line">        &#125;,</span><br><span class="line">        tooltip: &#123;&#125;,</span><br><span class="line">        legend: &#123;</span><br><span class="line"><span class="actionscript">            data:[<span class="string">'cpu1'</span>]</span></span><br><span class="line">        &#125;,</span><br><span class="line">        xAxis: &#123;</span><br><span class="line">            data: []</span><br><span class="line">        &#125;,</span><br><span class="line">        yAxis: &#123;&#125;,</span><br><span class="line">        series: [&#123;</span><br><span class="line"><span class="actionscript">            name: <span class="string">'cpu1'</span>,</span></span><br><span class="line"><span class="actionscript">            type: <span class="string">'line'</span>,</span></span><br><span class="line">            data: []</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;);</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">//准备好的 callback 函数</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> update_CPU1 = <span class="function"><span class="keyword">function</span> <span class="params">(res)</span> </span>&#123; <span class="comment">//res是json格式的response对象</span></span></span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 隐藏加载动画</span></span></span><br><span class="line">        CPU1.hideLoading();</span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 准备数据</span></span></span><br><span class="line">        time.push(res.data[0]);</span><br><span class="line"><span class="javascript">        cpu1.push(<span class="built_in">parseFloat</span>(res.data[<span class="number">1</span>]));</span></span><br><span class="line">        if (time.length &gt;= 10)&#123;</span><br><span class="line">            time.shift();</span><br><span class="line">            cpu1.shift();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 填入数据</span></span></span><br><span class="line">        CPU1.setOption(&#123;</span><br><span class="line">            xAxis: &#123;</span><br><span class="line">                data: time</span><br><span class="line">            &#125;,</span><br><span class="line">            series: [&#123;</span><br><span class="line"><span class="actionscript">                name: <span class="string">'cpu1'</span>, <span class="comment">// 根据名字对应到相应的系列</span></span></span><br><span class="line">                data: cpu1</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;);</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line"><span class="actionscript">    <span class="comment">//第二张echarts图初始化</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> CPU2 = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'CPU2'</span>));</span></span><br><span class="line">    CPU2.setOption(&#123;</span><br><span class="line">        title: &#123;</span><br><span class="line"><span class="actionscript">            text: <span class="string">'CPU2'</span></span></span><br><span class="line">        &#125;,</span><br><span class="line">        tooltip: &#123;&#125;,</span><br><span class="line">        legend: &#123;</span><br><span class="line"><span class="actionscript">            data:[<span class="string">'cpu2'</span>]</span></span><br><span class="line">        &#125;,</span><br><span class="line">        toolbox: &#123;</span><br><span class="line"><span class="actionscript">        show : <span class="literal">true</span>,</span></span><br><span class="line">        feature : &#123;</span><br><span class="line"><span class="actionscript">            mark : &#123;show: <span class="literal">true</span>&#125;,</span></span><br><span class="line"><span class="actionscript">            dataView : &#123;show: <span class="literal">true</span>, readOnly: <span class="literal">false</span>&#125;,</span></span><br><span class="line"><span class="actionscript">            magicType : &#123;show: <span class="literal">true</span>, type: [<span class="string">'line'</span>, <span class="string">'bar'</span>, <span class="string">'stack'</span>, <span class="string">'tiled'</span>]&#125;,</span></span><br><span class="line"><span class="actionscript">            restore : &#123;show: <span class="literal">true</span>&#125;,</span></span><br><span class="line"><span class="actionscript">            saveAsImage : &#123;show: <span class="literal">true</span>&#125;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"><span class="actionscript">        calculable : <span class="literal">true</span>,</span></span><br><span class="line">        xAxis: &#123;</span><br><span class="line">            data: []</span><br><span class="line">        &#125;,</span><br><span class="line">        yAxis: &#123;&#125;,</span><br><span class="line">        series: [&#123;</span><br><span class="line"><span class="actionscript">            name: <span class="string">'cpu2'</span>,</span></span><br><span class="line"><span class="actionscript">            type: <span class="string">'line'</span>,</span></span><br><span class="line"><span class="actionscript">            smooth:<span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">            itemStyle: &#123;normal: &#123;areaStyle: &#123;type: <span class="string">'default'</span>&#125;&#125;&#125;,</span></span><br><span class="line">            data: []</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;);</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">//准备好的 callback 函数</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> update_CPU2 = <span class="function"><span class="keyword">function</span> <span class="params">(res)</span> </span>&#123; <span class="comment">//res是json格式的response对象</span></span></span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 隐藏加载动画</span></span></span><br><span class="line">        CPU2.hideLoading();</span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 准备数据</span></span></span><br><span class="line">        time.push(res.data[0]);</span><br><span class="line"><span class="javascript">        cpu2.push(<span class="built_in">parseFloat</span>(res.data[<span class="number">2</span>]));</span></span><br><span class="line">        if (time.length &gt;= 10)&#123;</span><br><span class="line">            time.shift();</span><br><span class="line">            cpu2.shift();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 填入数据</span></span></span><br><span class="line">        CPU2.setOption(&#123;</span><br><span class="line">            xAxis: &#123;</span><br><span class="line">                data: time</span><br><span class="line">            &#125;,</span><br><span class="line">            series: [&#123;</span><br><span class="line"><span class="actionscript">                name: <span class="string">'cpu2'</span>, <span class="comment">// 根据名字对应到相应的系列</span></span></span><br><span class="line">                data: cpu2</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;);</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">// 首次显示加载动画</span></span></span><br><span class="line">    CPU1.showLoading();</span><br><span class="line">    CPU2.showLoading();</span><br><span class="line">    </span><br><span class="line"><span class="actionscript">    <span class="comment">// 建立socket连接，等待服务器“推送”数据，用回调函数更新图表</span></span></span><br><span class="line"><span class="javascript">    $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">namespace</span> = <span class="string">'/test'</span>;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> socket = io.connect(location.protocol + <span class="string">'//'</span> + document.domain + <span class="string">':'</span> + location.port + <span class="keyword">namespace</span>);</span></span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        socket.on(<span class="string">'server_response'</span>, <span class="function"><span class="keyword">function</span><span class="params">(res)</span> </span>&#123;</span></span><br><span class="line">            update_CPU1(res);</span><br><span class="line">            update_CPU2(res);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>If you like my blog, please donate for me.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipayQR.jpg" alt="Oliver xu 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/flask/" rel="tag"># flask</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/09/30/%E5%8D%8E%E4%B8%BA%E7%A0%94%E5%8F%91%E5%B2%97%E4%BD%8D%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C-%E5%B7%B2%E6%8B%BFoffer/" rel="prev" title="华为研发岗位面试经验(已拿offer)">
+      <i class="fa fa-chevron-left"></i> 华为研发岗位面试经验(已拿offer)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/10/07/%E5%8F%91%E5%B8%83%E8%87%AA%E5%B7%B1%E7%9A%84Python%E5%8C%85%E5%88%B0pypi/" rel="next" title="发布自己的Python包到pypi">
+      发布自己的Python包到pypi <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#flask安装"><span class="nav-number">1.</span> <span class="nav-text">flask安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建flask项目结构"><span class="nav-number">2.</span> <span class="nav-text">构建flask项目结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码分析"><span class="nav-number">3.</span> <span class="nav-text">源码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#app.py"><span class="nav-number">3.1.</span> <span class="nav-text">app.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#index.html"><span class="nav-number">3.2.</span> <span class="nav-text">index.html</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Oliver xu</p>
+  <div class="site-description" itemprop="description">The most difficult thing in life is to know yourself</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29saXh1" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;olixu"><i class="github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnh1amlhaHVpQG9saXZlcnh1LmNu" title="E-Mail → mailto:xujiahui@oliverxu.cn"><i class="envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">苏ICP备17055396号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Oliver xu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">195k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:58</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"mXD1FhjLW4NnHqk6AQ5yn3lN-gzGzoHsz","app_key":"SMvqQtaVXMiEh47F2HKMB0Uc","server_url":"https://blog.oliverxu.cn","security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'e11777414ce827fd8ec2',
+      clientSecret: 'c572c4ca1c0dfdfaf2b4f2195aa903185e2dfeea',
+      repo        : 'blog-comment',
+      owner       : 'olixu',
+      admin       : ['olixu'],
+      id          : 'f74515f7862434445170ad9d4200010e',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>

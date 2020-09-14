@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons8-dog-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons8-dog-16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="B9DN3IrX7m2gTbRqa4D1C1Lluvo_zP2P5KC0wh4-ej4">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.oliverxu.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="在大多数数据分析项目中第一步往往是读取数据文件，在这个教程中，你将分别通过手动和读取数据文件来创建Series和DataFrame对象。 1import pandas as pd 创建数据 在pandas中有两个核心的对象: DataFrame 和 Series 一个DataFrame是一张表格，每个元素有行和列来确定 举例如下：是一个简单的DataFrame">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pandas系列教程(一)：创建和读写">
+<meta property="og:url" content="https://blog.oliverxu.cn/2018/11/25/Pandas%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-%E4%B8%80-%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%92%8C%E8%AF%BB%E5%86%99/index.html">
+<meta property="og:site_name" content="Oliver xu&#39;s Blog">
+<meta property="og:description" content="在大多数数据分析项目中第一步往往是读取数据文件，在这个教程中，你将分别通过手动和读取数据文件来创建Series和DataFrame对象。 1import pandas as pd 创建数据 在pandas中有两个核心的对象: DataFrame 和 Series 一个DataFrame是一张表格，每个元素有行和列来确定 举例如下：是一个简单的DataFrame">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.amazonaws.com/nonwebstorage/excel.png">
+<meta property="article:published_time" content="2018-11-25T22:21:14.000Z">
+<meta property="article:modified_time" content="2020-09-14T07:41:31.661Z">
+<meta property="article:author" content="Oliver xu">
+<meta property="article:tag" content="Pandas">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.amazonaws.com/nonwebstorage/excel.png">
+
+<link rel="canonical" href="https://blog.oliverxu.cn/2018/11/25/Pandas%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-%E4%B8%80-%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%92%8C%E8%AF%BB%E5%86%99/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Pandas系列教程(一)：创建和读写 | Oliver xu's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?473560aefa55cb0313599b95a2994bf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss.xml" title="Oliver xu's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Oliver xu's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-album">
+
+    <a href="/album/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.oliverxu.cn/2018/11/25/Pandas%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-%E4%B8%80-%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%92%8C%E8%AF%BB%E5%86%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Oliver xu">
+      <meta itemprop="description" content="The most difficult thing in life is to know yourself">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oliver xu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Pandas系列教程(一)：创建和读写
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-11-25 22:21:14" itemprop="dateCreated datePublished" datetime="2018-11-25T22:21:14+00:00">2018-11-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-14 07:41:31" itemprop="dateModified" datetime="2020-09-14T07:41:31+00:00">2020-09-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Pandas/" itemprop="url" rel="index"><span itemprop="name">Pandas</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/11/25/Pandas%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-%E4%B8%80-%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%92%8C%E8%AF%BB%E5%86%99/" class="post-meta-item leancloud_visitors" data-flag-title="Pandas系列教程(一)：创建和读写" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在大多数数据分析项目中第一步往往是读取数据文件，在这个教程中，你将分别通过手动和读取数据文件来创建<code>Series</code>和<code>DataFrame</code>对象。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+<h2 id="创建数据">创建数据</h2>
+<p>在<code>pandas</code>中有两个核心的对象: <code>DataFrame</code> 和 <code>Series</code></p>
+<p>一个DataFrame是一张表格，每个元素有行和列来确定</p>
+<p>举例如下：是一个简单的<code>DataFrame</code> <a id="more"></a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.DataFrame(&#123;<span class="string">'Yes'</span>:[<span class="number">50</span>, <span class="number">21</span>], <span class="string">'No'</span>:[<span class="number">131</span>, <span class="number">2</span>]&#125;)</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+Yes
+</th>
+<th>
+No
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+50
+</td>
+<td>
+131
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+21
+</td>
+<td>
+2
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>在上面这个例子中，元素"0,No"的值是131。</p>
+<p>当然<code>DataFrame</code>元素的值不仅限于整数，举例来说，下面的<code>DataFrame</code>的元素是字符串。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.DataFrame(&#123;<span class="string">'Bob'</span>:[<span class="string">'I like it'</span>, <span class="string">'It was awful'</span>], <span class="string">'Sue'</span>:[<span class="string">'Pretty good'</span>, <span class="string">'Bland'</span>]&#125;)</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+Bob
+</th>
+<th>
+Sue
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+I like it
+</td>
+<td>
+Pretty good
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+It was awful
+</td>
+<td>
+Bland
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>我们在使用pd.DataFrame来创建DataFrame对象。这个语法是最常见的。</p>
+<p>你赋值时给的字典的key变成了DataFrame的列的索引，二行的索引默认是从0，1，2...开始</p>
+<p>当你不想使用默认的行的索引的时候，你可以加上一个index:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pd.DataFrame(&#123;<span class="string">'Bob'</span>:[<span class="string">'I liked it'</span>, <span class="string">'It was awful'</span>],</span><br><span class="line">              <span class="string">'Sue'</span>:[<span class="string">'Pretty good'</span>, <span class="string">'Bland'</span>]&#125;,</span><br><span class="line">              index=[<span class="string">'Product A'</span>, <span class="string">'Product B'</span>])</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+Bob
+</th>
+<th>
+Sue
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+Product A
+</th>
+<td>
+I liked it
+</td>
+<td>
+Pretty good
+</td>
+</tr>
+<tr>
+<th>
+Product B
+</th>
+<td>
+It was awful
+</td>
+<td>
+Bland
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>一个Series，是数字的一个序列，可以看作是一个列表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.Series([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+<p>0 1 1 2 2 3 3 4 4 5 dtype: int64</p>
+<p>值得注意的是，这样创建出来的序列是一列而不是一行！如果你想为他的列加上索引，你可以加上<code>name</code>字段，如果你想为行加上索引，你可以加上<code>index</code>字段</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.Series([<span class="number">30</span>, <span class="number">35</span>, <span class="number">40</span>], index=[<span class="string">'2015 Sales'</span>, <span class="string">'2016 Sales'</span>, <span class="string">'2017 Sales'</span>], name=<span class="string">'Product A'</span>)</span><br></pre></td></tr></table></figure>
+<p>2015 Sales 30 2016 Sales 35 2017 Sales 40 Name: Product A, dtype: int64</p>
+<h2 id="从文件中读取数据">从文件中读取数据</h2>
+<p>通常情况下，我们很少会去手动创建数据，而是读取已经存在的数据</p>
+<p>数据可以会以不同格式的文件存储，最常见的往往是CSV格式的文件</p>
+<p>当你打开一个CSV文件时，往往是这样的：</p>
+<p>csv Product A,Product B,Product C, 30,21,9, 35,34,1, 41,11,11</p>
+<p>一个CSV文件是由逗号分隔的一张表格，CSV的全称是"comma-seperated values"</p>
+<p>现在我们将读取一个文件中的数据并将其放入DataFrame中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wine_reviews = pd.read_csv(<span class="string">"data/wine-reviews/winemag-data-130k-v2.csv"</span>)</span><br></pre></td></tr></table></figure>
+<p>我们可以使用shape属性来获得DataFrame的大小</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wine_reviews.shape</span><br></pre></td></tr></table></figure>
+<p>(129971, 14)</p>
+<p>我们的DataFrame有130000条记录，每条记录有14个不同的特征值，这几乎是2百万个数据</p>
+<p>我们可以使用head命令来获取来获取前5行的数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wine_reviews.head()</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+Unnamed: 0
+</th>
+<th>
+country
+</th>
+<th>
+description
+</th>
+<th>
+designation
+</th>
+<th>
+points
+</th>
+<th>
+price
+</th>
+<th>
+province
+</th>
+<th>
+region_1
+</th>
+<th>
+region_2
+</th>
+<th>
+taster_name
+</th>
+<th>
+taster_twitter_handle
+</th>
+<th>
+title
+</th>
+<th>
+variety
+</th>
+<th>
+winery
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+0
+</td>
+<td>
+Italy
+</td>
+<td>
+Aromas include tropical fruit, broom, brimston...
+</td>
+<td>
+Vulkà Bianco
+</td>
+<td>
+87
+</td>
+<td>
+NaN
+</td>
+<td>
+Sicily &amp; Sardinia
+</td>
+<td>
+Etna
+</td>
+<td>
+NaN
+</td>
+<td>
+Kerin O’Keefe
+</td>
+<td>
+<span class="citation" data-cites="kerinokeefe">@kerinokeefe</span>
+</td>
+<td>
+Nicosia 2013 Vulkà Bianco (Etna)
+</td>
+<td>
+White Blend
+</td>
+<td>
+Nicosia
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+1
+</td>
+<td>
+Portugal
+</td>
+<td>
+This is ripe and fruity, a wine that is smooth...
+</td>
+<td>
+Avidagos
+</td>
+<td>
+87
+</td>
+<td>
+15.0
+</td>
+<td>
+Douro
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+Quinta dos Avidagos 2011 Avidagos Red (Douro)
+</td>
+<td>
+Portuguese Red
+</td>
+<td>
+Quinta dos Avidagos
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+2
+</td>
+<td>
+US
+</td>
+<td>
+Tart and snappy, the flavors of lime flesh and...
+</td>
+<td>
+NaN
+</td>
+<td>
+87
+</td>
+<td>
+14.0
+</td>
+<td>
+Oregon
+</td>
+<td>
+Willamette Valley
+</td>
+<td>
+Willamette Valley
+</td>
+<td>
+Paul Gregutt
+</td>
+<td>
+<span class="citation" data-cites="paulgwine">@paulgwine</span>
+</td>
+<td>
+Rainstorm 2013 Pinot Gris (Willamette Valley)
+</td>
+<td>
+Pinot Gris
+</td>
+<td>
+Rainstorm
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+3
+</td>
+<td>
+US
+</td>
+<td>
+Pineapple rind, lemon pith and orange blossom ...
+</td>
+<td>
+Reserve Late Harvest
+</td>
+<td>
+87
+</td>
+<td>
+13.0
+</td>
+<td>
+Michigan
+</td>
+<td>
+Lake Michigan Shore
+</td>
+<td>
+NaN
+</td>
+<td>
+Alexander Peartree
+</td>
+<td>
+NaN
+</td>
+<td>
+St. Julian 2013 Reserve Late Harvest Riesling ...
+</td>
+<td>
+Riesling
+</td>
+<td>
+St. Julian
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+4
+</td>
+<td>
+US
+</td>
+<td>
+Much like the regular bottling from 2012, this...
+</td>
+<td>
+Vintner's Reserve Wild Child Block
+</td>
+<td>
+87
+</td>
+<td>
+65.0
+</td>
+<td>
+Oregon
+</td>
+<td>
+Willamette Valley
+</td>
+<td>
+Willamette Valley
+</td>
+<td>
+Paul Gregutt
+</td>
+<td>
+<span class="citation" data-cites="paulgwine">@paulgwine</span>
+</td>
+<td>
+Sweet Cheeks 2012 Vintner's Reserve Wild Child...
+</td>
+<td>
+Pinot Noir
+</td>
+<td>
+Sweet Cheeks
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>pandas的read_csv函数有30多个参数。举个例子，你可以看到上面的CSV文件有一列数据是自带的索引,而你恰好就想用这个索引，不用pandas再创建一个附加的索引，这时候，你只要指定一个index_col参数即可，pandas会将index_col那一列自动作为索引</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wine_reviews = pd.read_csv(<span class="string">"data/wine-reviews/winemag-data-130k-v2.csv"</span>, index_col=<span class="number">0</span>)</span><br><span class="line">wine_reviews.head()</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+country
+</th>
+<th>
+description
+</th>
+<th>
+designation
+</th>
+<th>
+points
+</th>
+<th>
+price
+</th>
+<th>
+province
+</th>
+<th>
+region_1
+</th>
+<th>
+region_2
+</th>
+<th>
+taster_name
+</th>
+<th>
+taster_twitter_handle
+</th>
+<th>
+title
+</th>
+<th>
+variety
+</th>
+<th>
+winery
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+Italy
+</td>
+<td>
+Aromas include tropical fruit, broom, brimston...
+</td>
+<td>
+Vulkà Bianco
+</td>
+<td>
+87
+</td>
+<td>
+NaN
+</td>
+<td>
+Sicily &amp; Sardinia
+</td>
+<td>
+Etna
+</td>
+<td>
+NaN
+</td>
+<td>
+Kerin O’Keefe
+</td>
+<td>
+<span class="citation" data-cites="kerinokeefe">@kerinokeefe</span>
+</td>
+<td>
+Nicosia 2013 Vulkà Bianco (Etna)
+</td>
+<td>
+White Blend
+</td>
+<td>
+Nicosia
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+Portugal
+</td>
+<td>
+This is ripe and fruity, a wine that is smooth...
+</td>
+<td>
+Avidagos
+</td>
+<td>
+87
+</td>
+<td>
+15.0
+</td>
+<td>
+Douro
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+Quinta dos Avidagos 2011 Avidagos Red (Douro)
+</td>
+<td>
+Portuguese Red
+</td>
+<td>
+Quinta dos Avidagos
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+US
+</td>
+<td>
+Tart and snappy, the flavors of lime flesh and...
+</td>
+<td>
+NaN
+</td>
+<td>
+87
+</td>
+<td>
+14.0
+</td>
+<td>
+Oregon
+</td>
+<td>
+Willamette Valley
+</td>
+<td>
+Willamette Valley
+</td>
+<td>
+Paul Gregutt
+</td>
+<td>
+<span class="citation" data-cites="paulgwine">@paulgwine</span>
+</td>
+<td>
+Rainstorm 2013 Pinot Gris (Willamette Valley)
+</td>
+<td>
+Pinot Gris
+</td>
+<td>
+Rainstorm
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+US
+</td>
+<td>
+Pineapple rind, lemon pith and orange blossom ...
+</td>
+<td>
+Reserve Late Harvest
+</td>
+<td>
+87
+</td>
+<td>
+13.0
+</td>
+<td>
+Michigan
+</td>
+<td>
+Lake Michigan Shore
+</td>
+<td>
+NaN
+</td>
+<td>
+Alexander Peartree
+</td>
+<td>
+NaN
+</td>
+<td>
+St. Julian 2013 Reserve Late Harvest Riesling ...
+</td>
+<td>
+Riesling
+</td>
+<td>
+St. Julian
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+US
+</td>
+<td>
+Much like the regular bottling from 2012, this...
+</td>
+<td>
+Vintner's Reserve Wild Child Block
+</td>
+<td>
+87
+</td>
+<td>
+65.0
+</td>
+<td>
+Oregon
+</td>
+<td>
+Willamette Valley
+</td>
+<td>
+Willamette Valley
+</td>
+<td>
+Paul Gregutt
+</td>
+<td>
+<span class="citation" data-cites="paulgwine">@paulgwine</span>
+</td>
+<td>
+Sweet Cheeks 2012 Vintner's Reserve Wild Child...
+</td>
+<td>
+Pinot Noir
+</td>
+<td>
+Sweet Cheeks
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>现在让我们看一下你会遇到的另外一些数据格式，如Excel文件,后缀名是XLS或者XLTS，它本身就是由一张张表格组成的，所以当你读入Excel格式的数据时，你需要一个另外的参数:表格的名称，想下面这个例子：</p>
+<p>使用excel打开是这样的 <img src="https://s3.amazonaws.com/nonwebstorage/excel.png" alt="excel格式的文件" /></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wic = pd.read_excel(<span class="string">"data/publicassistance/sub-est2016_all.xlsx"</span>, sheet_name=<span class="string">'sub-est2016_all'</span>)</span><br><span class="line">wic.head()</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+SUMLEV
+</th>
+<th>
+STATE
+</th>
+<th>
+COUNTY
+</th>
+<th>
+PLACE
+</th>
+<th>
+COUSUB
+</th>
+<th>
+CONCIT
+</th>
+<th>
+PRIMGEO_FLAG
+</th>
+<th>
+FUNCSTAT
+</th>
+<th>
+NAME
+</th>
+<th>
+STNAME
+</th>
+<th>
+CENSUS2010POP
+</th>
+<th>
+ESTIMATESBASE2010
+</th>
+<th>
+POPESTIMATE2010
+</th>
+<th>
+POPESTIMATE2011
+</th>
+<th>
+POPESTIMATE2012
+</th>
+<th>
+POPESTIMATE2013
+</th>
+<th>
+POPESTIMATE2014
+</th>
+<th>
+POPESTIMATE2015
+</th>
+<th>
+POPESTIMATE2016
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+40
+</td>
+<td>
+1
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+A
+</td>
+<td>
+Alabama
+</td>
+<td>
+Alabama
+</td>
+<td>
+4779736
+</td>
+<td>
+4780131
+</td>
+<td>
+4785492
+</td>
+<td>
+4799918
+</td>
+<td>
+4815960
+</td>
+<td>
+4829479
+</td>
+<td>
+4843214
+</td>
+<td>
+4853875
+</td>
+<td>
+4863300
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+162
+</td>
+<td>
+1
+</td>
+<td>
+0
+</td>
+<td>
+124
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+A
+</td>
+<td>
+Abbeville city
+</td>
+<td>
+Alabama
+</td>
+<td>
+2688
+</td>
+<td>
+2688
+</td>
+<td>
+2683
+</td>
+<td>
+2685
+</td>
+<td>
+2647
+</td>
+<td>
+2631
+</td>
+<td>
+2619
+</td>
+<td>
+2616
+</td>
+<td>
+2603
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+162
+</td>
+<td>
+1
+</td>
+<td>
+0
+</td>
+<td>
+460
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+A
+</td>
+<td>
+Adamsville city
+</td>
+<td>
+Alabama
+</td>
+<td>
+4522
+</td>
+<td>
+4522
+</td>
+<td>
+4517
+</td>
+<td>
+4495
+</td>
+<td>
+4472
+</td>
+<td>
+4447
+</td>
+<td>
+4428
+</td>
+<td>
+4395
+</td>
+<td>
+4360
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+162
+</td>
+<td>
+1
+</td>
+<td>
+0
+</td>
+<td>
+484
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+A
+</td>
+<td>
+Addison town
+</td>
+<td>
+Alabama
+</td>
+<td>
+758
+</td>
+<td>
+756
+</td>
+<td>
+754
+</td>
+<td>
+753
+</td>
+<td>
+748
+</td>
+<td>
+748
+</td>
+<td>
+747
+</td>
+<td>
+740
+</td>
+<td>
+738
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+162
+</td>
+<td>
+1
+</td>
+<td>
+0
+</td>
+<td>
+676
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+A
+</td>
+<td>
+Akron town
+</td>
+<td>
+Alabama
+</td>
+<td>
+356
+</td>
+<td>
+356
+</td>
+<td>
+355
+</td>
+<td>
+345
+</td>
+<td>
+345
+</td>
+<td>
+342
+</td>
+<td>
+337
+</td>
+<td>
+337
+</td>
+<td>
+334
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Excel格式的文件往往是适合人类看的，而不是机器看的，而CSV文件是非常适合机器看的</p>
+<p>现在，我们继续另外一种常见的格式：SQL 文件</p>
+<p>SQL数据库是再web领域中最常见的用于存储的文件格式，可以使用python创建和数据库的链接，从而读取数据，我们已sqlite3为例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sqlite3</span><br><span class="line">conn = sqlite3.connect(<span class="string">"data/188-million-us-wildfires/FPA_FOD_20170508.sqlite"</span>)</span><br></pre></td></tr></table></figure>
+<p>SQL 文件非常不同，你需要写SQL语句来对其进行操作，当然，pandas提供了完善的接口</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fires = pd.read_sql_query(<span class="string">"SELECT * FROM fires"</span>, conn)</span><br></pre></td></tr></table></figure>
+<p>这条命令的输出是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fires.head()</span><br></pre></td></tr></table></figure>
+<h2 id="写入数据到文件中">写入数据到文件中</h2>
+<p>将数据写入到文件中往往比读取数据简单的多，因为pandas将所有过程都替你处理好了，</p>
+<p>将数据写入CSV文件中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wine_reviews.head().to_csv(<span class="string">"wine_reviews.csv"</span>)</span><br></pre></td></tr></table></figure>
+<p>将数据写入excel的文件中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wic.to_excel(<span class="string">'wic.xlsx'</span>, sheet_name=<span class="string">'Total Women'</span>)</span><br></pre></td></tr></table></figure>
+<p>将数据写入sqlite文件中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conn = sqlite3.connect(<span class="string">"fires.sqlite"</span>)</span><br><span class="line">fires.head(<span class="number">10</span>).to_sql(<span class="string">"fires"</span>, conn)</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>If you like my blog, please donate for me.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipayQR.jpg" alt="Oliver xu 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Pandas/" rel="tag"># Pandas</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/" rel="prev" title="Linux系统TIPS">
+      <i class="fa fa-chevron-left"></i> Linux系统TIPS
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/11/30/Pandas%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-%E4%BA%8C-%E7%B4%A2%E5%BC%95%EF%BC%8C%E9%80%89%E6%8B%A9%EF%BC%8C-%E8%B5%8B%E5%80%BC/" rel="next" title="Pandas系列教程(二): 索引，选择， 赋值">
+      Pandas系列教程(二): 索引，选择， 赋值 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数据"><span class="nav-number">1.</span> <span class="nav-text">创建数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从文件中读取数据"><span class="nav-number">2.</span> <span class="nav-text">从文件中读取数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写入数据到文件中"><span class="nav-number">3.</span> <span class="nav-text">写入数据到文件中</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Oliver xu</p>
+  <div class="site-description" itemprop="description">The most difficult thing in life is to know yourself</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29saXh1" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;olixu"><i class="github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnh1amlhaHVpQG9saXZlcnh1LmNu" title="E-Mail → mailto:xujiahui@oliverxu.cn"><i class="envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">苏ICP备17055396号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Oliver xu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">195k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:58</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"mXD1FhjLW4NnHqk6AQ5yn3lN-gzGzoHsz","app_key":"SMvqQtaVXMiEh47F2HKMB0Uc","server_url":"https://blog.oliverxu.cn","security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'e11777414ce827fd8ec2',
+      clientSecret: 'c572c4ca1c0dfdfaf2b4f2195aa903185e2dfeea',
+      repo        : 'blog-comment',
+      owner       : 'olixu',
+      admin       : ['olixu'],
+      id          : 'c25b14e51a85c10402fe80e216cf5e5e',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
