@@ -31,7 +31,7 @@
 <meta property="og:description" content="Pytorch有非常多的函数，这篇文章长期更新，记录使用到的函数。  参考资源：  Pytorch cheat sheet  Categorical 官方文档：https:&#x2F;&#x2F;pytorch.org&#x2F;docs&#x2F;stable&#x2F;distributions.html CLASS torch.distributions.categorical.Categorical(probs&#x3D;None, logits">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-14T19:07:50.000Z">
-<meta property="article:modified_time" content="2020-09-14T07:41:31.665Z">
+<meta property="article:modified_time" content="2020-09-23T01:46:52.316Z">
 <meta property="article:author" content="Oliver xu">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -243,7 +243,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-14 07:41:31" itemprop="dateModified" datetime="2020-09-14T07:41:31+00:00">2020-09-14</time>
+                <time title="修改时间：2020-09-23 01:46:52" itemprop="dateModified" datetime="2020-09-23T01:46:52+00:00">2020-09-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -275,7 +275,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.3k</span>
+              <span>3.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -380,6 +380,12 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
 <h3 id="torch.gather">torch.gather</h3>
 <p>官方文档：<span class="exturl" data-url="aHR0cHM6Ly9weXRvcmNoLm9yZy9kb2NzL3N0YWJsZS9nZW5lcmF0ZWQvdG9yY2guZ2F0aGVyLmh0bWwjdG9yY2guZ2F0aGVy">https://pytorch.org/docs/stable/generated/torch.gather.html#torch.gather<i class="fa fa-external-link-alt"></i></span></p>
 <p><code>torch.gather(input, dim, index, out=None, sparse_grad=False) → Tensor</code></p>
+<h2 id="使用时候遇到的坑">使用时候遇到的坑</h2>
+<h3 id="torch.nn.parameter.parameter">torch.nn.parameter.Parameter</h3>
+<p>Parameters是Tensor子类</p>
+<p>官方文档：https://pytorch.org/docs/stable/generated/torch.nn.parameter.Parameter.html</p>
+<p>使用的时候需要注意输入参数的维度：</p>
+<p><code>nn.Parameter(torch.zeros(output_dim, input_dim))</code>，当使用<code>nn.Linear</code>构造网络的时候，其中<span class="math inline">\(A\)</span>是有个转置的，所以需要注意参数的输入输出维度也需要转置</p>
 
     </div>
 
@@ -479,7 +485,7 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资源"><span class="nav-number">1.</span> <span class="nav-text">参考资源：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#categorical"><span class="nav-number">2.</span> <span class="nav-text">Categorical</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nn.linear"><span class="nav-number">3.</span> <span class="nav-text">nn.Linear</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nn.optim.adam"><span class="nav-number">4.</span> <span class="nav-text">nn.optim.Adam</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.nn.functional"><span class="nav-number">5.</span> <span class="nav-text">torch.nn.functional</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.nn.functional.softmax函数"><span class="nav-number">6.</span> <span class="nav-text">torch.nn.functional.softmax函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.tensor"><span class="nav-number">7.</span> <span class="nav-text">torch.tensor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.tensor.detach"><span class="nav-number">8.</span> <span class="nav-text">torch.tensor.detach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.exp"><span class="nav-number">9.</span> <span class="nav-text">torch.exp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.log"><span class="nav-number">10.</span> <span class="nav-text">torch.log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.clamp"><span class="nav-number">11.</span> <span class="nav-text">torch.clamp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.mm"><span class="nav-number">12.</span> <span class="nav-text">torch.mm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.squeeze"><span class="nav-number">13.</span> <span class="nav-text">torch.squeeze</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.nn.functional.relu"><span class="nav-number">14.</span> <span class="nav-text">torch.nn.functional.relu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.gather"><span class="nav-number">15.</span> <span class="nav-text">torch.gather</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资源"><span class="nav-number">1.</span> <span class="nav-text">参考资源：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#categorical"><span class="nav-number">2.</span> <span class="nav-text">Categorical</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nn.linear"><span class="nav-number">3.</span> <span class="nav-text">nn.Linear</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nn.optim.adam"><span class="nav-number">4.</span> <span class="nav-text">nn.optim.Adam</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.nn.functional"><span class="nav-number">5.</span> <span class="nav-text">torch.nn.functional</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.nn.functional.softmax函数"><span class="nav-number">6.</span> <span class="nav-text">torch.nn.functional.softmax函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.tensor"><span class="nav-number">7.</span> <span class="nav-text">torch.tensor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.tensor.detach"><span class="nav-number">8.</span> <span class="nav-text">torch.tensor.detach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.exp"><span class="nav-number">9.</span> <span class="nav-text">torch.exp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.log"><span class="nav-number">10.</span> <span class="nav-text">torch.log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.clamp"><span class="nav-number">11.</span> <span class="nav-text">torch.clamp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.mm"><span class="nav-number">12.</span> <span class="nav-text">torch.mm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.squeeze"><span class="nav-number">13.</span> <span class="nav-text">torch.squeeze</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.nn.functional.relu"><span class="nav-number">14.</span> <span class="nav-text">torch.nn.functional.relu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.gather"><span class="nav-number">15.</span> <span class="nav-text">torch.gather</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用时候遇到的坑"><span class="nav-number"></span> <span class="nav-text">使用时候遇到的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#torch.nn.parameter.parameter"><span class="nav-number">1.</span> <span class="nav-text">torch.nn.parameter.Parameter</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -552,7 +558,7 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">195k</span>
+    <span title="站点总字数">196k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
