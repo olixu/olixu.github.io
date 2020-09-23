@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="https://blog.oliverxu.cn/"/>
-  <updated>2020-09-14T07:41:31.677Z</updated>
+  <updated>2020-09-23T01:35:54.411Z</updated>
   <id>https://blog.oliverxu.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>stable_baselines3库的PPO算法实现</title>
+    <link href="https://blog.oliverxu.cn/2020/09/15/stable_baselines3%E5%BA%93%E7%9A%84PPO%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/"/>
+    <id>https://blog.oliverxu.cn/2020/09/15/stable_baselines3%E5%BA%93%E7%9A%84PPO%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/</id>
+    <published>2020-09-15T09:46:02.000Z</published>
+    <updated>2020-09-23T01:35:54.411Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;stable_baselines3的库的结构&quot;&gt;stable_baselines3的库的结构&lt;/h2&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Reinforcement learning" scheme="https://blog.oliverxu.cn/categories/Reinforcement-learning/"/>
+    
+    
+      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/tags/Reinforcement-Learning/"/>
+    
+  </entry>
   
   <entry>
     <title>服务器被黑记录</title>
@@ -66,28 +94,6 @@
   </entry>
   
   <entry>
-    <title>使用PPO设计线性系统控制器</title>
-    <link href="https://blog.oliverxu.cn/2020/08/27/%E4%BD%BF%E7%94%A8PPO%E8%AE%BE%E8%AE%A1%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%99%A8/"/>
-    <id>https://blog.oliverxu.cn/2020/08/27/%E4%BD%BF%E7%94%A8PPO%E8%AE%BE%E8%AE%A1%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%99%A8/</id>
-    <published>2020-08-27T11:46:02.000Z</published>
-    <updated>2020-09-14T07:41:31.665Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;论文《Policy Iteration Adaptive Dynamic Programming Algorithm for Discrete-Time Nonlinear Systems》&lt;/p&gt;
-&lt;p&gt;这几天读了ADP相关的几篇论文，早期08年-14年都是用Policy Iteration方法进行求解，14-18年，Policy Gradient方法多了起来。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/categories/Reinforcement-Learning/"/>
-    
-    
-      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/tags/Reinforcement-Learning/"/>
-    
-  </entry>
-  
-  <entry>
     <title>非线性系统的最优控制器论文整理</title>
     <link href="https://blog.oliverxu.cn/2020/08/27/%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6%E5%99%A8%E8%AE%BA%E6%96%87%E6%95%B4%E7%90%86/"/>
     <id>https://blog.oliverxu.cn/2020/08/27/%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6%E5%99%A8%E8%AE%BA%E6%96%87%E6%95%B4%E7%90%86/</id>
@@ -108,6 +114,28 @@
     
     
       <category term="Nonlinear System" scheme="https://blog.oliverxu.cn/tags/Nonlinear-System/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用PPO设计线性系统控制器</title>
+    <link href="https://blog.oliverxu.cn/2020/08/27/%E4%BD%BF%E7%94%A8PPO%E8%AE%BE%E8%AE%A1%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%99%A8/"/>
+    <id>https://blog.oliverxu.cn/2020/08/27/%E4%BD%BF%E7%94%A8PPO%E8%AE%BE%E8%AE%A1%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%99%A8/</id>
+    <published>2020-08-27T11:46:02.000Z</published>
+    <updated>2020-09-14T07:41:31.665Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;论文《Policy Iteration Adaptive Dynamic Programming Algorithm for Discrete-Time Nonlinear Systems》&lt;/p&gt;
+&lt;p&gt;这几天读了ADP相关的几篇论文，早期08年-14年都是用Policy Iteration方法进行求解，14-18年，Policy Gradient方法多了起来。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/categories/Reinforcement-Learning/"/>
+    
+    
+      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/tags/Reinforcement-Learning/"/>
     
   </entry>
   
@@ -478,31 +506,6 @@
     
       &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;There are two kinds of methods in reinforcement learning, &lt;strong&gt;tabular methods&lt;/strong&gt; and &lt;strong&gt;approximate methods&lt;/strong&gt;. The purpose of RL is to get an &lt;strong&gt;optimal policy&lt;/strong&gt;, which tells you to choose what action &lt;em&gt;A&lt;/em&gt; when you at state &lt;em&gt;S&lt;/em&gt;. If the state and aciton spaces are small enough, value fucntion can be represented as arrays, or tables. The problem with large state space is not just the memory needed for large tables, but the time and data needed to fill them accurately. If the state and aciton spaces are too large, due to the limitions of time and data, value functions need to be approximated with limited computational resources. In this case, out goal instead is to find a good enough approximate solution compared to optimal solution.
-    
-    </summary>
-    
-    
-      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/categories/Reinforcement-Learning/"/>
-    
-    
-      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/tags/Reinforcement-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Play with MountainCar</title>
-    <link href="https://blog.oliverxu.cn/2019/11/15/Play-with-MountainCar/"/>
-    <id>https://blog.oliverxu.cn/2019/11/15/Play-with-MountainCar/</id>
-    <published>2019-11-15T18:05:50.000Z</published>
-    <updated>2020-09-14T07:41:31.661Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;MountainCar is a task of driving an underpowered car up a steep mountain road. The difficulty is that gravity is stronger than the car&#39;s engine, and even at full throttle the car cannot accelerate up the steep slope. The only solution is to first move away from the goal and up the opposite slope on the left. Then, by applying full throttle the car can build up enough inertia to carry it up the steep slope even though it is slowing down the whole way.&lt;/p&gt;
-&lt;h2 id=&quot;state&quot;&gt;State&lt;/h2&gt;
-&lt;p&gt;Its state space has only two entries. The first is the position of the car. The second is the speed of the car. They are limited in:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;math display&quot;&gt;\[position \in [-1.2, 0.6]\]&lt;/span&gt; &lt;span class=&quot;math display&quot;&gt;\[speed \in [-0.07, 0.07]\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;The negative speed means that the direction of the movement of the car is opposite to the right, which is left in this environement.
     
     </summary>
     
