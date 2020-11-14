@@ -203,6 +203,34 @@
   
   <entry>
     <title>Pytorch使用笔记</title>
+    <link href="https://blog.oliverxu.cn/2020/08/14/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github%20action%E6%8E%A8%E9%80%81github%20pages/"/>
+    <id>https://blog.oliverxu.cn/2020/08/14/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github%20action%E6%8E%A8%E9%80%81github%20pages/</id>
+    <published>2020-08-14T19:07:50.000Z</published>
+    <updated>2020-11-14T17:01:05.006Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;测试&lt;/p&gt;
+
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://blog.oliverxu.cn/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://blog.oliverxu.cn/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pytorch使用笔记</title>
     <link href="https://blog.oliverxu.cn/2020/08/14/Pytorch%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
     <id>https://blog.oliverxu.cn/2020/08/14/Pytorch%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</id>
     <published>2020-08-14T19:07:50.000Z</published>
@@ -478,31 +506,6 @@
     
       &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;There are two kinds of methods in reinforcement learning, &lt;strong&gt;tabular methods&lt;/strong&gt; and &lt;strong&gt;approximate methods&lt;/strong&gt;. The purpose of RL is to get an &lt;strong&gt;optimal policy&lt;/strong&gt;, which tells you to choose what action &lt;em&gt;A&lt;/em&gt; when you at state &lt;em&gt;S&lt;/em&gt;. If the state and aciton spaces are small enough, value fucntion can be represented as arrays, or tables. The problem with large state space is not just the memory needed for large tables, but the time and data needed to fill them accurately. If the state and aciton spaces are too large, due to the limitions of time and data, value functions need to be approximated with limited computational resources. In this case, out goal instead is to find a good enough approximate solution compared to optimal solution.
-    
-    </summary>
-    
-    
-      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/categories/Reinforcement-Learning/"/>
-    
-    
-      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/tags/Reinforcement-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Play with MountainCar</title>
-    <link href="https://blog.oliverxu.cn/2019/11/15/Play-with-MountainCar/"/>
-    <id>https://blog.oliverxu.cn/2019/11/15/Play-with-MountainCar/</id>
-    <published>2019-11-15T18:05:50.000Z</published>
-    <updated>2020-09-14T07:41:31.661Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;MountainCar is a task of driving an underpowered car up a steep mountain road. The difficulty is that gravity is stronger than the car&#39;s engine, and even at full throttle the car cannot accelerate up the steep slope. The only solution is to first move away from the goal and up the opposite slope on the left. Then, by applying full throttle the car can build up enough inertia to carry it up the steep slope even though it is slowing down the whole way.&lt;/p&gt;
-&lt;h2 id=&quot;state&quot;&gt;State&lt;/h2&gt;
-&lt;p&gt;Its state space has only two entries. The first is the position of the car. The second is the speed of the car. They are limited in:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;math display&quot;&gt;\[position \in [-1.2, 0.6]\]&lt;/span&gt; &lt;span class=&quot;math display&quot;&gt;\[speed \in [-0.07, 0.07]\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;The negative speed means that the direction of the movement of the car is opposite to the right, which is left in this environement.
     
     </summary>
     
