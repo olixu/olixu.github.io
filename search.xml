@@ -34,21 +34,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux系统TIPS</title>
-    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
-    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
-<a id="more"></a>
-<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
-<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Flask项目结构</title>
     <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<blockquote>
@@ -61,55 +46,6 @@
       <tags>
         <tag>flask</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Manjaro下解决Matplotlib中文显示出错</title>
-    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
-    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
-<ul>
-<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
-<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
-<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Manjaro适合什么样的人</title>
-    <url>/2020/06/28/Manjaro%E9%80%82%E5%90%88%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BA%BA/</url>
-    <content><![CDATA[<p>2019年3月份看到了有人安利Manjaro，装电脑上用了一年，分享一下使用一年的感受。</p>
-<p>先说结论，我上个月换回了Ubuntu。</p>
-<h2 id="manjaro的优点">Manjaro的优点</h2>
-<ol type="1">
-<li>装软件非常方便，基本上各种软件在软件源中都能找到，并直接安装，而且安装的都是新版本。</li>
-<li>包括CUDA，显卡管理软件（忘记叫什么了，可以设置使用集显或独显或只用cuda）。</li>
-<li>WIKI资料很丰富，出了问题可以直接查。</li>
-</ol>
-<a id="more"></a>
-<h2 id="manjaro缺点">Manjaro缺点</h2>
-<p>上述的某些优点恰好对于某些人来说就是缺点。</p>
-<ol type="1">
-<li>软件更新非常激进，每天打开电脑的第一件事就是<code>yay -Syu</code>。</li>
-<li>如果你在更新前不看官方发布的更新公告，可能会被坑，也就是更挂。</li>
-<li>更新失败后，进不去系统，花点时间，查查官方公告，说不定能解决，但是耗费的时间对于某些人来说不可忍受。</li>
-<li>字体，画面看的不舒服，需要花些时间进行配置。</li>
-<li>还是Ubuntu真香。</li>
-</ol>
-<p>所以，对于大多数开发者来说，完全没有必要使用Manjaro，以下两个场景我亲身经历过：</p>
-<ol type="a">
-<li><p>前一时刻还在码代码，然后你重启了一下电脑，发现不能启动了，黑屏了，花时间查官方发布的更新公告，哦，原来是更新更挂了，这时，你是不是很崩溃？时间就是金钱啊，干嘛和自己过不去。</p></li>
-<li><p>放了一个长假了，好好的出去玩耍了一波，放假结束后，打开电脑，执行<code>yay -Syu</code>，然后写了一会儿代码，进入termianl运行python，咦，又挂了？哦，原来是python升级到了3.8版本，查资料，看怎么回退版本，哦，原来安装3.7版本那么麻烦。</p></li>
-</ol>
-<p>再见了，您。</p>
-<h2 id="manjaro适合">Manjaro适合？</h2>
-<p>回到标题，Manjaro不适合搞算学术研究和项目开发的人，尤其是学生：研究生。本科生无聊的话可以玩玩Manjaro。</p>
-<p>操作系统还是有公司支持的比较好，像Ubuntu，真的可以，用了快6年了。</p>
-]]></content>
   </entry>
   <entry>
     <title>How to reading scientific papers</title>
@@ -148,6 +84,38 @@
       </categories>
       <tags>
         <tag>scientific papers</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux系统TIPS</title>
+    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
+    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
+<a id="more"></a>
+<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
+<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Manjaro下解决Matplotlib中文显示出错</title>
+    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
+    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
+<ul>
+<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
+<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
+<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -225,6 +193,38 @@
       </tags>
   </entry>
   <entry>
+    <title>Manjaro适合什么样的人</title>
+    <url>/2020/06/28/Manjaro%E9%80%82%E5%90%88%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BA%BA/</url>
+    <content><![CDATA[<p>2019年3月份看到了有人安利Manjaro，装电脑上用了一年，分享一下使用一年的感受。</p>
+<p>先说结论，我上个月换回了Ubuntu。</p>
+<h2 id="manjaro的优点">Manjaro的优点</h2>
+<ol type="1">
+<li>装软件非常方便，基本上各种软件在软件源中都能找到，并直接安装，而且安装的都是新版本。</li>
+<li>包括CUDA，显卡管理软件（忘记叫什么了，可以设置使用集显或独显或只用cuda）。</li>
+<li>WIKI资料很丰富，出了问题可以直接查。</li>
+</ol>
+<a id="more"></a>
+<h2 id="manjaro缺点">Manjaro缺点</h2>
+<p>上述的某些优点恰好对于某些人来说就是缺点。</p>
+<ol type="1">
+<li>软件更新非常激进，每天打开电脑的第一件事就是<code>yay -Syu</code>。</li>
+<li>如果你在更新前不看官方发布的更新公告，可能会被坑，也就是更挂。</li>
+<li>更新失败后，进不去系统，花点时间，查查官方公告，说不定能解决，但是耗费的时间对于某些人来说不可忍受。</li>
+<li>字体，画面看的不舒服，需要花些时间进行配置。</li>
+<li>还是Ubuntu真香。</li>
+</ol>
+<p>所以，对于大多数开发者来说，完全没有必要使用Manjaro，以下两个场景我亲身经历过：</p>
+<ol type="a">
+<li><p>前一时刻还在码代码，然后你重启了一下电脑，发现不能启动了，黑屏了，花时间查官方发布的更新公告，哦，原来是更新更挂了，这时，你是不是很崩溃？时间就是金钱啊，干嘛和自己过不去。</p></li>
+<li><p>放了一个长假了，好好的出去玩耍了一波，放假结束后，打开电脑，执行<code>yay -Syu</code>，然后写了一会儿代码，进入termianl运行python，咦，又挂了？哦，原来是python升级到了3.8版本，查资料，看怎么回退版本，哦，原来安装3.7版本那么麻烦。</p></li>
+</ol>
+<p>再见了，您。</p>
+<h2 id="manjaro适合">Manjaro适合？</h2>
+<p>回到标题，Manjaro不适合搞算学术研究和项目开发的人，尤其是学生：研究生。本科生无聊的话可以玩玩Manjaro。</p>
+<p>操作系统还是有公司支持的比较好，像Ubuntu，真的可以，用了快6年了。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Mysql Command</title>
     <url>/2019/11/05/Mysql-Command/</url>
     <content><![CDATA[<p>This post will record all the mysql command that i used in my projects.</p>
@@ -251,52 +251,6 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mc_prediction</span><span class="params">(policy, env, num_episodes, discount_factor=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Monte Carlo prediction algorithm. Calculates the value function</span></span><br><span class="line"><span class="string">    for a given policy using sampling.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        policy: A function that maps an observation to action probabilities.</span></span><br><span class="line"><span class="string">        env: OpenAI gym environment.</span></span><br><span class="line"><span class="string">        num_episodes: Number of episodes to sample.</span></span><br><span class="line"><span class="string">        discount_factor: Gamma discount factor.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        A dictionary that maps from state -&gt; value.</span></span><br><span class="line"><span class="string">        The state is a tuple and the value is a float.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Keeps track of sum and count of returns for each state</span></span><br><span class="line">    <span class="comment"># to calculate an average. We could use an array to save all</span></span><br><span class="line">    <span class="comment"># returns (like in the book) but that's memory inefficient.</span></span><br><span class="line">    returns_sum = defaultdict(float)</span><br><span class="line">    returns_count = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># The final value function</span></span><br><span class="line">    V = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Implement this!</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        episode = []</span><br><span class="line">        state = env.reset()</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            action = policy(state)</span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            state = next_state</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Find all states the we've visited in this episode</span></span><br><span class="line">        <span class="comment"># We convert each state to a tuple so that we can use it as a dict key</span></span><br><span class="line">        states_in_episode = set([tuple(x[<span class="number">0</span>]) <span class="keyword">for</span> x <span class="keyword">in</span> episode])</span><br><span class="line">        <span class="keyword">for</span> state <span class="keyword">in</span> states_in_episode:</span><br><span class="line">            <span class="comment">#print(state)</span></span><br><span class="line">            <span class="comment">#print(10*'*')</span></span><br><span class="line">            <span class="comment"># Find the first occurance of the state in the episode</span></span><br><span class="line">            first_occurence_idx = next(i <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode) <span class="keyword">if</span> x[<span class="number">0</span>] == state)</span><br><span class="line">            <span class="comment"># Sum up all rewards since the first occurance</span></span><br><span class="line">            G = sum([x[<span class="number">2</span>]*(discount_factor**i) <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode[first_occurence_idx:])])</span><br><span class="line">            <span class="comment"># Calculate average return for this state over all sampled episodes</span></span><br><span class="line">            returns_sum[state] += G</span><br><span class="line">            returns_count[state] += <span class="number">1.0</span></span><br><span class="line">            V[state] = returns_sum[state] / returns_count[state]</span><br><span class="line">    print(len(V))</span><br><span class="line">    print(first_occurence_idx)</span><br><span class="line">    print(states_in_episode)</span><br><span class="line">    print(episode)</span><br><span class="line">    <span class="keyword">return</span> V</span><br></pre></td></tr></table></figure>
 <p><img src="10000_Steps_No_Usable_Ace.png" alt="10000_Steps_No_Usable_Ace" /> <img src="10000_Steps_Usable_Ace.png" alt="10000_Steps_Usable_Ace" /> <img src="500000_Steps_No_Usable_Ace.png" alt="500000_Steps_No_Usable_Ace" /> <img src="500000_Steps_Usable_Ace.png" alt="500000_Steps_Usable_Ace" /></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Play with CartPole</title>
-    <url>/2019/10/25/Play-with-CartPole/</url>
-    <content><![CDATA[<p>Gym is a toolkit for developing and comparing reinforcement learning algorithms. The Gym library is a collection of test problems - environments - that you can use to work out your reinforcement learning algorithms. These environments have a shared interface, allowing you to write general algorithms.</p>
-<h2 id="cartpole-v1">CartPole-v1</h2>
-<p>A pole is attached by an un-actuated joint to a cart, which moves along a frictionless track. The system is controlled by applying a force of +1 or -1 to the cart. The pendulum starts upright, and the goal is to prevent if from falling over. Areward of +1 is provided for every timestep that the pole remains upright. The episode ends when the pole is more than 15 degrees from vertical, or the cart moves more than 2.4 units from the center.</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9neW0ub3BlbmFpLmNvbS9lbnZzL0NhcnRQb2xlLXYxLw==">Openai Gym CartPole-v1<i class="fa fa-external-link-alt"></i></span></p>
-<a id="more"></a>
-<p><strong>Source:</strong></p>
-<p>This environment corresponds to the version of the Reinforcement Learningcart-pole problem described by Barto, Sutton, and Anderson.</p>
-<p><strong>Observation:</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Type: Box(4)Reinforcement Learning</span><br><span class="line">Num	Observation                 Min        Reinforcement Learning Max</span><br><span class="line">0	Cart Position             -4.8            4.8</span><br><span class="line">1	Cart Velocity             -Inf            Inf</span><br><span class="line">2	Pole Angle                 -24 deg        24 deg</span><br><span class="line">3	Pole Velocity At Tip      -Inf            Inf</span><br></pre></td></tr></table></figure>
-<p><strong>Actions:</strong> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Type: Discrete(2)</span><br><span class="line">Num	Action</span><br><span class="line">0	Push cart to the left</span><br><span class="line">1	Push cart to the right</span><br><span class="line"></span><br><span class="line">Note: The amount the velocity that is reduced or increased is not fixed; it depends on the angle the pole is pointing. This is because the center of gravity of the pole increases the amount of energy needed to move the cart underneath it</span><br></pre></td></tr></table></figure></p>
-<p><strong>Reward:</strong> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Reward is 1 for every step taken, including the termination step</span><br></pre></td></tr></table></figure></p>
-<p><strong>Starting State:</strong> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">All observations are assigned a uniform random value in [-0.05..0.05]    </span><br><span class="line">Episode Termination:</span><br><span class="line">    Pole Angle is more than 12 degrees</span><br><span class="line">    Cart Position is more than 2.4 (center of the cart reaches the edge of the display)</span><br><span class="line">    Episode length is greater than 200</span><br><span class="line">    Solved Requirements</span><br><span class="line">    Considered solved when the average reward is greater than or equal to 195.0 over 100 consecutive trials.</span><br><span class="line">```  </span><br><span class="line">[Openai Gym CartPole-v1 Github](https://github.com/openai/gym/blob/master/gym/envs/classic_control/cartpole.py)        </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Environments</span></span></span><br><span class="line"></span><br><span class="line">Here's a minimum example of getting something running. This will running an instance of the `CartPole-v0` environment for 1000 timesteps, rendering the environment at each step. You should see a window pop up rendering the classic cart-poel problem:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">import gym</span><br><span class="line">env = gym.make('CartPole-v0')</span><br><span class="line">env.reset()</span><br><span class="line">for _ in range(1000):</span><br><span class="line">    env.render()</span><br><span class="line">    env.step(env.action_space.sample()) # take a random aciton</span><br><span class="line">env.close()</span><br></pre></td></tr></table></figure></p>
-<h2 id="observations">Observations</h2>
-<p>The environment's <code>step</code> function returns exactly what we need. In fact, step returns four values. These are:</p>
-<p><strong>observation(object):</strong></p>
-<p>an environment-specific object representing your observation of the environment. For example, pixel data from a camera, joint angles and joint velocities of a robot, or the board state in a board game.</p>
-<p><strong>reward(float):</strong></p>
-<p>amount of reward achieved by the previous action. The scale varies between environments, but the goal is always to increase your total reward.</p>
-<p><strong>done(boolean):</strong></p>
-<p>whether it’s time to reset the environment again. Most (but not all) tasks are divided up into well-defined episodes, and done being True indicates the episode has terminated. (For example, perhaps the pole tipped too far, or you lost your last life.)</p>
-<p><strong>info(dict):</strong></p>
-<p>diagnostic information useful for debugging. It can sometimes be useful for learning (for example, it might contain the raw probabilities behind the environment’s last state change). However, official evaluations of your agent are not allowed to use this for learning.</p>
-<p>The following is an implementation of the classic "agent-environment loop". Each timestep, the agent choosees an <code>acion</code>, and the environment returns an <code>observation</code> and a <code>reward</code>.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line">env = gym.make(<span class="string">"CartPole-v0"</span>)</span><br><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    observation = env.reset()</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        env.render()</span><br><span class="line">        print(observation)</span><br><span class="line">        action = env.action_space.sample()</span><br><span class="line">        observation, reward, done, info = env.step(action)</span><br><span class="line">        <span class="keyword">if</span> done:</span><br><span class="line">            print(<span class="string">"Episode finished after &#123;&#125; timesteps"</span>.format(t+<span class="number">1</span>))</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">env.close()</span><br></pre></td></tr></table></figure>
-<h2 id="spaces">Spaces</h2>
-<p>In the examples above, we'have been sampling random actions from the environment's action space. But what actually are those actions? Every environment comes with an <code>action_space</code> and an <code>observation_space</code>. These attributes are of type <code>Space</code>, and they describe the format of valid acitons and observations:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line">env = gym.make(<span class="string">"CartPole-v0"</span>)</span><br><span class="line">print(env.action_space)</span><br><span class="line">print(env.observation_space)</span><br></pre></td></tr></table></figure>
-<pre><code>Discrete(2)
-Box(4,)</code></pre>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(env.observation_space.high)</span><br></pre></td></tr></table></figure>
-<pre><code>[4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38]</code></pre>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(env.observation_space.low)</span><br></pre></td></tr></table></figure>
-<pre><code>[-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38]</code></pre>
-<h2 id="play-by-yourself">Play by yourself</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">from</span> pyglet.window <span class="keyword">import</span> key</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">bool_do_not_quit = <span class="literal">True</span></span><br><span class="line">scores = []</span><br><span class="line">a = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">key_press</span><span class="params">(k, mod)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> bool_do_not_quit, a, restart</span><br><span class="line">    <span class="keyword">if</span> k == <span class="number">0xff0d</span>:</span><br><span class="line">        restart = <span class="literal">True</span></span><br><span class="line">    <span class="keyword">if</span> k == key.ESCAPE:</span><br><span class="line">        bool_do_not_quit = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> k == key.Q:</span><br><span class="line">        bool_do_not_quit = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> k == key.LEFT:</span><br><span class="line">        a = <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> k == key.RIGHT:</span><br><span class="line">        a = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">play_CartPole_yourself</span><span class="params">()</span>:</span></span><br><span class="line">    env = gym.make(<span class="string">"CartPole-v0"</span>)</span><br><span class="line">    env.reset()</span><br><span class="line">    env.render()</span><br><span class="line">    env.viewer.window.on_key_press = key_press</span><br><span class="line">    <span class="keyword">while</span> bool_do_not_quit:</span><br><span class="line">        env.reset()</span><br><span class="line">        total_reward = <span class="number">0.0</span></span><br><span class="line">        steps = <span class="number">0</span></span><br><span class="line">        restart = <span class="literal">False</span></span><br><span class="line">        t1 = time.time()</span><br><span class="line">        <span class="keyword">while</span> bool_do_not_quit:</span><br><span class="line">            observation, reward, done, info = env.step(a)</span><br><span class="line">            time.sleep(<span class="number">0.1</span>)</span><br><span class="line">            total_reward += reward</span><br><span class="line">            steps += <span class="number">1</span></span><br><span class="line">            env.render()</span><br><span class="line">            <span class="comment">#if done or restart:</span></span><br><span class="line">            <span class="keyword">if</span> restart:</span><br><span class="line">                t1 = time.time() - t1</span><br><span class="line">                scores.append(total_reward)</span><br><span class="line">                print(<span class="string">"Trial"</span>, len(scores), <span class="string">"| Score:"</span>, total_reward, <span class="string">"|"</span>, steps, <span class="string">"steps | %0.2fs."</span>%t1)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    env.close()</span><br><span class="line">            </span><br><span class="line">play_CartPole_yourself()</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Reinforcement Learning</category>
-      </categories>
-      <tags>
-        <tag>Reinforcement Learning</tag>
-      </tags>
   </entry>
   <entry>
     <title>PGADP数据驱动的优化控制</title>
@@ -378,6 +332,52 @@ Q_{u}\left(x_{k}, \mu\right) &amp;=\mathcal{R}\left(x_{k}, \mu\right)+Q_{u}\left
       </tags>
   </entry>
   <entry>
+    <title>Play with CartPole</title>
+    <url>/2019/10/25/Play-with-CartPole/</url>
+    <content><![CDATA[<p>Gym is a toolkit for developing and comparing reinforcement learning algorithms. The Gym library is a collection of test problems - environments - that you can use to work out your reinforcement learning algorithms. These environments have a shared interface, allowing you to write general algorithms.</p>
+<h2 id="cartpole-v1">CartPole-v1</h2>
+<p>A pole is attached by an un-actuated joint to a cart, which moves along a frictionless track. The system is controlled by applying a force of +1 or -1 to the cart. The pendulum starts upright, and the goal is to prevent if from falling over. Areward of +1 is provided for every timestep that the pole remains upright. The episode ends when the pole is more than 15 degrees from vertical, or the cart moves more than 2.4 units from the center.</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9neW0ub3BlbmFpLmNvbS9lbnZzL0NhcnRQb2xlLXYxLw==">Openai Gym CartPole-v1<i class="fa fa-external-link-alt"></i></span></p>
+<a id="more"></a>
+<p><strong>Source:</strong></p>
+<p>This environment corresponds to the version of the Reinforcement Learningcart-pole problem described by Barto, Sutton, and Anderson.</p>
+<p><strong>Observation:</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Type: Box(4)Reinforcement Learning</span><br><span class="line">Num	Observation                 Min        Reinforcement Learning Max</span><br><span class="line">0	Cart Position             -4.8            4.8</span><br><span class="line">1	Cart Velocity             -Inf            Inf</span><br><span class="line">2	Pole Angle                 -24 deg        24 deg</span><br><span class="line">3	Pole Velocity At Tip      -Inf            Inf</span><br></pre></td></tr></table></figure>
+<p><strong>Actions:</strong> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Type: Discrete(2)</span><br><span class="line">Num	Action</span><br><span class="line">0	Push cart to the left</span><br><span class="line">1	Push cart to the right</span><br><span class="line"></span><br><span class="line">Note: The amount the velocity that is reduced or increased is not fixed; it depends on the angle the pole is pointing. This is because the center of gravity of the pole increases the amount of energy needed to move the cart underneath it</span><br></pre></td></tr></table></figure></p>
+<p><strong>Reward:</strong> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Reward is 1 for every step taken, including the termination step</span><br></pre></td></tr></table></figure></p>
+<p><strong>Starting State:</strong> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">All observations are assigned a uniform random value in [-0.05..0.05]    </span><br><span class="line">Episode Termination:</span><br><span class="line">    Pole Angle is more than 12 degrees</span><br><span class="line">    Cart Position is more than 2.4 (center of the cart reaches the edge of the display)</span><br><span class="line">    Episode length is greater than 200</span><br><span class="line">    Solved Requirements</span><br><span class="line">    Considered solved when the average reward is greater than or equal to 195.0 over 100 consecutive trials.</span><br><span class="line">```  </span><br><span class="line">[Openai Gym CartPole-v1 Github](https://github.com/openai/gym/blob/master/gym/envs/classic_control/cartpole.py)        </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Environments</span></span></span><br><span class="line"></span><br><span class="line">Here's a minimum example of getting something running. This will running an instance of the `CartPole-v0` environment for 1000 timesteps, rendering the environment at each step. You should see a window pop up rendering the classic cart-poel problem:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">import gym</span><br><span class="line">env = gym.make('CartPole-v0')</span><br><span class="line">env.reset()</span><br><span class="line">for _ in range(1000):</span><br><span class="line">    env.render()</span><br><span class="line">    env.step(env.action_space.sample()) # take a random aciton</span><br><span class="line">env.close()</span><br></pre></td></tr></table></figure></p>
+<h2 id="observations">Observations</h2>
+<p>The environment's <code>step</code> function returns exactly what we need. In fact, step returns four values. These are:</p>
+<p><strong>observation(object):</strong></p>
+<p>an environment-specific object representing your observation of the environment. For example, pixel data from a camera, joint angles and joint velocities of a robot, or the board state in a board game.</p>
+<p><strong>reward(float):</strong></p>
+<p>amount of reward achieved by the previous action. The scale varies between environments, but the goal is always to increase your total reward.</p>
+<p><strong>done(boolean):</strong></p>
+<p>whether it’s time to reset the environment again. Most (but not all) tasks are divided up into well-defined episodes, and done being True indicates the episode has terminated. (For example, perhaps the pole tipped too far, or you lost your last life.)</p>
+<p><strong>info(dict):</strong></p>
+<p>diagnostic information useful for debugging. It can sometimes be useful for learning (for example, it might contain the raw probabilities behind the environment’s last state change). However, official evaluations of your agent are not allowed to use this for learning.</p>
+<p>The following is an implementation of the classic "agent-environment loop". Each timestep, the agent choosees an <code>acion</code>, and the environment returns an <code>observation</code> and a <code>reward</code>.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line">env = gym.make(<span class="string">"CartPole-v0"</span>)</span><br><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    observation = env.reset()</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        env.render()</span><br><span class="line">        print(observation)</span><br><span class="line">        action = env.action_space.sample()</span><br><span class="line">        observation, reward, done, info = env.step(action)</span><br><span class="line">        <span class="keyword">if</span> done:</span><br><span class="line">            print(<span class="string">"Episode finished after &#123;&#125; timesteps"</span>.format(t+<span class="number">1</span>))</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">env.close()</span><br></pre></td></tr></table></figure>
+<h2 id="spaces">Spaces</h2>
+<p>In the examples above, we'have been sampling random actions from the environment's action space. But what actually are those actions? Every environment comes with an <code>action_space</code> and an <code>observation_space</code>. These attributes are of type <code>Space</code>, and they describe the format of valid acitons and observations:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line">env = gym.make(<span class="string">"CartPole-v0"</span>)</span><br><span class="line">print(env.action_space)</span><br><span class="line">print(env.observation_space)</span><br></pre></td></tr></table></figure>
+<pre><code>Discrete(2)
+Box(4,)</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(env.observation_space.high)</span><br></pre></td></tr></table></figure>
+<pre><code>[4.8000002e+00 3.4028235e+38 4.1887903e-01 3.4028235e+38]</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(env.observation_space.low)</span><br></pre></td></tr></table></figure>
+<pre><code>[-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38]</code></pre>
+<h2 id="play-by-yourself">Play by yourself</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">from</span> pyglet.window <span class="keyword">import</span> key</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">bool_do_not_quit = <span class="literal">True</span></span><br><span class="line">scores = []</span><br><span class="line">a = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">key_press</span><span class="params">(k, mod)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> bool_do_not_quit, a, restart</span><br><span class="line">    <span class="keyword">if</span> k == <span class="number">0xff0d</span>:</span><br><span class="line">        restart = <span class="literal">True</span></span><br><span class="line">    <span class="keyword">if</span> k == key.ESCAPE:</span><br><span class="line">        bool_do_not_quit = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> k == key.Q:</span><br><span class="line">        bool_do_not_quit = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> k == key.LEFT:</span><br><span class="line">        a = <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> k == key.RIGHT:</span><br><span class="line">        a = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">play_CartPole_yourself</span><span class="params">()</span>:</span></span><br><span class="line">    env = gym.make(<span class="string">"CartPole-v0"</span>)</span><br><span class="line">    env.reset()</span><br><span class="line">    env.render()</span><br><span class="line">    env.viewer.window.on_key_press = key_press</span><br><span class="line">    <span class="keyword">while</span> bool_do_not_quit:</span><br><span class="line">        env.reset()</span><br><span class="line">        total_reward = <span class="number">0.0</span></span><br><span class="line">        steps = <span class="number">0</span></span><br><span class="line">        restart = <span class="literal">False</span></span><br><span class="line">        t1 = time.time()</span><br><span class="line">        <span class="keyword">while</span> bool_do_not_quit:</span><br><span class="line">            observation, reward, done, info = env.step(a)</span><br><span class="line">            time.sleep(<span class="number">0.1</span>)</span><br><span class="line">            total_reward += reward</span><br><span class="line">            steps += <span class="number">1</span></span><br><span class="line">            env.render()</span><br><span class="line">            <span class="comment">#if done or restart:</span></span><br><span class="line">            <span class="keyword">if</span> restart:</span><br><span class="line">                t1 = time.time() - t1</span><br><span class="line">                scores.append(total_reward)</span><br><span class="line">                print(<span class="string">"Trial"</span>, len(scores), <span class="string">"| Score:"</span>, total_reward, <span class="string">"|"</span>, steps, <span class="string">"steps | %0.2fs."</span>%t1)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    env.close()</span><br><span class="line">            </span><br><span class="line">play_CartPole_yourself()</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Reinforcement Learning</category>
+      </categories>
+      <tags>
+        <tag>Reinforcement Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Play with MountainCar</title>
     <url>/2019/11/15/Play-with-MountainCar/</url>
     <content><![CDATA[<p>MountainCar is a task of driving an underpowered car up a steep mountain road. The difficulty is that gravity is stronger than the car's engine, and even at full throttle the car cannot accelerate up the steep slope. The only solution is to first move away from the goal and up the opposite slope on the left. Then, by applying full throttle the car can build up enough inertia to carry it up the steep slope even though it is slowing down the whole way.</p>
@@ -406,14 +406,6 @@ Q_{u}\left(x_{k}, \mu\right) &amp;=\mathcal{R}\left(x_{k}, \mu\right)+Q_{u}\left
       <tags>
         <tag>Reinforcement Learning</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Python装饰器</title>
-    <url>/2019/02/10/Python%E8%A3%85%E9%A5%B0%E5%99%A8/</url>
-    <content><![CDATA[<p>装饰器是Python的重要组成部分。简单来说：它们是修改其它函数的函数。他们有助于使我们的代码更短，更Pythonic。大多数初学者不知道在哪里使用它们，所以本文将介绍一些常见需要使用装饰器的情况。 <a id="more"></a> ## Python中一些都是对象</p>
-<p>首先让我们理解Python中的函数：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hi</span><span class="params">(name=<span class="string">"oliverxu"</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hi"</span> + name</span><br><span class="line"></span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果：'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们可以将一个函数赋值给一个变量</span></span><br><span class="line">greet = hi</span><br><span class="line"><span class="comment"># 我们并不是调用hi()，而是将函数赋值给greet</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 让我们看看如果将hi这个函数删除会出现什么情况</span></span><br><span class="line"><span class="keyword">del</span> hi</span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果： NameError</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br></pre></td></tr></table></figure>
-]]></content>
   </entry>
   <entry>
     <title>实验室服务器安装Proxmox</title>
@@ -481,6 +473,14 @@ Q_{u}\left(x_{k}, \mu\right) &amp;=\mathcal{R}\left(x_{k}, \mu\right)+Q_{u}\left
       <tags>
         <tag>Python</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Python装饰器</title>
+    <url>/2019/02/10/Python%E8%A3%85%E9%A5%B0%E5%99%A8/</url>
+    <content><![CDATA[<p>装饰器是Python的重要组成部分。简单来说：它们是修改其它函数的函数。他们有助于使我们的代码更短，更Pythonic。大多数初学者不知道在哪里使用它们，所以本文将介绍一些常见需要使用装饰器的情况。 <a id="more"></a> ## Python中一些都是对象</p>
+<p>首先让我们理解Python中的函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hi</span><span class="params">(name=<span class="string">"oliverxu"</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hi"</span> + name</span><br><span class="line"></span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果：'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们可以将一个函数赋值给一个变量</span></span><br><span class="line">greet = hi</span><br><span class="line"><span class="comment"># 我们并不是调用hi()，而是将函数赋值给greet</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 让我们看看如果将hi这个函数删除会出现什么情况</span></span><br><span class="line"><span class="keyword">del</span> hi</span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果： NameError</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br></pre></td></tr></table></figure>
+]]></content>
   </entry>
   <entry>
     <title>Python配置虚拟环境</title>
@@ -624,31 +624,6 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </tags>
   </entry>
   <entry>
-    <title>Word与Latex</title>
-    <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
-    <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
-<h2 id="mathpix将论文中的公式识别成latex或者mathml格式">Mathpix：将论文中的公式识别成latex或者mathml格式</h2>
-<p>有一款软件：Mathpix，能够将公式识别成latex或者mathml格式。</p>
-<p>使用该软件需要使用邮箱注册账户，免费版一个月只能识别50次，也有一个开发版，一个月能识别1000次，但是需要信用卡验证，对于国内用户来说，比较麻烦。</p>
-<p>这里给出一个解决办法：使用临时邮箱，待免费套餐使用完后，重新注册账户，测试了几个免费邮箱服务，大多被mathpix识别了，<span class="exturl" data-url="aHR0cHM6Ly90ZW1wLW1haWwub3JnL2VuLw==">https://temp-mail.org/en/<i class="fa fa-external-link-alt"></i></span> 这个我测试了一下，没有被mathpix识别，可以用于注册。 <a id="more"></a></p>
-<h2 id="word中的latex公式">Word中的latex公式</h2>
-<h3 id="简单的单行公式">简单的单行公式</h3>
-<p>简单的单行公式可以直接用latex格式。</p>
-<h3 id="复杂的多行公式">复杂的多行公式</h3>
-<p>复杂的多行公式，可以复制Mathpix中的Mathml格式，粘贴到word中。</p>
-<h3 id="插入公式编号">插入公式编号</h3>
-<p>Word中提供了一种比较方便的插入公式编号的方法：在公式末尾键入<code>#(x)</code>，然后按下<code>Enter</code>即可。</p>
-<h2 id="创作流程">创作流程</h2>
-<p>我个人比较喜欢读完文献，用Markdown（Typora）整理一下阅读笔记，这样既可以发布到博客上，又很方便的能够迁移到Word中（我一般交作业交报告都是用Word）。</p>
-]]></content>
-      <categories>
-        <category>Latex</category>
-      </categories>
-      <tags>
-        <tag>Latex</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Simplify: Python VS Matlab</title>
     <url>/2019/10/20/Simplify-Python-VS-Matlab/</url>
     <content><![CDATA[<h2 id="background">Background</h2>
@@ -697,25 +672,28 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </tags>
   </entry>
   <entry>
-    <title>vs code remote ssh 使用x11转发显示远程图像</title>
-    <url>/2020/11/17/vs%20code%20remote%20ssh%20%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
-    <content><![CDATA[<h2 id="需求">需求</h2>
-<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
-<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
-<a id="more"></a>
-<h2 id="参考链接">参考链接</h2>
-<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-<h2 id="问题">问题</h2>
-<ul>
-<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
-<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
-</ul>
+    <title>Word与Latex</title>
+    <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
+    <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
+<h2 id="mathpix将论文中的公式识别成latex或者mathml格式">Mathpix：将论文中的公式识别成latex或者mathml格式</h2>
+<p>有一款软件：Mathpix，能够将公式识别成latex或者mathml格式。</p>
+<p>使用该软件需要使用邮箱注册账户，免费版一个月只能识别50次，也有一个开发版，一个月能识别1000次，但是需要信用卡验证，对于国内用户来说，比较麻烦。</p>
+<p>这里给出一个解决办法：使用临时邮箱，待免费套餐使用完后，重新注册账户，测试了几个免费邮箱服务，大多被mathpix识别了，<span class="exturl" data-url="aHR0cHM6Ly90ZW1wLW1haWwub3JnL2VuLw==">https://temp-mail.org/en/<i class="fa fa-external-link-alt"></i></span> 这个我测试了一下，没有被mathpix识别，可以用于注册。 <a id="more"></a></p>
+<h2 id="word中的latex公式">Word中的latex公式</h2>
+<h3 id="简单的单行公式">简单的单行公式</h3>
+<p>简单的单行公式可以直接用latex格式。</p>
+<h3 id="复杂的多行公式">复杂的多行公式</h3>
+<p>复杂的多行公式，可以复制Mathpix中的Mathml格式，粘贴到word中。</p>
+<h3 id="插入公式编号">插入公式编号</h3>
+<p>Word中提供了一种比较方便的插入公式编号的方法：在公式末尾键入<code>#(x)</code>，然后按下<code>Enter</code>即可。</p>
+<h2 id="创作流程">创作流程</h2>
+<p>我个人比较喜欢读完文献，用Markdown（Typora）整理一下阅读笔记，这样既可以发布到博客上，又很方便的能够迁移到Word中（我一般交作业交报告都是用Word）。</p>
 ]]></content>
       <categories>
-        <category>博客</category>
+        <category>Latex</category>
       </categories>
       <tags>
-        <tag>博客</tag>
+        <tag>Latex</tag>
       </tags>
   </entry>
   <entry>
@@ -861,23 +839,19 @@ x
       </tags>
   </entry>
   <entry>
-    <title>使用本地服务器结合github action推送github pages</title>
-    <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github%20action%E6%8E%A8%E9%80%81github%20pages/</url>
+    <title>vs code remote ssh 使用x11转发显示远程图像</title>
+    <url>/2020/11/17/vs%20code%20remote%20ssh%20%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
     <content><![CDATA[<h2 id="需求">需求</h2>
-<p>网上很多人使用github action，借助github的服务器来进行博客的推送，但是，当你博客文章数量较多，且使用了国内的CDN，例如本博客使用了阿里云CDN，本站的解析是国外IP访问的是github仓库的网站，国内用户访问的是阿里云CDN的节点，在使用github action的时候，发现推送速度非常慢，原因是github的服务器在国外，<strong>往阿里云服务器推送的时候速度很慢</strong>。所以，每次更新博客，往往需要10分钟的时间才能推送好。这是不能忍受的。。。</p>
+<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
+<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
 <a id="more"></a>
-<p>我本地有一台服务器，装了Proxmox来管理虚拟机，且有公网IP，接助GitHub action来连接到我本地推送服务器进行推送</p>
-<h2 id="整个流程如图">整个流程如图：</h2>
-<p><img src="1.svg" /></p>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+<h2 id="问题">问题</h2>
 <ul>
-<li>本地git pull github仓库中的文件到本地博客开发服务器，进行博客开发。</li>
-<li>博客写完后，git push到github仓库</li>
-<li>github仓库根据仓库中的yaml文件，创建github action，action的功能是连接SSH到Github推送服务器</li>
-<li>Github推送服务器上已经安装好了hexo等博客需要的环境，进行博客推送</li>
+<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
+<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
 </ul>
-<p>这样操作，全自动的，且速度非常快，整个流程在1分钟左右。</p>
-<h2 id="附上github-action的代码">附上github action的代码：</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Hexo deploy by remote ssh</span><br><span class="line">on: </span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line"></span><br><span class="line">  build:</span><br><span class="line">    name: Build</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">    - name: executing remote ssh commands using password</span><br><span class="line">      uses: appleboy/ssh-action@master</span><br><span class="line">      with:</span><br><span class="line">        host: <span class="variable">$&#123;&#123; secrets.HOST &#125;</span>&#125;</span><br><span class="line">        username: <span class="variable">$&#123;&#123; secrets.USERNAME &#125;</span>&#125;</span><br><span class="line">        password: <span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;</span><br><span class="line">        port: <span class="variable">$&#123;&#123; secrets.PORT &#125;</span>&#125;</span><br><span class="line">        script: <span class="built_in">cd</span> blog;</span><br><span class="line">                git pull https://olixu:<span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;@github.com/olixu/blog.git; </span><br><span class="line">                hexo clean;</span><br><span class="line">                hexo g;</span><br><span class="line">                hexo d;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>博客</category>
@@ -923,31 +897,29 @@ x
       </tags>
   </entry>
   <entry>
-    <title>健身房计划制定与动作</title>
-    <url>/2020/08/24/%E5%81%A5%E8%BA%AB%E6%88%BF%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
-    <content><![CDATA[<p>这篇文章整理我用到的训练计划和训练动作与健身记录。</p>
+    <title>使用本地服务器结合github action推送github pages</title>
+    <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github%20action%E6%8E%A8%E9%80%81github%20pages/</url>
+    <content><![CDATA[<h2 id="需求">需求</h2>
+<p>网上很多人使用github action，借助github的服务器来进行博客的推送，但是，当你博客文章数量较多，且使用了国内的CDN，例如本博客使用了阿里云CDN，本站的解析是国外IP访问的是github仓库的网站，国内用户访问的是阿里云CDN的节点，在使用github action的时候，发现推送速度非常慢，原因是github的服务器在国外，<strong>往阿里云服务器推送的时候速度很慢</strong>。所以，每次更新博客，往往需要10分钟的时间才能推送好。这是不能忍受的。。。</p>
 <a id="more"></a>
-<h2 id="手臂超级组">手臂超级组</h2>
-<h3 id="组1">组1</h3>
-<p>杠铃弯举</p>
-<p>窄距杠铃卧推</p>
-<h3 id="组2">组2</h3>
-<p>锤式哑铃弯举</p>
-<p>仰卧杠铃臂屈伸</p>
-<h3 id="组3">组3</h3>
-<p>二头绳索弯举</p>
-<p>三头绳索下压</p>
-<h3 id="组4">组4</h3>
-<p>背后曲臂伸</p>
-<p>哑铃交替弯举</p>
-<h3 id="做法">做法</h3>
-<p>每两个动作（二头屈，三头伸）为一个超级组，每个超级组做3组，每组的两个动作分别做8-12RM。</p>
+<p>我本地有一台服务器，装了Proxmox来管理虚拟机，且有公网IP，接助GitHub action来连接到我本地推送服务器进行推送</p>
+<h2 id="整个流程如图">整个流程如图：</h2>
+<p><img src="1.svg" /></p>
+<ul>
+<li>本地git pull github仓库中的文件到本地博客开发服务器，进行博客开发。</li>
+<li>博客写完后，git push到github仓库</li>
+<li>github仓库根据仓库中的yaml文件，创建github action，action的功能是连接SSH到Github推送服务器</li>
+<li>Github推送服务器上已经安装好了hexo等博客需要的环境，进行博客推送</li>
+</ul>
+<p>这样操作，全自动的，且速度非常快，整个流程在1分钟左右。</p>
+<h2 id="附上github-action的代码">附上github action的代码：</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Hexo deploy by remote ssh</span><br><span class="line">on: </span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line"></span><br><span class="line">  build:</span><br><span class="line">    name: Build</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">    - name: executing remote ssh commands using password</span><br><span class="line">      uses: appleboy/ssh-action@master</span><br><span class="line">      with:</span><br><span class="line">        host: <span class="variable">$&#123;&#123; secrets.HOST &#125;</span>&#125;</span><br><span class="line">        username: <span class="variable">$&#123;&#123; secrets.USERNAME &#125;</span>&#125;</span><br><span class="line">        password: <span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;</span><br><span class="line">        port: <span class="variable">$&#123;&#123; secrets.PORT &#125;</span>&#125;</span><br><span class="line">        script: <span class="built_in">cd</span> blog;</span><br><span class="line">                git pull https://olixu:<span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;@github.com/olixu/blog.git; </span><br><span class="line">                hexo clean;</span><br><span class="line">                hexo g;</span><br><span class="line">                hexo d;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>博客</category>
       </categories>
       <tags>
-        <tag>生活</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -985,6 +957,34 @@ x
       </tags>
   </entry>
   <entry>
+    <title>健身房计划制定与动作</title>
+    <url>/2020/08/24/%E5%81%A5%E8%BA%AB%E6%88%BF%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
+    <content><![CDATA[<p>这篇文章整理我用到的训练计划和训练动作与健身记录。</p>
+<a id="more"></a>
+<h2 id="手臂超级组">手臂超级组</h2>
+<h3 id="组1">组1</h3>
+<p>杠铃弯举</p>
+<p>窄距杠铃卧推</p>
+<h3 id="组2">组2</h3>
+<p>锤式哑铃弯举</p>
+<p>仰卧杠铃臂屈伸</p>
+<h3 id="组3">组3</h3>
+<p>二头绳索弯举</p>
+<p>三头绳索下压</p>
+<h3 id="组4">组4</h3>
+<p>背后曲臂伸</p>
+<p>哑铃交替弯举</p>
+<h3 id="做法">做法</h3>
+<p>每两个动作（二头屈，三头伸）为一个超级组，每个超级组做3组，每组的两个动作分别做8-12RM。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>光纤测温WEB系统</title>
     <url>/2019/02/01/%E5%85%89%E7%BA%A4%E6%B5%8B%E6%B8%A9WEB%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<h2 id="本项目解决的问题">本项目解决的问题：</h2>
@@ -1001,33 +1001,6 @@ x
       </categories>
       <tags>
         <tag>flask</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初学数据库-sqlite3 简介</title>
-    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
-</blockquote>
-<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
-<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
-<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
-<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
-<h2 id="于是数据库出现了">于是，数据库出现了</h2>
-<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
-<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
-<h2 id="数据库种类">数据库种类</h2>
-<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
-<h3 id="非关系型数据库">2.非关系型数据库</h3>
-<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
-<h2 id="sqlite3">sqlite3</h2>
-<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>
@@ -1076,6 +1049,33 @@ x
       </categories>
       <tags>
         <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初学数据库-sqlite3 简介</title>
+    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
+</blockquote>
+<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
+<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
+<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
+<h2 id="于是数据库出现了">于是，数据库出现了</h2>
+<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
+<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
+<h2 id="数据库种类">数据库种类</h2>
+<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
+<h3 id="非关系型数据库">2.非关系型数据库</h3>
+<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
+<h2 id="sqlite3">sqlite3</h2>
+<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>
@@ -1379,19 +1379,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>常用排序算法之冒泡排序</title>
-    <url>/2018/08/19/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>题目：编写一个C程序，应用冒泡排序法对序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的序列元素</p>
-<p>算法分析：直接运用冒泡排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubblesort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span> &amp;&amp; flag==<span class="number">1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n-i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j+<span class="number">1</span>]&lt;a[j])</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j+<span class="number">1</span>];</span><br><span class="line">                a[j+<span class="number">1</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="number">0</span>];</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    bubblesort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of bubble sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>数据结构 算法 排序</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>基金投资管理系统</title>
     <url>/2020/06/29/%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<p>基金推荐与投资记录系统：如何成为一名合格的韭菜！</p>
@@ -1429,6 +1416,19 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>fund</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用排序算法之冒泡排序</title>
+    <url>/2018/08/19/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>题目：编写一个C程序，应用冒泡排序法对序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的序列元素</p>
+<p>算法分析：直接运用冒泡排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubblesort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span> &amp;&amp; flag==<span class="number">1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n-i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j+<span class="number">1</span>]&lt;a[j])</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j+<span class="number">1</span>];</span><br><span class="line">                a[j+<span class="number">1</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="number">0</span>];</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    bubblesort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of bubble sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构 算法 排序</tag>
       </tags>
   </entry>
   <entry>
@@ -1610,19 +1610,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>粒子群算法库-PySwarms的可视化</title>
-    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
-    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
-<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>检查强化学习自定义环境是否符合Gym的API</title>
     <url>/2020/08/22/%E6%A3%80%E6%9F%A5%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E7%AC%A6%E5%90%88Gym%E7%9A%84API/</url>
     <content><![CDATA[<p>虽然Openai Gym给我们提供了很多有趣的环境，但是，针对实际问题，我们一般都需要建立自己的强化学习环境，也就是说，建立一个函数，输入是<code>action</code>，输出是<code>next_state, reward, done, info</code>，建立这样一个环境的时候最好按照Gym的API来设计，这样方便代码的编写与调试，很多网上实现的算法都是按照Gym的环境进行设计的，同时，Gym的API本身设计的就比较合理的。</p>
@@ -1657,6 +1644,19 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>Reinforcement Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>粒子群算法库-PySwarms的可视化</title>
+    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
+    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
+<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1790,94 +1790,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>flask</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PPO算法公式推导</title>
-    <url>/2020/09/07/PPO%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/</url>
-    <content><![CDATA[<p><strong>论文：</strong></p>
-<p>[1] Schulman, J., Levine, S., Moritz, P., Jordan, M. I. &amp; Abbeel, P. Trust Region Policy Optimization. <em>arXiv:1502.05477 [cs]</em> (2017).</p>
-<p>[2] Schulman, J., Wolski, F., Dhariwal, P., Radford, A. &amp; Klimov, O. Proximal Policy Optimization Algorithms. <em>arXiv:1707.06347 [cs]</em> (2017).</p>
-<p>[3] Heess, N. <em>et al.</em> Emergence of Locomotion Behaviours in Rich Environments. <em>arXiv:1707.02286 [cs]</em> (2017).</p>
-<p>第一、二篇是openai的，第三篇是deepmind的</p>
-<p>Trust Region Policy Optimization算法是在2015年由UCB/Openai的John Schulman提出的，基本思想就是在传统的Policy Gradient算法中对梯度的更新增加一个信赖域，来保证梯度更新前后的策略相差不超过一定的阈值，用两个概率分布的KL散度来衡量这个阈值，TRPO算法的表达形式中有一个硬约束，这给求解最优问题带来了困难，而PPO则是在2017年由UCB/Openai的John Schulman提出的，是TRPO的近似算法，将TRPO的软约束转化成目标函数中的一个惩罚项，以此来简化计算，方便实现。</p>
-<a id="more"></a>
-<h2 id="trpo算法推导">TRPO算法推导</h2>
-<h3 id="notation">Notation</h3>
-<p>令<span class="math inline">\(\eta(\pi)\)</span>表示累积折扣回报：</p>
-<p><span class="math inline">\(\eta(\pi)=\mathbb{E}_{s_{0}, a_{0}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} c\left(s_{t}\right)\right]\)</span></p>
-<p>其中，<span class="math inline">\(s_{0} \sim \rho_{0}\left(s_{0}\right), a_{t} \sim \pi\left(a_{t} \mid s_{t}\right), s_{t+1} \sim P\left(s_{t+1} \mid s_{t}, a_{t}\right)\)</span></p>
-<p>state-action值函数的定义：<span class="math inline">\(Q_{\pi}\left(s_{t}, a_{t}\right)=\mathbb{E}_{s_{t+1}, a_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
-<p>价值函数的定义：<span class="math inline">\(V_{\pi}\left(s_{t}\right)=\mathbb{E}_{a_{t}, s_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
-<p>优势函数：<span class="math inline">\(A_{\pi}(s, a)=Q_{\pi}(s, a)-V_{\pi}(s)\)</span></p>
-<p><strong>Lemma1：策略差分定理</strong>：原始策略记为<span class="math inline">\(\pi\)</span>，更新后的策略记为<span class="math inline">\(\tilde{\pi}\)</span>，则更新后的策略的期望折扣回报可以写成更新前策略的期望折扣回报加上一个<span class="math inline">\(\tilde{\pi}\)</span>对<span class="math inline">\(\pi\)</span>的优势函数：</p>
-<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span></p>
-<p>上述等式能够体现TRPO的思想：将新的策略得到的性能函数写成旧策略的性能函数加上一个新策略对旧策略的的优势函数的期望值，若能保证这个期望值是正数，则可以保证新策略的性能函数要优于旧策略的性能函数。</p>
-<p>这个定理由2002年 Kakade &amp; Langford证得：</p>
-<p>因为<span class="math inline">\(A_{\pi}(s, a)=\mathbb{E}_{s^{\prime} \sim P\left(s^{\prime} \mid s, a\right)}\left[r(s)+\gamma V_{\pi}\left(s^{\prime}\right)-V_{\pi}(s)\right]\)</span></p>
-<p><span class="math inline">\(\begin{array}{l} \mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t}\left(r\left(s_{t}\right)+\gamma V_{\pi}\left(s_{t+1}\right)-V_{\pi}\left(s_{t}\right)\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[-V_{\pi}\left(s_{0}\right)+\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\mathbb{E}_{s_{0}}\left[V_{\pi}\left(s_{0}\right)\right]+\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\eta(\pi)+\eta(\tilde{\pi}) \end{array}\)</span></p>
-<p>定义discounted visitation frequencies：<span class="math inline">\(\rho_{\pi}(s)=\left(P\left(s_{0}=s\right)+\gamma P\left(s_{1}=s\right)+\gamma^{2} P\left(s_{2}=s\right)+\ldots\right)\)</span></p>
-<p>定义这个频率的目的主要是换一个角度来表示基于累计折扣回报函数的性能函数，因为<span class="math inline">\(\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span>很难表示。</p>
-<p>当<span class="math inline">\(\gamma\)</span>等于1的时候，显然，这个频率代表着在一个trajectory中状态<span class="math inline">\(s\)</span>出现次数的期望，当reward function只和状态有关而和action无关的时候，那么在这个trajectory中由<span class="math inline">\(s\)</span>贡献的return就只和这个frequency相关了。</p>
-<p>当<span class="math inline">\(\gamma\)</span>小于1的时候，在每个timestep会对reward进行一个discount的处理，所以想使用discounted frequencies来表示return的期望的话，需要在frequency上面做一个discount。</p>
-<p>通过使用discounted visitation frequencies方法，可以将上述级数形式的期望写成如下容易处理的形式</p>
-<p><span class="math display">\[\begin{aligned}
-\eta(\tilde{\pi}) &amp;=\eta(\pi)+\sum_{t=0}^{\infty} \sum_{s} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) \gamma^{t} A_{\pi}(s, a) \\
-&amp;=\eta(\pi)+\sum_{s} \sum_{t=0}^{\infty} \gamma^{t} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a) \\
-&amp;=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)
-\end{aligned}\]</span></p>
-<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
-<p>因为<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>依赖于<span class="math inline">\(\tilde{\pi}\)</span>，而因为<span class="math inline">\(\tilde{\pi}\)</span>是更新后的策略，在<span class="math inline">\(t\)</span>时刻，我们只有更新前的策略，上述优化问题很难求解，所以需要做一个近似：</p>
-<p><span class="math inline">\(L_{\pi}(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\pi}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
-<p>其中，<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>使用的是<span class="math inline">\(\rho_{\pi}\)</span>而不是<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>，因为策略的改变会导致相应的state visitation density的变化，而上面这个式子忽略了这一点，但是，(Kakade &amp; Langford 2002)证明了<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>和<span class="math inline">\(\eta(\pi)\)</span>是一阶近似的：</p>
-<p>对于任意的参数<span class="math inline">\(\theta_0\)</span>，有：</p>
-<p><span class="math inline">\(\begin{aligned} L_{\pi_{\theta_{0}}}\left(\pi_{\theta_{0}}\right) &amp;=\eta\left(\pi_{\theta_{0}}\right) \\ \left.\nabla_{\theta} L_{\pi_{\theta_{0}}}\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} &amp;=\left.\nabla_{\theta} \eta\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} \end{aligned}\)</span></p>
-<p>因此，当对策略进行一步充分小的更新，<span class="math inline">\(\pi_{\theta_{0}} \rightarrow \tilde{\pi}\)</span>，改进<span class="math inline">\(L_{\pi_{\theta_{0}}}\)</span>的同时，也能改进<span class="math inline">\(\eta(\pi_{\theta_{0}})\)</span></p>
-<p>上述过程只说明了一个充分的改进会得到非减的性能指标序列，但是选取步长很重要，选的小了会导致收敛速度慢，选了大了会导致可能的不能得到非减的性能指标序列，因此，(Kakade &amp; Langford)提出了一个policy update的方法：conservative policy iteration(保守策略迭代)，该方法给出了一个显式策略更新的下界：</p>
-<p>令<span class="math inline">\(\pi_{old}\)</span>为当前的策略，<span class="math inline">\(\pi^{\prime}=\arg \max _{\pi^{\prime}} L_{\pi_{\mathrm{old}}}\left(\pi^{\prime}\right)\)</span>，新的策略为<span class="math inline">\(\pi_{new}\)</span>，定义为：</p>
-<p><span class="math display">\[\pi_{\mathrm{new}}(a \mid s)=(1-\alpha) \pi_{\mathrm{old}}(a \mid s)+\alpha \pi^{\prime}(a \mid s)\]</span></p>
-<p>(Kakade &amp; Langford)推导出来的期望折扣累计回报的下界是：</p>
-<p><span class="math inline">\(\begin{aligned} \eta\left(\pi_{\text {new }}\right) &amp; \geq L_{\pi_{\text {old}}}\left(\pi_{\text {new}}\right)-\frac{2 \epsilon \gamma}{(1-\gamma)^{2}} \alpha^{2} \\ &amp; \text { where } \epsilon=\max _{s}\left|\mathbb{E}_{a \sim \pi^{\prime}(a \mid s)}\left[A_{\pi}(s, a)\right]\right| \end{aligned}\)</span></p>
-<p>以上都是(Kakade &amp; Langford 2002)的结论和证明</p>
-<p>其中<span class="math inline">\(\alpha\)</span>并未给出合适的计算方法，TRPO利用两个概率分布之间的KL散度来计算这个<span class="math inline">\(\alpha\)</span></p>
-<p>用概率论中的全变差距离来衡量两个策略之间的差距，<span class="math inline">\(D_{T V}(p \| q)=\frac{1}{2} \sum_{i}\left|p_{i}-q_{i}\right|\)</span></p>
-<p>其中，<span class="math inline">\(p_i\)</span>和<span class="math inline">\(q_i\)</span>是两个策略的离散的概率分布，定义<span class="math inline">\(D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})\)</span>为：</p>
-<p><span class="math display">\[D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})=\max _{s} D_{T V}(\pi(\cdot \mid s) \| \tilde{\pi}(\cdot \mid s))\]</span></p>
-<p>因为全变差距离和KL散度具有关系：<span class="math inline">\(D_{T V}(p \| q)^{2} \leq D_{\mathrm{KL}}(p \| q)\)</span></p>
-<p>所以可以将<span class="math inline">\(\alpha^2\)</span>替换为<span class="math inline">\(D_{T V}(p \| q)^{2}\)</span>，进一步可以替换为<span class="math inline">\(D_{\mathrm{KL}}(p \| q)\)</span></p>
-<p>利用KL divergence来衡量差距，计算方法：</p>
-<p>对于离散分布：<span class="math inline">\(D_{K L}(P \mid Q)=\sum_{i} P(i) \log \frac{P(i)}{Q(i)}\)</span></p>
-<p>对于连续分布：<span class="math inline">\(D_{K L}(P \mid Q)=\int_{-\infty}^{\infty} p(x) \log \frac{p(x)}{q(x)} d x\)</span></p>
-<p><strong>TRPO算法</strong></p>
-<p><img src="image-20200913171805500.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
-<p>策略的单调改进：TRPO算法能够保证策略每次更新都是单调改进的，即值函数<span class="math inline">\(\eta\left(\pi_{0}\right) \leq \eta\left(\pi_{1}\right) \leq \eta\left(\pi_{2}\right) \leq \ldots\)</span></p>
-<p><img src="image-20200913191418918.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
-<h2 id="ppo算法">PPO算法</h2>
-<p>TRPO算法是找到原目标函数的替代函数，并最大化这个替代函数，优化问题的约束是策略参数的更新不能超过一个设定的阈值，优化过程可以写成：</p>
-<p><span class="math inline">\(\begin{array}{ll} \underset{\theta}{\operatorname{maximize}} &amp; \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right] \\ \text { subject to } &amp; \hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right] \leq \delta \end{array}\)</span></p>
-<p>PPO是TRPO的一个改进，或者可以说是一个近似算法，可以将上述的带约束优化问题转化为无约束优化问题，可以写出TRPO的另一个形式：</p>
-<p><span class="math inline">\(\underset{\theta}{\operatorname{maximize}} \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
-<p>令<span class="math inline">\(r_t(\theta)\)</span>表示概率比：<span class="math inline">\(r_{t}(\theta)=\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\mathrm{old}}}\left(a_{t} \mid s_{t}\right)}\)</span>，因此<span class="math inline">\(r(\theta){old}=1\)</span>，</p>
-<p>TRPO最大化一个替代的目标函数：</p>
-<p><span class="math inline">\(L^{C P I}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right]=\hat{\mathbb{E}}_{t}\left[r_{t}(\theta) \hat{A}_{t}\right]\)</span></p>
-<p>如果使用策略迭代进行求解，那么策略的更新的步长可能会很大，<strong>以下是PPO的一个实现：对ration直接进行限制</strong></p>
-<p><span class="math inline">\(L^{C L I P}(\theta)=\hat{\mathbb{E}}_{t}\left[\min \left(r_{t}(\theta) \hat{A}_{t}, \operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\right)\right]\)</span></p>
-<p>上述min中有两项：第一项为<span class="math inline">\(r_{t}(\theta) \hat{A}_{t}\)</span>，第二项为<span class="math inline">\(\operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\)</span></p>
-<p><strong>Clip</strong>：为目标函数限定一个范围，意思就是通过计算概率比<span class="math inline">\(r_t(\theta)\)</span>，设定一个阈值，将其限制在一定的范围内<span class="math inline">\((1-\epsilon, 1+\epsilon)\)</span>，来避免策略网络的权重更新步长过大。</p>
-<p><span class="math inline">\(L^{CLIP}\)</span>是<span class="math inline">\(L^{CPI}\)</span>的一个下界。</p>
-<p><img src="image-20200913162249801.png" alt="image-20200913162249801" style="zoom:50%;" /></p>
-<p>PPO算法的第二种形式：</p>
-<p>以目标函数加入惩罚项的形式：</p>
-<p><span class="math inline">\(L^{K L P E N}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
-<p>其中，<span class="math inline">\(\beta\)</span>不是固定的，需要进行自适应设计，设计方法如下：</p>
-<p>计算两个策略的KL散度：<span class="math inline">\(d=\hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
-<p><span class="math inline">\(\begin{array}{l} -\text { If } d&lt;d_{\operatorname{targ}} / 1.5, \beta \leftarrow \beta / 2 \\ -\text { If } d&gt;d_{\text {targ }} \times 1.5, \beta \leftarrow \beta \times 2 \end{array}\)</span></p>
-]]></content>
-      <categories>
-        <category>Reinforcement Learning</category>
-      </categories>
-      <tags>
-        <tag>Reinforcement Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -3081,6 +2993,94 @@ Alabama
       </categories>
       <tags>
         <tag>Pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PPO算法公式推导</title>
+    <url>/2020/09/07/PPO%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/</url>
+    <content><![CDATA[<p><strong>论文：</strong></p>
+<p>[1] Schulman, J., Levine, S., Moritz, P., Jordan, M. I. &amp; Abbeel, P. Trust Region Policy Optimization. <em>arXiv:1502.05477 [cs]</em> (2017).</p>
+<p>[2] Schulman, J., Wolski, F., Dhariwal, P., Radford, A. &amp; Klimov, O. Proximal Policy Optimization Algorithms. <em>arXiv:1707.06347 [cs]</em> (2017).</p>
+<p>[3] Heess, N. <em>et al.</em> Emergence of Locomotion Behaviours in Rich Environments. <em>arXiv:1707.02286 [cs]</em> (2017).</p>
+<p>第一、二篇是openai的，第三篇是deepmind的</p>
+<p>Trust Region Policy Optimization算法是在2015年由UCB/Openai的John Schulman提出的，基本思想就是在传统的Policy Gradient算法中对梯度的更新增加一个信赖域，来保证梯度更新前后的策略相差不超过一定的阈值，用两个概率分布的KL散度来衡量这个阈值，TRPO算法的表达形式中有一个硬约束，这给求解最优问题带来了困难，而PPO则是在2017年由UCB/Openai的John Schulman提出的，是TRPO的近似算法，将TRPO的软约束转化成目标函数中的一个惩罚项，以此来简化计算，方便实现。</p>
+<a id="more"></a>
+<h2 id="trpo算法推导">TRPO算法推导</h2>
+<h3 id="notation">Notation</h3>
+<p>令<span class="math inline">\(\eta(\pi)\)</span>表示累积折扣回报：</p>
+<p><span class="math inline">\(\eta(\pi)=\mathbb{E}_{s_{0}, a_{0}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} c\left(s_{t}\right)\right]\)</span></p>
+<p>其中，<span class="math inline">\(s_{0} \sim \rho_{0}\left(s_{0}\right), a_{t} \sim \pi\left(a_{t} \mid s_{t}\right), s_{t+1} \sim P\left(s_{t+1} \mid s_{t}, a_{t}\right)\)</span></p>
+<p>state-action值函数的定义：<span class="math inline">\(Q_{\pi}\left(s_{t}, a_{t}\right)=\mathbb{E}_{s_{t+1}, a_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
+<p>价值函数的定义：<span class="math inline">\(V_{\pi}\left(s_{t}\right)=\mathbb{E}_{a_{t}, s_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
+<p>优势函数：<span class="math inline">\(A_{\pi}(s, a)=Q_{\pi}(s, a)-V_{\pi}(s)\)</span></p>
+<p><strong>Lemma1：策略差分定理</strong>：原始策略记为<span class="math inline">\(\pi\)</span>，更新后的策略记为<span class="math inline">\(\tilde{\pi}\)</span>，则更新后的策略的期望折扣回报可以写成更新前策略的期望折扣回报加上一个<span class="math inline">\(\tilde{\pi}\)</span>对<span class="math inline">\(\pi\)</span>的优势函数：</p>
+<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span></p>
+<p>上述等式能够体现TRPO的思想：将新的策略得到的性能函数写成旧策略的性能函数加上一个新策略对旧策略的的优势函数的期望值，若能保证这个期望值是正数，则可以保证新策略的性能函数要优于旧策略的性能函数。</p>
+<p>这个定理由2002年 Kakade &amp; Langford证得：</p>
+<p>因为<span class="math inline">\(A_{\pi}(s, a)=\mathbb{E}_{s^{\prime} \sim P\left(s^{\prime} \mid s, a\right)}\left[r(s)+\gamma V_{\pi}\left(s^{\prime}\right)-V_{\pi}(s)\right]\)</span></p>
+<p><span class="math inline">\(\begin{array}{l} \mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t}\left(r\left(s_{t}\right)+\gamma V_{\pi}\left(s_{t+1}\right)-V_{\pi}\left(s_{t}\right)\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[-V_{\pi}\left(s_{0}\right)+\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\mathbb{E}_{s_{0}}\left[V_{\pi}\left(s_{0}\right)\right]+\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\eta(\pi)+\eta(\tilde{\pi}) \end{array}\)</span></p>
+<p>定义discounted visitation frequencies：<span class="math inline">\(\rho_{\pi}(s)=\left(P\left(s_{0}=s\right)+\gamma P\left(s_{1}=s\right)+\gamma^{2} P\left(s_{2}=s\right)+\ldots\right)\)</span></p>
+<p>定义这个频率的目的主要是换一个角度来表示基于累计折扣回报函数的性能函数，因为<span class="math inline">\(\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span>很难表示。</p>
+<p>当<span class="math inline">\(\gamma\)</span>等于1的时候，显然，这个频率代表着在一个trajectory中状态<span class="math inline">\(s\)</span>出现次数的期望，当reward function只和状态有关而和action无关的时候，那么在这个trajectory中由<span class="math inline">\(s\)</span>贡献的return就只和这个frequency相关了。</p>
+<p>当<span class="math inline">\(\gamma\)</span>小于1的时候，在每个timestep会对reward进行一个discount的处理，所以想使用discounted frequencies来表示return的期望的话，需要在frequency上面做一个discount。</p>
+<p>通过使用discounted visitation frequencies方法，可以将上述级数形式的期望写成如下容易处理的形式</p>
+<p><span class="math display">\[\begin{aligned}
+\eta(\tilde{\pi}) &amp;=\eta(\pi)+\sum_{t=0}^{\infty} \sum_{s} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) \gamma^{t} A_{\pi}(s, a) \\
+&amp;=\eta(\pi)+\sum_{s} \sum_{t=0}^{\infty} \gamma^{t} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a) \\
+&amp;=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)
+\end{aligned}\]</span></p>
+<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
+<p>因为<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>依赖于<span class="math inline">\(\tilde{\pi}\)</span>，而因为<span class="math inline">\(\tilde{\pi}\)</span>是更新后的策略，在<span class="math inline">\(t\)</span>时刻，我们只有更新前的策略，上述优化问题很难求解，所以需要做一个近似：</p>
+<p><span class="math inline">\(L_{\pi}(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\pi}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
+<p>其中，<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>使用的是<span class="math inline">\(\rho_{\pi}\)</span>而不是<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>，因为策略的改变会导致相应的state visitation density的变化，而上面这个式子忽略了这一点，但是，(Kakade &amp; Langford 2002)证明了<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>和<span class="math inline">\(\eta(\pi)\)</span>是一阶近似的：</p>
+<p>对于任意的参数<span class="math inline">\(\theta_0\)</span>，有：</p>
+<p><span class="math inline">\(\begin{aligned} L_{\pi_{\theta_{0}}}\left(\pi_{\theta_{0}}\right) &amp;=\eta\left(\pi_{\theta_{0}}\right) \\ \left.\nabla_{\theta} L_{\pi_{\theta_{0}}}\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} &amp;=\left.\nabla_{\theta} \eta\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} \end{aligned}\)</span></p>
+<p>因此，当对策略进行一步充分小的更新，<span class="math inline">\(\pi_{\theta_{0}} \rightarrow \tilde{\pi}\)</span>，改进<span class="math inline">\(L_{\pi_{\theta_{0}}}\)</span>的同时，也能改进<span class="math inline">\(\eta(\pi_{\theta_{0}})\)</span></p>
+<p>上述过程只说明了一个充分的改进会得到非减的性能指标序列，但是选取步长很重要，选的小了会导致收敛速度慢，选了大了会导致可能的不能得到非减的性能指标序列，因此，(Kakade &amp; Langford)提出了一个policy update的方法：conservative policy iteration(保守策略迭代)，该方法给出了一个显式策略更新的下界：</p>
+<p>令<span class="math inline">\(\pi_{old}\)</span>为当前的策略，<span class="math inline">\(\pi^{\prime}=\arg \max _{\pi^{\prime}} L_{\pi_{\mathrm{old}}}\left(\pi^{\prime}\right)\)</span>，新的策略为<span class="math inline">\(\pi_{new}\)</span>，定义为：</p>
+<p><span class="math display">\[\pi_{\mathrm{new}}(a \mid s)=(1-\alpha) \pi_{\mathrm{old}}(a \mid s)+\alpha \pi^{\prime}(a \mid s)\]</span></p>
+<p>(Kakade &amp; Langford)推导出来的期望折扣累计回报的下界是：</p>
+<p><span class="math inline">\(\begin{aligned} \eta\left(\pi_{\text {new }}\right) &amp; \geq L_{\pi_{\text {old}}}\left(\pi_{\text {new}}\right)-\frac{2 \epsilon \gamma}{(1-\gamma)^{2}} \alpha^{2} \\ &amp; \text { where } \epsilon=\max _{s}\left|\mathbb{E}_{a \sim \pi^{\prime}(a \mid s)}\left[A_{\pi}(s, a)\right]\right| \end{aligned}\)</span></p>
+<p>以上都是(Kakade &amp; Langford 2002)的结论和证明</p>
+<p>其中<span class="math inline">\(\alpha\)</span>并未给出合适的计算方法，TRPO利用两个概率分布之间的KL散度来计算这个<span class="math inline">\(\alpha\)</span></p>
+<p>用概率论中的全变差距离来衡量两个策略之间的差距，<span class="math inline">\(D_{T V}(p \| q)=\frac{1}{2} \sum_{i}\left|p_{i}-q_{i}\right|\)</span></p>
+<p>其中，<span class="math inline">\(p_i\)</span>和<span class="math inline">\(q_i\)</span>是两个策略的离散的概率分布，定义<span class="math inline">\(D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})\)</span>为：</p>
+<p><span class="math display">\[D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})=\max _{s} D_{T V}(\pi(\cdot \mid s) \| \tilde{\pi}(\cdot \mid s))\]</span></p>
+<p>因为全变差距离和KL散度具有关系：<span class="math inline">\(D_{T V}(p \| q)^{2} \leq D_{\mathrm{KL}}(p \| q)\)</span></p>
+<p>所以可以将<span class="math inline">\(\alpha^2\)</span>替换为<span class="math inline">\(D_{T V}(p \| q)^{2}\)</span>，进一步可以替换为<span class="math inline">\(D_{\mathrm{KL}}(p \| q)\)</span></p>
+<p>利用KL divergence来衡量差距，计算方法：</p>
+<p>对于离散分布：<span class="math inline">\(D_{K L}(P \mid Q)=\sum_{i} P(i) \log \frac{P(i)}{Q(i)}\)</span></p>
+<p>对于连续分布：<span class="math inline">\(D_{K L}(P \mid Q)=\int_{-\infty}^{\infty} p(x) \log \frac{p(x)}{q(x)} d x\)</span></p>
+<p><strong>TRPO算法</strong></p>
+<p><img src="image-20200913171805500.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
+<p>策略的单调改进：TRPO算法能够保证策略每次更新都是单调改进的，即值函数<span class="math inline">\(\eta\left(\pi_{0}\right) \leq \eta\left(\pi_{1}\right) \leq \eta\left(\pi_{2}\right) \leq \ldots\)</span></p>
+<p><img src="image-20200913191418918.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
+<h2 id="ppo算法">PPO算法</h2>
+<p>TRPO算法是找到原目标函数的替代函数，并最大化这个替代函数，优化问题的约束是策略参数的更新不能超过一个设定的阈值，优化过程可以写成：</p>
+<p><span class="math inline">\(\begin{array}{ll} \underset{\theta}{\operatorname{maximize}} &amp; \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right] \\ \text { subject to } &amp; \hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right] \leq \delta \end{array}\)</span></p>
+<p>PPO是TRPO的一个改进，或者可以说是一个近似算法，可以将上述的带约束优化问题转化为无约束优化问题，可以写出TRPO的另一个形式：</p>
+<p><span class="math inline">\(\underset{\theta}{\operatorname{maximize}} \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
+<p>令<span class="math inline">\(r_t(\theta)\)</span>表示概率比：<span class="math inline">\(r_{t}(\theta)=\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\mathrm{old}}}\left(a_{t} \mid s_{t}\right)}\)</span>，因此<span class="math inline">\(r(\theta){old}=1\)</span>，</p>
+<p>TRPO最大化一个替代的目标函数：</p>
+<p><span class="math inline">\(L^{C P I}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right]=\hat{\mathbb{E}}_{t}\left[r_{t}(\theta) \hat{A}_{t}\right]\)</span></p>
+<p>如果使用策略迭代进行求解，那么策略的更新的步长可能会很大，<strong>以下是PPO的一个实现：对ration直接进行限制</strong></p>
+<p><span class="math inline">\(L^{C L I P}(\theta)=\hat{\mathbb{E}}_{t}\left[\min \left(r_{t}(\theta) \hat{A}_{t}, \operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\right)\right]\)</span></p>
+<p>上述min中有两项：第一项为<span class="math inline">\(r_{t}(\theta) \hat{A}_{t}\)</span>，第二项为<span class="math inline">\(\operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\)</span></p>
+<p><strong>Clip</strong>：为目标函数限定一个范围，意思就是通过计算概率比<span class="math inline">\(r_t(\theta)\)</span>，设定一个阈值，将其限制在一定的范围内<span class="math inline">\((1-\epsilon, 1+\epsilon)\)</span>，来避免策略网络的权重更新步长过大。</p>
+<p><span class="math inline">\(L^{CLIP}\)</span>是<span class="math inline">\(L^{CPI}\)</span>的一个下界。</p>
+<p><img src="image-20200913162249801.png" alt="image-20200913162249801" style="zoom:50%;" /></p>
+<p>PPO算法的第二种形式：</p>
+<p>以目标函数加入惩罚项的形式：</p>
+<p><span class="math inline">\(L^{K L P E N}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
+<p>其中，<span class="math inline">\(\beta\)</span>不是固定的，需要进行自适应设计，设计方法如下：</p>
+<p>计算两个策略的KL散度：<span class="math inline">\(d=\hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
+<p><span class="math inline">\(\begin{array}{l} -\text { If } d&lt;d_{\operatorname{targ}} / 1.5, \beta \leftarrow \beta / 2 \\ -\text { If } d&gt;d_{\text {targ }} \times 1.5, \beta \leftarrow \beta \times 2 \end{array}\)</span></p>
+]]></content>
+      <categories>
+        <category>Reinforcement Learning</category>
+      </categories>
+      <tags>
+        <tag>Reinforcement Learning</tag>
       </tags>
   </entry>
   <entry>
