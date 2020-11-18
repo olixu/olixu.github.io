@@ -209,6 +209,121 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.oliverxu.cn/2020/08/14/Pytorch%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Oliver xu">
+      <meta itemprop="description" content="The most difficult thing in life is to know yourself">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oliver xu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/14/Pytorch%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Pytorch使用笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-14 19:07:50" itemprop="dateCreated datePublished" datetime="2020-08-14T19:07:50+00:00">2020-08-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-23 01:46:52" itemprop="dateModified" datetime="2020-09-23T01:46:52+00:00">2020-09-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/08/14/Pytorch%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="Pytorch使用笔记" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>Pytorch有非常多的函数，这篇文章长期更新，记录使用到的函数。</p>
+</blockquote>
+<h3 id="参考资源">参考资源：</h3>
+<ol type="1">
+<li><a href="https://pytorch.org/tutorials/beginner/ptcheat.html" target="_blank" rel="noopener external nofollow noreferrer">Pytorch cheat sheet</a></li>
+</ol>
+<h3 id="categorical">Categorical</h3>
+<p>官方文档：<a href="https://pytorch.org/docs/stable/distributions.html" target="_blank" rel="noopener external nofollow noreferrer">https://pytorch.org/docs/stable/distributions.html</a></p>
+<p><code>CLASS torch.distributions.categorical.Categorical(probs=None, logits=None, validate_args=None)</code></p>
+<p><strong>作用</strong>：创建一个以<strong>probs</strong>为参数的<strong>类别分布</strong>。</p>
+<p>采样的样本是<span class="math inline">\(\{0,...,K-1\}\)</span>个整数，其中，<span class="math inline">\(K\)</span>是<strong>probs</strong>的长度。</p>
+<p>如果<strong>probs</strong>是一维的，那么就是对对应的index进行采样。</p>
+<p>如果<strong>probs</strong>是二维的，那么相当于对一批一维的数组进行采样。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/14/Pytorch%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://blog.oliverxu.cn/2020/08/13/%E5%86%8D%E8%AF%BBPEP8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1161,109 +1276,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.oliverxu.cn/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Oliver xu">
-      <meta itemprop="description" content="The most difficult thing in life is to know yourself">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Oliver xu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/" class="post-title-link" itemprop="url">Playing Cartpole with natural deep reinforcement learning</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-01 16:52:26" itemprop="dateCreated datePublished" datetime="2019-12-01T16:52:26+00:00">2019-12-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-14 07:41:31" itemprop="dateModified" datetime="2020-09-14T07:41:31+00:00">2020-09-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Reinforcement-Learning/" itemprop="url" rel="index"><span itemprop="name">Reinforcement Learning</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/" class="post-meta-item leancloud_visitors" data-flag-title="Playing Cartpole with natural deep reinforcement learning" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>12k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>11 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="introduction">Introduction</h2>
-<p>There are two kinds of methods in reinforcement learning, <strong>tabular methods</strong> and <strong>approximate methods</strong>. The purpose of RL is to get an <strong>optimal policy</strong>, which tells you to choose what action <em>A</em> when you at state <em>S</em>. If the state and aciton spaces are small enough, value fucntion can be represented as arrays, or tables. The problem with large state space is not just the memory needed for large tables, but the time and data needed to fill them accurately. If the state and aciton spaces are too large, due to the limitions of time and data, value functions need to be approximated with limited computational resources. In this case, out goal instead is to find a good enough approximate solution compared to optimal solution.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1333,7 +1345,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -23,23 +23,20 @@
     var CONFIG = {"hostname":"blog.oliverxu.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="**CBDict：一个专门为Linux环境下的学术党设计的文献取词翻译器** ClipBoardDictionary This program monitors the clipboard of the system and translates the word from English to Chinese by YouDao API, specially designed for Stude">
+  <meta name="description" content="需求 本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。 后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CBDict文献取词翻译器">
-<meta property="og:url" content="https://blog.oliverxu.cn/2019/03/18/CBDict%E6%96%87%E7%8C%AE%E5%8F%96%E8%AF%8D%E7%BF%BB%E8%AF%91%E5%99%A8/index.html">
+<meta property="og:title" content="vs code remote ssh 使用x11转发显示远程图像">
+<meta property="og:url" content="https://blog.oliverxu.cn/2020/11/17/vs%20code%20remote%20ssh%20%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/index.html">
 <meta property="og:site_name" content="Oliver xu&#39;s Blog">
-<meta property="og:description" content="**CBDict：一个专门为Linux环境下的学术党设计的文献取词翻译器** ClipBoardDictionary This program monitors the clipboard of the system and translates the word from English to Chinese by YouDao API, specially designed for Stude">
+<meta property="og:description" content="需求 本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。 后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://github.com/olixu/CBDict/blob/master/demo.gif?raw=true">
-<meta property="og:image" content="https://github.com/olixu/CBDict/blob/master/demo1.gif?raw=true">
-<meta property="article:published_time" content="2019-03-18T22:09:18.000Z">
-<meta property="article:modified_time" content="2020-09-14T07:41:31.653Z">
+<meta property="article:published_time" content="2020-11-17T10:03:50.000Z">
+<meta property="article:modified_time" content="2020-11-18T14:18:56.002Z">
 <meta property="article:author" content="Oliver xu">
-<meta property="article:tag" content="python">
+<meta property="article:tag" content="博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/olixu/CBDict/blob/master/demo.gif?raw=true">
 
-<link rel="canonical" href="https://blog.oliverxu.cn/2019/03/18/CBDict%E6%96%87%E7%8C%AE%E5%8F%96%E8%AF%8D%E7%BF%BB%E8%AF%91%E5%99%A8/">
+<link rel="canonical" href="https://blog.oliverxu.cn/2020/11/17/vs%20code%20remote%20ssh%20%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/">
 
 
 <script id="page-configurations">
@@ -52,7 +49,7 @@
   };
 </script>
 
-  <title>CBDict文献取词翻译器 | Oliver xu's Blog</title>
+  <title>vs code remote ssh 使用x11转发显示远程图像 | Oliver xu's Blog</title>
   
 
 
@@ -216,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.oliverxu.cn/2019/03/18/CBDict%E6%96%87%E7%8C%AE%E5%8F%96%E8%AF%8D%E7%BF%BB%E8%AF%91%E5%99%A8/">
+    <link itemprop="mainEntityOfPage" href="https://blog.oliverxu.cn/2020/11/17/vs%20code%20remote%20ssh%20%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -229,7 +226,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          CBDict文献取词翻译器
+          vs code remote ssh 使用x11转发显示远程图像
         </h1>
 
         <div class="post-meta">
@@ -239,14 +236,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-03-18 22:09:18" itemprop="dateCreated datePublished" datetime="2019-03-18T22:09:18+00:00">2019-03-18</time>
+              <time title="创建时间：2020-11-17 10:03:50" itemprop="dateCreated datePublished" datetime="2020-11-17T10:03:50+00:00">2020-11-17</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-14 07:41:31" itemprop="dateModified" datetime="2020-09-14T07:41:31+00:00">2020-09-14</time>
+                <time title="修改时间：2020-11-18 14:18:56" itemprop="dateModified" datetime="2020-11-18T14:18:56+00:00">2020-11-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -254,12 +251,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
                 </span>
             </span>
 
           
-            <span id="/2019/03/18/CBDict%E6%96%87%E7%8C%AE%E5%8F%96%E8%AF%8D%E7%BF%BB%E8%AF%91%E5%99%A8/" class="post-meta-item leancloud_visitors" data-flag-title="CBDict文献取词翻译器" title="阅读次数">
+            <span id="/2020/11/17/vs%20code%20remote%20ssh%20%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/" class="post-meta-item leancloud_visitors" data-flag-title="vs code remote ssh 使用x11转发显示远程图像" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -278,7 +275,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>713</span>
+              <span>410</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -297,28 +294,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <pre><code>**CBDict：一个专门为Linux环境下的学术党设计的文献取词翻译器**</code></pre>
-<h1 id="clipboarddictionary">ClipBoardDictionary</h1>
-<p>This program monitors the clipboard of the system and translates the word from English to Chinese by YouDao API, specially designed for Students who are working under Linux environment where there is no simple translator when you read papers.</p>
+        <h2 id="需求">需求</h2>
+<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
+<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
 <a id="more"></a>
-<h1 id="项目起源">项目起源</h1>
-<p>本人即将成为一名Ph.D，现在在看一些关于强化学习，深度学习，机器学习，控制理论等方面的英文文献，经常会有一些单词不认识．</p>
-<p>虽然市面上很多优秀的翻译软件都已经集成了屏幕取词的功能，例如有道词典．但是由于我操作系统或者驱动等一些问题（本人的开发环境为Manjaro），安装了有道词典之后，我无法使用屏幕取词功能，每次都需要复制到网页中查询．</p>
-<p>每次切换到浏览器再切换回pdf阅读器，十分影响阅读体验．因此，我写了这么一个小玩具，能够监控剪贴板中的内容，并且自动使用有道词典的api来进行翻译．将结果输出到终端中．</p>
-<p>本玩具纯粹是为了方便我读paper．不喜勿喷．</p>
-<h1 id="使用教程">使用教程</h1>
-<p>STEP1 : 安装依赖的包，用于访问剪贴板中的内容 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install xclip</span><br></pre></td></tr></table></figure></p>
-<p>STEP2 : 在终端中输入以下命令来安装CBDict <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install CBDict</span><br></pre></td></tr></table></figure></p>
-<p>STEP3 : 在终端中输入<code>CBDict</code>来启动词典 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CBDict</span><br></pre></td></tr></table></figure></p>
-<p>STEP4 : 复制任何你想翻译的内容，翻译的结果会呈现在终端中．</p>
-<h1 id="使用实例">使用实例</h1>
-<figure>
-<img src="https://github.com/olixu/CBDict/blob/master/demo.gif?raw=true" alt="demo" /><figcaption>demo</figcaption>
-</figure>
-<p>VERSION 2.0</p>
-<figure>
-<img src="https://github.com/olixu/CBDict/blob/master/demo1.gif?raw=true" alt="demo" /><figcaption>demo</figcaption>
-</figure>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+<h2 id="问题">问题</h2>
+<ul>
+<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
+<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
+</ul>
 
     </div>
 
@@ -343,7 +329,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag"># 博客</a>
           </div>
 
         
@@ -352,13 +338,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/02/20/%E5%87%8F%E8%82%A5%E7%9A%84%E7%A7%91%E5%AD%A6%E5%8E%9F%E7%90%86/" rel="prev" title="减肥的科学原理">
-      <i class="fa fa-chevron-left"></i> 减肥的科学原理
+    <a href="/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github%20action%E6%8E%A8%E9%80%81github%20pages/" rel="prev" title="使用本地服务器结合github action推送github pages">
+      <i class="fa fa-chevron-left"></i> 使用本地服务器结合github action推送github pages
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2019/04/14/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%9A%E6%9C%89%E9%99%90%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/" rel="next" title="强化学习：有限马尔科夫决策过程">
-      强化学习：有限马尔科夫决策过程 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -418,7 +401,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#clipboarddictionary"><span class="nav-number">1.</span> <span class="nav-text">ClipBoardDictionary</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目起源"><span class="nav-number">2.</span> <span class="nav-text">项目起源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用教程"><span class="nav-number">3.</span> <span class="nav-text">使用教程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用实例"><span class="nav-number">4.</span> <span class="nav-text">使用实例</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">2.</span> <span class="nav-text">参考链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">3.</span> <span class="nav-text">问题</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -686,6 +669,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
@@ -700,7 +736,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'blog-comment',
       owner       : 'olixu',
       admin       : ['olixu'],
-      id          : 'f38a6c1f6fbfec81d86b5c4e98c4f5fa',
+      id          : '42ac7f0642426f8d13c1161d79e48e98',
         language: 'zh-CN',
       distractionFreeMode: true
     });

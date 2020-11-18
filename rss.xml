@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="https://blog.oliverxu.cn/"/>
-  <updated>2020-11-15T02:12:47.369Z</updated>
+  <updated>2020-11-18T14:18:56.002Z</updated>
   <id>https://blog.oliverxu.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vs code remote ssh 使用x11转发显示远程图像</title>
+    <link href="https://blog.oliverxu.cn/2020/11/17/vs%20code%20remote%20ssh%20%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/"/>
+    <id>https://blog.oliverxu.cn/2020/11/17/vs%20code%20remote%20ssh%20%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</id>
+    <published>2020-11-17T10:03:50.000Z</published>
+    <updated>2020-11-18T14:18:56.002Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;需求&quot;&gt;需求&lt;/h2&gt;
+&lt;p&gt;本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。&lt;/p&gt;
+&lt;p&gt;后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="博客" scheme="https://blog.oliverxu.cn/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="博客" scheme="https://blog.oliverxu.cn/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>使用本地服务器结合github action推送github pages</title>
@@ -88,28 +111,6 @@
   </entry>
   
   <entry>
-    <title>使用PPO设计线性系统控制器</title>
-    <link href="https://blog.oliverxu.cn/2020/08/27/%E4%BD%BF%E7%94%A8PPO%E8%AE%BE%E8%AE%A1%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%99%A8/"/>
-    <id>https://blog.oliverxu.cn/2020/08/27/%E4%BD%BF%E7%94%A8PPO%E8%AE%BE%E8%AE%A1%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%99%A8/</id>
-    <published>2020-08-27T11:46:02.000Z</published>
-    <updated>2020-09-14T07:41:31.665Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;论文《Policy Iteration Adaptive Dynamic Programming Algorithm for Discrete-Time Nonlinear Systems》&lt;/p&gt;
-&lt;p&gt;这几天读了ADP相关的几篇论文，早期08年-14年都是用Policy Iteration方法进行求解，14-18年，Policy Gradient方法多了起来。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/categories/Reinforcement-Learning/"/>
-    
-    
-      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/tags/Reinforcement-Learning/"/>
-    
-  </entry>
-  
-  <entry>
     <title>非线性系统的最优控制器论文整理</title>
     <link href="https://blog.oliverxu.cn/2020/08/27/%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6%E5%99%A8%E8%AE%BA%E6%96%87%E6%95%B4%E7%90%86/"/>
     <id>https://blog.oliverxu.cn/2020/08/27/%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6%E5%99%A8%E8%AE%BA%E6%96%87%E6%95%B4%E7%90%86/</id>
@@ -130,6 +131,28 @@
     
     
       <category term="Nonlinear System" scheme="https://blog.oliverxu.cn/tags/Nonlinear-System/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用PPO设计线性系统控制器</title>
+    <link href="https://blog.oliverxu.cn/2020/08/27/%E4%BD%BF%E7%94%A8PPO%E8%AE%BE%E8%AE%A1%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%99%A8/"/>
+    <id>https://blog.oliverxu.cn/2020/08/27/%E4%BD%BF%E7%94%A8PPO%E8%AE%BE%E8%AE%A1%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%99%A8/</id>
+    <published>2020-08-27T11:46:02.000Z</published>
+    <updated>2020-09-14T07:41:31.665Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;论文《Policy Iteration Adaptive Dynamic Programming Algorithm for Discrete-Time Nonlinear Systems》&lt;/p&gt;
+&lt;p&gt;这几天读了ADP相关的几篇论文，早期08年-14年都是用Policy Iteration方法进行求解，14-18年，Policy Gradient方法多了起来。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/categories/Reinforcement-Learning/"/>
+    
+    
+      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/tags/Reinforcement-Learning/"/>
     
   </entry>
   
@@ -486,28 +509,6 @@
     
     
       <category term="Latex" scheme="https://blog.oliverxu.cn/tags/Latex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Playing Cartpole with natural deep reinforcement learning</title>
-    <link href="https://blog.oliverxu.cn/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/"/>
-    <id>https://blog.oliverxu.cn/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/</id>
-    <published>2019-12-01T16:52:26.000Z</published>
-    <updated>2020-09-14T07:41:31.661Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;There are two kinds of methods in reinforcement learning, &lt;strong&gt;tabular methods&lt;/strong&gt; and &lt;strong&gt;approximate methods&lt;/strong&gt;. The purpose of RL is to get an &lt;strong&gt;optimal policy&lt;/strong&gt;, which tells you to choose what action &lt;em&gt;A&lt;/em&gt; when you at state &lt;em&gt;S&lt;/em&gt;. If the state and aciton spaces are small enough, value fucntion can be represented as arrays, or tables. The problem with large state space is not just the memory needed for large tables, but the time and data needed to fill them accurately. If the state and aciton spaces are too large, due to the limitions of time and data, value functions need to be approximated with limited computational resources. In this case, out goal instead is to find a good enough approximate solution compared to optimal solution.
-    
-    </summary>
-    
-    
-      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/categories/Reinforcement-Learning/"/>
-    
-    
-      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/tags/Reinforcement-Learning/"/>
     
   </entry>
   
