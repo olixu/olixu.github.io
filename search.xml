@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Flask项目结构</title>
+    <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>拥有良好的项目结构对于开发与维护有着巨大的作用</strong> <a id="more"></a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects$ tree</span><br><span class="line">.</span><br><span class="line">`-- ProjectName</span><br><span class="line">    |-- app                      # 整个程序的包目录</span><br><span class="line">    |   |-- config.py                # 配置文件</span><br><span class="line">    |   |-- email.py                 # 邮件发送</span><br><span class="line">    |   |-- extensions.py            # 各种扩展</span><br><span class="line">    |   |-- forms                    # 表单文件</span><br><span class="line">    |   |-- models                   # 数据模型</span><br><span class="line">    |   |-- static                   # 静态资源文件</span><br><span class="line">    |   |   |-- css                      # 样式表</span><br><span class="line">    |   |   |-- img                      # 图片</span><br><span class="line">    |   |   `-- js                       # JS脚本</span><br><span class="line">    |   |-- templates                # 模板文件</span><br><span class="line">    |   |   |-- common                   # 通用模板</span><br><span class="line">    |   |   |-- email                    # 邮件发送</span><br><span class="line">    |   |   |-- errors                   # 错误页面</span><br><span class="line">    |   |   |-- posts                    # 帖子模板</span><br><span class="line">    |   |   `-- user                     # 用户模板</span><br><span class="line">    |   `-- views                    # 视图文件</span><br><span class="line">    |-- manage.py                    # 项目启动控制文件</span><br><span class="line">    |-- migrations                   # 数据库迁移目录</span><br><span class="line">    |-- requirements.txt             # 依赖包的列表</span><br><span class="line">    `-- tests                        # 测试单元</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux系统TIPS</title>
+    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
+    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
+<a id="more"></a>
+<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
+<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CBDict文献取词翻译器</title>
     <url>/2019/03/18/CBDict%E6%96%87%E7%8C%AE%E5%8F%96%E8%AF%8D%E7%BF%BB%E8%AF%91%E5%99%A8/</url>
     <content><![CDATA[<pre><code>**CBDict：一个专门为Linux环境下的学术党设计的文献取词翻译器**</code></pre>
@@ -34,17 +63,20 @@
       </tags>
   </entry>
   <entry>
-    <title>Flask项目结构</title>
-    <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<blockquote>
-<p><strong>拥有良好的项目结构对于开发与维护有着巨大的作用</strong> <a id="more"></a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects$ tree</span><br><span class="line">.</span><br><span class="line">`-- ProjectName</span><br><span class="line">    |-- app                      # 整个程序的包目录</span><br><span class="line">    |   |-- config.py                # 配置文件</span><br><span class="line">    |   |-- email.py                 # 邮件发送</span><br><span class="line">    |   |-- extensions.py            # 各种扩展</span><br><span class="line">    |   |-- forms                    # 表单文件</span><br><span class="line">    |   |-- models                   # 数据模型</span><br><span class="line">    |   |-- static                   # 静态资源文件</span><br><span class="line">    |   |   |-- css                      # 样式表</span><br><span class="line">    |   |   |-- img                      # 图片</span><br><span class="line">    |   |   `-- js                       # JS脚本</span><br><span class="line">    |   |-- templates                # 模板文件</span><br><span class="line">    |   |   |-- common                   # 通用模板</span><br><span class="line">    |   |   |-- email                    # 邮件发送</span><br><span class="line">    |   |   |-- errors                   # 错误页面</span><br><span class="line">    |   |   |-- posts                    # 帖子模板</span><br><span class="line">    |   |   `-- user                     # 用户模板</span><br><span class="line">    |   `-- views                    # 视图文件</span><br><span class="line">    |-- manage.py                    # 项目启动控制文件</span><br><span class="line">    |-- migrations                   # 数据库迁移目录</span><br><span class="line">    |-- requirements.txt             # 依赖包的列表</span><br><span class="line">    `-- tests                        # 测试单元</span><br></pre></td></tr></table></figure></p>
-</blockquote>
+    <title>Manjaro下解决Matplotlib中文显示出错</title>
+    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
+    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
+<ul>
+<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
+<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
+<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
+</ul>
 ]]></content>
       <categories>
-        <category>flask</category>
+        <category>机器学习</category>
       </categories>
       <tags>
-        <tag>flask</tag>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -84,38 +116,6 @@
       </categories>
       <tags>
         <tag>scientific papers</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Manjaro下解决Matplotlib中文显示出错</title>
-    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
-    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
-<ul>
-<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
-<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
-<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux系统TIPS</title>
-    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
-    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
-<a id="more"></a>
-<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
-<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -240,6 +240,17 @@
       <tags>
         <tag>Mysql</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Monte Carlo Methods</title>
+    <url>/2019/10/21/Monte-Carlo-Methods/</url>
+    <content><![CDATA[<p>Unlike Dynamic Programming Methods, Monte Carlo Methods do not assume complete knowledge of the environment. MC only requires experience--sample sequences of states, actions, and rewards from actual or simulated interaction with an environment.</p>
+<h2 id="monte-carlo-prediction">Monte Carlo Prediction</h2>
+<p>The idea underlies all Monte Carlo methods is that as more returns are observed the average should converge to the expected value. So we begin by considerng Monte Carlo methods for learning the state-value function for a given policy. A way to estimate the value of a state from experience is simply to average the returns observed after visits to that state. <a id="more"></a> ## Play with Blackjack ENV <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">env = BlackjackEnv()</span><br><span class="line"><span class="comment"># The observation is a 3-tuple of: the players current sum,</span></span><br><span class="line"><span class="comment"># the dealer's one showing card (1-10 where 1 is ace),</span></span><br><span class="line"><span class="comment"># and whether or not the player holds a usable ace (0 or 1).</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_observation</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    print(<span class="string">"Player Score: &#123;&#125; (Usable Ace: &#123;&#125;), Dealer Score: &#123;&#125;"</span>.format(</span><br><span class="line">          score, usable_ace, dealer_score))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    <span class="comment"># Stick (action 0) if the score is &gt; 20, hit (action 1) otherwise</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> score &gt;= <span class="number">20</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    observation = env.reset()</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        print_observation(observation)</span><br><span class="line">        action = strategy(observation)</span><br><span class="line">        print(<span class="string">"Taking action: &#123;&#125;"</span>.format( [<span class="string">"Stick"</span>, <span class="string">"Hit"</span>][action]))</span><br><span class="line">        observation, reward, done, _ = env.step(action)</span><br><span class="line">        <span class="keyword">if</span> done:</span><br><span class="line">            print_observation(observation)</span><br><span class="line">            print(<span class="string">"Game end. Reward: &#123;&#125;\n"</span>.format(float(reward)))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="first-visit-mc-prediction-algorithm">First-visit MC prediction algorithm</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mc_prediction</span><span class="params">(policy, env, num_episodes, discount_factor=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Monte Carlo prediction algorithm. Calculates the value function</span></span><br><span class="line"><span class="string">    for a given policy using sampling.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        policy: A function that maps an observation to action probabilities.</span></span><br><span class="line"><span class="string">        env: OpenAI gym environment.</span></span><br><span class="line"><span class="string">        num_episodes: Number of episodes to sample.</span></span><br><span class="line"><span class="string">        discount_factor: Gamma discount factor.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        A dictionary that maps from state -&gt; value.</span></span><br><span class="line"><span class="string">        The state is a tuple and the value is a float.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Keeps track of sum and count of returns for each state</span></span><br><span class="line">    <span class="comment"># to calculate an average. We could use an array to save all</span></span><br><span class="line">    <span class="comment"># returns (like in the book) but that's memory inefficient.</span></span><br><span class="line">    returns_sum = defaultdict(float)</span><br><span class="line">    returns_count = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># The final value function</span></span><br><span class="line">    V = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Implement this!</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        episode = []</span><br><span class="line">        state = env.reset()</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            action = policy(state)</span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            state = next_state</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Find all states the we've visited in this episode</span></span><br><span class="line">        <span class="comment"># We convert each state to a tuple so that we can use it as a dict key</span></span><br><span class="line">        states_in_episode = set([tuple(x[<span class="number">0</span>]) <span class="keyword">for</span> x <span class="keyword">in</span> episode])</span><br><span class="line">        <span class="keyword">for</span> state <span class="keyword">in</span> states_in_episode:</span><br><span class="line">            <span class="comment">#print(state)</span></span><br><span class="line">            <span class="comment">#print(10*'*')</span></span><br><span class="line">            <span class="comment"># Find the first occurance of the state in the episode</span></span><br><span class="line">            first_occurence_idx = next(i <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode) <span class="keyword">if</span> x[<span class="number">0</span>] == state)</span><br><span class="line">            <span class="comment"># Sum up all rewards since the first occurance</span></span><br><span class="line">            G = sum([x[<span class="number">2</span>]*(discount_factor**i) <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode[first_occurence_idx:])])</span><br><span class="line">            <span class="comment"># Calculate average return for this state over all sampled episodes</span></span><br><span class="line">            returns_sum[state] += G</span><br><span class="line">            returns_count[state] += <span class="number">1.0</span></span><br><span class="line">            V[state] = returns_sum[state] / returns_count[state]</span><br><span class="line">    print(len(V))</span><br><span class="line">    print(first_occurence_idx)</span><br><span class="line">    print(states_in_episode)</span><br><span class="line">    print(episode)</span><br><span class="line">    <span class="keyword">return</span> V</span><br></pre></td></tr></table></figure>
+<p><img src="10000_Steps_No_Usable_Ace.png" alt="10000_Steps_No_Usable_Ace" /> <img src="10000_Steps_Usable_Ace.png" alt="10000_Steps_Usable_Ace" /> <img src="500000_Steps_No_Usable_Ace.png" alt="500000_Steps_No_Usable_Ace" /> <img src="500000_Steps_Usable_Ace.png" alt="500000_Steps_Usable_Ace" /></p>
+]]></content>
   </entry>
   <entry>
     <title>PGADP数据驱动的优化控制</title>
@@ -367,17 +378,6 @@ Box(4,)</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Monte Carlo Methods</title>
-    <url>/2019/10/21/Monte-Carlo-Methods/</url>
-    <content><![CDATA[<p>Unlike Dynamic Programming Methods, Monte Carlo Methods do not assume complete knowledge of the environment. MC only requires experience--sample sequences of states, actions, and rewards from actual or simulated interaction with an environment.</p>
-<h2 id="monte-carlo-prediction">Monte Carlo Prediction</h2>
-<p>The idea underlies all Monte Carlo methods is that as more returns are observed the average should converge to the expected value. So we begin by considerng Monte Carlo methods for learning the state-value function for a given policy. A way to estimate the value of a state from experience is simply to average the returns observed after visits to that state. <a id="more"></a> ## Play with Blackjack ENV <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">env = BlackjackEnv()</span><br><span class="line"><span class="comment"># The observation is a 3-tuple of: the players current sum,</span></span><br><span class="line"><span class="comment"># the dealer's one showing card (1-10 where 1 is ace),</span></span><br><span class="line"><span class="comment"># and whether or not the player holds a usable ace (0 or 1).</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_observation</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    print(<span class="string">"Player Score: &#123;&#125; (Usable Ace: &#123;&#125;), Dealer Score: &#123;&#125;"</span>.format(</span><br><span class="line">          score, usable_ace, dealer_score))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    <span class="comment"># Stick (action 0) if the score is &gt; 20, hit (action 1) otherwise</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> score &gt;= <span class="number">20</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    observation = env.reset()</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        print_observation(observation)</span><br><span class="line">        action = strategy(observation)</span><br><span class="line">        print(<span class="string">"Taking action: &#123;&#125;"</span>.format( [<span class="string">"Stick"</span>, <span class="string">"Hit"</span>][action]))</span><br><span class="line">        observation, reward, done, _ = env.step(action)</span><br><span class="line">        <span class="keyword">if</span> done:</span><br><span class="line">            print_observation(observation)</span><br><span class="line">            print(<span class="string">"Game end. Reward: &#123;&#125;\n"</span>.format(float(reward)))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="first-visit-mc-prediction-algorithm">First-visit MC prediction algorithm</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mc_prediction</span><span class="params">(policy, env, num_episodes, discount_factor=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Monte Carlo prediction algorithm. Calculates the value function</span></span><br><span class="line"><span class="string">    for a given policy using sampling.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        policy: A function that maps an observation to action probabilities.</span></span><br><span class="line"><span class="string">        env: OpenAI gym environment.</span></span><br><span class="line"><span class="string">        num_episodes: Number of episodes to sample.</span></span><br><span class="line"><span class="string">        discount_factor: Gamma discount factor.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        A dictionary that maps from state -&gt; value.</span></span><br><span class="line"><span class="string">        The state is a tuple and the value is a float.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Keeps track of sum and count of returns for each state</span></span><br><span class="line">    <span class="comment"># to calculate an average. We could use an array to save all</span></span><br><span class="line">    <span class="comment"># returns (like in the book) but that's memory inefficient.</span></span><br><span class="line">    returns_sum = defaultdict(float)</span><br><span class="line">    returns_count = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># The final value function</span></span><br><span class="line">    V = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Implement this!</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        episode = []</span><br><span class="line">        state = env.reset()</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            action = policy(state)</span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            state = next_state</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Find all states the we've visited in this episode</span></span><br><span class="line">        <span class="comment"># We convert each state to a tuple so that we can use it as a dict key</span></span><br><span class="line">        states_in_episode = set([tuple(x[<span class="number">0</span>]) <span class="keyword">for</span> x <span class="keyword">in</span> episode])</span><br><span class="line">        <span class="keyword">for</span> state <span class="keyword">in</span> states_in_episode:</span><br><span class="line">            <span class="comment">#print(state)</span></span><br><span class="line">            <span class="comment">#print(10*'*')</span></span><br><span class="line">            <span class="comment"># Find the first occurance of the state in the episode</span></span><br><span class="line">            first_occurence_idx = next(i <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode) <span class="keyword">if</span> x[<span class="number">0</span>] == state)</span><br><span class="line">            <span class="comment"># Sum up all rewards since the first occurance</span></span><br><span class="line">            G = sum([x[<span class="number">2</span>]*(discount_factor**i) <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode[first_occurence_idx:])])</span><br><span class="line">            <span class="comment"># Calculate average return for this state over all sampled episodes</span></span><br><span class="line">            returns_sum[state] += G</span><br><span class="line">            returns_count[state] += <span class="number">1.0</span></span><br><span class="line">            V[state] = returns_sum[state] / returns_count[state]</span><br><span class="line">    print(len(V))</span><br><span class="line">    print(first_occurence_idx)</span><br><span class="line">    print(states_in_episode)</span><br><span class="line">    print(episode)</span><br><span class="line">    <span class="keyword">return</span> V</span><br></pre></td></tr></table></figure>
-<p><img src="10000_Steps_No_Usable_Ace.png" alt="10000_Steps_No_Usable_Ace" /> <img src="10000_Steps_Usable_Ace.png" alt="10000_Steps_Usable_Ace" /> <img src="500000_Steps_No_Usable_Ace.png" alt="500000_Steps_No_Usable_Ace" /> <img src="500000_Steps_Usable_Ace.png" alt="500000_Steps_Usable_Ace" /></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Play with MountainCar</title>
     <url>/2019/11/15/Play-with-MountainCar/</url>
     <content><![CDATA[<p>MountainCar is a task of driving an underpowered car up a steep mountain road. The difficulty is that gravity is stronger than the car's engine, and even at full throttle the car cannot accelerate up the steep slope. The only solution is to first move away from the goal and up the opposite slope on the left. Then, by applying full throttle the car can build up enough inertia to carry it up the steep slope even though it is slowing down the whole way.</p>
@@ -405,26 +405,6 @@ Box(4,)</code></pre>
       </categories>
       <tags>
         <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python的Anoymous Functions</title>
-    <url>/2019/02/15/Python%E7%9A%84Anoymous-Functions/</url>
-    <content><![CDATA[<h2 id="什么是python的匿名函数">什么是Python的匿名函数</h2>
-<p>在Python中，匿名函数的意思是定义的函数没有名字。<code>def</code>命令用来创建普通函数，<code>lambda</code>命令用来创建匿名函数。语法如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">lambda</span> arguments : expression</span><br></pre></td></tr></table></figure>
-<ul>
-<li>这个函数可以拥有多个参数，但是只有一个表达式进行运行与返回</li>
-<li>换句话说，lambda表达式中不能出现赋值，或者使用任何其他的语句，例如while， try等等</li>
-</ul>
-<h2 id="example">Example</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">g = <span class="keyword">lambda</span> x:x*x*x</span><br><span class="line">print(g(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -483,62 +463,17 @@ Box(4,)</code></pre>
 ]]></content>
   </entry>
   <entry>
-    <title>Python配置虚拟环境</title>
-    <url>/2018/09/16/Python%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<blockquote>
-<p>Python的开发过程中往往会遇到<strong>不同库</strong>存在<strong>不同版本</strong>的问题，例如我使用flask框架开发一个网站，A网站可能会使用<strong>flask 1.0</strong>，B网站可能会使用<strong>flask 2.0</strong>， 那么如何在电脑上进行配置，可以很方便的对开发环境进行<strong><em>隔离</em></strong>呢？这就要用到本文介绍的工具了</p>
-</blockquote>
-<blockquote>
-<p>VirtualEnv可以搭建虚拟且独立的python运行环境,使得单个项目的运行环境与其它项目独立起来。同时也可以用于在一台机器上创建多个独立的python运行环境，<strong><em>VirtualEnvWrapper为前者提供了一些便利的命令行上的封装</em></strong>。</p>
-</blockquote>
-<blockquote>
-<p>Virtualenv是一个非常好的virtual python environment builder，他最大的好处是，可以让每一个python项目单独使用一个环境，而不会影响python系统环境，也不会影响其他项目的环境。</p>
-</blockquote>
-<blockquote>
-<p>Virtualenv可用于创建独立的Python环境，在这些环境里面可以选择不同的Python版本或者不同的Packages，并且可以在没有root权限的情况下在环境里安装新套件，互相不会产生任何的影响。 <a id="more"></a> # virtualenv virtualenv是个采用python开发的包，可以使用pip安装： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure> 在工作目录下创建虚拟环境，注意需要自定义虚拟环境的名字 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">~$virtualenv TestEnv</span><br><span class="line">New python executable in ~/TestEnv/bin/python</span><br><span class="line">Installing setuptools, pip, wheel...done.</span><br></pre></td></tr></table></figure> 默认情况下，虚拟环境中不包括系统的site-packages, 若要使用请添加参数: <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">语法：virtualenv --system-site-packages TestEnv</span><br></pre></td></tr></table></figure> 使用virtualenv默认python版本创建虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">语法：virtualenv --no-site-packages ubuntu_env</span><br></pre></td></tr></table></figure> 该命令在当前目录创建一个env目录(虚拟环境名称，这个文件夹就是保存 Python 虚拟环境)，你会注意到，virtualenv会把python，setuptools和pip给你安装上。</p>
-</blockquote>
-<p><strong><em>这里virtualenv 有些不便，因为virtual的启动、停止脚本都在特定文件夹，可能一段时间后，你可能会有很多个虚拟环境散落在系统各处，你可能忘记它们的名字或者位置。</em></strong></p>
-<h1 id="virtualenvwrapper">virtualenvwrapper</h1>
-<p>鉴于virtualenv不便于对虚拟环境集中管理，所以推荐直接使用virtualenvwrapper。 virtualenvwrapper提供了一系列命令使得和虚拟环境工作变得便利。它把你所有的虚拟环境都放在一个地方。</p>
-<h3 id="安装virtualenvwrapper确保virtualenv已安装">安装virtualenvwrapper(确保virtualenv已安装)</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install virtualenvwrapper</span><br><span class="line">pip install virtualenvwrapper-win　　#Windows使用该命令</span><br></pre></td></tr></table></figure>
-<h3 id="安装完成后在.bashrc写入以下内容">安装完成后，在~/.bashrc写入以下内容</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export WORKON_HOME=~/Envs</span><br><span class="line">source /usr/local/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
-<ol type="1">
-<li>第一行：virtualenvwrapper存放虚拟环境目录</li>
-<li>第二行：virtrualenvwrapper会安装到python的bin目录下，所以该路径是python安装目录下(注意，ubuntu18.04的安装路径为<strong><code>~/.local/bin/</code></strong>目录下，因此，第二行改为<strong><code>source ~/.local/bin/virtualenvwrapper.sh</code></strong>，其他系统如果不一样清自行查找，否则下一条命令在执行时候会报错！)</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc　　　　#读入配置文件，立即生效</span><br></pre></td></tr></table></figure>
-<h3 id="virtualenvwrapper基本使用">virtualenvwrapper基本使用</h3>
-<p>1 创建虚拟环境 <code>mkvirtualenv</code> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkvirtualenv venv</span><br></pre></td></tr></table></figure> 这样会在WORKON_HOME变量指定的目录下新建名为venv的虚拟环境。 若想指定python版本，可通过"--python"指定python解释器 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkvirtualenv --python=/usr/local/python3.5.3/bin/python venv</span><br></pre></td></tr></table></figure> 2 查看当前的虚拟环境目录 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# workon</span><br><span class="line">py2</span><br><span class="line">py3</span><br></pre></td></tr></table></figure> 3 切换到虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# workon py3</span><br><span class="line">(py3) [root@localhost ~]#</span><br></pre></td></tr></table></figure></p>
-<p>4 退出虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(py3) [root@localhost ~]# deactivate</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure> 5 删除虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rmvirtualenv venv</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Simplify: Python VS Matlab</title>
-    <url>/2019/10/20/Simplify-Python-VS-Matlab/</url>
-    <content><![CDATA[<h2 id="background">Background</h2>
-<p>The homework of Linear System Theory is challenging. Here is Problem 1:</p>
-<p>Consider a linear system with a state transition matrix <span class="math inline">\(\phi(t,t_0)\)</span></p>
-<p><span class="math display">\[\phi(t,t_0)=\displaystyle \left[\begin{matrix}
-e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
--e^{t} \sin{\left(2 t \right)} &amp; e^{- 2 t} \cos{\left(2 t \right)}
-\end{matrix}\right]\]</span></p>
-<p>Compute A(t).</p>
-<p>Since the given system is linear time variant system, by using some properties of <span class="math inline">\(\phi\)</span>, we can easily compute <span class="math inline">\(A(t)\)</span>. However, the expression is so complicate that i could not simplify it by hand. I call for some tools for help. The tools are <strong>Python</strong> and <strong>Matlab</strong>.</p>
-<p>This post compare the difference of <strong>simplify</strong> function in Python and Matlab. <a id="more"></a> ## Comparision ### Python sympy.simplify.simplify.simplify(expr, ratio=1.7, measure=<function count_ops>, rational=False, inverse=False). Link https://docs.sympy.org/latest/modules/simplify/simplify.html</p>
-<p>This function does not work well, it did not simplify the expression, giving th following outcome.</p>
-<p><span class="math display">\[\displaystyle \left[\begin{matrix}\frac{\left(- \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\\\frac{\left(- \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\end{matrix}\right]\]</span></p>
-<p>It's <strong>rediculous</strong>!</p>
-<h3 id="matlab">Matlab</h3>
-<p>S = simplify(expr) performs algebraic simplification of expr. If expr is a symbolic vector or matrix, this function simplifies each element of expr. Link https://www.mathworks.com/help/symbolic/simplify.html</p>
-<p>This function works very well and much faster than Sympy.</p>
+    <title>Python的Anoymous Functions</title>
+    <url>/2019/02/15/Python%E7%9A%84Anoymous-Functions/</url>
+    <content><![CDATA[<h2 id="什么是python的匿名函数">什么是Python的匿名函数</h2>
+<p>在Python中，匿名函数的意思是定义的函数没有名字。<code>def</code>命令用来创建普通函数，<code>lambda</code>命令用来创建匿名函数。语法如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">lambda</span> arguments : expression</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这个函数可以拥有多个参数，但是只有一个表达式进行运行与返回</li>
+<li>换句话说，lambda表达式中不能出现赋值，或者使用任何其他的语句，例如while， try等等</li>
+</ul>
+<h2 id="example">Example</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">g = <span class="keyword">lambda</span> x:x*x*x</span><br><span class="line">print(g(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Python</category>
@@ -651,6 +586,44 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </tags>
   </entry>
   <entry>
+    <title>Python配置虚拟环境</title>
+    <url>/2018/09/16/Python%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<blockquote>
+<p>Python的开发过程中往往会遇到<strong>不同库</strong>存在<strong>不同版本</strong>的问题，例如我使用flask框架开发一个网站，A网站可能会使用<strong>flask 1.0</strong>，B网站可能会使用<strong>flask 2.0</strong>， 那么如何在电脑上进行配置，可以很方便的对开发环境进行<strong><em>隔离</em></strong>呢？这就要用到本文介绍的工具了</p>
+</blockquote>
+<blockquote>
+<p>VirtualEnv可以搭建虚拟且独立的python运行环境,使得单个项目的运行环境与其它项目独立起来。同时也可以用于在一台机器上创建多个独立的python运行环境，<strong><em>VirtualEnvWrapper为前者提供了一些便利的命令行上的封装</em></strong>。</p>
+</blockquote>
+<blockquote>
+<p>Virtualenv是一个非常好的virtual python environment builder，他最大的好处是，可以让每一个python项目单独使用一个环境，而不会影响python系统环境，也不会影响其他项目的环境。</p>
+</blockquote>
+<blockquote>
+<p>Virtualenv可用于创建独立的Python环境，在这些环境里面可以选择不同的Python版本或者不同的Packages，并且可以在没有root权限的情况下在环境里安装新套件，互相不会产生任何的影响。 <a id="more"></a> # virtualenv virtualenv是个采用python开发的包，可以使用pip安装： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure> 在工作目录下创建虚拟环境，注意需要自定义虚拟环境的名字 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">~$virtualenv TestEnv</span><br><span class="line">New python executable in ~/TestEnv/bin/python</span><br><span class="line">Installing setuptools, pip, wheel...done.</span><br></pre></td></tr></table></figure> 默认情况下，虚拟环境中不包括系统的site-packages, 若要使用请添加参数: <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">语法：virtualenv --system-site-packages TestEnv</span><br></pre></td></tr></table></figure> 使用virtualenv默认python版本创建虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">语法：virtualenv --no-site-packages ubuntu_env</span><br></pre></td></tr></table></figure> 该命令在当前目录创建一个env目录(虚拟环境名称，这个文件夹就是保存 Python 虚拟环境)，你会注意到，virtualenv会把python，setuptools和pip给你安装上。</p>
+</blockquote>
+<p><strong><em>这里virtualenv 有些不便，因为virtual的启动、停止脚本都在特定文件夹，可能一段时间后，你可能会有很多个虚拟环境散落在系统各处，你可能忘记它们的名字或者位置。</em></strong></p>
+<h1 id="virtualenvwrapper">virtualenvwrapper</h1>
+<p>鉴于virtualenv不便于对虚拟环境集中管理，所以推荐直接使用virtualenvwrapper。 virtualenvwrapper提供了一系列命令使得和虚拟环境工作变得便利。它把你所有的虚拟环境都放在一个地方。</p>
+<h3 id="安装virtualenvwrapper确保virtualenv已安装">安装virtualenvwrapper(确保virtualenv已安装)</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install virtualenvwrapper</span><br><span class="line">pip install virtualenvwrapper-win　　#Windows使用该命令</span><br></pre></td></tr></table></figure>
+<h3 id="安装完成后在.bashrc写入以下内容">安装完成后，在~/.bashrc写入以下内容</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export WORKON_HOME=~/Envs</span><br><span class="line">source /usr/local/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
+<ol type="1">
+<li>第一行：virtualenvwrapper存放虚拟环境目录</li>
+<li>第二行：virtrualenvwrapper会安装到python的bin目录下，所以该路径是python安装目录下(注意，ubuntu18.04的安装路径为<strong><code>~/.local/bin/</code></strong>目录下，因此，第二行改为<strong><code>source ~/.local/bin/virtualenvwrapper.sh</code></strong>，其他系统如果不一样清自行查找，否则下一条命令在执行时候会报错！)</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc　　　　#读入配置文件，立即生效</span><br></pre></td></tr></table></figure>
+<h3 id="virtualenvwrapper基本使用">virtualenvwrapper基本使用</h3>
+<p>1 创建虚拟环境 <code>mkvirtualenv</code> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkvirtualenv venv</span><br></pre></td></tr></table></figure> 这样会在WORKON_HOME变量指定的目录下新建名为venv的虚拟环境。 若想指定python版本，可通过"--python"指定python解释器 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkvirtualenv --python=/usr/local/python3.5.3/bin/python venv</span><br></pre></td></tr></table></figure> 2 查看当前的虚拟环境目录 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# workon</span><br><span class="line">py2</span><br><span class="line">py3</span><br></pre></td></tr></table></figure> 3 切换到虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# workon py3</span><br><span class="line">(py3) [root@localhost ~]#</span><br></pre></td></tr></table></figure></p>
+<p>4 退出虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(py3) [root@localhost ~]# deactivate</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure> 5 删除虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rmvirtualenv venv</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Word与Latex</title>
     <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
     <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
@@ -676,12 +649,31 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </tags>
   </entry>
   <entry>
-    <title>hexo-gittalk问题总结</title>
-    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>title: hexo-gittalk问题总结 toc: true date: 2020-11-18 10:03:50 tags: 经验 categories: 经验 mathjax: true</p>
-<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
-<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+    <title>Simplify: Python VS Matlab</title>
+    <url>/2019/10/20/Simplify-Python-VS-Matlab/</url>
+    <content><![CDATA[<h2 id="background">Background</h2>
+<p>The homework of Linear System Theory is challenging. Here is Problem 1:</p>
+<p>Consider a linear system with a state transition matrix <span class="math inline">\(\phi(t,t_0)\)</span></p>
+<p><span class="math display">\[\phi(t,t_0)=\displaystyle \left[\begin{matrix}
+e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
+-e^{t} \sin{\left(2 t \right)} &amp; e^{- 2 t} \cos{\left(2 t \right)}
+\end{matrix}\right]\]</span></p>
+<p>Compute A(t).</p>
+<p>Since the given system is linear time variant system, by using some properties of <span class="math inline">\(\phi\)</span>, we can easily compute <span class="math inline">\(A(t)\)</span>. However, the expression is so complicate that i could not simplify it by hand. I call for some tools for help. The tools are <strong>Python</strong> and <strong>Matlab</strong>.</p>
+<p>This post compare the difference of <strong>simplify</strong> function in Python and Matlab. <a id="more"></a> ## Comparision ### Python sympy.simplify.simplify.simplify(expr, ratio=1.7, measure=<function count_ops>, rational=False, inverse=False). Link https://docs.sympy.org/latest/modules/simplify/simplify.html</p>
+<p>This function does not work well, it did not simplify the expression, giving th following outcome.</p>
+<p><span class="math display">\[\displaystyle \left[\begin{matrix}\frac{\left(- \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\\\frac{\left(- \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\end{matrix}\right]\]</span></p>
+<p>It's <strong>rediculous</strong>!</p>
+<h3 id="matlab">Matlab</h3>
+<p>S = simplify(expr) performs algebraic simplification of expr. If expr is a symbolic vector or matrix, this function simplifies each element of expr. Link https://www.mathworks.com/help/symbolic/simplify.html</p>
+<p>This function works very well and much faster than Sympy.</p>
 ]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title>*args 和 **kwargs</title>
@@ -705,26 +697,12 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </tags>
   </entry>
   <entry>
-    <title>vs code remote ssh 使用x11转发显示远程图像</title>
-    <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
-    <content><![CDATA[<h2 id="需求">需求</h2>
-<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
-<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
-<a id="more"></a>
-<h2 id="参考链接">参考链接</h2>
-<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-<h2 id="问题">问题</h2>
-<ul>
-<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
-<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
-</ul>
+    <title>hexo-gittalk问题总结</title>
+    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>title: hexo-gittalk问题总结 toc: true date: 2020-11-18 10:03:50 tags: 经验 categories: 经验 mathjax: true</p>
+<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
+<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
 ]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
   </entry>
   <entry>
     <title>controllability and observability</title>
@@ -905,6 +883,62 @@ x
       </tags>
   </entry>
   <entry>
+    <title>vs code remote ssh 使用x11转发显示远程图像</title>
+    <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
+    <content><![CDATA[<h2 id="需求">需求</h2>
+<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
+<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
+<a id="more"></a>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+<h2 id="问题">问题</h2>
+<ul>
+<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
+<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用树莓派搭建家庭宠物监控并在B站24小时直播</title>
+    <url>/2019/02/07/%E4%BD%BF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E5%AE%B6%E5%BA%AD%E5%AE%A0%E7%89%A9%E7%9B%91%E6%8E%A7%E5%B9%B6%E5%9C%A8B%E7%AB%9924%E5%B0%8F%E6%97%B6%E7%9B%B4%E6%92%AD/</url>
+    <content><![CDATA[<p>我家养了一条拉布拉多，名字叫小黑，由于我常年不在家，都是我妈妈在养，每当我想要看看狗子，总是需要在我妈妈在家的时候，和我妈妈视频才能看到，因此，就想做一个本文的这个项目。</p>
+<p>首先，给大家看下效果，B站直播房间号： <span class="exturl" data-url="aHR0cHM6Ly9saXZlLmJpbGliaWxpLmNvbS8yMTE3MjU3Mg==">https://live.bilibili.com/21172572<i class="fa fa-external-link-alt"></i></span></p>
+<figure>
+<img src="1.png" alt="截图" /><figcaption>截图</figcaption>
+</figure>
+<a id="more"></a>
+<h2 id="项目所需配件">项目所需配件</h2>
+<p>树莓派</p>
+<p>树莓派摄像头（选用那种带<strong>CSI接口</strong>的摄像头，淘宝上最便宜的<strong>15RMB</strong>, 如果你想晚上也想看到狗子，那么就买个带夜视的，100元不到。<strong><em>千万别买USB摄像头</em></strong>，以树莓派的性能只能达到1080P 10多帧， 画质还惨不忍睹，大多数便宜的USB摄像头(我也买了一个，销量第一的，100多，在树莓派上用简直是垃圾，电脑上用到还可以)都写的1千多万像素，都是软件插值出来的，硬件基本上300万像素。）</p>
+<h2 id="系统配置及软件环境">系统配置及软件环境</h2>
+<ul>
+<li>系统： <code>raspbian</code></li>
+</ul>
+<p>用树莓派的应该都会装</p>
+<ul>
+<li>软件： <code>ffmpeg</code></li>
+</ul>
+<p>执行<code>sudo apt install ffmpeg</code>，在9102年的现在，仍然能够看到有的教程说要编译安装，以前ffmpeg这个软件因为没在官方的ppa中，所以需要编译安装，但那都是多年前的事情了。建议大家直接apt安装。</p>
+<h2 id="命令">命令</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">raspivid -o - -t 0 -vf -hf -fps 30 -b 6000000 | ffmpeg -re -stream_loop -1 -i "/home/pi/music/human_fall_flat.mp3" -f h264 -i - -vcodec copy -acodec aac -b:a 192k -f flv "你的rtmp地址/你的直播码"</span><br></pre></td></tr></table></figure>
+<p><code>raspivid -o - -t 0 -vf -hf -fps 30 -b 6000000</code>这个命令是用raspivid从摄像头流中以每秒30帧读取数据，然后通过管道符将视频数据传送给ffmpeg， ffmpeg将视频和音频编码后发送到rtmp服务器。这里需要注意的是rtmp的地址需要加上<code>"</code></p>
+<p><strong>同时推摄像头和麦克风</strong> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">raspivid -o - -t 0 -vf -hf -fps 25 -b 10000000 | ffmpeg -f alsa -ac 2 -i plughw:1,0 -f h264 -i - -vcodec copy -g 50 -strict experimental -f flv "你的rtmp地址/你的直播码"</span><br></pre></td></tr></table></figure> ## 夜视摄像头模式自动切换</p>
+<p>由于我家的狗是养在院子里面的，晚上是没有灯光的，所以我在某宝上买了一个夜视摄像头，白天切换到日视模式，晚上切换到夜视模式，这样，白天晚上自动切换，很舒服。</p>
+]]></content>
+      <categories>
+        <category>raspberry</category>
+      </categories>
+      <tags>
+        <tag>raspberry</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用本地服务器结合github action推送github pages</title>
     <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
     <content><![CDATA[<h2 id="需求">需求</h2>
@@ -956,40 +990,6 @@ x
       </categories>
       <tags>
         <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用树莓派搭建家庭宠物监控并在B站24小时直播</title>
-    <url>/2019/02/07/%E4%BD%BF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E5%AE%B6%E5%BA%AD%E5%AE%A0%E7%89%A9%E7%9B%91%E6%8E%A7%E5%B9%B6%E5%9C%A8B%E7%AB%9924%E5%B0%8F%E6%97%B6%E7%9B%B4%E6%92%AD/</url>
-    <content><![CDATA[<p>我家养了一条拉布拉多，名字叫小黑，由于我常年不在家，都是我妈妈在养，每当我想要看看狗子，总是需要在我妈妈在家的时候，和我妈妈视频才能看到，因此，就想做一个本文的这个项目。</p>
-<p>首先，给大家看下效果，B站直播房间号： <span class="exturl" data-url="aHR0cHM6Ly9saXZlLmJpbGliaWxpLmNvbS8yMTE3MjU3Mg==">https://live.bilibili.com/21172572<i class="fa fa-external-link-alt"></i></span></p>
-<figure>
-<img src="1.png" alt="截图" /><figcaption>截图</figcaption>
-</figure>
-<a id="more"></a>
-<h2 id="项目所需配件">项目所需配件</h2>
-<p>树莓派</p>
-<p>树莓派摄像头（选用那种带<strong>CSI接口</strong>的摄像头，淘宝上最便宜的<strong>15RMB</strong>, 如果你想晚上也想看到狗子，那么就买个带夜视的，100元不到。<strong><em>千万别买USB摄像头</em></strong>，以树莓派的性能只能达到1080P 10多帧， 画质还惨不忍睹，大多数便宜的USB摄像头(我也买了一个，销量第一的，100多，在树莓派上用简直是垃圾，电脑上用到还可以)都写的1千多万像素，都是软件插值出来的，硬件基本上300万像素。）</p>
-<h2 id="系统配置及软件环境">系统配置及软件环境</h2>
-<ul>
-<li>系统： <code>raspbian</code></li>
-</ul>
-<p>用树莓派的应该都会装</p>
-<ul>
-<li>软件： <code>ffmpeg</code></li>
-</ul>
-<p>执行<code>sudo apt install ffmpeg</code>，在9102年的现在，仍然能够看到有的教程说要编译安装，以前ffmpeg这个软件因为没在官方的ppa中，所以需要编译安装，但那都是多年前的事情了。建议大家直接apt安装。</p>
-<h2 id="命令">命令</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">raspivid -o - -t 0 -vf -hf -fps 30 -b 6000000 | ffmpeg -re -stream_loop -1 -i "/home/pi/music/human_fall_flat.mp3" -f h264 -i - -vcodec copy -acodec aac -b:a 192k -f flv "你的rtmp地址/你的直播码"</span><br></pre></td></tr></table></figure>
-<p><code>raspivid -o - -t 0 -vf -hf -fps 30 -b 6000000</code>这个命令是用raspivid从摄像头流中以每秒30帧读取数据，然后通过管道符将视频数据传送给ffmpeg， ffmpeg将视频和音频编码后发送到rtmp服务器。这里需要注意的是rtmp的地址需要加上<code>"</code></p>
-<p><strong>同时推摄像头和麦克风</strong> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">raspivid -o - -t 0 -vf -hf -fps 25 -b 10000000 | ffmpeg -f alsa -ac 2 -i plughw:1,0 -f h264 -i - -vcodec copy -g 50 -strict experimental -f flv "你的rtmp地址/你的直播码"</span><br></pre></td></tr></table></figure> ## 夜视摄像头模式自动切换</p>
-<p>由于我家的狗是养在院子里面的，晚上是没有灯光的，所以我在某宝上买了一个夜视摄像头，白天切换到日视模式，晚上切换到夜视模式，这样，白天晚上自动切换，很舒服。</p>
-]]></content>
-      <categories>
-        <category>raspberry</category>
-      </categories>
-      <tags>
-        <tag>raspberry</tag>
       </tags>
   </entry>
   <entry>
@@ -1225,6 +1225,33 @@ x
       </tags>
   </entry>
   <entry>
+    <title>初学数据库-sqlite3 简介</title>
+    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
+</blockquote>
+<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
+<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
+<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
+<h2 id="于是数据库出现了">于是，数据库出现了</h2>
+<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
+<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
+<h2 id="数据库种类">数据库种类</h2>
+<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
+<h3 id="非关系型数据库">2.非关系型数据库</h3>
+<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
+<h2 id="sqlite3">sqlite3</h2>
+<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>利用虚拟主机搭建一个验证爬虫代理IP是否有效的服务</title>
     <url>/2018/10/14/%E5%88%A9%E7%94%A8%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%AA%8C%E8%AF%81%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88%E7%9A%84%E6%9C%8D%E5%8A%A1/</url>
     <content><![CDATA[<blockquote>
@@ -1259,85 +1286,6 @@ x
       </categories>
       <tags>
         <tag>爬虫 代理IP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初学数据库-sqlite3 简介</title>
-    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
-</blockquote>
-<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
-<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
-<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
-<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
-<h2 id="于是数据库出现了">于是，数据库出现了</h2>
-<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
-<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
-<h2 id="数据库种类">数据库种类</h2>
-<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
-<h3 id="非关系型数据库">2.非关系型数据库</h3>
-<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
-<h2 id="sqlite3">sqlite3</h2>
-<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>华为研发岗位面试经验(已拿offer)</title>
-    <url>/2018/09/30/%E5%8D%8E%E4%B8%BA%E7%A0%94%E5%8F%91%E5%B2%97%E4%BD%8D%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C-%E5%B7%B2%E6%8B%BFoffer/</url>
-    <content><![CDATA[<h2 id="专业面试">专业面试：</h2>
-<ul>
-<li>** 自我介绍：3-5分钟把自己的校园经历简单介绍一下**</li>
-</ul>
-<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第1，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。 <a id="more"></a> - ** 项目经历：在项目里做了哪些工作，算法有没有优化的空间**</p>
-<p><strong>1. 基于四旋翼的自动控制与跟随</strong> 本系统基于STM32F407控制器，通过对超声波模块和摄像头数据的采集分析，实时调整飞行器的飞行姿态，从而达到在无遥控的条件下，满足定高、定点悬停等要求。超声波传感器为飞行器的定高飞行提供了高度反馈，摄像头通过识别地面特征点的坐标为飞行器的定点飞行提供了位置反馈，采用python+树莓派+opencv的方式实现，提高了飞行器定点悬停的速度与精度。 a、程序功能描述 根据题目要求软件部分主要实现四旋翼飞行器姿态的获取与控制，实现飞行器的定高和定点飞行。 1）定高部分实现功能：飞行器高度的获取与控制、目标高度的自动切换。 2）定点部分实现功能：飞行器飞行速度的获取、移动距离的转换与控制。 b、程序设计思路 程序分为初始化部分、起飞油门值设置部分、定高PID调节部分、定点PID调节部分。初始化部分完成时钟、定时器、串行口等片上外设的设置，以及飞行模式的检测与设置；起飞油门设置部分完成片上ADC设置、电压采集数据获取与处理、起飞油门值的映射；定高PID调节部分完成高度误差的计算以及飞行高度的调节；定点PID调节部分完成位置误差的计算以及飞行位置的调节。</p>
-<p><strong>2. 机械加工过程中零件位置的自动识别</strong> 此项目研究自动化生产线加工过程中零件的位置识别问题，设计了一种具有普适性的自动化加工生产线上的零件识别系统，能够识别传感器采集到的图像中出现单个，或多个零件的位置，并且对于识别不同的零件，只需要修改极其少量的代码便可以使用。</p>
-<p><strong>3. 高电压增益变换器</strong> 此项目在基于H桥的Buck-Boost DC-DC变换器的基础上，用多个电容与二极管串联输出 实现了高增益，设计了双电感双开关同步控制Boost变换器，并用数字电路实现了闭环稳压的控制。</p>
-<p><strong>3. 无线充电之共享充电</strong> 此项目研究智能无线充电装置的控制方法，采用服务器-客户端的方式，服务器端可以对每个充电节点实施实时监控，用户能够通过手机直接查看无线充电装置的充电状态并对其进行一定的控制操作，此项目正在准备发表论文和申请实用新型专利，预计今年9月份发表之后可以申请结题</p>
-<p><strong>4. 基于Arduino的微型激光雕刻机</strong> 此项目主要采用Arduino UNO型单片机构成中央处理系统模块，并采用开源的控制系统框架Grbl设计和实现了一个可直接进行雕刻的微型激光雕刻机系统。本系统能在非金属物体表面烧刻出由计算机传输的图案的功能。</p>
-<p><strong>5. 海洋输液柔性管设备用的不间断真空控制系统</strong> 海洋输液用柔性管在塑料包覆的过程中，必须提供一个不间断的、稳定的真空度。当真空泵出现故障或其他方面出现故障导致真空度变化时，该装置必须自动调节，确保真空度变化量&lt;10%,响应时间不大于1秒 海洋输液用柔性管在正常情况下单根长度在1km以上，根据不同的用途，包覆层最多达到20多层，如果在包覆的过程中由于真空突然缺失就会导致当前包覆层报废，由于所用的原材料价格昂贵，所以重新返工会导致大量的浪费（国内有生产商因为真空泵出现问题而出现返工，损失50万元以上），在这种情况下，类似UPS的不间断真空就显得非常重要。当前在国内生产普通塑料管材行业由于单根的长度仅为4-12米，所以没有不间断真空这个装置。此项目正在申请实用新型专利。</p>
-<p><strong>6. 聚苯醚大口径管材挤出设备的温度自动控制装置</strong> 聚苯醚材料对加工温度极其敏感，加工温度窗口很窄，温度过高，严重过塑化，粘度急剧降低，温度过低会造成粘度急剧增大，所以温度的不稳定会严重影响产品的质量，该项目实现了温度控制装置的控制精度为0.5℃以内。此项目正在申请实用新型专利。</p>
-<p><strong>7. Python爬虫</strong> 采集网上的内容并将其自动发布到wordpress上</p>
-<p><strong>8. 远程设备状态监测机器人</strong> 针对目前邮件和短信的成本较高，利用成熟的微信机器人框架：Wxbot，实现了实时监测远程设备的状态，并通过微信传送到我的微信</p>
-<ul>
-<li>** 对华为的了解**</li>
-</ul>
-<p>众所周知华为是一个非常大的平台，经营范围非常广，并且在业内处于领先的地位，主要经营电信网络设备，已经成为行业的老大，并且近些年手机品牌和芯片研究有做的非常厉害，也是业界数一数二的。 华为的氛围相对比较而言更像大学，非常单纯，同事之间相处比较简单，并且公司具有良好的人才培养体系，在华为，员工可以快速成长，有很多学习和锻炼的机会，有机会接触到业界的核心技术和最前沿的技术理论，总之，华为是我向往的公司，希望自己能有机会到那里工作。</p>
-<h2 id="综合面试">综合面试：</h2>
-<ul>
-<li>** 自我介绍：**</li>
-</ul>
-<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第6，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。</p>
-<ul>
-<li>** 想不想加入华为**</li>
-</ul>
-<p>想</p>
-<ul>
-<li>** 成绩怎么样参加过什么级别的比赛**</li>
-</ul>
-<p>国家级</p>
-<ul>
-<li>** 以后想从事哪个方面的工作**</li>
-</ul>
-<p>嵌入式，因为我本科期间做的项目都是基于arm平台的，并且对操作系统非常感兴趣，从高中的时候在同学的介绍下就对linux产生了兴趣，所以将来想从事这方面的工作</p>
-<h1 id="华为面试小结">华为面试小结</h1>
-<p>总的来说，华为面试还是挺简单的，专业面试的时候我分到的那个面试官先生好像什么都不会，很难受。不过最终还是拿到了华为的offer，岗位是操作系统工程师，月薪15k以上，简简单单。 <strong>注意：我拿到华为offer时还是个本科生</strong></p>
-<h1 id="最后附上一张华为的offer">最后附上一张华为的offer</h1>
-<figure>
-<img src="huaweioffer.png" alt="华为offer" /><figcaption>华为offer</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>华为</category>
-      </categories>
-      <tags>
-        <tag>华为 面试</tag>
       </tags>
   </entry>
   <entry>
@@ -1401,6 +1349,58 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>华为研发岗位面试经验(已拿offer)</title>
+    <url>/2018/09/30/%E5%8D%8E%E4%B8%BA%E7%A0%94%E5%8F%91%E5%B2%97%E4%BD%8D%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C-%E5%B7%B2%E6%8B%BFoffer/</url>
+    <content><![CDATA[<h2 id="专业面试">专业面试：</h2>
+<ul>
+<li>** 自我介绍：3-5分钟把自己的校园经历简单介绍一下**</li>
+</ul>
+<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第1，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。 <a id="more"></a> - ** 项目经历：在项目里做了哪些工作，算法有没有优化的空间**</p>
+<p><strong>1. 基于四旋翼的自动控制与跟随</strong> 本系统基于STM32F407控制器，通过对超声波模块和摄像头数据的采集分析，实时调整飞行器的飞行姿态，从而达到在无遥控的条件下，满足定高、定点悬停等要求。超声波传感器为飞行器的定高飞行提供了高度反馈，摄像头通过识别地面特征点的坐标为飞行器的定点飞行提供了位置反馈，采用python+树莓派+opencv的方式实现，提高了飞行器定点悬停的速度与精度。 a、程序功能描述 根据题目要求软件部分主要实现四旋翼飞行器姿态的获取与控制，实现飞行器的定高和定点飞行。 1）定高部分实现功能：飞行器高度的获取与控制、目标高度的自动切换。 2）定点部分实现功能：飞行器飞行速度的获取、移动距离的转换与控制。 b、程序设计思路 程序分为初始化部分、起飞油门值设置部分、定高PID调节部分、定点PID调节部分。初始化部分完成时钟、定时器、串行口等片上外设的设置，以及飞行模式的检测与设置；起飞油门设置部分完成片上ADC设置、电压采集数据获取与处理、起飞油门值的映射；定高PID调节部分完成高度误差的计算以及飞行高度的调节；定点PID调节部分完成位置误差的计算以及飞行位置的调节。</p>
+<p><strong>2. 机械加工过程中零件位置的自动识别</strong> 此项目研究自动化生产线加工过程中零件的位置识别问题，设计了一种具有普适性的自动化加工生产线上的零件识别系统，能够识别传感器采集到的图像中出现单个，或多个零件的位置，并且对于识别不同的零件，只需要修改极其少量的代码便可以使用。</p>
+<p><strong>3. 高电压增益变换器</strong> 此项目在基于H桥的Buck-Boost DC-DC变换器的基础上，用多个电容与二极管串联输出 实现了高增益，设计了双电感双开关同步控制Boost变换器，并用数字电路实现了闭环稳压的控制。</p>
+<p><strong>3. 无线充电之共享充电</strong> 此项目研究智能无线充电装置的控制方法，采用服务器-客户端的方式，服务器端可以对每个充电节点实施实时监控，用户能够通过手机直接查看无线充电装置的充电状态并对其进行一定的控制操作，此项目正在准备发表论文和申请实用新型专利，预计今年9月份发表之后可以申请结题</p>
+<p><strong>4. 基于Arduino的微型激光雕刻机</strong> 此项目主要采用Arduino UNO型单片机构成中央处理系统模块，并采用开源的控制系统框架Grbl设计和实现了一个可直接进行雕刻的微型激光雕刻机系统。本系统能在非金属物体表面烧刻出由计算机传输的图案的功能。</p>
+<p><strong>5. 海洋输液柔性管设备用的不间断真空控制系统</strong> 海洋输液用柔性管在塑料包覆的过程中，必须提供一个不间断的、稳定的真空度。当真空泵出现故障或其他方面出现故障导致真空度变化时，该装置必须自动调节，确保真空度变化量&lt;10%,响应时间不大于1秒 海洋输液用柔性管在正常情况下单根长度在1km以上，根据不同的用途，包覆层最多达到20多层，如果在包覆的过程中由于真空突然缺失就会导致当前包覆层报废，由于所用的原材料价格昂贵，所以重新返工会导致大量的浪费（国内有生产商因为真空泵出现问题而出现返工，损失50万元以上），在这种情况下，类似UPS的不间断真空就显得非常重要。当前在国内生产普通塑料管材行业由于单根的长度仅为4-12米，所以没有不间断真空这个装置。此项目正在申请实用新型专利。</p>
+<p><strong>6. 聚苯醚大口径管材挤出设备的温度自动控制装置</strong> 聚苯醚材料对加工温度极其敏感，加工温度窗口很窄，温度过高，严重过塑化，粘度急剧降低，温度过低会造成粘度急剧增大，所以温度的不稳定会严重影响产品的质量，该项目实现了温度控制装置的控制精度为0.5℃以内。此项目正在申请实用新型专利。</p>
+<p><strong>7. Python爬虫</strong> 采集网上的内容并将其自动发布到wordpress上</p>
+<p><strong>8. 远程设备状态监测机器人</strong> 针对目前邮件和短信的成本较高，利用成熟的微信机器人框架：Wxbot，实现了实时监测远程设备的状态，并通过微信传送到我的微信</p>
+<ul>
+<li>** 对华为的了解**</li>
+</ul>
+<p>众所周知华为是一个非常大的平台，经营范围非常广，并且在业内处于领先的地位，主要经营电信网络设备，已经成为行业的老大，并且近些年手机品牌和芯片研究有做的非常厉害，也是业界数一数二的。 华为的氛围相对比较而言更像大学，非常单纯，同事之间相处比较简单，并且公司具有良好的人才培养体系，在华为，员工可以快速成长，有很多学习和锻炼的机会，有机会接触到业界的核心技术和最前沿的技术理论，总之，华为是我向往的公司，希望自己能有机会到那里工作。</p>
+<h2 id="综合面试">综合面试：</h2>
+<ul>
+<li>** 自我介绍：**</li>
+</ul>
+<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第6，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。</p>
+<ul>
+<li>** 想不想加入华为**</li>
+</ul>
+<p>想</p>
+<ul>
+<li>** 成绩怎么样参加过什么级别的比赛**</li>
+</ul>
+<p>国家级</p>
+<ul>
+<li>** 以后想从事哪个方面的工作**</li>
+</ul>
+<p>嵌入式，因为我本科期间做的项目都是基于arm平台的，并且对操作系统非常感兴趣，从高中的时候在同学的介绍下就对linux产生了兴趣，所以将来想从事这方面的工作</p>
+<h1 id="华为面试小结">华为面试小结</h1>
+<p>总的来说，华为面试还是挺简单的，专业面试的时候我分到的那个面试官先生好像什么都不会，很难受。不过最终还是拿到了华为的offer，岗位是操作系统工程师，月薪15k以上，简简单单。 <strong>注意：我拿到华为offer时还是个本科生</strong></p>
+<h1 id="最后附上一张华为的offer">最后附上一张华为的offer</h1>
+<figure>
+<img src="huaweioffer.png" alt="华为offer" /><figcaption>华为offer</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>华为</category>
+      </categories>
+      <tags>
+        <tag>华为 面试</tag>
       </tags>
   </entry>
   <entry>
@@ -1672,6 +1672,19 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>粒子群算法库-PySwarms的可视化</title>
+    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
+    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
+<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>粒子群算法(PSO)的数学原理</title>
     <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95-PSO-%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h2 id="粒子群算法的起源">粒子群算法的起源</h2>
@@ -1710,16 +1723,33 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>粒子群算法库-PySwarms的可视化</title>
-    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
-    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
-<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
+    <title>粒子群算法的Python简单实现</title>
+    <url>/2019/02/14/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E7%9A%84Python%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<h2 id="需要优化的目标函数">需要优化的目标函数</h2>
+<p><span class="math display">\[target = x^2+y^2+z^2\]</span></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">target</span><span class="params">(nparray)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> nparray[<span class="number">0</span>]**<span class="number">2</span> + nparray[<span class="number">1</span>]**<span class="number">2</span> + nparray[<span class="number">2</span>]**<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="初始化条件">初始化条件</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">N = <span class="number">30</span> <span class="comment">#个体数量</span></span><br><span class="line">D = <span class="number">3</span>  <span class="comment">#目标函数的维数</span></span><br><span class="line">M = <span class="number">1000</span> <span class="comment">#迭代次数</span></span><br><span class="line">c1 = <span class="number">0.5</span> <span class="comment">#加速常数1</span></span><br><span class="line">c2 = <span class="number">0.5</span> <span class="comment">#加速常数2</span></span><br><span class="line">w = <span class="number">0.6</span> <span class="comment">#惯性因子</span></span><br></pre></td></tr></table></figure>
+<h2 id="初始化每个粒子的位置和速度">初始化每个粒子的位置和速度</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">X = np.zeros((N, D))</span><br><span class="line">V = np.zeros((N, D))</span><br><span class="line">y = np.zeros((N, D))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N): <span class="comment">#行</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(D): <span class="comment">#列</span></span><br><span class="line">        X[i][j] = random.random()</span><br><span class="line">        V[i][j] = random.random()</span><br></pre></td></tr></table></figure>
+<h2 id="计算每个粒子的适应度">计算每个粒子的适应度</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">P = np.zeros(N) <span class="comment">#P为个体历史最优解</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">    P[i] = target(X[i])</span><br><span class="line">    y[i] = X[i]</span><br><span class="line">    <span class="comment">#print(target(X[i]))</span></span><br></pre></td></tr></table></figure>
+<h2 id="初始化pgpg为全局最优解">初始化pg，pg为全局最优解</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pg = X[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,N):</span><br><span class="line">    <span class="keyword">if</span> float(target(X[i])) &lt; float(target(pg)):</span><br><span class="line">        pg = X[i]</span><br></pre></td></tr></table></figure>
+<h2 id="算法主要循环">算法主要循环</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> range(M):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        V[i] = w*V[i] + c1*random.random()*(y[i]-X[i]) + c2*random.random()*(pg-X[i])</span><br><span class="line">        X[i] = X[i] + V[i]</span><br><span class="line">        <span class="keyword">if</span> target(X[i])&lt;P[i]:</span><br><span class="line">            P[i] = target(X[i])</span><br><span class="line">            y[i] = X[i]</span><br><span class="line">        <span class="keyword">if</span> P[i]&lt;target(pg):</span><br><span class="line">            pg = y[i]</span><br><span class="line">    <span class="comment">#Pbest[t] = target(pg)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pg</span><br></pre></td></tr></table></figure>
+<pre><code>array([ 9.74182970e-163, -1.51205792e-162, -5.62277013e-163])</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">target(pg)</span><br></pre></td></tr></table></figure>
+<pre><code>0.0</code></pre>
 ]]></content>
       <categories>
-        <category>机器学习</category>
+        <category>优化算法</category>
       </categories>
       <tags>
-        <tag>机器学习</tag>
+        <tag>优化算法</tag>
       </tags>
   </entry>
   <entry>
@@ -1754,36 +1784,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>爬虫 代理IP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>粒子群算法的Python简单实现</title>
-    <url>/2019/02/14/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E7%9A%84Python%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</url>
-    <content><![CDATA[<h2 id="需要优化的目标函数">需要优化的目标函数</h2>
-<p><span class="math display">\[target = x^2+y^2+z^2\]</span></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">target</span><span class="params">(nparray)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> nparray[<span class="number">0</span>]**<span class="number">2</span> + nparray[<span class="number">1</span>]**<span class="number">2</span> + nparray[<span class="number">2</span>]**<span class="number">2</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="初始化条件">初始化条件</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">N = <span class="number">30</span> <span class="comment">#个体数量</span></span><br><span class="line">D = <span class="number">3</span>  <span class="comment">#目标函数的维数</span></span><br><span class="line">M = <span class="number">1000</span> <span class="comment">#迭代次数</span></span><br><span class="line">c1 = <span class="number">0.5</span> <span class="comment">#加速常数1</span></span><br><span class="line">c2 = <span class="number">0.5</span> <span class="comment">#加速常数2</span></span><br><span class="line">w = <span class="number">0.6</span> <span class="comment">#惯性因子</span></span><br></pre></td></tr></table></figure>
-<h2 id="初始化每个粒子的位置和速度">初始化每个粒子的位置和速度</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">X = np.zeros((N, D))</span><br><span class="line">V = np.zeros((N, D))</span><br><span class="line">y = np.zeros((N, D))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N): <span class="comment">#行</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(D): <span class="comment">#列</span></span><br><span class="line">        X[i][j] = random.random()</span><br><span class="line">        V[i][j] = random.random()</span><br></pre></td></tr></table></figure>
-<h2 id="计算每个粒子的适应度">计算每个粒子的适应度</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">P = np.zeros(N) <span class="comment">#P为个体历史最优解</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">    P[i] = target(X[i])</span><br><span class="line">    y[i] = X[i]</span><br><span class="line">    <span class="comment">#print(target(X[i]))</span></span><br></pre></td></tr></table></figure>
-<h2 id="初始化pgpg为全局最优解">初始化pg，pg为全局最优解</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pg = X[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,N):</span><br><span class="line">    <span class="keyword">if</span> float(target(X[i])) &lt; float(target(pg)):</span><br><span class="line">        pg = X[i]</span><br></pre></td></tr></table></figure>
-<h2 id="算法主要循环">算法主要循环</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> range(M):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        V[i] = w*V[i] + c1*random.random()*(y[i]-X[i]) + c2*random.random()*(pg-X[i])</span><br><span class="line">        X[i] = X[i] + V[i]</span><br><span class="line">        <span class="keyword">if</span> target(X[i])&lt;P[i]:</span><br><span class="line">            P[i] = target(X[i])</span><br><span class="line">            y[i] = X[i]</span><br><span class="line">        <span class="keyword">if</span> P[i]&lt;target(pg):</span><br><span class="line">            pg = y[i]</span><br><span class="line">    <span class="comment">#Pbest[t] = target(pg)</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pg</span><br></pre></td></tr></table></figure>
-<pre><code>array([ 9.74182970e-163, -1.51205792e-162, -5.62277013e-163])</code></pre>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">target(pg)</span><br></pre></td></tr></table></figure>
-<pre><code>0.0</code></pre>
-]]></content>
-      <categories>
-        <category>优化算法</category>
-      </categories>
-      <tags>
-        <tag>优化算法</tag>
       </tags>
   </entry>
   <entry>
