@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="https://blog.oliverxu.cn/"/>
-  <updated>2020-11-22T06:11:26.497Z</updated>
+  <updated>2020-12-14T15:16:18.749Z</updated>
   <id>https://blog.oliverxu.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>中国学术圈的未来在哪里？</title>
+    <link href="https://blog.oliverxu.cn/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/"/>
+    <id>https://blog.oliverxu.cn/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/</id>
+    <published>2020-12-14T23:03:50.000Z</published>
+    <updated>2020-12-14T15:16:18.749Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近遇到了很多烦心事，主要是学术生活上的问题，教授没有学术上的指导，且总是push我们做项目，自动化系的教授都只知道赚钱啊，不，都只知道“骗钱”。今天感觉状态还不错，稍有感想，想在这篇文章中简短地谈论一下，权当我乱说的吧，哈哈哈哈。&lt;/p&gt;
+&lt;p&gt;中国科研圈的问题我个人认为
+        
+      
+    
+    </summary>
+    
+    
+      <category term="生活" scheme="https://blog.oliverxu.cn/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="生活" scheme="https://blog.oliverxu.cn/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>内网端口转发控制面板</title>
@@ -484,30 +512,6 @@
     
     
       <category term="fund" scheme="https://blog.oliverxu.cn/tags/fund/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Manjaro适合什么样的人</title>
-    <link href="https://blog.oliverxu.cn/2020/06/28/Manjaro%E9%80%82%E5%90%88%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BA%BA/"/>
-    <id>https://blog.oliverxu.cn/2020/06/28/Manjaro%E9%80%82%E5%90%88%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BA%BA/</id>
-    <published>2020-06-28T11:11:23.000Z</published>
-    <updated>2020-09-14T07:41:31.653Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;2019年3月份看到了有人安利Manjaro，装电脑上用了一年，分享一下使用一年的感受。&lt;/p&gt;
-&lt;p&gt;先说结论，我上个月换回了Ubuntu。&lt;/p&gt;
-&lt;h2 id=&quot;manjaro的优点&quot;&gt;Manjaro的优点&lt;/h2&gt;
-&lt;ol type=&quot;1&quot;&gt;
-&lt;li&gt;装软件非常方便，基本上各种软件在软件源中都能找到，并直接安装，而且安装的都是新版本。&lt;/li&gt;
-&lt;li&gt;包括CUDA，显卡管理软件（忘记叫什么了，可以设置使用集显或独显或只用cuda）。&lt;/li&gt;
-&lt;li&gt;WIKI资料很丰富，出了问题可以直接查。&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-    
     
   </entry>
   
