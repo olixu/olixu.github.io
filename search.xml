@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Linux系统TIPS</title>
-    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
-    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
-<a id="more"></a>
-<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
-<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CBDict文献取词翻译器</title>
     <url>/2019/03/18/CBDict%E6%96%87%E7%8C%AE%E5%8F%96%E8%AF%8D%E7%BF%BB%E8%AF%91%E5%99%A8/</url>
     <content><![CDATA[<pre><code>**CBDict：一个专门为Linux环境下的学术党设计的文献取词翻译器**</code></pre>
@@ -151,6 +136,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux系统TIPS</title>
+    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
+    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
+<a id="more"></a>
+<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
+<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Markdown语法</title>
     <url>/2019/02/04/Markdown%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<h2 id="基本语法">1.基本语法</h2>
@@ -225,6 +225,17 @@
       </tags>
   </entry>
   <entry>
+    <title>Monte Carlo Methods</title>
+    <url>/2019/10/21/Monte-Carlo-Methods/</url>
+    <content><![CDATA[<p>Unlike Dynamic Programming Methods, Monte Carlo Methods do not assume complete knowledge of the environment. MC only requires experience--sample sequences of states, actions, and rewards from actual or simulated interaction with an environment.</p>
+<h2 id="monte-carlo-prediction">Monte Carlo Prediction</h2>
+<p>The idea underlies all Monte Carlo methods is that as more returns are observed the average should converge to the expected value. So we begin by considerng Monte Carlo methods for learning the state-value function for a given policy. A way to estimate the value of a state from experience is simply to average the returns observed after visits to that state. <a id="more"></a> ## Play with Blackjack ENV <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">env = BlackjackEnv()</span><br><span class="line"><span class="comment"># The observation is a 3-tuple of: the players current sum,</span></span><br><span class="line"><span class="comment"># the dealer's one showing card (1-10 where 1 is ace),</span></span><br><span class="line"><span class="comment"># and whether or not the player holds a usable ace (0 or 1).</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_observation</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    print(<span class="string">"Player Score: &#123;&#125; (Usable Ace: &#123;&#125;), Dealer Score: &#123;&#125;"</span>.format(</span><br><span class="line">          score, usable_ace, dealer_score))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    <span class="comment"># Stick (action 0) if the score is &gt; 20, hit (action 1) otherwise</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> score &gt;= <span class="number">20</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    observation = env.reset()</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        print_observation(observation)</span><br><span class="line">        action = strategy(observation)</span><br><span class="line">        print(<span class="string">"Taking action: &#123;&#125;"</span>.format( [<span class="string">"Stick"</span>, <span class="string">"Hit"</span>][action]))</span><br><span class="line">        observation, reward, done, _ = env.step(action)</span><br><span class="line">        <span class="keyword">if</span> done:</span><br><span class="line">            print_observation(observation)</span><br><span class="line">            print(<span class="string">"Game end. Reward: &#123;&#125;\n"</span>.format(float(reward)))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="first-visit-mc-prediction-algorithm">First-visit MC prediction algorithm</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mc_prediction</span><span class="params">(policy, env, num_episodes, discount_factor=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Monte Carlo prediction algorithm. Calculates the value function</span></span><br><span class="line"><span class="string">    for a given policy using sampling.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        policy: A function that maps an observation to action probabilities.</span></span><br><span class="line"><span class="string">        env: OpenAI gym environment.</span></span><br><span class="line"><span class="string">        num_episodes: Number of episodes to sample.</span></span><br><span class="line"><span class="string">        discount_factor: Gamma discount factor.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        A dictionary that maps from state -&gt; value.</span></span><br><span class="line"><span class="string">        The state is a tuple and the value is a float.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Keeps track of sum and count of returns for each state</span></span><br><span class="line">    <span class="comment"># to calculate an average. We could use an array to save all</span></span><br><span class="line">    <span class="comment"># returns (like in the book) but that's memory inefficient.</span></span><br><span class="line">    returns_sum = defaultdict(float)</span><br><span class="line">    returns_count = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># The final value function</span></span><br><span class="line">    V = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Implement this!</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        episode = []</span><br><span class="line">        state = env.reset()</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            action = policy(state)</span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            state = next_state</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Find all states the we've visited in this episode</span></span><br><span class="line">        <span class="comment"># We convert each state to a tuple so that we can use it as a dict key</span></span><br><span class="line">        states_in_episode = set([tuple(x[<span class="number">0</span>]) <span class="keyword">for</span> x <span class="keyword">in</span> episode])</span><br><span class="line">        <span class="keyword">for</span> state <span class="keyword">in</span> states_in_episode:</span><br><span class="line">            <span class="comment">#print(state)</span></span><br><span class="line">            <span class="comment">#print(10*'*')</span></span><br><span class="line">            <span class="comment"># Find the first occurance of the state in the episode</span></span><br><span class="line">            first_occurence_idx = next(i <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode) <span class="keyword">if</span> x[<span class="number">0</span>] == state)</span><br><span class="line">            <span class="comment"># Sum up all rewards since the first occurance</span></span><br><span class="line">            G = sum([x[<span class="number">2</span>]*(discount_factor**i) <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode[first_occurence_idx:])])</span><br><span class="line">            <span class="comment"># Calculate average return for this state over all sampled episodes</span></span><br><span class="line">            returns_sum[state] += G</span><br><span class="line">            returns_count[state] += <span class="number">1.0</span></span><br><span class="line">            V[state] = returns_sum[state] / returns_count[state]</span><br><span class="line">    print(len(V))</span><br><span class="line">    print(first_occurence_idx)</span><br><span class="line">    print(states_in_episode)</span><br><span class="line">    print(episode)</span><br><span class="line">    <span class="keyword">return</span> V</span><br></pre></td></tr></table></figure>
+<p><img src="10000_Steps_No_Usable_Ace.png" alt="10000_Steps_No_Usable_Ace" /> <img src="10000_Steps_Usable_Ace.png" alt="10000_Steps_Usable_Ace" /> <img src="500000_Steps_No_Usable_Ace.png" alt="500000_Steps_No_Usable_Ace" /> <img src="500000_Steps_Usable_Ace.png" alt="500000_Steps_Usable_Ace" /></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Mysql Command</title>
     <url>/2019/11/05/Mysql-Command/</url>
     <content><![CDATA[<p>This post will record all the mysql command that i used in my projects.</p>
@@ -240,17 +251,6 @@
       <tags>
         <tag>Mysql</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Monte Carlo Methods</title>
-    <url>/2019/10/21/Monte-Carlo-Methods/</url>
-    <content><![CDATA[<p>Unlike Dynamic Programming Methods, Monte Carlo Methods do not assume complete knowledge of the environment. MC only requires experience--sample sequences of states, actions, and rewards from actual or simulated interaction with an environment.</p>
-<h2 id="monte-carlo-prediction">Monte Carlo Prediction</h2>
-<p>The idea underlies all Monte Carlo methods is that as more returns are observed the average should converge to the expected value. So we begin by considerng Monte Carlo methods for learning the state-value function for a given policy. A way to estimate the value of a state from experience is simply to average the returns observed after visits to that state. <a id="more"></a> ## Play with Blackjack ENV <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">env = BlackjackEnv()</span><br><span class="line"><span class="comment"># The observation is a 3-tuple of: the players current sum,</span></span><br><span class="line"><span class="comment"># the dealer's one showing card (1-10 where 1 is ace),</span></span><br><span class="line"><span class="comment"># and whether or not the player holds a usable ace (0 or 1).</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_observation</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    print(<span class="string">"Player Score: &#123;&#125; (Usable Ace: &#123;&#125;), Dealer Score: &#123;&#125;"</span>.format(</span><br><span class="line">          score, usable_ace, dealer_score))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    <span class="comment"># Stick (action 0) if the score is &gt; 20, hit (action 1) otherwise</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> score &gt;= <span class="number">20</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    observation = env.reset()</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        print_observation(observation)</span><br><span class="line">        action = strategy(observation)</span><br><span class="line">        print(<span class="string">"Taking action: &#123;&#125;"</span>.format( [<span class="string">"Stick"</span>, <span class="string">"Hit"</span>][action]))</span><br><span class="line">        observation, reward, done, _ = env.step(action)</span><br><span class="line">        <span class="keyword">if</span> done:</span><br><span class="line">            print_observation(observation)</span><br><span class="line">            print(<span class="string">"Game end. Reward: &#123;&#125;\n"</span>.format(float(reward)))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="first-visit-mc-prediction-algorithm">First-visit MC prediction algorithm</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mc_prediction</span><span class="params">(policy, env, num_episodes, discount_factor=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Monte Carlo prediction algorithm. Calculates the value function</span></span><br><span class="line"><span class="string">    for a given policy using sampling.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        policy: A function that maps an observation to action probabilities.</span></span><br><span class="line"><span class="string">        env: OpenAI gym environment.</span></span><br><span class="line"><span class="string">        num_episodes: Number of episodes to sample.</span></span><br><span class="line"><span class="string">        discount_factor: Gamma discount factor.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        A dictionary that maps from state -&gt; value.</span></span><br><span class="line"><span class="string">        The state is a tuple and the value is a float.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Keeps track of sum and count of returns for each state</span></span><br><span class="line">    <span class="comment"># to calculate an average. We could use an array to save all</span></span><br><span class="line">    <span class="comment"># returns (like in the book) but that's memory inefficient.</span></span><br><span class="line">    returns_sum = defaultdict(float)</span><br><span class="line">    returns_count = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># The final value function</span></span><br><span class="line">    V = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Implement this!</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        episode = []</span><br><span class="line">        state = env.reset()</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            action = policy(state)</span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            state = next_state</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Find all states the we've visited in this episode</span></span><br><span class="line">        <span class="comment"># We convert each state to a tuple so that we can use it as a dict key</span></span><br><span class="line">        states_in_episode = set([tuple(x[<span class="number">0</span>]) <span class="keyword">for</span> x <span class="keyword">in</span> episode])</span><br><span class="line">        <span class="keyword">for</span> state <span class="keyword">in</span> states_in_episode:</span><br><span class="line">            <span class="comment">#print(state)</span></span><br><span class="line">            <span class="comment">#print(10*'*')</span></span><br><span class="line">            <span class="comment"># Find the first occurance of the state in the episode</span></span><br><span class="line">            first_occurence_idx = next(i <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode) <span class="keyword">if</span> x[<span class="number">0</span>] == state)</span><br><span class="line">            <span class="comment"># Sum up all rewards since the first occurance</span></span><br><span class="line">            G = sum([x[<span class="number">2</span>]*(discount_factor**i) <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode[first_occurence_idx:])])</span><br><span class="line">            <span class="comment"># Calculate average return for this state over all sampled episodes</span></span><br><span class="line">            returns_sum[state] += G</span><br><span class="line">            returns_count[state] += <span class="number">1.0</span></span><br><span class="line">            V[state] = returns_sum[state] / returns_count[state]</span><br><span class="line">    print(len(V))</span><br><span class="line">    print(first_occurence_idx)</span><br><span class="line">    print(states_in_episode)</span><br><span class="line">    print(episode)</span><br><span class="line">    <span class="keyword">return</span> V</span><br></pre></td></tr></table></figure>
-<p><img src="10000_Steps_No_Usable_Ace.png" alt="10000_Steps_No_Usable_Ace" /> <img src="10000_Steps_Usable_Ace.png" alt="10000_Steps_Usable_Ace" /> <img src="500000_Steps_No_Usable_Ace.png" alt="500000_Steps_No_Usable_Ace" /> <img src="500000_Steps_Usable_Ace.png" alt="500000_Steps_Usable_Ace" /></p>
-]]></content>
   </entry>
   <entry>
     <title>PGADP数据驱动的优化控制</title>
@@ -475,14 +475,6 @@ Box(4,)</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Python装饰器</title>
-    <url>/2019/02/10/Python%E8%A3%85%E9%A5%B0%E5%99%A8/</url>
-    <content><![CDATA[<p>装饰器是Python的重要组成部分。简单来说：它们是修改其它函数的函数。他们有助于使我们的代码更短，更Pythonic。大多数初学者不知道在哪里使用它们，所以本文将介绍一些常见需要使用装饰器的情况。 <a id="more"></a> ## Python中一些都是对象</p>
-<p>首先让我们理解Python中的函数：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hi</span><span class="params">(name=<span class="string">"oliverxu"</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hi"</span> + name</span><br><span class="line"></span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果：'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们可以将一个函数赋值给一个变量</span></span><br><span class="line">greet = hi</span><br><span class="line"><span class="comment"># 我们并不是调用hi()，而是将函数赋值给greet</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 让我们看看如果将hi这个函数删除会出现什么情况</span></span><br><span class="line"><span class="keyword">del</span> hi</span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果： NameError</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>Python配置虚拟环境</title>
     <url>/2018/09/16/Python%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
     <content><![CDATA[<blockquote>
@@ -519,6 +511,14 @@ Box(4,)</code></pre>
       <tags>
         <tag>python</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Python装饰器</title>
+    <url>/2019/02/10/Python%E8%A3%85%E9%A5%B0%E5%99%A8/</url>
+    <content><![CDATA[<p>装饰器是Python的重要组成部分。简单来说：它们是修改其它函数的函数。他们有助于使我们的代码更短，更Pythonic。大多数初学者不知道在哪里使用它们，所以本文将介绍一些常见需要使用装饰器的情况。 <a id="more"></a> ## Python中一些都是对象</p>
+<p>首先让我们理解Python中的函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hi</span><span class="params">(name=<span class="string">"oliverxu"</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hi"</span> + name</span><br><span class="line"></span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果：'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们可以将一个函数赋值给一个变量</span></span><br><span class="line">greet = hi</span><br><span class="line"><span class="comment"># 我们并不是调用hi()，而是将函数赋值给greet</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 让我们看看如果将hi这个函数删除会出现什么情况</span></span><br><span class="line"><span class="keyword">del</span> hi</span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果： NameError</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br></pre></td></tr></table></figure>
+]]></content>
   </entry>
   <entry>
     <title>Pytorch使用笔记</title>
@@ -697,6 +697,55 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </tags>
   </entry>
   <entry>
+    <title>hexo-gittalk问题总结</title>
+    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
+<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>经验</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用PPO设计线性系统控制器</title>
+    <url>/2020/08/27/%E4%BD%BF%E7%94%A8PPO%E8%AE%BE%E8%AE%A1%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%99%A8/</url>
+    <content><![CDATA[<p>论文《Policy Iteration Adaptive Dynamic Programming Algorithm for Discrete-Time Nonlinear Systems》</p>
+<p>这几天读了ADP相关的几篇论文，早期08年-14年都是用Policy Iteration方法进行求解，14-18年，Policy Gradient方法多了起来。</p>
+<a id="more"></a>
+<h2 id="仿真实例">仿真实例</h2>
+<h3 id="线性系统">1.线性系统</h3>
+<p>对于给定的线性系统：<span class="math display">\[x_{k+1}=A x_{k}+B u_{k}\]</span></p>
+<p>其中，<span class="math inline">\(x_{k}=\left[x_{1 k}, x_{2 k}\right]^{T}\)</span>， <span class="math inline">\(u_{k} \in \mathbb{R}^{1}\)</span></p>
+<p><span class="math inline">\(A=\left[\begin{array}{cc} 0 &amp; 0.1 \\ 0.3 &amp; -1 \end{array}\right]\)</span>， <span class="math inline">\(B=\left[\begin{array}{c} 0 \\ 0.5 \end{array}\right]\)</span></p>
+<p>初始状态<span class="math inline">\(x_{0}=[1,-1]^{T}\)</span></p>
+<h4 id="设计ppo控制器">设计PPO控制器：</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">from</span> stable_baselines3 <span class="keyword">import</span> PPO</span><br><span class="line"><span class="keyword">from</span> stable_baselines3.ppo <span class="keyword">import</span> MlpPolicy</span><br><span class="line"><span class="keyword">from</span> stable_baselines3.common.cmd_util <span class="keyword">import</span> make_vec_env</span><br><span class="line"><span class="keyword">from</span> LinearEnv <span class="keyword">import</span> LinearEnv</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">from</span> utils <span class="keyword">import</span> compute_loss, plotloss, plotstate, plotaction</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置环境</span></span><br><span class="line">env = make_vec_env(LinearEnv, env_kwargs=&#123;<span class="string">'termination'</span>: <span class="number">20</span>, <span class="string">'initstate'</span>: [<span class="number">1.0</span>, <span class="number">-1.0</span>]&#125;, n_envs=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 训练模型</span></span><br><span class="line"><span class="comment">#model = PPO(MlpPolicy, env, verbose=1)</span></span><br><span class="line"><span class="comment">#model.learn(total_timesteps=1000000)</span></span><br><span class="line"><span class="comment"># 保存模型</span></span><br><span class="line"><span class="comment">#model.save("Linear")</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 使用训练好的模型</span></span><br><span class="line"><span class="comment"># 导入模型</span></span><br><span class="line">model = PPO.load(<span class="string">"Linear"</span>)</span><br><span class="line"><span class="comment"># reset环境</span></span><br><span class="line">obs = env.reset()</span><br><span class="line"><span class="comment"># 保存结果</span></span><br><span class="line">state_lst = []</span><br><span class="line">state_lst.append(obs.tolist()[<span class="number">0</span>])</span><br><span class="line">reward_lst = []</span><br><span class="line">performance_index = []</span><br><span class="line">action_lst = []</span><br><span class="line"><span class="comment"># 使用训练好的模型来控制环境</span></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">    action, _states = model.predict(obs)</span><br><span class="line">    obs, rewards, dones, info = env.step(action)</span><br><span class="line">    <span class="keyword">if</span> dones[<span class="number">0</span>]:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    state_lst.append(obs.tolist()[<span class="number">0</span>])</span><br><span class="line">    action_lst.append(action.tolist()[<span class="number">0</span>][<span class="number">0</span>])</span><br><span class="line">    reward_lst.append(rewards.tolist()[<span class="number">0</span>])</span><br><span class="line">    performance_index.append(compute_loss(reward_lst))</span><br><span class="line">    <span class="comment">#print("Performance Index", compute_loss(reward_lst), "Next state: ", obs, "rewards: ", rewards, dones, info)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot性能指标</span></span><br><span class="line">plotloss(performance_index)</span><br><span class="line"><span class="comment"># Plot当前状态</span></span><br><span class="line">plotstate(state_lst)</span><br><span class="line"><span class="comment"># Plot动作</span></span><br><span class="line">plotaction(action_lst)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><strong>控制效果：</strong></p>
+<p><img src="1.svg" /></p>
+<p><img src="2.svg" /></p>
+<p><img src="3.svg" /></p>
+<p>性能指标在控制到3个timestep后基本收敛，但是控制器输入和状态有一定的波动，查看数据可以发现，不能完全收敛到0.0，而是一直在-0.001-0.001内波动。</p>
+<h4 id="训练过程中的经验">训练过程中的经验</h4>
+<ol type="1">
+<li>要让它能学到最优值，训练过程中时刻关注<code>ep_rew_mean</code>之类的参数，看它是不是在一直变小，如果不是，那么环境可能有问题。</li>
+<li>训练效果和<code>total_timesteps</code>有很大的关系，在训练效果不好的情况下且<code>ep_rew_mean</code>不断变小的情况下可以考虑增加<code>total_timesteps</code>的大小。</li>
+<li>对于控制问题来说，设置终止条件很重要，比如一个Episode训练多少步才将<code>done</code>设置为<code>True</code>，像在这个问题中，对于简单的，无时滞的系统来说，比如我想要在10个timesteps内达到控制要求，那么在环境中设置<code>termination</code>为10。</li>
+<li>改变PPO的参数会对控制系统的效果有一定的影响，具体的影响需要进一步测试。</li>
+<li>如何增加控制器输入变化的限制？控制器输入的限制可以直接通过训练的时候设置<code>action_space</code>的大小来限制，但是控制器输入变化<span class="math inline">\(\Delta u\)</span>如何来进行限制？</li>
+<li>对于线性系统来说，初始状态的选取，对于控制器的控制效果没有影响，例如我用初始状态为<span class="math inline">\(x_{0}=[1,-1]^{T}\)</span>的环境进行训练后得到的模型，当使用训练好后的模型进行控制的时候，即使你改变初始状态，不影响控制效果。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Reinforcement Learning</category>
+      </categories>
+      <tags>
+        <tag>Reinforcement Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>controllability and observability</title>
     <url>/2019/08/13/controllability-and-observability/</url>
     <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
@@ -839,19 +888,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>hexo-gittalk问题总结</title>
-    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
-<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>经验</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>vs code remote ssh 使用x11转发显示远程图像</title>
     <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
     <content><![CDATA[<h2 id="需求">需求</h2>
@@ -874,70 +910,29 @@ x
       </tags>
   </entry>
   <entry>
-    <title>中国学术圈的未来在哪里？</title>
-    <url>/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/</url>
-    <content><![CDATA[<p>最近遇到了很多烦心事，主要是学术生活上的问题，教授没有学术上的指导，且总是push我们做项目，自动化系的教授都只知道赚钱啊，不，都只知道“骗钱”。今天感觉状态还不错，稍有感想，想在这篇文章中简短地谈论一下，权当我乱说的吧，哈哈哈哈。</p>
+    <title>使用本地服务器结合github action推送github pages</title>
+    <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
+    <content><![CDATA[<h2 id="需求">需求</h2>
+<p>网上很多人使用github action，借助github的服务器来进行博客的推送，但是，当你博客文章数量较多，且使用了国内的CDN，例如本博客使用了阿里云CDN，本站的解析是国外IP访问的是github仓库的网站，国内用户访问的是阿里云CDN的节点，在使用github action的时候，发现推送速度非常慢，原因是github的服务器在国外，<strong>往阿里云服务器推送的时候速度很慢</strong>。所以，每次更新博客，往往需要10分钟的时间才能推送好。这是不能忍受的。。。</p>
 <a id="more"></a>
-<p>中国科研圈的问题我个人认为主要来源于以下几点：</p>
-<ul>
-<li>当前50岁以上的老教授，都是出身在1970年以前，他们从小没有接受过完整、科学的教育，所以，一方面，他们中很多人的学术水平其实很垃圾的，工程技术水平也有限啊，而且从小没有接受过爱国主义教育，现在很多的美国的舔狗，也基本都是这个年龄段吧，他们中的某些人入党了，这些人都是对国家有风险的，因为他们只不过是为了入党而入党，而不是真正的爱国家爱党。</li>
-<li>贫富差距过大导致了很多教授老师都拼命想着赚钱，例如江浙沪，其实很多人的收入都很高，每年也都能赚很多钱，但是教授的工资却没有跟上时代的步伐，这就导致老师们只想着去赚钱，骗钱。</li>
-<li>教授老师的权力太大了，国家也没有出台相应的解决办法，所谓的发布的几个文件，都只是象征性的，没有实际意义。</li>
-</ul>
-<p>解决办法：</p>
-<ul>
-<li>学术圈需要降低平均年龄，让那些不给力的老教师抓紧退休，让有能力有抱负的年轻老师赶紧上位。</li>
-<li>国内大学的思政老师要请专业的老师，不能是学生辅导员，要选择真正有理想，有抱负的共产党员来做思政老师，同时赋予他们保护学生的权力。</li>
-<li>需要大量的学生集体出来反抗，这是最无奈，也是最有效的一种解决办法，再来一次文化大革命，什么都解决了。</li>
-</ul>
-<p>写这篇文章的时候主要是感叹现在老师的权力真的太大了，完全不应该这么大啊，而且我现在的科研生活也和我理想中的科研生活完全不一样。我理想中的科研生活应该是自由，纯粹的科研生活，像deepmind，openai，UCB那种真正干科研的生活。而现在的科研生活，一个个教授们美其名曰要结合工程项目，但实际上只是为了赚钱一级一级骗钱，骗国企，骗国家，最终受伤害的还是纳税人。</p>
-<p>但是再往上说，那就要说到共产党了，共产党是先进生产力的代表，怎么不能解决这么明显的问题？</p>
-<p><strong>虽然对中国的科研圈子很失望，但是若不是为了心中那一份崇高的科研理想，我又怎会继续坚持？</strong></p>
-<p>最后，用鲁迅先生的经典《热风》结尾：</p>
-<p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声，有一分热，发一分光，就令萤火虫一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。 倘若有了炬火，出了太阳，我们自然心悦诚服地消失，不但毫无不平，而且还要随喜赞美这炬火或太阳，因为他照亮了人类，连我都在内。</p>
-<p><strong>与君共勉。</strong></p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用PPO设计线性系统控制器</title>
-    <url>/2020/08/27/%E4%BD%BF%E7%94%A8PPO%E8%AE%BE%E8%AE%A1%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%99%A8/</url>
-    <content><![CDATA[<p>论文《Policy Iteration Adaptive Dynamic Programming Algorithm for Discrete-Time Nonlinear Systems》</p>
-<p>这几天读了ADP相关的几篇论文，早期08年-14年都是用Policy Iteration方法进行求解，14-18年，Policy Gradient方法多了起来。</p>
-<a id="more"></a>
-<h2 id="仿真实例">仿真实例</h2>
-<h3 id="线性系统">1.线性系统</h3>
-<p>对于给定的线性系统：<span class="math display">\[x_{k+1}=A x_{k}+B u_{k}\]</span></p>
-<p>其中，<span class="math inline">\(x_{k}=\left[x_{1 k}, x_{2 k}\right]^{T}\)</span>， <span class="math inline">\(u_{k} \in \mathbb{R}^{1}\)</span></p>
-<p><span class="math inline">\(A=\left[\begin{array}{cc} 0 &amp; 0.1 \\ 0.3 &amp; -1 \end{array}\right]\)</span>， <span class="math inline">\(B=\left[\begin{array}{c} 0 \\ 0.5 \end{array}\right]\)</span></p>
-<p>初始状态<span class="math inline">\(x_{0}=[1,-1]^{T}\)</span></p>
-<h4 id="设计ppo控制器">设计PPO控制器：</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">from</span> stable_baselines3 <span class="keyword">import</span> PPO</span><br><span class="line"><span class="keyword">from</span> stable_baselines3.ppo <span class="keyword">import</span> MlpPolicy</span><br><span class="line"><span class="keyword">from</span> stable_baselines3.common.cmd_util <span class="keyword">import</span> make_vec_env</span><br><span class="line"><span class="keyword">from</span> LinearEnv <span class="keyword">import</span> LinearEnv</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">from</span> utils <span class="keyword">import</span> compute_loss, plotloss, plotstate, plotaction</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置环境</span></span><br><span class="line">env = make_vec_env(LinearEnv, env_kwargs=&#123;<span class="string">'termination'</span>: <span class="number">20</span>, <span class="string">'initstate'</span>: [<span class="number">1.0</span>, <span class="number">-1.0</span>]&#125;, n_envs=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 训练模型</span></span><br><span class="line"><span class="comment">#model = PPO(MlpPolicy, env, verbose=1)</span></span><br><span class="line"><span class="comment">#model.learn(total_timesteps=1000000)</span></span><br><span class="line"><span class="comment"># 保存模型</span></span><br><span class="line"><span class="comment">#model.save("Linear")</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 使用训练好的模型</span></span><br><span class="line"><span class="comment"># 导入模型</span></span><br><span class="line">model = PPO.load(<span class="string">"Linear"</span>)</span><br><span class="line"><span class="comment"># reset环境</span></span><br><span class="line">obs = env.reset()</span><br><span class="line"><span class="comment"># 保存结果</span></span><br><span class="line">state_lst = []</span><br><span class="line">state_lst.append(obs.tolist()[<span class="number">0</span>])</span><br><span class="line">reward_lst = []</span><br><span class="line">performance_index = []</span><br><span class="line">action_lst = []</span><br><span class="line"><span class="comment"># 使用训练好的模型来控制环境</span></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">    action, _states = model.predict(obs)</span><br><span class="line">    obs, rewards, dones, info = env.step(action)</span><br><span class="line">    <span class="keyword">if</span> dones[<span class="number">0</span>]:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    state_lst.append(obs.tolist()[<span class="number">0</span>])</span><br><span class="line">    action_lst.append(action.tolist()[<span class="number">0</span>][<span class="number">0</span>])</span><br><span class="line">    reward_lst.append(rewards.tolist()[<span class="number">0</span>])</span><br><span class="line">    performance_index.append(compute_loss(reward_lst))</span><br><span class="line">    <span class="comment">#print("Performance Index", compute_loss(reward_lst), "Next state: ", obs, "rewards: ", rewards, dones, info)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot性能指标</span></span><br><span class="line">plotloss(performance_index)</span><br><span class="line"><span class="comment"># Plot当前状态</span></span><br><span class="line">plotstate(state_lst)</span><br><span class="line"><span class="comment"># Plot动作</span></span><br><span class="line">plotaction(action_lst)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><strong>控制效果：</strong></p>
+<p>我本地有一台服务器，装了Proxmox来管理虚拟机，且有公网IP，接助GitHub action来连接到我本地推送服务器进行推送</p>
+<h2 id="整个流程如图">整个流程如图：</h2>
 <p><img src="1.svg" /></p>
-<p><img src="2.svg" /></p>
-<p><img src="3.svg" /></p>
-<p>性能指标在控制到3个timestep后基本收敛，但是控制器输入和状态有一定的波动，查看数据可以发现，不能完全收敛到0.0，而是一直在-0.001-0.001内波动。</p>
-<h4 id="训练过程中的经验">训练过程中的经验</h4>
-<ol type="1">
-<li>要让它能学到最优值，训练过程中时刻关注<code>ep_rew_mean</code>之类的参数，看它是不是在一直变小，如果不是，那么环境可能有问题。</li>
-<li>训练效果和<code>total_timesteps</code>有很大的关系，在训练效果不好的情况下且<code>ep_rew_mean</code>不断变小的情况下可以考虑增加<code>total_timesteps</code>的大小。</li>
-<li>对于控制问题来说，设置终止条件很重要，比如一个Episode训练多少步才将<code>done</code>设置为<code>True</code>，像在这个问题中，对于简单的，无时滞的系统来说，比如我想要在10个timesteps内达到控制要求，那么在环境中设置<code>termination</code>为10。</li>
-<li>改变PPO的参数会对控制系统的效果有一定的影响，具体的影响需要进一步测试。</li>
-<li>如何增加控制器输入变化的限制？控制器输入的限制可以直接通过训练的时候设置<code>action_space</code>的大小来限制，但是控制器输入变化<span class="math inline">\(\Delta u\)</span>如何来进行限制？</li>
-<li>对于线性系统来说，初始状态的选取，对于控制器的控制效果没有影响，例如我用初始状态为<span class="math inline">\(x_{0}=[1,-1]^{T}\)</span>的环境进行训练后得到的模型，当使用训练好后的模型进行控制的时候，即使你改变初始状态，不影响控制效果。</li>
-</ol>
+<ul>
+<li>本地git pull github仓库中的文件到本地博客开发服务器，进行博客开发。</li>
+<li>博客写完后，git push到github仓库</li>
+<li>github仓库根据仓库中的yaml文件，创建github action，action的功能是连接SSH到Github推送服务器</li>
+<li>Github推送服务器上已经安装好了hexo等博客需要的环境，进行博客推送</li>
+</ul>
+<p>这样操作，全自动的，且速度非常快，整个流程在1分钟左右。</p>
+<h2 id="附上github-action的代码">附上github action的代码：</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Hexo deploy by remote ssh</span><br><span class="line">on: </span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line"></span><br><span class="line">  build:</span><br><span class="line">    name: Build</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">    - name: executing remote ssh commands using password</span><br><span class="line">      uses: appleboy/ssh-action@master</span><br><span class="line">      with:</span><br><span class="line">        host: <span class="variable">$&#123;&#123; secrets.HOST &#125;</span>&#125;</span><br><span class="line">        username: <span class="variable">$&#123;&#123; secrets.USERNAME &#125;</span>&#125;</span><br><span class="line">        password: <span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;</span><br><span class="line">        port: <span class="variable">$&#123;&#123; secrets.PORT &#125;</span>&#125;</span><br><span class="line">        script: <span class="built_in">cd</span> blog;</span><br><span class="line">                git pull https://olixu:<span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;@github.com/olixu/blog.git; </span><br><span class="line">                hexo clean;</span><br><span class="line">                hexo g;</span><br><span class="line">                hexo d;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Reinforcement Learning</category>
+        <category>博客</category>
       </categories>
       <tags>
-        <tag>Reinforcement Learning</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -975,51 +970,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>使用本地服务器结合github action推送github pages</title>
-    <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
-    <content><![CDATA[<h2 id="需求">需求</h2>
-<p>网上很多人使用github action，借助github的服务器来进行博客的推送，但是，当你博客文章数量较多，且使用了国内的CDN，例如本博客使用了阿里云CDN，本站的解析是国外IP访问的是github仓库的网站，国内用户访问的是阿里云CDN的节点，在使用github action的时候，发现推送速度非常慢，原因是github的服务器在国外，<strong>往阿里云服务器推送的时候速度很慢</strong>。所以，每次更新博客，往往需要10分钟的时间才能推送好。这是不能忍受的。。。</p>
-<a id="more"></a>
-<p>我本地有一台服务器，装了Proxmox来管理虚拟机，且有公网IP，接助GitHub action来连接到我本地推送服务器进行推送</p>
-<h2 id="整个流程如图">整个流程如图：</h2>
-<p><img src="1.svg" /></p>
-<ul>
-<li>本地git pull github仓库中的文件到本地博客开发服务器，进行博客开发。</li>
-<li>博客写完后，git push到github仓库</li>
-<li>github仓库根据仓库中的yaml文件，创建github action，action的功能是连接SSH到Github推送服务器</li>
-<li>Github推送服务器上已经安装好了hexo等博客需要的环境，进行博客推送</li>
-</ul>
-<p>这样操作，全自动的，且速度非常快，整个流程在1分钟左右。</p>
-<h2 id="附上github-action的代码">附上github action的代码：</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Hexo deploy by remote ssh</span><br><span class="line">on: </span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line"></span><br><span class="line">  build:</span><br><span class="line">    name: Build</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">    - name: executing remote ssh commands using password</span><br><span class="line">      uses: appleboy/ssh-action@master</span><br><span class="line">      with:</span><br><span class="line">        host: <span class="variable">$&#123;&#123; secrets.HOST &#125;</span>&#125;</span><br><span class="line">        username: <span class="variable">$&#123;&#123; secrets.USERNAME &#125;</span>&#125;</span><br><span class="line">        password: <span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;</span><br><span class="line">        port: <span class="variable">$&#123;&#123; secrets.PORT &#125;</span>&#125;</span><br><span class="line">        script: <span class="built_in">cd</span> blog;</span><br><span class="line">                git pull https://olixu:<span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;@github.com/olixu/blog.git; </span><br><span class="line">                hexo clean;</span><br><span class="line">                hexo g;</span><br><span class="line">                hexo d;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>光纤测温WEB系统</title>
-    <url>/2019/02/01/%E5%85%89%E7%BA%A4%E6%B5%8B%E6%B8%A9WEB%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h2 id="本项目解决的问题">本项目解决的问题：</h2>
-<p>工业上光纤测温仪配有自带的桌面上位机，此上位机是用C++语言编写，在测温的过程中，温度数据会每隔一秒记录一次，写入TXT文件。本项目将此TXT文件中的数据通过Python发送到服务器，并且在服务器上建立WEB接口，使用户可以通过WEB访问。 <a id="more"></a> 访问效果如图所示：</p>
-<figure>
-<img src="web.png" alt="WEB" /><figcaption>WEB</figcaption>
-</figure>
-<h2 id="项目结构">项目结构：</h2>
-<p><strong>client:</strong> 此文件夹中是测温仪的数据文件夹，将打包好的client.exe文件放入DTS系统的数据文件夹，当此文件夹中产生新的数据文件时候，程序将会自动把数据发送到服务器。</p>
-<p><strong>server:</strong> 此文件夹是WEB端的文件，采用Flask进行设计，使用websocket技术。</p>
-]]></content>
-      <categories>
-        <category>flask</category>
-      </categories>
-      <tags>
-        <tag>flask</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>健身房计划制定与动作</title>
     <url>/2020/08/24/%E5%81%A5%E8%BA%AB%E6%88%BF%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
     <content><![CDATA[<p>这篇文章整理我用到的训练计划和训练动作与健身记录。</p>
@@ -1045,6 +995,25 @@ x
       </categories>
       <tags>
         <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>光纤测温WEB系统</title>
+    <url>/2019/02/01/%E5%85%89%E7%BA%A4%E6%B5%8B%E6%B8%A9WEB%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h2 id="本项目解决的问题">本项目解决的问题：</h2>
+<p>工业上光纤测温仪配有自带的桌面上位机，此上位机是用C++语言编写，在测温的过程中，温度数据会每隔一秒记录一次，写入TXT文件。本项目将此TXT文件中的数据通过Python发送到服务器，并且在服务器上建立WEB接口，使用户可以通过WEB访问。 <a id="more"></a> 访问效果如图所示：</p>
+<figure>
+<img src="web.png" alt="WEB" /><figcaption>WEB</figcaption>
+</figure>
+<h2 id="项目结构">项目结构：</h2>
+<p><strong>client:</strong> 此文件夹中是测温仪的数据文件夹，将打包好的client.exe文件放入DTS系统的数据文件夹，当此文件夹中产生新的数据文件时候，程序将会自动把数据发送到服务器。</p>
+<p><strong>server:</strong> 此文件夹是WEB端的文件，采用Flask进行设计，使用websocket技术。</p>
+]]></content>
+      <categories>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
       </tags>
   </entry>
   <entry>
@@ -1219,6 +1188,33 @@ x
       </tags>
   </entry>
   <entry>
+    <title>初学数据库-sqlite3 简介</title>
+    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
+</blockquote>
+<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
+<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
+<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
+<h2 id="于是数据库出现了">于是，数据库出现了</h2>
+<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
+<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
+<h2 id="数据库种类">数据库种类</h2>
+<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
+<h3 id="非关系型数据库">2.非关系型数据库</h3>
+<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
+<h2 id="sqlite3">sqlite3</h2>
+<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>减肥的科学原理</title>
     <url>/2019/02/20/%E5%87%8F%E8%82%A5%E7%9A%84%E7%A7%91%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h2 id="减肥中的热量单位">减肥中的热量单位</h2>
@@ -1301,73 +1297,6 @@ x
       </categories>
       <tags>
         <tag>爬虫 代理IP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初学数据库-sqlite3 简介</title>
-    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
-</blockquote>
-<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
-<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
-<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
-<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
-<h2 id="于是数据库出现了">于是，数据库出现了</h2>
-<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
-<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
-<h2 id="数据库种类">数据库种类</h2>
-<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
-<h3 id="非关系型数据库">2.非关系型数据库</h3>
-<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
-<h2 id="sqlite3">sqlite3</h2>
-<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基金投资管理系统</title>
-    <url>/2020/06/29/%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<p>基金推荐与投资记录系统：如何成为一名合格的韭菜！</p>
-<h2 id="项目背景">项目背景</h2>
-<p>基金相比于股票，收益要更加稳定，不需要过多专业知识且无需花自己大量的时间去盯盘，适合有一些闲钱却又不会投资的人进行投资。</p>
-<p>今年2月份以来我开始投资基金，使用支付宝进行购买。</p>
-<p>在投资的过程中，我发现了几个问题：</p>
-<a id="more"></a>
-<h3 id="持有成本明细不明确">1. 持有成本明细不明确</h3>
-<p><strong>持有基金详情页</strong>中只有基金的总的持有成本，昨日收益，持有收益，但是，在不同时期购入的基金的成本是不同的，点击<strong>详情</strong>可以查看业绩走势，但是没有具体的成本，购买记录，申购和赎回手续费。当你购买了好几个不同的基金，这需要你每次一个一个点进去看，这样不容易且不直观分析数据。</p>
-<h3 id="挑选基金时不方便">2. 挑选基金时不方便</h3>
-<p>支付宝没有一个很好的挑选基金的方法，对于购买基金的韭菜来说，讲的就是效率，不用讲什么技术，低买高卖就是王道。</p>
-<h3 id="基金走势查看不方便">3. 基金走势查看不方便</h3>
-<p>支付宝的基金走势需要你去一个个点进去看，当你购买的基金数量和种类较多时，查看很不方便。</p>
-<h2 id="项目方案">项目方案</h2>
-<p>本项目拟解决上述三个问题，解决方案：</p>
-<ol type="1">
-<li>设计一套基金投资记录系统，用于记录每次基金的投资明细，基于B/S架构，具有可视化和数据分析的功能。</li>
-<li>设计一个基金推荐系统，该系统采集和监控每天的基金数据，根据一定的策略，生成推荐的基金，推送到微信。</li>
-</ol>
-<h2 id="技术框架">技术框架</h2>
-<ol type="1">
-<li>可视化系统使用Streamlit实现，该库是一个优秀的大数据分析和可视化库，之前在商业项目中使用过，效果不错。</li>
-<li>数据来源：设计爬虫爬取天天基金网的数据或者采用可以直接调用数据的库。</li>
-<li>数据库采用Sqlite，方便用户配置，可以做到开箱即用。</li>
-<li>微信推送采用【Server酱】的微信推送服务。</li>
-<li>部署环境：IBM 的CF服务可以免费注册使用，基金设置策略筛选模块我在本地已经测试了一个月，非常稳定。所有基金的历史数据到20200629日，共占用存储空间400多MB，IBM的免费套餐支持1GB的存储空间，应该可以支持长期使用。</li>
-</ol>
-<h2 id="更新日志">更新日志：</h2>
-<h4 id="设计投资管理系统原型草稿">20200629：设计投资管理系统原型草稿</h4>
-<p><img src="项目草稿20200629.png" /></p>
-]]></content>
-      <categories>
-        <category>fund</category>
-      </categories>
-      <tags>
-        <tag>fund</tag>
       </tags>
   </entry>
   <entry>
@@ -1486,16 +1415,43 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>常用排序算法之冒泡排序</title>
-    <url>/2018/08/19/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>题目：编写一个C程序，应用冒泡排序法对序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的序列元素</p>
-<p>算法分析：直接运用冒泡排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubblesort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span> &amp;&amp; flag==<span class="number">1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n-i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j+<span class="number">1</span>]&lt;a[j])</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j+<span class="number">1</span>];</span><br><span class="line">                a[j+<span class="number">1</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="number">0</span>];</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    bubblesort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of bubble sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <title>基金投资管理系统</title>
+    <url>/2020/06/29/%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<p>基金推荐与投资记录系统：如何成为一名合格的韭菜！</p>
+<h2 id="项目背景">项目背景</h2>
+<p>基金相比于股票，收益要更加稳定，不需要过多专业知识且无需花自己大量的时间去盯盘，适合有一些闲钱却又不会投资的人进行投资。</p>
+<p>今年2月份以来我开始投资基金，使用支付宝进行购买。</p>
+<p>在投资的过程中，我发现了几个问题：</p>
+<a id="more"></a>
+<h3 id="持有成本明细不明确">1. 持有成本明细不明确</h3>
+<p><strong>持有基金详情页</strong>中只有基金的总的持有成本，昨日收益，持有收益，但是，在不同时期购入的基金的成本是不同的，点击<strong>详情</strong>可以查看业绩走势，但是没有具体的成本，购买记录，申购和赎回手续费。当你购买了好几个不同的基金，这需要你每次一个一个点进去看，这样不容易且不直观分析数据。</p>
+<h3 id="挑选基金时不方便">2. 挑选基金时不方便</h3>
+<p>支付宝没有一个很好的挑选基金的方法，对于购买基金的韭菜来说，讲的就是效率，不用讲什么技术，低买高卖就是王道。</p>
+<h3 id="基金走势查看不方便">3. 基金走势查看不方便</h3>
+<p>支付宝的基金走势需要你去一个个点进去看，当你购买的基金数量和种类较多时，查看很不方便。</p>
+<h2 id="项目方案">项目方案</h2>
+<p>本项目拟解决上述三个问题，解决方案：</p>
+<ol type="1">
+<li>设计一套基金投资记录系统，用于记录每次基金的投资明细，基于B/S架构，具有可视化和数据分析的功能。</li>
+<li>设计一个基金推荐系统，该系统采集和监控每天的基金数据，根据一定的策略，生成推荐的基金，推送到微信。</li>
+</ol>
+<h2 id="技术框架">技术框架</h2>
+<ol type="1">
+<li>可视化系统使用Streamlit实现，该库是一个优秀的大数据分析和可视化库，之前在商业项目中使用过，效果不错。</li>
+<li>数据来源：设计爬虫爬取天天基金网的数据或者采用可以直接调用数据的库。</li>
+<li>数据库采用Sqlite，方便用户配置，可以做到开箱即用。</li>
+<li>微信推送采用【Server酱】的微信推送服务。</li>
+<li>部署环境：IBM 的CF服务可以免费注册使用，基金设置策略筛选模块我在本地已经测试了一个月，非常稳定。所有基金的历史数据到20200629日，共占用存储空间400多MB，IBM的免费套餐支持1GB的存储空间，应该可以支持长期使用。</li>
+</ol>
+<h2 id="更新日志">更新日志：</h2>
+<h4 id="设计投资管理系统原型草稿">20200629：设计投资管理系统原型草稿</h4>
+<p><img src="项目草稿20200629.png" /></p>
 ]]></content>
       <categories>
-        <category>数据结构与算法</category>
+        <category>fund</category>
       </categories>
       <tags>
-        <tag>数据结构 算法 排序</tag>
+        <tag>fund</tag>
       </tags>
   </entry>
   <entry>
@@ -1517,6 +1473,19 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
     <content><![CDATA[<p>题目：编写一个C程序，运用选择排序将序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的数列元素</p>
 <p>算法分析：运用选择排序算法即可</p>
 <p>代码实现： <a id="more"></a> <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,<span class="built_in">min</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)</span><br><span class="line">    &#123; </span><br><span class="line">        <span class="built_in">min</span> = i;</span><br><span class="line">        <span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[j] &lt; a[<span class="built_in">min</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">min</span> = j;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">min</span> != i)</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="built_in">min</span>];</span><br><span class="line">                a[<span class="built_in">min</span>] = a[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    selectsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of selection sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构 算法 排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用排序算法之冒泡排序</title>
+    <url>/2018/08/19/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>题目：编写一个C程序，应用冒泡排序法对序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的序列元素</p>
+<p>算法分析：直接运用冒泡排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubblesort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span> &amp;&amp; flag==<span class="number">1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n-i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j+<span class="number">1</span>]&lt;a[j])</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j+<span class="number">1</span>];</span><br><span class="line">                a[j+<span class="number">1</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="number">0</span>];</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    bubblesort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of bubble sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
@@ -1563,6 +1532,28 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>数据结构 算法 排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>服务器被黑记录</title>
+    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
+<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
+<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
+<a id="more"></a>
+<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
+<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
+<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
+<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
+<p>可以看到一直在被爆破。</p>
+<p><img src="image-20200914140640360.png" /></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1655,25 +1646,40 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>服务器被黑记录</title>
-    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
-<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
-<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
+    <title>检查强化学习自定义环境是否符合Gym的API</title>
+    <url>/2020/08/22/%E6%A3%80%E6%9F%A5%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E7%AC%A6%E5%90%88Gym%E7%9A%84API/</url>
+    <content><![CDATA[<p>虽然Openai Gym给我们提供了很多有趣的环境，但是，针对实际问题，我们一般都需要建立自己的强化学习环境，也就是说，建立一个函数，输入是<code>action</code>，输出是<code>next_state, reward, done, info</code>，建立这样一个环境的时候最好按照Gym的API来设计，这样方便代码的编写与调试，很多网上实现的算法都是按照Gym的环境进行设计的，同时，Gym的API本身设计的就比较合理的。</p>
+<p>本文总结了Gym的环境的格式，同时给出了一个能够检查强化学习自定义环境的工具。</p>
 <a id="more"></a>
-<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
-<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
-<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
-<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
-<p>可以看到一直在被爆破。</p>
-<p><img src="image-20200914140640360.png" /></p>
+<h2 id="按照gym的api设计自定义环境">按照Gym的API设计自定义环境</h2>
+<p>按照Gym的接口进行设计，你的环境需要继承<code>Gym</code>类，同时必须包含以下方法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">from</span> gym <span class="keyword">import</span> spaces</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomEnv</span><span class="params">(gym.Env)</span>:</span></span><br><span class="line">  <span class="string">"""Custom Environment that follows gym interface"""</span></span><br><span class="line">  metadata = &#123;<span class="string">'render.modes'</span>: [<span class="string">'human'</span>]&#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, arg1, arg2, ...)</span>:</span></span><br><span class="line">    super(CustomEnv, self).__init__()</span><br><span class="line">    <span class="comment"># Define action and observation space</span></span><br><span class="line">    <span class="comment"># They must be gym.spaces objects</span></span><br><span class="line">    <span class="comment"># Example when using discrete actions:</span></span><br><span class="line">    self.action_space = spaces.Discrete(N_DISCRETE_ACTIONS)</span><br><span class="line">    <span class="comment"># Example for using image as input:</span></span><br><span class="line">    self.observation_space = spaces.Box(low=<span class="number">0</span>, high=<span class="number">255</span>,</span><br><span class="line">                                        shape=(HEIGHT, WIDTH, N_CHANNELS), dtype=np.uint8)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">step</span><span class="params">(self, action)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">return</span> observation, reward, done, info</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">return</span> observation  <span class="comment"># reward, done, info can't be included</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">render</span><span class="params">(self, mode=<span class="string">'human'</span>)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">close</span><span class="params">(self)</span>:</span></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<p>然后，你可以定义一个RL agent：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Instantiate the env</span></span><br><span class="line">env = CustomEnv(arg1, ...)</span><br><span class="line"><span class="comment"># Define and Train the agent</span></span><br><span class="line">model = A2C(<span class="string">'CnnPolicy'</span>, env).learn(total_timesteps=<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+<p>通过<code>stable baselines3</code>中的<code>check_env</code>工具来进行环境API是否符合Gym的API。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> stable_baselines3.common.env_checker <span class="keyword">import</span> check_env</span><br><span class="line"></span><br><span class="line">env = CustomEnv(arg1, ...)</span><br><span class="line"><span class="comment"># It will check your custom environment and output additional warnings if needed</span></span><br><span class="line">check_env(env)</span><br></pre></td></tr></table></figure>
+<p>参考来源：<span class="exturl" data-url="aHR0cHM6Ly9zdGFibGUtYmFzZWxpbmVzMy5yZWFkdGhlZG9jcy5pby9lbi9tYXN0ZXIvZ3VpZGUvY3VzdG9tX2Vudi5odG1s">https://stable-baselines3.readthedocs.io/en/master/guide/custom_env.html<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="check_env工具">check_env工具</h2>
+<p><code>stable_baselines3.common.env_checker.check_env(env: gym.core.Env, warn: bool = True, skip_render_check: bool = True) → None</code></p>
+<p>参考来源：<span class="exturl" data-url="aHR0cHM6Ly9zdGFibGUtYmFzZWxpbmVzMy5yZWFkdGhlZG9jcy5pby9lbi9tYXN0ZXIvZ3VpZGUvY3VzdG9tX2Vudi5odG1s">https://stable-baselines3.readthedocs.io/en/master/guide/custom_env.html<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="示例">示例</h2>
+<p>在<code>Y. Zhang, B. Zhao和D. Liu, 《Deterministic policy gradient adaptive dynamic programming for model-free optimal control》, *Neurocomputing*, 卷 387, 页 40–50, 4月 2020, doi: [10.1016/j.neucom.2019.11.032](https://doi.org/10.1016/j.neucom.2019.11.032).</code>中所仿真的算例：</p>
+<p><span class="math display">\[\mathbf{x}_{t+1}=\left[\begin{array}{c}
+\left(\mathbf{x}_{1, t}+\mathbf{x}_{2, t}^{2}+\mathbf{u}_{t}\right) \cos \left(\mathbf{x}_{2, t}\right) \\
+0.5\left(\mathbf{x}_{1, t}^{2}+\mathbf{x}_{2, t}+\mathbf{u}_{t}\right) \sin \left(\mathbf{x}_{2, t}\right)
+\end{array}\right]\]</span></p>
+<p>对于这样一个非仿射非线性状态空间描述的系统建立强化学习环境，Reward定义为：</p>
+<p><span class="math display">\[\mathcal{J}\left(\mathbf{x}_{0}\right)=\sum_{t=0}^{\infty}\left(\mathbf{x}_{t}^{\top} Q \mathbf{x}_{t}+\mathbf{u}_{t}^{\top} R \mathbf{u}_{t}\right)\]</span>中的<span class="math inline">\(\mathbf{x}_{t}^{\top} Q \mathbf{x}_{t}+\mathbf{u}_{t}^{\top} R \mathbf{u}_{t}\)</span></p>
+<p>其中，<span class="math inline">\(Q=\left[\begin{array}{cc} 1.0 &amp; 0 \\ 0 &amp; 1.0 \end{array}\right]\)</span>, <span class="math inline">\(R=1.0\)</span></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment"># 定义非线性系统环境，按照GYM的格式</span></span><br><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">from</span> gym <span class="keyword">import</span> spaces, logger</span><br><span class="line"><span class="keyword">from</span> gym.utils <span class="keyword">import</span> seeding</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NonLinearEnv</span><span class="params">(gym.Env)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    描述：</span></span><br><span class="line"><span class="string">        一个离散时间非线性非仿射系统</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">    来源：</span></span><br><span class="line"><span class="string">        论文《Policy Gradient Adaptive Dynamic Programming for Data-Based Optimal Control》</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    状态：</span></span><br><span class="line"><span class="string">        State1，State2</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    动作：</span></span><br><span class="line"><span class="string">        单输入系统，u</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    回报：</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    初始状态：</span></span><br><span class="line"><span class="string">        x0=[0.2, 0.7]'</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    episode结束条件：</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">    """</span>    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, Q: np.array, R: np.array)</span>:</span></span><br><span class="line">        self.Q = Q</span><br><span class="line">        self.R = R</span><br><span class="line">        self.state = np.array([<span class="number">0.2</span>, <span class="number">0.7</span>])</span><br><span class="line">        self.action_space = spaces.Box(low=<span class="number">-1.0</span>, high=<span class="number">1.0</span>, shape=(<span class="number">1</span>, ), dtype=np.float64)</span><br><span class="line">        self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(<span class="number">2</span>, ), dtype=np.float64)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.state = np.array([<span class="number">0.2</span>, <span class="number">0.7</span>])</span><br><span class="line">        <span class="keyword">return</span> self.state</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">step</span><span class="params">(self, action)</span>:</span></span><br><span class="line">        next_state_x1 = (self.state[<span class="number">0</span>]+self.state[<span class="number">1</span>]**<span class="number">2</span>+action)*np.cos(self.state[<span class="number">1</span>])</span><br><span class="line">        next_state_x2 = <span class="number">0.5</span>*(self.state[<span class="number">0</span>]**<span class="number">2</span>+self.state[<span class="number">1</span>]+action)*np.sin(self.state[<span class="number">1</span>])</span><br><span class="line">        next_state = [next_state_x1, next_state_x2]</span><br><span class="line">        reward = np.matrix(self.state)*self.Q*np.matrix(self.state).T + action**<span class="number">2</span>*self.R</span><br><span class="line">        self.state = np.array(next_state).reshape(<span class="number">2</span>, )</span><br><span class="line">        done = <span class="literal">False</span></span><br><span class="line">        info = &#123;&#125;</span><br><span class="line">        <span class="keyword">return</span> self.state, -float(reward[<span class="number">0</span>][<span class="number">0</span>]), done, info</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">render</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> NLEnv <span class="keyword">import</span> NonLinearEnv</span><br><span class="line"><span class="keyword">from</span> stable_baselines3.common.env_checker <span class="keyword">import</span> check_env</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"></span><br><span class="line">Q = np.matrix([[<span class="number">1</span>, <span class="number">0</span>],</span><br><span class="line">              [<span class="number">0</span>, <span class="number">1</span>]])</span><br><span class="line">R = np.matrix([[<span class="number">1</span>]])</span><br><span class="line">env = NonLinearEnv(Q, R)</span><br><span class="line">check_env(env)</span><br></pre></td></tr></table></figure>
+<p>这样，就按照Gym的标准定义好了强化学习环境，同时，能够通过API一致性检测，然后，只需要考虑强化学习算法了，无论是自己设计算法，还是使用现成的算法包，都比较方便了。</p>
 ]]></content>
       <categories>
-        <category>Linux</category>
+        <category>Reinforcement Learning</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>Reinforcement Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -1712,56 +1718,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>粒子群算法库-PySwarms的可视化</title>
-    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
-    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
-<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>检查强化学习自定义环境是否符合Gym的API</title>
-    <url>/2020/08/22/%E6%A3%80%E6%9F%A5%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E7%AC%A6%E5%90%88Gym%E7%9A%84API/</url>
-    <content><![CDATA[<p>虽然Openai Gym给我们提供了很多有趣的环境，但是，针对实际问题，我们一般都需要建立自己的强化学习环境，也就是说，建立一个函数，输入是<code>action</code>，输出是<code>next_state, reward, done, info</code>，建立这样一个环境的时候最好按照Gym的API来设计，这样方便代码的编写与调试，很多网上实现的算法都是按照Gym的环境进行设计的，同时，Gym的API本身设计的就比较合理的。</p>
-<p>本文总结了Gym的环境的格式，同时给出了一个能够检查强化学习自定义环境的工具。</p>
-<a id="more"></a>
-<h2 id="按照gym的api设计自定义环境">按照Gym的API设计自定义环境</h2>
-<p>按照Gym的接口进行设计，你的环境需要继承<code>Gym</code>类，同时必须包含以下方法：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">from</span> gym <span class="keyword">import</span> spaces</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomEnv</span><span class="params">(gym.Env)</span>:</span></span><br><span class="line">  <span class="string">"""Custom Environment that follows gym interface"""</span></span><br><span class="line">  metadata = &#123;<span class="string">'render.modes'</span>: [<span class="string">'human'</span>]&#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, arg1, arg2, ...)</span>:</span></span><br><span class="line">    super(CustomEnv, self).__init__()</span><br><span class="line">    <span class="comment"># Define action and observation space</span></span><br><span class="line">    <span class="comment"># They must be gym.spaces objects</span></span><br><span class="line">    <span class="comment"># Example when using discrete actions:</span></span><br><span class="line">    self.action_space = spaces.Discrete(N_DISCRETE_ACTIONS)</span><br><span class="line">    <span class="comment"># Example for using image as input:</span></span><br><span class="line">    self.observation_space = spaces.Box(low=<span class="number">0</span>, high=<span class="number">255</span>,</span><br><span class="line">                                        shape=(HEIGHT, WIDTH, N_CHANNELS), dtype=np.uint8)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">step</span><span class="params">(self, action)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">return</span> observation, reward, done, info</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">return</span> observation  <span class="comment"># reward, done, info can't be included</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">render</span><span class="params">(self, mode=<span class="string">'human'</span>)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">close</span><span class="params">(self)</span>:</span></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
-<p>然后，你可以定义一个RL agent：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Instantiate the env</span></span><br><span class="line">env = CustomEnv(arg1, ...)</span><br><span class="line"><span class="comment"># Define and Train the agent</span></span><br><span class="line">model = A2C(<span class="string">'CnnPolicy'</span>, env).learn(total_timesteps=<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
-<p>通过<code>stable baselines3</code>中的<code>check_env</code>工具来进行环境API是否符合Gym的API。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> stable_baselines3.common.env_checker <span class="keyword">import</span> check_env</span><br><span class="line"></span><br><span class="line">env = CustomEnv(arg1, ...)</span><br><span class="line"><span class="comment"># It will check your custom environment and output additional warnings if needed</span></span><br><span class="line">check_env(env)</span><br></pre></td></tr></table></figure>
-<p>参考来源：<span class="exturl" data-url="aHR0cHM6Ly9zdGFibGUtYmFzZWxpbmVzMy5yZWFkdGhlZG9jcy5pby9lbi9tYXN0ZXIvZ3VpZGUvY3VzdG9tX2Vudi5odG1s">https://stable-baselines3.readthedocs.io/en/master/guide/custom_env.html<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="check_env工具">check_env工具</h2>
-<p><code>stable_baselines3.common.env_checker.check_env(env: gym.core.Env, warn: bool = True, skip_render_check: bool = True) → None</code></p>
-<p>参考来源：<span class="exturl" data-url="aHR0cHM6Ly9zdGFibGUtYmFzZWxpbmVzMy5yZWFkdGhlZG9jcy5pby9lbi9tYXN0ZXIvZ3VpZGUvY3VzdG9tX2Vudi5odG1s">https://stable-baselines3.readthedocs.io/en/master/guide/custom_env.html<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="示例">示例</h2>
-<p>在<code>Y. Zhang, B. Zhao和D. Liu, 《Deterministic policy gradient adaptive dynamic programming for model-free optimal control》, *Neurocomputing*, 卷 387, 页 40–50, 4月 2020, doi: [10.1016/j.neucom.2019.11.032](https://doi.org/10.1016/j.neucom.2019.11.032).</code>中所仿真的算例：</p>
-<p><span class="math display">\[\mathbf{x}_{t+1}=\left[\begin{array}{c}
-\left(\mathbf{x}_{1, t}+\mathbf{x}_{2, t}^{2}+\mathbf{u}_{t}\right) \cos \left(\mathbf{x}_{2, t}\right) \\
-0.5\left(\mathbf{x}_{1, t}^{2}+\mathbf{x}_{2, t}+\mathbf{u}_{t}\right) \sin \left(\mathbf{x}_{2, t}\right)
-\end{array}\right]\]</span></p>
-<p>对于这样一个非仿射非线性状态空间描述的系统建立强化学习环境，Reward定义为：</p>
-<p><span class="math display">\[\mathcal{J}\left(\mathbf{x}_{0}\right)=\sum_{t=0}^{\infty}\left(\mathbf{x}_{t}^{\top} Q \mathbf{x}_{t}+\mathbf{u}_{t}^{\top} R \mathbf{u}_{t}\right)\]</span>中的<span class="math inline">\(\mathbf{x}_{t}^{\top} Q \mathbf{x}_{t}+\mathbf{u}_{t}^{\top} R \mathbf{u}_{t}\)</span></p>
-<p>其中，<span class="math inline">\(Q=\left[\begin{array}{cc} 1.0 &amp; 0 \\ 0 &amp; 1.0 \end{array}\right]\)</span>, <span class="math inline">\(R=1.0\)</span></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment"># 定义非线性系统环境，按照GYM的格式</span></span><br><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">from</span> gym <span class="keyword">import</span> spaces, logger</span><br><span class="line"><span class="keyword">from</span> gym.utils <span class="keyword">import</span> seeding</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NonLinearEnv</span><span class="params">(gym.Env)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    描述：</span></span><br><span class="line"><span class="string">        一个离散时间非线性非仿射系统</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">    来源：</span></span><br><span class="line"><span class="string">        论文《Policy Gradient Adaptive Dynamic Programming for Data-Based Optimal Control》</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    状态：</span></span><br><span class="line"><span class="string">        State1，State2</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    动作：</span></span><br><span class="line"><span class="string">        单输入系统，u</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    回报：</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    初始状态：</span></span><br><span class="line"><span class="string">        x0=[0.2, 0.7]'</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    episode结束条件：</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">    """</span>    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, Q: np.array, R: np.array)</span>:</span></span><br><span class="line">        self.Q = Q</span><br><span class="line">        self.R = R</span><br><span class="line">        self.state = np.array([<span class="number">0.2</span>, <span class="number">0.7</span>])</span><br><span class="line">        self.action_space = spaces.Box(low=<span class="number">-1.0</span>, high=<span class="number">1.0</span>, shape=(<span class="number">1</span>, ), dtype=np.float64)</span><br><span class="line">        self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(<span class="number">2</span>, ), dtype=np.float64)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.state = np.array([<span class="number">0.2</span>, <span class="number">0.7</span>])</span><br><span class="line">        <span class="keyword">return</span> self.state</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">step</span><span class="params">(self, action)</span>:</span></span><br><span class="line">        next_state_x1 = (self.state[<span class="number">0</span>]+self.state[<span class="number">1</span>]**<span class="number">2</span>+action)*np.cos(self.state[<span class="number">1</span>])</span><br><span class="line">        next_state_x2 = <span class="number">0.5</span>*(self.state[<span class="number">0</span>]**<span class="number">2</span>+self.state[<span class="number">1</span>]+action)*np.sin(self.state[<span class="number">1</span>])</span><br><span class="line">        next_state = [next_state_x1, next_state_x2]</span><br><span class="line">        reward = np.matrix(self.state)*self.Q*np.matrix(self.state).T + action**<span class="number">2</span>*self.R</span><br><span class="line">        self.state = np.array(next_state).reshape(<span class="number">2</span>, )</span><br><span class="line">        done = <span class="literal">False</span></span><br><span class="line">        info = &#123;&#125;</span><br><span class="line">        <span class="keyword">return</span> self.state, -float(reward[<span class="number">0</span>][<span class="number">0</span>]), done, info</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">render</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> NLEnv <span class="keyword">import</span> NonLinearEnv</span><br><span class="line"><span class="keyword">from</span> stable_baselines3.common.env_checker <span class="keyword">import</span> check_env</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"></span><br><span class="line">Q = np.matrix([[<span class="number">1</span>, <span class="number">0</span>],</span><br><span class="line">              [<span class="number">0</span>, <span class="number">1</span>]])</span><br><span class="line">R = np.matrix([[<span class="number">1</span>]])</span><br><span class="line">env = NonLinearEnv(Q, R)</span><br><span class="line">check_env(env)</span><br></pre></td></tr></table></figure>
-<p>这样，就按照Gym的标准定义好了强化学习环境，同时，能够通过API一致性检测，然后，只需要考虑强化学习算法了，无论是自己设计算法，还是使用现成的算法包，都比较方便了。</p>
-]]></content>
-      <categories>
-        <category>Reinforcement Learning</category>
-      </categories>
-      <tags>
-        <tag>Reinforcement Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -1807,6 +1763,19 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>粒子群算法库-PySwarms的可视化</title>
+    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
+    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
+<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -3345,6 +3314,59 @@ Alabama
       </tags>
   </entry>
   <entry>
+    <title>发布自己的Python包到pypi</title>
+    <url>/2018/10/07/%E5%8F%91%E5%B8%83%E8%87%AA%E5%B7%B1%E7%9A%84Python%E5%8C%85%E5%88%B0pypi/</url>
+    <content><![CDATA[<blockquote>
+<p>大佬们写的包，我们只需要<strong><code>pip install</code></strong>就能安装了，但是，其实人人都能发布包到pypi。 本教程将指导您如何打包一个简单的Python项目。它将向您展示如何添加必要的文件和结构来创建包，如何构建包以及如何将其上载到Python包索引。</p>
+</blockquote>
+<h2 id="一个简单的项目">一个简单的项目</h2>
+<p>本教程使用名为<strong><code>example_pkg_xujhtop</code></strong>的简单项目。</p>
+<p>要在本地创建此项目，请创建以下文件结构： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/example_pkg_xujhtop</span><br><span class="line">  /example_pkg_xujhtop</span><br><span class="line">    __init__.py</span><br></pre></td></tr></table></figure> <a id="more"></a> 创建此结构后，您将需要在顶级文件夹中运行本教程中的所有命令 - 因此请务必使用<strong><code>cd example_pkg_xujhtop</code></strong> 。</p>
+<p>您还应该编辑<strong><code>example_pkg_xujhtop/__init__.py</code></strong>并将以下代码放在其中： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">name = "example_pkg_xujhtop"</span><br></pre></td></tr></table></figure> 这只是为了您可以在本教程后面验证它是否正确安装。</p>
+<h2 id="创建包文件">创建包文件</h2>
+<p>现在，您将创建一些文件来打包此项目并准备分发。 创建下面列出的新文件 - 您将在以下步骤中向其添加内容。 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/example_pkg_xujhtop</span><br><span class="line">  /example_pkg_xujhtop</span><br><span class="line">    __init__.py</span><br><span class="line">  setup.py</span><br><span class="line">  LICENSE</span><br><span class="line">  README.md</span><br></pre></td></tr></table></figure></p>
+<h2 id="创建setup.py">创建setup.py¶</h2>
+<p><strong><code>setup.py</code></strong>是<strong><code>setuptools</code></strong>的构建脚本。 它告诉<strong><code>setuptools</code></strong>你的包（例如名称和版本）以及要包含的代码文件。</p>
+<p>打开<strong><code>setup.py</code></strong>并输入以下内容，您可以根据需要个性化值： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">import setuptools</span><br><span class="line"></span><br><span class="line">with open ( "README.md" , "r" ) as fh :</span><br><span class="line">    long_description = fh . read ()</span><br><span class="line"></span><br><span class="line">setuptools . setup (</span><br><span class="line">    name = "example_pkg_xujhtop" ,</span><br><span class="line">    version = "0.0.1" ,</span><br><span class="line">    author = "Example Author" ,</span><br><span class="line">    author_email = "author@example.com" ,</span><br><span class="line">    description = "A small example package" ,</span><br><span class="line">    long_description = long_description ,</span><br><span class="line">    long_description_content_type = "text/markdown" ,</span><br><span class="line">    url = "https://github.com/pypa/sampleproject" ,</span><br><span class="line">    packages = setuptools . find_packages (),</span><br><span class="line">    classifiers = [</span><br><span class="line">        "Programming Language :: Python :: 3" ,</span><br><span class="line">        "License :: OSI Approved :: MIT License" ,</span><br><span class="line">        "Operating System :: OS Independent" ,</span><br><span class="line">    ],</span><br><span class="line">)</span><br></pre></td></tr></table></figure> setup()有几个参数。 此示例包使用相对最小的集：</p>
+<ul>
+<li>name是包的名称。 只要包含字母，数字， _和- ， _可以是任何名称。 它也不能在pypi.org上使用。</li>
+<li>version是包版本见 PEP 440有关版本的更多详细信息。</li>
+<li>author和author_email用于标识包的作者。</li>
+<li>description是包的简短的一句话摘要。</li>
+<li>long_description是包的详细描述。 这显示在Python Package Index的包详细信息包中。 在这种情况下，从README.md加载长描述，这是一种常见模式。</li>
+<li>long_description_content_type告诉索引用于长描述的标记类型。 在这种情况下，它是Markdown。</li>
+<li>url是项目主页的URL。 对于许多项目，这只是一个指向GitHub，GitLab，Bitbucket或类似代码托管服务的链接。</li>
+<li>packages是应包含在分发包中的所有Python 导入包的列表。 我们可以使用find_packages()自动发现所有包和子包，而不是手动列出每个包。 在这种情况下，包列表将是example_pkg_xujhtop，因为它是唯一存在的包。</li>
+<li>classifiers告诉索引并提供有关包的其他元数据。 在这种情况下，该软件包仅与Python 3兼容，根据MIT许可证进行许可，并且与操作系统无关。 您应始终至少包含您的软件包所使用的Python版本，软件包可用的许可证以及您的软件包将使用的操作系统。 有关分类器的完整列表，请参阅https://pypi.org/classifiers/ 。</li>
+</ul>
+<h2 id="创建readme.md">创建README.md¶</h2>
+<p>打开README.md并输入以下内容。 如果您愿意，可以自定义此项。 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"> # Example Package</span><br><span class="line"></span><br><span class="line">This is a simple example package. You can use</span><br><span class="line">[<span class="string"> Github-flavored Markdown </span>](<span class="link"> https://guides.github.com/features/mastering-markdown/ </span>)</span><br><span class="line">to write your content.</span><br></pre></td></tr></table></figure> ## 创建许可证</p>
+<p>上传到Python Package Index的每个包都包含许可证，这一点很重要。 这告诉用户安装您的软件包可以使用您的软件包的条款。 有关选择许可证的帮助，请参阅https://choosealicense.com/ 。 选择许可证后，打开LICENSE并输入许可证文本。 例如，如果您选择了MIT许可证： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Copyright (c) 2018 The Python Packaging Authority</span><br><span class="line"></span><br><span class="line">Permission is hereby granted, free of charge, to any person obtaining a copy</span><br><span class="line">of this software and associated documentation files (the &quot;Software&quot;), to deal</span><br><span class="line">in the Software without restriction, including without limitation the rights</span><br><span class="line">to use, copy, modify, merge, publish, distribute, sublicense, and&#x2F;or sell</span><br><span class="line">copies of the Software, and to permit persons to whom the Software is</span><br><span class="line">furnished to do so, subject to the following conditions:</span><br><span class="line"></span><br><span class="line">The above copyright notice and this permission notice shall be included in all</span><br><span class="line">copies or substantial portions of the Software.</span><br><span class="line"></span><br><span class="line">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span><br><span class="line">IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span><br><span class="line">FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span><br><span class="line">AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span><br><span class="line">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span><br><span class="line">OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span><br><span class="line">SOFTWARE.</span><br></pre></td></tr></table></figure></p>
+<h2 id="生成分发档案">生成分发档案</h2>
+<p>下一步是为包生成分发包 。 这些是上传到包索引的档案，可以通过pip安装。</p>
+<p>确保安装了最新版本的setuptools和wheel ： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --user --upgrade setuptools wheel</span><br></pre></td></tr></table></figure></p>
+<p>现在从setup.py所在的同一目录运行此命令： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 setup.py sdist bdist_wheel</span><br></pre></td></tr></table></figure> 此命令应输出大量文本，一旦完成，应在dist目录中生成两个文件： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">dist/</span><br><span class="line">  example_pkg_xujhtop-0.0.1-py2-none-any.whl</span><br><span class="line">  example_pkg_xujhtop-0.0.1.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>tar.gz文件是源存档，而.whl文件是构建的分发 。 较新的pip版本优先安装构建的发行版，但如果需要，将回退到源代码存档。 您应该始终上传源存档并为项目兼容的平台提供构建的存档。 在这种情况下，我们的示例包在任何平台上都与Python兼容，因此只需要一个构建的发行版。</p>
+<h2 id="上传分发档案">上传分发档案</h2>
+<p>最后，是时候将您的包上传到Python Package Index了！</p>
+<p>您需要做的第一件事是在Test PyPI上注册一个帐户。 Test PyPI是用于测试和实验的包索引的单独实例。 这对于像我们不一定想要上传到真实索引的本教程那样很棒。 要注册帐户，请访问https://test.pypi.org/account/register/并完成该页面上的步骤。 在您上传任何软件包之前，您还需要验证您的电子邮件地址。 有关Test PyPI的更多详细信息，请参阅使用TestPyPI 。</p>
+<p>现在您已注册，您可以使用twine上传分发包。 你需要安装Twine： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --user --upgrade twine</span><br></pre></td></tr></table></figure> 安装完成后，运行Twine上传dist下的所有档案： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">twine upload --repository-url https://test.pypi.org/legacy/ dist/*</span><br></pre></td></tr></table></figure> 系统将提示您输入使用Test PyPI注册的用户名和密码。 命令完成后，您应该看到与此类似的输出： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Uploading distributions to https://test.pypi.org/legacy/</span><br><span class="line">Enter your username: [ your username ]</span><br><span class="line">Enter your password:</span><br><span class="line">Uploading example_pkg_xujhtop-0.0.1-py3-none-any.whl</span><br><span class="line">100 % | █████████████████████ | 4 .65k/4.65k [ 00 :01&lt; 00 :00, 2 .88kB/s ]</span><br><span class="line">Uploading example_pkg_xujhtop-0.0.1.tar.gz</span><br><span class="line">100 % | █████████████████████ | 4 .25k/4.25k [ 00 :01&lt; 00 :00, 3 .05kB/s ]</span><br></pre></td></tr></table></figure> 注意:如果您收到错误消息<strong><code>The user '[your username]' isn't allowed to upload to project 'example-pkg'</code></strong> ，则需要为您的包选择一个唯一的名称。 一个不错的选择是<strong><code>example_pkg_xujhtop</code></strong> 。 更新<strong><code>setup.py</code></strong>的<strong><code>name</code></strong>参数，删除<strong><code>dist</code></strong>文件夹，然后重新生成存档 。</p>
+<p>上传后，您的包应该可以在TestPyPI上查看，例如， <strong><code>https：//test.pypi.org/project/example-pkg</code></strong></p>
+<h2 id="安装新上传的软件包">安装新上传的软件包</h2>
+<p>您可以使用pip来安装包并验证它是否有效。 创建一个新的virtualenv （请参阅安装包以获取详细说明）并从TestPyPI安装包： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --index-url https://test.pypi.org/simple/ example_pkg_xujhtop</span><br></pre></td></tr></table></figure> 注意:如果在预览步骤中使用了不同的包名称，请将上面命令中的example_pkg_xujhtop替换example_pkg_xujhtop包名称。</p>
+<p>pip应该从Test PyPI安装包，输出应该如下所示： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Collecting example_pkg_xujhtop</span><br><span class="line">  Downloading https://test-files.pythonhosted.org/packages/.../example_pkg_xujhtop-0.0.1-py3-none-any.whl</span><br><span class="line">Installing collected packages: example-pkg</span><br><span class="line">Successfully installed example-pkg-0.0.1</span><br></pre></td></tr></table></figure> 您可以通过导入模块并引用之前放在<strong><code>__init__.py</code></strong>的<strong><code>name</code></strong>属性来测试它是否已正确安装。</p>
+<p>运行Python解释器（确保你仍然在你的virtualenv中）： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python</span><br></pre></td></tr></table></figure> 然后导入模块并打印出<strong><code>name</code></strong>属性。 无论您在<strong><code>setup.py</code></strong>给出的分发包名称是什么，这都应该是相同的，因为您的导入包是<strong><code>example_pkg_xujhtop</code></strong> 。 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span> <span class="keyword">import</span> example_pkg_xujhtop</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span> example_pkg_xujhtop . name</span><br><span class="line"><span class="string">'example_pkg_xujhtop'</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="后续步骤">后续步骤</h2>
+<p>恭喜，您已经打包并分发了一个Python项目！ ✨</p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python pypi</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>嵌入式操作系统软件工程师常见面试题</title>
     <url>/2018/08/01/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
     <content><![CDATA[<blockquote>
@@ -3472,59 +3494,6 @@ Alabama
       </categories>
       <tags>
         <tag>华为</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>发布自己的Python包到pypi</title>
-    <url>/2018/10/07/%E5%8F%91%E5%B8%83%E8%87%AA%E5%B7%B1%E7%9A%84Python%E5%8C%85%E5%88%B0pypi/</url>
-    <content><![CDATA[<blockquote>
-<p>大佬们写的包，我们只需要<strong><code>pip install</code></strong>就能安装了，但是，其实人人都能发布包到pypi。 本教程将指导您如何打包一个简单的Python项目。它将向您展示如何添加必要的文件和结构来创建包，如何构建包以及如何将其上载到Python包索引。</p>
-</blockquote>
-<h2 id="一个简单的项目">一个简单的项目</h2>
-<p>本教程使用名为<strong><code>example_pkg_xujhtop</code></strong>的简单项目。</p>
-<p>要在本地创建此项目，请创建以下文件结构： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/example_pkg_xujhtop</span><br><span class="line">  /example_pkg_xujhtop</span><br><span class="line">    __init__.py</span><br></pre></td></tr></table></figure> <a id="more"></a> 创建此结构后，您将需要在顶级文件夹中运行本教程中的所有命令 - 因此请务必使用<strong><code>cd example_pkg_xujhtop</code></strong> 。</p>
-<p>您还应该编辑<strong><code>example_pkg_xujhtop/__init__.py</code></strong>并将以下代码放在其中： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">name = "example_pkg_xujhtop"</span><br></pre></td></tr></table></figure> 这只是为了您可以在本教程后面验证它是否正确安装。</p>
-<h2 id="创建包文件">创建包文件</h2>
-<p>现在，您将创建一些文件来打包此项目并准备分发。 创建下面列出的新文件 - 您将在以下步骤中向其添加内容。 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/example_pkg_xujhtop</span><br><span class="line">  /example_pkg_xujhtop</span><br><span class="line">    __init__.py</span><br><span class="line">  setup.py</span><br><span class="line">  LICENSE</span><br><span class="line">  README.md</span><br></pre></td></tr></table></figure></p>
-<h2 id="创建setup.py">创建setup.py¶</h2>
-<p><strong><code>setup.py</code></strong>是<strong><code>setuptools</code></strong>的构建脚本。 它告诉<strong><code>setuptools</code></strong>你的包（例如名称和版本）以及要包含的代码文件。</p>
-<p>打开<strong><code>setup.py</code></strong>并输入以下内容，您可以根据需要个性化值： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">import setuptools</span><br><span class="line"></span><br><span class="line">with open ( "README.md" , "r" ) as fh :</span><br><span class="line">    long_description = fh . read ()</span><br><span class="line"></span><br><span class="line">setuptools . setup (</span><br><span class="line">    name = "example_pkg_xujhtop" ,</span><br><span class="line">    version = "0.0.1" ,</span><br><span class="line">    author = "Example Author" ,</span><br><span class="line">    author_email = "author@example.com" ,</span><br><span class="line">    description = "A small example package" ,</span><br><span class="line">    long_description = long_description ,</span><br><span class="line">    long_description_content_type = "text/markdown" ,</span><br><span class="line">    url = "https://github.com/pypa/sampleproject" ,</span><br><span class="line">    packages = setuptools . find_packages (),</span><br><span class="line">    classifiers = [</span><br><span class="line">        "Programming Language :: Python :: 3" ,</span><br><span class="line">        "License :: OSI Approved :: MIT License" ,</span><br><span class="line">        "Operating System :: OS Independent" ,</span><br><span class="line">    ],</span><br><span class="line">)</span><br></pre></td></tr></table></figure> setup()有几个参数。 此示例包使用相对最小的集：</p>
-<ul>
-<li>name是包的名称。 只要包含字母，数字， _和- ， _可以是任何名称。 它也不能在pypi.org上使用。</li>
-<li>version是包版本见 PEP 440有关版本的更多详细信息。</li>
-<li>author和author_email用于标识包的作者。</li>
-<li>description是包的简短的一句话摘要。</li>
-<li>long_description是包的详细描述。 这显示在Python Package Index的包详细信息包中。 在这种情况下，从README.md加载长描述，这是一种常见模式。</li>
-<li>long_description_content_type告诉索引用于长描述的标记类型。 在这种情况下，它是Markdown。</li>
-<li>url是项目主页的URL。 对于许多项目，这只是一个指向GitHub，GitLab，Bitbucket或类似代码托管服务的链接。</li>
-<li>packages是应包含在分发包中的所有Python 导入包的列表。 我们可以使用find_packages()自动发现所有包和子包，而不是手动列出每个包。 在这种情况下，包列表将是example_pkg_xujhtop，因为它是唯一存在的包。</li>
-<li>classifiers告诉索引并提供有关包的其他元数据。 在这种情况下，该软件包仅与Python 3兼容，根据MIT许可证进行许可，并且与操作系统无关。 您应始终至少包含您的软件包所使用的Python版本，软件包可用的许可证以及您的软件包将使用的操作系统。 有关分类器的完整列表，请参阅https://pypi.org/classifiers/ 。</li>
-</ul>
-<h2 id="创建readme.md">创建README.md¶</h2>
-<p>打开README.md并输入以下内容。 如果您愿意，可以自定义此项。 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"> # Example Package</span><br><span class="line"></span><br><span class="line">This is a simple example package. You can use</span><br><span class="line">[<span class="string"> Github-flavored Markdown </span>](<span class="link"> https://guides.github.com/features/mastering-markdown/ </span>)</span><br><span class="line">to write your content.</span><br></pre></td></tr></table></figure> ## 创建许可证</p>
-<p>上传到Python Package Index的每个包都包含许可证，这一点很重要。 这告诉用户安装您的软件包可以使用您的软件包的条款。 有关选择许可证的帮助，请参阅https://choosealicense.com/ 。 选择许可证后，打开LICENSE并输入许可证文本。 例如，如果您选择了MIT许可证： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Copyright (c) 2018 The Python Packaging Authority</span><br><span class="line"></span><br><span class="line">Permission is hereby granted, free of charge, to any person obtaining a copy</span><br><span class="line">of this software and associated documentation files (the &quot;Software&quot;), to deal</span><br><span class="line">in the Software without restriction, including without limitation the rights</span><br><span class="line">to use, copy, modify, merge, publish, distribute, sublicense, and&#x2F;or sell</span><br><span class="line">copies of the Software, and to permit persons to whom the Software is</span><br><span class="line">furnished to do so, subject to the following conditions:</span><br><span class="line"></span><br><span class="line">The above copyright notice and this permission notice shall be included in all</span><br><span class="line">copies or substantial portions of the Software.</span><br><span class="line"></span><br><span class="line">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span><br><span class="line">IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span><br><span class="line">FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span><br><span class="line">AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span><br><span class="line">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span><br><span class="line">OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span><br><span class="line">SOFTWARE.</span><br></pre></td></tr></table></figure></p>
-<h2 id="生成分发档案">生成分发档案</h2>
-<p>下一步是为包生成分发包 。 这些是上传到包索引的档案，可以通过pip安装。</p>
-<p>确保安装了最新版本的setuptools和wheel ： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --user --upgrade setuptools wheel</span><br></pre></td></tr></table></figure></p>
-<p>现在从setup.py所在的同一目录运行此命令： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 setup.py sdist bdist_wheel</span><br></pre></td></tr></table></figure> 此命令应输出大量文本，一旦完成，应在dist目录中生成两个文件： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">dist/</span><br><span class="line">  example_pkg_xujhtop-0.0.1-py2-none-any.whl</span><br><span class="line">  example_pkg_xujhtop-0.0.1.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>tar.gz文件是源存档，而.whl文件是构建的分发 。 较新的pip版本优先安装构建的发行版，但如果需要，将回退到源代码存档。 您应该始终上传源存档并为项目兼容的平台提供构建的存档。 在这种情况下，我们的示例包在任何平台上都与Python兼容，因此只需要一个构建的发行版。</p>
-<h2 id="上传分发档案">上传分发档案</h2>
-<p>最后，是时候将您的包上传到Python Package Index了！</p>
-<p>您需要做的第一件事是在Test PyPI上注册一个帐户。 Test PyPI是用于测试和实验的包索引的单独实例。 这对于像我们不一定想要上传到真实索引的本教程那样很棒。 要注册帐户，请访问https://test.pypi.org/account/register/并完成该页面上的步骤。 在您上传任何软件包之前，您还需要验证您的电子邮件地址。 有关Test PyPI的更多详细信息，请参阅使用TestPyPI 。</p>
-<p>现在您已注册，您可以使用twine上传分发包。 你需要安装Twine： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --user --upgrade twine</span><br></pre></td></tr></table></figure> 安装完成后，运行Twine上传dist下的所有档案： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">twine upload --repository-url https://test.pypi.org/legacy/ dist/*</span><br></pre></td></tr></table></figure> 系统将提示您输入使用Test PyPI注册的用户名和密码。 命令完成后，您应该看到与此类似的输出： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Uploading distributions to https://test.pypi.org/legacy/</span><br><span class="line">Enter your username: [ your username ]</span><br><span class="line">Enter your password:</span><br><span class="line">Uploading example_pkg_xujhtop-0.0.1-py3-none-any.whl</span><br><span class="line">100 % | █████████████████████ | 4 .65k/4.65k [ 00 :01&lt; 00 :00, 2 .88kB/s ]</span><br><span class="line">Uploading example_pkg_xujhtop-0.0.1.tar.gz</span><br><span class="line">100 % | █████████████████████ | 4 .25k/4.25k [ 00 :01&lt; 00 :00, 3 .05kB/s ]</span><br></pre></td></tr></table></figure> 注意:如果您收到错误消息<strong><code>The user '[your username]' isn't allowed to upload to project 'example-pkg'</code></strong> ，则需要为您的包选择一个唯一的名称。 一个不错的选择是<strong><code>example_pkg_xujhtop</code></strong> 。 更新<strong><code>setup.py</code></strong>的<strong><code>name</code></strong>参数，删除<strong><code>dist</code></strong>文件夹，然后重新生成存档 。</p>
-<p>上传后，您的包应该可以在TestPyPI上查看，例如， <strong><code>https：//test.pypi.org/project/example-pkg</code></strong></p>
-<h2 id="安装新上传的软件包">安装新上传的软件包</h2>
-<p>您可以使用pip来安装包并验证它是否有效。 创建一个新的virtualenv （请参阅安装包以获取详细说明）并从TestPyPI安装包： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --index-url https://test.pypi.org/simple/ example_pkg_xujhtop</span><br></pre></td></tr></table></figure> 注意:如果在预览步骤中使用了不同的包名称，请将上面命令中的example_pkg_xujhtop替换example_pkg_xujhtop包名称。</p>
-<p>pip应该从Test PyPI安装包，输出应该如下所示： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Collecting example_pkg_xujhtop</span><br><span class="line">  Downloading https://test-files.pythonhosted.org/packages/.../example_pkg_xujhtop-0.0.1-py3-none-any.whl</span><br><span class="line">Installing collected packages: example-pkg</span><br><span class="line">Successfully installed example-pkg-0.0.1</span><br></pre></td></tr></table></figure> 您可以通过导入模块并引用之前放在<strong><code>__init__.py</code></strong>的<strong><code>name</code></strong>属性来测试它是否已正确安装。</p>
-<p>运行Python解释器（确保你仍然在你的virtualenv中）： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python</span><br></pre></td></tr></table></figure> 然后导入模块并打印出<strong><code>name</code></strong>属性。 无论您在<strong><code>setup.py</code></strong>给出的分发包名称是什么，这都应该是相同的，因为您的导入包是<strong><code>example_pkg_xujhtop</code></strong> 。 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span> <span class="keyword">import</span> example_pkg_xujhtop</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span> example_pkg_xujhtop . name</span><br><span class="line"><span class="string">'example_pkg_xujhtop'</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="后续步骤">后续步骤</h2>
-<p>恭喜，您已经打包并分发了一个Python项目！ ✨</p>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python pypi</tag>
       </tags>
   </entry>
   <entry>
@@ -6966,6 +6935,37 @@ Domaine Schoffit
       </categories>
       <tags>
         <tag>Pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>中国学术圈的未来在哪里？</title>
+    <url>/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/</url>
+    <content><![CDATA[<p>最近遇到了很多烦心事，主要是学术生活上的问题，教授没有学术上的指导，且总是push我们做项目，自动化系的教授都只知道赚钱啊，不，都只知道“骗钱”。今天感觉状态还不错，稍有感想，想在这篇文章中简短地谈论一下，权当我乱说的吧，哈哈哈哈。</p>
+<a id="more"></a>
+<p>中国科研圈的问题我个人认为主要来源于以下几点：</p>
+<ul>
+<li>当前50岁以上的老教授，都是出身在1970年以前，他们从小没有接受过完整、科学的教育，所以，一方面，他们中很多人的学术水平其实很垃圾的，工程技术水平也有限啊，而且从小没有接受过爱国主义教育，现在很多的美国的舔狗，也基本都是这个年龄段吧，他们中的某些人入党了，这些人都是对国家有风险的，因为他们只不过是为了入党而入党，而不是真正的爱国家爱党。</li>
+<li>贫富差距过大导致了很多教授老师都拼命想着赚钱，例如江浙沪，其实很多人的收入都很高，每年也都能赚很多钱，但是教授的工资却没有跟上时代的步伐，这就导致老师们只想着去赚钱，骗钱。</li>
+<li>教授老师的权力太大了，国家也没有出台相应的解决办法，所谓的发布的几个文件，都只是象征性的，没有实际意义。</li>
+</ul>
+<p>解决办法：</p>
+<ul>
+<li>学术圈需要降低平均年龄，让那些不给力的老教师抓紧退休，让有能力有抱负的年轻老师赶紧上位。</li>
+<li>国内大学的思政老师要请专业的老师，不能是学生辅导员，要选择真正有理想，有抱负的共产党员来做思政老师，同时赋予他们保护学生的权力。</li>
+<li>需要大量的学生集体出来反抗，这是最无奈，也是最有效的一种解决办法，再来一次文化大革命，什么都解决了。</li>
+</ul>
+<p>写这篇文章的时候主要是感叹现在老师的权力真的太大了，完全不应该这么大啊，而且我现在的科研生活也和我理想中的科研生活完全不一样。我理想中的科研生活应该是自由，纯粹的科研生活，像deepmind，openai，UCB那种真正干科研的生活。而现在的科研生活，一个个教授们美其名曰要结合工程项目，但实际上只是为了赚钱一级一级骗钱，骗国企，骗国家，最终受伤害的还是纳税人。</p>
+<p>但是再往上说，那就要说到共产党了，共产党是先进生产力的代表，怎么不能解决这么明显的问题？</p>
+<p><strong>虽然对中国的科研圈子很失望，但是若不是为了心中那一份崇高的科研理想，我又怎会继续坚持？</strong></p>
+<p>最后，用鲁迅先生的经典《热风》结尾：</p>
+<p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声，有一分热，发一分光，就令萤火虫一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。 倘若有了炬火，出了太阳，我们自然心悦诚服地消失，不但毫无不平，而且还要随喜赞美这炬火或太阳，因为他照亮了人类，连我都在内。</p>
+<p><strong>与君共勉。</strong></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
       </tags>
   </entry>
 </search>
