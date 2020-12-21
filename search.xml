@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CBDict文献取词翻译器</title>
+    <url>/2019/03/18/CBDict%E6%96%87%E7%8C%AE%E5%8F%96%E8%AF%8D%E7%BF%BB%E8%AF%91%E5%99%A8/</url>
+    <content><![CDATA[<pre><code>**CBDict：一个专门为Linux环境下的学术党设计的文献取词翻译器**</code></pre>
+<h1 id="clipboarddictionary">ClipBoardDictionary</h1>
+<p>This program monitors the clipboard of the system and translates the word from English to Chinese by YouDao API, specially designed for Students who are working under Linux environment where there is no simple translator when you read papers.</p>
+<a id="more"></a>
+<h1 id="项目起源">项目起源</h1>
+<p>本人即将成为一名Ph.D，现在在看一些关于强化学习，深度学习，机器学习，控制理论等方面的英文文献，经常会有一些单词不认识．</p>
+<p>虽然市面上很多优秀的翻译软件都已经集成了屏幕取词的功能，例如有道词典．但是由于我操作系统或者驱动等一些问题（本人的开发环境为Manjaro），安装了有道词典之后，我无法使用屏幕取词功能，每次都需要复制到网页中查询．</p>
+<p>每次切换到浏览器再切换回pdf阅读器，十分影响阅读体验．因此，我写了这么一个小玩具，能够监控剪贴板中的内容，并且自动使用有道词典的api来进行翻译．将结果输出到终端中．</p>
+<p>本玩具纯粹是为了方便我读paper．不喜勿喷．</p>
+<h1 id="使用教程">使用教程</h1>
+<p>STEP1 : 安装依赖的包，用于访问剪贴板中的内容 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install xclip</span><br></pre></td></tr></table></figure></p>
+<p>STEP2 : 在终端中输入以下命令来安装CBDict <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install CBDict</span><br></pre></td></tr></table></figure></p>
+<p>STEP3 : 在终端中输入<code>CBDict</code>来启动词典 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CBDict</span><br></pre></td></tr></table></figure></p>
+<p>STEP4 : 复制任何你想翻译的内容，翻译的结果会呈现在终端中．</p>
+<h1 id="使用实例">使用实例</h1>
+<figure>
+<img src="https://github.com/olixu/CBDict/blob/master/demo.gif?raw=true" alt="demo" /><figcaption>demo</figcaption>
+</figure>
+<p>VERSION 2.0</p>
+<figure>
+<img src="https://github.com/olixu/CBDict/blob/master/demo1.gif?raw=true" alt="demo" /><figcaption>demo</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Flask项目结构</title>
     <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<blockquote>
@@ -12,21 +45,6 @@
       </categories>
       <tags>
         <tag>flask</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux系统TIPS</title>
-    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
-    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
-<a id="more"></a>
-<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
-<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -69,36 +87,18 @@
       </tags>
   </entry>
   <entry>
-    <title>CBDict文献取词翻译器</title>
-    <url>/2019/03/18/CBDict%E6%96%87%E7%8C%AE%E5%8F%96%E8%AF%8D%E7%BF%BB%E8%AF%91%E5%99%A8/</url>
-    <content><![CDATA[<pre><code>**CBDict：一个专门为Linux环境下的学术党设计的文献取词翻译器**</code></pre>
-<h1 id="clipboarddictionary">ClipBoardDictionary</h1>
-<p>This program monitors the clipboard of the system and translates the word from English to Chinese by YouDao API, specially designed for Students who are working under Linux environment where there is no simple translator when you read papers.</p>
+    <title>Linux系统TIPS</title>
+    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
+    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
 <a id="more"></a>
-<h1 id="项目起源">项目起源</h1>
-<p>本人即将成为一名Ph.D，现在在看一些关于强化学习，深度学习，机器学习，控制理论等方面的英文文献，经常会有一些单词不认识．</p>
-<p>虽然市面上很多优秀的翻译软件都已经集成了屏幕取词的功能，例如有道词典．但是由于我操作系统或者驱动等一些问题（本人的开发环境为Manjaro），安装了有道词典之后，我无法使用屏幕取词功能，每次都需要复制到网页中查询．</p>
-<p>每次切换到浏览器再切换回pdf阅读器，十分影响阅读体验．因此，我写了这么一个小玩具，能够监控剪贴板中的内容，并且自动使用有道词典的api来进行翻译．将结果输出到终端中．</p>
-<p>本玩具纯粹是为了方便我读paper．不喜勿喷．</p>
-<h1 id="使用教程">使用教程</h1>
-<p>STEP1 : 安装依赖的包，用于访问剪贴板中的内容 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install xclip</span><br></pre></td></tr></table></figure></p>
-<p>STEP2 : 在终端中输入以下命令来安装CBDict <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install CBDict</span><br></pre></td></tr></table></figure></p>
-<p>STEP3 : 在终端中输入<code>CBDict</code>来启动词典 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CBDict</span><br></pre></td></tr></table></figure></p>
-<p>STEP4 : 复制任何你想翻译的内容，翻译的结果会呈现在终端中．</p>
-<h1 id="使用实例">使用实例</h1>
-<figure>
-<img src="https://github.com/olixu/CBDict/blob/master/demo.gif?raw=true" alt="demo" /><figcaption>demo</figcaption>
-</figure>
-<p>VERSION 2.0</p>
-<figure>
-<img src="https://github.com/olixu/CBDict/blob/master/demo1.gif?raw=true" alt="demo" /><figcaption>demo</figcaption>
-</figure>
+<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
+<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>linux</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -117,6 +117,38 @@
       <tags>
         <tag>机器学习</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Manjaro适合什么样的人</title>
+    <url>/2020/06/28/Manjaro%E9%80%82%E5%90%88%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BA%BA/</url>
+    <content><![CDATA[<p>2019年3月份看到了有人安利Manjaro，装电脑上用了一年，分享一下使用一年的感受。</p>
+<p>先说结论，我上个月换回了Ubuntu。</p>
+<h2 id="manjaro的优点">Manjaro的优点</h2>
+<ol type="1">
+<li>装软件非常方便，基本上各种软件在软件源中都能找到，并直接安装，而且安装的都是新版本。</li>
+<li>包括CUDA，显卡管理软件（忘记叫什么了，可以设置使用集显或独显或只用cuda）。</li>
+<li>WIKI资料很丰富，出了问题可以直接查。</li>
+</ol>
+<a id="more"></a>
+<h2 id="manjaro缺点">Manjaro缺点</h2>
+<p>上述的某些优点恰好对于某些人来说就是缺点。</p>
+<ol type="1">
+<li>软件更新非常激进，每天打开电脑的第一件事就是<code>yay -Syu</code>。</li>
+<li>如果你在更新前不看官方发布的更新公告，可能会被坑，也就是更挂。</li>
+<li>更新失败后，进不去系统，花点时间，查查官方公告，说不定能解决，但是耗费的时间对于某些人来说不可忍受。</li>
+<li>字体，画面看的不舒服，需要花些时间进行配置。</li>
+<li>还是Ubuntu真香。</li>
+</ol>
+<p>所以，对于大多数开发者来说，完全没有必要使用Manjaro，以下两个场景我亲身经历过：</p>
+<ol type="a">
+<li><p>前一时刻还在码代码，然后你重启了一下电脑，发现不能启动了，黑屏了，花时间查官方发布的更新公告，哦，原来是更新更挂了，这时，你是不是很崩溃？时间就是金钱啊，干嘛和自己过不去。</p></li>
+<li><p>放了一个长假了，好好的出去玩耍了一波，放假结束后，打开电脑，执行<code>yay -Syu</code>，然后写了一会儿代码，进入termianl运行python，咦，又挂了？哦，原来是python升级到了3.8版本，查资料，看怎么回退版本，哦，原来安装3.7版本那么麻烦。</p></li>
+</ol>
+<p>再见了，您。</p>
+<h2 id="manjaro适合">Manjaro适合？</h2>
+<p>回到标题，Manjaro不适合搞算学术研究和项目开发的人，尤其是学生：研究生。本科生无聊的话可以玩玩Manjaro。</p>
+<p>操作系统还是有公司支持的比较好，像Ubuntu，真的可以，用了快6年了。</p>
+]]></content>
   </entry>
   <entry>
     <title>Markdown语法</title>
@@ -191,38 +223,6 @@
       <tags>
         <tag>Markdown</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Manjaro适合什么样的人</title>
-    <url>/2020/06/28/Manjaro%E9%80%82%E5%90%88%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BA%BA/</url>
-    <content><![CDATA[<p>2019年3月份看到了有人安利Manjaro，装电脑上用了一年，分享一下使用一年的感受。</p>
-<p>先说结论，我上个月换回了Ubuntu。</p>
-<h2 id="manjaro的优点">Manjaro的优点</h2>
-<ol type="1">
-<li>装软件非常方便，基本上各种软件在软件源中都能找到，并直接安装，而且安装的都是新版本。</li>
-<li>包括CUDA，显卡管理软件（忘记叫什么了，可以设置使用集显或独显或只用cuda）。</li>
-<li>WIKI资料很丰富，出了问题可以直接查。</li>
-</ol>
-<a id="more"></a>
-<h2 id="manjaro缺点">Manjaro缺点</h2>
-<p>上述的某些优点恰好对于某些人来说就是缺点。</p>
-<ol type="1">
-<li>软件更新非常激进，每天打开电脑的第一件事就是<code>yay -Syu</code>。</li>
-<li>如果你在更新前不看官方发布的更新公告，可能会被坑，也就是更挂。</li>
-<li>更新失败后，进不去系统，花点时间，查查官方公告，说不定能解决，但是耗费的时间对于某些人来说不可忍受。</li>
-<li>字体，画面看的不舒服，需要花些时间进行配置。</li>
-<li>还是Ubuntu真香。</li>
-</ol>
-<p>所以，对于大多数开发者来说，完全没有必要使用Manjaro，以下两个场景我亲身经历过：</p>
-<ol type="a">
-<li><p>前一时刻还在码代码，然后你重启了一下电脑，发现不能启动了，黑屏了，花时间查官方发布的更新公告，哦，原来是更新更挂了，这时，你是不是很崩溃？时间就是金钱啊，干嘛和自己过不去。</p></li>
-<li><p>放了一个长假了，好好的出去玩耍了一波，放假结束后，打开电脑，执行<code>yay -Syu</code>，然后写了一会儿代码，进入termianl运行python，咦，又挂了？哦，原来是python升级到了3.8版本，查资料，看怎么回退版本，哦，原来安装3.7版本那么麻烦。</p></li>
-</ol>
-<p>再见了，您。</p>
-<h2 id="manjaro适合">Manjaro适合？</h2>
-<p>回到标题，Manjaro不适合搞算学术研究和项目开发的人，尤其是学生：研究生。本科生无聊的话可以玩玩Manjaro。</p>
-<p>操作系统还是有公司支持的比较好，像Ubuntu，真的可以，用了快6年了。</p>
-]]></content>
   </entry>
   <entry>
     <title>Mysql Command</title>
@@ -332,6 +332,36 @@ Q_{u}\left(x_{k}, \mu\right) &amp;=\mathcal{R}\left(x_{k}, \mu\right)+Q_{u}\left
       </tags>
   </entry>
   <entry>
+    <title>Play with MountainCar</title>
+    <url>/2019/11/15/Play-with-MountainCar/</url>
+    <content><![CDATA[<p>MountainCar is a task of driving an underpowered car up a steep mountain road. The difficulty is that gravity is stronger than the car's engine, and even at full throttle the car cannot accelerate up the steep slope. The only solution is to first move away from the goal and up the opposite slope on the left. Then, by applying full throttle the car can build up enough inertia to carry it up the steep slope even though it is slowing down the whole way.</p>
+<h2 id="state">State</h2>
+<p>Its state space has only two entries. The first is the position of the car. The second is the speed of the car. They are limited in:</p>
+<p><span class="math display">\[position \in [-1.2, 0.6]\]</span> <span class="math display">\[speed \in [-0.07, 0.07]\]</span></p>
+<p>The negative speed means that the direction of the movement of the car is opposite to the right, which is left in this environement. <a id="more"></a> ## Action <code>0:</code> full throttle backword</p>
+<p><code>1:</code> zero throttle</p>
+<p><code>2:</code> full throttle forward</p>
+<h2 id="reward">Reward</h2>
+<p>The reward of this environment is always -1 on all time steps until it moves past its goal position at the top of the mountain, which ends the spisode.</p>
+<h2 id="physical-model">Physical Model</h2>
+<h2 id="play-with-mountaincar-by-yourself">Play with MountainCar by yourself</h2>
+<p>This section I would not use a reinforcement learning algorithm, instead following a very simple principle.</p>
+<p>When the car is at right of the zero positon and the speed comes close to zero, I choose full throttle backword action to move away from the goal direction to build more inertia.</p>
+<p>When the car is at left of the zero positon and the speed comes close to zero, which means the car cannot get more inertia in this period, so i choose full throttle forward action to move towards the goal.</p>
+<p>In this period, Gravitational potential energy transforms to kinetic energy first and then kinetic energy transforms to gravitational potential energy.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">import</span> gym.spaces</span><br><span class="line">gym.logger.set_level(<span class="number">40</span>)</span><br><span class="line">gym.__version__</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line">env = gym.make(<span class="string">'MountainCar-v0'</span>)</span><br><span class="line">env = gym.wrappers.Monitor(env, <span class="string">"recording"</span>)</span><br><span class="line">print(env.observation_space.high)</span><br><span class="line">state = env.reset()</span><br><span class="line">env.render()</span><br><span class="line">state, reward, done, _ = env.step(<span class="number">2</span>)</span><br><span class="line">print(state)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">    print(state)</span><br><span class="line">    <span class="keyword">if</span> state[<span class="number">0</span>] &gt; <span class="number">0.599</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&gt;<span class="number">-0.5</span>:</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            state, reward, done, _ = env.step(<span class="number">0</span>)</span><br><span class="line">            print(<span class="string">"Full throttle backword"</span>)</span><br><span class="line">            print(state)</span><br><span class="line">            time.sleep(<span class="number">0.1</span>)</span><br><span class="line">            env.render()</span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&lt;<span class="number">-0.5</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">0</span>] &gt; <span class="number">0.599</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&lt;<span class="number">-0.5</span>:</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            state, reward, done, _ = env.step(<span class="number">2</span>)</span><br><span class="line">            print(<span class="string">"Ful throttle forward"</span>)</span><br><span class="line">            print(state)</span><br><span class="line">            time.sleep(<span class="number">0.1</span>)</span><br><span class="line">            env.render()</span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&gt;<span class="number">-0.5</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">0</span>] &gt; <span class="number">0.599</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">env.close()</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="mountaincar.gif" alt="MountainCar" /><figcaption>MountainCar</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Reinforcement Learning</category>
+      </categories>
+      <tags>
+        <tag>Reinforcement Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Play with CartPole</title>
     <url>/2019/10/25/Play-with-CartPole/</url>
     <content><![CDATA[<p>Gym is a toolkit for developing and comparing reinforcement learning algorithms. The Gym library is a collection of test problems - environments - that you can use to work out your reinforcement learning algorithms. These environments have a shared interface, allowing you to write general algorithms.</p>
@@ -369,36 +399,6 @@ Box(4,)</code></pre>
 <pre><code>[-4.8000002e+00 -3.4028235e+38 -4.1887903e-01 -3.4028235e+38]</code></pre>
 <h2 id="play-by-yourself">Play by yourself</h2>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">from</span> pyglet.window <span class="keyword">import</span> key</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">bool_do_not_quit = <span class="literal">True</span></span><br><span class="line">scores = []</span><br><span class="line">a = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">key_press</span><span class="params">(k, mod)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> bool_do_not_quit, a, restart</span><br><span class="line">    <span class="keyword">if</span> k == <span class="number">0xff0d</span>:</span><br><span class="line">        restart = <span class="literal">True</span></span><br><span class="line">    <span class="keyword">if</span> k == key.ESCAPE:</span><br><span class="line">        bool_do_not_quit = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> k == key.Q:</span><br><span class="line">        bool_do_not_quit = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> k == key.LEFT:</span><br><span class="line">        a = <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> k == key.RIGHT:</span><br><span class="line">        a = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">play_CartPole_yourself</span><span class="params">()</span>:</span></span><br><span class="line">    env = gym.make(<span class="string">"CartPole-v0"</span>)</span><br><span class="line">    env.reset()</span><br><span class="line">    env.render()</span><br><span class="line">    env.viewer.window.on_key_press = key_press</span><br><span class="line">    <span class="keyword">while</span> bool_do_not_quit:</span><br><span class="line">        env.reset()</span><br><span class="line">        total_reward = <span class="number">0.0</span></span><br><span class="line">        steps = <span class="number">0</span></span><br><span class="line">        restart = <span class="literal">False</span></span><br><span class="line">        t1 = time.time()</span><br><span class="line">        <span class="keyword">while</span> bool_do_not_quit:</span><br><span class="line">            observation, reward, done, info = env.step(a)</span><br><span class="line">            time.sleep(<span class="number">0.1</span>)</span><br><span class="line">            total_reward += reward</span><br><span class="line">            steps += <span class="number">1</span></span><br><span class="line">            env.render()</span><br><span class="line">            <span class="comment">#if done or restart:</span></span><br><span class="line">            <span class="keyword">if</span> restart:</span><br><span class="line">                t1 = time.time() - t1</span><br><span class="line">                scores.append(total_reward)</span><br><span class="line">                print(<span class="string">"Trial"</span>, len(scores), <span class="string">"| Score:"</span>, total_reward, <span class="string">"|"</span>, steps, <span class="string">"steps | %0.2fs."</span>%t1)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    env.close()</span><br><span class="line">            </span><br><span class="line">play_CartPole_yourself()</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Reinforcement Learning</category>
-      </categories>
-      <tags>
-        <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Play with MountainCar</title>
-    <url>/2019/11/15/Play-with-MountainCar/</url>
-    <content><![CDATA[<p>MountainCar is a task of driving an underpowered car up a steep mountain road. The difficulty is that gravity is stronger than the car's engine, and even at full throttle the car cannot accelerate up the steep slope. The only solution is to first move away from the goal and up the opposite slope on the left. Then, by applying full throttle the car can build up enough inertia to carry it up the steep slope even though it is slowing down the whole way.</p>
-<h2 id="state">State</h2>
-<p>Its state space has only two entries. The first is the position of the car. The second is the speed of the car. They are limited in:</p>
-<p><span class="math display">\[position \in [-1.2, 0.6]\]</span> <span class="math display">\[speed \in [-0.07, 0.07]\]</span></p>
-<p>The negative speed means that the direction of the movement of the car is opposite to the right, which is left in this environement. <a id="more"></a> ## Action <code>0:</code> full throttle backword</p>
-<p><code>1:</code> zero throttle</p>
-<p><code>2:</code> full throttle forward</p>
-<h2 id="reward">Reward</h2>
-<p>The reward of this environment is always -1 on all time steps until it moves past its goal position at the top of the mountain, which ends the spisode.</p>
-<h2 id="physical-model">Physical Model</h2>
-<h2 id="play-with-mountaincar-by-yourself">Play with MountainCar by yourself</h2>
-<p>This section I would not use a reinforcement learning algorithm, instead following a very simple principle.</p>
-<p>When the car is at right of the zero positon and the speed comes close to zero, I choose full throttle backword action to move away from the goal direction to build more inertia.</p>
-<p>When the car is at left of the zero positon and the speed comes close to zero, which means the car cannot get more inertia in this period, so i choose full throttle forward action to move towards the goal.</p>
-<p>In this period, Gravitational potential energy transforms to kinetic energy first and then kinetic energy transforms to gravitational potential energy.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">import</span> gym.spaces</span><br><span class="line">gym.logger.set_level(<span class="number">40</span>)</span><br><span class="line">gym.__version__</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line">env = gym.make(<span class="string">'MountainCar-v0'</span>)</span><br><span class="line">env = gym.wrappers.Monitor(env, <span class="string">"recording"</span>)</span><br><span class="line">print(env.observation_space.high)</span><br><span class="line">state = env.reset()</span><br><span class="line">env.render()</span><br><span class="line">state, reward, done, _ = env.step(<span class="number">2</span>)</span><br><span class="line">print(state)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">    print(state)</span><br><span class="line">    <span class="keyword">if</span> state[<span class="number">0</span>] &gt; <span class="number">0.599</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&gt;<span class="number">-0.5</span>:</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            state, reward, done, _ = env.step(<span class="number">0</span>)</span><br><span class="line">            print(<span class="string">"Full throttle backword"</span>)</span><br><span class="line">            print(state)</span><br><span class="line">            time.sleep(<span class="number">0.1</span>)</span><br><span class="line">            env.render()</span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&lt;<span class="number">-0.5</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">0</span>] &gt; <span class="number">0.599</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&lt;<span class="number">-0.5</span>:</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            state, reward, done, _ = env.step(<span class="number">2</span>)</span><br><span class="line">            print(<span class="string">"Ful throttle forward"</span>)</span><br><span class="line">            print(state)</span><br><span class="line">            time.sleep(<span class="number">0.1</span>)</span><br><span class="line">            env.render()</span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&gt;<span class="number">-0.5</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">0</span>] &gt; <span class="number">0.599</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">env.close()</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="mountaincar.gif" alt="MountainCar" /><figcaption>MountainCar</figcaption>
-</figure>
 ]]></content>
       <categories>
         <category>Reinforcement Learning</category>
@@ -521,6 +521,33 @@ Box(4,)</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>Simplify: Python VS Matlab</title>
+    <url>/2019/10/20/Simplify-Python-VS-Matlab/</url>
+    <content><![CDATA[<h2 id="background">Background</h2>
+<p>The homework of Linear System Theory is challenging. Here is Problem 1:</p>
+<p>Consider a linear system with a state transition matrix <span class="math inline">\(\phi(t,t_0)\)</span></p>
+<p><span class="math display">\[\phi(t,t_0)=\displaystyle \left[\begin{matrix}
+e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
+-e^{t} \sin{\left(2 t \right)} &amp; e^{- 2 t} \cos{\left(2 t \right)}
+\end{matrix}\right]\]</span></p>
+<p>Compute A(t).</p>
+<p>Since the given system is linear time variant system, by using some properties of <span class="math inline">\(\phi\)</span>, we can easily compute <span class="math inline">\(A(t)\)</span>. However, the expression is so complicate that i could not simplify it by hand. I call for some tools for help. The tools are <strong>Python</strong> and <strong>Matlab</strong>.</p>
+<p>This post compare the difference of <strong>simplify</strong> function in Python and Matlab. <a id="more"></a> ## Comparision ### Python sympy.simplify.simplify.simplify(expr, ratio=1.7, measure=<function count_ops>, rational=False, inverse=False). Link https://docs.sympy.org/latest/modules/simplify/simplify.html</p>
+<p>This function does not work well, it did not simplify the expression, giving th following outcome.</p>
+<p><span class="math display">\[\displaystyle \left[\begin{matrix}\frac{\left(- \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\\\frac{\left(- \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\end{matrix}\right]\]</span></p>
+<p>It's <strong>rediculous</strong>!</p>
+<h3 id="matlab">Matlab</h3>
+<p>S = simplify(expr) performs algebraic simplification of expr. If expr is a symbolic vector or matrix, this function simplifies each element of expr. Link https://www.mathworks.com/help/symbolic/simplify.html</p>
+<p>This function works very well and much faster than Sympy.</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Pytorch使用笔记</title>
     <url>/2020/08/14/Pytorch%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<blockquote>
@@ -621,33 +648,6 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Simplify: Python VS Matlab</title>
-    <url>/2019/10/20/Simplify-Python-VS-Matlab/</url>
-    <content><![CDATA[<h2 id="background">Background</h2>
-<p>The homework of Linear System Theory is challenging. Here is Problem 1:</p>
-<p>Consider a linear system with a state transition matrix <span class="math inline">\(\phi(t,t_0)\)</span></p>
-<p><span class="math display">\[\phi(t,t_0)=\displaystyle \left[\begin{matrix}
-e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
--e^{t} \sin{\left(2 t \right)} &amp; e^{- 2 t} \cos{\left(2 t \right)}
-\end{matrix}\right]\]</span></p>
-<p>Compute A(t).</p>
-<p>Since the given system is linear time variant system, by using some properties of <span class="math inline">\(\phi\)</span>, we can easily compute <span class="math inline">\(A(t)\)</span>. However, the expression is so complicate that i could not simplify it by hand. I call for some tools for help. The tools are <strong>Python</strong> and <strong>Matlab</strong>.</p>
-<p>This post compare the difference of <strong>simplify</strong> function in Python and Matlab. <a id="more"></a> ## Comparision ### Python sympy.simplify.simplify.simplify(expr, ratio=1.7, measure=<function count_ops>, rational=False, inverse=False). Link https://docs.sympy.org/latest/modules/simplify/simplify.html</p>
-<p>This function does not work well, it did not simplify the expression, giving th following outcome.</p>
-<p><span class="math display">\[\displaystyle \left[\begin{matrix}\frac{\left(- \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\\\frac{\left(- \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\end{matrix}\right]\]</span></p>
-<p>It's <strong>rediculous</strong>!</p>
-<h3 id="matlab">Matlab</h3>
-<p>S = simplify(expr) performs algebraic simplification of expr. If expr is a symbolic vector or matrix, this function simplifies each element of expr. Link https://www.mathworks.com/help/symbolic/simplify.html</p>
-<p>This function works very well and much faster than Sympy.</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -852,37 +852,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>中国学术圈的未来在哪里？</title>
-    <url>/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/</url>
-    <content><![CDATA[<p>最近遇到了很多烦心事，主要是学术生活上的问题，教授没有学术上的指导，且总是push我们做项目，自动化系的教授都只知道赚钱啊，不，都只知道“骗钱”。今天感觉状态还不错，稍有感想，想在这篇文章中简短地谈论一下，权当我乱说的吧，哈哈哈哈。</p>
-<a id="more"></a>
-<p>中国科研圈的问题我个人认为主要来源于以下几点：</p>
-<ul>
-<li>当前50岁以上的老教授，都是出身在1970年以前，他们从小没有接受过完整、科学的教育，所以，一方面，他们中很多人的学术水平其实很垃圾的，工程技术水平也有限啊，而且从小没有接受过爱国主义教育，现在很多的美国的舔狗，也基本都是这个年龄段吧，他们中的某些人入党了，这些人都是对国家有风险的，因为他们只不过是为了入党而入党，而不是真正的爱国家爱党。</li>
-<li>贫富差距过大导致了很多教授老师都拼命想着赚钱，例如江浙沪，其实很多人的收入都很高，每年也都能赚很多钱，但是教授的工资却没有跟上时代的步伐，这就导致老师们只想着去赚钱，骗钱。</li>
-<li>教授老师的权力太大了，国家也没有出台相应的解决办法，所谓的发布的几个文件，都只是象征性的，没有实际意义。</li>
-</ul>
-<p>解决办法：</p>
-<ul>
-<li>学术圈需要降低平均年龄，让那些不给力的老教师抓紧退休，让有能力有抱负的年轻老师赶紧上位。</li>
-<li>国内大学的思政老师要请专业的老师，不能是学生辅导员，要选择真正有理想，有抱负的共产党员来做思政老师，同时赋予他们保护学生的权力。</li>
-<li>需要大量的学生集体出来反抗，这是最无奈，也是最有效的一种解决办法，再来一次文化大革命，什么都解决了。</li>
-</ul>
-<p>写这篇文章的时候主要是感叹现在老师的权力真的太大了，完全不应该这么大啊，而且我现在的科研生活也和我理想中的科研生活完全不一样。我理想中的科研生活应该是自由，纯粹的科研生活，像deepmind，openai，UCB那种真正干科研的生活。而现在的科研生活，一个个教授们美其名曰要结合工程项目，但实际上只是为了赚钱一级一级骗钱，骗国企，骗国家，最终受伤害的还是纳税人。</p>
-<p>但是再往上说，那就要说到共产党了，共产党是先进生产力的代表，怎么不能解决这么明显的问题？</p>
-<p><strong>虽然对中国的科研圈子很失望，但是若不是为了心中那一份崇高的科研理想，我又怎会继续坚持？</strong></p>
-<p>最后，用鲁迅先生的经典《热风》结尾：</p>
-<p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声，有一分热，发一分光，就令萤火虫一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。 倘若有了炬火，出了太阳，我们自然心悦诚服地消失，不但毫无不平，而且还要随喜赞美这炬火或太阳，因为他照亮了人类，连我都在内。</p>
-<p><strong>与君共勉。</strong></p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>vs code remote ssh 使用x11转发显示远程图像</title>
     <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
     <content><![CDATA[<h2 id="需求">需求</h2>
@@ -941,60 +910,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>健身房计划制定与动作</title>
-    <url>/2020/08/24/%E5%81%A5%E8%BA%AB%E6%88%BF%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
-    <content><![CDATA[<p>这篇文章整理我用到的训练计划和训练动作与健身记录。</p>
-<a id="more"></a>
-<h2 id="手臂超级组">手臂超级组</h2>
-<h3 id="组1">组1</h3>
-<p>杠铃弯举</p>
-<p>窄距杠铃卧推</p>
-<h3 id="组2">组2</h3>
-<p>锤式哑铃弯举</p>
-<p>仰卧杠铃臂屈伸</p>
-<h3 id="组3">组3</h3>
-<p>二头绳索弯举</p>
-<p>三头绳索下压</p>
-<h3 id="组4">组4</h3>
-<p>背后曲臂伸</p>
-<p>哑铃交替弯举</p>
-<h3 id="做法">做法</h3>
-<p>每两个动作（二头屈，三头伸）为一个超级组，每个超级组做3组，每组的两个动作分别做8-12RM。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用本地服务器结合github action推送github pages</title>
-    <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
-    <content><![CDATA[<h2 id="需求">需求</h2>
-<p>网上很多人使用github action，借助github的服务器来进行博客的推送，但是，当你博客文章数量较多，且使用了国内的CDN，例如本博客使用了阿里云CDN，本站的解析是国外IP访问的是github仓库的网站，国内用户访问的是阿里云CDN的节点，在使用github action的时候，发现推送速度非常慢，原因是github的服务器在国外，<strong>往阿里云服务器推送的时候速度很慢</strong>。所以，每次更新博客，往往需要10分钟的时间才能推送好。这是不能忍受的。。。</p>
-<a id="more"></a>
-<p>我本地有一台服务器，装了Proxmox来管理虚拟机，且有公网IP，接助GitHub action来连接到我本地推送服务器进行推送</p>
-<h2 id="整个流程如图">整个流程如图：</h2>
-<p><img src="1.svg" /></p>
-<ul>
-<li>本地git pull github仓库中的文件到本地博客开发服务器，进行博客开发。</li>
-<li>博客写完后，git push到github仓库</li>
-<li>github仓库根据仓库中的yaml文件，创建github action，action的功能是连接SSH到Github推送服务器</li>
-<li>Github推送服务器上已经安装好了hexo等博客需要的环境，进行博客推送</li>
-</ul>
-<p>这样操作，全自动的，且速度非常快，整个流程在1分钟左右。</p>
-<h2 id="附上github-action的代码">附上github action的代码：</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Hexo deploy by remote ssh</span><br><span class="line">on: </span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line"></span><br><span class="line">  build:</span><br><span class="line">    name: Build</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">    - name: executing remote ssh commands using password</span><br><span class="line">      uses: appleboy/ssh-action@master</span><br><span class="line">      with:</span><br><span class="line">        host: <span class="variable">$&#123;&#123; secrets.HOST &#125;</span>&#125;</span><br><span class="line">        username: <span class="variable">$&#123;&#123; secrets.USERNAME &#125;</span>&#125;</span><br><span class="line">        password: <span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;</span><br><span class="line">        port: <span class="variable">$&#123;&#123; secrets.PORT &#125;</span>&#125;</span><br><span class="line">        script: <span class="built_in">cd</span> blog;</span><br><span class="line">                git pull https://olixu:<span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;@github.com/olixu/blog.git; </span><br><span class="line">                hexo clean;</span><br><span class="line">                hexo g;</span><br><span class="line">                hexo d;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用树莓派搭建家庭宠物监控并在B站24小时直播</title>
     <url>/2019/02/07/%E4%BD%BF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E5%AE%B6%E5%BA%AD%E5%AE%A0%E7%89%A9%E7%9B%91%E6%8E%A7%E5%B9%B6%E5%9C%A8B%E7%AB%9924%E5%B0%8F%E6%97%B6%E7%9B%B4%E6%92%AD/</url>
     <content><![CDATA[<p>我家养了一条拉布拉多，名字叫小黑，由于我常年不在家，都是我妈妈在养，每当我想要看看狗子，总是需要在我妈妈在家的时候，和我妈妈视频才能看到，因此，就想做一个本文的这个项目。</p>
@@ -1026,6 +941,91 @@ x
       </categories>
       <tags>
         <tag>raspberry</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用本地服务器结合github action推送github pages</title>
+    <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
+    <content><![CDATA[<h2 id="需求">需求</h2>
+<p>网上很多人使用github action，借助github的服务器来进行博客的推送，但是，当你博客文章数量较多，且使用了国内的CDN，例如本博客使用了阿里云CDN，本站的解析是国外IP访问的是github仓库的网站，国内用户访问的是阿里云CDN的节点，在使用github action的时候，发现推送速度非常慢，原因是github的服务器在国外，<strong>往阿里云服务器推送的时候速度很慢</strong>。所以，每次更新博客，往往需要10分钟的时间才能推送好。这是不能忍受的。。。</p>
+<a id="more"></a>
+<p>我本地有一台服务器，装了Proxmox来管理虚拟机，且有公网IP，接助GitHub action来连接到我本地推送服务器进行推送</p>
+<h2 id="整个流程如图">整个流程如图：</h2>
+<p><img src="1.svg" /></p>
+<ul>
+<li>本地git pull github仓库中的文件到本地博客开发服务器，进行博客开发。</li>
+<li>博客写完后，git push到github仓库</li>
+<li>github仓库根据仓库中的yaml文件，创建github action，action的功能是连接SSH到Github推送服务器</li>
+<li>Github推送服务器上已经安装好了hexo等博客需要的环境，进行博客推送</li>
+</ul>
+<p>这样操作，全自动的，且速度非常快，整个流程在1分钟左右。</p>
+<h2 id="附上github-action的代码">附上github action的代码：</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Hexo deploy by remote ssh</span><br><span class="line">on: </span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line"></span><br><span class="line">  build:</span><br><span class="line">    name: Build</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">    - name: executing remote ssh commands using password</span><br><span class="line">      uses: appleboy/ssh-action@master</span><br><span class="line">      with:</span><br><span class="line">        host: <span class="variable">$&#123;&#123; secrets.HOST &#125;</span>&#125;</span><br><span class="line">        username: <span class="variable">$&#123;&#123; secrets.USERNAME &#125;</span>&#125;</span><br><span class="line">        password: <span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;</span><br><span class="line">        port: <span class="variable">$&#123;&#123; secrets.PORT &#125;</span>&#125;</span><br><span class="line">        script: <span class="built_in">cd</span> blog;</span><br><span class="line">                git pull https://olixu:<span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;@github.com/olixu/blog.git; </span><br><span class="line">                hexo clean;</span><br><span class="line">                hexo g;</span><br><span class="line">                hexo d;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>中国学术圈的未来在哪里？</title>
+    <url>/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/</url>
+    <content><![CDATA[<p>最近遇到了很多烦心事，主要是学术生活上的问题，教授没有学术上的指导，且总是push我们做项目，自动化系的教授都只知道赚钱啊，不，都只知道“骗钱”。今天感觉状态还不错，稍有感想，想在这篇文章中简短地谈论一下，权当我乱说的吧，哈哈哈哈。</p>
+<a id="more"></a>
+<p>中国科研圈的问题我个人认为主要来源于以下几点：</p>
+<ul>
+<li>当前50岁以上的老教授，都是出身在1970年以前，他们从小没有接受过完整、科学的教育，所以，一方面，他们中很多人的学术水平其实很垃圾的，工程技术水平也有限啊，而且从小没有接受过爱国主义教育，现在很多的美国的舔狗，也基本都是这个年龄段吧，他们中的某些人入党了，这些人都是对国家有风险的，因为他们只不过是为了入党而入党，而不是真正的爱国家爱党。</li>
+<li>贫富差距过大导致了很多教授老师都拼命想着赚钱，例如江浙沪，其实很多人的收入都很高，每年也都能赚很多钱，但是教授的工资却没有跟上时代的步伐，这就导致老师们只想着去赚钱，骗钱。</li>
+<li>教授老师的权力太大了，国家也没有出台相应的解决办法，所谓的发布的几个文件，都只是象征性的，没有实际意义。</li>
+</ul>
+<p>解决办法：</p>
+<ul>
+<li>学术圈需要降低平均年龄，让那些不给力的老教师抓紧退休，让有能力有抱负的年轻老师赶紧上位。</li>
+<li>国内大学的思政老师要请专业的老师，不能是学生辅导员，要选择真正有理想，有抱负的共产党员来做思政老师，同时赋予他们保护学生的权力。</li>
+<li>需要大量的学生集体出来反抗，这是最无奈，也是最有效的一种解决办法，再来一次文化大革命，什么都解决了。</li>
+</ul>
+<p>写这篇文章的时候主要是感叹现在老师的权力真的太大了，完全不应该这么大啊，而且我现在的科研生活也和我理想中的科研生活完全不一样。我理想中的科研生活应该是自由，纯粹的科研生活，像deepmind，openai，UCB那种真正干科研的生活。而现在的科研生活，一个个教授们美其名曰要结合工程项目，但实际上只是为了赚钱一级一级骗钱，骗国企，骗国家，最终受伤害的还是纳税人。</p>
+<p>但是再往上说，那就要说到共产党了，共产党是先进生产力的代表，怎么不能解决这么明显的问题？</p>
+<p><strong>虽然对中国的科研圈子很失望，但是若不是为了心中那一份崇高的科研理想，我又怎会继续坚持？</strong></p>
+<p>最后，用鲁迅先生的经典《热风》结尾：</p>
+<p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声，有一分热，发一分光，就令萤火虫一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。 倘若有了炬火，出了太阳，我们自然心悦诚服地消失，不但毫无不平，而且还要随喜赞美这炬火或太阳，因为他照亮了人类，连我都在内。</p>
+<p><strong>与君共勉。</strong></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>健身房计划制定与动作</title>
+    <url>/2020/08/24/%E5%81%A5%E8%BA%AB%E6%88%BF%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
+    <content><![CDATA[<p>这篇文章整理我用到的训练计划和训练动作与健身记录。</p>
+<a id="more"></a>
+<h2 id="手臂超级组">手臂超级组</h2>
+<h3 id="组1">组1</h3>
+<p>杠铃弯举</p>
+<p>窄距杠铃卧推</p>
+<h3 id="组2">组2</h3>
+<p>锤式哑铃弯举</p>
+<p>仰卧杠铃臂屈伸</p>
+<h3 id="组3">组3</h3>
+<p>二头绳索弯举</p>
+<p>三头绳索下压</p>
+<h3 id="组4">组4</h3>
+<p>背后曲臂伸</p>
+<p>哑铃交替弯举</p>
+<h3 id="做法">做法</h3>
+<p>每两个动作（二头屈，三头伸）为一个超级组，每个超级组做3组，每组的两个动作分别做8-12RM。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -1068,6 +1068,54 @@ x
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>减肥的科学原理</title>
+    <url>/2019/02/20/%E5%87%8F%E8%82%A5%E7%9A%84%E7%A7%91%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h2 id="减肥中的热量单位">减肥中的热量单位</h2>
+<p>在了解减肥的原理之前，需要首先了解常用的热量单位，卡，卡路里，千卡，大卡，千焦。我们买来的食品的包装袋上一般都标注着每100克该食品的营养成分，使用的就是这些单位。 - 卡 = 卡路里 = 4.184焦耳 - 1千卡 = 1大卡 = 1000卡 = 4184焦耳 = 4.184千焦</p>
+<a id="more"></a>
+<p>每100克的脂肪的热量约为900大卡，每100克糖类和蛋白质的热量约为400大卡。</p>
+<p>这里再给出一个参考：跑步机上以8KM/H的速度跑1小时大约消耗600大卡。</p>
+<h2 id="能量守恒定律">能量守恒定律</h2>
+<p>一个孤立系统的总能量保持不变。如果将人看做是一个系统，则系统存在消耗的能量和吸收的能量。当吸收的能量大于消耗的能量，你的身体将会把多余的能量存储起来。当吸收的能量小于消耗的能量，你的身体将会分解体内的碳水化合物，蛋白质，脂肪。因此，从这个原理可以看出，减肥的原理可以总结为一句话：<strong>少吃饭多运动</strong>。但是我们需要做的是用最科学的方法来减肥。<strong>减肥的热力学法则是唯一经过科学证实的减肥方法。</strong></p>
+<h2 id="人为什么会肥胖">人为什么会肥胖</h2>
+<p>根本原因则是现代人的摄入能量远远大于实际需要的能量，并且饮食结构不合理，米饭和油太多，缺少大量蛋白质，从而导致体型比欧美人矮小很多（蛋白质极其大的程度上决定了身高和体质）。</p>
+<p>以吃垃圾食品(肯德基，麦当劳，星巴克)的美国人举例，他们有很多人都是胖子，但是他们不是光只有肚子胖，他们的全身的肉都很多，手臂大腿等等，这些肉不光是脂肪，肌肉也很多。</p>
+<p>而中国人由于特有的饮食结构的缺陷，导致脂肪和碳水化合物摄入偏高，不长肌肉，同时，由于久坐的原因，脂肪堆积到肚子上和屁股上。所以中国的胖子大多是肚子上肥肉较多。</p>
+<h2 id="减肥中的热量">减肥中的热量</h2>
+<p>人体中所需要的能量来自于三种物质：碳水化合物，脂肪和蛋白质。 这些能量用于3个用途： - 用于基础代谢：维持生命活动的必要消耗。 - 用于身体的建设：合成身体中的蛋白质，制造血液。。。 - 用于脑力和体力劳动：大脑思考和肌肉收缩。</p>
+<p>在这三部分的热量中，第一和第二部分的热量是不能直接人为控制的，我们主要能改变的部分是第三部分。肌肉活动量越大，消耗的能量越多。而第一部分的基础代谢虽然不能人为控制，但是它与你自身的蛋白质含量有关，蛋白质含量越高，你的基础代谢就越大，所以往往肌肉多的人怎么吃也吃不胖，而有的人减完肥立马就反弹是因为减肥的过程中蛋白质流失了很多，导致基础代谢非常低，因此稍微吃点东西就胖。</p>
+<h2 id="减肥热量详细计算">减肥热量详细计算</h2>
+<p>假设你现在想要在100天内减去10千克的纯脂肪，那么这10千克的脂肪产生的热量为：</p>
+<p><span class="math display">\[10\times1000\times9=90000大卡\]</span></p>
+<p>分摊到100天，那么你每天总的消耗的能量需要比你吃的能量多900大卡。</p>
+<ul>
+<li>假如你每天摄入1500大卡，基础代谢1200大卡，那么你需要通过运动消耗1200大卡来完成目标。</li>
+<li>假如你每天摄入900大卡，基础代谢1200大卡，那么你需要通过运动消耗600大卡来完成目标。</li>
+</ul>
+<h2 id="减肥辅助工具">减肥辅助工具</h2>
+<p>我准备用的是JEFIT和薄荷健康。</p>
+<p>JEFIT是一个国外软件，收费版一年40刀，免费版够用。它上面有很多健身房训练计划，包括综合训练，减脂，增肌等条目，适合有健身房基础的人使用(因为免费版不能看完整的动作视频，如果你对训练计划中的动作完全熟练掌握，那么可以直接用，我只是需要用这个软件给出的训练计划，具体动作我有健身房教练带)。这个软件还能记录你每天的运动量，非常不错。</p>
+<p>薄荷健康是一个国内开发的软件，它的最主要的功能是搜索食物的营养和热量。并且可以记录你每天的饮食，方便计算。</p>
+<h2 id="制定减肥的百日计划">制定减肥的百日计划</h2>
+<p>我曾于2018年10月份开始了一个月的健身计划，是以尽量不掉肌肉并尽可能减少脂肪为目标的。体重从80千克降低为72千克，并且感觉力量增加了许多，标准的引体向上可以做10个。</p>
+<p>我当时并未控制饮食，早上多加了几个鸡蛋白。硬拉，深蹲，卧推3天一循环。</p>
+<p>一个月过后，经常吃麻辣烫，外卖，也没怎么再胖。不过寒假没有一天在运动，又胖回了80千克。这说明我之前练得肌肉都还是太少了，基础代谢太低。</p>
+<p>因此制定一个百日计划。通过100天，减掉10千克纯脂肪（至少能看见腹肌）。未来的某一天再开始这个计划。</p>
+<p>饮食严格按照薄荷健康上我设定的吃，运动按照JEFIT上的训练计划完成。成功的关键在于每天严格控制，仔细记录。</p>
+<h2 id="每日饮食推荐">每日饮食推荐</h2>
+<p>如果你想通过运动减肥，那么每天需要摄入的蛋白质在2g/KG，80千克的人需要每天摄入160克蛋白质才能保证训练效果。一个煮鸡蛋含有蛋白13.3克，那么需要吃12个鸡蛋。由于我每餐都会有一些肉质，含蛋白质的蔬菜，我实际一天需要吃6个鸡蛋白，推荐早上吃2个，健身结束以后吃4个。</p>
+<p>但是吃那么多蛋白质的前提是你每天有一定的训练量，否则，不运动吃这么多蛋白质容易对肾脏造成损伤。</p>
+<h2 id="参考文献">参考文献</h2>
+<p>以后有时间更新</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -1216,54 +1264,6 @@ x
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>减肥的科学原理</title>
-    <url>/2019/02/20/%E5%87%8F%E8%82%A5%E7%9A%84%E7%A7%91%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
-    <content><![CDATA[<h2 id="减肥中的热量单位">减肥中的热量单位</h2>
-<p>在了解减肥的原理之前，需要首先了解常用的热量单位，卡，卡路里，千卡，大卡，千焦。我们买来的食品的包装袋上一般都标注着每100克该食品的营养成分，使用的就是这些单位。 - 卡 = 卡路里 = 4.184焦耳 - 1千卡 = 1大卡 = 1000卡 = 4184焦耳 = 4.184千焦</p>
-<a id="more"></a>
-<p>每100克的脂肪的热量约为900大卡，每100克糖类和蛋白质的热量约为400大卡。</p>
-<p>这里再给出一个参考：跑步机上以8KM/H的速度跑1小时大约消耗600大卡。</p>
-<h2 id="能量守恒定律">能量守恒定律</h2>
-<p>一个孤立系统的总能量保持不变。如果将人看做是一个系统，则系统存在消耗的能量和吸收的能量。当吸收的能量大于消耗的能量，你的身体将会把多余的能量存储起来。当吸收的能量小于消耗的能量，你的身体将会分解体内的碳水化合物，蛋白质，脂肪。因此，从这个原理可以看出，减肥的原理可以总结为一句话：<strong>少吃饭多运动</strong>。但是我们需要做的是用最科学的方法来减肥。<strong>减肥的热力学法则是唯一经过科学证实的减肥方法。</strong></p>
-<h2 id="人为什么会肥胖">人为什么会肥胖</h2>
-<p>根本原因则是现代人的摄入能量远远大于实际需要的能量，并且饮食结构不合理，米饭和油太多，缺少大量蛋白质，从而导致体型比欧美人矮小很多（蛋白质极其大的程度上决定了身高和体质）。</p>
-<p>以吃垃圾食品(肯德基，麦当劳，星巴克)的美国人举例，他们有很多人都是胖子，但是他们不是光只有肚子胖，他们的全身的肉都很多，手臂大腿等等，这些肉不光是脂肪，肌肉也很多。</p>
-<p>而中国人由于特有的饮食结构的缺陷，导致脂肪和碳水化合物摄入偏高，不长肌肉，同时，由于久坐的原因，脂肪堆积到肚子上和屁股上。所以中国的胖子大多是肚子上肥肉较多。</p>
-<h2 id="减肥中的热量">减肥中的热量</h2>
-<p>人体中所需要的能量来自于三种物质：碳水化合物，脂肪和蛋白质。 这些能量用于3个用途： - 用于基础代谢：维持生命活动的必要消耗。 - 用于身体的建设：合成身体中的蛋白质，制造血液。。。 - 用于脑力和体力劳动：大脑思考和肌肉收缩。</p>
-<p>在这三部分的热量中，第一和第二部分的热量是不能直接人为控制的，我们主要能改变的部分是第三部分。肌肉活动量越大，消耗的能量越多。而第一部分的基础代谢虽然不能人为控制，但是它与你自身的蛋白质含量有关，蛋白质含量越高，你的基础代谢就越大，所以往往肌肉多的人怎么吃也吃不胖，而有的人减完肥立马就反弹是因为减肥的过程中蛋白质流失了很多，导致基础代谢非常低，因此稍微吃点东西就胖。</p>
-<h2 id="减肥热量详细计算">减肥热量详细计算</h2>
-<p>假设你现在想要在100天内减去10千克的纯脂肪，那么这10千克的脂肪产生的热量为：</p>
-<p><span class="math display">\[10\times1000\times9=90000大卡\]</span></p>
-<p>分摊到100天，那么你每天总的消耗的能量需要比你吃的能量多900大卡。</p>
-<ul>
-<li>假如你每天摄入1500大卡，基础代谢1200大卡，那么你需要通过运动消耗1200大卡来完成目标。</li>
-<li>假如你每天摄入900大卡，基础代谢1200大卡，那么你需要通过运动消耗600大卡来完成目标。</li>
-</ul>
-<h2 id="减肥辅助工具">减肥辅助工具</h2>
-<p>我准备用的是JEFIT和薄荷健康。</p>
-<p>JEFIT是一个国外软件，收费版一年40刀，免费版够用。它上面有很多健身房训练计划，包括综合训练，减脂，增肌等条目，适合有健身房基础的人使用(因为免费版不能看完整的动作视频，如果你对训练计划中的动作完全熟练掌握，那么可以直接用，我只是需要用这个软件给出的训练计划，具体动作我有健身房教练带)。这个软件还能记录你每天的运动量，非常不错。</p>
-<p>薄荷健康是一个国内开发的软件，它的最主要的功能是搜索食物的营养和热量。并且可以记录你每天的饮食，方便计算。</p>
-<h2 id="制定减肥的百日计划">制定减肥的百日计划</h2>
-<p>我曾于2018年10月份开始了一个月的健身计划，是以尽量不掉肌肉并尽可能减少脂肪为目标的。体重从80千克降低为72千克，并且感觉力量增加了许多，标准的引体向上可以做10个。</p>
-<p>我当时并未控制饮食，早上多加了几个鸡蛋白。硬拉，深蹲，卧推3天一循环。</p>
-<p>一个月过后，经常吃麻辣烫，外卖，也没怎么再胖。不过寒假没有一天在运动，又胖回了80千克。这说明我之前练得肌肉都还是太少了，基础代谢太低。</p>
-<p>因此制定一个百日计划。通过100天，减掉10千克纯脂肪（至少能看见腹肌）。未来的某一天再开始这个计划。</p>
-<p>饮食严格按照薄荷健康上我设定的吃，运动按照JEFIT上的训练计划完成。成功的关键在于每天严格控制，仔细记录。</p>
-<h2 id="每日饮食推荐">每日饮食推荐</h2>
-<p>如果你想通过运动减肥，那么每天需要摄入的蛋白质在2g/KG，80千克的人需要每天摄入160克蛋白质才能保证训练效果。一个煮鸡蛋含有蛋白13.3克，那么需要吃12个鸡蛋。由于我每餐都会有一些肉质，含蛋白质的蔬菜，我实际一天需要吃6个鸡蛋白，推荐早上吃2个，健身结束以后吃4个。</p>
-<p>但是吃那么多蛋白质的前提是你每天有一定的训练量，否则，不运动吃这么多蛋白质容易对肾脏造成损伤。</p>
-<h2 id="参考文献">参考文献</h2>
-<p>以后有时间更新</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -1499,6 +1499,19 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>常用排序算法之直接插入排序</title>
+    <url>/2018/08/12/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>题目：编写一个C程序，应用直接插入排序算法将序列｛2，5，6，，3，7，8，0，9，12，1｝进行排序，要求从小到大排列，并输出排序后的数列元素。</p>
+<p>算法分析：直接运用直接插入排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertionsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>] = a[i];</span><br><span class="line">        j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; a[<span class="number">0</span>]&lt;a[j])</span><br><span class="line">        &#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j--];</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The original data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    insertsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of insertion sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构 算法 排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用排序算法之选择排序</title>
     <url>/2018/09/02/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<p>题目：编写一个C程序，运用选择排序将序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的数列元素</p>
@@ -1510,6 +1523,33 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>数据结构 算法 排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>强化学习：有限马尔科夫决策过程</title>
+    <url>/2019/04/14/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%9A%E6%9C%89%E9%99%90%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/</url>
+    <content><![CDATA[<p>本文是reinforcement learning:An introduction书第三章的翻译．</p>
+<p>在本章中我们将介绍有限马尔科夫决策过程形式的问题（finite MDPs），本书的剩余部分都将解决此类问题．该问题包括可评估的反馈，就像和bandits问题一样，但是同时也有一个相关性的方面－在不同的情形下选择不同的行为．MDPs是序列决策问题的一种经典的形式．行为不光影响立即的回报，同时影响接下去的状态．因此，MDPs包括未来的奖励并且需要权衡立即的奖励与未来的奖励．在bandit问题中，我们估计每个行为<span class="math inline">\(a\)</span>的值<span class="math inline">\(q_*(a)\)</span>.</p>
+<p>在MDPs中我们估计在<span class="math inline">\(s\)</span>状态下，在<span class="math inline">\(a\)</span>行为的条件下的值<span class="math inline">\(q_*(s,a)\)</span>.</p>
+<a id="more"></a>
+<p>MDPs是强化学习的一个数学理想化形式，能够用精确的理论性语句描述．我们介绍强化学习问题的数学结构中的关键问题，例如回报，值函数，贝尔曼方程．我们努力将很大范围的实际问题用MDPs来表示．在人工智能中，算法应用的广度和数学溯源性之间有着一定的张力．在这一章中，我们将介绍这个张力，并且讨论算法实现的挑战和平衡点．</p>
+<h2 id="agent-environment接口">3.1 agent-environment接口</h2>
+<p><span class="math display">\[S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3,...\]</span></p>
+<p><span class="math display">\[P(s\prime,r|s,a) = Pr\{S_t=s\prime,R_t=r|S_{t-1}=s,A_{t-1}=a\}\]</span></p>
+<h2 id="目标和奖励">3.2 目标和奖励</h2>
+<p>在强化学习中，agent的目标被正式化定义为一个特殊的信号，称为奖励(Reward)，从environment传递给agent．在每个time step，奖励是一个实属．不正式得讲，agent的目标是为了最大化所有它收到的回报之和．这意味着最大化的不是立即奖励，而是长期的累计奖励．我们可以清楚地表述这个非正式的想法作为奖励假设：</p>
+<h2 id="回报和episodes">3.3 回报和Episodes</h2>
+<p>至此，我们讨论了强化学习的目标．agent的目标是为了最大化它在长期的过程中接收到的累计奖励．如何正式地定义？ 如果在time step t以后接收到的奖励序列可以表示为<span class="math inline">\(R_{t+1},R_{t+2},R_{t+3},...\)</span>，我们希望最大化这个序列的哪个方面．通常，我们将要最大化<strong>期望回报</strong>，用<span class="math inline">\(G_t\)</span>来表示，定义为奖励序列的一些特定函数，在最简单的情况下，回报是奖励的总和： <span class="math display">\[G_t = R_{t+1}+R_{t+2}+R_{t+3}+...+R_{T}\]</span> 其中，<span class="math inline">\(T\)</span>是最后一个时刻． ## 3.4 Episodes任务与连续任务的统一的记号 在之前的一小节中，我们介绍了两种强化学习任务，一种是</p>
+<h2 id="策略与值函数">3.5 策略与值函数</h2>
+<h2 id="策略的优化与值函数的优化">3.6 策略的优化与值函数的优化</h2>
+<h2 id="优化和近似">3.7 优化和近似</h2>
+<h2 id="总结">3.8 总结</h2>
+]]></content>
+      <categories>
+        <category>强化学习</category>
+      </categories>
+      <tags>
+        <tag>强化学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1526,16 +1566,25 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>常用排序算法之直接插入排序</title>
-    <url>/2018/08/12/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>题目：编写一个C程序，应用直接插入排序算法将序列｛2，5，6，，3，7，8，0，9，12，1｝进行排序，要求从小到大排列，并输出排序后的数列元素。</p>
-<p>算法分析：直接运用直接插入排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertionsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>] = a[i];</span><br><span class="line">        j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; a[<span class="number">0</span>]&lt;a[j])</span><br><span class="line">        &#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j--];</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The original data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    insertsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of insertion sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <title>服务器被黑记录</title>
+    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
+<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
+<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
+<a id="more"></a>
+<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
+<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
+<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
+<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
+<p>可以看到一直在被爆破。</p>
+<p><img src="image-20200914140640360.png" /></p>
 ]]></content>
       <categories>
-        <category>数据结构与算法</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>数据结构 算法 排序</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1628,55 +1677,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>服务器被黑记录</title>
-    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
-<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
-<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
-<a id="more"></a>
-<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
-<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
-<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
-<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
-<p>可以看到一直在被爆破。</p>
-<p><img src="image-20200914140640360.png" /></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>强化学习：有限马尔科夫决策过程</title>
-    <url>/2019/04/14/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%9A%E6%9C%89%E9%99%90%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/</url>
-    <content><![CDATA[<p>本文是reinforcement learning:An introduction书第三章的翻译．</p>
-<p>在本章中我们将介绍有限马尔科夫决策过程形式的问题（finite MDPs），本书的剩余部分都将解决此类问题．该问题包括可评估的反馈，就像和bandits问题一样，但是同时也有一个相关性的方面－在不同的情形下选择不同的行为．MDPs是序列决策问题的一种经典的形式．行为不光影响立即的回报，同时影响接下去的状态．因此，MDPs包括未来的奖励并且需要权衡立即的奖励与未来的奖励．在bandit问题中，我们估计每个行为<span class="math inline">\(a\)</span>的值<span class="math inline">\(q_*(a)\)</span>.</p>
-<p>在MDPs中我们估计在<span class="math inline">\(s\)</span>状态下，在<span class="math inline">\(a\)</span>行为的条件下的值<span class="math inline">\(q_*(s,a)\)</span>.</p>
-<a id="more"></a>
-<p>MDPs是强化学习的一个数学理想化形式，能够用精确的理论性语句描述．我们介绍强化学习问题的数学结构中的关键问题，例如回报，值函数，贝尔曼方程．我们努力将很大范围的实际问题用MDPs来表示．在人工智能中，算法应用的广度和数学溯源性之间有着一定的张力．在这一章中，我们将介绍这个张力，并且讨论算法实现的挑战和平衡点．</p>
-<h2 id="agent-environment接口">3.1 agent-environment接口</h2>
-<p><span class="math display">\[S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3,...\]</span></p>
-<p><span class="math display">\[P(s\prime,r|s,a) = Pr\{S_t=s\prime,R_t=r|S_{t-1}=s,A_{t-1}=a\}\]</span></p>
-<h2 id="目标和奖励">3.2 目标和奖励</h2>
-<p>在强化学习中，agent的目标被正式化定义为一个特殊的信号，称为奖励(Reward)，从environment传递给agent．在每个time step，奖励是一个实属．不正式得讲，agent的目标是为了最大化所有它收到的回报之和．这意味着最大化的不是立即奖励，而是长期的累计奖励．我们可以清楚地表述这个非正式的想法作为奖励假设：</p>
-<h2 id="回报和episodes">3.3 回报和Episodes</h2>
-<p>至此，我们讨论了强化学习的目标．agent的目标是为了最大化它在长期的过程中接收到的累计奖励．如何正式地定义？ 如果在time step t以后接收到的奖励序列可以表示为<span class="math inline">\(R_{t+1},R_{t+2},R_{t+3},...\)</span>，我们希望最大化这个序列的哪个方面．通常，我们将要最大化<strong>期望回报</strong>，用<span class="math inline">\(G_t\)</span>来表示，定义为奖励序列的一些特定函数，在最简单的情况下，回报是奖励的总和： <span class="math display">\[G_t = R_{t+1}+R_{t+2}+R_{t+3}+...+R_{T}\]</span> 其中，<span class="math inline">\(T\)</span>是最后一个时刻． ## 3.4 Episodes任务与连续任务的统一的记号 在之前的一小节中，我们介绍了两种强化学习任务，一种是</p>
-<h2 id="策略与值函数">3.5 策略与值函数</h2>
-<h2 id="策略的优化与值函数的优化">3.6 策略的优化与值函数的优化</h2>
-<h2 id="优化和近似">3.7 优化和近似</h2>
-<h2 id="总结">3.8 总结</h2>
-]]></content>
-      <categories>
-        <category>强化学习</category>
-      </categories>
-      <tags>
-        <tag>强化学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>检查强化学习自定义环境是否符合Gym的API</title>
     <url>/2020/08/22/%E6%A3%80%E6%9F%A5%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E7%AC%A6%E5%90%88Gym%E7%9A%84API/</url>
     <content><![CDATA[<p>虽然Openai Gym给我们提供了很多有趣的环境，但是，针对实际问题，我们一般都需要建立自己的强化学习环境，也就是说，建立一个函数，输入是<code>action</code>，输出是<code>next_state, reward, done, info</code>，建立这样一个环境的时候最好按照Gym的API来设计，这样方便代码的编写与调试，很多网上实现的算法都是按照Gym的环境进行设计的，同时，Gym的API本身设计的就比较合理的。</p>
@@ -1714,19 +1714,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>粒子群算法库-PySwarms的可视化</title>
-    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
-    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
-<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>粒子群算法(PSO)的数学原理</title>
     <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95-PSO-%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h2 id="粒子群算法的起源">粒子群算法的起源</h2>
@@ -1756,6 +1743,19 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
 <p><span class="math display">\[v_{id}=w\times v_{id}+c_1r_1(P_{id}-x_{id})+c_2r_2(P_{gd}-x_{id})\]</span></p>
 <p><span class="math display">\[x_{id}=x_{id}+v_{id}\]</span></p>
 <p>其中：c1和c2为学习因子，也称为加速常数<code>acceleration constant</code>，r1和r2为<code>[0,1]</code>范围内的均匀随机数。速度更新公式由三部分组成，第一部分为<code>惯性</code>，代表粒子有维持自己先前速度的趋势，第二部分为<code>认知</code>部分，反映了对自身历史经验的记忆，代表粒子有向自身历史最佳位置逼近的趋势，第三部分为<code>社会</code>部分，反映了粒子之间协同合作与知识共享的群体历史经验。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>粒子群算法库-PySwarms的可视化</title>
+    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
+    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
+<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -1857,94 +1857,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>flask</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PPO算法公式推导</title>
-    <url>/2020/09/07/PPO%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/</url>
-    <content><![CDATA[<p><strong>论文：</strong></p>
-<p>[1] Schulman, J., Levine, S., Moritz, P., Jordan, M. I. &amp; Abbeel, P. Trust Region Policy Optimization. <em>arXiv:1502.05477 [cs]</em> (2017).</p>
-<p>[2] Schulman, J., Wolski, F., Dhariwal, P., Radford, A. &amp; Klimov, O. Proximal Policy Optimization Algorithms. <em>arXiv:1707.06347 [cs]</em> (2017).</p>
-<p>[3] Heess, N. <em>et al.</em> Emergence of Locomotion Behaviours in Rich Environments. <em>arXiv:1707.02286 [cs]</em> (2017).</p>
-<p>第一、二篇是openai的，第三篇是deepmind的</p>
-<p>Trust Region Policy Optimization算法是在2015年由UCB/Openai的John Schulman提出的，基本思想就是在传统的Policy Gradient算法中对梯度的更新增加一个信赖域，来保证梯度更新前后的策略相差不超过一定的阈值，用两个概率分布的KL散度来衡量这个阈值，TRPO算法的表达形式中有一个硬约束，这给求解最优问题带来了困难，而PPO则是在2017年由UCB/Openai的John Schulman提出的，是TRPO的近似算法，将TRPO的软约束转化成目标函数中的一个惩罚项，以此来简化计算，方便实现。</p>
-<a id="more"></a>
-<h2 id="trpo算法推导">TRPO算法推导</h2>
-<h3 id="notation">Notation</h3>
-<p>令<span class="math inline">\(\eta(\pi)\)</span>表示累积折扣回报：</p>
-<p><span class="math inline">\(\eta(\pi)=\mathbb{E}_{s_{0}, a_{0}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} c\left(s_{t}\right)\right]\)</span></p>
-<p>其中，<span class="math inline">\(s_{0} \sim \rho_{0}\left(s_{0}\right), a_{t} \sim \pi\left(a_{t} \mid s_{t}\right), s_{t+1} \sim P\left(s_{t+1} \mid s_{t}, a_{t}\right)\)</span></p>
-<p>state-action值函数的定义：<span class="math inline">\(Q_{\pi}\left(s_{t}, a_{t}\right)=\mathbb{E}_{s_{t+1}, a_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
-<p>价值函数的定义：<span class="math inline">\(V_{\pi}\left(s_{t}\right)=\mathbb{E}_{a_{t}, s_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
-<p>优势函数：<span class="math inline">\(A_{\pi}(s, a)=Q_{\pi}(s, a)-V_{\pi}(s)\)</span></p>
-<p><strong>Lemma1：策略差分定理</strong>：原始策略记为<span class="math inline">\(\pi\)</span>，更新后的策略记为<span class="math inline">\(\tilde{\pi}\)</span>，则更新后的策略的期望折扣回报可以写成更新前策略的期望折扣回报加上一个<span class="math inline">\(\tilde{\pi}\)</span>对<span class="math inline">\(\pi\)</span>的优势函数：</p>
-<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span></p>
-<p>上述等式能够体现TRPO的思想：将新的策略得到的性能函数写成旧策略的性能函数加上一个新策略对旧策略的的优势函数的期望值，若能保证这个期望值是正数，则可以保证新策略的性能函数要优于旧策略的性能函数。</p>
-<p>这个定理由2002年 Kakade &amp; Langford证得：</p>
-<p>因为<span class="math inline">\(A_{\pi}(s, a)=\mathbb{E}_{s^{\prime} \sim P\left(s^{\prime} \mid s, a\right)}\left[r(s)+\gamma V_{\pi}\left(s^{\prime}\right)-V_{\pi}(s)\right]\)</span></p>
-<p><span class="math inline">\(\begin{array}{l} \mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t}\left(r\left(s_{t}\right)+\gamma V_{\pi}\left(s_{t+1}\right)-V_{\pi}\left(s_{t}\right)\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[-V_{\pi}\left(s_{0}\right)+\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\mathbb{E}_{s_{0}}\left[V_{\pi}\left(s_{0}\right)\right]+\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\eta(\pi)+\eta(\tilde{\pi}) \end{array}\)</span></p>
-<p>定义discounted visitation frequencies：<span class="math inline">\(\rho_{\pi}(s)=\left(P\left(s_{0}=s\right)+\gamma P\left(s_{1}=s\right)+\gamma^{2} P\left(s_{2}=s\right)+\ldots\right)\)</span></p>
-<p>定义这个频率的目的主要是换一个角度来表示基于累计折扣回报函数的性能函数，因为<span class="math inline">\(\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span>很难表示。</p>
-<p>当<span class="math inline">\(\gamma\)</span>等于1的时候，显然，这个频率代表着在一个trajectory中状态<span class="math inline">\(s\)</span>出现次数的期望，当reward function只和状态有关而和action无关的时候，那么在这个trajectory中由<span class="math inline">\(s\)</span>贡献的return就只和这个frequency相关了。</p>
-<p>当<span class="math inline">\(\gamma\)</span>小于1的时候，在每个timestep会对reward进行一个discount的处理，所以想使用discounted frequencies来表示return的期望的话，需要在frequency上面做一个discount。</p>
-<p>通过使用discounted visitation frequencies方法，可以将上述级数形式的期望写成如下容易处理的形式</p>
-<p><span class="math display">\[\begin{aligned}
-\eta(\tilde{\pi}) &amp;=\eta(\pi)+\sum_{t=0}^{\infty} \sum_{s} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) \gamma^{t} A_{\pi}(s, a) \\
-&amp;=\eta(\pi)+\sum_{s} \sum_{t=0}^{\infty} \gamma^{t} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a) \\
-&amp;=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)
-\end{aligned}\]</span></p>
-<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
-<p>因为<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>依赖于<span class="math inline">\(\tilde{\pi}\)</span>，而因为<span class="math inline">\(\tilde{\pi}\)</span>是更新后的策略，在<span class="math inline">\(t\)</span>时刻，我们只有更新前的策略，上述优化问题很难求解，所以需要做一个近似：</p>
-<p><span class="math inline">\(L_{\pi}(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\pi}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
-<p>其中，<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>使用的是<span class="math inline">\(\rho_{\pi}\)</span>而不是<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>，因为策略的改变会导致相应的state visitation density的变化，而上面这个式子忽略了这一点，但是，(Kakade &amp; Langford 2002)证明了<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>和<span class="math inline">\(\eta(\pi)\)</span>是一阶近似的：</p>
-<p>对于任意的参数<span class="math inline">\(\theta_0\)</span>，有：</p>
-<p><span class="math inline">\(\begin{aligned} L_{\pi_{\theta_{0}}}\left(\pi_{\theta_{0}}\right) &amp;=\eta\left(\pi_{\theta_{0}}\right) \\ \left.\nabla_{\theta} L_{\pi_{\theta_{0}}}\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} &amp;=\left.\nabla_{\theta} \eta\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} \end{aligned}\)</span></p>
-<p>因此，当对策略进行一步充分小的更新，<span class="math inline">\(\pi_{\theta_{0}} \rightarrow \tilde{\pi}\)</span>，改进<span class="math inline">\(L_{\pi_{\theta_{0}}}\)</span>的同时，也能改进<span class="math inline">\(\eta(\pi_{\theta_{0}})\)</span></p>
-<p>上述过程只说明了一个充分的改进会得到非减的性能指标序列，但是选取步长很重要，选的小了会导致收敛速度慢，选了大了会导致可能的不能得到非减的性能指标序列，因此，(Kakade &amp; Langford)提出了一个policy update的方法：conservative policy iteration(保守策略迭代)，该方法给出了一个显式策略更新的下界：</p>
-<p>令<span class="math inline">\(\pi_{old}\)</span>为当前的策略，<span class="math inline">\(\pi^{\prime}=\arg \max _{\pi^{\prime}} L_{\pi_{\mathrm{old}}}\left(\pi^{\prime}\right)\)</span>，新的策略为<span class="math inline">\(\pi_{new}\)</span>，定义为：</p>
-<p><span class="math display">\[\pi_{\mathrm{new}}(a \mid s)=(1-\alpha) \pi_{\mathrm{old}}(a \mid s)+\alpha \pi^{\prime}(a \mid s)\]</span></p>
-<p>(Kakade &amp; Langford)推导出来的期望折扣累计回报的下界是：</p>
-<p><span class="math inline">\(\begin{aligned} \eta\left(\pi_{\text {new }}\right) &amp; \geq L_{\pi_{\text {old}}}\left(\pi_{\text {new}}\right)-\frac{2 \epsilon \gamma}{(1-\gamma)^{2}} \alpha^{2} \\ &amp; \text { where } \epsilon=\max _{s}\left|\mathbb{E}_{a \sim \pi^{\prime}(a \mid s)}\left[A_{\pi}(s, a)\right]\right| \end{aligned}\)</span></p>
-<p>以上都是(Kakade &amp; Langford 2002)的结论和证明</p>
-<p>其中<span class="math inline">\(\alpha\)</span>并未给出合适的计算方法，TRPO利用两个概率分布之间的KL散度来计算这个<span class="math inline">\(\alpha\)</span></p>
-<p>用概率论中的全变差距离来衡量两个策略之间的差距，<span class="math inline">\(D_{T V}(p \| q)=\frac{1}{2} \sum_{i}\left|p_{i}-q_{i}\right|\)</span></p>
-<p>其中，<span class="math inline">\(p_i\)</span>和<span class="math inline">\(q_i\)</span>是两个策略的离散的概率分布，定义<span class="math inline">\(D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})\)</span>为：</p>
-<p><span class="math display">\[D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})=\max _{s} D_{T V}(\pi(\cdot \mid s) \| \tilde{\pi}(\cdot \mid s))\]</span></p>
-<p>因为全变差距离和KL散度具有关系：<span class="math inline">\(D_{T V}(p \| q)^{2} \leq D_{\mathrm{KL}}(p \| q)\)</span></p>
-<p>所以可以将<span class="math inline">\(\alpha^2\)</span>替换为<span class="math inline">\(D_{T V}(p \| q)^{2}\)</span>，进一步可以替换为<span class="math inline">\(D_{\mathrm{KL}}(p \| q)\)</span></p>
-<p>利用KL divergence来衡量差距，计算方法：</p>
-<p>对于离散分布：<span class="math inline">\(D_{K L}(P \mid Q)=\sum_{i} P(i) \log \frac{P(i)}{Q(i)}\)</span></p>
-<p>对于连续分布：<span class="math inline">\(D_{K L}(P \mid Q)=\int_{-\infty}^{\infty} p(x) \log \frac{p(x)}{q(x)} d x\)</span></p>
-<p><strong>TRPO算法</strong></p>
-<p><img src="image-20200913171805500.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
-<p>策略的单调改进：TRPO算法能够保证策略每次更新都是单调改进的，即值函数<span class="math inline">\(\eta\left(\pi_{0}\right) \leq \eta\left(\pi_{1}\right) \leq \eta\left(\pi_{2}\right) \leq \ldots\)</span></p>
-<p><img src="image-20200913191418918.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
-<h2 id="ppo算法">PPO算法</h2>
-<p>TRPO算法是找到原目标函数的替代函数，并最大化这个替代函数，优化问题的约束是策略参数的更新不能超过一个设定的阈值，优化过程可以写成：</p>
-<p><span class="math inline">\(\begin{array}{ll} \underset{\theta}{\operatorname{maximize}} &amp; \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right] \\ \text { subject to } &amp; \hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right] \leq \delta \end{array}\)</span></p>
-<p>PPO是TRPO的一个改进，或者可以说是一个近似算法，可以将上述的带约束优化问题转化为无约束优化问题，可以写出TRPO的另一个形式：</p>
-<p><span class="math inline">\(\underset{\theta}{\operatorname{maximize}} \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
-<p>令<span class="math inline">\(r_t(\theta)\)</span>表示概率比：<span class="math inline">\(r_{t}(\theta)=\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\mathrm{old}}}\left(a_{t} \mid s_{t}\right)}\)</span>，因此<span class="math inline">\(r(\theta){old}=1\)</span>，</p>
-<p>TRPO最大化一个替代的目标函数：</p>
-<p><span class="math inline">\(L^{C P I}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right]=\hat{\mathbb{E}}_{t}\left[r_{t}(\theta) \hat{A}_{t}\right]\)</span></p>
-<p>如果使用策略迭代进行求解，那么策略的更新的步长可能会很大，<strong>以下是PPO的一个实现：对ration直接进行限制</strong></p>
-<p><span class="math inline">\(L^{C L I P}(\theta)=\hat{\mathbb{E}}_{t}\left[\min \left(r_{t}(\theta) \hat{A}_{t}, \operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\right)\right]\)</span></p>
-<p>上述min中有两项：第一项为<span class="math inline">\(r_{t}(\theta) \hat{A}_{t}\)</span>，第二项为<span class="math inline">\(\operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\)</span></p>
-<p><strong>Clip</strong>：为目标函数限定一个范围，意思就是通过计算概率比<span class="math inline">\(r_t(\theta)\)</span>，设定一个阈值，将其限制在一定的范围内<span class="math inline">\((1-\epsilon, 1+\epsilon)\)</span>，来避免策略网络的权重更新步长过大。</p>
-<p><span class="math inline">\(L^{CLIP}\)</span>是<span class="math inline">\(L^{CPI}\)</span>的一个下界。</p>
-<p><img src="image-20200913162249801.png" alt="image-20200913162249801" style="zoom:50%;" /></p>
-<p>PPO算法的第二种形式：</p>
-<p>以目标函数加入惩罚项的形式：</p>
-<p><span class="math inline">\(L^{K L P E N}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
-<p>其中，<span class="math inline">\(\beta\)</span>不是固定的，需要进行自适应设计，设计方法如下：</p>
-<p>计算两个策略的KL散度：<span class="math inline">\(d=\hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
-<p><span class="math inline">\(\begin{array}{l} -\text { If } d&lt;d_{\operatorname{targ}} / 1.5, \beta \leftarrow \beta / 2 \\ -\text { If } d&gt;d_{\text {targ }} \times 1.5, \beta \leftarrow \beta \times 2 \end{array}\)</span></p>
-]]></content>
-      <categories>
-        <category>Reinforcement Learning</category>
-      </categories>
-      <tags>
-        <tag>Reinforcement Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -3151,6 +3063,94 @@ Alabama
       </tags>
   </entry>
   <entry>
+    <title>PPO算法公式推导</title>
+    <url>/2020/09/07/PPO%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/</url>
+    <content><![CDATA[<p><strong>论文：</strong></p>
+<p>[1] Schulman, J., Levine, S., Moritz, P., Jordan, M. I. &amp; Abbeel, P. Trust Region Policy Optimization. <em>arXiv:1502.05477 [cs]</em> (2017).</p>
+<p>[2] Schulman, J., Wolski, F., Dhariwal, P., Radford, A. &amp; Klimov, O. Proximal Policy Optimization Algorithms. <em>arXiv:1707.06347 [cs]</em> (2017).</p>
+<p>[3] Heess, N. <em>et al.</em> Emergence of Locomotion Behaviours in Rich Environments. <em>arXiv:1707.02286 [cs]</em> (2017).</p>
+<p>第一、二篇是openai的，第三篇是deepmind的</p>
+<p>Trust Region Policy Optimization算法是在2015年由UCB/Openai的John Schulman提出的，基本思想就是在传统的Policy Gradient算法中对梯度的更新增加一个信赖域，来保证梯度更新前后的策略相差不超过一定的阈值，用两个概率分布的KL散度来衡量这个阈值，TRPO算法的表达形式中有一个硬约束，这给求解最优问题带来了困难，而PPO则是在2017年由UCB/Openai的John Schulman提出的，是TRPO的近似算法，将TRPO的软约束转化成目标函数中的一个惩罚项，以此来简化计算，方便实现。</p>
+<a id="more"></a>
+<h2 id="trpo算法推导">TRPO算法推导</h2>
+<h3 id="notation">Notation</h3>
+<p>令<span class="math inline">\(\eta(\pi)\)</span>表示累积折扣回报：</p>
+<p><span class="math inline">\(\eta(\pi)=\mathbb{E}_{s_{0}, a_{0}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} c\left(s_{t}\right)\right]\)</span></p>
+<p>其中，<span class="math inline">\(s_{0} \sim \rho_{0}\left(s_{0}\right), a_{t} \sim \pi\left(a_{t} \mid s_{t}\right), s_{t+1} \sim P\left(s_{t+1} \mid s_{t}, a_{t}\right)\)</span></p>
+<p>state-action值函数的定义：<span class="math inline">\(Q_{\pi}\left(s_{t}, a_{t}\right)=\mathbb{E}_{s_{t+1}, a_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
+<p>价值函数的定义：<span class="math inline">\(V_{\pi}\left(s_{t}\right)=\mathbb{E}_{a_{t}, s_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
+<p>优势函数：<span class="math inline">\(A_{\pi}(s, a)=Q_{\pi}(s, a)-V_{\pi}(s)\)</span></p>
+<p><strong>Lemma1：策略差分定理</strong>：原始策略记为<span class="math inline">\(\pi\)</span>，更新后的策略记为<span class="math inline">\(\tilde{\pi}\)</span>，则更新后的策略的期望折扣回报可以写成更新前策略的期望折扣回报加上一个<span class="math inline">\(\tilde{\pi}\)</span>对<span class="math inline">\(\pi\)</span>的优势函数：</p>
+<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span></p>
+<p>上述等式能够体现TRPO的思想：将新的策略得到的性能函数写成旧策略的性能函数加上一个新策略对旧策略的的优势函数的期望值，若能保证这个期望值是正数，则可以保证新策略的性能函数要优于旧策略的性能函数。</p>
+<p>这个定理由2002年 Kakade &amp; Langford证得：</p>
+<p>因为<span class="math inline">\(A_{\pi}(s, a)=\mathbb{E}_{s^{\prime} \sim P\left(s^{\prime} \mid s, a\right)}\left[r(s)+\gamma V_{\pi}\left(s^{\prime}\right)-V_{\pi}(s)\right]\)</span></p>
+<p><span class="math inline">\(\begin{array}{l} \mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t}\left(r\left(s_{t}\right)+\gamma V_{\pi}\left(s_{t+1}\right)-V_{\pi}\left(s_{t}\right)\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[-V_{\pi}\left(s_{0}\right)+\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\mathbb{E}_{s_{0}}\left[V_{\pi}\left(s_{0}\right)\right]+\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\eta(\pi)+\eta(\tilde{\pi}) \end{array}\)</span></p>
+<p>定义discounted visitation frequencies：<span class="math inline">\(\rho_{\pi}(s)=\left(P\left(s_{0}=s\right)+\gamma P\left(s_{1}=s\right)+\gamma^{2} P\left(s_{2}=s\right)+\ldots\right)\)</span></p>
+<p>定义这个频率的目的主要是换一个角度来表示基于累计折扣回报函数的性能函数，因为<span class="math inline">\(\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span>很难表示。</p>
+<p>当<span class="math inline">\(\gamma\)</span>等于1的时候，显然，这个频率代表着在一个trajectory中状态<span class="math inline">\(s\)</span>出现次数的期望，当reward function只和状态有关而和action无关的时候，那么在这个trajectory中由<span class="math inline">\(s\)</span>贡献的return就只和这个frequency相关了。</p>
+<p>当<span class="math inline">\(\gamma\)</span>小于1的时候，在每个timestep会对reward进行一个discount的处理，所以想使用discounted frequencies来表示return的期望的话，需要在frequency上面做一个discount。</p>
+<p>通过使用discounted visitation frequencies方法，可以将上述级数形式的期望写成如下容易处理的形式</p>
+<p><span class="math display">\[\begin{aligned}
+\eta(\tilde{\pi}) &amp;=\eta(\pi)+\sum_{t=0}^{\infty} \sum_{s} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) \gamma^{t} A_{\pi}(s, a) \\
+&amp;=\eta(\pi)+\sum_{s} \sum_{t=0}^{\infty} \gamma^{t} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a) \\
+&amp;=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)
+\end{aligned}\]</span></p>
+<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
+<p>因为<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>依赖于<span class="math inline">\(\tilde{\pi}\)</span>，而因为<span class="math inline">\(\tilde{\pi}\)</span>是更新后的策略，在<span class="math inline">\(t\)</span>时刻，我们只有更新前的策略，上述优化问题很难求解，所以需要做一个近似：</p>
+<p><span class="math inline">\(L_{\pi}(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\pi}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
+<p>其中，<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>使用的是<span class="math inline">\(\rho_{\pi}\)</span>而不是<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>，因为策略的改变会导致相应的state visitation density的变化，而上面这个式子忽略了这一点，但是，(Kakade &amp; Langford 2002)证明了<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>和<span class="math inline">\(\eta(\pi)\)</span>是一阶近似的：</p>
+<p>对于任意的参数<span class="math inline">\(\theta_0\)</span>，有：</p>
+<p><span class="math inline">\(\begin{aligned} L_{\pi_{\theta_{0}}}\left(\pi_{\theta_{0}}\right) &amp;=\eta\left(\pi_{\theta_{0}}\right) \\ \left.\nabla_{\theta} L_{\pi_{\theta_{0}}}\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} &amp;=\left.\nabla_{\theta} \eta\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} \end{aligned}\)</span></p>
+<p>因此，当对策略进行一步充分小的更新，<span class="math inline">\(\pi_{\theta_{0}} \rightarrow \tilde{\pi}\)</span>，改进<span class="math inline">\(L_{\pi_{\theta_{0}}}\)</span>的同时，也能改进<span class="math inline">\(\eta(\pi_{\theta_{0}})\)</span></p>
+<p>上述过程只说明了一个充分的改进会得到非减的性能指标序列，但是选取步长很重要，选的小了会导致收敛速度慢，选了大了会导致可能的不能得到非减的性能指标序列，因此，(Kakade &amp; Langford)提出了一个policy update的方法：conservative policy iteration(保守策略迭代)，该方法给出了一个显式策略更新的下界：</p>
+<p>令<span class="math inline">\(\pi_{old}\)</span>为当前的策略，<span class="math inline">\(\pi^{\prime}=\arg \max _{\pi^{\prime}} L_{\pi_{\mathrm{old}}}\left(\pi^{\prime}\right)\)</span>，新的策略为<span class="math inline">\(\pi_{new}\)</span>，定义为：</p>
+<p><span class="math display">\[\pi_{\mathrm{new}}(a \mid s)=(1-\alpha) \pi_{\mathrm{old}}(a \mid s)+\alpha \pi^{\prime}(a \mid s)\]</span></p>
+<p>(Kakade &amp; Langford)推导出来的期望折扣累计回报的下界是：</p>
+<p><span class="math inline">\(\begin{aligned} \eta\left(\pi_{\text {new }}\right) &amp; \geq L_{\pi_{\text {old}}}\left(\pi_{\text {new}}\right)-\frac{2 \epsilon \gamma}{(1-\gamma)^{2}} \alpha^{2} \\ &amp; \text { where } \epsilon=\max _{s}\left|\mathbb{E}_{a \sim \pi^{\prime}(a \mid s)}\left[A_{\pi}(s, a)\right]\right| \end{aligned}\)</span></p>
+<p>以上都是(Kakade &amp; Langford 2002)的结论和证明</p>
+<p>其中<span class="math inline">\(\alpha\)</span>并未给出合适的计算方法，TRPO利用两个概率分布之间的KL散度来计算这个<span class="math inline">\(\alpha\)</span></p>
+<p>用概率论中的全变差距离来衡量两个策略之间的差距，<span class="math inline">\(D_{T V}(p \| q)=\frac{1}{2} \sum_{i}\left|p_{i}-q_{i}\right|\)</span></p>
+<p>其中，<span class="math inline">\(p_i\)</span>和<span class="math inline">\(q_i\)</span>是两个策略的离散的概率分布，定义<span class="math inline">\(D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})\)</span>为：</p>
+<p><span class="math display">\[D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})=\max _{s} D_{T V}(\pi(\cdot \mid s) \| \tilde{\pi}(\cdot \mid s))\]</span></p>
+<p>因为全变差距离和KL散度具有关系：<span class="math inline">\(D_{T V}(p \| q)^{2} \leq D_{\mathrm{KL}}(p \| q)\)</span></p>
+<p>所以可以将<span class="math inline">\(\alpha^2\)</span>替换为<span class="math inline">\(D_{T V}(p \| q)^{2}\)</span>，进一步可以替换为<span class="math inline">\(D_{\mathrm{KL}}(p \| q)\)</span></p>
+<p>利用KL divergence来衡量差距，计算方法：</p>
+<p>对于离散分布：<span class="math inline">\(D_{K L}(P \mid Q)=\sum_{i} P(i) \log \frac{P(i)}{Q(i)}\)</span></p>
+<p>对于连续分布：<span class="math inline">\(D_{K L}(P \mid Q)=\int_{-\infty}^{\infty} p(x) \log \frac{p(x)}{q(x)} d x\)</span></p>
+<p><strong>TRPO算法</strong></p>
+<p><img src="image-20200913171805500.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
+<p>策略的单调改进：TRPO算法能够保证策略每次更新都是单调改进的，即值函数<span class="math inline">\(\eta\left(\pi_{0}\right) \leq \eta\left(\pi_{1}\right) \leq \eta\left(\pi_{2}\right) \leq \ldots\)</span></p>
+<p><img src="image-20200913191418918.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
+<h2 id="ppo算法">PPO算法</h2>
+<p>TRPO算法是找到原目标函数的替代函数，并最大化这个替代函数，优化问题的约束是策略参数的更新不能超过一个设定的阈值，优化过程可以写成：</p>
+<p><span class="math inline">\(\begin{array}{ll} \underset{\theta}{\operatorname{maximize}} &amp; \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right] \\ \text { subject to } &amp; \hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right] \leq \delta \end{array}\)</span></p>
+<p>PPO是TRPO的一个改进，或者可以说是一个近似算法，可以将上述的带约束优化问题转化为无约束优化问题，可以写出TRPO的另一个形式：</p>
+<p><span class="math inline">\(\underset{\theta}{\operatorname{maximize}} \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
+<p>令<span class="math inline">\(r_t(\theta)\)</span>表示概率比：<span class="math inline">\(r_{t}(\theta)=\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\mathrm{old}}}\left(a_{t} \mid s_{t}\right)}\)</span>，因此<span class="math inline">\(r(\theta){old}=1\)</span>，</p>
+<p>TRPO最大化一个替代的目标函数：</p>
+<p><span class="math inline">\(L^{C P I}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right]=\hat{\mathbb{E}}_{t}\left[r_{t}(\theta) \hat{A}_{t}\right]\)</span></p>
+<p>如果使用策略迭代进行求解，那么策略的更新的步长可能会很大，<strong>以下是PPO的一个实现：对ration直接进行限制</strong></p>
+<p><span class="math inline">\(L^{C L I P}(\theta)=\hat{\mathbb{E}}_{t}\left[\min \left(r_{t}(\theta) \hat{A}_{t}, \operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\right)\right]\)</span></p>
+<p>上述min中有两项：第一项为<span class="math inline">\(r_{t}(\theta) \hat{A}_{t}\)</span>，第二项为<span class="math inline">\(\operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\)</span></p>
+<p><strong>Clip</strong>：为目标函数限定一个范围，意思就是通过计算概率比<span class="math inline">\(r_t(\theta)\)</span>，设定一个阈值，将其限制在一定的范围内<span class="math inline">\((1-\epsilon, 1+\epsilon)\)</span>，来避免策略网络的权重更新步长过大。</p>
+<p><span class="math inline">\(L^{CLIP}\)</span>是<span class="math inline">\(L^{CPI}\)</span>的一个下界。</p>
+<p><img src="image-20200913162249801.png" alt="image-20200913162249801" style="zoom:50%;" /></p>
+<p>PPO算法的第二种形式：</p>
+<p>以目标函数加入惩罚项的形式：</p>
+<p><span class="math inline">\(L^{K L P E N}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
+<p>其中，<span class="math inline">\(\beta\)</span>不是固定的，需要进行自适应设计，设计方法如下：</p>
+<p>计算两个策略的KL散度：<span class="math inline">\(d=\hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
+<p><span class="math inline">\(\begin{array}{l} -\text { If } d&lt;d_{\operatorname{targ}} / 1.5, \beta \leftarrow \beta / 2 \\ -\text { If } d&gt;d_{\text {targ }} \times 1.5, \beta \leftarrow \beta \times 2 \end{array}\)</span></p>
+]]></content>
+      <categories>
+        <category>Reinforcement Learning</category>
+      </categories>
+      <tags>
+        <tag>Reinforcement Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Playing Cartpole with natural deep reinforcement learning</title>
     <url>/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/</url>
     <content><![CDATA[<h2 id="introduction">Introduction</h2>
@@ -3763,47 +3763,6 @@ v_{k+1}(s) &amp; \doteq \max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{k}\left(S_{t
       </tags>
   </entry>
   <entry>
-    <title>采集wordpress并自动发布文章</title>
-    <url>/2018/11/11/%E9%87%87%E9%9B%86wordpress%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<blockquote>
-<p><strong><em>这是一篇去年的老文章了，我的博客的域名从xujh.top-&gt;ikeji8.com-&gt;xujh.top，建站程序从wordpress变为了typecho静态博客。最近，我将把之前的文章慢慢迁移过来</em></strong></p>
-</blockquote>
-<p>最近我的博客新开了，一直在申请Google AdSense， 结果申请一次被拒一次，google发邮件说我的内容太少了， 这就让我很不爽了，虽然被拒绝的原因可能是其他的比如网站建站时间短等等，但是我还是想瞬间把我的博客的内容给增加上去，再一看，群里那些基友用的都是wordpress建站，OK，造个小爬虫吧！ 虽然网上有自动采集文章的插件，但是你不觉得那个太low了吗！(虽然我的爬虫也很low) 好了，闲话少说，进入主题。 <a id="more"></a> <img src="1.jpg" alt="装逼" /></p>
-<h2 id="首先需要确定一个目标网站我爬的是xxx大学的博客">首先，需要确定一个目标网站，我爬的是xxx大学的博客。</h2>
-<h2 id="网站分析">网站分析</h2>
-<p>先看看我们要爬取的站点</p>
-<p>首先，这是一个垃圾站点，请让我鄙视一下。</p>
-<p>爬虫运行的步骤：</p>
-<ol type="1">
-<li>爬取所有文章的入口链接和标题</li>
-<li>提取每一篇文章中的需要的内容</li>
-<li>一篇文章爬取结束后将数据写入数据库</li>
-<li>将需要发布的文章自动发布到WP博客中</li>
-</ol>
-<h2 id="开始了are-you-ready">开始了，ARE YOU READY！</h2>
-<p>首先需要找到所有文章链接，我们来分析一下网页的规律</p>
-<p><img src="2.png" alt="页码规律" /> <img src="3.png" alt="页码规律2" /></p>
-<p>很明显：第x页就是'www.vpsdx.com/page/' + x</p>
-<p>接下去就一个字：干</p>
-<p>首先，需要定义一个类, 并且初始化数据库连接：这里我用的是mongodb，只因为他简单，适合我这样的小白。 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">crawl_blog</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        client = MongoClient()</span><br><span class="line">        db = client[<span class="string">'vpsdx'</span>]<span class="comment"># 选择一个数据库</span></span><br><span class="line">        self.blog_collection = db[<span class="string">'blog'</span>]</span><br><span class="line">        self.blog_title = <span class="string">''</span></span><br><span class="line">        self.blog_content = <span class="string">''</span></span><br><span class="line">        self.blog_url = <span class="string">''</span></span><br><span class="line">        self.all_blog_url = []</span><br><span class="line">        self.all_blog_title = []</span><br><span class="line">        self.old_img_urls = []</span><br><span class="line">        self.new_img_urls = []</span><br></pre></td></tr></table></figure> 然后获取所有的文章的入口链接，分析页面采用BeautifulSoup。 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_blog_url</span><span class="params">(self)</span>:</span>     <span class="comment">#得到所有文章的入口链接</span></span><br><span class="line">    <span class="keyword">for</span> count <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">100</span>):</span><br><span class="line">        page = <span class="string">'http://www.vpsdx.com/page/'</span> + str(count)</span><br><span class="line">        page_response = requests.get(page,allow_redirects=<span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">print</span> page_response.status_code</span><br><span class="line">        <span class="keyword">if</span> page_response.status_code != <span class="number">200</span>:</span><br><span class="line">            <span class="keyword">print</span> <span class="string">'网页状态码错误，不为200'</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            soup = BeautifulSoup(page_response.content, <span class="string">'html.parser'</span>)</span><br><span class="line">            article = soup.find_all(name=<span class="string">'article'</span>)</span><br><span class="line">            <span class="keyword">for</span> tag <span class="keyword">in</span> article:</span><br><span class="line">                url = tag.find(name=<span class="string">'a'</span>)</span><br><span class="line">                <span class="keyword">print</span> url.get(<span class="string">'href'</span>)</span><br><span class="line">                self.all_blog_url.append(url.get(<span class="string">'href'</span>))</span><br><span class="line">                <span class="keyword">print</span> url.get(<span class="string">'title'</span>)</span><br><span class="line">                self.all_blog_title.append(url.get(<span class="string">'title'</span>))</span><br><span class="line">                <span class="keyword">print</span> <span class="string">'添加了一篇文章的标题和链接'</span></span><br><span class="line">        <span class="keyword">print</span> count</span><br><span class="line">    self.all_blog_url.reverse()</span><br><span class="line">    self.all_blog_title.reverse()</span><br></pre></td></tr></table></figure></p>
-<figure>
-<img src="4.png" alt="结果图" /><figcaption>结果图</figcaption>
-</figure>
-<p>主要逻辑，这里就不多说了，太简单了。 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">handle_one_page</span><span class="params">(self)</span>:</span>      <span class="comment">#处理每一篇文章</span></span><br><span class="line">    <span class="keyword">for</span> article_url <span class="keyword">in</span> self.all_blog_url:</span><br><span class="line">        <span class="keyword">if</span> self.blog_collection.find_one(&#123;<span class="string">'文章网址'</span>: article_url&#125;):</span><br><span class="line">            <span class="keyword">print</span> <span class="string">u'这个页面已经爬取过了'</span> </span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            index = self.all_blog_url.index(article_url)</span><br><span class="line">            self.blog_url = article_url</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"文章的网址是: &#123;b8c66bcbce874cbcdfdaa03ff0f908635b9ef0379cd01189ad5fe3f67980b247&#125;s"</span> &#123;b8c66bcbce874cbcdfdaa03ff0f908635b9ef0379cd01189ad5fe3f67980b247&#125; self.blog_url</span><br><span class="line">            self.blog_title = self.all_blog_title[index]</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"文章的标题是: &#123;b8c66bcbce874cbcdfdaa03ff0f908635b9ef0379cd01189ad5fe3f67980b247&#125;s"</span> &#123;b8c66bcbce874cbcdfdaa03ff0f908635b9ef0379cd01189ad5fe3f67980b247&#125; self.blog_title            </span><br><span class="line">            self.get_article_content(self.blog_url)</span><br><span class="line">            self.change_url()       <span class="comment">#更改内容中的图片链接</span></span><br><span class="line">            self.blog_content = str(self.blog_content)</span><br><span class="line">            self.publish_article(self.blog_title,self.blog_content)</span><br><span class="line">            <span class="keyword">print</span> <span class="string">'成功发表文章'</span></span><br><span class="line">            post = &#123;</span><br><span class="line">                        <span class="string">'文章标题'</span>: self.blog_title,</span><br><span class="line">                        <span class="string">'文章网址'</span>: self.blog_url,</span><br><span class="line">                        <span class="string">'文章内容'</span>: self.blog_content,</span><br><span class="line">                        <span class="string">'图片旧地址'</span>: self.old_img_urls,</span><br><span class="line">                        <span class="string">'图片新地址'</span>: self.new_img_urls,</span><br><span class="line">                        <span class="string">'获取时间'</span>: datetime.datetime.now()</span><br><span class="line">                &#125;</span><br><span class="line">            self.blog_collection.save(post)</span><br><span class="line">            <span class="keyword">print</span> <span class="string">u'插入数据库成功, 倒计时5s进行下次爬取'</span></span><br><span class="line">            time.sleep(<span class="number">5</span>)</span><br><span class="line">            self.blog_title = <span class="string">''</span></span><br><span class="line">            self.blog_content = <span class="string">''</span></span><br><span class="line">            self.blog_url = <span class="string">''</span></span><br><span class="line">            self.old_img_urls = []</span><br><span class="line">            self.new_img_urls = []</span><br></pre></td></tr></table></figure></p>
-<p>现在我们分析下如何提取文章中的内容，找到我们需要的标签，发现在标签中还有我们不想要的广告，因此，我们需要对其进行处理，处理方法也很简单，把不需要的tag给去除掉就可以。</p>
-<p><img src="5.png" alt="去广告" /> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_article_content</span><span class="params">(self, url)</span>:</span></span><br><span class="line">    self.blog_content = <span class="string">''</span></span><br><span class="line">    browser = webdriver.PhantomJS()</span><br><span class="line">    browser.get(url)</span><br><span class="line">    soup = BeautifulSoup(browser.page_source, <span class="string">'html.parser'</span>)</span><br><span class="line">    article_tag = soup.find(<span class="string">'div'</span>, class_=<span class="string">'entry'</span>)</span><br><span class="line">    all_children_tag = article_tag.find_all(recursive=<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> all_children_tag:</span><br><span class="line">        <span class="keyword">print</span> i.name</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> i[<span class="string">'class'</span>][<span class="number">0</span>] == <span class="string">u'gggpost-above'</span>:</span><br><span class="line">                i.decompose()  </span><br><span class="line">                <span class="keyword">print</span> <span class="string">'检测到广告，正在删除'</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> i[<span class="string">'type'</span>]== <span class="string">u'text/javascript'</span>:</span><br><span class="line">                i.decompose()  </span><br><span class="line">                <span class="keyword">print</span> <span class="string">'检测到广告，正在删除'</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> i[<span class="string">'class'</span>][<span class="number">0</span>] == <span class="string">u'old-message'</span>:</span><br><span class="line">                i.decompose()  </span><br><span class="line">                <span class="keyword">print</span> <span class="string">'检测到广告，正在删除'</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">print</span> <span class="number">50</span>*<span class="string">'*'</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'成功去除广告'</span></span><br><span class="line">    self.blog_content = str(article_tag)</span><br></pre></td></tr></table></figure></p>
-<p>下面这一步也比较重要，每篇文章中有图片链接，基本上很多博客都用了CDN加速，大部分的CDN都提供了防盗链设置，所以，如果直接用原来博客中的链接是行不通的，因为访问图片的时候会需要提供浏览器的refer。所有需要将原文章中的图片下载到本地，并将它上传到自己使用的云存储中，我用的是七牛云。 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">change_url</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.blog_content = BeautifulSoup(str(self.blog_content), <span class="string">'html.parser'</span>)</span><br><span class="line">        <span class="comment">#获取所有具有特定class属性的a标签</span></span><br><span class="line">        a_tag = self.blog_content.find_all(name=<span class="string">'a'</span>, class_=<span class="string">'highslide-image'</span>)</span><br><span class="line">        <span class="keyword">print</span> <span class="number">50</span>*<span class="string">'*'</span></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> a_tag:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="comment">#获取原图的链接并且下载</span></span><br><span class="line">                old_url = a[<span class="string">'href'</span>]</span><br><span class="line">                response = requests.get(old_url)</span><br><span class="line">                index = a_tag.index(a)</span><br><span class="line">                filename = str(index) + <span class="string">'_'</span> + old_url.split(<span class="string">'/'</span>)[<span class="number">-1</span>]</span><br><span class="line">                <span class="keyword">with</span> open(filename, <span class="string">'ab'</span>) <span class="keyword">as</span> f:</span><br><span class="line">                    f.write(response.content)   </span><br><span class="line">                self.old_img_urls.append(old_url)</span><br><span class="line">                new_tag = self.blog_content.new_tag(<span class="string">"img"</span>)</span><br><span class="line">                a.replace_with(new_tag)</span><br><span class="line">                <span class="comment">#将图片上传到七牛云</span></span><br><span class="line">                self.up_load(filename, filename)</span><br><span class="line">                new_tag[<span class="string">'src'</span>] = <span class="string">'你的七牛云域名'</span> + filename</span><br><span class="line">                <span class="keyword">print</span> <span class="string">'成功更换图片的链接'</span></span><br><span class="line">                self.new_img_urls.append(new_tag[<span class="string">'src'</span>])</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="keyword">print</span> <span class="string">'获取图片失败，可能是图片的链接错误，正在跳过'</span></span><br></pre></td></tr></table></figure></p>
-<p>代码写的比较丑，我就不贴出来了。还望各位大胸弟们支持下。</p>
-<p>欢迎学习研究Python的朋友们加入：Python技术交流群：<span class="exturl" data-url="aHR0cHM6Ly9zaGFuZy5xcS5jb20vd3BhL3F1bndwYT9pZGtleT01MjQ4N2I1NzUwYTYyM2ZmMWZhOWNiYWQ2YWU5OGE5YjAzMGM2ZTVjZDQyZDU1ZGNhNjVmZjE3MDNhMjRlNTM4">681976114<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>爬虫</category>
-      </categories>
-      <tags>
-        <tag>爬虫</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>非线性系统的最优控制器论文整理</title>
     <url>/2020/08/27/%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6%E5%99%A8%E8%AE%BA%E6%96%87%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<h1 id="非线性系统的最优控制器论文整理">非线性系统的最优控制器论文整理</h1>
@@ -3894,6 +3853,47 @@ v_{k+1}(s) &amp; \doteq \max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{k}\left(S_{t
       </categories>
       <tags>
         <tag>Nonlinear System</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>采集wordpress并自动发布文章</title>
+    <url>/2018/11/11/%E9%87%87%E9%9B%86wordpress%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<blockquote>
+<p><strong><em>这是一篇去年的老文章了，我的博客的域名从xujh.top-&gt;ikeji8.com-&gt;xujh.top，建站程序从wordpress变为了typecho静态博客。最近，我将把之前的文章慢慢迁移过来</em></strong></p>
+</blockquote>
+<p>最近我的博客新开了，一直在申请Google AdSense， 结果申请一次被拒一次，google发邮件说我的内容太少了， 这就让我很不爽了，虽然被拒绝的原因可能是其他的比如网站建站时间短等等，但是我还是想瞬间把我的博客的内容给增加上去，再一看，群里那些基友用的都是wordpress建站，OK，造个小爬虫吧！ 虽然网上有自动采集文章的插件，但是你不觉得那个太low了吗！(虽然我的爬虫也很low) 好了，闲话少说，进入主题。 <a id="more"></a> <img src="1.jpg" alt="装逼" /></p>
+<h2 id="首先需要确定一个目标网站我爬的是xxx大学的博客">首先，需要确定一个目标网站，我爬的是xxx大学的博客。</h2>
+<h2 id="网站分析">网站分析</h2>
+<p>先看看我们要爬取的站点</p>
+<p>首先，这是一个垃圾站点，请让我鄙视一下。</p>
+<p>爬虫运行的步骤：</p>
+<ol type="1">
+<li>爬取所有文章的入口链接和标题</li>
+<li>提取每一篇文章中的需要的内容</li>
+<li>一篇文章爬取结束后将数据写入数据库</li>
+<li>将需要发布的文章自动发布到WP博客中</li>
+</ol>
+<h2 id="开始了are-you-ready">开始了，ARE YOU READY！</h2>
+<p>首先需要找到所有文章链接，我们来分析一下网页的规律</p>
+<p><img src="2.png" alt="页码规律" /> <img src="3.png" alt="页码规律2" /></p>
+<p>很明显：第x页就是'www.vpsdx.com/page/' + x</p>
+<p>接下去就一个字：干</p>
+<p>首先，需要定义一个类, 并且初始化数据库连接：这里我用的是mongodb，只因为他简单，适合我这样的小白。 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">crawl_blog</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        client = MongoClient()</span><br><span class="line">        db = client[<span class="string">'vpsdx'</span>]<span class="comment"># 选择一个数据库</span></span><br><span class="line">        self.blog_collection = db[<span class="string">'blog'</span>]</span><br><span class="line">        self.blog_title = <span class="string">''</span></span><br><span class="line">        self.blog_content = <span class="string">''</span></span><br><span class="line">        self.blog_url = <span class="string">''</span></span><br><span class="line">        self.all_blog_url = []</span><br><span class="line">        self.all_blog_title = []</span><br><span class="line">        self.old_img_urls = []</span><br><span class="line">        self.new_img_urls = []</span><br></pre></td></tr></table></figure> 然后获取所有的文章的入口链接，分析页面采用BeautifulSoup。 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_blog_url</span><span class="params">(self)</span>:</span>     <span class="comment">#得到所有文章的入口链接</span></span><br><span class="line">    <span class="keyword">for</span> count <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">100</span>):</span><br><span class="line">        page = <span class="string">'http://www.vpsdx.com/page/'</span> + str(count)</span><br><span class="line">        page_response = requests.get(page,allow_redirects=<span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">print</span> page_response.status_code</span><br><span class="line">        <span class="keyword">if</span> page_response.status_code != <span class="number">200</span>:</span><br><span class="line">            <span class="keyword">print</span> <span class="string">'网页状态码错误，不为200'</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            soup = BeautifulSoup(page_response.content, <span class="string">'html.parser'</span>)</span><br><span class="line">            article = soup.find_all(name=<span class="string">'article'</span>)</span><br><span class="line">            <span class="keyword">for</span> tag <span class="keyword">in</span> article:</span><br><span class="line">                url = tag.find(name=<span class="string">'a'</span>)</span><br><span class="line">                <span class="keyword">print</span> url.get(<span class="string">'href'</span>)</span><br><span class="line">                self.all_blog_url.append(url.get(<span class="string">'href'</span>))</span><br><span class="line">                <span class="keyword">print</span> url.get(<span class="string">'title'</span>)</span><br><span class="line">                self.all_blog_title.append(url.get(<span class="string">'title'</span>))</span><br><span class="line">                <span class="keyword">print</span> <span class="string">'添加了一篇文章的标题和链接'</span></span><br><span class="line">        <span class="keyword">print</span> count</span><br><span class="line">    self.all_blog_url.reverse()</span><br><span class="line">    self.all_blog_title.reverse()</span><br></pre></td></tr></table></figure></p>
+<figure>
+<img src="4.png" alt="结果图" /><figcaption>结果图</figcaption>
+</figure>
+<p>主要逻辑，这里就不多说了，太简单了。 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">handle_one_page</span><span class="params">(self)</span>:</span>      <span class="comment">#处理每一篇文章</span></span><br><span class="line">    <span class="keyword">for</span> article_url <span class="keyword">in</span> self.all_blog_url:</span><br><span class="line">        <span class="keyword">if</span> self.blog_collection.find_one(&#123;<span class="string">'文章网址'</span>: article_url&#125;):</span><br><span class="line">            <span class="keyword">print</span> <span class="string">u'这个页面已经爬取过了'</span> </span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            index = self.all_blog_url.index(article_url)</span><br><span class="line">            self.blog_url = article_url</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"文章的网址是: &#123;b8c66bcbce874cbcdfdaa03ff0f908635b9ef0379cd01189ad5fe3f67980b247&#125;s"</span> &#123;b8c66bcbce874cbcdfdaa03ff0f908635b9ef0379cd01189ad5fe3f67980b247&#125; self.blog_url</span><br><span class="line">            self.blog_title = self.all_blog_title[index]</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"文章的标题是: &#123;b8c66bcbce874cbcdfdaa03ff0f908635b9ef0379cd01189ad5fe3f67980b247&#125;s"</span> &#123;b8c66bcbce874cbcdfdaa03ff0f908635b9ef0379cd01189ad5fe3f67980b247&#125; self.blog_title            </span><br><span class="line">            self.get_article_content(self.blog_url)</span><br><span class="line">            self.change_url()       <span class="comment">#更改内容中的图片链接</span></span><br><span class="line">            self.blog_content = str(self.blog_content)</span><br><span class="line">            self.publish_article(self.blog_title,self.blog_content)</span><br><span class="line">            <span class="keyword">print</span> <span class="string">'成功发表文章'</span></span><br><span class="line">            post = &#123;</span><br><span class="line">                        <span class="string">'文章标题'</span>: self.blog_title,</span><br><span class="line">                        <span class="string">'文章网址'</span>: self.blog_url,</span><br><span class="line">                        <span class="string">'文章内容'</span>: self.blog_content,</span><br><span class="line">                        <span class="string">'图片旧地址'</span>: self.old_img_urls,</span><br><span class="line">                        <span class="string">'图片新地址'</span>: self.new_img_urls,</span><br><span class="line">                        <span class="string">'获取时间'</span>: datetime.datetime.now()</span><br><span class="line">                &#125;</span><br><span class="line">            self.blog_collection.save(post)</span><br><span class="line">            <span class="keyword">print</span> <span class="string">u'插入数据库成功, 倒计时5s进行下次爬取'</span></span><br><span class="line">            time.sleep(<span class="number">5</span>)</span><br><span class="line">            self.blog_title = <span class="string">''</span></span><br><span class="line">            self.blog_content = <span class="string">''</span></span><br><span class="line">            self.blog_url = <span class="string">''</span></span><br><span class="line">            self.old_img_urls = []</span><br><span class="line">            self.new_img_urls = []</span><br></pre></td></tr></table></figure></p>
+<p>现在我们分析下如何提取文章中的内容，找到我们需要的标签，发现在标签中还有我们不想要的广告，因此，我们需要对其进行处理，处理方法也很简单，把不需要的tag给去除掉就可以。</p>
+<p><img src="5.png" alt="去广告" /> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_article_content</span><span class="params">(self, url)</span>:</span></span><br><span class="line">    self.blog_content = <span class="string">''</span></span><br><span class="line">    browser = webdriver.PhantomJS()</span><br><span class="line">    browser.get(url)</span><br><span class="line">    soup = BeautifulSoup(browser.page_source, <span class="string">'html.parser'</span>)</span><br><span class="line">    article_tag = soup.find(<span class="string">'div'</span>, class_=<span class="string">'entry'</span>)</span><br><span class="line">    all_children_tag = article_tag.find_all(recursive=<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> all_children_tag:</span><br><span class="line">        <span class="keyword">print</span> i.name</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> i[<span class="string">'class'</span>][<span class="number">0</span>] == <span class="string">u'gggpost-above'</span>:</span><br><span class="line">                i.decompose()  </span><br><span class="line">                <span class="keyword">print</span> <span class="string">'检测到广告，正在删除'</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> i[<span class="string">'type'</span>]== <span class="string">u'text/javascript'</span>:</span><br><span class="line">                i.decompose()  </span><br><span class="line">                <span class="keyword">print</span> <span class="string">'检测到广告，正在删除'</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> i[<span class="string">'class'</span>][<span class="number">0</span>] == <span class="string">u'old-message'</span>:</span><br><span class="line">                i.decompose()  </span><br><span class="line">                <span class="keyword">print</span> <span class="string">'检测到广告，正在删除'</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">print</span> <span class="number">50</span>*<span class="string">'*'</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'成功去除广告'</span></span><br><span class="line">    self.blog_content = str(article_tag)</span><br></pre></td></tr></table></figure></p>
+<p>下面这一步也比较重要，每篇文章中有图片链接，基本上很多博客都用了CDN加速，大部分的CDN都提供了防盗链设置，所以，如果直接用原来博客中的链接是行不通的，因为访问图片的时候会需要提供浏览器的refer。所有需要将原文章中的图片下载到本地，并将它上传到自己使用的云存储中，我用的是七牛云。 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">change_url</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.blog_content = BeautifulSoup(str(self.blog_content), <span class="string">'html.parser'</span>)</span><br><span class="line">        <span class="comment">#获取所有具有特定class属性的a标签</span></span><br><span class="line">        a_tag = self.blog_content.find_all(name=<span class="string">'a'</span>, class_=<span class="string">'highslide-image'</span>)</span><br><span class="line">        <span class="keyword">print</span> <span class="number">50</span>*<span class="string">'*'</span></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> a_tag:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="comment">#获取原图的链接并且下载</span></span><br><span class="line">                old_url = a[<span class="string">'href'</span>]</span><br><span class="line">                response = requests.get(old_url)</span><br><span class="line">                index = a_tag.index(a)</span><br><span class="line">                filename = str(index) + <span class="string">'_'</span> + old_url.split(<span class="string">'/'</span>)[<span class="number">-1</span>]</span><br><span class="line">                <span class="keyword">with</span> open(filename, <span class="string">'ab'</span>) <span class="keyword">as</span> f:</span><br><span class="line">                    f.write(response.content)   </span><br><span class="line">                self.old_img_urls.append(old_url)</span><br><span class="line">                new_tag = self.blog_content.new_tag(<span class="string">"img"</span>)</span><br><span class="line">                a.replace_with(new_tag)</span><br><span class="line">                <span class="comment">#将图片上传到七牛云</span></span><br><span class="line">                self.up_load(filename, filename)</span><br><span class="line">                new_tag[<span class="string">'src'</span>] = <span class="string">'你的七牛云域名'</span> + filename</span><br><span class="line">                <span class="keyword">print</span> <span class="string">'成功更换图片的链接'</span></span><br><span class="line">                self.new_img_urls.append(new_tag[<span class="string">'src'</span>])</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="keyword">print</span> <span class="string">'获取图片失败，可能是图片的链接错误，正在跳过'</span></span><br></pre></td></tr></table></figure></p>
+<p>代码写的比较丑，我就不贴出来了。还望各位大胸弟们支持下。</p>
+<p>欢迎学习研究Python的朋友们加入：Python技术交流群：<span class="exturl" data-url="aHR0cHM6Ly9zaGFuZy5xcS5jb20vd3BhL3F1bndwYT9pZGtleT01MjQ4N2I1NzUwYTYyM2ZmMWZhOWNiYWQ2YWU5OGE5YjAzMGM2ZTVjZDQyZDU1ZGNhNjVmZjE3MDNhMjRlNTM4">681976114<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
