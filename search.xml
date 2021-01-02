@@ -1,39 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>CBDict文献取词翻译器</title>
-    <url>/2019/03/18/CBDict%E6%96%87%E7%8C%AE%E5%8F%96%E8%AF%8D%E7%BF%BB%E8%AF%91%E5%99%A8/</url>
-    <content><![CDATA[<pre><code>**CBDict：一个专门为Linux环境下的学术党设计的文献取词翻译器**</code></pre>
-<h1 id="clipboarddictionary">ClipBoardDictionary</h1>
-<p>This program monitors the clipboard of the system and translates the word from English to Chinese by YouDao API, specially designed for Students who are working under Linux environment where there is no simple translator when you read papers.</p>
-<a id="more"></a>
-<h1 id="项目起源">项目起源</h1>
-<p>本人即将成为一名Ph.D，现在在看一些关于强化学习，深度学习，机器学习，控制理论等方面的英文文献，经常会有一些单词不认识．</p>
-<p>虽然市面上很多优秀的翻译软件都已经集成了屏幕取词的功能，例如有道词典．但是由于我操作系统或者驱动等一些问题（本人的开发环境为Manjaro），安装了有道词典之后，我无法使用屏幕取词功能，每次都需要复制到网页中查询．</p>
-<p>每次切换到浏览器再切换回pdf阅读器，十分影响阅读体验．因此，我写了这么一个小玩具，能够监控剪贴板中的内容，并且自动使用有道词典的api来进行翻译．将结果输出到终端中．</p>
-<p>本玩具纯粹是为了方便我读paper．不喜勿喷．</p>
-<h1 id="使用教程">使用教程</h1>
-<p>STEP1 : 安装依赖的包，用于访问剪贴板中的内容 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install xclip</span><br></pre></td></tr></table></figure></p>
-<p>STEP2 : 在终端中输入以下命令来安装CBDict <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install CBDict</span><br></pre></td></tr></table></figure></p>
-<p>STEP3 : 在终端中输入<code>CBDict</code>来启动词典 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CBDict</span><br></pre></td></tr></table></figure></p>
-<p>STEP4 : 复制任何你想翻译的内容，翻译的结果会呈现在终端中．</p>
-<h1 id="使用实例">使用实例</h1>
-<figure>
-<img src="https://github.com/olixu/CBDict/blob/master/demo.gif?raw=true" alt="demo" /><figcaption>demo</figcaption>
-</figure>
-<p>VERSION 2.0</p>
-<figure>
-<img src="https://github.com/olixu/CBDict/blob/master/demo1.gif?raw=true" alt="demo" /><figcaption>demo</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Flask项目结构</title>
     <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<blockquote>
@@ -45,23 +12,6 @@
       </categories>
       <tags>
         <tag>flask</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Manjaro下解决Matplotlib中文显示出错</title>
-    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
-    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
-<ul>
-<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
-<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
-<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -116,6 +66,56 @@
       </categories>
       <tags>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CBDict文献取词翻译器</title>
+    <url>/2019/03/18/CBDict%E6%96%87%E7%8C%AE%E5%8F%96%E8%AF%8D%E7%BF%BB%E8%AF%91%E5%99%A8/</url>
+    <content><![CDATA[<pre><code>**CBDict：一个专门为Linux环境下的学术党设计的文献取词翻译器**</code></pre>
+<h1 id="clipboarddictionary">ClipBoardDictionary</h1>
+<p>This program monitors the clipboard of the system and translates the word from English to Chinese by YouDao API, specially designed for Students who are working under Linux environment where there is no simple translator when you read papers.</p>
+<a id="more"></a>
+<h1 id="项目起源">项目起源</h1>
+<p>本人即将成为一名Ph.D，现在在看一些关于强化学习，深度学习，机器学习，控制理论等方面的英文文献，经常会有一些单词不认识．</p>
+<p>虽然市面上很多优秀的翻译软件都已经集成了屏幕取词的功能，例如有道词典．但是由于我操作系统或者驱动等一些问题（本人的开发环境为Manjaro），安装了有道词典之后，我无法使用屏幕取词功能，每次都需要复制到网页中查询．</p>
+<p>每次切换到浏览器再切换回pdf阅读器，十分影响阅读体验．因此，我写了这么一个小玩具，能够监控剪贴板中的内容，并且自动使用有道词典的api来进行翻译．将结果输出到终端中．</p>
+<p>本玩具纯粹是为了方便我读paper．不喜勿喷．</p>
+<h1 id="使用教程">使用教程</h1>
+<p>STEP1 : 安装依赖的包，用于访问剪贴板中的内容 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install xclip</span><br></pre></td></tr></table></figure></p>
+<p>STEP2 : 在终端中输入以下命令来安装CBDict <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install CBDict</span><br></pre></td></tr></table></figure></p>
+<p>STEP3 : 在终端中输入<code>CBDict</code>来启动词典 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CBDict</span><br></pre></td></tr></table></figure></p>
+<p>STEP4 : 复制任何你想翻译的内容，翻译的结果会呈现在终端中．</p>
+<h1 id="使用实例">使用实例</h1>
+<figure>
+<img src="https://github.com/olixu/CBDict/blob/master/demo.gif?raw=true" alt="demo" /><figcaption>demo</figcaption>
+</figure>
+<p>VERSION 2.0</p>
+<figure>
+<img src="https://github.com/olixu/CBDict/blob/master/demo1.gif?raw=true" alt="demo" /><figcaption>demo</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Manjaro下解决Matplotlib中文显示出错</title>
+    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
+    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
+<ul>
+<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
+<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
+<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -475,14 +475,6 @@ Box(4,)</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Python装饰器</title>
-    <url>/2019/02/10/Python%E8%A3%85%E9%A5%B0%E5%99%A8/</url>
-    <content><![CDATA[<p>装饰器是Python的重要组成部分。简单来说：它们是修改其它函数的函数。他们有助于使我们的代码更短，更Pythonic。大多数初学者不知道在哪里使用它们，所以本文将介绍一些常见需要使用装饰器的情况。 <a id="more"></a> ## Python中一些都是对象</p>
-<p>首先让我们理解Python中的函数：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hi</span><span class="params">(name=<span class="string">"oliverxu"</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hi"</span> + name</span><br><span class="line"></span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果：'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们可以将一个函数赋值给一个变量</span></span><br><span class="line">greet = hi</span><br><span class="line"><span class="comment"># 我们并不是调用hi()，而是将函数赋值给greet</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 让我们看看如果将hi这个函数删除会出现什么情况</span></span><br><span class="line"><span class="keyword">del</span> hi</span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果： NameError</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>Python配置虚拟环境</title>
     <url>/2018/09/16/Python%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
     <content><![CDATA[<blockquote>
@@ -519,6 +511,14 @@ Box(4,)</code></pre>
       <tags>
         <tag>python</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Python装饰器</title>
+    <url>/2019/02/10/Python%E8%A3%85%E9%A5%B0%E5%99%A8/</url>
+    <content><![CDATA[<p>装饰器是Python的重要组成部分。简单来说：它们是修改其它函数的函数。他们有助于使我们的代码更短，更Pythonic。大多数初学者不知道在哪里使用它们，所以本文将介绍一些常见需要使用装饰器的情况。 <a id="more"></a> ## Python中一些都是对象</p>
+<p>首先让我们理解Python中的函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hi</span><span class="params">(name=<span class="string">"oliverxu"</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hi"</span> + name</span><br><span class="line"></span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果：'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们可以将一个函数赋值给一个变量</span></span><br><span class="line">greet = hi</span><br><span class="line"><span class="comment"># 我们并不是调用hi()，而是将函数赋值给greet</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 让我们看看如果将hi这个函数删除会出现什么情况</span></span><br><span class="line"><span class="keyword">del</span> hi</span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果： NameError</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br></pre></td></tr></table></figure>
+]]></content>
   </entry>
   <entry>
     <title>Pytorch使用笔记</title>
@@ -676,6 +676,62 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </tags>
   </entry>
   <entry>
+    <title>*args 和 **kwargs</title>
+    <url>/2019/02/12/args-%E5%92%8C-kwargs/</url>
+    <content><![CDATA[<p>很多Python新手都无法搞清<code>*args</code>与<code>**kwargs</code>这两个魔术变量。那么他们到底是什么呢？让我来告诉你。在实际程序中，我们没有必要非得写成<code>*args</code>与<code>**kwargs</code>这样的形式，你也可以写成<code>*var</code>与<code>**vars</code>。写成<code>*args</code>与<code>**kwargs</code>的形式只是一种惯例。 <a id="more"></a> ## *args的用法 <code>*args</code>与<code>**kwargs</code>主要用于函数的定义。<code>*args</code>与<code>**kwargs</code>允许你将可变数量的参数传递给函数。这里的<strong>可变</strong>意味着你事先是不知道用户可以向你传递多少参数。因此在这种情况下你可以使用这两个关键字。<code>*args</code>用于向函数发送没有关键字的可变长度参数列表。以下是一个例子：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_var_args</span><span class="params">(f_arg, *args)</span>:</span></span><br><span class="line">    print(<span class="string">"first normal arg: "</span>, f_arg)</span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> args:</span><br><span class="line">        print(<span class="string">"another arg through *args: "</span>, ar)</span><br><span class="line"></span><br><span class="line">test_var_args(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>)</span><br></pre></td></tr></table></figure>
+<p>这会产生以下结果： <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">first normal arg: a</span><br><span class="line">another arg through *args: b</span><br><span class="line">another arg through *args: c</span><br><span class="line">another arg through *args: d</span><br></pre></td></tr></table></figure></p>
+<h2 id="kwargs-kwargs允许你将键值对也就是字典形式的参数的可变长度的参数传递给函数如果要在函数中处理命名参数则应该使用kwargs下面是一个例子">**kwargs <code>kwargs</code>允许你将键值对[也就是字典形式的参数]的可变长度的参数传递给函数。如果要在函数中处理命名参数，则应该使用<code>**kwargs</code>，下面是一个例子：</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_me</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> kwargs.items():</span><br><span class="line">        print(<span class="string">"&#123;0&#125; = &#123;1&#125;"</span>.format(key, value))</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>greet_me(name=<span class="string">"oliverxu"</span>)</span><br><span class="line">name = oliverxu</span><br></pre></td></tr></table></figure>
+<h2 id="使用args和kwargs来调用函数">使用<code>*args</code>和<code>*kwargs</code>来调用函数</h2>
+<p>首先我们先定义一个函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_args_kwargs</span><span class="params">(arg1, arg2, arg3)</span>:</span></span><br><span class="line">    print(<span class="string">"arg1:"</span>, arg1)</span><br><span class="line">    print(<span class="string">"arg2:"</span>, arg2)</span><br><span class="line">    print(<span class="string">"arg3:"</span>, arg3)</span><br></pre></td></tr></table></figure>
+<p>现在，可以用<code>*args</code>和<code>**kwargs</code>来将参数传递给这个函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>args = (<span class="string">"two"</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(*args)</span><br><span class="line">arg1: arg1</span><br><span class="line">arg2: arg2</span><br><span class="line">arg3: arg3</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>kwargs = &#123;<span class="string">"arg3"</span>:<span class="number">3</span>, <span class="string">"arg2"</span>: <span class="string">"two"</span>, <span class="string">"arg1"</span>: <span class="number">5</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(**kwargs)</span><br><span class="line">arg1: <span class="number">5</span></span><br><span class="line">arg2: two</span><br><span class="line">arg3: <span class="number">3</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo-gittalk问题总结</title>
+    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
+<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>经验</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vs code remote ssh 使用x11转发显示远程图像</title>
+    <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
+    <content><![CDATA[<h2 id="需求">需求</h2>
+<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
+<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
+<a id="more"></a>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+<h2 id="问题">问题</h2>
+<ul>
+<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
+<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>controllability and observability</title>
     <url>/2019/08/13/controllability-and-observability/</url>
     <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
@@ -818,62 +874,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>*args 和 **kwargs</title>
-    <url>/2019/02/12/args-%E5%92%8C-kwargs/</url>
-    <content><![CDATA[<p>很多Python新手都无法搞清<code>*args</code>与<code>**kwargs</code>这两个魔术变量。那么他们到底是什么呢？让我来告诉你。在实际程序中，我们没有必要非得写成<code>*args</code>与<code>**kwargs</code>这样的形式，你也可以写成<code>*var</code>与<code>**vars</code>。写成<code>*args</code>与<code>**kwargs</code>的形式只是一种惯例。 <a id="more"></a> ## *args的用法 <code>*args</code>与<code>**kwargs</code>主要用于函数的定义。<code>*args</code>与<code>**kwargs</code>允许你将可变数量的参数传递给函数。这里的<strong>可变</strong>意味着你事先是不知道用户可以向你传递多少参数。因此在这种情况下你可以使用这两个关键字。<code>*args</code>用于向函数发送没有关键字的可变长度参数列表。以下是一个例子：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_var_args</span><span class="params">(f_arg, *args)</span>:</span></span><br><span class="line">    print(<span class="string">"first normal arg: "</span>, f_arg)</span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> args:</span><br><span class="line">        print(<span class="string">"another arg through *args: "</span>, ar)</span><br><span class="line"></span><br><span class="line">test_var_args(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>)</span><br></pre></td></tr></table></figure>
-<p>这会产生以下结果： <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">first normal arg: a</span><br><span class="line">another arg through *args: b</span><br><span class="line">another arg through *args: c</span><br><span class="line">another arg through *args: d</span><br></pre></td></tr></table></figure></p>
-<h2 id="kwargs-kwargs允许你将键值对也就是字典形式的参数的可变长度的参数传递给函数如果要在函数中处理命名参数则应该使用kwargs下面是一个例子">**kwargs <code>kwargs</code>允许你将键值对[也就是字典形式的参数]的可变长度的参数传递给函数。如果要在函数中处理命名参数，则应该使用<code>**kwargs</code>，下面是一个例子：</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_me</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> kwargs.items():</span><br><span class="line">        print(<span class="string">"&#123;0&#125; = &#123;1&#125;"</span>.format(key, value))</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>greet_me(name=<span class="string">"oliverxu"</span>)</span><br><span class="line">name = oliverxu</span><br></pre></td></tr></table></figure>
-<h2 id="使用args和kwargs来调用函数">使用<code>*args</code>和<code>*kwargs</code>来调用函数</h2>
-<p>首先我们先定义一个函数：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_args_kwargs</span><span class="params">(arg1, arg2, arg3)</span>:</span></span><br><span class="line">    print(<span class="string">"arg1:"</span>, arg1)</span><br><span class="line">    print(<span class="string">"arg2:"</span>, arg2)</span><br><span class="line">    print(<span class="string">"arg3:"</span>, arg3)</span><br></pre></td></tr></table></figure>
-<p>现在，可以用<code>*args</code>和<code>**kwargs</code>来将参数传递给这个函数：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>args = (<span class="string">"two"</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(*args)</span><br><span class="line">arg1: arg1</span><br><span class="line">arg2: arg2</span><br><span class="line">arg3: arg3</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>kwargs = &#123;<span class="string">"arg3"</span>:<span class="number">3</span>, <span class="string">"arg2"</span>: <span class="string">"two"</span>, <span class="string">"arg1"</span>: <span class="number">5</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(**kwargs)</span><br><span class="line">arg1: <span class="number">5</span></span><br><span class="line">arg2: two</span><br><span class="line">arg3: <span class="number">3</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo-gittalk问题总结</title>
-    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
-<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>经验</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vs code remote ssh 使用x11转发显示远程图像</title>
-    <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
-    <content><![CDATA[<h2 id="需求">需求</h2>
-<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
-<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
-<a id="more"></a>
-<h2 id="参考链接">参考链接</h2>
-<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-<h2 id="问题">问题</h2>
-<ul>
-<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
-<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用PPO设计线性系统控制器</title>
     <url>/2020/08/27/%E4%BD%BF%E7%94%A8PPO%E8%AE%BE%E8%AE%A1%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%99%A8/</url>
     <content><![CDATA[<p>论文《Policy Iteration Adaptive Dynamic Programming Algorithm for Discrete-Time Nonlinear Systems》</p>
@@ -941,40 +941,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>使用树莓派搭建家庭宠物监控并在B站24小时直播</title>
-    <url>/2019/02/07/%E4%BD%BF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E5%AE%B6%E5%BA%AD%E5%AE%A0%E7%89%A9%E7%9B%91%E6%8E%A7%E5%B9%B6%E5%9C%A8B%E7%AB%9924%E5%B0%8F%E6%97%B6%E7%9B%B4%E6%92%AD/</url>
-    <content><![CDATA[<p>我家养了一条拉布拉多，名字叫小黑，由于我常年不在家，都是我妈妈在养，每当我想要看看狗子，总是需要在我妈妈在家的时候，和我妈妈视频才能看到，因此，就想做一个本文的这个项目。</p>
-<p>首先，给大家看下效果，B站直播房间号： <span class="exturl" data-url="aHR0cHM6Ly9saXZlLmJpbGliaWxpLmNvbS8yMTE3MjU3Mg==">https://live.bilibili.com/21172572<i class="fa fa-external-link-alt"></i></span></p>
-<figure>
-<img src="1.png" alt="截图" /><figcaption>截图</figcaption>
-</figure>
-<a id="more"></a>
-<h2 id="项目所需配件">项目所需配件</h2>
-<p>树莓派</p>
-<p>树莓派摄像头（选用那种带<strong>CSI接口</strong>的摄像头，淘宝上最便宜的<strong>15RMB</strong>, 如果你想晚上也想看到狗子，那么就买个带夜视的，100元不到。<strong><em>千万别买USB摄像头</em></strong>，以树莓派的性能只能达到1080P 10多帧， 画质还惨不忍睹，大多数便宜的USB摄像头(我也买了一个，销量第一的，100多，在树莓派上用简直是垃圾，电脑上用到还可以)都写的1千多万像素，都是软件插值出来的，硬件基本上300万像素。）</p>
-<h2 id="系统配置及软件环境">系统配置及软件环境</h2>
-<ul>
-<li>系统： <code>raspbian</code></li>
-</ul>
-<p>用树莓派的应该都会装</p>
-<ul>
-<li>软件： <code>ffmpeg</code></li>
-</ul>
-<p>执行<code>sudo apt install ffmpeg</code>，在9102年的现在，仍然能够看到有的教程说要编译安装，以前ffmpeg这个软件因为没在官方的ppa中，所以需要编译安装，但那都是多年前的事情了。建议大家直接apt安装。</p>
-<h2 id="命令">命令</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">raspivid -o - -t 0 -vf -hf -fps 30 -b 6000000 | ffmpeg -re -stream_loop -1 -i "/home/pi/music/human_fall_flat.mp3" -f h264 -i - -vcodec copy -acodec aac -b:a 192k -f flv "你的rtmp地址/你的直播码"</span><br></pre></td></tr></table></figure>
-<p><code>raspivid -o - -t 0 -vf -hf -fps 30 -b 6000000</code>这个命令是用raspivid从摄像头流中以每秒30帧读取数据，然后通过管道符将视频数据传送给ffmpeg， ffmpeg将视频和音频编码后发送到rtmp服务器。这里需要注意的是rtmp的地址需要加上<code>"</code></p>
-<p><strong>同时推摄像头和麦克风</strong> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">raspivid -o - -t 0 -vf -hf -fps 25 -b 10000000 | ffmpeg -f alsa -ac 2 -i plughw:1,0 -f h264 -i - -vcodec copy -g 50 -strict experimental -f flv "你的rtmp地址/你的直播码"</span><br></pre></td></tr></table></figure> ## 夜视摄像头模式自动切换</p>
-<p>由于我家的狗是养在院子里面的，晚上是没有灯光的，所以我在某宝上买了一个夜视摄像头，白天切换到日视模式，晚上切换到夜视模式，这样，白天晚上自动切换，很舒服。</p>
-]]></content>
-      <categories>
-        <category>raspberry</category>
-      </categories>
-      <tags>
-        <tag>raspberry</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用本地服务器结合github action推送github pages</title>
     <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
     <content><![CDATA[<h2 id="需求">需求</h2>
@@ -1029,6 +995,40 @@ x
       </tags>
   </entry>
   <entry>
+    <title>使用树莓派搭建家庭宠物监控并在B站24小时直播</title>
+    <url>/2019/02/07/%E4%BD%BF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E5%AE%B6%E5%BA%AD%E5%AE%A0%E7%89%A9%E7%9B%91%E6%8E%A7%E5%B9%B6%E5%9C%A8B%E7%AB%9924%E5%B0%8F%E6%97%B6%E7%9B%B4%E6%92%AD/</url>
+    <content><![CDATA[<p>我家养了一条拉布拉多，名字叫小黑，由于我常年不在家，都是我妈妈在养，每当我想要看看狗子，总是需要在我妈妈在家的时候，和我妈妈视频才能看到，因此，就想做一个本文的这个项目。</p>
+<p>首先，给大家看下效果，B站直播房间号： <span class="exturl" data-url="aHR0cHM6Ly9saXZlLmJpbGliaWxpLmNvbS8yMTE3MjU3Mg==">https://live.bilibili.com/21172572<i class="fa fa-external-link-alt"></i></span></p>
+<figure>
+<img src="1.png" alt="截图" /><figcaption>截图</figcaption>
+</figure>
+<a id="more"></a>
+<h2 id="项目所需配件">项目所需配件</h2>
+<p>树莓派</p>
+<p>树莓派摄像头（选用那种带<strong>CSI接口</strong>的摄像头，淘宝上最便宜的<strong>15RMB</strong>, 如果你想晚上也想看到狗子，那么就买个带夜视的，100元不到。<strong><em>千万别买USB摄像头</em></strong>，以树莓派的性能只能达到1080P 10多帧， 画质还惨不忍睹，大多数便宜的USB摄像头(我也买了一个，销量第一的，100多，在树莓派上用简直是垃圾，电脑上用到还可以)都写的1千多万像素，都是软件插值出来的，硬件基本上300万像素。）</p>
+<h2 id="系统配置及软件环境">系统配置及软件环境</h2>
+<ul>
+<li>系统： <code>raspbian</code></li>
+</ul>
+<p>用树莓派的应该都会装</p>
+<ul>
+<li>软件： <code>ffmpeg</code></li>
+</ul>
+<p>执行<code>sudo apt install ffmpeg</code>，在9102年的现在，仍然能够看到有的教程说要编译安装，以前ffmpeg这个软件因为没在官方的ppa中，所以需要编译安装，但那都是多年前的事情了。建议大家直接apt安装。</p>
+<h2 id="命令">命令</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">raspivid -o - -t 0 -vf -hf -fps 30 -b 6000000 | ffmpeg -re -stream_loop -1 -i "/home/pi/music/human_fall_flat.mp3" -f h264 -i - -vcodec copy -acodec aac -b:a 192k -f flv "你的rtmp地址/你的直播码"</span><br></pre></td></tr></table></figure>
+<p><code>raspivid -o - -t 0 -vf -hf -fps 30 -b 6000000</code>这个命令是用raspivid从摄像头流中以每秒30帧读取数据，然后通过管道符将视频数据传送给ffmpeg， ffmpeg将视频和音频编码后发送到rtmp服务器。这里需要注意的是rtmp的地址需要加上<code>"</code></p>
+<p><strong>同时推摄像头和麦克风</strong> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">raspivid -o - -t 0 -vf -hf -fps 25 -b 10000000 | ffmpeg -f alsa -ac 2 -i plughw:1,0 -f h264 -i - -vcodec copy -g 50 -strict experimental -f flv "你的rtmp地址/你的直播码"</span><br></pre></td></tr></table></figure> ## 夜视摄像头模式自动切换</p>
+<p>由于我家的狗是养在院子里面的，晚上是没有灯光的，所以我在某宝上买了一个夜视摄像头，白天切换到日视模式，晚上切换到夜视模式，这样，白天晚上自动切换，很舒服。</p>
+]]></content>
+      <categories>
+        <category>raspberry</category>
+      </categories>
+      <tags>
+        <tag>raspberry</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>光纤测温WEB系统</title>
     <url>/2019/02/01/%E5%85%89%E7%BA%A4%E6%B5%8B%E6%B8%A9WEB%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<h2 id="本项目解决的问题">本项目解决的问题：</h2>
@@ -1068,6 +1068,81 @@ x
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初学数据库-sqlite3 简介</title>
+    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
+</blockquote>
+<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
+<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
+<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
+<h2 id="于是数据库出现了">于是，数据库出现了</h2>
+<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
+<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
+<h2 id="数据库种类">数据库种类</h2>
+<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
+<h3 id="非关系型数据库">2.非关系型数据库</h3>
+<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
+<h2 id="sqlite3">sqlite3</h2>
+<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>减肥的科学原理</title>
+    <url>/2019/02/20/%E5%87%8F%E8%82%A5%E7%9A%84%E7%A7%91%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h2 id="减肥中的热量单位">减肥中的热量单位</h2>
+<p>在了解减肥的原理之前，需要首先了解常用的热量单位，卡，卡路里，千卡，大卡，千焦。我们买来的食品的包装袋上一般都标注着每100克该食品的营养成分，使用的就是这些单位。 - 卡 = 卡路里 = 4.184焦耳 - 1千卡 = 1大卡 = 1000卡 = 4184焦耳 = 4.184千焦</p>
+<a id="more"></a>
+<p>每100克的脂肪的热量约为900大卡，每100克糖类和蛋白质的热量约为400大卡。</p>
+<p>这里再给出一个参考：跑步机上以8KM/H的速度跑1小时大约消耗600大卡。</p>
+<h2 id="能量守恒定律">能量守恒定律</h2>
+<p>一个孤立系统的总能量保持不变。如果将人看做是一个系统，则系统存在消耗的能量和吸收的能量。当吸收的能量大于消耗的能量，你的身体将会把多余的能量存储起来。当吸收的能量小于消耗的能量，你的身体将会分解体内的碳水化合物，蛋白质，脂肪。因此，从这个原理可以看出，减肥的原理可以总结为一句话：<strong>少吃饭多运动</strong>。但是我们需要做的是用最科学的方法来减肥。<strong>减肥的热力学法则是唯一经过科学证实的减肥方法。</strong></p>
+<h2 id="人为什么会肥胖">人为什么会肥胖</h2>
+<p>根本原因则是现代人的摄入能量远远大于实际需要的能量，并且饮食结构不合理，米饭和油太多，缺少大量蛋白质，从而导致体型比欧美人矮小很多（蛋白质极其大的程度上决定了身高和体质）。</p>
+<p>以吃垃圾食品(肯德基，麦当劳，星巴克)的美国人举例，他们有很多人都是胖子，但是他们不是光只有肚子胖，他们的全身的肉都很多，手臂大腿等等，这些肉不光是脂肪，肌肉也很多。</p>
+<p>而中国人由于特有的饮食结构的缺陷，导致脂肪和碳水化合物摄入偏高，不长肌肉，同时，由于久坐的原因，脂肪堆积到肚子上和屁股上。所以中国的胖子大多是肚子上肥肉较多。</p>
+<h2 id="减肥中的热量">减肥中的热量</h2>
+<p>人体中所需要的能量来自于三种物质：碳水化合物，脂肪和蛋白质。 这些能量用于3个用途： - 用于基础代谢：维持生命活动的必要消耗。 - 用于身体的建设：合成身体中的蛋白质，制造血液。。。 - 用于脑力和体力劳动：大脑思考和肌肉收缩。</p>
+<p>在这三部分的热量中，第一和第二部分的热量是不能直接人为控制的，我们主要能改变的部分是第三部分。肌肉活动量越大，消耗的能量越多。而第一部分的基础代谢虽然不能人为控制，但是它与你自身的蛋白质含量有关，蛋白质含量越高，你的基础代谢就越大，所以往往肌肉多的人怎么吃也吃不胖，而有的人减完肥立马就反弹是因为减肥的过程中蛋白质流失了很多，导致基础代谢非常低，因此稍微吃点东西就胖。</p>
+<h2 id="减肥热量详细计算">减肥热量详细计算</h2>
+<p>假设你现在想要在100天内减去10千克的纯脂肪，那么这10千克的脂肪产生的热量为：</p>
+<p><span class="math display">\[10\times1000\times9=90000大卡\]</span></p>
+<p>分摊到100天，那么你每天总的消耗的能量需要比你吃的能量多900大卡。</p>
+<ul>
+<li>假如你每天摄入1500大卡，基础代谢1200大卡，那么你需要通过运动消耗1200大卡来完成目标。</li>
+<li>假如你每天摄入900大卡，基础代谢1200大卡，那么你需要通过运动消耗600大卡来完成目标。</li>
+</ul>
+<h2 id="减肥辅助工具">减肥辅助工具</h2>
+<p>我准备用的是JEFIT和薄荷健康。</p>
+<p>JEFIT是一个国外软件，收费版一年40刀，免费版够用。它上面有很多健身房训练计划，包括综合训练，减脂，增肌等条目，适合有健身房基础的人使用(因为免费版不能看完整的动作视频，如果你对训练计划中的动作完全熟练掌握，那么可以直接用，我只是需要用这个软件给出的训练计划，具体动作我有健身房教练带)。这个软件还能记录你每天的运动量，非常不错。</p>
+<p>薄荷健康是一个国内开发的软件，它的最主要的功能是搜索食物的营养和热量。并且可以记录你每天的饮食，方便计算。</p>
+<h2 id="制定减肥的百日计划">制定减肥的百日计划</h2>
+<p>我曾于2018年10月份开始了一个月的健身计划，是以尽量不掉肌肉并尽可能减少脂肪为目标的。体重从80千克降低为72千克，并且感觉力量增加了许多，标准的引体向上可以做10个。</p>
+<p>我当时并未控制饮食，早上多加了几个鸡蛋白。硬拉，深蹲，卧推3天一循环。</p>
+<p>一个月过后，经常吃麻辣烫，外卖，也没怎么再胖。不过寒假没有一天在运动，又胖回了80千克。这说明我之前练得肌肉都还是太少了，基础代谢太低。</p>
+<p>因此制定一个百日计划。通过100天，减掉10千克纯脂肪（至少能看见腹肌）。未来的某一天再开始这个计划。</p>
+<p>饮食严格按照薄荷健康上我设定的吃，运动按照JEFIT上的训练计划完成。成功的关键在于每天严格控制，仔细记录。</p>
+<h2 id="每日饮食推荐">每日饮食推荐</h2>
+<p>如果你想通过运动减肥，那么每天需要摄入的蛋白质在2g/KG，80千克的人需要每天摄入160克蛋白质才能保证训练效果。一个煮鸡蛋含有蛋白13.3克，那么需要吃12个鸡蛋。由于我每餐都会有一些肉质，含蛋白质的蔬菜，我实际一天需要吃6个鸡蛋白，推荐早上吃2个，健身结束以后吃4个。</p>
+<p>但是吃那么多蛋白质的前提是你每天有一定的训练量，否则，不运动吃这么多蛋白质容易对肾脏造成损伤。</p>
+<h2 id="参考文献">参考文献</h2>
+<p>以后有时间更新</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -1219,54 +1294,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>减肥的科学原理</title>
-    <url>/2019/02/20/%E5%87%8F%E8%82%A5%E7%9A%84%E7%A7%91%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
-    <content><![CDATA[<h2 id="减肥中的热量单位">减肥中的热量单位</h2>
-<p>在了解减肥的原理之前，需要首先了解常用的热量单位，卡，卡路里，千卡，大卡，千焦。我们买来的食品的包装袋上一般都标注着每100克该食品的营养成分，使用的就是这些单位。 - 卡 = 卡路里 = 4.184焦耳 - 1千卡 = 1大卡 = 1000卡 = 4184焦耳 = 4.184千焦</p>
-<a id="more"></a>
-<p>每100克的脂肪的热量约为900大卡，每100克糖类和蛋白质的热量约为400大卡。</p>
-<p>这里再给出一个参考：跑步机上以8KM/H的速度跑1小时大约消耗600大卡。</p>
-<h2 id="能量守恒定律">能量守恒定律</h2>
-<p>一个孤立系统的总能量保持不变。如果将人看做是一个系统，则系统存在消耗的能量和吸收的能量。当吸收的能量大于消耗的能量，你的身体将会把多余的能量存储起来。当吸收的能量小于消耗的能量，你的身体将会分解体内的碳水化合物，蛋白质，脂肪。因此，从这个原理可以看出，减肥的原理可以总结为一句话：<strong>少吃饭多运动</strong>。但是我们需要做的是用最科学的方法来减肥。<strong>减肥的热力学法则是唯一经过科学证实的减肥方法。</strong></p>
-<h2 id="人为什么会肥胖">人为什么会肥胖</h2>
-<p>根本原因则是现代人的摄入能量远远大于实际需要的能量，并且饮食结构不合理，米饭和油太多，缺少大量蛋白质，从而导致体型比欧美人矮小很多（蛋白质极其大的程度上决定了身高和体质）。</p>
-<p>以吃垃圾食品(肯德基，麦当劳，星巴克)的美国人举例，他们有很多人都是胖子，但是他们不是光只有肚子胖，他们的全身的肉都很多，手臂大腿等等，这些肉不光是脂肪，肌肉也很多。</p>
-<p>而中国人由于特有的饮食结构的缺陷，导致脂肪和碳水化合物摄入偏高，不长肌肉，同时，由于久坐的原因，脂肪堆积到肚子上和屁股上。所以中国的胖子大多是肚子上肥肉较多。</p>
-<h2 id="减肥中的热量">减肥中的热量</h2>
-<p>人体中所需要的能量来自于三种物质：碳水化合物，脂肪和蛋白质。 这些能量用于3个用途： - 用于基础代谢：维持生命活动的必要消耗。 - 用于身体的建设：合成身体中的蛋白质，制造血液。。。 - 用于脑力和体力劳动：大脑思考和肌肉收缩。</p>
-<p>在这三部分的热量中，第一和第二部分的热量是不能直接人为控制的，我们主要能改变的部分是第三部分。肌肉活动量越大，消耗的能量越多。而第一部分的基础代谢虽然不能人为控制，但是它与你自身的蛋白质含量有关，蛋白质含量越高，你的基础代谢就越大，所以往往肌肉多的人怎么吃也吃不胖，而有的人减完肥立马就反弹是因为减肥的过程中蛋白质流失了很多，导致基础代谢非常低，因此稍微吃点东西就胖。</p>
-<h2 id="减肥热量详细计算">减肥热量详细计算</h2>
-<p>假设你现在想要在100天内减去10千克的纯脂肪，那么这10千克的脂肪产生的热量为：</p>
-<p><span class="math display">\[10\times1000\times9=90000大卡\]</span></p>
-<p>分摊到100天，那么你每天总的消耗的能量需要比你吃的能量多900大卡。</p>
-<ul>
-<li>假如你每天摄入1500大卡，基础代谢1200大卡，那么你需要通过运动消耗1200大卡来完成目标。</li>
-<li>假如你每天摄入900大卡，基础代谢1200大卡，那么你需要通过运动消耗600大卡来完成目标。</li>
-</ul>
-<h2 id="减肥辅助工具">减肥辅助工具</h2>
-<p>我准备用的是JEFIT和薄荷健康。</p>
-<p>JEFIT是一个国外软件，收费版一年40刀，免费版够用。它上面有很多健身房训练计划，包括综合训练，减脂，增肌等条目，适合有健身房基础的人使用(因为免费版不能看完整的动作视频，如果你对训练计划中的动作完全熟练掌握，那么可以直接用，我只是需要用这个软件给出的训练计划，具体动作我有健身房教练带)。这个软件还能记录你每天的运动量，非常不错。</p>
-<p>薄荷健康是一个国内开发的软件，它的最主要的功能是搜索食物的营养和热量。并且可以记录你每天的饮食，方便计算。</p>
-<h2 id="制定减肥的百日计划">制定减肥的百日计划</h2>
-<p>我曾于2018年10月份开始了一个月的健身计划，是以尽量不掉肌肉并尽可能减少脂肪为目标的。体重从80千克降低为72千克，并且感觉力量增加了许多，标准的引体向上可以做10个。</p>
-<p>我当时并未控制饮食，早上多加了几个鸡蛋白。硬拉，深蹲，卧推3天一循环。</p>
-<p>一个月过后，经常吃麻辣烫，外卖，也没怎么再胖。不过寒假没有一天在运动，又胖回了80千克。这说明我之前练得肌肉都还是太少了，基础代谢太低。</p>
-<p>因此制定一个百日计划。通过100天，减掉10千克纯脂肪（至少能看见腹肌）。未来的某一天再开始这个计划。</p>
-<p>饮食严格按照薄荷健康上我设定的吃，运动按照JEFIT上的训练计划完成。成功的关键在于每天严格控制，仔细记录。</p>
-<h2 id="每日饮食推荐">每日饮食推荐</h2>
-<p>如果你想通过运动减肥，那么每天需要摄入的蛋白质在2g/KG，80千克的人需要每天摄入160克蛋白质才能保证训练效果。一个煮鸡蛋含有蛋白13.3克，那么需要吃12个鸡蛋。由于我每餐都会有一些肉质，含蛋白质的蔬菜，我实际一天需要吃6个鸡蛋白，推荐早上吃2个，健身结束以后吃4个。</p>
-<p>但是吃那么多蛋白质的前提是你每天有一定的训练量，否则，不运动吃这么多蛋白质容易对肾脏造成损伤。</p>
-<h2 id="参考文献">参考文献</h2>
-<p>以后有时间更新</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>利用虚拟主机搭建一个验证爬虫代理IP是否有效的服务</title>
     <url>/2018/10/14/%E5%88%A9%E7%94%A8%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%AA%8C%E8%AF%81%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88%E7%9A%84%E6%9C%8D%E5%8A%A1/</url>
     <content><![CDATA[<blockquote>
@@ -1301,33 +1328,6 @@ x
       </categories>
       <tags>
         <tag>爬虫 代理IP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初学数据库-sqlite3 简介</title>
-    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
-</blockquote>
-<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
-<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
-<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
-<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
-<h2 id="于是数据库出现了">于是，数据库出现了</h2>
-<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
-<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
-<h2 id="数据库种类">数据库种类</h2>
-<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
-<h3 id="非关系型数据库">2.非关系型数据库</h3>
-<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
-<h2 id="sqlite3">sqlite3</h2>
-<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>
@@ -1380,46 +1380,6 @@ x
       </categories>
       <tags>
         <tag>华为 面试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基金投资管理系统</title>
-    <url>/2020/06/29/%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<p>基金推荐与投资记录系统：如何成为一名合格的韭菜！</p>
-<h2 id="项目背景">项目背景</h2>
-<p>基金相比于股票，收益要更加稳定，不需要过多专业知识且无需花自己大量的时间去盯盘，适合有一些闲钱却又不会投资的人进行投资。</p>
-<p>今年2月份以来我开始投资基金，使用支付宝进行购买。</p>
-<p>在投资的过程中，我发现了几个问题：</p>
-<a id="more"></a>
-<h3 id="持有成本明细不明确">1. 持有成本明细不明确</h3>
-<p><strong>持有基金详情页</strong>中只有基金的总的持有成本，昨日收益，持有收益，但是，在不同时期购入的基金的成本是不同的，点击<strong>详情</strong>可以查看业绩走势，但是没有具体的成本，购买记录，申购和赎回手续费。当你购买了好几个不同的基金，这需要你每次一个一个点进去看，这样不容易且不直观分析数据。</p>
-<h3 id="挑选基金时不方便">2. 挑选基金时不方便</h3>
-<p>支付宝没有一个很好的挑选基金的方法，对于购买基金的韭菜来说，讲的就是效率，不用讲什么技术，低买高卖就是王道。</p>
-<h3 id="基金走势查看不方便">3. 基金走势查看不方便</h3>
-<p>支付宝的基金走势需要你去一个个点进去看，当你购买的基金数量和种类较多时，查看很不方便。</p>
-<h2 id="项目方案">项目方案</h2>
-<p>本项目拟解决上述三个问题，解决方案：</p>
-<ol type="1">
-<li>设计一套基金投资记录系统，用于记录每次基金的投资明细，基于B/S架构，具有可视化和数据分析的功能。</li>
-<li>设计一个基金推荐系统，该系统采集和监控每天的基金数据，根据一定的策略，生成推荐的基金，推送到微信。</li>
-</ol>
-<h2 id="技术框架">技术框架</h2>
-<ol type="1">
-<li>可视化系统使用Streamlit实现，该库是一个优秀的大数据分析和可视化库，之前在商业项目中使用过，效果不错。</li>
-<li>数据来源：设计爬虫爬取天天基金网的数据或者采用可以直接调用数据的库。</li>
-<li>数据库采用Sqlite，方便用户配置，可以做到开箱即用。</li>
-<li>微信推送采用【Server酱】的微信推送服务。</li>
-<li>部署环境：IBM 的CF服务可以免费注册使用，基金设置策略筛选模块我在本地已经测试了一个月，非常稳定。所有基金的历史数据到20200629日，共占用存储空间400多MB，IBM的免费套餐支持1GB的存储空间，应该可以支持长期使用。</li>
-</ol>
-<h2 id="更新日志">更新日志：</h2>
-<h4 id="设计投资管理系统原型草稿">20200629：设计投资管理系统原型草稿</h4>
-<p><img src="项目草稿20200629.png" /></p>
-]]></content>
-      <categories>
-        <category>fund</category>
-      </categories>
-      <tags>
-        <tag>fund</tag>
       </tags>
   </entry>
   <entry>
@@ -1486,16 +1446,43 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>常用排序算法之直接插入排序</title>
-    <url>/2018/08/12/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>题目：编写一个C程序，应用直接插入排序算法将序列｛2，5，6，，3，7，8，0，9，12，1｝进行排序，要求从小到大排列，并输出排序后的数列元素。</p>
-<p>算法分析：直接运用直接插入排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertionsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>] = a[i];</span><br><span class="line">        j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; a[<span class="number">0</span>]&lt;a[j])</span><br><span class="line">        &#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j--];</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The original data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    insertsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of insertion sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <title>基金投资管理系统</title>
+    <url>/2020/06/29/%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<p>基金推荐与投资记录系统：如何成为一名合格的韭菜！</p>
+<h2 id="项目背景">项目背景</h2>
+<p>基金相比于股票，收益要更加稳定，不需要过多专业知识且无需花自己大量的时间去盯盘，适合有一些闲钱却又不会投资的人进行投资。</p>
+<p>今年2月份以来我开始投资基金，使用支付宝进行购买。</p>
+<p>在投资的过程中，我发现了几个问题：</p>
+<a id="more"></a>
+<h3 id="持有成本明细不明确">1. 持有成本明细不明确</h3>
+<p><strong>持有基金详情页</strong>中只有基金的总的持有成本，昨日收益，持有收益，但是，在不同时期购入的基金的成本是不同的，点击<strong>详情</strong>可以查看业绩走势，但是没有具体的成本，购买记录，申购和赎回手续费。当你购买了好几个不同的基金，这需要你每次一个一个点进去看，这样不容易且不直观分析数据。</p>
+<h3 id="挑选基金时不方便">2. 挑选基金时不方便</h3>
+<p>支付宝没有一个很好的挑选基金的方法，对于购买基金的韭菜来说，讲的就是效率，不用讲什么技术，低买高卖就是王道。</p>
+<h3 id="基金走势查看不方便">3. 基金走势查看不方便</h3>
+<p>支付宝的基金走势需要你去一个个点进去看，当你购买的基金数量和种类较多时，查看很不方便。</p>
+<h2 id="项目方案">项目方案</h2>
+<p>本项目拟解决上述三个问题，解决方案：</p>
+<ol type="1">
+<li>设计一套基金投资记录系统，用于记录每次基金的投资明细，基于B/S架构，具有可视化和数据分析的功能。</li>
+<li>设计一个基金推荐系统，该系统采集和监控每天的基金数据，根据一定的策略，生成推荐的基金，推送到微信。</li>
+</ol>
+<h2 id="技术框架">技术框架</h2>
+<ol type="1">
+<li>可视化系统使用Streamlit实现，该库是一个优秀的大数据分析和可视化库，之前在商业项目中使用过，效果不错。</li>
+<li>数据来源：设计爬虫爬取天天基金网的数据或者采用可以直接调用数据的库。</li>
+<li>数据库采用Sqlite，方便用户配置，可以做到开箱即用。</li>
+<li>微信推送采用【Server酱】的微信推送服务。</li>
+<li>部署环境：IBM 的CF服务可以免费注册使用，基金设置策略筛选模块我在本地已经测试了一个月，非常稳定。所有基金的历史数据到20200629日，共占用存储空间400多MB，IBM的免费套餐支持1GB的存储空间，应该可以支持长期使用。</li>
+</ol>
+<h2 id="更新日志">更新日志：</h2>
+<h4 id="设计投资管理系统原型草稿">20200629：设计投资管理系统原型草稿</h4>
+<p><img src="项目草稿20200629.png" /></p>
 ]]></content>
       <categories>
-        <category>数据结构与算法</category>
+        <category>fund</category>
       </categories>
       <tags>
-        <tag>数据结构 算法 排序</tag>
+        <tag>fund</tag>
       </tags>
   </entry>
   <entry>
@@ -1512,11 +1499,10 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>常用排序算法之选择排序</title>
-    <url>/2018/09/02/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>题目：编写一个C程序，运用选择排序将序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的数列元素</p>
-<p>算法分析：运用选择排序算法即可</p>
-<p>代码实现： <a id="more"></a> <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,<span class="built_in">min</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)</span><br><span class="line">    &#123; </span><br><span class="line">        <span class="built_in">min</span> = i;</span><br><span class="line">        <span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[j] &lt; a[<span class="built_in">min</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">min</span> = j;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">min</span> != i)</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="built_in">min</span>];</span><br><span class="line">                a[<span class="built_in">min</span>] = a[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    selectsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of selection sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <title>常用排序算法之直接插入排序</title>
+    <url>/2018/08/12/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>题目：编写一个C程序，应用直接插入排序算法将序列｛2，5，6，，3，7，8，0，9，12，1｝进行排序，要求从小到大排列，并输出排序后的数列元素。</p>
+<p>算法分析：直接运用直接插入排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertionsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>] = a[i];</span><br><span class="line">        j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; a[<span class="number">0</span>]&lt;a[j])</span><br><span class="line">        &#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j--];</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The original data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    insertsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of insertion sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
@@ -1526,10 +1512,11 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>折半查找</title>
-    <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
-    <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
-<p>算法分析：折半查找 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bin_search</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,high,low;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=(high+low)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">10</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">19</span>,<span class="number">21</span>&#125;</span><br><span class="line">    <span class="keyword">int</span> i,n,addr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The contents of the Array A[10] are\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, A[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPlease input a interger for search\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    addr = bin_search(A,<span class="number">10</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(addr != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d is at the %dth unit is array A\n "</span>,n,addr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"There is no %d in array A\n"</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <title>常用排序算法之选择排序</title>
+    <url>/2018/09/02/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>题目：编写一个C程序，运用选择排序将序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的数列元素</p>
+<p>算法分析：运用选择排序算法即可</p>
+<p>代码实现： <a id="more"></a> <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,<span class="built_in">min</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)</span><br><span class="line">    &#123; </span><br><span class="line">        <span class="built_in">min</span> = i;</span><br><span class="line">        <span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[j] &lt; a[<span class="built_in">min</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">min</span> = j;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">min</span> != i)</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="built_in">min</span>];</span><br><span class="line">                a[<span class="built_in">min</span>] = a[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    selectsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of selection sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
@@ -1566,25 +1553,16 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>服务器被黑记录</title>
-    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
-<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
-<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
-<a id="more"></a>
-<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
-<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
-<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
-<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
-<p>可以看到一直在被爆破。</p>
-<p><img src="image-20200914140640360.png" /></p>
+    <title>折半查找</title>
+    <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
+    <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
+<p>算法分析：折半查找 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bin_search</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,high,low;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=(high+low)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">10</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">19</span>,<span class="number">21</span>&#125;</span><br><span class="line">    <span class="keyword">int</span> i,n,addr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The contents of the Array A[10] are\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, A[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPlease input a interger for search\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    addr = bin_search(A,<span class="number">10</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(addr != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d is at the %dth unit is array A\n "</span>,n,addr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"There is no %d in array A\n"</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
-        <category>Linux</category>
+        <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>数据结构 算法 排序</tag>
       </tags>
   </entry>
   <entry>
@@ -1677,6 +1655,66 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>服务器被黑记录</title>
+    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
+<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
+<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
+<a id="more"></a>
+<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
+<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
+<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
+<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
+<p>可以看到一直在被爆破。</p>
+<p><img src="image-20200914140640360.png" /></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>粒子群算法(PSO)的数学原理</title>
+    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95-PSO-%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h2 id="粒子群算法的起源">粒子群算法的起源</h2>
+<p>粒子群优化算法(Particle Swarm Optimization[PSO])是一种基于群体智能的启发式全局搜索算法，因为我的毕业设计需要用到，学习整理一下。</p>
+<p>求函数最优值的问题，即求函数的最大或者最小值。粒子群算法通过粒子间的竞争和协作以实现在复杂搜索空间中寻找全局最优点。它具有易理解，易实现，全局搜索能力强等特点，倍受科学与工程的领域的广泛关注，已经成为发展最快的智能优化算法之一。 <a id="more"></a> 粒子群算法由Kennedy和Eberhart于1995年提出，它的基本思想源于对鸟群捕食行为的研究。具体来说，已知：</p>
+<ul>
+<li>在这块区域里面只有一块食物</li>
+<li>所有的鸟都不知道食物在哪里</li>
+<li>但是他们能感受到当前的位置距离食物还有多远</li>
+</ul>
+<p>那么，找到食物的最优策略是什么呢？</p>
+<p>通过与上述情景类比，研究人员发现了粒子群算法： - 目标函数只有一个极值 - 函数的一组随机自变量的函数值不确定是极值 - 但是N组函数的一组随机自变量对应的函数值通过比较大小，可以出最值</p>
+<p>PS:我在学习的时候，看了半小时，都没有想出<code>但是他们能感受到当前的位置距离食物还有多远</code>这句话的具体含义。既然不知道食物的位置，又何来知道距离食物还有多远？后来想想，这句话还是稍微有些问题的，两者的类比还是有一些区别。</p>
+<p>我现在对第三句话的理解是，目标函数是多元函数，我们可以初始化若干组自变量，于是可以得到函数值，找出这些函数值中的最值，再进行接下去的操作即可。</p>
+<h2 id="粒子群算法的数学描述">粒子群算法的数学描述</h2>
+<p>PSO从上述模型中得到启示并用于解决优化问题。PSO中，每个优化问题的潜在解都是搜索空间中的一只鸟，称之为粒子。所有的粒子都有一个由被优化的函数决定的适值<strong>(fitness value)[也就是每组自变量所对应的函数值]</strong>，每个粒子还有一个速度决定他们飞翔的方向和距离。然后粒子们就追随当前的最优粒子在解空间中搜索。</p>
+<p>PSO初始化为一组随机粒子<strong>[随机的一组自变量]</strong>，然后通过迭代找到最优解。在每一次的迭代中，粒子通过跟踪两个极值来更新自己，第一个就是粒子本身所找到的最优解，这个解称为个体极值；另外一个极值是整个种群目前所找到的最优解，这个极值是全局极值。</p>
+<p>假设在一个D维的目标搜索空间中<strong>([也就是D元函数])</strong>，有N个粒子组成一个群落，其中第i个粒子表示为一个D维的向量：</p>
+<p><span class="math display">\[X_i=(x_{i1},x_{i2},...,x_{iD}), i=1,2,...,N\]</span></p>
+<p>第i个粒子的飞行速度也是一个D维的向量，记为：</p>
+<p><span class="math display">\[V_i=(v_{i1},v_{i2},...,v_{iD}), i=1,2,...,N\]</span></p>
+<p>第i个粒子迄今为止搜索到的最优位置称为个体极值，记为：</p>
+<p><span class="math display">\[P_{best}=(P_{i1},P_{i2},...,P_{iD}), i=1,2,...,N\]</span></p>
+<p>整个粒子群迄今为止搜索到的最优位置为全局极值，记为：</p>
+<p><span class="math display">\[g_{best}=(P_{g1},P_{g2},...,P_{gD})\]</span></p>
+<p>在找到这两个最优值时，粒子需要根据如下公式来更新自己的速度和位置：</p>
+<p><span class="math display">\[v_{id}=w\times v_{id}+c_1r_1(P_{id}-x_{id})+c_2r_2(P_{gd}-x_{id})\]</span></p>
+<p><span class="math display">\[x_{id}=x_{id}+v_{id}\]</span></p>
+<p>其中：c1和c2为学习因子，也称为加速常数<code>acceleration constant</code>，r1和r2为<code>[0,1]</code>范围内的均匀随机数。速度更新公式由三部分组成，第一部分为<code>惯性</code>，代表粒子有维持自己先前速度的趋势，第二部分为<code>认知</code>部分，反映了对自身历史经验的记忆，代表粒子有向自身历史最佳位置逼近的趋势，第三部分为<code>社会</code>部分，反映了粒子之间协同合作与知识共享的群体历史经验。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>检查强化学习自定义环境是否符合Gym的API</title>
     <url>/2020/08/22/%E6%A3%80%E6%9F%A5%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E7%AC%A6%E5%90%88Gym%E7%9A%84API/</url>
     <content><![CDATA[<p>虽然Openai Gym给我们提供了很多有趣的环境，但是，针对实际问题，我们一般都需要建立自己的强化学习环境，也就是说，建立一个函数，输入是<code>action</code>，输出是<code>next_state, reward, done, info</code>，建立这样一个环境的时候最好按照Gym的API来设计，这样方便代码的编写与调试，很多网上实现的算法都是按照Gym的环境进行设计的，同时，Gym的API本身设计的就比较合理的。</p>
@@ -1714,35 +1752,10 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>粒子群算法(PSO)的数学原理</title>
-    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95-PSO-%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
-    <content><![CDATA[<h2 id="粒子群算法的起源">粒子群算法的起源</h2>
-<p>粒子群优化算法(Particle Swarm Optimization[PSO])是一种基于群体智能的启发式全局搜索算法，因为我的毕业设计需要用到，学习整理一下。</p>
-<p>求函数最优值的问题，即求函数的最大或者最小值。粒子群算法通过粒子间的竞争和协作以实现在复杂搜索空间中寻找全局最优点。它具有易理解，易实现，全局搜索能力强等特点，倍受科学与工程的领域的广泛关注，已经成为发展最快的智能优化算法之一。 <a id="more"></a> 粒子群算法由Kennedy和Eberhart于1995年提出，它的基本思想源于对鸟群捕食行为的研究。具体来说，已知：</p>
-<ul>
-<li>在这块区域里面只有一块食物</li>
-<li>所有的鸟都不知道食物在哪里</li>
-<li>但是他们能感受到当前的位置距离食物还有多远</li>
-</ul>
-<p>那么，找到食物的最优策略是什么呢？</p>
-<p>通过与上述情景类比，研究人员发现了粒子群算法： - 目标函数只有一个极值 - 函数的一组随机自变量的函数值不确定是极值 - 但是N组函数的一组随机自变量对应的函数值通过比较大小，可以出最值</p>
-<p>PS:我在学习的时候，看了半小时，都没有想出<code>但是他们能感受到当前的位置距离食物还有多远</code>这句话的具体含义。既然不知道食物的位置，又何来知道距离食物还有多远？后来想想，这句话还是稍微有些问题的，两者的类比还是有一些区别。</p>
-<p>我现在对第三句话的理解是，目标函数是多元函数，我们可以初始化若干组自变量，于是可以得到函数值，找出这些函数值中的最值，再进行接下去的操作即可。</p>
-<h2 id="粒子群算法的数学描述">粒子群算法的数学描述</h2>
-<p>PSO从上述模型中得到启示并用于解决优化问题。PSO中，每个优化问题的潜在解都是搜索空间中的一只鸟，称之为粒子。所有的粒子都有一个由被优化的函数决定的适值<strong>(fitness value)[也就是每组自变量所对应的函数值]</strong>，每个粒子还有一个速度决定他们飞翔的方向和距离。然后粒子们就追随当前的最优粒子在解空间中搜索。</p>
-<p>PSO初始化为一组随机粒子<strong>[随机的一组自变量]</strong>，然后通过迭代找到最优解。在每一次的迭代中，粒子通过跟踪两个极值来更新自己，第一个就是粒子本身所找到的最优解，这个解称为个体极值；另外一个极值是整个种群目前所找到的最优解，这个极值是全局极值。</p>
-<p>假设在一个D维的目标搜索空间中<strong>([也就是D元函数])</strong>，有N个粒子组成一个群落，其中第i个粒子表示为一个D维的向量：</p>
-<p><span class="math display">\[X_i=(x_{i1},x_{i2},...,x_{iD}), i=1,2,...,N\]</span></p>
-<p>第i个粒子的飞行速度也是一个D维的向量，记为：</p>
-<p><span class="math display">\[V_i=(v_{i1},v_{i2},...,v_{iD}), i=1,2,...,N\]</span></p>
-<p>第i个粒子迄今为止搜索到的最优位置称为个体极值，记为：</p>
-<p><span class="math display">\[P_{best}=(P_{i1},P_{i2},...,P_{iD}), i=1,2,...,N\]</span></p>
-<p>整个粒子群迄今为止搜索到的最优位置为全局极值，记为：</p>
-<p><span class="math display">\[g_{best}=(P_{g1},P_{g2},...,P_{gD})\]</span></p>
-<p>在找到这两个最优值时，粒子需要根据如下公式来更新自己的速度和位置：</p>
-<p><span class="math display">\[v_{id}=w\times v_{id}+c_1r_1(P_{id}-x_{id})+c_2r_2(P_{gd}-x_{id})\]</span></p>
-<p><span class="math display">\[x_{id}=x_{id}+v_{id}\]</span></p>
-<p>其中：c1和c2为学习因子，也称为加速常数<code>acceleration constant</code>，r1和r2为<code>[0,1]</code>范围内的均匀随机数。速度更新公式由三部分组成，第一部分为<code>惯性</code>，代表粒子有维持自己先前速度的趋势，第二部分为<code>认知</code>部分，反映了对自身历史经验的记忆，代表粒子有向自身历史最佳位置逼近的趋势，第三部分为<code>社会</code>部分，反映了粒子之间协同合作与知识共享的群体历史经验。</p>
+    <title>粒子群算法库-PySwarms的可视化</title>
+    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
+    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
+<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -1794,19 +1807,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>粒子群算法库-PySwarms的可视化</title>
-    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
-    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
-<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -3345,6 +3345,136 @@ Alabama
       </tags>
   </entry>
   <entry>
+    <title>嵌入式操作系统软件工程师常见面试题</title>
+    <url>/2018/08/01/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+    <content><![CDATA[<blockquote>
+<p>有过IT行业大公司面试经历的朋友都会知道有关<strong><em>操作系统</em></strong>的问题是面试官必问的问题之一，因此，我参考网上的资料并整理了一份关于操作系统面试题的资料，其中包含了操作系统的常见问题，还包含了嵌入式C语言的常见问题。 <a id="more"></a> # 操作系统 ### 进程是什么 进程是具有一定独立功能的程序，它是系统进行资源分配和调度的一个独立单位，重点在系统调度和独立的单位，也就是说进程是可以独立运行的一段程序。</p>
+</blockquote>
+<h3 id="线程是什么">线程是什么</h3>
+<p>线程是进程的一个实体，是CPU调度和分配的基本单位，它是比进程更小的能独立运行的基本单位，线程自己基本上不拥有系统资源，在运行时，只是暂用一些计数器，寄存器，和栈。</p>
+<h3 id="进程与线程的关系">进程与线程的关系</h3>
+<ul>
+<li>一个线程只能属于一个进程，而一个进程可以有多个线程，但至少有一个线程（通常说的主线程）</li>
+<li>资源分配给进程，同一进程的所有线程共享该进程的所有资源</li>
+<li>线程在执行过程中，需要协作同步，不同进程的线程间要利用消息通信的方法实现同步</li>
+<li>处理机分配给线程，即真正在处理机上运行的是线程</li>
+<li>线程是指进程内的一个执行单元，也是进程内的可调度实体</li>
+</ul>
+<h3 id="从4个角度来分析进程与线程之间的区别">从4个角度来分析进程与线程之间的区别</h3>
+<ul>
+<li>调度：线程作为调度和分配的基本单位，进程作为拥有资源的基本单位</li>
+<li>并发性：不仅进程之间可以并发执行，同一个进程的多个线程之间也可以并发执行</li>
+<li>拥有资源：进程是拥有资源的一个独立单位，线程不拥有系统资源，但是可以访问隶属于进程的资源</li>
+<li>系统开销：创建或撤销进程时，系统都要为之分配或回收系统资源，如内存空间，I/O设备等，OS所付出的开销显著大于在创建或撤销线程时的开销，进程切换的开销也远大于线程切换的开销</li>
+</ul>
+<h3 id="进程有几种状态">进程有几种状态</h3>
+<ul>
+<li>就绪状态：进程已经获得除处理机以外的所有资源，等待分配处理机资源</li>
+<li>运行状态：占用处理机资源运行，处于此状态的进程数小于等于CPU数目</li>
+<li>阻塞状态：进程等待某种条件，在条件满足之前无法运行</li>
+</ul>
+<h3 id="线程有几种状态">线程有几种状态</h3>
+<ul>
+<li><strong>执行状态：</strong>表示线程已经获得处理机而正在运行</li>
+<li><strong>就绪状态：</strong>指线程已经具备了各种执行条件，只需再获得CPU便可以立即执行难</li>
+<li><strong>阻塞状态：</strong>线程在执行过程中因某事受阻而处于暂停状态</li>
+</ul>
+<h3 id="操作系统进程调度有哪几种">操作系统进程调度有哪几种</h3>
+<ul>
+<li><strong>非抢占式方式：</strong>采用这种调度方式时，一旦把处理机分配给某个进程后，就一直让它运行下去，决不会因为时钟中断或任何其它原因去抢占当前正在运行进程的处理机，直至该进程完成，或发生某种事件而被阻塞时，才把处理机分配给其他进程</li>
+<li><strong>抢占式方式：</strong>这种调度方式允许调度程序根据某种原则，去暂停某个正在执行的进程，将已经分配给该进程的处理机重新分配给另一进程，在现代OS中广泛采用抢占方式。</li>
+</ul>
+<h3 id="进程为什么需要同步">进程为什么需要同步</h3>
+<p>进程同步机制的主要任务是对多个相关进程在执行次序上进行协调，使得并发执行的各个进程之间能按照一定的规则或时序共享系统资源，并能很好的相互合作，从而使得程序的执行具有可再现性</p>
+<h3 id="列举几种进程同步机制并说明其优缺点">列举几种进程同步机制，并说明其优缺点</h3>
+<ul>
+<li><strong>硬件同步机制：</strong></li>
+<li><strong>信号量机制：</strong></li>
+<li><strong>管程机制：</strong></li>
+</ul>
+<h3 id="进程之间通信的途径">进程之间通信的途径</h3>
+<ul>
+<li><strong>管道</strong>：管道是一种半双工的通信方式，数据只能单向流动，而且只能在具有亲缘关系的进程间使用，进程的亲缘关系通常是指父子进程关系</li>
+<li><strong>有名管道</strong>：有名管道也是半双工的通信方式，但是它允许无亲缘关系的进程间的通信</li>
+<li><strong>信号量</strong>：信号量是一个计数器，可以用来控制多个进程对共享资源的访问，它常作为一种锁机制，防止某进程正在访问共享资源时，其他进程也访问该资源，因此，主要作为进程间以及同一进程内不同线程之间的同步手段</li>
+<li><strong>消息队列</strong>：消息队列是由消息的链表，存放在内核中并由消息队列标识符标识，消息队列克服了信号传递信息少，管道只能承载无格式字节流以及缓冲区大小受限等缺点</li>
+<li><strong>信号</strong>：信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生</li>
+<li><strong>共享内存</strong>：共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问，共享内存是最快的IPC方式，它是针对其他进程通信方式运行效率低而专门设计的，它往往与其他通信机制，如信号量，配合使用，来实现进程间的同步和通信</li>
+<li><strong>套接字</strong>：套接字可以用于不同的进程间的通信</li>
+</ul>
+<h3 id="线程之间通信的途径">线程之间通信的途径</h3>
+<ul>
+<li><strong>锁机制</strong>：包括互斥锁，条件变量，读写锁 互斥锁提供了以排他方式防止数据结构被并发修改的方法 条件变量可以以原子的方式阻塞进程，直到某个特定条件为真为止，对条件的测试是在互斥锁的保护下进行的，条件变量始终与互斥锁一起使用 读写锁允许多个线程同时读共享数据，而对写操作是互斥的</li>
+<li><strong>信号量机制</strong>：包括无名线程信号量和命名线程信号量</li>
+<li><strong>信号机制</strong>：类似进程间的信号处理 <strong>注意：线程间的通信的目的主要是用于线程的同步，所以线程没有像进程通信中的用于数据交换的通信机制</strong></li>
+</ul>
+<h3 id="死锁的定义">死锁的定义</h3>
+<p>如果一组进程中的每一个进程都在等待仅由该组进程中的其它进程才能引发的事件，那么该组进程是死锁的</p>
+<h3 id="进程死锁的原因">进程死锁的原因</h3>
+<p>多个进程对资源的争夺，包括对不可抢占资源和对可消耗资源</p>
+<h3 id="进程死锁的4个必要条件">进程死锁的4个必要条件</h3>
+<ul>
+<li><strong>互斥条件：</strong>进程对所分配到的资源进行排它性使用，即在一段时间内，其资源只能被一个进程占用，如果此时还有其它进程请求该资源，则请求进程只能等待，直至占有该资源的进程用完释放</li>
+<li><strong>请求和保持条件：</strong>进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源已经被其它进程占有，此时请求进程被阻塞，但对自己已经获得的资源保持不放</li>
+<li><strong>不可抢占条件：</strong>进程已经获得的资源在未使用完之前不能被抢占，只能在进程使用完时由自己释放</li>
+<li><strong>循环等待条件：</strong>在发生死锁时，必然存在一个进程-资源循环链，即进程集合｛P0,P1,......,PN｝中的P0正在等待一个P1占用的资源，P1正在等待P2占用的资源，......，PN 正在等待P0占用的资源</li>
+</ul>
+<h3 id="进程死锁的处理">进程死锁的处理</h3>
+<ul>
+<li><strong>预防死锁：</strong>通过设置某些限制条件，去破坏产生死锁的四个必要条件中的一种</li>
+<li><strong>避免死锁：</strong>在资源的动态分配过程中，用某种方法防止系统进入不安全状态</li>
+<li><strong>检测死锁：</strong>通过检测机构及时检测出死锁的发生，然后采取适当的措施，把进程从死锁中解脱出来</li>
+<li><strong>解除死锁：</strong>当检测到系统中已经发生死锁时，采取相应的措施，将进程从死锁状态解脱出来，常用的方法是撤销一些进程，回收他们的资源，将它们分配给已经处于阻塞状态的进程，使其能够继续运行</li>
+</ul>
+<h3 id="描述实时操作系统的基本特征">描述实时操作系统的基本特征</h3>
+<p>实时操作系统是指操作系统工作时，其各种资源可以根据需要随时进行动态分配，由于各种资源可以进行动态分配，因此，其处理事务的能力较强 换言之，在特定时间内完成特定的任务，具有实时性与可靠性</p>
+<h3 id="操作系统中断与轮询的基本特点">操作系统中断与轮询的基本特点</h3>
+<ul>
+<li><strong>轮询：</strong>对I/O设备的程序轮询的方式是早期的计算机系统对I/O设备的一种管理方式，它定时对各种设备轮流询问一遍有无处理要求。轮询占据了CPU相当一部分处理时间，因此，程序轮询是一种效率较低的方式，在现代计算机系统中已经很少应用</li>
+<li><strong>中断：</strong>中断是指CPU在正常运行程序的过程中，由于发生的内部或外部的特定的事件，使得CPU中断正在运行的程序，而转到响应的服务程序去处理</li>
+</ul>
+<h3 id="什么是临界区如何解决冲突">什么是临界区，如何解决冲突</h3>
+<p>每个进程中访问临界资源的那段程序称为临界区，每次只准许一个进程进入临界区，进入后不允许其他进程进入 解决冲突的方法： - 如果有若干个进程要求进入空闲的临界区，一次仅允许一个进程进入 - 任何时候，处于临界区内的进程不可以多于一个，如果已经有进程进入自己的临界区，则其他所有试图进入临界区的进程必须等待 - 进入临界区内的进程要在有限时间内退出，以便其它进程能及时进入自己的临界区 - 如果进程不能进入自己的临界区，则应该让出CPU，避免进程出现“忙碌”现象。</p>
+<h3 id="windows下内存是如何管理的">windows下内存是如何管理的</h3>
+<p>windows操纵内存可以分为两个层面，物理内存和虚拟内存</p>
+<h1 id="嵌入式c语言面试题目">嵌入式C语言面试题目</h1>
+<h3 id="c语言中如何引用一个已经定义过的变量">C语言中如何引用一个已经定义过的变量</h3>
+<p>可以使用extern或者引用头文件的方式 － <strong>extern</strong>： － <strong>引用头文件</strong>： 注意：当定义写错时，注意两者在编译或者链接时产生错误的区别</p>
+<h3 id="什么是预编译何时需要预编译">什么是预编译，何时需要预编译</h3>
+<p>预编译是指程序执行前的一些预处理工作，主要指#表示的。 何时需要预处理？ - 总是使用不经常改动的大型大码体 - 程序由多个模块组成，所有模块都使用一组标准的包含头文件和相同的编译选项</p>
+<h3 id="c语言中关键字static的作用">C语言中关键字static的作用</h3>
+<ul>
+<li><strong>static全局变量</strong>：全局变量的说明之前加上static就变成了静态的全局变量，全局变量本身就是静态存储，因此这两种在存储方式上没有区别。两者的区别在于非静态全局变量的作用域是整个源程序，也就是说当一个程序包含多个文件时，非静态的全局变量在多个文件中都是有效的，而静态全局变量则限制了其作用域，只能在定义该变量的源文件内有效</li>
+<li><strong>static局部变量</strong>：存储方式变为静态存储</li>
+<li><strong>static函数</strong>：将函数的作用域限制在当前文件</li>
+</ul>
+<h3 id="c语言中关键字const的作用">C语言中关键字const的作用</h3>
+<ul>
+<li>表示常量不可以修改</li>
+<li>可以修饰函数的输入参数</li>
+<li>修饰函数，防止更改 <strong>注意：</strong>在声明一个简单变量和数组时使用关键字const很简单，指针则会复杂一些，因为需要区分这两种情况：1. 指针本身成为const 2. 指针指向的值成为const 例如： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//第一种情况，pf指向一个常量浮点数值，但是pf本身的值是可以改变的，例如，它可以指向另外一个const值</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">float</span> * pf;</span><br><span class="line"><span class="comment">//第二种情况，pt指向同一个地址，但是所指向的值是可以改变的</span></span><br><span class="line"><span class="keyword">float</span> *<span class="keyword">const</span> pt;</span><br><span class="line"><span class="comment">//第三种情况，ptr指向同一个位置，并且它所指向位置存储的值也不能改变</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">float</span> * <span class="keyword">const</span> ptr;</span><br></pre></td></tr></table></figure> <strong>总而言之，一个位于<em>左边任意位置的const使得数据成为常量，而一个位于</em>右边的const使得指针自身成为常量</strong></li>
+</ul>
+<h3 id="c语言中关键字volatile的作用">C语言中关键字volatile的作用</h3>
+<p>限定词volatile 告诉编译器该变量除了可被程序改变以外还可以被其他代理改变，典型的，它被用于硬件地址和其他并行运行的程序共享的数据。 例如一个地址中可能保存着当前的时钟时间，不管程序做些什么，该地址的值都会随着时间而改变。 又例如一个地址被用来接收来自其他计算机的信息。 <strong>注意点：</strong>一个值可以同时是const和volatile，例如，硬件时钟一般设定为不能由程序改变，这一点使得它成为const，但它可以被程序以外的代理改变，这使得它成为volatile的，只需在声明中同时使用这两个限定词，顺序并不重要，如下所示： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">volatile</span> <span class="keyword">const</span> <span class="keyword">int</span> loc;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">volatile</span> <span class="keyword">int</span> * ploc;</span><br></pre></td></tr></table></figure></p>
+<h3 id="全局变量可不可以定义在被多个.c文件包含的头文件中">全局变量可不可以定义在被多个.C文件包含的头文件中</h3>
+<p>这个问题怎么说呢，就算是可以吧！这个全局变量可以被任何一个引用该头文件的c源文件中使用，但是只能有一个c源文件对该变量进行赋值，不然链接的时候会出现错误</p>
+<h3 id="c语言的堆栈静态区的区别">C语言的堆，栈，静态区的区别</h3>
+<p>－ 程序的局部变量存储于栈中，全局变量存储于静态区，动态申请数据存储于堆中 － 一个由C编译的程序占用以下几个区： 1. <strong>栈区</strong>：由编译器自动分配与释放，存放函数的参数值，或者局部变量等，其操作方式类似于数据结构中的栈 2. <strong>堆区</strong>：由程序员分配与释放，若程序员不释放，则OS在结束时可能会释放，注意这里的堆是从编程语言的角度来说的（我曾经面试了一个学校，被问到<strong>从编程语言的角度</strong>说明堆和栈的区别，当时被问的一脸蒙蔽，呵呵呵），这个堆和数据结构中的堆是完全不一样的东西，至于为什么也叫堆，还请大佬们补充补充！ 3. <strong>全局区（静态区）</strong>：全局变量和静态变量是存放在一块的，初始化的全局变量和静态变量是存放在一块区域，未初始化的全局变量和初始化的静态变量存储在相邻的一块区域 4. <strong>文字常量区</strong>：常量字符串就是存放于此，程序结束后由系统释放 5. <strong>程序代码区</strong>：存放函数体的二进制代码</p>
+<h3 id="用预处理指令define声明一个常数用以表示一年中有多少秒">用预处理指令#define声明一个常数，用以表示一年中有多少秒</h3>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SECONDS_PER_YEAR (60*60*24*365)UL</span></span><br><span class="line"><span class="comment">//UL表示这个无符号长整型，如果不加UL，将会使得一个16位的整型机器产生溢出</span></span><br></pre></td></tr></table></figure>
+<h3 id="写一个标准宏min这个宏输入两个参数并返回一个较小的数">写一个标准宏MIN，这个宏输入两个参数并返回一个较小的数</h3>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MIN(x,y) ((x&gt;y)?(y):(x))</span></span><br><span class="line"><span class="comment">//这里为什么都要加括号？比如x，y是一个表达式的话，不加括号的话计算顺序可能不对了</span></span><br></pre></td></tr></table></figure>
+<h3 id="宏定义的函数与普通函数的区别">宏定义的函数与普通函数的区别</h3>
+<p>宏与函数的选择实际上是时间与空间的权衡。 宏产生内联代码，也就是说，在程序中产生语句，如果使用宏20次，则会把20行代码插入程序中，如果使用函数20次，那么 程序中只有一份函数语句的拷贝，因此使用函数可以节约空间。 但是程序的控制必须转移到函数中并随后返回调用程序，因此这比内联代码花费的时间多，所以使用宏定义的函数节约了时间。</p>
+]]></content>
+      <categories>
+        <category>嵌入式</category>
+      </categories>
+      <tags>
+        <tag>华为</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>发布自己的Python包到pypi</title>
     <url>/2018/10/07/%E5%8F%91%E5%B8%83%E8%87%AA%E5%B7%B1%E7%9A%84Python%E5%8C%85%E5%88%B0pypi/</url>
     <content><![CDATA[<blockquote>
@@ -3494,136 +3624,6 @@ v_{k+1}(s) &amp; \doteq \max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{k}\left(S_{t
       </categories>
       <tags>
         <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>嵌入式操作系统软件工程师常见面试题</title>
-    <url>/2018/08/01/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
-    <content><![CDATA[<blockquote>
-<p>有过IT行业大公司面试经历的朋友都会知道有关<strong><em>操作系统</em></strong>的问题是面试官必问的问题之一，因此，我参考网上的资料并整理了一份关于操作系统面试题的资料，其中包含了操作系统的常见问题，还包含了嵌入式C语言的常见问题。 <a id="more"></a> # 操作系统 ### 进程是什么 进程是具有一定独立功能的程序，它是系统进行资源分配和调度的一个独立单位，重点在系统调度和独立的单位，也就是说进程是可以独立运行的一段程序。</p>
-</blockquote>
-<h3 id="线程是什么">线程是什么</h3>
-<p>线程是进程的一个实体，是CPU调度和分配的基本单位，它是比进程更小的能独立运行的基本单位，线程自己基本上不拥有系统资源，在运行时，只是暂用一些计数器，寄存器，和栈。</p>
-<h3 id="进程与线程的关系">进程与线程的关系</h3>
-<ul>
-<li>一个线程只能属于一个进程，而一个进程可以有多个线程，但至少有一个线程（通常说的主线程）</li>
-<li>资源分配给进程，同一进程的所有线程共享该进程的所有资源</li>
-<li>线程在执行过程中，需要协作同步，不同进程的线程间要利用消息通信的方法实现同步</li>
-<li>处理机分配给线程，即真正在处理机上运行的是线程</li>
-<li>线程是指进程内的一个执行单元，也是进程内的可调度实体</li>
-</ul>
-<h3 id="从4个角度来分析进程与线程之间的区别">从4个角度来分析进程与线程之间的区别</h3>
-<ul>
-<li>调度：线程作为调度和分配的基本单位，进程作为拥有资源的基本单位</li>
-<li>并发性：不仅进程之间可以并发执行，同一个进程的多个线程之间也可以并发执行</li>
-<li>拥有资源：进程是拥有资源的一个独立单位，线程不拥有系统资源，但是可以访问隶属于进程的资源</li>
-<li>系统开销：创建或撤销进程时，系统都要为之分配或回收系统资源，如内存空间，I/O设备等，OS所付出的开销显著大于在创建或撤销线程时的开销，进程切换的开销也远大于线程切换的开销</li>
-</ul>
-<h3 id="进程有几种状态">进程有几种状态</h3>
-<ul>
-<li>就绪状态：进程已经获得除处理机以外的所有资源，等待分配处理机资源</li>
-<li>运行状态：占用处理机资源运行，处于此状态的进程数小于等于CPU数目</li>
-<li>阻塞状态：进程等待某种条件，在条件满足之前无法运行</li>
-</ul>
-<h3 id="线程有几种状态">线程有几种状态</h3>
-<ul>
-<li><strong>执行状态：</strong>表示线程已经获得处理机而正在运行</li>
-<li><strong>就绪状态：</strong>指线程已经具备了各种执行条件，只需再获得CPU便可以立即执行难</li>
-<li><strong>阻塞状态：</strong>线程在执行过程中因某事受阻而处于暂停状态</li>
-</ul>
-<h3 id="操作系统进程调度有哪几种">操作系统进程调度有哪几种</h3>
-<ul>
-<li><strong>非抢占式方式：</strong>采用这种调度方式时，一旦把处理机分配给某个进程后，就一直让它运行下去，决不会因为时钟中断或任何其它原因去抢占当前正在运行进程的处理机，直至该进程完成，或发生某种事件而被阻塞时，才把处理机分配给其他进程</li>
-<li><strong>抢占式方式：</strong>这种调度方式允许调度程序根据某种原则，去暂停某个正在执行的进程，将已经分配给该进程的处理机重新分配给另一进程，在现代OS中广泛采用抢占方式。</li>
-</ul>
-<h3 id="进程为什么需要同步">进程为什么需要同步</h3>
-<p>进程同步机制的主要任务是对多个相关进程在执行次序上进行协调，使得并发执行的各个进程之间能按照一定的规则或时序共享系统资源，并能很好的相互合作，从而使得程序的执行具有可再现性</p>
-<h3 id="列举几种进程同步机制并说明其优缺点">列举几种进程同步机制，并说明其优缺点</h3>
-<ul>
-<li><strong>硬件同步机制：</strong></li>
-<li><strong>信号量机制：</strong></li>
-<li><strong>管程机制：</strong></li>
-</ul>
-<h3 id="进程之间通信的途径">进程之间通信的途径</h3>
-<ul>
-<li><strong>管道</strong>：管道是一种半双工的通信方式，数据只能单向流动，而且只能在具有亲缘关系的进程间使用，进程的亲缘关系通常是指父子进程关系</li>
-<li><strong>有名管道</strong>：有名管道也是半双工的通信方式，但是它允许无亲缘关系的进程间的通信</li>
-<li><strong>信号量</strong>：信号量是一个计数器，可以用来控制多个进程对共享资源的访问，它常作为一种锁机制，防止某进程正在访问共享资源时，其他进程也访问该资源，因此，主要作为进程间以及同一进程内不同线程之间的同步手段</li>
-<li><strong>消息队列</strong>：消息队列是由消息的链表，存放在内核中并由消息队列标识符标识，消息队列克服了信号传递信息少，管道只能承载无格式字节流以及缓冲区大小受限等缺点</li>
-<li><strong>信号</strong>：信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生</li>
-<li><strong>共享内存</strong>：共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问，共享内存是最快的IPC方式，它是针对其他进程通信方式运行效率低而专门设计的，它往往与其他通信机制，如信号量，配合使用，来实现进程间的同步和通信</li>
-<li><strong>套接字</strong>：套接字可以用于不同的进程间的通信</li>
-</ul>
-<h3 id="线程之间通信的途径">线程之间通信的途径</h3>
-<ul>
-<li><strong>锁机制</strong>：包括互斥锁，条件变量，读写锁 互斥锁提供了以排他方式防止数据结构被并发修改的方法 条件变量可以以原子的方式阻塞进程，直到某个特定条件为真为止，对条件的测试是在互斥锁的保护下进行的，条件变量始终与互斥锁一起使用 读写锁允许多个线程同时读共享数据，而对写操作是互斥的</li>
-<li><strong>信号量机制</strong>：包括无名线程信号量和命名线程信号量</li>
-<li><strong>信号机制</strong>：类似进程间的信号处理 <strong>注意：线程间的通信的目的主要是用于线程的同步，所以线程没有像进程通信中的用于数据交换的通信机制</strong></li>
-</ul>
-<h3 id="死锁的定义">死锁的定义</h3>
-<p>如果一组进程中的每一个进程都在等待仅由该组进程中的其它进程才能引发的事件，那么该组进程是死锁的</p>
-<h3 id="进程死锁的原因">进程死锁的原因</h3>
-<p>多个进程对资源的争夺，包括对不可抢占资源和对可消耗资源</p>
-<h3 id="进程死锁的4个必要条件">进程死锁的4个必要条件</h3>
-<ul>
-<li><strong>互斥条件：</strong>进程对所分配到的资源进行排它性使用，即在一段时间内，其资源只能被一个进程占用，如果此时还有其它进程请求该资源，则请求进程只能等待，直至占有该资源的进程用完释放</li>
-<li><strong>请求和保持条件：</strong>进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源已经被其它进程占有，此时请求进程被阻塞，但对自己已经获得的资源保持不放</li>
-<li><strong>不可抢占条件：</strong>进程已经获得的资源在未使用完之前不能被抢占，只能在进程使用完时由自己释放</li>
-<li><strong>循环等待条件：</strong>在发生死锁时，必然存在一个进程-资源循环链，即进程集合｛P0,P1,......,PN｝中的P0正在等待一个P1占用的资源，P1正在等待P2占用的资源，......，PN 正在等待P0占用的资源</li>
-</ul>
-<h3 id="进程死锁的处理">进程死锁的处理</h3>
-<ul>
-<li><strong>预防死锁：</strong>通过设置某些限制条件，去破坏产生死锁的四个必要条件中的一种</li>
-<li><strong>避免死锁：</strong>在资源的动态分配过程中，用某种方法防止系统进入不安全状态</li>
-<li><strong>检测死锁：</strong>通过检测机构及时检测出死锁的发生，然后采取适当的措施，把进程从死锁中解脱出来</li>
-<li><strong>解除死锁：</strong>当检测到系统中已经发生死锁时，采取相应的措施，将进程从死锁状态解脱出来，常用的方法是撤销一些进程，回收他们的资源，将它们分配给已经处于阻塞状态的进程，使其能够继续运行</li>
-</ul>
-<h3 id="描述实时操作系统的基本特征">描述实时操作系统的基本特征</h3>
-<p>实时操作系统是指操作系统工作时，其各种资源可以根据需要随时进行动态分配，由于各种资源可以进行动态分配，因此，其处理事务的能力较强 换言之，在特定时间内完成特定的任务，具有实时性与可靠性</p>
-<h3 id="操作系统中断与轮询的基本特点">操作系统中断与轮询的基本特点</h3>
-<ul>
-<li><strong>轮询：</strong>对I/O设备的程序轮询的方式是早期的计算机系统对I/O设备的一种管理方式，它定时对各种设备轮流询问一遍有无处理要求。轮询占据了CPU相当一部分处理时间，因此，程序轮询是一种效率较低的方式，在现代计算机系统中已经很少应用</li>
-<li><strong>中断：</strong>中断是指CPU在正常运行程序的过程中，由于发生的内部或外部的特定的事件，使得CPU中断正在运行的程序，而转到响应的服务程序去处理</li>
-</ul>
-<h3 id="什么是临界区如何解决冲突">什么是临界区，如何解决冲突</h3>
-<p>每个进程中访问临界资源的那段程序称为临界区，每次只准许一个进程进入临界区，进入后不允许其他进程进入 解决冲突的方法： - 如果有若干个进程要求进入空闲的临界区，一次仅允许一个进程进入 - 任何时候，处于临界区内的进程不可以多于一个，如果已经有进程进入自己的临界区，则其他所有试图进入临界区的进程必须等待 - 进入临界区内的进程要在有限时间内退出，以便其它进程能及时进入自己的临界区 - 如果进程不能进入自己的临界区，则应该让出CPU，避免进程出现“忙碌”现象。</p>
-<h3 id="windows下内存是如何管理的">windows下内存是如何管理的</h3>
-<p>windows操纵内存可以分为两个层面，物理内存和虚拟内存</p>
-<h1 id="嵌入式c语言面试题目">嵌入式C语言面试题目</h1>
-<h3 id="c语言中如何引用一个已经定义过的变量">C语言中如何引用一个已经定义过的变量</h3>
-<p>可以使用extern或者引用头文件的方式 － <strong>extern</strong>： － <strong>引用头文件</strong>： 注意：当定义写错时，注意两者在编译或者链接时产生错误的区别</p>
-<h3 id="什么是预编译何时需要预编译">什么是预编译，何时需要预编译</h3>
-<p>预编译是指程序执行前的一些预处理工作，主要指#表示的。 何时需要预处理？ - 总是使用不经常改动的大型大码体 - 程序由多个模块组成，所有模块都使用一组标准的包含头文件和相同的编译选项</p>
-<h3 id="c语言中关键字static的作用">C语言中关键字static的作用</h3>
-<ul>
-<li><strong>static全局变量</strong>：全局变量的说明之前加上static就变成了静态的全局变量，全局变量本身就是静态存储，因此这两种在存储方式上没有区别。两者的区别在于非静态全局变量的作用域是整个源程序，也就是说当一个程序包含多个文件时，非静态的全局变量在多个文件中都是有效的，而静态全局变量则限制了其作用域，只能在定义该变量的源文件内有效</li>
-<li><strong>static局部变量</strong>：存储方式变为静态存储</li>
-<li><strong>static函数</strong>：将函数的作用域限制在当前文件</li>
-</ul>
-<h3 id="c语言中关键字const的作用">C语言中关键字const的作用</h3>
-<ul>
-<li>表示常量不可以修改</li>
-<li>可以修饰函数的输入参数</li>
-<li>修饰函数，防止更改 <strong>注意：</strong>在声明一个简单变量和数组时使用关键字const很简单，指针则会复杂一些，因为需要区分这两种情况：1. 指针本身成为const 2. 指针指向的值成为const 例如： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//第一种情况，pf指向一个常量浮点数值，但是pf本身的值是可以改变的，例如，它可以指向另外一个const值</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">float</span> * pf;</span><br><span class="line"><span class="comment">//第二种情况，pt指向同一个地址，但是所指向的值是可以改变的</span></span><br><span class="line"><span class="keyword">float</span> *<span class="keyword">const</span> pt;</span><br><span class="line"><span class="comment">//第三种情况，ptr指向同一个位置，并且它所指向位置存储的值也不能改变</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">float</span> * <span class="keyword">const</span> ptr;</span><br></pre></td></tr></table></figure> <strong>总而言之，一个位于<em>左边任意位置的const使得数据成为常量，而一个位于</em>右边的const使得指针自身成为常量</strong></li>
-</ul>
-<h3 id="c语言中关键字volatile的作用">C语言中关键字volatile的作用</h3>
-<p>限定词volatile 告诉编译器该变量除了可被程序改变以外还可以被其他代理改变，典型的，它被用于硬件地址和其他并行运行的程序共享的数据。 例如一个地址中可能保存着当前的时钟时间，不管程序做些什么，该地址的值都会随着时间而改变。 又例如一个地址被用来接收来自其他计算机的信息。 <strong>注意点：</strong>一个值可以同时是const和volatile，例如，硬件时钟一般设定为不能由程序改变，这一点使得它成为const，但它可以被程序以外的代理改变，这使得它成为volatile的，只需在声明中同时使用这两个限定词，顺序并不重要，如下所示： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">volatile</span> <span class="keyword">const</span> <span class="keyword">int</span> loc;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">volatile</span> <span class="keyword">int</span> * ploc;</span><br></pre></td></tr></table></figure></p>
-<h3 id="全局变量可不可以定义在被多个.c文件包含的头文件中">全局变量可不可以定义在被多个.C文件包含的头文件中</h3>
-<p>这个问题怎么说呢，就算是可以吧！这个全局变量可以被任何一个引用该头文件的c源文件中使用，但是只能有一个c源文件对该变量进行赋值，不然链接的时候会出现错误</p>
-<h3 id="c语言的堆栈静态区的区别">C语言的堆，栈，静态区的区别</h3>
-<p>－ 程序的局部变量存储于栈中，全局变量存储于静态区，动态申请数据存储于堆中 － 一个由C编译的程序占用以下几个区： 1. <strong>栈区</strong>：由编译器自动分配与释放，存放函数的参数值，或者局部变量等，其操作方式类似于数据结构中的栈 2. <strong>堆区</strong>：由程序员分配与释放，若程序员不释放，则OS在结束时可能会释放，注意这里的堆是从编程语言的角度来说的（我曾经面试了一个学校，被问到<strong>从编程语言的角度</strong>说明堆和栈的区别，当时被问的一脸蒙蔽，呵呵呵），这个堆和数据结构中的堆是完全不一样的东西，至于为什么也叫堆，还请大佬们补充补充！ 3. <strong>全局区（静态区）</strong>：全局变量和静态变量是存放在一块的，初始化的全局变量和静态变量是存放在一块区域，未初始化的全局变量和初始化的静态变量存储在相邻的一块区域 4. <strong>文字常量区</strong>：常量字符串就是存放于此，程序结束后由系统释放 5. <strong>程序代码区</strong>：存放函数体的二进制代码</p>
-<h3 id="用预处理指令define声明一个常数用以表示一年中有多少秒">用预处理指令#define声明一个常数，用以表示一年中有多少秒</h3>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SECONDS_PER_YEAR (60*60*24*365)UL</span></span><br><span class="line"><span class="comment">//UL表示这个无符号长整型，如果不加UL，将会使得一个16位的整型机器产生溢出</span></span><br></pre></td></tr></table></figure>
-<h3 id="写一个标准宏min这个宏输入两个参数并返回一个较小的数">写一个标准宏MIN，这个宏输入两个参数并返回一个较小的数</h3>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MIN(x,y) ((x&gt;y)?(y):(x))</span></span><br><span class="line"><span class="comment">//这里为什么都要加括号？比如x，y是一个表达式的话，不加括号的话计算顺序可能不对了</span></span><br></pre></td></tr></table></figure>
-<h3 id="宏定义的函数与普通函数的区别">宏定义的函数与普通函数的区别</h3>
-<p>宏与函数的选择实际上是时间与空间的权衡。 宏产生内联代码，也就是说，在程序中产生语句，如果使用宏20次，则会把20行代码插入程序中，如果使用函数20次，那么 程序中只有一份函数语句的拷贝，因此使用函数可以节约空间。 但是程序的控制必须转移到函数中并随后返回调用程序，因此这比内联代码花费的时间多，所以使用宏定义的函数节约了时间。</p>
-]]></content>
-      <categories>
-        <category>嵌入式</category>
-      </categories>
-      <tags>
-        <tag>华为</tag>
       </tags>
   </entry>
   <entry>
