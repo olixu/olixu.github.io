@@ -34,45 +34,6 @@
       </tags>
   </entry>
   <entry>
-    <title>How to reading scientific papers</title>
-    <url>/2019/07/09/How-to-reading-scientific-papers/</url>
-    <content><![CDATA[<h1 id="step1-choose-the-paper">STEP1: Choose the paper</h1>
-<ul>
-<li>Use tools such as <strong>Google Scholar</strong>.</li>
-</ul>
-<a id="more"></a>
-<h1 id="step2-survey-the-paper">STEP2: Survey the paper</h1>
-<ul>
-<li><p>Read the title and keywords</p></li>
-<li><p>Read abstract and conclusions</p>
-<p>This step may take you less than 1 minute, but it is of great significance, through which you could get the point of how relevent it is to your research topic.</p></li>
-</ul>
-<h1 id="step3-read-the-paper">STEP3: Read the paper</h1>
-<ul>
-<li><p>Look at the tables and figures.</p>
-<p>Tables and figures are really what was done in the work. This does not take much time so it is worth reading before really getting into the details which will slow down the reading.</p></li>
-<li><p>Read the introduction.</p>
-<p>This is the background needed and why the study was done.</p></li>
-<li><p>Read the results and discussion.</p>
-<p>This is the heart of the paper, which occupis the most of the time reading the paper.</p></li>
-<li><p>Read the experimental.</p>
-<p>This is how the authors did the work. You only get to this point if you are really interested and need to understand exactly what was done to better understand the meaning of the data and its interpretation.</p></li>
-</ul>
-<h1 id="step4-making-notes">STEP4: Making notes</h1>
-<ul>
-<li>Write some notes to make sure that you don't have to reread the whole paper again. Do not write notes on the PDF of the paper,</li>
-</ul>
-<h1 id="reference">Reference</h1>
-<p>https://www.youtube.com/watch?v=IeaD0ZaUJ3Y</p>
-]]></content>
-      <categories>
-        <category>scientific papers</category>
-      </categories>
-      <tags>
-        <tag>scientific papers</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Flask项目结构</title>
     <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<blockquote>
@@ -116,6 +77,45 @@
       </categories>
       <tags>
         <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to reading scientific papers</title>
+    <url>/2019/07/09/How-to-reading-scientific-papers/</url>
+    <content><![CDATA[<h1 id="step1-choose-the-paper">STEP1: Choose the paper</h1>
+<ul>
+<li>Use tools such as <strong>Google Scholar</strong>.</li>
+</ul>
+<a id="more"></a>
+<h1 id="step2-survey-the-paper">STEP2: Survey the paper</h1>
+<ul>
+<li><p>Read the title and keywords</p></li>
+<li><p>Read abstract and conclusions</p>
+<p>This step may take you less than 1 minute, but it is of great significance, through which you could get the point of how relevent it is to your research topic.</p></li>
+</ul>
+<h1 id="step3-read-the-paper">STEP3: Read the paper</h1>
+<ul>
+<li><p>Look at the tables and figures.</p>
+<p>Tables and figures are really what was done in the work. This does not take much time so it is worth reading before really getting into the details which will slow down the reading.</p></li>
+<li><p>Read the introduction.</p>
+<p>This is the background needed and why the study was done.</p></li>
+<li><p>Read the results and discussion.</p>
+<p>This is the heart of the paper, which occupis the most of the time reading the paper.</p></li>
+<li><p>Read the experimental.</p>
+<p>This is how the authors did the work. You only get to this point if you are really interested and need to understand exactly what was done to better understand the meaning of the data and its interpretation.</p></li>
+</ul>
+<h1 id="step4-making-notes">STEP4: Making notes</h1>
+<ul>
+<li>Write some notes to make sure that you don't have to reread the whole paper again. Do not write notes on the PDF of the paper,</li>
+</ul>
+<h1 id="reference">Reference</h1>
+<p>https://www.youtube.com/watch?v=IeaD0ZaUJ3Y</p>
+]]></content>
+      <categories>
+        <category>scientific papers</category>
+      </categories>
+      <tags>
+        <tag>scientific papers</tag>
       </tags>
   </entry>
   <entry>
@@ -225,17 +225,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Monte Carlo Methods</title>
-    <url>/2019/10/21/Monte-Carlo-Methods/</url>
-    <content><![CDATA[<p>Unlike Dynamic Programming Methods, Monte Carlo Methods do not assume complete knowledge of the environment. MC only requires experience--sample sequences of states, actions, and rewards from actual or simulated interaction with an environment.</p>
-<h2 id="monte-carlo-prediction">Monte Carlo Prediction</h2>
-<p>The idea underlies all Monte Carlo methods is that as more returns are observed the average should converge to the expected value. So we begin by considerng Monte Carlo methods for learning the state-value function for a given policy. A way to estimate the value of a state from experience is simply to average the returns observed after visits to that state. <a id="more"></a> ## Play with Blackjack ENV <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">env = BlackjackEnv()</span><br><span class="line"><span class="comment"># The observation is a 3-tuple of: the players current sum,</span></span><br><span class="line"><span class="comment"># the dealer's one showing card (1-10 where 1 is ace),</span></span><br><span class="line"><span class="comment"># and whether or not the player holds a usable ace (0 or 1).</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_observation</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    print(<span class="string">"Player Score: &#123;&#125; (Usable Ace: &#123;&#125;), Dealer Score: &#123;&#125;"</span>.format(</span><br><span class="line">          score, usable_ace, dealer_score))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    <span class="comment"># Stick (action 0) if the score is &gt; 20, hit (action 1) otherwise</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> score &gt;= <span class="number">20</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    observation = env.reset()</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        print_observation(observation)</span><br><span class="line">        action = strategy(observation)</span><br><span class="line">        print(<span class="string">"Taking action: &#123;&#125;"</span>.format( [<span class="string">"Stick"</span>, <span class="string">"Hit"</span>][action]))</span><br><span class="line">        observation, reward, done, _ = env.step(action)</span><br><span class="line">        <span class="keyword">if</span> done:</span><br><span class="line">            print_observation(observation)</span><br><span class="line">            print(<span class="string">"Game end. Reward: &#123;&#125;\n"</span>.format(float(reward)))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="first-visit-mc-prediction-algorithm">First-visit MC prediction algorithm</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mc_prediction</span><span class="params">(policy, env, num_episodes, discount_factor=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Monte Carlo prediction algorithm. Calculates the value function</span></span><br><span class="line"><span class="string">    for a given policy using sampling.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        policy: A function that maps an observation to action probabilities.</span></span><br><span class="line"><span class="string">        env: OpenAI gym environment.</span></span><br><span class="line"><span class="string">        num_episodes: Number of episodes to sample.</span></span><br><span class="line"><span class="string">        discount_factor: Gamma discount factor.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        A dictionary that maps from state -&gt; value.</span></span><br><span class="line"><span class="string">        The state is a tuple and the value is a float.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Keeps track of sum and count of returns for each state</span></span><br><span class="line">    <span class="comment"># to calculate an average. We could use an array to save all</span></span><br><span class="line">    <span class="comment"># returns (like in the book) but that's memory inefficient.</span></span><br><span class="line">    returns_sum = defaultdict(float)</span><br><span class="line">    returns_count = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># The final value function</span></span><br><span class="line">    V = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Implement this!</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        episode = []</span><br><span class="line">        state = env.reset()</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            action = policy(state)</span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            state = next_state</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Find all states the we've visited in this episode</span></span><br><span class="line">        <span class="comment"># We convert each state to a tuple so that we can use it as a dict key</span></span><br><span class="line">        states_in_episode = set([tuple(x[<span class="number">0</span>]) <span class="keyword">for</span> x <span class="keyword">in</span> episode])</span><br><span class="line">        <span class="keyword">for</span> state <span class="keyword">in</span> states_in_episode:</span><br><span class="line">            <span class="comment">#print(state)</span></span><br><span class="line">            <span class="comment">#print(10*'*')</span></span><br><span class="line">            <span class="comment"># Find the first occurance of the state in the episode</span></span><br><span class="line">            first_occurence_idx = next(i <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode) <span class="keyword">if</span> x[<span class="number">0</span>] == state)</span><br><span class="line">            <span class="comment"># Sum up all rewards since the first occurance</span></span><br><span class="line">            G = sum([x[<span class="number">2</span>]*(discount_factor**i) <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode[first_occurence_idx:])])</span><br><span class="line">            <span class="comment"># Calculate average return for this state over all sampled episodes</span></span><br><span class="line">            returns_sum[state] += G</span><br><span class="line">            returns_count[state] += <span class="number">1.0</span></span><br><span class="line">            V[state] = returns_sum[state] / returns_count[state]</span><br><span class="line">    print(len(V))</span><br><span class="line">    print(first_occurence_idx)</span><br><span class="line">    print(states_in_episode)</span><br><span class="line">    print(episode)</span><br><span class="line">    <span class="keyword">return</span> V</span><br></pre></td></tr></table></figure>
-<p><img src="10000_Steps_No_Usable_Ace.png" alt="10000_Steps_No_Usable_Ace" /> <img src="10000_Steps_Usable_Ace.png" alt="10000_Steps_Usable_Ace" /> <img src="500000_Steps_No_Usable_Ace.png" alt="500000_Steps_No_Usable_Ace" /> <img src="500000_Steps_Usable_Ace.png" alt="500000_Steps_Usable_Ace" /></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Mysql Command</title>
     <url>/2019/11/05/Mysql-Command/</url>
     <content><![CDATA[<p>This post will record all the mysql command that i used in my projects.</p>
@@ -332,6 +321,17 @@ Q_{u}\left(x_{k}, \mu\right) &amp;=\mathcal{R}\left(x_{k}, \mu\right)+Q_{u}\left
       </tags>
   </entry>
   <entry>
+    <title>Monte Carlo Methods</title>
+    <url>/2019/10/21/Monte-Carlo-Methods/</url>
+    <content><![CDATA[<p>Unlike Dynamic Programming Methods, Monte Carlo Methods do not assume complete knowledge of the environment. MC only requires experience--sample sequences of states, actions, and rewards from actual or simulated interaction with an environment.</p>
+<h2 id="monte-carlo-prediction">Monte Carlo Prediction</h2>
+<p>The idea underlies all Monte Carlo methods is that as more returns are observed the average should converge to the expected value. So we begin by considerng Monte Carlo methods for learning the state-value function for a given policy. A way to estimate the value of a state from experience is simply to average the returns observed after visits to that state. <a id="more"></a> ## Play with Blackjack ENV <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">env = BlackjackEnv()</span><br><span class="line"><span class="comment"># The observation is a 3-tuple of: the players current sum,</span></span><br><span class="line"><span class="comment"># the dealer's one showing card (1-10 where 1 is ace),</span></span><br><span class="line"><span class="comment"># and whether or not the player holds a usable ace (0 or 1).</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_observation</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    print(<span class="string">"Player Score: &#123;&#125; (Usable Ace: &#123;&#125;), Dealer Score: &#123;&#125;"</span>.format(</span><br><span class="line">          score, usable_ace, dealer_score))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    <span class="comment"># Stick (action 0) if the score is &gt; 20, hit (action 1) otherwise</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> score &gt;= <span class="number">20</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    observation = env.reset()</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        print_observation(observation)</span><br><span class="line">        action = strategy(observation)</span><br><span class="line">        print(<span class="string">"Taking action: &#123;&#125;"</span>.format( [<span class="string">"Stick"</span>, <span class="string">"Hit"</span>][action]))</span><br><span class="line">        observation, reward, done, _ = env.step(action)</span><br><span class="line">        <span class="keyword">if</span> done:</span><br><span class="line">            print_observation(observation)</span><br><span class="line">            print(<span class="string">"Game end. Reward: &#123;&#125;\n"</span>.format(float(reward)))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="first-visit-mc-prediction-algorithm">First-visit MC prediction algorithm</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mc_prediction</span><span class="params">(policy, env, num_episodes, discount_factor=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Monte Carlo prediction algorithm. Calculates the value function</span></span><br><span class="line"><span class="string">    for a given policy using sampling.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        policy: A function that maps an observation to action probabilities.</span></span><br><span class="line"><span class="string">        env: OpenAI gym environment.</span></span><br><span class="line"><span class="string">        num_episodes: Number of episodes to sample.</span></span><br><span class="line"><span class="string">        discount_factor: Gamma discount factor.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        A dictionary that maps from state -&gt; value.</span></span><br><span class="line"><span class="string">        The state is a tuple and the value is a float.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Keeps track of sum and count of returns for each state</span></span><br><span class="line">    <span class="comment"># to calculate an average. We could use an array to save all</span></span><br><span class="line">    <span class="comment"># returns (like in the book) but that's memory inefficient.</span></span><br><span class="line">    returns_sum = defaultdict(float)</span><br><span class="line">    returns_count = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># The final value function</span></span><br><span class="line">    V = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Implement this!</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        episode = []</span><br><span class="line">        state = env.reset()</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            action = policy(state)</span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            state = next_state</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Find all states the we've visited in this episode</span></span><br><span class="line">        <span class="comment"># We convert each state to a tuple so that we can use it as a dict key</span></span><br><span class="line">        states_in_episode = set([tuple(x[<span class="number">0</span>]) <span class="keyword">for</span> x <span class="keyword">in</span> episode])</span><br><span class="line">        <span class="keyword">for</span> state <span class="keyword">in</span> states_in_episode:</span><br><span class="line">            <span class="comment">#print(state)</span></span><br><span class="line">            <span class="comment">#print(10*'*')</span></span><br><span class="line">            <span class="comment"># Find the first occurance of the state in the episode</span></span><br><span class="line">            first_occurence_idx = next(i <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode) <span class="keyword">if</span> x[<span class="number">0</span>] == state)</span><br><span class="line">            <span class="comment"># Sum up all rewards since the first occurance</span></span><br><span class="line">            G = sum([x[<span class="number">2</span>]*(discount_factor**i) <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode[first_occurence_idx:])])</span><br><span class="line">            <span class="comment"># Calculate average return for this state over all sampled episodes</span></span><br><span class="line">            returns_sum[state] += G</span><br><span class="line">            returns_count[state] += <span class="number">1.0</span></span><br><span class="line">            V[state] = returns_sum[state] / returns_count[state]</span><br><span class="line">    print(len(V))</span><br><span class="line">    print(first_occurence_idx)</span><br><span class="line">    print(states_in_episode)</span><br><span class="line">    print(episode)</span><br><span class="line">    <span class="keyword">return</span> V</span><br></pre></td></tr></table></figure>
+<p><img src="10000_Steps_No_Usable_Ace.png" alt="10000_Steps_No_Usable_Ace" /> <img src="10000_Steps_Usable_Ace.png" alt="10000_Steps_Usable_Ace" /> <img src="500000_Steps_No_Usable_Ace.png" alt="500000_Steps_No_Usable_Ace" /> <img src="500000_Steps_Usable_Ace.png" alt="500000_Steps_Usable_Ace" /></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Play with CartPole</title>
     <url>/2019/10/25/Play-with-CartPole/</url>
     <content><![CDATA[<p>Gym is a toolkit for developing and comparing reinforcement learning algorithms. The Gym library is a collection of test problems - environments - that you can use to work out your reinforcement learning algorithms. These environments have a shared interface, allowing you to write general algorithms.</p>
@@ -408,26 +408,6 @@ Box(4,)</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Python的Anoymous Functions</title>
-    <url>/2019/02/15/Python%E7%9A%84Anoymous-Functions/</url>
-    <content><![CDATA[<h2 id="什么是python的匿名函数">什么是Python的匿名函数</h2>
-<p>在Python中，匿名函数的意思是定义的函数没有名字。<code>def</code>命令用来创建普通函数，<code>lambda</code>命令用来创建匿名函数。语法如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">lambda</span> arguments : expression</span><br></pre></td></tr></table></figure>
-<ul>
-<li>这个函数可以拥有多个参数，但是只有一个表达式进行运行与返回</li>
-<li>换句话说，lambda表达式中不能出现赋值，或者使用任何其他的语句，例如while， try等等</li>
-</ul>
-<h2 id="example">Example</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">g = <span class="keyword">lambda</span> x:x*x*x</span><br><span class="line">print(g(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>实验室服务器安装Proxmox</title>
     <url>/2020/08/08/Proxmox%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<p>实验室有一台I7-3770，32GB内存的服务器，虽然没有显卡，但是用来作为编译机器还是可以的，所以装了一个Proxmox系统来进行管理，可以很方便的开虚拟机，实验室的小伙伴能一起使用了。</p>
@@ -483,6 +463,26 @@ Box(4,)</code></pre>
 ]]></content>
   </entry>
   <entry>
+    <title>Python的Anoymous Functions</title>
+    <url>/2019/02/15/Python%E7%9A%84Anoymous-Functions/</url>
+    <content><![CDATA[<h2 id="什么是python的匿名函数">什么是Python的匿名函数</h2>
+<p>在Python中，匿名函数的意思是定义的函数没有名字。<code>def</code>命令用来创建普通函数，<code>lambda</code>命令用来创建匿名函数。语法如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">lambda</span> arguments : expression</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这个函数可以拥有多个参数，但是只有一个表达式进行运行与返回</li>
+<li>换句话说，lambda表达式中不能出现赋值，或者使用任何其他的语句，例如while， try等等</li>
+</ul>
+<h2 id="example">Example</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">g = <span class="keyword">lambda</span> x:x*x*x</span><br><span class="line">print(g(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python配置虚拟环境</title>
     <url>/2018/09/16/Python%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
     <content><![CDATA[<blockquote>
@@ -518,33 +518,6 @@ Box(4,)</code></pre>
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Simplify: Python VS Matlab</title>
-    <url>/2019/10/20/Simplify-Python-VS-Matlab/</url>
-    <content><![CDATA[<h2 id="background">Background</h2>
-<p>The homework of Linear System Theory is challenging. Here is Problem 1:</p>
-<p>Consider a linear system with a state transition matrix <span class="math inline">\(\phi(t,t_0)\)</span></p>
-<p><span class="math display">\[\phi(t,t_0)=\displaystyle \left[\begin{matrix}
-e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
--e^{t} \sin{\left(2 t \right)} &amp; e^{- 2 t} \cos{\left(2 t \right)}
-\end{matrix}\right]\]</span></p>
-<p>Compute A(t).</p>
-<p>Since the given system is linear time variant system, by using some properties of <span class="math inline">\(\phi\)</span>, we can easily compute <span class="math inline">\(A(t)\)</span>. However, the expression is so complicate that i could not simplify it by hand. I call for some tools for help. The tools are <strong>Python</strong> and <strong>Matlab</strong>.</p>
-<p>This post compare the difference of <strong>simplify</strong> function in Python and Matlab. <a id="more"></a> ## Comparision ### Python sympy.simplify.simplify.simplify(expr, ratio=1.7, measure=<function count_ops>, rational=False, inverse=False). Link https://docs.sympy.org/latest/modules/simplify/simplify.html</p>
-<p>This function does not work well, it did not simplify the expression, giving th following outcome.</p>
-<p><span class="math display">\[\displaystyle \left[\begin{matrix}\frac{\left(- \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\\\frac{\left(- \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\end{matrix}\right]\]</span></p>
-<p>It's <strong>rediculous</strong>!</p>
-<h3 id="matlab">Matlab</h3>
-<p>S = simplify(expr) performs algebraic simplification of expr. If expr is a symbolic vector or matrix, this function simplifies each element of expr. Link https://www.mathworks.com/help/symbolic/simplify.html</p>
-<p>This function works very well and much faster than Sympy.</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -648,6 +621,33 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Simplify: Python VS Matlab</title>
+    <url>/2019/10/20/Simplify-Python-VS-Matlab/</url>
+    <content><![CDATA[<h2 id="background">Background</h2>
+<p>The homework of Linear System Theory is challenging. Here is Problem 1:</p>
+<p>Consider a linear system with a state transition matrix <span class="math inline">\(\phi(t,t_0)\)</span></p>
+<p><span class="math display">\[\phi(t,t_0)=\displaystyle \left[\begin{matrix}
+e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
+-e^{t} \sin{\left(2 t \right)} &amp; e^{- 2 t} \cos{\left(2 t \right)}
+\end{matrix}\right]\]</span></p>
+<p>Compute A(t).</p>
+<p>Since the given system is linear time variant system, by using some properties of <span class="math inline">\(\phi\)</span>, we can easily compute <span class="math inline">\(A(t)\)</span>. However, the expression is so complicate that i could not simplify it by hand. I call for some tools for help. The tools are <strong>Python</strong> and <strong>Matlab</strong>.</p>
+<p>This post compare the difference of <strong>simplify</strong> function in Python and Matlab. <a id="more"></a> ## Comparision ### Python sympy.simplify.simplify.simplify(expr, ratio=1.7, measure=<function count_ops>, rational=False, inverse=False). Link https://docs.sympy.org/latest/modules/simplify/simplify.html</p>
+<p>This function does not work well, it did not simplify the expression, giving th following outcome.</p>
+<p><span class="math display">\[\displaystyle \left[\begin{matrix}\frac{\left(- \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\\\frac{\left(- \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\end{matrix}\right]\]</span></p>
+<p>It's <strong>rediculous</strong>!</p>
+<h3 id="matlab">Matlab</h3>
+<p>S = simplify(expr) performs algebraic simplification of expr. If expr is a symbolic vector or matrix, this function simplifies each element of expr. Link https://www.mathworks.com/help/symbolic/simplify.html</p>
+<p>This function works very well and much faster than Sympy.</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -941,6 +941,34 @@ x
       </tags>
   </entry>
   <entry>
+    <title>健身房计划制定与动作</title>
+    <url>/2020/08/24/%E5%81%A5%E8%BA%AB%E6%88%BF%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
+    <content><![CDATA[<p>这篇文章整理我用到的训练计划和训练动作与健身记录。</p>
+<a id="more"></a>
+<h2 id="手臂超级组">手臂超级组</h2>
+<h3 id="组1">组1</h3>
+<p>杠铃弯举</p>
+<p>窄距杠铃卧推</p>
+<h3 id="组2">组2</h3>
+<p>锤式哑铃弯举</p>
+<p>仰卧杠铃臂屈伸</p>
+<h3 id="组3">组3</h3>
+<p>二头绳索弯举</p>
+<p>三头绳索下压</p>
+<h3 id="组4">组4</h3>
+<p>背后曲臂伸</p>
+<p>哑铃交替弯举</p>
+<h3 id="做法">做法</h3>
+<p>每两个动作（二头屈，三头伸）为一个超级组，每个超级组做3组，每组的两个动作分别做8-12RM。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用本地服务器结合github action推送github pages</title>
     <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
     <content><![CDATA[<h2 id="需求">需求</h2>
@@ -998,34 +1026,6 @@ x
       </categories>
       <tags>
         <tag>raspberry</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>健身房计划制定与动作</title>
-    <url>/2020/08/24/%E5%81%A5%E8%BA%AB%E6%88%BF%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
-    <content><![CDATA[<p>这篇文章整理我用到的训练计划和训练动作与健身记录。</p>
-<a id="more"></a>
-<h2 id="手臂超级组">手臂超级组</h2>
-<h3 id="组1">组1</h3>
-<p>杠铃弯举</p>
-<p>窄距杠铃卧推</p>
-<h3 id="组2">组2</h3>
-<p>锤式哑铃弯举</p>
-<p>仰卧杠铃臂屈伸</p>
-<h3 id="组3">组3</h3>
-<p>二头绳索弯举</p>
-<p>三头绳索下压</p>
-<h3 id="组4">组4</h3>
-<p>背后曲臂伸</p>
-<p>哑铃交替弯举</p>
-<h3 id="做法">做法</h3>
-<p>每两个动作（二头屈，三头伸）为一个超级组，每个超级组做3组，每组的两个动作分别做8-12RM。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -1267,6 +1267,33 @@ x
       </tags>
   </entry>
   <entry>
+    <title>初学数据库-sqlite3 简介</title>
+    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
+</blockquote>
+<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
+<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
+<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
+<h2 id="于是数据库出现了">于是，数据库出现了</h2>
+<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
+<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
+<h2 id="数据库种类">数据库种类</h2>
+<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
+<h3 id="非关系型数据库">2.非关系型数据库</h3>
+<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
+<h2 id="sqlite3">sqlite3</h2>
+<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>利用虚拟主机搭建一个验证爬虫代理IP是否有效的服务</title>
     <url>/2018/10/14/%E5%88%A9%E7%94%A8%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%AA%8C%E8%AF%81%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88%E7%9A%84%E6%9C%8D%E5%8A%A1/</url>
     <content><![CDATA[<blockquote>
@@ -1301,96 +1328,6 @@ x
       </categories>
       <tags>
         <tag>爬虫 代理IP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初学数据库-sqlite3 简介</title>
-    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
-</blockquote>
-<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
-<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
-<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
-<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
-<h2 id="于是数据库出现了">于是，数据库出现了</h2>
-<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
-<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
-<h2 id="数据库种类">数据库种类</h2>
-<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
-<h3 id="非关系型数据库">2.非关系型数据库</h3>
-<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
-<h2 id="sqlite3">sqlite3</h2>
-<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>单变量线性回归--Pytorch实现</title>
-    <url>/2018/11/14/%E5%8D%95%E5%8F%98%E9%87%8F%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92-Pytorch%E5%AE%9E%E7%8E%B0/</url>
-    <content><![CDATA[<h1 id="单变量线性回归pytorch实现">单变量线性回归——Pytorch实现</h1>
-<p>吴恩达老师机器学习课程中的线性回归采用的是Matlab编写的，我用Pytorch实现一遍。</p>
-<p>x_train是房子大小</p>
-<p>y_train是房子售价</p>
-<p>最终目标是预测y_train</p>
-<a id="more"></a>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
-<h2 id="使用numpy读入txt数据np.loadtxt">使用numpy读入txt数据，np.loadtxt()</h2>
-<p><strong>numpy.loadtxt(fname, dtype=&lt;class 'float'&gt;, comments='#', delimiter=None, converters=None, skiprows=0, usecols=None, unpack=False, ndmin=0, encoding='bytes')</strong></p>
-<p>从TXT文件中读入数据 文件中的每一行需要有相同的个数的数据</p>
-<p><em>参数</em> <em>fname</em> : 文件名或者文件路径</p>
-<p><em>dtype</em> : 数据格式，可选，默认是float类型</p>
-<p><em>comments</em> : str or sequence of str, optional</p>
-<pre><code>The characters or list of characters used to indicate the start of a comment. None implies no comments. For backwards compatibility, byte strings will be decoded as ‘latin1’. The default is ‘#’.</code></pre>
-<p><em>delimiter</em> : str, optional</p>
-<pre><code>The string used to separate values. For backwards compatibility, byte strings will be decoded as ‘latin1’. The default is whitespace.</code></pre>
-<p><em>converters</em> : dict, optional</p>
-<pre><code>A dictionary mapping column number to a function that will parse the column string into the desired value. E.g., if column 0 is a date string: converters = {0: datestr2num}. Converters can also be used to provide a default value for missing data (but see also genfromtxt): converters = {3: lambda s: float(s.strip() or 0)}. Default: None.</code></pre>
-<p><em>skiprows</em> : int, optional</p>
-<pre><code>Skip the first skiprows lines; default: 0.</code></pre>
-<p><em>usecols</em> : int类型或者sequence类型，可选</p>
-<pre><code>Which columns to read, with 0 being the first. For example, usecols = (1,4,5) will extract the 2nd, 5th and 6th columns. The default, None, results in all columns being read.
-Changed in version 1.11.0: When a single column has to be read it is possible to use an integer instead of a tuple. E.g usecols = 3 reads the fourth column the same way as usecols = (3,) would.</code></pre>
-<p><em>unpack</em> : bool, optional</p>
-<pre><code>If True, the returned array is transposed, so that arguments may be unpacked using x, y, z = loadtxt(...). When used with a structured data-type, arrays are returned for each field. Default is False.</code></pre>
-<p><em>ndmin</em> : int类型，可选，返回的array里至少有ndmin大小的维度</p>
-<p><em>encoding</em> : str类型，可选，对输入的文件进行编码设置，默认是'bytes'</p>
-<p><em>Returns:</em></p>
-<p>out : ndarray</p>
-<pre><code>Data read from the text file.</code></pre>
-<h2 id="导入数据">导入数据</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x_train = np.loadtxt(<span class="string">'ex1data1.txt'</span>, delimiter=<span class="string">','</span>, usecols=<span class="number">0</span>, dtype=np.float32)</span><br><span class="line">y_train = np.loadtxt(<span class="string">'ex1data1.txt'</span>, delimiter=<span class="string">','</span>, usecols=<span class="number">1</span>, dtype=np.float32)</span><br><span class="line"><span class="comment">#print(x_train)</span></span><br><span class="line"><span class="comment">#print(y_train)</span></span><br></pre></td></tr></table></figure>
-<h2 id="将数据用matplotlib画出来">将数据用matplotlib画出来</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.plot(x_train, y_train, <span class="string">'ro'</span>, label=<span class="string">'Original data'</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="output_8_0.png" alt="png" /><figcaption>png</figcaption>
-</figure>
-<h2 id="设计并训练模型">设计并训练模型</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">input_size = <span class="number">1</span></span><br><span class="line">output_size = <span class="number">1</span></span><br><span class="line">num_epochs = <span class="number">1000</span></span><br><span class="line">learning_rate = <span class="number">0.001</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dataset</span></span><br><span class="line">x_train = np.loadtxt(<span class="string">'ex1data1.txt'</span>, delimiter=<span class="string">','</span>, usecols=<span class="number">0</span>, dtype=np.float32).reshape((<span class="number">97</span>,<span class="number">1</span>))</span><br><span class="line">y_train = np.loadtxt(<span class="string">'ex1data1.txt'</span>, delimiter=<span class="string">','</span>, usecols=<span class="number">1</span>, dtype=np.float32).reshape((<span class="number">97</span>,<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">#Linear regression model</span></span><br><span class="line">model = nn.Linear(input_size, output_size)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#Loss and optimizer</span></span><br><span class="line">criterion = nn.MSELoss()</span><br><span class="line">optimizer = torch.optim.SGD(model.parameters(),lr=learning_rate)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Train and model</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(num_epochs):</span><br><span class="line">    inputs = torch.from_numpy(x_train)</span><br><span class="line">    targets = torch.from_numpy(y_train)</span><br><span class="line">    <span class="comment">#Forward pass</span></span><br><span class="line">    outputs = model(inputs)</span><br><span class="line">    loss = criterion(outputs, targets)</span><br><span class="line">    <span class="comment">#Backward and optimize</span></span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">if</span> (epoch+<span class="number">1</span>)%<span class="number">100</span> == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">'Epoch [&#123;&#125;/&#123;&#125;],Loss:&#123;:.4f&#125;'</span>.format(epoch+<span class="number">1</span>, num_epochs, loss.item()))</span><br><span class="line">   </span><br><span class="line"><span class="comment">#plot the graph</span></span><br><span class="line">predicted = model(torch.from_numpy(x_train)).detach().numpy()</span><br><span class="line">plt.plot(x_train, y_train, <span class="string">'ro'</span>, label=<span class="string">'Original data'</span>)</span><br><span class="line">plt.plot(x_train, predicted, label=<span class="string">'Fitted line'</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<pre><code>Epoch [100/1000],Loss:11.1643
-Epoch [200/1000],Loss:11.0105
-Epoch [300/1000],Loss:10.8674
-Epoch [400/1000],Loss:10.7343
-Epoch [500/1000],Loss:10.6104
-Epoch [600/1000],Loss:10.4951
-Epoch [700/1000],Loss:10.3879
-Epoch [800/1000],Loss:10.2881
-Epoch [900/1000],Loss:10.1953
-Epoch [1000/1000],Loss:10.1089</code></pre>
-<figure>
-<img src="output_10_1.png" alt="png" /><figcaption>png</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1486,6 +1423,69 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>单变量线性回归--Pytorch实现</title>
+    <url>/2018/11/14/%E5%8D%95%E5%8F%98%E9%87%8F%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92-Pytorch%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<h1 id="单变量线性回归pytorch实现">单变量线性回归——Pytorch实现</h1>
+<p>吴恩达老师机器学习课程中的线性回归采用的是Matlab编写的，我用Pytorch实现一遍。</p>
+<p>x_train是房子大小</p>
+<p>y_train是房子售价</p>
+<p>最终目标是预测y_train</p>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
+<h2 id="使用numpy读入txt数据np.loadtxt">使用numpy读入txt数据，np.loadtxt()</h2>
+<p><strong>numpy.loadtxt(fname, dtype=&lt;class 'float'&gt;, comments='#', delimiter=None, converters=None, skiprows=0, usecols=None, unpack=False, ndmin=0, encoding='bytes')</strong></p>
+<p>从TXT文件中读入数据 文件中的每一行需要有相同的个数的数据</p>
+<p><em>参数</em> <em>fname</em> : 文件名或者文件路径</p>
+<p><em>dtype</em> : 数据格式，可选，默认是float类型</p>
+<p><em>comments</em> : str or sequence of str, optional</p>
+<pre><code>The characters or list of characters used to indicate the start of a comment. None implies no comments. For backwards compatibility, byte strings will be decoded as ‘latin1’. The default is ‘#’.</code></pre>
+<p><em>delimiter</em> : str, optional</p>
+<pre><code>The string used to separate values. For backwards compatibility, byte strings will be decoded as ‘latin1’. The default is whitespace.</code></pre>
+<p><em>converters</em> : dict, optional</p>
+<pre><code>A dictionary mapping column number to a function that will parse the column string into the desired value. E.g., if column 0 is a date string: converters = {0: datestr2num}. Converters can also be used to provide a default value for missing data (but see also genfromtxt): converters = {3: lambda s: float(s.strip() or 0)}. Default: None.</code></pre>
+<p><em>skiprows</em> : int, optional</p>
+<pre><code>Skip the first skiprows lines; default: 0.</code></pre>
+<p><em>usecols</em> : int类型或者sequence类型，可选</p>
+<pre><code>Which columns to read, with 0 being the first. For example, usecols = (1,4,5) will extract the 2nd, 5th and 6th columns. The default, None, results in all columns being read.
+Changed in version 1.11.0: When a single column has to be read it is possible to use an integer instead of a tuple. E.g usecols = 3 reads the fourth column the same way as usecols = (3,) would.</code></pre>
+<p><em>unpack</em> : bool, optional</p>
+<pre><code>If True, the returned array is transposed, so that arguments may be unpacked using x, y, z = loadtxt(...). When used with a structured data-type, arrays are returned for each field. Default is False.</code></pre>
+<p><em>ndmin</em> : int类型，可选，返回的array里至少有ndmin大小的维度</p>
+<p><em>encoding</em> : str类型，可选，对输入的文件进行编码设置，默认是'bytes'</p>
+<p><em>Returns:</em></p>
+<p>out : ndarray</p>
+<pre><code>Data read from the text file.</code></pre>
+<h2 id="导入数据">导入数据</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">x_train = np.loadtxt(<span class="string">'ex1data1.txt'</span>, delimiter=<span class="string">','</span>, usecols=<span class="number">0</span>, dtype=np.float32)</span><br><span class="line">y_train = np.loadtxt(<span class="string">'ex1data1.txt'</span>, delimiter=<span class="string">','</span>, usecols=<span class="number">1</span>, dtype=np.float32)</span><br><span class="line"><span class="comment">#print(x_train)</span></span><br><span class="line"><span class="comment">#print(y_train)</span></span><br></pre></td></tr></table></figure>
+<h2 id="将数据用matplotlib画出来">将数据用matplotlib画出来</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.plot(x_train, y_train, <span class="string">'ro'</span>, label=<span class="string">'Original data'</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="output_8_0.png" alt="png" /><figcaption>png</figcaption>
+</figure>
+<h2 id="设计并训练模型">设计并训练模型</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">input_size = <span class="number">1</span></span><br><span class="line">output_size = <span class="number">1</span></span><br><span class="line">num_epochs = <span class="number">1000</span></span><br><span class="line">learning_rate = <span class="number">0.001</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dataset</span></span><br><span class="line">x_train = np.loadtxt(<span class="string">'ex1data1.txt'</span>, delimiter=<span class="string">','</span>, usecols=<span class="number">0</span>, dtype=np.float32).reshape((<span class="number">97</span>,<span class="number">1</span>))</span><br><span class="line">y_train = np.loadtxt(<span class="string">'ex1data1.txt'</span>, delimiter=<span class="string">','</span>, usecols=<span class="number">1</span>, dtype=np.float32).reshape((<span class="number">97</span>,<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">#Linear regression model</span></span><br><span class="line">model = nn.Linear(input_size, output_size)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#Loss and optimizer</span></span><br><span class="line">criterion = nn.MSELoss()</span><br><span class="line">optimizer = torch.optim.SGD(model.parameters(),lr=learning_rate)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Train and model</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(num_epochs):</span><br><span class="line">    inputs = torch.from_numpy(x_train)</span><br><span class="line">    targets = torch.from_numpy(y_train)</span><br><span class="line">    <span class="comment">#Forward pass</span></span><br><span class="line">    outputs = model(inputs)</span><br><span class="line">    loss = criterion(outputs, targets)</span><br><span class="line">    <span class="comment">#Backward and optimize</span></span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">if</span> (epoch+<span class="number">1</span>)%<span class="number">100</span> == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">'Epoch [&#123;&#125;/&#123;&#125;],Loss:&#123;:.4f&#125;'</span>.format(epoch+<span class="number">1</span>, num_epochs, loss.item()))</span><br><span class="line">   </span><br><span class="line"><span class="comment">#plot the graph</span></span><br><span class="line">predicted = model(torch.from_numpy(x_train)).detach().numpy()</span><br><span class="line">plt.plot(x_train, y_train, <span class="string">'ro'</span>, label=<span class="string">'Original data'</span>)</span><br><span class="line">plt.plot(x_train, predicted, label=<span class="string">'Fitted line'</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code>Epoch [100/1000],Loss:11.1643
+Epoch [200/1000],Loss:11.0105
+Epoch [300/1000],Loss:10.8674
+Epoch [400/1000],Loss:10.7343
+Epoch [500/1000],Loss:10.6104
+Epoch [600/1000],Loss:10.4951
+Epoch [700/1000],Loss:10.3879
+Epoch [800/1000],Loss:10.2881
+Epoch [900/1000],Loss:10.1953
+Epoch [1000/1000],Loss:10.1089</code></pre>
+<figure>
+<img src="output_10_1.png" alt="png" /><figcaption>png</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用排序算法之冒泡排序</title>
     <url>/2018/08/19/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<p>题目：编写一个C程序，应用冒泡排序法对序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的序列元素</p>
@@ -1563,28 +1563,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>数据结构 算法 排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>服务器被黑记录</title>
-    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
-<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
-<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
-<a id="more"></a>
-<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
-<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
-<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
-<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
-<p>可以看到一直在被爆破。</p>
-<p><img src="image-20200914140640360.png" /></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1677,40 +1655,25 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>检查强化学习自定义环境是否符合Gym的API</title>
-    <url>/2020/08/22/%E6%A3%80%E6%9F%A5%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E7%AC%A6%E5%90%88Gym%E7%9A%84API/</url>
-    <content><![CDATA[<p>虽然Openai Gym给我们提供了很多有趣的环境，但是，针对实际问题，我们一般都需要建立自己的强化学习环境，也就是说，建立一个函数，输入是<code>action</code>，输出是<code>next_state, reward, done, info</code>，建立这样一个环境的时候最好按照Gym的API来设计，这样方便代码的编写与调试，很多网上实现的算法都是按照Gym的环境进行设计的，同时，Gym的API本身设计的就比较合理的。</p>
-<p>本文总结了Gym的环境的格式，同时给出了一个能够检查强化学习自定义环境的工具。</p>
+    <title>服务器被黑记录</title>
+    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
+<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
+<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
 <a id="more"></a>
-<h2 id="按照gym的api设计自定义环境">按照Gym的API设计自定义环境</h2>
-<p>按照Gym的接口进行设计，你的环境需要继承<code>Gym</code>类，同时必须包含以下方法：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">from</span> gym <span class="keyword">import</span> spaces</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomEnv</span><span class="params">(gym.Env)</span>:</span></span><br><span class="line">  <span class="string">"""Custom Environment that follows gym interface"""</span></span><br><span class="line">  metadata = &#123;<span class="string">'render.modes'</span>: [<span class="string">'human'</span>]&#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, arg1, arg2, ...)</span>:</span></span><br><span class="line">    super(CustomEnv, self).__init__()</span><br><span class="line">    <span class="comment"># Define action and observation space</span></span><br><span class="line">    <span class="comment"># They must be gym.spaces objects</span></span><br><span class="line">    <span class="comment"># Example when using discrete actions:</span></span><br><span class="line">    self.action_space = spaces.Discrete(N_DISCRETE_ACTIONS)</span><br><span class="line">    <span class="comment"># Example for using image as input:</span></span><br><span class="line">    self.observation_space = spaces.Box(low=<span class="number">0</span>, high=<span class="number">255</span>,</span><br><span class="line">                                        shape=(HEIGHT, WIDTH, N_CHANNELS), dtype=np.uint8)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">step</span><span class="params">(self, action)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">return</span> observation, reward, done, info</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">return</span> observation  <span class="comment"># reward, done, info can't be included</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">render</span><span class="params">(self, mode=<span class="string">'human'</span>)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">close</span><span class="params">(self)</span>:</span></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
-<p>然后，你可以定义一个RL agent：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Instantiate the env</span></span><br><span class="line">env = CustomEnv(arg1, ...)</span><br><span class="line"><span class="comment"># Define and Train the agent</span></span><br><span class="line">model = A2C(<span class="string">'CnnPolicy'</span>, env).learn(total_timesteps=<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
-<p>通过<code>stable baselines3</code>中的<code>check_env</code>工具来进行环境API是否符合Gym的API。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> stable_baselines3.common.env_checker <span class="keyword">import</span> check_env</span><br><span class="line"></span><br><span class="line">env = CustomEnv(arg1, ...)</span><br><span class="line"><span class="comment"># It will check your custom environment and output additional warnings if needed</span></span><br><span class="line">check_env(env)</span><br></pre></td></tr></table></figure>
-<p>参考来源：<span class="exturl" data-url="aHR0cHM6Ly9zdGFibGUtYmFzZWxpbmVzMy5yZWFkdGhlZG9jcy5pby9lbi9tYXN0ZXIvZ3VpZGUvY3VzdG9tX2Vudi5odG1s">https://stable-baselines3.readthedocs.io/en/master/guide/custom_env.html<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="check_env工具">check_env工具</h2>
-<p><code>stable_baselines3.common.env_checker.check_env(env: gym.core.Env, warn: bool = True, skip_render_check: bool = True) → None</code></p>
-<p>参考来源：<span class="exturl" data-url="aHR0cHM6Ly9zdGFibGUtYmFzZWxpbmVzMy5yZWFkdGhlZG9jcy5pby9lbi9tYXN0ZXIvZ3VpZGUvY3VzdG9tX2Vudi5odG1s">https://stable-baselines3.readthedocs.io/en/master/guide/custom_env.html<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="示例">示例</h2>
-<p>在<code>Y. Zhang, B. Zhao和D. Liu, 《Deterministic policy gradient adaptive dynamic programming for model-free optimal control》, *Neurocomputing*, 卷 387, 页 40–50, 4月 2020, doi: [10.1016/j.neucom.2019.11.032](https://doi.org/10.1016/j.neucom.2019.11.032).</code>中所仿真的算例：</p>
-<p><span class="math display">\[\mathbf{x}_{t+1}=\left[\begin{array}{c}
-\left(\mathbf{x}_{1, t}+\mathbf{x}_{2, t}^{2}+\mathbf{u}_{t}\right) \cos \left(\mathbf{x}_{2, t}\right) \\
-0.5\left(\mathbf{x}_{1, t}^{2}+\mathbf{x}_{2, t}+\mathbf{u}_{t}\right) \sin \left(\mathbf{x}_{2, t}\right)
-\end{array}\right]\]</span></p>
-<p>对于这样一个非仿射非线性状态空间描述的系统建立强化学习环境，Reward定义为：</p>
-<p><span class="math display">\[\mathcal{J}\left(\mathbf{x}_{0}\right)=\sum_{t=0}^{\infty}\left(\mathbf{x}_{t}^{\top} Q \mathbf{x}_{t}+\mathbf{u}_{t}^{\top} R \mathbf{u}_{t}\right)\]</span>中的<span class="math inline">\(\mathbf{x}_{t}^{\top} Q \mathbf{x}_{t}+\mathbf{u}_{t}^{\top} R \mathbf{u}_{t}\)</span></p>
-<p>其中，<span class="math inline">\(Q=\left[\begin{array}{cc} 1.0 &amp; 0 \\ 0 &amp; 1.0 \end{array}\right]\)</span>, <span class="math inline">\(R=1.0\)</span></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment"># 定义非线性系统环境，按照GYM的格式</span></span><br><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">from</span> gym <span class="keyword">import</span> spaces, logger</span><br><span class="line"><span class="keyword">from</span> gym.utils <span class="keyword">import</span> seeding</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NonLinearEnv</span><span class="params">(gym.Env)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    描述：</span></span><br><span class="line"><span class="string">        一个离散时间非线性非仿射系统</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">    来源：</span></span><br><span class="line"><span class="string">        论文《Policy Gradient Adaptive Dynamic Programming for Data-Based Optimal Control》</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    状态：</span></span><br><span class="line"><span class="string">        State1，State2</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    动作：</span></span><br><span class="line"><span class="string">        单输入系统，u</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    回报：</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    初始状态：</span></span><br><span class="line"><span class="string">        x0=[0.2, 0.7]'</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    episode结束条件：</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">    """</span>    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, Q: np.array, R: np.array)</span>:</span></span><br><span class="line">        self.Q = Q</span><br><span class="line">        self.R = R</span><br><span class="line">        self.state = np.array([<span class="number">0.2</span>, <span class="number">0.7</span>])</span><br><span class="line">        self.action_space = spaces.Box(low=<span class="number">-1.0</span>, high=<span class="number">1.0</span>, shape=(<span class="number">1</span>, ), dtype=np.float64)</span><br><span class="line">        self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(<span class="number">2</span>, ), dtype=np.float64)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.state = np.array([<span class="number">0.2</span>, <span class="number">0.7</span>])</span><br><span class="line">        <span class="keyword">return</span> self.state</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">step</span><span class="params">(self, action)</span>:</span></span><br><span class="line">        next_state_x1 = (self.state[<span class="number">0</span>]+self.state[<span class="number">1</span>]**<span class="number">2</span>+action)*np.cos(self.state[<span class="number">1</span>])</span><br><span class="line">        next_state_x2 = <span class="number">0.5</span>*(self.state[<span class="number">0</span>]**<span class="number">2</span>+self.state[<span class="number">1</span>]+action)*np.sin(self.state[<span class="number">1</span>])</span><br><span class="line">        next_state = [next_state_x1, next_state_x2]</span><br><span class="line">        reward = np.matrix(self.state)*self.Q*np.matrix(self.state).T + action**<span class="number">2</span>*self.R</span><br><span class="line">        self.state = np.array(next_state).reshape(<span class="number">2</span>, )</span><br><span class="line">        done = <span class="literal">False</span></span><br><span class="line">        info = &#123;&#125;</span><br><span class="line">        <span class="keyword">return</span> self.state, -float(reward[<span class="number">0</span>][<span class="number">0</span>]), done, info</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">render</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> NLEnv <span class="keyword">import</span> NonLinearEnv</span><br><span class="line"><span class="keyword">from</span> stable_baselines3.common.env_checker <span class="keyword">import</span> check_env</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"></span><br><span class="line">Q = np.matrix([[<span class="number">1</span>, <span class="number">0</span>],</span><br><span class="line">              [<span class="number">0</span>, <span class="number">1</span>]])</span><br><span class="line">R = np.matrix([[<span class="number">1</span>]])</span><br><span class="line">env = NonLinearEnv(Q, R)</span><br><span class="line">check_env(env)</span><br></pre></td></tr></table></figure>
-<p>这样，就按照Gym的标准定义好了强化学习环境，同时，能够通过API一致性检测，然后，只需要考虑强化学习算法了，无论是自己设计算法，还是使用现成的算法包，都比较方便了。</p>
+<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
+<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
+<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
+<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
+<p>可以看到一直在被爆破。</p>
+<p><img src="image-20200914140640360.png" /></p>
 ]]></content>
       <categories>
-        <category>Reinforcement Learning</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>Reinforcement Learning</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1752,6 +1715,56 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>检查强化学习自定义环境是否符合Gym的API</title>
+    <url>/2020/08/22/%E6%A3%80%E6%9F%A5%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E7%AC%A6%E5%90%88Gym%E7%9A%84API/</url>
+    <content><![CDATA[<p>虽然Openai Gym给我们提供了很多有趣的环境，但是，针对实际问题，我们一般都需要建立自己的强化学习环境，也就是说，建立一个函数，输入是<code>action</code>，输出是<code>next_state, reward, done, info</code>，建立这样一个环境的时候最好按照Gym的API来设计，这样方便代码的编写与调试，很多网上实现的算法都是按照Gym的环境进行设计的，同时，Gym的API本身设计的就比较合理的。</p>
+<p>本文总结了Gym的环境的格式，同时给出了一个能够检查强化学习自定义环境的工具。</p>
+<a id="more"></a>
+<h2 id="按照gym的api设计自定义环境">按照Gym的API设计自定义环境</h2>
+<p>按照Gym的接口进行设计，你的环境需要继承<code>Gym</code>类，同时必须包含以下方法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">from</span> gym <span class="keyword">import</span> spaces</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomEnv</span><span class="params">(gym.Env)</span>:</span></span><br><span class="line">  <span class="string">"""Custom Environment that follows gym interface"""</span></span><br><span class="line">  metadata = &#123;<span class="string">'render.modes'</span>: [<span class="string">'human'</span>]&#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, arg1, arg2, ...)</span>:</span></span><br><span class="line">    super(CustomEnv, self).__init__()</span><br><span class="line">    <span class="comment"># Define action and observation space</span></span><br><span class="line">    <span class="comment"># They must be gym.spaces objects</span></span><br><span class="line">    <span class="comment"># Example when using discrete actions:</span></span><br><span class="line">    self.action_space = spaces.Discrete(N_DISCRETE_ACTIONS)</span><br><span class="line">    <span class="comment"># Example for using image as input:</span></span><br><span class="line">    self.observation_space = spaces.Box(low=<span class="number">0</span>, high=<span class="number">255</span>,</span><br><span class="line">                                        shape=(HEIGHT, WIDTH, N_CHANNELS), dtype=np.uint8)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">step</span><span class="params">(self, action)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">return</span> observation, reward, done, info</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">return</span> observation  <span class="comment"># reward, done, info can't be included</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">render</span><span class="params">(self, mode=<span class="string">'human'</span>)</span>:</span></span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">close</span><span class="params">(self)</span>:</span></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<p>然后，你可以定义一个RL agent：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Instantiate the env</span></span><br><span class="line">env = CustomEnv(arg1, ...)</span><br><span class="line"><span class="comment"># Define and Train the agent</span></span><br><span class="line">model = A2C(<span class="string">'CnnPolicy'</span>, env).learn(total_timesteps=<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+<p>通过<code>stable baselines3</code>中的<code>check_env</code>工具来进行环境API是否符合Gym的API。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> stable_baselines3.common.env_checker <span class="keyword">import</span> check_env</span><br><span class="line"></span><br><span class="line">env = CustomEnv(arg1, ...)</span><br><span class="line"><span class="comment"># It will check your custom environment and output additional warnings if needed</span></span><br><span class="line">check_env(env)</span><br></pre></td></tr></table></figure>
+<p>参考来源：<span class="exturl" data-url="aHR0cHM6Ly9zdGFibGUtYmFzZWxpbmVzMy5yZWFkdGhlZG9jcy5pby9lbi9tYXN0ZXIvZ3VpZGUvY3VzdG9tX2Vudi5odG1s">https://stable-baselines3.readthedocs.io/en/master/guide/custom_env.html<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="check_env工具">check_env工具</h2>
+<p><code>stable_baselines3.common.env_checker.check_env(env: gym.core.Env, warn: bool = True, skip_render_check: bool = True) → None</code></p>
+<p>参考来源：<span class="exturl" data-url="aHR0cHM6Ly9zdGFibGUtYmFzZWxpbmVzMy5yZWFkdGhlZG9jcy5pby9lbi9tYXN0ZXIvZ3VpZGUvY3VzdG9tX2Vudi5odG1s">https://stable-baselines3.readthedocs.io/en/master/guide/custom_env.html<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="示例">示例</h2>
+<p>在<code>Y. Zhang, B. Zhao和D. Liu, 《Deterministic policy gradient adaptive dynamic programming for model-free optimal control》, *Neurocomputing*, 卷 387, 页 40–50, 4月 2020, doi: [10.1016/j.neucom.2019.11.032](https://doi.org/10.1016/j.neucom.2019.11.032).</code>中所仿真的算例：</p>
+<p><span class="math display">\[\mathbf{x}_{t+1}=\left[\begin{array}{c}
+\left(\mathbf{x}_{1, t}+\mathbf{x}_{2, t}^{2}+\mathbf{u}_{t}\right) \cos \left(\mathbf{x}_{2, t}\right) \\
+0.5\left(\mathbf{x}_{1, t}^{2}+\mathbf{x}_{2, t}+\mathbf{u}_{t}\right) \sin \left(\mathbf{x}_{2, t}\right)
+\end{array}\right]\]</span></p>
+<p>对于这样一个非仿射非线性状态空间描述的系统建立强化学习环境，Reward定义为：</p>
+<p><span class="math display">\[\mathcal{J}\left(\mathbf{x}_{0}\right)=\sum_{t=0}^{\infty}\left(\mathbf{x}_{t}^{\top} Q \mathbf{x}_{t}+\mathbf{u}_{t}^{\top} R \mathbf{u}_{t}\right)\]</span>中的<span class="math inline">\(\mathbf{x}_{t}^{\top} Q \mathbf{x}_{t}+\mathbf{u}_{t}^{\top} R \mathbf{u}_{t}\)</span></p>
+<p>其中，<span class="math inline">\(Q=\left[\begin{array}{cc} 1.0 &amp; 0 \\ 0 &amp; 1.0 \end{array}\right]\)</span>, <span class="math inline">\(R=1.0\)</span></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment"># 定义非线性系统环境，按照GYM的格式</span></span><br><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">from</span> gym <span class="keyword">import</span> spaces, logger</span><br><span class="line"><span class="keyword">from</span> gym.utils <span class="keyword">import</span> seeding</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NonLinearEnv</span><span class="params">(gym.Env)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    描述：</span></span><br><span class="line"><span class="string">        一个离散时间非线性非仿射系统</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">    来源：</span></span><br><span class="line"><span class="string">        论文《Policy Gradient Adaptive Dynamic Programming for Data-Based Optimal Control》</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    状态：</span></span><br><span class="line"><span class="string">        State1，State2</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    动作：</span></span><br><span class="line"><span class="string">        单输入系统，u</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    回报：</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    初始状态：</span></span><br><span class="line"><span class="string">        x0=[0.2, 0.7]'</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    episode结束条件：</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">    """</span>    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, Q: np.array, R: np.array)</span>:</span></span><br><span class="line">        self.Q = Q</span><br><span class="line">        self.R = R</span><br><span class="line">        self.state = np.array([<span class="number">0.2</span>, <span class="number">0.7</span>])</span><br><span class="line">        self.action_space = spaces.Box(low=<span class="number">-1.0</span>, high=<span class="number">1.0</span>, shape=(<span class="number">1</span>, ), dtype=np.float64)</span><br><span class="line">        self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(<span class="number">2</span>, ), dtype=np.float64)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.state = np.array([<span class="number">0.2</span>, <span class="number">0.7</span>])</span><br><span class="line">        <span class="keyword">return</span> self.state</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">step</span><span class="params">(self, action)</span>:</span></span><br><span class="line">        next_state_x1 = (self.state[<span class="number">0</span>]+self.state[<span class="number">1</span>]**<span class="number">2</span>+action)*np.cos(self.state[<span class="number">1</span>])</span><br><span class="line">        next_state_x2 = <span class="number">0.5</span>*(self.state[<span class="number">0</span>]**<span class="number">2</span>+self.state[<span class="number">1</span>]+action)*np.sin(self.state[<span class="number">1</span>])</span><br><span class="line">        next_state = [next_state_x1, next_state_x2]</span><br><span class="line">        reward = np.matrix(self.state)*self.Q*np.matrix(self.state).T + action**<span class="number">2</span>*self.R</span><br><span class="line">        self.state = np.array(next_state).reshape(<span class="number">2</span>, )</span><br><span class="line">        done = <span class="literal">False</span></span><br><span class="line">        info = &#123;&#125;</span><br><span class="line">        <span class="keyword">return</span> self.state, -float(reward[<span class="number">0</span>][<span class="number">0</span>]), done, info</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">render</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> NLEnv <span class="keyword">import</span> NonLinearEnv</span><br><span class="line"><span class="keyword">from</span> stable_baselines3.common.env_checker <span class="keyword">import</span> check_env</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"></span><br><span class="line">Q = np.matrix([[<span class="number">1</span>, <span class="number">0</span>],</span><br><span class="line">              [<span class="number">0</span>, <span class="number">1</span>]])</span><br><span class="line">R = np.matrix([[<span class="number">1</span>]])</span><br><span class="line">env = NonLinearEnv(Q, R)</span><br><span class="line">check_env(env)</span><br></pre></td></tr></table></figure>
+<p>这样，就按照Gym的标准定义好了强化学习环境，同时，能够通过API一致性检测，然后，只需要考虑强化学习算法了，无论是自己设计算法，还是使用现成的算法包，都比较方便了。</p>
+]]></content>
+      <categories>
+        <category>Reinforcement Learning</category>
+      </categories>
+      <tags>
+        <tag>Reinforcement Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>粒子群算法库-PySwarms的可视化</title>
+    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
+    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
+<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>粒子群算法的Python简单实现</title>
     <url>/2019/02/14/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E7%9A%84Python%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h2 id="需要优化的目标函数">需要优化的目标函数</h2>
@@ -1779,19 +1792,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>优化算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>粒子群算法库-PySwarms的可视化</title>
-    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
-    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
-<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
