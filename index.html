@@ -234,7 +234,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-01-09 13:03:50 / 修改时间：08:15:14" itemprop="dateCreated datePublished" datetime="2021-01-09T13:03:50+00:00">2021-01-09</time>
+              <time title="创建时间：2021-01-09 13:03:50 / 修改时间：08:16:09" itemprop="dateCreated datePublished" datetime="2021-01-09T13:03:50+00:00">2021-01-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -272,32 +272,14 @@
 
       
           <p>最近写了一篇强化学习用于供水管网的论文，算法的训练过程中用到了Tensorboard(stable-baselines提供了tansorboard的接口)来可视化训练数据，但是，tensorboard的图直接放入到论文中会显得很难看，包括xlabel和ylabel需要重新定义，图片的风格需要修改等等操作直接在tensorboard中很难操作，需要将这些数据导出来，然后使用matplotlib和seaboarn来进行plot，这篇博客记录一下如何将tensorboard中的数据进行导出并画图。</p>
-<h2 id="利用tensorboard中的导出数据功能">利用tensorboard中的导出数据功能</h2>
-<figure>
-<img src="Tensorboard中的图放到论文中/image-20210109132225126.png" alt="image-20210109132225126" /><figcaption>image-20210109132225126</figcaption>
-</figure>
-<p>选中左上角的<code>Show data download links</code></p>
-<p>在每张图的右下角选择<code>run to download</code>，然后可以选择<code>csv</code>或者<code>json</code>格式的文件。</p>
-<p>导出CSV文件，经过测试发现，当修改左边平滑之类的参数，导出的数据都是一样的，都是原始的数据。</p>
-<figure>
-<img src="Tensorboard中的图放到论文中/image-20210109161242435.png" alt="image-20210109161242435" /><figcaption>image-20210109161242435</figcaption>
-</figure>
-<h2 id="tensorboard可视化界面中的功能键介绍">Tensorboard可视化界面中的功能键介绍</h2>
-<figure>
-<img src="Tensorboard中的图放到论文中/image-20210109132627928.png" alt="image-20210109132627928" /><figcaption>image-20210109132627928</figcaption>
-</figure>
-<p>第二个：Toggle y-axis log scale：将y轴对数化</p>
-<p>第三个：Fit domain to data：如果拖动了图片等，再重新回到原始位置</p>
-<p>第四个：Download Current Chart as SVG</p>
-<p>Stable-baselines3的tensorboard integration的文档：Stable-baselines3已经集成了tensorboard的记录，默认记录三大块部分：rollout，time，train(这三个文件体现在代码的哪里)。当然，也可以记录更多的数据，包括图片视频，可以在训练一段时间后评估一下agent的效果和状态。</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9zdGFibGUtYmFzZWxpbmVzMy5yZWFkdGhlZG9jcy5pby9lbi9tYXN0ZXIvZ3VpZGUvdGVuc29yYm9hcmQuaHRtbD9oaWdobGlnaHQ9dGVuc29yYm9hcmQ=">https://stable-baselines3.readthedocs.io/en/master/guide/tensorboard.html?highlight=tensorboard<i class="fa fa-external-link-alt"></i></span></p>
-<p>stable-baselines3中关于tensorboard的核心文件在：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RMUi1STS9zdGFibGUtYmFzZWxpbmVzMy9ibG9iLzU5OTMwMzNjNzNkNTZlOGFjMTNmNTk2NDdkNDczNzQ3NjZkMGI2M2Qvc3RhYmxlX2Jhc2VsaW5lczMvY29tbW9uL2xvZ2dlci5weQ==">https://github.com/DLR-RM/stable-baselines3/blob/5993033c73d56e8ac13f59647d47374766d0b63d/stable_baselines3/common/logger.py<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="利用matplotlib画图">利用Matplotlib画图</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一幅图片：训练的平均长度</span></span><br><span class="line">fig, ax1 = plt.subplots(<span class="number">1</span>, <span class="number">1</span>)    <span class="comment"># a figure with a 2x1 grid of Axes</span></span><br><span class="line">len_mean = pd.read_csv(<span class="string">"run-PPO_2-tag-rollout_ep_len_mean.csv"</span>)</span><br><span class="line">ax1.plot(len_mean[<span class="string">'Step'</span>], tensorboard_smoothing(len_mean[<span class="string">'Value'</span>], smooth=<span class="number">0.6</span>), color=<span class="string">"#3399FF"</span>)</span><br><span class="line"><span class="comment">#ax1.set_xticks(np.arange(0, 24, step=2))</span></span><br><span class="line">ax1.set_xlabel(<span class="string">"timesteps"</span>)</span><br><span class="line">ax1.set_ylabel(<span class="string">"Average Episode Length(steps)"</span>, color=<span class="string">"#3399FF"</span>)</span><br><span class="line">ax1.set_title(<span class="string">"Average Episode Length"</span>)</span><br><span class="line">plt.show()</span><br><span class="line">fig.savefig(fname=<span class="string">'./figures/ep_len_mean'</span>+<span class="string">'.pdf'</span>, format=<span class="string">'pdf'</span>)</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="Tensorboard中的图放到论文中/image-20210109161033044.png" alt="image-20210109161033044" /><figcaption>image-20210109161033044</figcaption>
-</figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

@@ -34,35 +34,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Flask项目结构</title>
-    <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<blockquote>
-<p><strong>拥有良好的项目结构对于开发与维护有着巨大的作用</strong> <a id="more"></a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects$ tree</span><br><span class="line">.</span><br><span class="line">`-- ProjectName</span><br><span class="line">    |-- app                      # 整个程序的包目录</span><br><span class="line">    |   |-- config.py                # 配置文件</span><br><span class="line">    |   |-- email.py                 # 邮件发送</span><br><span class="line">    |   |-- extensions.py            # 各种扩展</span><br><span class="line">    |   |-- forms                    # 表单文件</span><br><span class="line">    |   |-- models                   # 数据模型</span><br><span class="line">    |   |-- static                   # 静态资源文件</span><br><span class="line">    |   |   |-- css                      # 样式表</span><br><span class="line">    |   |   |-- img                      # 图片</span><br><span class="line">    |   |   `-- js                       # JS脚本</span><br><span class="line">    |   |-- templates                # 模板文件</span><br><span class="line">    |   |   |-- common                   # 通用模板</span><br><span class="line">    |   |   |-- email                    # 邮件发送</span><br><span class="line">    |   |   |-- errors                   # 错误页面</span><br><span class="line">    |   |   |-- posts                    # 帖子模板</span><br><span class="line">    |   |   `-- user                     # 用户模板</span><br><span class="line">    |   `-- views                    # 视图文件</span><br><span class="line">    |-- manage.py                    # 项目启动控制文件</span><br><span class="line">    |-- migrations                   # 数据库迁移目录</span><br><span class="line">    |-- requirements.txt             # 依赖包的列表</span><br><span class="line">    `-- tests                        # 测试单元</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>flask</category>
-      </categories>
-      <tags>
-        <tag>flask</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux系统TIPS</title>
-    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
-    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
-<a id="more"></a>
-<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
-<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>How to reading scientific papers</title>
     <url>/2019/07/09/How-to-reading-scientific-papers/</url>
     <content><![CDATA[<h1 id="step1-choose-the-paper">STEP1: Choose the paper</h1>
@@ -102,36 +73,18 @@
       </tags>
   </entry>
   <entry>
-    <title>Manjaro适合什么样的人</title>
-    <url>/2020/06/28/Manjaro%E9%80%82%E5%90%88%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BA%BA/</url>
-    <content><![CDATA[<p>2019年3月份看到了有人安利Manjaro，装电脑上用了一年，分享一下使用一年的感受。</p>
-<p>先说结论，我上个月换回了Ubuntu。</p>
-<h2 id="manjaro的优点">Manjaro的优点</h2>
-<ol type="1">
-<li>装软件非常方便，基本上各种软件在软件源中都能找到，并直接安装，而且安装的都是新版本。</li>
-<li>包括CUDA，显卡管理软件（忘记叫什么了，可以设置使用集显或独显或只用cuda）。</li>
-<li>WIKI资料很丰富，出了问题可以直接查。</li>
-</ol>
-<a id="more"></a>
-<h2 id="manjaro缺点">Manjaro缺点</h2>
-<p>上述的某些优点恰好对于某些人来说就是缺点。</p>
-<ol type="1">
-<li>软件更新非常激进，每天打开电脑的第一件事就是<code>yay -Syu</code>。</li>
-<li>如果你在更新前不看官方发布的更新公告，可能会被坑，也就是更挂。</li>
-<li>更新失败后，进不去系统，花点时间，查查官方公告，说不定能解决，但是耗费的时间对于某些人来说不可忍受。</li>
-<li>字体，画面看的不舒服，需要花些时间进行配置。</li>
-<li>还是Ubuntu真香。</li>
-</ol>
-<p>所以，对于大多数开发者来说，完全没有必要使用Manjaro，以下两个场景我亲身经历过：</p>
-<ol type="a">
-<li><p>前一时刻还在码代码，然后你重启了一下电脑，发现不能启动了，黑屏了，花时间查官方发布的更新公告，哦，原来是更新更挂了，这时，你是不是很崩溃？时间就是金钱啊，干嘛和自己过不去。</p></li>
-<li><p>放了一个长假了，好好的出去玩耍了一波，放假结束后，打开电脑，执行<code>yay -Syu</code>，然后写了一会儿代码，进入termianl运行python，咦，又挂了？哦，原来是python升级到了3.8版本，查资料，看怎么回退版本，哦，原来安装3.7版本那么麻烦。</p></li>
-</ol>
-<p>再见了，您。</p>
-<h2 id="manjaro适合">Manjaro适合？</h2>
-<p>回到标题，Manjaro不适合搞算学术研究和项目开发的人，尤其是学生：研究生。本科生无聊的话可以玩玩Manjaro。</p>
-<p>操作系统还是有公司支持的比较好，像Ubuntu，真的可以，用了快6年了。</p>
+    <title>Flask项目结构</title>
+    <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>拥有良好的项目结构对于开发与维护有着巨大的作用</strong> <a id="more"></a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects$ tree</span><br><span class="line">.</span><br><span class="line">`-- ProjectName</span><br><span class="line">    |-- app                      # 整个程序的包目录</span><br><span class="line">    |   |-- config.py                # 配置文件</span><br><span class="line">    |   |-- email.py                 # 邮件发送</span><br><span class="line">    |   |-- extensions.py            # 各种扩展</span><br><span class="line">    |   |-- forms                    # 表单文件</span><br><span class="line">    |   |-- models                   # 数据模型</span><br><span class="line">    |   |-- static                   # 静态资源文件</span><br><span class="line">    |   |   |-- css                      # 样式表</span><br><span class="line">    |   |   |-- img                      # 图片</span><br><span class="line">    |   |   `-- js                       # JS脚本</span><br><span class="line">    |   |-- templates                # 模板文件</span><br><span class="line">    |   |   |-- common                   # 通用模板</span><br><span class="line">    |   |   |-- email                    # 邮件发送</span><br><span class="line">    |   |   |-- errors                   # 错误页面</span><br><span class="line">    |   |   |-- posts                    # 帖子模板</span><br><span class="line">    |   |   `-- user                     # 用户模板</span><br><span class="line">    |   `-- views                    # 视图文件</span><br><span class="line">    |-- manage.py                    # 项目启动控制文件</span><br><span class="line">    |-- migrations                   # 数据库迁移目录</span><br><span class="line">    |-- requirements.txt             # 依赖包的列表</span><br><span class="line">    `-- tests                        # 测试单元</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 ]]></content>
+      <categories>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
+      </tags>
   </entry>
   <entry>
     <title>Manjaro下解决Matplotlib中文显示出错</title>
@@ -148,6 +101,21 @@
       </categories>
       <tags>
         <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux系统TIPS</title>
+    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
+    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
+<a id="more"></a>
+<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
+<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -223,6 +191,38 @@
       <tags>
         <tag>Markdown</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Manjaro适合什么样的人</title>
+    <url>/2020/06/28/Manjaro%E9%80%82%E5%90%88%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BA%BA/</url>
+    <content><![CDATA[<p>2019年3月份看到了有人安利Manjaro，装电脑上用了一年，分享一下使用一年的感受。</p>
+<p>先说结论，我上个月换回了Ubuntu。</p>
+<h2 id="manjaro的优点">Manjaro的优点</h2>
+<ol type="1">
+<li>装软件非常方便，基本上各种软件在软件源中都能找到，并直接安装，而且安装的都是新版本。</li>
+<li>包括CUDA，显卡管理软件（忘记叫什么了，可以设置使用集显或独显或只用cuda）。</li>
+<li>WIKI资料很丰富，出了问题可以直接查。</li>
+</ol>
+<a id="more"></a>
+<h2 id="manjaro缺点">Manjaro缺点</h2>
+<p>上述的某些优点恰好对于某些人来说就是缺点。</p>
+<ol type="1">
+<li>软件更新非常激进，每天打开电脑的第一件事就是<code>yay -Syu</code>。</li>
+<li>如果你在更新前不看官方发布的更新公告，可能会被坑，也就是更挂。</li>
+<li>更新失败后，进不去系统，花点时间，查查官方公告，说不定能解决，但是耗费的时间对于某些人来说不可忍受。</li>
+<li>字体，画面看的不舒服，需要花些时间进行配置。</li>
+<li>还是Ubuntu真香。</li>
+</ol>
+<p>所以，对于大多数开发者来说，完全没有必要使用Manjaro，以下两个场景我亲身经历过：</p>
+<ol type="a">
+<li><p>前一时刻还在码代码，然后你重启了一下电脑，发现不能启动了，黑屏了，花时间查官方发布的更新公告，哦，原来是更新更挂了，这时，你是不是很崩溃？时间就是金钱啊，干嘛和自己过不去。</p></li>
+<li><p>放了一个长假了，好好的出去玩耍了一波，放假结束后，打开电脑，执行<code>yay -Syu</code>，然后写了一会儿代码，进入termianl运行python，咦，又挂了？哦，原来是python升级到了3.8版本，查资料，看怎么回退版本，哦，原来安装3.7版本那么麻烦。</p></li>
+</ol>
+<p>再见了，您。</p>
+<h2 id="manjaro适合">Manjaro适合？</h2>
+<p>回到标题，Manjaro不适合搞算学术研究和项目开发的人，尤其是学生：研究生。本科生无聊的话可以玩玩Manjaro。</p>
+<p>操作系统还是有公司支持的比较好，像Ubuntu，真的可以，用了快6年了。</p>
+]]></content>
   </entry>
   <entry>
     <title>Mysql Command</title>
@@ -408,6 +408,26 @@ Box(4,)</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>Python的Anoymous Functions</title>
+    <url>/2019/02/15/Python%E7%9A%84Anoymous-Functions/</url>
+    <content><![CDATA[<h2 id="什么是python的匿名函数">什么是Python的匿名函数</h2>
+<p>在Python中，匿名函数的意思是定义的函数没有名字。<code>def</code>命令用来创建普通函数，<code>lambda</code>命令用来创建匿名函数。语法如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">lambda</span> arguments : expression</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这个函数可以拥有多个参数，但是只有一个表达式进行运行与返回</li>
+<li>换句话说，lambda表达式中不能出现赋值，或者使用任何其他的语句，例如while， try等等</li>
+</ul>
+<h2 id="example">Example</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">g = <span class="keyword">lambda</span> x:x*x*x</span><br><span class="line">print(g(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>实验室服务器安装Proxmox</title>
     <url>/2020/08/08/Proxmox%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<p>实验室有一台I7-3770，32GB内存的服务器，虽然没有显卡，但是用来作为编译机器还是可以的，所以装了一个Proxmox系统来进行管理，可以很方便的开虚拟机，实验室的小伙伴能一起使用了。</p>
@@ -455,26 +475,6 @@ Box(4,)</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Python的Anoymous Functions</title>
-    <url>/2019/02/15/Python%E7%9A%84Anoymous-Functions/</url>
-    <content><![CDATA[<h2 id="什么是python的匿名函数">什么是Python的匿名函数</h2>
-<p>在Python中，匿名函数的意思是定义的函数没有名字。<code>def</code>命令用来创建普通函数，<code>lambda</code>命令用来创建匿名函数。语法如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">lambda</span> arguments : expression</span><br></pre></td></tr></table></figure>
-<ul>
-<li>这个函数可以拥有多个参数，但是只有一个表达式进行运行与返回</li>
-<li>换句话说，lambda表达式中不能出现赋值，或者使用任何其他的语句，例如while， try等等</li>
-</ul>
-<h2 id="example">Example</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">g = <span class="keyword">lambda</span> x:x*x*x</span><br><span class="line">print(g(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python装饰器</title>
     <url>/2019/02/10/Python%E8%A3%85%E9%A5%B0%E5%99%A8/</url>
     <content><![CDATA[<p>装饰器是Python的重要组成部分。简单来说：它们是修改其它函数的函数。他们有助于使我们的代码更短，更Pythonic。大多数初学者不知道在哪里使用它们，所以本文将介绍一些常见需要使用装饰器的情况。 <a id="more"></a> ## Python中一些都是对象</p>
@@ -518,33 +518,6 @@ Box(4,)</code></pre>
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Simplify: Python VS Matlab</title>
-    <url>/2019/10/20/Simplify-Python-VS-Matlab/</url>
-    <content><![CDATA[<h2 id="background">Background</h2>
-<p>The homework of Linear System Theory is challenging. Here is Problem 1:</p>
-<p>Consider a linear system with a state transition matrix <span class="math inline">\(\phi(t,t_0)\)</span></p>
-<p><span class="math display">\[\phi(t,t_0)=\displaystyle \left[\begin{matrix}
-e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
--e^{t} \sin{\left(2 t \right)} &amp; e^{- 2 t} \cos{\left(2 t \right)}
-\end{matrix}\right]\]</span></p>
-<p>Compute A(t).</p>
-<p>Since the given system is linear time variant system, by using some properties of <span class="math inline">\(\phi\)</span>, we can easily compute <span class="math inline">\(A(t)\)</span>. However, the expression is so complicate that i could not simplify it by hand. I call for some tools for help. The tools are <strong>Python</strong> and <strong>Matlab</strong>.</p>
-<p>This post compare the difference of <strong>simplify</strong> function in Python and Matlab. <a id="more"></a> ## Comparision ### Python sympy.simplify.simplify.simplify(expr, ratio=1.7, measure=<function count_ops>, rational=False, inverse=False). Link https://docs.sympy.org/latest/modules/simplify/simplify.html</p>
-<p>This function does not work well, it did not simplify the expression, giving th following outcome.</p>
-<p><span class="math display">\[\displaystyle \left[\begin{matrix}\frac{\left(- \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\\\frac{\left(- \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\end{matrix}\right]\]</span></p>
-<p>It's <strong>rediculous</strong>!</p>
-<h3 id="matlab">Matlab</h3>
-<p>S = simplify(expr) performs algebraic simplification of expr. If expr is a symbolic vector or matrix, this function simplifies each element of expr. Link https://www.mathworks.com/help/symbolic/simplify.html</p>
-<p>This function works very well and much faster than Sympy.</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -651,9 +624,62 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </tags>
   </entry>
   <entry>
+    <title>Simplify: Python VS Matlab</title>
+    <url>/2019/10/20/Simplify-Python-VS-Matlab/</url>
+    <content><![CDATA[<h2 id="background">Background</h2>
+<p>The homework of Linear System Theory is challenging. Here is Problem 1:</p>
+<p>Consider a linear system with a state transition matrix <span class="math inline">\(\phi(t,t_0)\)</span></p>
+<p><span class="math display">\[\phi(t,t_0)=\displaystyle \left[\begin{matrix}
+e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
+-e^{t} \sin{\left(2 t \right)} &amp; e^{- 2 t} \cos{\left(2 t \right)}
+\end{matrix}\right]\]</span></p>
+<p>Compute A(t).</p>
+<p>Since the given system is linear time variant system, by using some properties of <span class="math inline">\(\phi\)</span>, we can easily compute <span class="math inline">\(A(t)\)</span>. However, the expression is so complicate that i could not simplify it by hand. I call for some tools for help. The tools are <strong>Python</strong> and <strong>Matlab</strong>.</p>
+<p>This post compare the difference of <strong>simplify</strong> function in Python and Matlab. <a id="more"></a> ## Comparision ### Python sympy.simplify.simplify.simplify(expr, ratio=1.7, measure=<function count_ops>, rational=False, inverse=False). Link https://docs.sympy.org/latest/modules/simplify/simplify.html</p>
+<p>This function does not work well, it did not simplify the expression, giving th following outcome.</p>
+<p><span class="math display">\[\displaystyle \left[\begin{matrix}\frac{\left(- \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\\\frac{\left(- \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\end{matrix}\right]\]</span></p>
+<p>It's <strong>rediculous</strong>!</p>
+<h3 id="matlab">Matlab</h3>
+<p>S = simplify(expr) performs algebraic simplification of expr. If expr is a symbolic vector or matrix, this function simplifies each element of expr. Link https://www.mathworks.com/help/symbolic/simplify.html</p>
+<p>This function works very well and much faster than Sympy.</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Word与Latex</title>
+    <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
+    <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
+<h2 id="mathpix将论文中的公式识别成latex或者mathml格式">Mathpix：将论文中的公式识别成latex或者mathml格式</h2>
+<p>有一款软件：Mathpix，能够将公式识别成latex或者mathml格式。</p>
+<p>使用该软件需要使用邮箱注册账户，免费版一个月只能识别50次，也有一个开发版，一个月能识别1000次，但是需要信用卡验证，对于国内用户来说，比较麻烦。</p>
+<p>这里给出一个解决办法：使用临时邮箱，待免费套餐使用完后，重新注册账户，测试了几个免费邮箱服务，大多被mathpix识别了，<span class="exturl" data-url="aHR0cHM6Ly90ZW1wLW1haWwub3JnL2VuLw==">https://temp-mail.org/en/<i class="fa fa-external-link-alt"></i></span> 这个我测试了一下，没有被mathpix识别，可以用于注册。 <a id="more"></a></p>
+<h2 id="word中的latex公式">Word中的latex公式</h2>
+<h3 id="简单的单行公式">简单的单行公式</h3>
+<p>简单的单行公式可以直接用latex格式。</p>
+<h3 id="复杂的多行公式">复杂的多行公式</h3>
+<p>复杂的多行公式，可以复制Mathpix中的Mathml格式，粘贴到word中。</p>
+<h3 id="插入公式编号">插入公式编号</h3>
+<p>Word中提供了一种比较方便的插入公式编号的方法：在公式末尾键入<code>#(x)</code>，然后按下<code>Enter</code>即可。</p>
+<h2 id="创作流程">创作流程</h2>
+<p>我个人比较喜欢读完文献，用Markdown（Typora）整理一下阅读笔记，这样既可以发布到博客上，又很方便的能够迁移到Word中（我一般交作业交报告都是用Word）。</p>
+]]></content>
+      <categories>
+        <category>Latex</category>
+      </categories>
+      <tags>
+        <tag>Latex</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tensorboard中的图放到论文中</title>
     <url>/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/</url>
     <content><![CDATA[<p>最近写了一篇强化学习用于供水管网的论文，算法的训练过程中用到了Tensorboard(stable-baselines提供了tansorboard的接口)来可视化训练数据，但是，tensorboard的图直接放入到论文中会显得很难看，包括xlabel和ylabel需要重新定义，图片的风格需要修改等等操作直接在tensorboard中很难操作，需要将这些数据导出来，然后使用matplotlib和seaboarn来进行plot，这篇博客记录一下如何将tensorboard中的数据进行导出并画图。</p>
+<a id="more"></a>
 <h2 id="利用tensorboard中的导出数据功能">利用tensorboard中的导出数据功能</h2>
 <figure>
 <img src="Tensorboard中的图放到论文中/image-20210109132225126.png" alt="image-20210109132225126" /><figcaption>image-20210109132225126</figcaption>
@@ -688,31 +714,6 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </tags>
   </entry>
   <entry>
-    <title>Word与Latex</title>
-    <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
-    <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
-<h2 id="mathpix将论文中的公式识别成latex或者mathml格式">Mathpix：将论文中的公式识别成latex或者mathml格式</h2>
-<p>有一款软件：Mathpix，能够将公式识别成latex或者mathml格式。</p>
-<p>使用该软件需要使用邮箱注册账户，免费版一个月只能识别50次，也有一个开发版，一个月能识别1000次，但是需要信用卡验证，对于国内用户来说，比较麻烦。</p>
-<p>这里给出一个解决办法：使用临时邮箱，待免费套餐使用完后，重新注册账户，测试了几个免费邮箱服务，大多被mathpix识别了，<span class="exturl" data-url="aHR0cHM6Ly90ZW1wLW1haWwub3JnL2VuLw==">https://temp-mail.org/en/<i class="fa fa-external-link-alt"></i></span> 这个我测试了一下，没有被mathpix识别，可以用于注册。 <a id="more"></a></p>
-<h2 id="word中的latex公式">Word中的latex公式</h2>
-<h3 id="简单的单行公式">简单的单行公式</h3>
-<p>简单的单行公式可以直接用latex格式。</p>
-<h3 id="复杂的多行公式">复杂的多行公式</h3>
-<p>复杂的多行公式，可以复制Mathpix中的Mathml格式，粘贴到word中。</p>
-<h3 id="插入公式编号">插入公式编号</h3>
-<p>Word中提供了一种比较方便的插入公式编号的方法：在公式末尾键入<code>#(x)</code>，然后按下<code>Enter</code>即可。</p>
-<h2 id="创作流程">创作流程</h2>
-<p>我个人比较喜欢读完文献，用Markdown（Typora）整理一下阅读笔记，这样既可以发布到博客上，又很方便的能够迁移到Word中（我一般交作业交报告都是用Word）。</p>
-]]></content>
-      <categories>
-        <category>Latex</category>
-      </categories>
-      <tags>
-        <tag>Latex</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>*args 和 **kwargs</title>
     <url>/2019/02/12/args-%E5%92%8C-kwargs/</url>
     <content><![CDATA[<p>很多Python新手都无法搞清<code>*args</code>与<code>**kwargs</code>这两个魔术变量。那么他们到底是什么呢？让我来告诉你。在实际程序中，我们没有必要非得写成<code>*args</code>与<code>**kwargs</code>这样的形式，你也可以写成<code>*var</code>与<code>**vars</code>。写成<code>*args</code>与<code>**kwargs</code>的形式只是一种惯例。 <a id="more"></a> ## *args的用法 <code>*args</code>与<code>**kwargs</code>主要用于函数的定义。<code>*args</code>与<code>**kwargs</code>允许你将可变数量的参数传递给函数。这里的<strong>可变</strong>意味着你事先是不知道用户可以向你传递多少参数。因此在这种情况下你可以使用这两个关键字。<code>*args</code>用于向函数发送没有关键字的可变长度参数列表。以下是一个例子：</p>
@@ -734,47 +735,25 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </tags>
   </entry>
   <entry>
-    <title>中国学术圈的未来在哪里？</title>
-    <url>/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/</url>
-    <content><![CDATA[<p>最近遇到了很多烦心事，主要是学术生活上的问题，教授没有学术上的指导，且总是push我们做项目，自动化系的教授都只知道赚钱啊，不，都只知道“骗钱”。今天感觉状态还不错，稍有感想，想在这篇文章中简短地谈论一下，权当我乱说的吧，哈哈哈哈。</p>
+    <title>vs code remote ssh 使用x11转发显示远程图像</title>
+    <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
+    <content><![CDATA[<h2 id="需求">需求</h2>
+<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
+<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
 <a id="more"></a>
-<p>中国科研圈的问题我个人认为主要来源于以下几点：</p>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+<h2 id="问题">问题</h2>
 <ul>
-<li>当前50岁以上的老教授，都是出身在1970年以前，他们从小没有接受过完整、科学的教育，所以，一方面，他们中很多人的学术水平其实很垃圾的，工程技术水平也有限啊，而且从小没有接受过爱国主义教育，现在很多的美国的舔狗，也基本都是这个年龄段吧，他们中的某些人入党了，这些人都是对国家有风险的，因为他们只不过是为了入党而入党，而不是真正的爱国家爱党。</li>
-<li>贫富差距过大导致了很多教授老师都拼命想着赚钱，例如江浙沪，其实很多人的收入都很高，每年也都能赚很多钱，但是教授的工资却没有跟上时代的步伐，这就导致老师们只想着去赚钱，骗钱。</li>
-<li>教授老师的权力太大了，国家也没有出台相应的解决办法，所谓的发布的几个文件，都只是象征性的，没有实际意义。</li>
+<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
+<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
 </ul>
-<p>解决办法：</p>
-<ul>
-<li>学术圈需要降低平均年龄，让那些不给力的老教师抓紧退休，让有能力有抱负的年轻老师赶紧上位。</li>
-<li>国内大学的思政老师要请专业的老师，不能是学生辅导员，要选择真正有理想，有抱负的共产党员来做思政老师，同时赋予他们保护学生的权力。</li>
-<li>需要大量的学生集体出来反抗，这是最无奈，也是最有效的一种解决办法，再来一次文化大革命，什么都解决了。</li>
-</ul>
-<p>写这篇文章的时候主要是感叹现在老师的权力真的太大了，完全不应该这么大啊，而且我现在的科研生活也和我理想中的科研生活完全不一样。我理想中的科研生活应该是自由，纯粹的科研生活，像deepmind，openai，UCB那种真正干科研的生活。而现在的科研生活，一个个教授们美其名曰要结合工程项目，但实际上只是为了赚钱一级一级骗钱，骗国企，骗国家，最终受伤害的还是纳税人。</p>
-<p>但是再往上说，那就要说到共产党了，共产党是先进生产力的代表，怎么不能解决这么明显的问题？</p>
-<p><strong>虽然对中国的科研圈子很失望，但是若不是为了心中那一份崇高的科研理想，我又怎会继续坚持？</strong></p>
-<p>最后，用鲁迅先生的经典《热风》结尾：</p>
-<p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声，有一分热，发一分光，就令萤火虫一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。 倘若有了炬火，出了太阳，我们自然心悦诚服地消失，不但毫无不平，而且还要随喜赞美这炬火或太阳，因为他照亮了人类，连我都在内。</p>
-<p><strong>与君共勉。</strong></p>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>博客</category>
       </categories>
       <tags>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo-gittalk问题总结</title>
-    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
-<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>经验</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -920,25 +899,47 @@ x
       </tags>
   </entry>
   <entry>
-    <title>vs code remote ssh 使用x11转发显示远程图像</title>
-    <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
-    <content><![CDATA[<h2 id="需求">需求</h2>
-<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
-<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
-<a id="more"></a>
-<h2 id="参考链接">参考链接</h2>
-<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-<h2 id="问题">问题</h2>
-<ul>
-<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
-<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
-</ul>
+    <title>hexo-gittalk问题总结</title>
+    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
+<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
 ]]></content>
       <categories>
-        <category>博客</category>
+        <category>经验</category>
       </categories>
       <tags>
-        <tag>博客</tag>
+        <tag>经验</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>中国学术圈的未来在哪里？</title>
+    <url>/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/</url>
+    <content><![CDATA[<p>最近遇到了很多烦心事，主要是学术生活上的问题，教授没有学术上的指导，且总是push我们做项目，自动化系的教授都只知道赚钱啊，不，都只知道“骗钱”。今天感觉状态还不错，稍有感想，想在这篇文章中简短地谈论一下，权当我乱说的吧，哈哈哈哈。</p>
+<a id="more"></a>
+<p>中国科研圈的问题我个人认为主要来源于以下几点：</p>
+<ul>
+<li>当前50岁以上的老教授，都是出身在1970年以前，他们从小没有接受过完整、科学的教育，所以，一方面，他们中很多人的学术水平其实很垃圾的，工程技术水平也有限啊，而且从小没有接受过爱国主义教育，现在很多的美国的舔狗，也基本都是这个年龄段吧，他们中的某些人入党了，这些人都是对国家有风险的，因为他们只不过是为了入党而入党，而不是真正的爱国家爱党。</li>
+<li>贫富差距过大导致了很多教授老师都拼命想着赚钱，例如江浙沪，其实很多人的收入都很高，每年也都能赚很多钱，但是教授的工资却没有跟上时代的步伐，这就导致老师们只想着去赚钱，骗钱。</li>
+<li>教授老师的权力太大了，国家也没有出台相应的解决办法，所谓的发布的几个文件，都只是象征性的，没有实际意义。</li>
+</ul>
+<p>解决办法：</p>
+<ul>
+<li>学术圈需要降低平均年龄，让那些不给力的老教师抓紧退休，让有能力有抱负的年轻老师赶紧上位。</li>
+<li>国内大学的思政老师要请专业的老师，不能是学生辅导员，要选择真正有理想，有抱负的共产党员来做思政老师，同时赋予他们保护学生的权力。</li>
+<li>需要大量的学生集体出来反抗，这是最无奈，也是最有效的一种解决办法，再来一次文化大革命，什么都解决了。</li>
+</ul>
+<p>写这篇文章的时候主要是感叹现在老师的权力真的太大了，完全不应该这么大啊，而且我现在的科研生活也和我理想中的科研生活完全不一样。我理想中的科研生活应该是自由，纯粹的科研生活，像deepmind，openai，UCB那种真正干科研的生活。而现在的科研生活，一个个教授们美其名曰要结合工程项目，但实际上只是为了赚钱一级一级骗钱，骗国企，骗国家，最终受伤害的还是纳税人。</p>
+<p>但是再往上说，那就要说到共产党了，共产党是先进生产力的代表，怎么不能解决这么明显的问题？</p>
+<p><strong>虽然对中国的科研圈子很失望，但是若不是为了心中那一份崇高的科研理想，我又怎会继续坚持？</strong></p>
+<p>最后，用鲁迅先生的经典《热风》结尾：</p>
+<p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声，有一分热，发一分光，就令萤火虫一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。 倘若有了炬火，出了太阳，我们自然心悦诚服地消失，不但毫无不平，而且还要随喜赞美这炬火或太阳，因为他照亮了人类，连我都在内。</p>
+<p><strong>与君共勉。</strong></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -1032,25 +1033,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>光纤测温WEB系统</title>
-    <url>/2019/02/01/%E5%85%89%E7%BA%A4%E6%B5%8B%E6%B8%A9WEB%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h2 id="本项目解决的问题">本项目解决的问题：</h2>
-<p>工业上光纤测温仪配有自带的桌面上位机，此上位机是用C++语言编写，在测温的过程中，温度数据会每隔一秒记录一次，写入TXT文件。本项目将此TXT文件中的数据通过Python发送到服务器，并且在服务器上建立WEB接口，使用户可以通过WEB访问。 <a id="more"></a> 访问效果如图所示：</p>
-<figure>
-<img src="web.png" alt="WEB" /><figcaption>WEB</figcaption>
-</figure>
-<h2 id="项目结构">项目结构：</h2>
-<p><strong>client:</strong> 此文件夹中是测温仪的数据文件夹，将打包好的client.exe文件放入DTS系统的数据文件夹，当此文件夹中产生新的数据文件时候，程序将会自动把数据发送到服务器。</p>
-<p><strong>server:</strong> 此文件夹是WEB端的文件，采用Flask进行设计，使用websocket技术。</p>
-]]></content>
-      <categories>
-        <category>flask</category>
-      </categories>
-      <tags>
-        <tag>flask</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用树莓派搭建家庭宠物监控并在B站24小时直播</title>
     <url>/2019/02/07/%E4%BD%BF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E5%AE%B6%E5%BA%AD%E5%AE%A0%E7%89%A9%E7%9B%91%E6%8E%A7%E5%B9%B6%E5%9C%A8B%E7%AB%9924%E5%B0%8F%E6%97%B6%E7%9B%B4%E6%92%AD/</url>
     <content><![CDATA[<p>我家养了一条拉布拉多，名字叫小黑，由于我常年不在家，都是我妈妈在养，每当我想要看看狗子，总是需要在我妈妈在家的时候，和我妈妈视频才能看到，因此，就想做一个本文的这个项目。</p>
@@ -1082,6 +1064,25 @@ x
       </categories>
       <tags>
         <tag>raspberry</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>光纤测温WEB系统</title>
+    <url>/2019/02/01/%E5%85%89%E7%BA%A4%E6%B5%8B%E6%B8%A9WEB%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h2 id="本项目解决的问题">本项目解决的问题：</h2>
+<p>工业上光纤测温仪配有自带的桌面上位机，此上位机是用C++语言编写，在测温的过程中，温度数据会每隔一秒记录一次，写入TXT文件。本项目将此TXT文件中的数据通过Python发送到服务器，并且在服务器上建立WEB接口，使用户可以通过WEB访问。 <a id="more"></a> 访问效果如图所示：</p>
+<figure>
+<img src="web.png" alt="WEB" /><figcaption>WEB</figcaption>
+</figure>
+<h2 id="项目结构">项目结构：</h2>
+<p><strong>client:</strong> 此文件夹中是测温仪的数据文件夹，将打包好的client.exe文件放入DTS系统的数据文件夹，当此文件夹中产生新的数据文件时候，程序将会自动把数据发送到服务器。</p>
+<p><strong>server:</strong> 此文件夹是WEB端的文件，采用Flask进行设计，使用websocket技术。</p>
+]]></content>
+      <categories>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
       </tags>
   </entry>
   <entry>
@@ -1256,33 +1257,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>初学数据库-sqlite3 简介</title>
-    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
-</blockquote>
-<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
-<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
-<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
-<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
-<h2 id="于是数据库出现了">于是，数据库出现了</h2>
-<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
-<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
-<h2 id="数据库种类">数据库种类</h2>
-<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
-<h3 id="非关系型数据库">2.非关系型数据库</h3>
-<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
-<h2 id="sqlite3">sqlite3</h2>
-<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>减肥的科学原理</title>
     <url>/2019/02/20/%E5%87%8F%E8%82%A5%E7%9A%84%E7%A7%91%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h2 id="减肥中的热量单位">减肥中的热量单位</h2>
@@ -1331,6 +1305,33 @@ x
       </tags>
   </entry>
   <entry>
+    <title>初学数据库-sqlite3 简介</title>
+    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
+</blockquote>
+<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
+<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
+<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
+<h2 id="于是数据库出现了">于是，数据库出现了</h2>
+<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
+<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
+<h2 id="数据库种类">数据库种类</h2>
+<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
+<h3 id="非关系型数据库">2.非关系型数据库</h3>
+<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
+<h2 id="sqlite3">sqlite3</h2>
+<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>利用虚拟主机搭建一个验证爬虫代理IP是否有效的服务</title>
     <url>/2018/10/14/%E5%88%A9%E7%94%A8%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%AA%8C%E8%AF%81%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88%E7%9A%84%E6%9C%8D%E5%8A%A1/</url>
     <content><![CDATA[<blockquote>
@@ -1365,58 +1366,6 @@ x
       </categories>
       <tags>
         <tag>爬虫 代理IP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>华为研发岗位面试经验(已拿offer)</title>
-    <url>/2018/09/30/%E5%8D%8E%E4%B8%BA%E7%A0%94%E5%8F%91%E5%B2%97%E4%BD%8D%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C-%E5%B7%B2%E6%8B%BFoffer/</url>
-    <content><![CDATA[<h2 id="专业面试">专业面试：</h2>
-<ul>
-<li>** 自我介绍：3-5分钟把自己的校园经历简单介绍一下**</li>
-</ul>
-<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第1，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。 <a id="more"></a> - ** 项目经历：在项目里做了哪些工作，算法有没有优化的空间**</p>
-<p><strong>1. 基于四旋翼的自动控制与跟随</strong> 本系统基于STM32F407控制器，通过对超声波模块和摄像头数据的采集分析，实时调整飞行器的飞行姿态，从而达到在无遥控的条件下，满足定高、定点悬停等要求。超声波传感器为飞行器的定高飞行提供了高度反馈，摄像头通过识别地面特征点的坐标为飞行器的定点飞行提供了位置反馈，采用python+树莓派+opencv的方式实现，提高了飞行器定点悬停的速度与精度。 a、程序功能描述 根据题目要求软件部分主要实现四旋翼飞行器姿态的获取与控制，实现飞行器的定高和定点飞行。 1）定高部分实现功能：飞行器高度的获取与控制、目标高度的自动切换。 2）定点部分实现功能：飞行器飞行速度的获取、移动距离的转换与控制。 b、程序设计思路 程序分为初始化部分、起飞油门值设置部分、定高PID调节部分、定点PID调节部分。初始化部分完成时钟、定时器、串行口等片上外设的设置，以及飞行模式的检测与设置；起飞油门设置部分完成片上ADC设置、电压采集数据获取与处理、起飞油门值的映射；定高PID调节部分完成高度误差的计算以及飞行高度的调节；定点PID调节部分完成位置误差的计算以及飞行位置的调节。</p>
-<p><strong>2. 机械加工过程中零件位置的自动识别</strong> 此项目研究自动化生产线加工过程中零件的位置识别问题，设计了一种具有普适性的自动化加工生产线上的零件识别系统，能够识别传感器采集到的图像中出现单个，或多个零件的位置，并且对于识别不同的零件，只需要修改极其少量的代码便可以使用。</p>
-<p><strong>3. 高电压增益变换器</strong> 此项目在基于H桥的Buck-Boost DC-DC变换器的基础上，用多个电容与二极管串联输出 实现了高增益，设计了双电感双开关同步控制Boost变换器，并用数字电路实现了闭环稳压的控制。</p>
-<p><strong>3. 无线充电之共享充电</strong> 此项目研究智能无线充电装置的控制方法，采用服务器-客户端的方式，服务器端可以对每个充电节点实施实时监控，用户能够通过手机直接查看无线充电装置的充电状态并对其进行一定的控制操作，此项目正在准备发表论文和申请实用新型专利，预计今年9月份发表之后可以申请结题</p>
-<p><strong>4. 基于Arduino的微型激光雕刻机</strong> 此项目主要采用Arduino UNO型单片机构成中央处理系统模块，并采用开源的控制系统框架Grbl设计和实现了一个可直接进行雕刻的微型激光雕刻机系统。本系统能在非金属物体表面烧刻出由计算机传输的图案的功能。</p>
-<p><strong>5. 海洋输液柔性管设备用的不间断真空控制系统</strong> 海洋输液用柔性管在塑料包覆的过程中，必须提供一个不间断的、稳定的真空度。当真空泵出现故障或其他方面出现故障导致真空度变化时，该装置必须自动调节，确保真空度变化量&lt;10%,响应时间不大于1秒 海洋输液用柔性管在正常情况下单根长度在1km以上，根据不同的用途，包覆层最多达到20多层，如果在包覆的过程中由于真空突然缺失就会导致当前包覆层报废，由于所用的原材料价格昂贵，所以重新返工会导致大量的浪费（国内有生产商因为真空泵出现问题而出现返工，损失50万元以上），在这种情况下，类似UPS的不间断真空就显得非常重要。当前在国内生产普通塑料管材行业由于单根的长度仅为4-12米，所以没有不间断真空这个装置。此项目正在申请实用新型专利。</p>
-<p><strong>6. 聚苯醚大口径管材挤出设备的温度自动控制装置</strong> 聚苯醚材料对加工温度极其敏感，加工温度窗口很窄，温度过高，严重过塑化，粘度急剧降低，温度过低会造成粘度急剧增大，所以温度的不稳定会严重影响产品的质量，该项目实现了温度控制装置的控制精度为0.5℃以内。此项目正在申请实用新型专利。</p>
-<p><strong>7. Python爬虫</strong> 采集网上的内容并将其自动发布到wordpress上</p>
-<p><strong>8. 远程设备状态监测机器人</strong> 针对目前邮件和短信的成本较高，利用成熟的微信机器人框架：Wxbot，实现了实时监测远程设备的状态，并通过微信传送到我的微信</p>
-<ul>
-<li>** 对华为的了解**</li>
-</ul>
-<p>众所周知华为是一个非常大的平台，经营范围非常广，并且在业内处于领先的地位，主要经营电信网络设备，已经成为行业的老大，并且近些年手机品牌和芯片研究有做的非常厉害，也是业界数一数二的。 华为的氛围相对比较而言更像大学，非常单纯，同事之间相处比较简单，并且公司具有良好的人才培养体系，在华为，员工可以快速成长，有很多学习和锻炼的机会，有机会接触到业界的核心技术和最前沿的技术理论，总之，华为是我向往的公司，希望自己能有机会到那里工作。</p>
-<h2 id="综合面试">综合面试：</h2>
-<ul>
-<li>** 自我介绍：**</li>
-</ul>
-<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第6，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。</p>
-<ul>
-<li>** 想不想加入华为**</li>
-</ul>
-<p>想</p>
-<ul>
-<li>** 成绩怎么样参加过什么级别的比赛**</li>
-</ul>
-<p>国家级</p>
-<ul>
-<li>** 以后想从事哪个方面的工作**</li>
-</ul>
-<p>嵌入式，因为我本科期间做的项目都是基于arm平台的，并且对操作系统非常感兴趣，从高中的时候在同学的介绍下就对linux产生了兴趣，所以将来想从事这方面的工作</p>
-<h1 id="华为面试小结">华为面试小结</h1>
-<p>总的来说，华为面试还是挺简单的，专业面试的时候我分到的那个面试官先生好像什么都不会，很难受。不过最终还是拿到了华为的offer，岗位是操作系统工程师，月薪15k以上，简简单单。 <strong>注意：我拿到华为offer时还是个本科生</strong></p>
-<h1 id="最后附上一张华为的offer">最后附上一张华为的offer</h1>
-<figure>
-<img src="huaweioffer.png" alt="华为offer" /><figcaption>华为offer</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>华为</category>
-      </categories>
-      <tags>
-        <tag>华为 面试</tag>
       </tags>
   </entry>
   <entry>
@@ -1480,6 +1429,58 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>华为研发岗位面试经验(已拿offer)</title>
+    <url>/2018/09/30/%E5%8D%8E%E4%B8%BA%E7%A0%94%E5%8F%91%E5%B2%97%E4%BD%8D%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C-%E5%B7%B2%E6%8B%BFoffer/</url>
+    <content><![CDATA[<h2 id="专业面试">专业面试：</h2>
+<ul>
+<li>** 自我介绍：3-5分钟把自己的校园经历简单介绍一下**</li>
+</ul>
+<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第1，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。 <a id="more"></a> - ** 项目经历：在项目里做了哪些工作，算法有没有优化的空间**</p>
+<p><strong>1. 基于四旋翼的自动控制与跟随</strong> 本系统基于STM32F407控制器，通过对超声波模块和摄像头数据的采集分析，实时调整飞行器的飞行姿态，从而达到在无遥控的条件下，满足定高、定点悬停等要求。超声波传感器为飞行器的定高飞行提供了高度反馈，摄像头通过识别地面特征点的坐标为飞行器的定点飞行提供了位置反馈，采用python+树莓派+opencv的方式实现，提高了飞行器定点悬停的速度与精度。 a、程序功能描述 根据题目要求软件部分主要实现四旋翼飞行器姿态的获取与控制，实现飞行器的定高和定点飞行。 1）定高部分实现功能：飞行器高度的获取与控制、目标高度的自动切换。 2）定点部分实现功能：飞行器飞行速度的获取、移动距离的转换与控制。 b、程序设计思路 程序分为初始化部分、起飞油门值设置部分、定高PID调节部分、定点PID调节部分。初始化部分完成时钟、定时器、串行口等片上外设的设置，以及飞行模式的检测与设置；起飞油门设置部分完成片上ADC设置、电压采集数据获取与处理、起飞油门值的映射；定高PID调节部分完成高度误差的计算以及飞行高度的调节；定点PID调节部分完成位置误差的计算以及飞行位置的调节。</p>
+<p><strong>2. 机械加工过程中零件位置的自动识别</strong> 此项目研究自动化生产线加工过程中零件的位置识别问题，设计了一种具有普适性的自动化加工生产线上的零件识别系统，能够识别传感器采集到的图像中出现单个，或多个零件的位置，并且对于识别不同的零件，只需要修改极其少量的代码便可以使用。</p>
+<p><strong>3. 高电压增益变换器</strong> 此项目在基于H桥的Buck-Boost DC-DC变换器的基础上，用多个电容与二极管串联输出 实现了高增益，设计了双电感双开关同步控制Boost变换器，并用数字电路实现了闭环稳压的控制。</p>
+<p><strong>3. 无线充电之共享充电</strong> 此项目研究智能无线充电装置的控制方法，采用服务器-客户端的方式，服务器端可以对每个充电节点实施实时监控，用户能够通过手机直接查看无线充电装置的充电状态并对其进行一定的控制操作，此项目正在准备发表论文和申请实用新型专利，预计今年9月份发表之后可以申请结题</p>
+<p><strong>4. 基于Arduino的微型激光雕刻机</strong> 此项目主要采用Arduino UNO型单片机构成中央处理系统模块，并采用开源的控制系统框架Grbl设计和实现了一个可直接进行雕刻的微型激光雕刻机系统。本系统能在非金属物体表面烧刻出由计算机传输的图案的功能。</p>
+<p><strong>5. 海洋输液柔性管设备用的不间断真空控制系统</strong> 海洋输液用柔性管在塑料包覆的过程中，必须提供一个不间断的、稳定的真空度。当真空泵出现故障或其他方面出现故障导致真空度变化时，该装置必须自动调节，确保真空度变化量&lt;10%,响应时间不大于1秒 海洋输液用柔性管在正常情况下单根长度在1km以上，根据不同的用途，包覆层最多达到20多层，如果在包覆的过程中由于真空突然缺失就会导致当前包覆层报废，由于所用的原材料价格昂贵，所以重新返工会导致大量的浪费（国内有生产商因为真空泵出现问题而出现返工，损失50万元以上），在这种情况下，类似UPS的不间断真空就显得非常重要。当前在国内生产普通塑料管材行业由于单根的长度仅为4-12米，所以没有不间断真空这个装置。此项目正在申请实用新型专利。</p>
+<p><strong>6. 聚苯醚大口径管材挤出设备的温度自动控制装置</strong> 聚苯醚材料对加工温度极其敏感，加工温度窗口很窄，温度过高，严重过塑化，粘度急剧降低，温度过低会造成粘度急剧增大，所以温度的不稳定会严重影响产品的质量，该项目实现了温度控制装置的控制精度为0.5℃以内。此项目正在申请实用新型专利。</p>
+<p><strong>7. Python爬虫</strong> 采集网上的内容并将其自动发布到wordpress上</p>
+<p><strong>8. 远程设备状态监测机器人</strong> 针对目前邮件和短信的成本较高，利用成熟的微信机器人框架：Wxbot，实现了实时监测远程设备的状态，并通过微信传送到我的微信</p>
+<ul>
+<li>** 对华为的了解**</li>
+</ul>
+<p>众所周知华为是一个非常大的平台，经营范围非常广，并且在业内处于领先的地位，主要经营电信网络设备，已经成为行业的老大，并且近些年手机品牌和芯片研究有做的非常厉害，也是业界数一数二的。 华为的氛围相对比较而言更像大学，非常单纯，同事之间相处比较简单，并且公司具有良好的人才培养体系，在华为，员工可以快速成长，有很多学习和锻炼的机会，有机会接触到业界的核心技术和最前沿的技术理论，总之，华为是我向往的公司，希望自己能有机会到那里工作。</p>
+<h2 id="综合面试">综合面试：</h2>
+<ul>
+<li>** 自我介绍：**</li>
+</ul>
+<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第6，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。</p>
+<ul>
+<li>** 想不想加入华为**</li>
+</ul>
+<p>想</p>
+<ul>
+<li>** 成绩怎么样参加过什么级别的比赛**</li>
+</ul>
+<p>国家级</p>
+<ul>
+<li>** 以后想从事哪个方面的工作**</li>
+</ul>
+<p>嵌入式，因为我本科期间做的项目都是基于arm平台的，并且对操作系统非常感兴趣，从高中的时候在同学的介绍下就对linux产生了兴趣，所以将来想从事这方面的工作</p>
+<h1 id="华为面试小结">华为面试小结</h1>
+<p>总的来说，华为面试还是挺简单的，专业面试的时候我分到的那个面试官先生好像什么都不会，很难受。不过最终还是拿到了华为的offer，岗位是操作系统工程师，月薪15k以上，简简单单。 <strong>注意：我拿到华为offer时还是个本科生</strong></p>
+<h1 id="最后附上一张华为的offer">最后附上一张华为的offer</h1>
+<figure>
+<img src="huaweioffer.png" alt="华为offer" /><figcaption>华为offer</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>华为</category>
+      </categories>
+      <tags>
+        <tag>华为 面试</tag>
       </tags>
   </entry>
   <entry>
@@ -1563,6 +1564,33 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>强化学习：有限马尔科夫决策过程</title>
+    <url>/2019/04/14/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%9A%E6%9C%89%E9%99%90%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/</url>
+    <content><![CDATA[<p>本文是reinforcement learning:An introduction书第三章的翻译．</p>
+<p>在本章中我们将介绍有限马尔科夫决策过程形式的问题（finite MDPs），本书的剩余部分都将解决此类问题．该问题包括可评估的反馈，就像和bandits问题一样，但是同时也有一个相关性的方面－在不同的情形下选择不同的行为．MDPs是序列决策问题的一种经典的形式．行为不光影响立即的回报，同时影响接下去的状态．因此，MDPs包括未来的奖励并且需要权衡立即的奖励与未来的奖励．在bandit问题中，我们估计每个行为<span class="math inline">\(a\)</span>的值<span class="math inline">\(q_*(a)\)</span>.</p>
+<p>在MDPs中我们估计在<span class="math inline">\(s\)</span>状态下，在<span class="math inline">\(a\)</span>行为的条件下的值<span class="math inline">\(q_*(s,a)\)</span>.</p>
+<a id="more"></a>
+<p>MDPs是强化学习的一个数学理想化形式，能够用精确的理论性语句描述．我们介绍强化学习问题的数学结构中的关键问题，例如回报，值函数，贝尔曼方程．我们努力将很大范围的实际问题用MDPs来表示．在人工智能中，算法应用的广度和数学溯源性之间有着一定的张力．在这一章中，我们将介绍这个张力，并且讨论算法实现的挑战和平衡点．</p>
+<h2 id="agent-environment接口">3.1 agent-environment接口</h2>
+<p><span class="math display">\[S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3,...\]</span></p>
+<p><span class="math display">\[P(s\prime,r|s,a) = Pr\{S_t=s\prime,R_t=r|S_{t-1}=s,A_{t-1}=a\}\]</span></p>
+<h2 id="目标和奖励">3.2 目标和奖励</h2>
+<p>在强化学习中，agent的目标被正式化定义为一个特殊的信号，称为奖励(Reward)，从environment传递给agent．在每个time step，奖励是一个实属．不正式得讲，agent的目标是为了最大化所有它收到的回报之和．这意味着最大化的不是立即奖励，而是长期的累计奖励．我们可以清楚地表述这个非正式的想法作为奖励假设：</p>
+<h2 id="回报和episodes">3.3 回报和Episodes</h2>
+<p>至此，我们讨论了强化学习的目标．agent的目标是为了最大化它在长期的过程中接收到的累计奖励．如何正式地定义？ 如果在time step t以后接收到的奖励序列可以表示为<span class="math inline">\(R_{t+1},R_{t+2},R_{t+3},...\)</span>，我们希望最大化这个序列的哪个方面．通常，我们将要最大化<strong>期望回报</strong>，用<span class="math inline">\(G_t\)</span>来表示，定义为奖励序列的一些特定函数，在最简单的情况下，回报是奖励的总和： <span class="math display">\[G_t = R_{t+1}+R_{t+2}+R_{t+3}+...+R_{T}\]</span> 其中，<span class="math inline">\(T\)</span>是最后一个时刻． ## 3.4 Episodes任务与连续任务的统一的记号 在之前的一小节中，我们介绍了两种强化学习任务，一种是</p>
+<h2 id="策略与值函数">3.5 策略与值函数</h2>
+<h2 id="策略的优化与值函数的优化">3.6 策略的优化与值函数的优化</h2>
+<h2 id="优化和近似">3.7 优化和近似</h2>
+<h2 id="总结">3.8 总结</h2>
+]]></content>
+      <categories>
+        <category>强化学习</category>
+      </categories>
+      <tags>
+        <tag>强化学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>折半查找</title>
     <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
     <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
@@ -1595,33 +1623,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>强化学习：有限马尔科夫决策过程</title>
-    <url>/2019/04/14/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%9A%E6%9C%89%E9%99%90%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/</url>
-    <content><![CDATA[<p>本文是reinforcement learning:An introduction书第三章的翻译．</p>
-<p>在本章中我们将介绍有限马尔科夫决策过程形式的问题（finite MDPs），本书的剩余部分都将解决此类问题．该问题包括可评估的反馈，就像和bandits问题一样，但是同时也有一个相关性的方面－在不同的情形下选择不同的行为．MDPs是序列决策问题的一种经典的形式．行为不光影响立即的回报，同时影响接下去的状态．因此，MDPs包括未来的奖励并且需要权衡立即的奖励与未来的奖励．在bandit问题中，我们估计每个行为<span class="math inline">\(a\)</span>的值<span class="math inline">\(q_*(a)\)</span>.</p>
-<p>在MDPs中我们估计在<span class="math inline">\(s\)</span>状态下，在<span class="math inline">\(a\)</span>行为的条件下的值<span class="math inline">\(q_*(s,a)\)</span>.</p>
-<a id="more"></a>
-<p>MDPs是强化学习的一个数学理想化形式，能够用精确的理论性语句描述．我们介绍强化学习问题的数学结构中的关键问题，例如回报，值函数，贝尔曼方程．我们努力将很大范围的实际问题用MDPs来表示．在人工智能中，算法应用的广度和数学溯源性之间有着一定的张力．在这一章中，我们将介绍这个张力，并且讨论算法实现的挑战和平衡点．</p>
-<h2 id="agent-environment接口">3.1 agent-environment接口</h2>
-<p><span class="math display">\[S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3,...\]</span></p>
-<p><span class="math display">\[P(s\prime,r|s,a) = Pr\{S_t=s\prime,R_t=r|S_{t-1}=s,A_{t-1}=a\}\]</span></p>
-<h2 id="目标和奖励">3.2 目标和奖励</h2>
-<p>在强化学习中，agent的目标被正式化定义为一个特殊的信号，称为奖励(Reward)，从environment传递给agent．在每个time step，奖励是一个实属．不正式得讲，agent的目标是为了最大化所有它收到的回报之和．这意味着最大化的不是立即奖励，而是长期的累计奖励．我们可以清楚地表述这个非正式的想法作为奖励假设：</p>
-<h2 id="回报和episodes">3.3 回报和Episodes</h2>
-<p>至此，我们讨论了强化学习的目标．agent的目标是为了最大化它在长期的过程中接收到的累计奖励．如何正式地定义？ 如果在time step t以后接收到的奖励序列可以表示为<span class="math inline">\(R_{t+1},R_{t+2},R_{t+3},...\)</span>，我们希望最大化这个序列的哪个方面．通常，我们将要最大化<strong>期望回报</strong>，用<span class="math inline">\(G_t\)</span>来表示，定义为奖励序列的一些特定函数，在最简单的情况下，回报是奖励的总和： <span class="math display">\[G_t = R_{t+1}+R_{t+2}+R_{t+3}+...+R_{T}\]</span> 其中，<span class="math inline">\(T\)</span>是最后一个时刻． ## 3.4 Episodes任务与连续任务的统一的记号 在之前的一小节中，我们介绍了两种强化学习任务，一种是</p>
-<h2 id="策略与值函数">3.5 策略与值函数</h2>
-<h2 id="策略的优化与值函数的优化">3.6 策略的优化与值函数的优化</h2>
-<h2 id="优化和近似">3.7 优化和近似</h2>
-<h2 id="总结">3.8 总结</h2>
-]]></content>
-      <categories>
-        <category>强化学习</category>
-      </categories>
-      <tags>
-        <tag>强化学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1802,6 +1803,21 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>软路由</title>
+    <url>/2020/08/17/%E8%BD%AF%E8%B7%AF%E7%94%B1/</url>
+    <content><![CDATA[<p>今天装了用虚拟机装了一台软路由，总结两个字：真香</p>
+<a id="more"></a>
+<p>软路由用作旁路由，搭建socks5代理，速度比windows直接用快了将近30倍。</p>
+<p>不知道是啥原因，可能是Linux和Windows系统上的区别？</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>粒子群算法的Python简单实现</title>
     <url>/2019/02/14/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E7%9A%84Python%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h2 id="需要优化的目标函数">需要优化的目标函数</h2>
@@ -1848,21 +1864,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>爬虫 代理IP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>软路由</title>
-    <url>/2020/08/17/%E8%BD%AF%E8%B7%AF%E7%94%B1/</url>
-    <content><![CDATA[<p>今天装了用虚拟机装了一台软路由，总结两个字：真香</p>
-<a id="more"></a>
-<p>软路由用作旁路由，搭建socks5代理，速度比windows直接用快了将近30倍。</p>
-<p>不知道是啥原因，可能是Linux和Windows系统上的区别？</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1976,54 +1977,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
 <p>其中，<span class="math inline">\(\beta\)</span>不是固定的，需要进行自适应设计，设计方法如下：</p>
 <p>计算两个策略的KL散度：<span class="math inline">\(d=\hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
 <p><span class="math inline">\(\begin{array}{l} -\text { If } d&lt;d_{\operatorname{targ}} / 1.5, \beta \leftarrow \beta / 2 \\ -\text { If } d&gt;d_{\text {targ }} \times 1.5, \beta \leftarrow \beta \times 2 \end{array}\)</span></p>
-]]></content>
-      <categories>
-        <category>Reinforcement Learning</category>
-      </categories>
-      <tags>
-        <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Playing Cartpole with natural deep reinforcement learning</title>
-    <url>/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/</url>
-    <content><![CDATA[<h2 id="introduction">Introduction</h2>
-<p>There are two kinds of methods in reinforcement learning, <strong>tabular methods</strong> and <strong>approximate methods</strong>. The purpose of RL is to get an <strong>optimal policy</strong>, which tells you to choose what action <em>A</em> when you at state <em>S</em>. If the state and aciton spaces are small enough, value fucntion can be represented as arrays, or tables. The problem with large state space is not just the memory needed for large tables, but the time and data needed to fill them accurately. If the state and aciton spaces are too large, due to the limitions of time and data, value functions need to be approximated with limited computational resources. In this case, out goal instead is to find a good enough approximate solution compared to optimal solution. <a id="more"></a> This post is some reading notes for <em>Playing Atari with Deep Reinforcement learning</em> which published by DeepMind(2013). Instead playing Atari games, I play CartPole games whose simulation environment is provided by Openai Gym. I implement the algorithm proposed by the DeepMind which known as DQN to solve CartPole. Besides, a discrete-q-learing method is discussed compared to DQN.</p>
-<p>CartPole is a classic control task which has infinite state space and finite action space. It is difficult to solve the problem use tabular methods. A neural network can solve this problem to learn successful control polcies. The network is trained with a variant of the Q-learning algorithm, with stochastic gradient descent to update the weights. To alleviate the problems of correlated data and non-stationary distributions, we use an experience replay mechanism which randomly samples previous transitions, and thereby smooths the training distribution over many past behaviors.</p>
-<h2 id="background">Background</h2>
-<p>We consider tasks in which an agent interacts with an environment <span class="math inline">\(\epsilon\)</span>, in this case the openai gym emulator, in a sequence of actions, observations and rewards. At each time-step the agent selects an action <span class="math inline">\(a_t\)</span> from the set of legal game actions, <span class="math inline">\(A=\)</span>{0, 1}. The action is passed to the emulator and it returns a list of next_state, reward, done.</p>
-<p>We consider sequences of actions and observations, <span class="math inline">\(s_t=x_1, a_1, x_2,..., a_{t-1},x_t\)</span> and learn game strategies that depend opon these sequences. All sequences in the emulator are assumed to terminate in a finite number of time-steps. This formalism gives rise to a large but finite Markov decision process(MDP) in which each sequence is a distinct state. As a result, we can apply standard reinforcement learning methods for MDPs, simply by using the complete sequence <span class="math inline">\(s_t\)</span> as the state representation at time t.</p>
-<p>The goal of the agent is to interact with the agent by selecting actions in a way that maximize future rewards. We some following definitons:</p>
-<ul>
-<li>We make the standard assumption that future rewards are discounted by a factor of <span class="math inline">\(\gamma\)</span> per time-step.</li>
-<li>The future discounted return at time <span class="math inline">\(t\)</span> as <span class="math inline">\(R_t=\Sigma_{t&#39;=t}^{T}\gamma^{t&#39;-t}r_{t&#39;}\)</span>, where <span class="math inline">\(T\)</span> is the time step at which the game terminates.</li>
-<li>Optimal action-value function <span class="math inline">\(Q^*(s, a)\)</span> as the maximum expected return achievable by following any strategy, after seeing some sequence <span class="math inline">\(s\)</span> and then taking some action <span class="math inline">\(a\)</span>, <span class="math inline">\(Q^*(s, a)=max_\pi E[R _ t|s _ t=s,a _ t=a,\pi]\)</span>, where <span class="math inline">\(\pi\)</span> is a policy mapping sequences to actions (or distributions over actions).</li>
-</ul>
-<p>The optimal action-value function obeys an important identity known as the <em>Bellman equation</em>. This is based on the following intuition: if the optimal value <span class="math inline">\(Q^*(s&#39;, a&#39;)\)</span> of the sequence <span class="math inline">\(s&#39;\)</span> at the next time-step was known for all possible actions <span class="math inline">\(a&#39;\)</span>, then the optimal strategy is to select the action <span class="math inline">\(a&#39;\)</span> maximizing the expected value of <span class="math inline">\(r+\gamma Q^*(s&#39;, a&#39;)\)</span></p>
-<p><span class="math display">\[Q^*(s, a)=E_{s&#39; \in \epsilon}[r+\gamma max_{a&#39;}Q^*(s&#39;, a&#39;|s, a)]\]</span></p>
-<p>Such value iteration algorithms converge to the optimal action value function, <span class="math inline">\(Q_i \rightarrow Q^*(s, a)\)</span> as <span class="math inline">\(i \rightarrow \infty\)</span></p>
-<p>In practice, this basic approach is totally impractical, because the action-value function is estimated separately for each sequence, without any generalisation. Instead, it is common to use a function approximator to estimate the action-value function, <span class="math inline">\(Q(s, a; \theta)=Q^*(s, a)\)</span>. In the reinforcement learning community this is typically a linear function approximator, but sometimes a non-linear function aproximator is used instead, such as a neural network. We refer to a neural network function approximator with weights <span class="math inline">\(\theta\)</span> as a Q-network. A Q-network can be trained by minimizing a sequence of loss functions <span class="math inline">\(L_i(\theta_i)\)</span> that changes at each iteration i.</p>
-<p><span class="math display">\[L_i(\theta_i)=E_{s,a \in \rho(\cdot)}[(y _ i-Q(s,a;\theta _ i))^2]\]</span></p>
-<p>where <span class="math inline">\(y_i=E_{s&#39; \in \epsilon}[r+\gamma max_{a&#39;}Q(s&#39;, a&#39;;\theta_{i-1}|s, a)]\)</span> is the target for iteration <span class="math inline">\(i\)</span> and <span class="math inline">\(\rho(s, a)\)</span> is a probability distribution over sequences <span class="math inline">\(s\)</span> and aciton <span class="math inline">\(a\)</span> that we refer to as the behaviour distribution.</p>
-<h2 id="deep-reinforcement-learning">Deep Reinforcement Learning</h2>
-<h3 id="dqn-pseudocode">DQN pseudocode</h3>
-<figure>
-<img src="dqn_algorithm.png" alt="dqn_algorithm" /><figcaption>dqn_algorithm</figcaption>
-</figure>
-<h2 id="code">Code</h2>
-<h3 id="dqn.py"><code>dqn.py</code></h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> math, random</span><br><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">import</span> torch.autograd <span class="keyword">as</span> autograd </span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"><span class="keyword">import</span> GPUtil</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">action_space = <span class="number">2</span></span><br><span class="line">state_space = <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Replay buffer </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReplayBuffer</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, capacity)</span>:</span></span><br><span class="line">        self.buffer = deque(maxlen=capacity)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, state, action, reward, next_state, done)</span>:</span></span><br><span class="line">        state = np.expand_dims(state, <span class="number">0</span>)</span><br><span class="line">        next_state = np.expand_dims(next_state, <span class="number">0</span>)</span><br><span class="line">            </span><br><span class="line">        self.buffer.append((state, action, reward, next_state, done))</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sample</span><span class="params">(self, batch_size)</span>:</span></span><br><span class="line">        state, action, reward, next_state, done = zip(*random.sample(self.buffer, batch_size))</span><br><span class="line">        <span class="keyword">return</span> np.concatenate(state), action, reward, np.concatenate(next_state), done</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.buffer)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deep Q Network</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DQN</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, num_inputs, num_actions, device)</span>:</span></span><br><span class="line">        super(DQN, self).__init__()</span><br><span class="line">        self.device = device</span><br><span class="line">        self.layers = nn.Sequential(</span><br><span class="line">            nn.Linear(state_space, <span class="number">256</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">256</span>, <span class="number">256</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">256</span>, action_space)</span><br><span class="line">        ).to(self.device)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.layers(x)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">act</span><span class="params">(self, state, epsilon)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> random.random() &gt; epsilon:</span><br><span class="line">            state = torch.FloatTensor(state).to(self.device)</span><br><span class="line">            q_value = self.forward(state)</span><br><span class="line">            action = q_value.max(<span class="number">0</span>)[<span class="number">1</span>].item()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            action = random.randrange(action_space)</span><br><span class="line">        <span class="keyword">return</span> action</span><br><span class="line"></span><br><span class="line"><span class="comment"># Computing TD difference</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_td_loss</span><span class="params">(model, batch_size, gamma, replay_buffer, optimizer, device)</span>:</span></span><br><span class="line">    state, action, reward, next_state, done = replay_buffer.sample(batch_size)</span><br><span class="line"></span><br><span class="line">    state = torch.FloatTensor(state).to(device)</span><br><span class="line">    next_state = torch.FloatTensor(next_state).to(device)</span><br><span class="line">    action = torch.LongTensor(action).to(device)</span><br><span class="line">    reward = torch.FloatTensor(reward).to(device)</span><br><span class="line">    done = torch.FloatTensor(done).to(device)</span><br><span class="line">    q_values = model.forward(state).to(device)</span><br><span class="line">    next_q_values = model.forward(next_state).to(device)</span><br><span class="line">    <span class="comment"># the value corresponding to the (s, a)</span></span><br><span class="line">    q_value = q_values.gather(<span class="number">1</span>, action.unsqueeze(<span class="number">1</span>)).squeeze(<span class="number">1</span>)</span><br><span class="line">    next_q_value = next_q_values.max(<span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">    expected_q_value = reward + gamma * next_q_value * (<span class="number">1</span> - done)</span><br><span class="line">    loss = (q_value - expected_q_value.data).pow(<span class="number">2</span>).mean()</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">50</span>)</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">return</span> loss</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print the size of the model</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_model_size</span><span class="params">()</span>:</span></span><br><span class="line">    para = sum([np.prod(list(p.size())) <span class="keyword">for</span> p <span class="keyword">in</span> model.parameters()])</span><br><span class="line">    print(<span class="string">'Model &#123;&#125; : params: &#123;:4f&#125;M'</span>.format(model._get_name(), para * <span class="number">4</span> / <span class="number">1000</span> / <span class="number">1000</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print GPU usage</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Monitor</span><span class="params">(Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, delay)</span>:</span></span><br><span class="line">        super(Monitor, self).__init__()</span><br><span class="line">        self.stopped = <span class="literal">False</span></span><br><span class="line">        self.delay = delay <span class="comment"># Time between calls to GPUtil</span></span><br><span class="line">        self.start()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> self.stopped:</span><br><span class="line">            GPUtil.showUtilization()</span><br><span class="line">            time.sleep(self.delay)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">stop</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.stopped = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Get the training time cost</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timeit</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></span><br><span class="line">        start_time = time.time()</span><br><span class="line">        func()</span><br><span class="line">        end_time = time.time()</span><br><span class="line">        print(<span class="string">"The Training is finished. Cost "</span>, end_time-start_time, <span class="string">" S"</span>)</span><br><span class="line">    <span class="keyword">return</span> inner</span><br></pre></td></tr></table></figure>
-<h3 id="traindqn.py"><code>traindqn.py</code></h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> dqn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> torch.utils.tensorboard <span class="keyword">import</span> SummaryWriter</span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line">writer = SummaryWriter()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Gym CartPole environment</span></span><br><span class="line">env = gym.make(<span class="string">"CartPole-v0"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a DQN model using CUDA</span></span><br><span class="line">device = torch.device(<span class="string">"cuda"</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">"cpu"</span>)</span><br><span class="line">model = DQN(env.observation_space.shape[<span class="number">0</span>], env.action_space.n, device)</span><br><span class="line"><span class="keyword">if</span> device == <span class="string">"cuda"</span>:</span><br><span class="line">    print(<span class="string">"Using GPU"</span>)</span><br><span class="line">    model.to(device)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Parameters</span></span><br><span class="line"><span class="comment">## Epsilon greedy exploration</span></span><br><span class="line">epsilon_start = <span class="number">0.9</span></span><br><span class="line">epsilon_final = <span class="number">0.05</span></span><br><span class="line">epsilon_decay = <span class="number">200</span></span><br><span class="line">epsilon_by_episode = <span class="keyword">lambda</span> frame_idx: epsilon_final + (epsilon_start - epsilon_final) * math.exp(<span class="number">-1.</span> * frame_idx / epsilon_decay)</span><br><span class="line"><span class="comment">## gamma</span></span><br><span class="line">gamma = <span class="number">0.99</span></span><br><span class="line"><span class="comment">## Training parameters</span></span><br><span class="line">episodes = <span class="number">1000</span></span><br><span class="line">batch_size = <span class="number">4</span></span><br><span class="line">losses = []</span><br><span class="line">all_rewards = []</span><br><span class="line">episode_reward = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Computing Temporal Difference Loss</span></span><br><span class="line">replay_buffer = ReplayBuffer(<span class="number">5000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a optimizer</span></span><br><span class="line">optimizer = optim.Adam(model.parameters(), lr=<span class="number">0.0001</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Trainning</span></span><br><span class="line"><span class="meta">@timeit</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> gamma, num_frames, batch_size, losses, all_rewards, episode_reward</span><br><span class="line">    state = env.reset()</span><br><span class="line">    <span class="keyword">for</span> episode_idx <span class="keyword">in</span> range(<span class="number">1</span>, episodes + <span class="number">1</span>):</span><br><span class="line">        epsilon = epsilon_by_episode(episode_idx)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> itertools.count():</span><br><span class="line">            action = model.act(state, epsilon)</span><br><span class="line">            <span class="comment">#print(action)</span></span><br><span class="line">            </span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            replay_buffer.push(state, action, reward, next_state, done)</span><br><span class="line">            </span><br><span class="line">            state = next_state</span><br><span class="line">            episode_reward += reward</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                state = env.reset()</span><br><span class="line">                all_rewards.append(episode_reward)</span><br><span class="line">                print(episode_reward)</span><br><span class="line">                episode_reward = <span class="number">0</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">                </span><br><span class="line">            <span class="keyword">if</span> len(replay_buffer) &gt; batch_size:</span><br><span class="line">                loss = compute_td_loss(model, batch_size, gamma, replay_buffer, optimizer, device)</span><br><span class="line">                losses.append(loss.item())</span><br><span class="line">    <span class="comment">#plot(all_rewards, losses)</span></span><br><span class="line">            </span><br><span class="line">        <span class="comment">#if frame_idx % 200 == 0:</span></span><br><span class="line">            <span class="comment">#plot(frame_idx, all_rewards, losses)</span></span><br><span class="line">    plt.plot(all_rewards)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_policy</span><span class="params">()</span>:</span></span><br><span class="line">    pole_angle = np.random.uniform(-env.observation_space.high[<span class="number">2</span>], env.observation_space.high[<span class="number">2</span>], <span class="number">10000</span>)</span><br><span class="line">    pole_velocity = np.random.uniform(-math.radians(<span class="number">50</span>), math.radians(<span class="number">50</span>), <span class="number">10000</span>)</span><br><span class="line">    action_list = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(pole_angle)):</span><br><span class="line">        state = env.reset()</span><br><span class="line">        state[<span class="number">2</span>] = pole_angle[i]</span><br><span class="line">        state[<span class="number">3</span>] = pole_velocity[i]</span><br><span class="line">        <span class="comment">#print(state, model.act(state, 0))</span></span><br><span class="line">        action = model.act(state, <span class="number">0</span>)</span><br><span class="line">        action_list.append(action)</span><br><span class="line">    colors = &#123;<span class="number">0</span>:<span class="string">'blue'</span>,<span class="number">1</span>:<span class="string">'red'</span>&#125;</span><br><span class="line">    colors = [<span class="string">'blue'</span> <span class="keyword">if</span> i==<span class="number">0</span> <span class="keyword">else</span> <span class="string">'red'</span> <span class="keyword">for</span> i <span class="keyword">in</span> action_list]</span><br><span class="line">    labels = [<span class="string">'Left'</span>,<span class="string">'Right'</span>]</span><br><span class="line">    print(colors)</span><br><span class="line">    <span class="keyword">import</span> matplotlib.patches <span class="keyword">as</span> mpatches</span><br><span class="line">    <span class="keyword">from</span> matplotlib.colors <span class="keyword">import</span> ListedColormap</span><br><span class="line">    fig = plt.figure(<span class="number">5</span>, figsize=[<span class="number">7</span>,<span class="number">7</span>])</span><br><span class="line">    ax = fig.gca()</span><br><span class="line">    plt.set_cmap(<span class="string">'brg'</span>)</span><br><span class="line">    surf = ax.scatter(pole_angle,pole_velocity, c=colors)</span><br><span class="line">    ax.set_xlabel(<span class="string">'pole_angle'</span>)</span><br><span class="line">    ax.set_ylabel(<span class="string">'pole_velocity'</span>)</span><br><span class="line">    ax.set_title(<span class="string">'Policy'</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Instantiate monitor with a 10-second delay between updates</span></span><br><span class="line">monitor = Monitor(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#writer.add_graph(model, torch.Tensor([1.0, 1.0, 1.0, 1.0]).to(device))</span></span><br><span class="line"><span class="comment"># Train here</span></span><br><span class="line">train()</span><br><span class="line">plot_policy()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Close monitor</span></span><br><span class="line">monitor.stop()</span><br></pre></td></tr></table></figure>
-<h2 id="result">Result</h2>
-<p>After training for 1000 episodes, we get the following policy:</p>
-<p><img src="dqn_policy.png" alt="policy" /> ## Code Comments ### How to compute TD Loss <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_td_loss</span><span class="params">(model, batch_size, gamma, replay_buffer, optimizer, device)</span>:</span></span><br><span class="line">    state, action, reward, next_state, done = replay_buffer.sample(batch_size)</span><br><span class="line"></span><br><span class="line">    state = torch.FloatTensor(state).to(device)</span><br><span class="line">    next_state = torch.FloatTensor(next_state).to(device)</span><br><span class="line">    action = torch.LongTensor(action).to(device)</span><br><span class="line">    reward = torch.FloatTensor(reward).to(device)</span><br><span class="line">    done = torch.FloatTensor(done).to(device)</span><br><span class="line"></span><br><span class="line">    q_values = model.forward(state).to(device)</span><br><span class="line">    next_q_values = model.forward(next_state).to(device)</span><br><span class="line">    <span class="comment"># the value corresponding to the (s, a)</span></span><br><span class="line">    q_value = q_values.gather(<span class="number">1</span>, action.unsqueeze(<span class="number">1</span>)).squeeze(<span class="number">1</span>)</span><br><span class="line">    next_q_value = next_q_values.max(<span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">    expected_q_value = reward + gamma * next_q_value * (<span class="number">1</span> - done)</span><br><span class="line">    loss = (q_value - expected_q_value.data).pow(<span class="number">2</span>).mean()</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">50</span>)</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">return</span> loss</span><br></pre></td></tr></table></figure> In contrast to TD-Gammon and similar online approaches, we utilize a technique known as <em>experience replay</em> where we store the agent's experiences at each time-step, <span class="math inline">\(e_t=(s_t, a_t, r_t, _{t+1})\)</span> in a data-set <span class="math inline">\(D=e_1, e_2, ... ,e_N\)</span>, pooled over many episodes into a replay memory.</p>
-<p>Since we have known the pair <span class="math inline">\((s_t, a_t)\)</span>, we can get the <code>q_value = q_values.gather(1, action.unsqueeze(1)).squeeze(1)</code>. Then, we know next_state, compute next_q_value. Choose <span class="math inline">\(a&#39;\)</span> which maximize the next_q_value.</p>
-<h2 id="reference">Reference</h2>
-<p>[1] Mnih, Volodymyr, et al. "Playing atari with deep reinforcement learning." arXiv preprint arXiv:1312.5602 (2013).</p>
-<p>[2] https://stackoverflow.com/questions/50999977/what-does-the-gather-function-do-in-pytorch-in-layman-terms</p>
-<p>[3] https://stackoverflow.com/questions/57237352/what-does-unsqueeze-do-in-pytorch</p>
-<p>[4] https://gist.github.com/ts1829/62b9ae7687d79279b9381bb6808bf6ab#file-mountain-car-v0-q-learning-modified-reward-ipynb</p>
 ]]></content>
       <categories>
         <category>Reinforcement Learning</category>
@@ -3233,6 +3186,54 @@ Alabama
       </categories>
       <tags>
         <tag>Pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Playing Cartpole with natural deep reinforcement learning</title>
+    <url>/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/</url>
+    <content><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>There are two kinds of methods in reinforcement learning, <strong>tabular methods</strong> and <strong>approximate methods</strong>. The purpose of RL is to get an <strong>optimal policy</strong>, which tells you to choose what action <em>A</em> when you at state <em>S</em>. If the state and aciton spaces are small enough, value fucntion can be represented as arrays, or tables. The problem with large state space is not just the memory needed for large tables, but the time and data needed to fill them accurately. If the state and aciton spaces are too large, due to the limitions of time and data, value functions need to be approximated with limited computational resources. In this case, out goal instead is to find a good enough approximate solution compared to optimal solution. <a id="more"></a> This post is some reading notes for <em>Playing Atari with Deep Reinforcement learning</em> which published by DeepMind(2013). Instead playing Atari games, I play CartPole games whose simulation environment is provided by Openai Gym. I implement the algorithm proposed by the DeepMind which known as DQN to solve CartPole. Besides, a discrete-q-learing method is discussed compared to DQN.</p>
+<p>CartPole is a classic control task which has infinite state space and finite action space. It is difficult to solve the problem use tabular methods. A neural network can solve this problem to learn successful control polcies. The network is trained with a variant of the Q-learning algorithm, with stochastic gradient descent to update the weights. To alleviate the problems of correlated data and non-stationary distributions, we use an experience replay mechanism which randomly samples previous transitions, and thereby smooths the training distribution over many past behaviors.</p>
+<h2 id="background">Background</h2>
+<p>We consider tasks in which an agent interacts with an environment <span class="math inline">\(\epsilon\)</span>, in this case the openai gym emulator, in a sequence of actions, observations and rewards. At each time-step the agent selects an action <span class="math inline">\(a_t\)</span> from the set of legal game actions, <span class="math inline">\(A=\)</span>{0, 1}. The action is passed to the emulator and it returns a list of next_state, reward, done.</p>
+<p>We consider sequences of actions and observations, <span class="math inline">\(s_t=x_1, a_1, x_2,..., a_{t-1},x_t\)</span> and learn game strategies that depend opon these sequences. All sequences in the emulator are assumed to terminate in a finite number of time-steps. This formalism gives rise to a large but finite Markov decision process(MDP) in which each sequence is a distinct state. As a result, we can apply standard reinforcement learning methods for MDPs, simply by using the complete sequence <span class="math inline">\(s_t\)</span> as the state representation at time t.</p>
+<p>The goal of the agent is to interact with the agent by selecting actions in a way that maximize future rewards. We some following definitons:</p>
+<ul>
+<li>We make the standard assumption that future rewards are discounted by a factor of <span class="math inline">\(\gamma\)</span> per time-step.</li>
+<li>The future discounted return at time <span class="math inline">\(t\)</span> as <span class="math inline">\(R_t=\Sigma_{t&#39;=t}^{T}\gamma^{t&#39;-t}r_{t&#39;}\)</span>, where <span class="math inline">\(T\)</span> is the time step at which the game terminates.</li>
+<li>Optimal action-value function <span class="math inline">\(Q^*(s, a)\)</span> as the maximum expected return achievable by following any strategy, after seeing some sequence <span class="math inline">\(s\)</span> and then taking some action <span class="math inline">\(a\)</span>, <span class="math inline">\(Q^*(s, a)=max_\pi E[R _ t|s _ t=s,a _ t=a,\pi]\)</span>, where <span class="math inline">\(\pi\)</span> is a policy mapping sequences to actions (or distributions over actions).</li>
+</ul>
+<p>The optimal action-value function obeys an important identity known as the <em>Bellman equation</em>. This is based on the following intuition: if the optimal value <span class="math inline">\(Q^*(s&#39;, a&#39;)\)</span> of the sequence <span class="math inline">\(s&#39;\)</span> at the next time-step was known for all possible actions <span class="math inline">\(a&#39;\)</span>, then the optimal strategy is to select the action <span class="math inline">\(a&#39;\)</span> maximizing the expected value of <span class="math inline">\(r+\gamma Q^*(s&#39;, a&#39;)\)</span></p>
+<p><span class="math display">\[Q^*(s, a)=E_{s&#39; \in \epsilon}[r+\gamma max_{a&#39;}Q^*(s&#39;, a&#39;|s, a)]\]</span></p>
+<p>Such value iteration algorithms converge to the optimal action value function, <span class="math inline">\(Q_i \rightarrow Q^*(s, a)\)</span> as <span class="math inline">\(i \rightarrow \infty\)</span></p>
+<p>In practice, this basic approach is totally impractical, because the action-value function is estimated separately for each sequence, without any generalisation. Instead, it is common to use a function approximator to estimate the action-value function, <span class="math inline">\(Q(s, a; \theta)=Q^*(s, a)\)</span>. In the reinforcement learning community this is typically a linear function approximator, but sometimes a non-linear function aproximator is used instead, such as a neural network. We refer to a neural network function approximator with weights <span class="math inline">\(\theta\)</span> as a Q-network. A Q-network can be trained by minimizing a sequence of loss functions <span class="math inline">\(L_i(\theta_i)\)</span> that changes at each iteration i.</p>
+<p><span class="math display">\[L_i(\theta_i)=E_{s,a \in \rho(\cdot)}[(y _ i-Q(s,a;\theta _ i))^2]\]</span></p>
+<p>where <span class="math inline">\(y_i=E_{s&#39; \in \epsilon}[r+\gamma max_{a&#39;}Q(s&#39;, a&#39;;\theta_{i-1}|s, a)]\)</span> is the target for iteration <span class="math inline">\(i\)</span> and <span class="math inline">\(\rho(s, a)\)</span> is a probability distribution over sequences <span class="math inline">\(s\)</span> and aciton <span class="math inline">\(a\)</span> that we refer to as the behaviour distribution.</p>
+<h2 id="deep-reinforcement-learning">Deep Reinforcement Learning</h2>
+<h3 id="dqn-pseudocode">DQN pseudocode</h3>
+<figure>
+<img src="dqn_algorithm.png" alt="dqn_algorithm" /><figcaption>dqn_algorithm</figcaption>
+</figure>
+<h2 id="code">Code</h2>
+<h3 id="dqn.py"><code>dqn.py</code></h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> math, random</span><br><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">import</span> torch.autograd <span class="keyword">as</span> autograd </span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"><span class="keyword">import</span> GPUtil</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">action_space = <span class="number">2</span></span><br><span class="line">state_space = <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Replay buffer </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReplayBuffer</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, capacity)</span>:</span></span><br><span class="line">        self.buffer = deque(maxlen=capacity)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, state, action, reward, next_state, done)</span>:</span></span><br><span class="line">        state = np.expand_dims(state, <span class="number">0</span>)</span><br><span class="line">        next_state = np.expand_dims(next_state, <span class="number">0</span>)</span><br><span class="line">            </span><br><span class="line">        self.buffer.append((state, action, reward, next_state, done))</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sample</span><span class="params">(self, batch_size)</span>:</span></span><br><span class="line">        state, action, reward, next_state, done = zip(*random.sample(self.buffer, batch_size))</span><br><span class="line">        <span class="keyword">return</span> np.concatenate(state), action, reward, np.concatenate(next_state), done</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.buffer)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deep Q Network</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DQN</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, num_inputs, num_actions, device)</span>:</span></span><br><span class="line">        super(DQN, self).__init__()</span><br><span class="line">        self.device = device</span><br><span class="line">        self.layers = nn.Sequential(</span><br><span class="line">            nn.Linear(state_space, <span class="number">256</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">256</span>, <span class="number">256</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">256</span>, action_space)</span><br><span class="line">        ).to(self.device)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.layers(x)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">act</span><span class="params">(self, state, epsilon)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> random.random() &gt; epsilon:</span><br><span class="line">            state = torch.FloatTensor(state).to(self.device)</span><br><span class="line">            q_value = self.forward(state)</span><br><span class="line">            action = q_value.max(<span class="number">0</span>)[<span class="number">1</span>].item()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            action = random.randrange(action_space)</span><br><span class="line">        <span class="keyword">return</span> action</span><br><span class="line"></span><br><span class="line"><span class="comment"># Computing TD difference</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_td_loss</span><span class="params">(model, batch_size, gamma, replay_buffer, optimizer, device)</span>:</span></span><br><span class="line">    state, action, reward, next_state, done = replay_buffer.sample(batch_size)</span><br><span class="line"></span><br><span class="line">    state = torch.FloatTensor(state).to(device)</span><br><span class="line">    next_state = torch.FloatTensor(next_state).to(device)</span><br><span class="line">    action = torch.LongTensor(action).to(device)</span><br><span class="line">    reward = torch.FloatTensor(reward).to(device)</span><br><span class="line">    done = torch.FloatTensor(done).to(device)</span><br><span class="line">    q_values = model.forward(state).to(device)</span><br><span class="line">    next_q_values = model.forward(next_state).to(device)</span><br><span class="line">    <span class="comment"># the value corresponding to the (s, a)</span></span><br><span class="line">    q_value = q_values.gather(<span class="number">1</span>, action.unsqueeze(<span class="number">1</span>)).squeeze(<span class="number">1</span>)</span><br><span class="line">    next_q_value = next_q_values.max(<span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">    expected_q_value = reward + gamma * next_q_value * (<span class="number">1</span> - done)</span><br><span class="line">    loss = (q_value - expected_q_value.data).pow(<span class="number">2</span>).mean()</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">50</span>)</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">return</span> loss</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print the size of the model</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_model_size</span><span class="params">()</span>:</span></span><br><span class="line">    para = sum([np.prod(list(p.size())) <span class="keyword">for</span> p <span class="keyword">in</span> model.parameters()])</span><br><span class="line">    print(<span class="string">'Model &#123;&#125; : params: &#123;:4f&#125;M'</span>.format(model._get_name(), para * <span class="number">4</span> / <span class="number">1000</span> / <span class="number">1000</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print GPU usage</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Monitor</span><span class="params">(Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, delay)</span>:</span></span><br><span class="line">        super(Monitor, self).__init__()</span><br><span class="line">        self.stopped = <span class="literal">False</span></span><br><span class="line">        self.delay = delay <span class="comment"># Time between calls to GPUtil</span></span><br><span class="line">        self.start()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> self.stopped:</span><br><span class="line">            GPUtil.showUtilization()</span><br><span class="line">            time.sleep(self.delay)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">stop</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.stopped = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Get the training time cost</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timeit</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></span><br><span class="line">        start_time = time.time()</span><br><span class="line">        func()</span><br><span class="line">        end_time = time.time()</span><br><span class="line">        print(<span class="string">"The Training is finished. Cost "</span>, end_time-start_time, <span class="string">" S"</span>)</span><br><span class="line">    <span class="keyword">return</span> inner</span><br></pre></td></tr></table></figure>
+<h3 id="traindqn.py"><code>traindqn.py</code></h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> dqn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> torch.utils.tensorboard <span class="keyword">import</span> SummaryWriter</span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line">writer = SummaryWriter()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Gym CartPole environment</span></span><br><span class="line">env = gym.make(<span class="string">"CartPole-v0"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a DQN model using CUDA</span></span><br><span class="line">device = torch.device(<span class="string">"cuda"</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">"cpu"</span>)</span><br><span class="line">model = DQN(env.observation_space.shape[<span class="number">0</span>], env.action_space.n, device)</span><br><span class="line"><span class="keyword">if</span> device == <span class="string">"cuda"</span>:</span><br><span class="line">    print(<span class="string">"Using GPU"</span>)</span><br><span class="line">    model.to(device)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Parameters</span></span><br><span class="line"><span class="comment">## Epsilon greedy exploration</span></span><br><span class="line">epsilon_start = <span class="number">0.9</span></span><br><span class="line">epsilon_final = <span class="number">0.05</span></span><br><span class="line">epsilon_decay = <span class="number">200</span></span><br><span class="line">epsilon_by_episode = <span class="keyword">lambda</span> frame_idx: epsilon_final + (epsilon_start - epsilon_final) * math.exp(<span class="number">-1.</span> * frame_idx / epsilon_decay)</span><br><span class="line"><span class="comment">## gamma</span></span><br><span class="line">gamma = <span class="number">0.99</span></span><br><span class="line"><span class="comment">## Training parameters</span></span><br><span class="line">episodes = <span class="number">1000</span></span><br><span class="line">batch_size = <span class="number">4</span></span><br><span class="line">losses = []</span><br><span class="line">all_rewards = []</span><br><span class="line">episode_reward = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Computing Temporal Difference Loss</span></span><br><span class="line">replay_buffer = ReplayBuffer(<span class="number">5000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a optimizer</span></span><br><span class="line">optimizer = optim.Adam(model.parameters(), lr=<span class="number">0.0001</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Trainning</span></span><br><span class="line"><span class="meta">@timeit</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> gamma, num_frames, batch_size, losses, all_rewards, episode_reward</span><br><span class="line">    state = env.reset()</span><br><span class="line">    <span class="keyword">for</span> episode_idx <span class="keyword">in</span> range(<span class="number">1</span>, episodes + <span class="number">1</span>):</span><br><span class="line">        epsilon = epsilon_by_episode(episode_idx)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> itertools.count():</span><br><span class="line">            action = model.act(state, epsilon)</span><br><span class="line">            <span class="comment">#print(action)</span></span><br><span class="line">            </span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            replay_buffer.push(state, action, reward, next_state, done)</span><br><span class="line">            </span><br><span class="line">            state = next_state</span><br><span class="line">            episode_reward += reward</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                state = env.reset()</span><br><span class="line">                all_rewards.append(episode_reward)</span><br><span class="line">                print(episode_reward)</span><br><span class="line">                episode_reward = <span class="number">0</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">                </span><br><span class="line">            <span class="keyword">if</span> len(replay_buffer) &gt; batch_size:</span><br><span class="line">                loss = compute_td_loss(model, batch_size, gamma, replay_buffer, optimizer, device)</span><br><span class="line">                losses.append(loss.item())</span><br><span class="line">    <span class="comment">#plot(all_rewards, losses)</span></span><br><span class="line">            </span><br><span class="line">        <span class="comment">#if frame_idx % 200 == 0:</span></span><br><span class="line">            <span class="comment">#plot(frame_idx, all_rewards, losses)</span></span><br><span class="line">    plt.plot(all_rewards)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_policy</span><span class="params">()</span>:</span></span><br><span class="line">    pole_angle = np.random.uniform(-env.observation_space.high[<span class="number">2</span>], env.observation_space.high[<span class="number">2</span>], <span class="number">10000</span>)</span><br><span class="line">    pole_velocity = np.random.uniform(-math.radians(<span class="number">50</span>), math.radians(<span class="number">50</span>), <span class="number">10000</span>)</span><br><span class="line">    action_list = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(pole_angle)):</span><br><span class="line">        state = env.reset()</span><br><span class="line">        state[<span class="number">2</span>] = pole_angle[i]</span><br><span class="line">        state[<span class="number">3</span>] = pole_velocity[i]</span><br><span class="line">        <span class="comment">#print(state, model.act(state, 0))</span></span><br><span class="line">        action = model.act(state, <span class="number">0</span>)</span><br><span class="line">        action_list.append(action)</span><br><span class="line">    colors = &#123;<span class="number">0</span>:<span class="string">'blue'</span>,<span class="number">1</span>:<span class="string">'red'</span>&#125;</span><br><span class="line">    colors = [<span class="string">'blue'</span> <span class="keyword">if</span> i==<span class="number">0</span> <span class="keyword">else</span> <span class="string">'red'</span> <span class="keyword">for</span> i <span class="keyword">in</span> action_list]</span><br><span class="line">    labels = [<span class="string">'Left'</span>,<span class="string">'Right'</span>]</span><br><span class="line">    print(colors)</span><br><span class="line">    <span class="keyword">import</span> matplotlib.patches <span class="keyword">as</span> mpatches</span><br><span class="line">    <span class="keyword">from</span> matplotlib.colors <span class="keyword">import</span> ListedColormap</span><br><span class="line">    fig = plt.figure(<span class="number">5</span>, figsize=[<span class="number">7</span>,<span class="number">7</span>])</span><br><span class="line">    ax = fig.gca()</span><br><span class="line">    plt.set_cmap(<span class="string">'brg'</span>)</span><br><span class="line">    surf = ax.scatter(pole_angle,pole_velocity, c=colors)</span><br><span class="line">    ax.set_xlabel(<span class="string">'pole_angle'</span>)</span><br><span class="line">    ax.set_ylabel(<span class="string">'pole_velocity'</span>)</span><br><span class="line">    ax.set_title(<span class="string">'Policy'</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Instantiate monitor with a 10-second delay between updates</span></span><br><span class="line">monitor = Monitor(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#writer.add_graph(model, torch.Tensor([1.0, 1.0, 1.0, 1.0]).to(device))</span></span><br><span class="line"><span class="comment"># Train here</span></span><br><span class="line">train()</span><br><span class="line">plot_policy()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Close monitor</span></span><br><span class="line">monitor.stop()</span><br></pre></td></tr></table></figure>
+<h2 id="result">Result</h2>
+<p>After training for 1000 episodes, we get the following policy:</p>
+<p><img src="dqn_policy.png" alt="policy" /> ## Code Comments ### How to compute TD Loss <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_td_loss</span><span class="params">(model, batch_size, gamma, replay_buffer, optimizer, device)</span>:</span></span><br><span class="line">    state, action, reward, next_state, done = replay_buffer.sample(batch_size)</span><br><span class="line"></span><br><span class="line">    state = torch.FloatTensor(state).to(device)</span><br><span class="line">    next_state = torch.FloatTensor(next_state).to(device)</span><br><span class="line">    action = torch.LongTensor(action).to(device)</span><br><span class="line">    reward = torch.FloatTensor(reward).to(device)</span><br><span class="line">    done = torch.FloatTensor(done).to(device)</span><br><span class="line"></span><br><span class="line">    q_values = model.forward(state).to(device)</span><br><span class="line">    next_q_values = model.forward(next_state).to(device)</span><br><span class="line">    <span class="comment"># the value corresponding to the (s, a)</span></span><br><span class="line">    q_value = q_values.gather(<span class="number">1</span>, action.unsqueeze(<span class="number">1</span>)).squeeze(<span class="number">1</span>)</span><br><span class="line">    next_q_value = next_q_values.max(<span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">    expected_q_value = reward + gamma * next_q_value * (<span class="number">1</span> - done)</span><br><span class="line">    loss = (q_value - expected_q_value.data).pow(<span class="number">2</span>).mean()</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">50</span>)</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">return</span> loss</span><br></pre></td></tr></table></figure> In contrast to TD-Gammon and similar online approaches, we utilize a technique known as <em>experience replay</em> where we store the agent's experiences at each time-step, <span class="math inline">\(e_t=(s_t, a_t, r_t, _{t+1})\)</span> in a data-set <span class="math inline">\(D=e_1, e_2, ... ,e_N\)</span>, pooled over many episodes into a replay memory.</p>
+<p>Since we have known the pair <span class="math inline">\((s_t, a_t)\)</span>, we can get the <code>q_value = q_values.gather(1, action.unsqueeze(1)).squeeze(1)</code>. Then, we know next_state, compute next_q_value. Choose <span class="math inline">\(a&#39;\)</span> which maximize the next_q_value.</p>
+<h2 id="reference">Reference</h2>
+<p>[1] Mnih, Volodymyr, et al. "Playing atari with deep reinforcement learning." arXiv preprint arXiv:1312.5602 (2013).</p>
+<p>[2] https://stackoverflow.com/questions/50999977/what-does-the-gather-function-do-in-pytorch-in-layman-terms</p>
+<p>[3] https://stackoverflow.com/questions/57237352/what-does-unsqueeze-do-in-pytorch</p>
+<p>[4] https://gist.github.com/ts1829/62b9ae7687d79279b9381bb6808bf6ab#file-mountain-car-v0-q-learning-modified-reward-ipynb</p>
+]]></content>
+      <categories>
+        <category>Reinforcement Learning</category>
+      </categories>
+      <tags>
+        <tag>Reinforcement Learning</tag>
       </tags>
   </entry>
   <entry>
