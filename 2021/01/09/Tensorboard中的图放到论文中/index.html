@@ -30,16 +30,16 @@
 <meta property="og:site_name" content="Oliver xu&#39;s Blog">
 <meta property="og:description" content="最近写了一篇强化学习用于供水管网的论文，算法的训练过程中用到了Tensorboard(stable-baselines提供了tansorboard的接口)来可视化训练数据，但是，tensorboard的图直接放入到论文中会显得很难看，包括xlabel和ylabel需要重新定义，图片的风格需要修改等等操作直接在tensorboard中很难操作，需要将这些数据导出来，然后使用matplotlib和se">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.oliverxu.cn/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/image-20210109132225126.png">
-<meta property="og:image" content="https://blog.oliverxu.cn/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/image-20210109161242435.png">
-<meta property="og:image" content="https://blog.oliverxu.cn/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/image-20210109132627928.png">
-<meta property="og:image" content="https://blog.oliverxu.cn/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/image-20210109161033044.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/image-20210109132225126.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/image-20210109161242435.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/image-20210109132627928.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/image-20210109161033044.png">
 <meta property="article:published_time" content="2021-01-09T13:03:50.000Z">
-<meta property="article:modified_time" content="2021-01-09T08:16:09.581Z">
+<meta property="article:modified_time" content="2021-01-09T08:18:30.763Z">
 <meta property="article:author" content="Oliver xu">
 <meta property="article:tag" content="Tensorboard">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.oliverxu.cn/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/image-20210109132225126.png">
+<meta name="twitter:image" content="https://blog.oliverxu.cn/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/image-20210109132225126.png">
 
 <link rel="canonical" href="https://blog.oliverxu.cn/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/">
 
@@ -242,7 +242,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-01-09 13:03:50 / 修改时间：08:16:09" itemprop="dateCreated datePublished" datetime="2021-01-09T13:03:50+00:00">2021-01-09</time>
+              <time title="创建时间：2021-01-09 13:03:50 / 修改时间：08:18:30" itemprop="dateCreated datePublished" datetime="2021-01-09T13:03:50+00:00">2021-01-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -283,17 +283,17 @@
 <a id="more"></a>
 <h2 id="利用tensorboard中的导出数据功能">利用tensorboard中的导出数据功能</h2>
 <figure>
-<img src="Tensorboard中的图放到论文中/image-20210109132225126.png" alt="image-20210109132225126" /><figcaption>image-20210109132225126</figcaption>
+<img src="image-20210109132225126.png" alt="image-20210109132225126" /><figcaption>image-20210109132225126</figcaption>
 </figure>
 <p>选中左上角的<code>Show data download links</code></p>
 <p>在每张图的右下角选择<code>run to download</code>，然后可以选择<code>csv</code>或者<code>json</code>格式的文件。</p>
 <p>导出CSV文件，经过测试发现，当修改左边平滑之类的参数，导出的数据都是一样的，都是原始的数据。</p>
 <figure>
-<img src="Tensorboard中的图放到论文中/image-20210109161242435.png" alt="image-20210109161242435" /><figcaption>image-20210109161242435</figcaption>
+<img src="image-20210109161242435.png" alt="image-20210109161242435" /><figcaption>image-20210109161242435</figcaption>
 </figure>
 <h2 id="tensorboard可视化界面中的功能键介绍">Tensorboard可视化界面中的功能键介绍</h2>
 <figure>
-<img src="Tensorboard中的图放到论文中/image-20210109132627928.png" alt="image-20210109132627928" /><figcaption>image-20210109132627928</figcaption>
+<img src="image-20210109132627928.png" alt="image-20210109132627928" /><figcaption>image-20210109132627928</figcaption>
 </figure>
 <p>第二个：Toggle y-axis log scale：将y轴对数化</p>
 <p>第三个：Fit domain to data：如果拖动了图片等，再重新回到原始位置</p>
@@ -304,7 +304,7 @@
 <h2 id="利用matplotlib画图">利用Matplotlib画图</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一幅图片：训练的平均长度</span></span><br><span class="line">fig, ax1 = plt.subplots(<span class="number">1</span>, <span class="number">1</span>)    <span class="comment"># a figure with a 2x1 grid of Axes</span></span><br><span class="line">len_mean = pd.read_csv(<span class="string">"run-PPO_2-tag-rollout_ep_len_mean.csv"</span>)</span><br><span class="line">ax1.plot(len_mean[<span class="string">'Step'</span>], tensorboard_smoothing(len_mean[<span class="string">'Value'</span>], smooth=<span class="number">0.6</span>), color=<span class="string">"#3399FF"</span>)</span><br><span class="line"><span class="comment">#ax1.set_xticks(np.arange(0, 24, step=2))</span></span><br><span class="line">ax1.set_xlabel(<span class="string">"timesteps"</span>)</span><br><span class="line">ax1.set_ylabel(<span class="string">"Average Episode Length(steps)"</span>, color=<span class="string">"#3399FF"</span>)</span><br><span class="line">ax1.set_title(<span class="string">"Average Episode Length"</span>)</span><br><span class="line">plt.show()</span><br><span class="line">fig.savefig(fname=<span class="string">'./figures/ep_len_mean'</span>+<span class="string">'.pdf'</span>, format=<span class="string">'pdf'</span>)</span><br></pre></td></tr></table></figure>
 <figure>
-<img src="Tensorboard中的图放到论文中/image-20210109161033044.png" alt="image-20210109161033044" /><figcaption>image-20210109161033044</figcaption>
+<img src="image-20210109161033044.png" alt="image-20210109161033044" /><figcaption>image-20210109161033044</figcaption>
 </figure>
 
     </div>
