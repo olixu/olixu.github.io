@@ -48,6 +48,38 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux系统TIPS</title>
+    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
+    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
+<a id="more"></a>
+<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
+<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Manjaro下解决Matplotlib中文显示出错</title>
+    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
+    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
+<ul>
+<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
+<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
+<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>How to reading scientific papers</title>
     <url>/2019/07/09/How-to-reading-scientific-papers/</url>
     <content><![CDATA[<h1 id="step1-choose-the-paper">STEP1: Choose the paper</h1>
@@ -84,38 +116,6 @@
       </categories>
       <tags>
         <tag>scientific papers</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux系统TIPS</title>
-    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
-    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
-<a id="more"></a>
-<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
-<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Manjaro下解决Matplotlib中文显示出错</title>
-    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
-    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
-<ul>
-<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
-<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
-<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -242,6 +242,17 @@
       </tags>
   </entry>
   <entry>
+    <title>Monte Carlo Methods</title>
+    <url>/2019/10/21/Monte-Carlo-Methods/</url>
+    <content><![CDATA[<p>Unlike Dynamic Programming Methods, Monte Carlo Methods do not assume complete knowledge of the environment. MC only requires experience--sample sequences of states, actions, and rewards from actual or simulated interaction with an environment.</p>
+<h2 id="monte-carlo-prediction">Monte Carlo Prediction</h2>
+<p>The idea underlies all Monte Carlo methods is that as more returns are observed the average should converge to the expected value. So we begin by considerng Monte Carlo methods for learning the state-value function for a given policy. A way to estimate the value of a state from experience is simply to average the returns observed after visits to that state. <a id="more"></a> ## Play with Blackjack ENV <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">env = BlackjackEnv()</span><br><span class="line"><span class="comment"># The observation is a 3-tuple of: the players current sum,</span></span><br><span class="line"><span class="comment"># the dealer's one showing card (1-10 where 1 is ace),</span></span><br><span class="line"><span class="comment"># and whether or not the player holds a usable ace (0 or 1).</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_observation</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    print(<span class="string">"Player Score: &#123;&#125; (Usable Ace: &#123;&#125;), Dealer Score: &#123;&#125;"</span>.format(</span><br><span class="line">          score, usable_ace, dealer_score))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    <span class="comment"># Stick (action 0) if the score is &gt; 20, hit (action 1) otherwise</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> score &gt;= <span class="number">20</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    observation = env.reset()</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        print_observation(observation)</span><br><span class="line">        action = strategy(observation)</span><br><span class="line">        print(<span class="string">"Taking action: &#123;&#125;"</span>.format( [<span class="string">"Stick"</span>, <span class="string">"Hit"</span>][action]))</span><br><span class="line">        observation, reward, done, _ = env.step(action)</span><br><span class="line">        <span class="keyword">if</span> done:</span><br><span class="line">            print_observation(observation)</span><br><span class="line">            print(<span class="string">"Game end. Reward: &#123;&#125;\n"</span>.format(float(reward)))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="first-visit-mc-prediction-algorithm">First-visit MC prediction algorithm</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mc_prediction</span><span class="params">(policy, env, num_episodes, discount_factor=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Monte Carlo prediction algorithm. Calculates the value function</span></span><br><span class="line"><span class="string">    for a given policy using sampling.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        policy: A function that maps an observation to action probabilities.</span></span><br><span class="line"><span class="string">        env: OpenAI gym environment.</span></span><br><span class="line"><span class="string">        num_episodes: Number of episodes to sample.</span></span><br><span class="line"><span class="string">        discount_factor: Gamma discount factor.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        A dictionary that maps from state -&gt; value.</span></span><br><span class="line"><span class="string">        The state is a tuple and the value is a float.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Keeps track of sum and count of returns for each state</span></span><br><span class="line">    <span class="comment"># to calculate an average. We could use an array to save all</span></span><br><span class="line">    <span class="comment"># returns (like in the book) but that's memory inefficient.</span></span><br><span class="line">    returns_sum = defaultdict(float)</span><br><span class="line">    returns_count = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># The final value function</span></span><br><span class="line">    V = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Implement this!</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        episode = []</span><br><span class="line">        state = env.reset()</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            action = policy(state)</span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            state = next_state</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Find all states the we've visited in this episode</span></span><br><span class="line">        <span class="comment"># We convert each state to a tuple so that we can use it as a dict key</span></span><br><span class="line">        states_in_episode = set([tuple(x[<span class="number">0</span>]) <span class="keyword">for</span> x <span class="keyword">in</span> episode])</span><br><span class="line">        <span class="keyword">for</span> state <span class="keyword">in</span> states_in_episode:</span><br><span class="line">            <span class="comment">#print(state)</span></span><br><span class="line">            <span class="comment">#print(10*'*')</span></span><br><span class="line">            <span class="comment"># Find the first occurance of the state in the episode</span></span><br><span class="line">            first_occurence_idx = next(i <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode) <span class="keyword">if</span> x[<span class="number">0</span>] == state)</span><br><span class="line">            <span class="comment"># Sum up all rewards since the first occurance</span></span><br><span class="line">            G = sum([x[<span class="number">2</span>]*(discount_factor**i) <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode[first_occurence_idx:])])</span><br><span class="line">            <span class="comment"># Calculate average return for this state over all sampled episodes</span></span><br><span class="line">            returns_sum[state] += G</span><br><span class="line">            returns_count[state] += <span class="number">1.0</span></span><br><span class="line">            V[state] = returns_sum[state] / returns_count[state]</span><br><span class="line">    print(len(V))</span><br><span class="line">    print(first_occurence_idx)</span><br><span class="line">    print(states_in_episode)</span><br><span class="line">    print(episode)</span><br><span class="line">    <span class="keyword">return</span> V</span><br></pre></td></tr></table></figure>
+<p><img src="10000_Steps_No_Usable_Ace.png" alt="10000_Steps_No_Usable_Ace" /> <img src="10000_Steps_Usable_Ace.png" alt="10000_Steps_Usable_Ace" /> <img src="500000_Steps_No_Usable_Ace.png" alt="500000_Steps_No_Usable_Ace" /> <img src="500000_Steps_Usable_Ace.png" alt="500000_Steps_Usable_Ace" /></p>
+]]></content>
+  </entry>
+  <entry>
     <title>PGADP数据驱动的优化控制</title>
     <url>/2020/08/02/PGADP%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8%E7%9A%84%E4%BC%98%E5%8C%96%E6%8E%A7%E5%88%B6/</url>
     <content><![CDATA[<p>本文是对<strong>《Policy Gradient Adaptive Dynamic Programming for Data-Based Optimal Control》</strong>文章的整理归纳</p>
@@ -318,48 +329,6 @@ Q_{u}\left(x_{k}, \mu\right) &amp;=\mathcal{R}\left(x_{k}, \mu\right)+Q_{u}\left
       </categories>
       <tags>
         <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Monte Carlo Methods</title>
-    <url>/2019/10/21/Monte-Carlo-Methods/</url>
-    <content><![CDATA[<p>Unlike Dynamic Programming Methods, Monte Carlo Methods do not assume complete knowledge of the environment. MC only requires experience--sample sequences of states, actions, and rewards from actual or simulated interaction with an environment.</p>
-<h2 id="monte-carlo-prediction">Monte Carlo Prediction</h2>
-<p>The idea underlies all Monte Carlo methods is that as more returns are observed the average should converge to the expected value. So we begin by considerng Monte Carlo methods for learning the state-value function for a given policy. A way to estimate the value of a state from experience is simply to average the returns observed after visits to that state. <a id="more"></a> ## Play with Blackjack ENV <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">env = BlackjackEnv()</span><br><span class="line"><span class="comment"># The observation is a 3-tuple of: the players current sum,</span></span><br><span class="line"><span class="comment"># the dealer's one showing card (1-10 where 1 is ace),</span></span><br><span class="line"><span class="comment"># and whether or not the player holds a usable ace (0 or 1).</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_observation</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    print(<span class="string">"Player Score: &#123;&#125; (Usable Ace: &#123;&#125;), Dealer Score: &#123;&#125;"</span>.format(</span><br><span class="line">          score, usable_ace, dealer_score))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    <span class="comment"># Stick (action 0) if the score is &gt; 20, hit (action 1) otherwise</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> score &gt;= <span class="number">20</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    observation = env.reset()</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        print_observation(observation)</span><br><span class="line">        action = strategy(observation)</span><br><span class="line">        print(<span class="string">"Taking action: &#123;&#125;"</span>.format( [<span class="string">"Stick"</span>, <span class="string">"Hit"</span>][action]))</span><br><span class="line">        observation, reward, done, _ = env.step(action)</span><br><span class="line">        <span class="keyword">if</span> done:</span><br><span class="line">            print_observation(observation)</span><br><span class="line">            print(<span class="string">"Game end. Reward: &#123;&#125;\n"</span>.format(float(reward)))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="first-visit-mc-prediction-algorithm">First-visit MC prediction algorithm</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mc_prediction</span><span class="params">(policy, env, num_episodes, discount_factor=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Monte Carlo prediction algorithm. Calculates the value function</span></span><br><span class="line"><span class="string">    for a given policy using sampling.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        policy: A function that maps an observation to action probabilities.</span></span><br><span class="line"><span class="string">        env: OpenAI gym environment.</span></span><br><span class="line"><span class="string">        num_episodes: Number of episodes to sample.</span></span><br><span class="line"><span class="string">        discount_factor: Gamma discount factor.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        A dictionary that maps from state -&gt; value.</span></span><br><span class="line"><span class="string">        The state is a tuple and the value is a float.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Keeps track of sum and count of returns for each state</span></span><br><span class="line">    <span class="comment"># to calculate an average. We could use an array to save all</span></span><br><span class="line">    <span class="comment"># returns (like in the book) but that's memory inefficient.</span></span><br><span class="line">    returns_sum = defaultdict(float)</span><br><span class="line">    returns_count = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># The final value function</span></span><br><span class="line">    V = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Implement this!</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        episode = []</span><br><span class="line">        state = env.reset()</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            action = policy(state)</span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            state = next_state</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Find all states the we've visited in this episode</span></span><br><span class="line">        <span class="comment"># We convert each state to a tuple so that we can use it as a dict key</span></span><br><span class="line">        states_in_episode = set([tuple(x[<span class="number">0</span>]) <span class="keyword">for</span> x <span class="keyword">in</span> episode])</span><br><span class="line">        <span class="keyword">for</span> state <span class="keyword">in</span> states_in_episode:</span><br><span class="line">            <span class="comment">#print(state)</span></span><br><span class="line">            <span class="comment">#print(10*'*')</span></span><br><span class="line">            <span class="comment"># Find the first occurance of the state in the episode</span></span><br><span class="line">            first_occurence_idx = next(i <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode) <span class="keyword">if</span> x[<span class="number">0</span>] == state)</span><br><span class="line">            <span class="comment"># Sum up all rewards since the first occurance</span></span><br><span class="line">            G = sum([x[<span class="number">2</span>]*(discount_factor**i) <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode[first_occurence_idx:])])</span><br><span class="line">            <span class="comment"># Calculate average return for this state over all sampled episodes</span></span><br><span class="line">            returns_sum[state] += G</span><br><span class="line">            returns_count[state] += <span class="number">1.0</span></span><br><span class="line">            V[state] = returns_sum[state] / returns_count[state]</span><br><span class="line">    print(len(V))</span><br><span class="line">    print(first_occurence_idx)</span><br><span class="line">    print(states_in_episode)</span><br><span class="line">    print(episode)</span><br><span class="line">    <span class="keyword">return</span> V</span><br></pre></td></tr></table></figure>
-<p><img src="10000_Steps_No_Usable_Ace.png" alt="10000_Steps_No_Usable_Ace" /> <img src="10000_Steps_Usable_Ace.png" alt="10000_Steps_Usable_Ace" /> <img src="500000_Steps_No_Usable_Ace.png" alt="500000_Steps_No_Usable_Ace" /> <img src="500000_Steps_Usable_Ace.png" alt="500000_Steps_Usable_Ace" /></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Flask速成项目：Flask实现计算机资源的实时监控</title>
-    <url>/2018/09/30/Flask%E9%80%9F%E6%88%90%E9%A1%B9%E7%9B%AE%EF%BC%9AFlask%E5%AE%9E%E7%8E%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%B5%84%E6%BA%90%E7%9A%84%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7/</url>
-    <content><![CDATA[<blockquote>
-<p>很多人都说使用Python开发WEB应用非常<strong>方便</strong>，那么对于WEB新手来说，到底有多方便呢？本文即将展示给你Python的魔法。 本文将通过一个实例：<strong>Flask实现计算机资源的实时监控</strong>，迅速带你入门Flask开发。 先说一下我的水平，博主的专业并不是做WEB开发的，对于WEB方面，只会写<strong>爬虫</strong>，因此，只能看懂html，略看得懂css与js，我估计有很多像我一样的小伙伴，因此，如果你的WEB掌握的水平在我之上或与我相当，那么，这篇文章将是你迅速入门Flask的<strong>终极教程</strong>。</p>
-</blockquote>
-<p>先放上一张成果图： <img src="1.png" alt="结果" /> 访问，浏览器能够实时显示我的电脑的两个CPU的使用情况，这里特地采用两种显示方式，方便大家学习代码。 <a id="more"></a> ## flask介绍 Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions. And before you ask: It's BSD licensed! <strong>搞科研或者搞技术，还是直接看英文吧，英文是你走向NB的基础。</strong></p>
-<h2 id="flask安装">flask安装</h2>
-<p>可以参考我之前的文章：</p>
-<ol type="1">
-<li><a href="https://blog.oliverxu.cn/2018/09/16/Python%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.html">Python配置虚拟环境</a></li>
-<li><a href="https://blog.oliverxu.cn/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.html">Flask项目结构</a></li>
-</ol>
-<p>另外，需要安装<code>psutil</code>，<code>flask_socketio</code>包，可直接使用<strong>pip</strong>安装</p>
-<h2 id="构建flask项目结构">构建flask项目结构</h2>
-<p>在你的目录下新建如下的目录与文件： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects/CPU_memory$ tree</span><br><span class="line">.</span><br><span class="line">|-- app.py</span><br><span class="line">`-- templates</span><br><span class="line">    `-- index.html</span><br><span class="line"></span><br><span class="line">1 directory, 2 files</span><br></pre></td></tr></table></figure> <strong><em>非常形象的解释下flask完成的任务 </em></strong> 浏览器向服务器发送请求，服务器将html源代码发送给浏览器，浏览器将html解析成可视化的东西展示给用户。也就是说，用户接收到的总是一个html文件，那flask在整个过程中完成了什么任务呢？ 请把Flask想象成一个<strong>火腿肠加工厂</strong>，将<strong>肉</strong>输送给<strong>火腿肠加工厂</strong>，<strong>火腿肠加工厂</strong>生产出<strong>火腿肠</strong>。同样，将<strong>用户请求，例如访问 https://blog.oliverxu.cn 这一请求</strong>发送给<strong>flask</strong>，<strong>flask</strong>能够生产出<strong>html</strong>。 将<strong>请求发送给flask</strong>是通过<strong>flask中的路由</strong>来实现的，flask是通过<strong>直接返回或返回模板</strong>来生成<strong>html</strong>的。</p>
-<p>对于上述项目结构的构成，app.py中实现了路由及启动功能，templates文件夹中是模板文件，（<strong><em>这里插一句:我曾经看到很多人，在读某个用flask做的WEB项目的源码，一打开templates文件夹中，发现了很多css，js，html文件，一打开这些文件，发现几百上前行，一下子头都大了，立马放弃了读代码，哈哈哈哈</em></strong>），其实，对于像我一样专业不是做前端的小伙伴，完全可以不用担心，这些文件其实可以<strong>一行都不写</strong>，例如可以用Bootstrap框架来做前端，<strong>使用Bootstrap要写代码？兄弟，你不会用可视化编辑工具嘛！！！</strong> 等以后我们做大项目，我们主要写的也就是除了templates文件夹中以外的文件。前端不会别担心，我也不会。</p>
-<p>对于这篇文章所要实现的目标，我们做一个小结： 1. 执行app.py，计算机启动flask自带的服务器，开始允许WEB访问 2. 用户使用浏览器访问网址 3. flask接受到用户的请求后，app.py进行逻辑上的处理，将index.html传送给浏览器。</p>
-<h2 id="源码分析">源码分析</h2>
-<h3 id="app.py">app.py</h3>
-<p>源代码的分析在注释中，大家一定能看懂！ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">CPU_and_MEM_Monitor</span></span><br><span class="line"><span class="string">思路：后端后台线程一旦产生数据，即刻推送至前端。</span></span><br><span class="line"><span class="string">好处：不需要前端ajax定时查询，节省服务器资源。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> psutil    <span class="comment">#这个库可以用来获取系统的资源数据，详细可以看文档</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Lock</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, render_template, session, request</span><br><span class="line"><span class="keyword">from</span> flask_socketio <span class="keyword">import</span> SocketIO, emit</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set this variable to "threading", "eventlet" or "gevent" to test the</span></span><br><span class="line"><span class="comment"># different async modes, or leave it set to None for the application to choose</span></span><br><span class="line"><span class="comment"># the best option based on installed packages.</span></span><br><span class="line">async_mode = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config[<span class="string">'SECRET_KEY'</span>] = <span class="string">'secret!'</span></span><br><span class="line">socketio = SocketIO(app, async_mode=async_mode)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">thread = <span class="literal">None</span></span><br><span class="line">thread_lock = Lock()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 后台线程 产生数据，即刻推送至前端</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">background_thread</span><span class="params">()</span>:</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        socketio.sleep(<span class="number">2</span>)</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        t = time.strftime(<span class="string">'%M:%S'</span>, time.localtime()) <span class="comment"># 获取系统时间（只取分:秒）</span></span><br><span class="line">        cpus = psutil.cpu_percent(interval=<span class="literal">None</span>, percpu=<span class="literal">True</span>) <span class="comment"># 获取系统cpu使用率 non-blocking</span></span><br><span class="line">        socketio.emit(<span class="string">'server_response'</span>,</span><br><span class="line">                      &#123;<span class="string">'data'</span>: [t] + list(cpus)[<span class="number">0</span>:<span class="number">4</span>], <span class="string">'count'</span>: count&#125;,</span><br><span class="line">                      namespace=<span class="string">'/test'</span>) <span class="comment"># 注意：这里不需要客户端连接的上下文，默认 broadcast = True ！！！！！！！</span></span><br><span class="line">        <span class="keyword">print</span> [t] +list(cpus)[<span class="number">0</span>:<span class="number">4</span>]</span><br><span class="line">        <span class="keyword">print</span> <span class="number">100</span>*<span class="string">'*'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 当用户访问'/'时，执行index()函数。这也是python装饰器的用法。</span></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'index.html'</span>, async_mode=socketio.async_mode)</span><br><span class="line">    <span class="comment"># 每次执行render_template函数时，渲染器都会将index.html的变量值用其实际值替代。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 与前端建立 socket 连接后，启动后台线程</span></span><br><span class="line"><span class="meta">@socketio.on('connect', namespace='/test')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_connect</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> thread</span><br><span class="line">    <span class="keyword">with</span> thread_lock:</span><br><span class="line">        <span class="keyword">if</span> thread <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            thread = socketio.start_background_task(target=background_thread)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    socketio.run(app, debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure></p>
-<h3 id="index.html">index.html</h3>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>CPU_and_MEM_Monitor<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/socket.io/1.5.1/socket.io.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- ECharts 3 引入 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://echarts.baidu.com/dist/echarts.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--为ECharts准备一个具备大小（宽高）的Dom--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"CPU1"</span> <span class="attr">style</span>=<span class="string">"height:500px;border:1px solid #ccc;padding:10px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"CPU2"</span> <span class="attr">style</span>=<span class="string">"height:500px;border:1px solid #ccc;padding:10px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">//--- 折柱 ---</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 3个全局变量：time、cpu1、cpu2</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> time = [<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>],</span></span><br><span class="line">        cpu1 = [0,0,0,0,0,0,0,0,0,0],</span><br><span class="line">        cpu2 = [0,0,0,0,0,0,0,0,0,0]</span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">//第一张echarts图初始化</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> CPU1 = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'CPU1'</span>));</span></span><br><span class="line">    CPU1.setOption(&#123;</span><br><span class="line">        title: &#123;</span><br><span class="line"><span class="actionscript">            text: <span class="string">'CPU1'</span></span></span><br><span class="line">        &#125;,</span><br><span class="line">        tooltip: &#123;&#125;,</span><br><span class="line">        legend: &#123;</span><br><span class="line"><span class="actionscript">            data:[<span class="string">'cpu1'</span>]</span></span><br><span class="line">        &#125;,</span><br><span class="line">        xAxis: &#123;</span><br><span class="line">            data: []</span><br><span class="line">        &#125;,</span><br><span class="line">        yAxis: &#123;&#125;,</span><br><span class="line">        series: [&#123;</span><br><span class="line"><span class="actionscript">            name: <span class="string">'cpu1'</span>,</span></span><br><span class="line"><span class="actionscript">            type: <span class="string">'line'</span>,</span></span><br><span class="line">            data: []</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;);</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">//准备好的 callback 函数</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> update_CPU1 = <span class="function"><span class="keyword">function</span> <span class="params">(res)</span> </span>&#123; <span class="comment">//res是json格式的response对象</span></span></span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 隐藏加载动画</span></span></span><br><span class="line">        CPU1.hideLoading();</span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 准备数据</span></span></span><br><span class="line">        time.push(res.data[0]);</span><br><span class="line"><span class="javascript">        cpu1.push(<span class="built_in">parseFloat</span>(res.data[<span class="number">1</span>]));</span></span><br><span class="line">        if (time.length &gt;= 10)&#123;</span><br><span class="line">            time.shift();</span><br><span class="line">            cpu1.shift();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 填入数据</span></span></span><br><span class="line">        CPU1.setOption(&#123;</span><br><span class="line">            xAxis: &#123;</span><br><span class="line">                data: time</span><br><span class="line">            &#125;,</span><br><span class="line">            series: [&#123;</span><br><span class="line"><span class="actionscript">                name: <span class="string">'cpu1'</span>, <span class="comment">// 根据名字对应到相应的系列</span></span></span><br><span class="line">                data: cpu1</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;);</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line"><span class="actionscript">    <span class="comment">//第二张echarts图初始化</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> CPU2 = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'CPU2'</span>));</span></span><br><span class="line">    CPU2.setOption(&#123;</span><br><span class="line">        title: &#123;</span><br><span class="line"><span class="actionscript">            text: <span class="string">'CPU2'</span></span></span><br><span class="line">        &#125;,</span><br><span class="line">        tooltip: &#123;&#125;,</span><br><span class="line">        legend: &#123;</span><br><span class="line"><span class="actionscript">            data:[<span class="string">'cpu2'</span>]</span></span><br><span class="line">        &#125;,</span><br><span class="line">        toolbox: &#123;</span><br><span class="line"><span class="actionscript">        show : <span class="literal">true</span>,</span></span><br><span class="line">        feature : &#123;</span><br><span class="line"><span class="actionscript">            mark : &#123;show: <span class="literal">true</span>&#125;,</span></span><br><span class="line"><span class="actionscript">            dataView : &#123;show: <span class="literal">true</span>, readOnly: <span class="literal">false</span>&#125;,</span></span><br><span class="line"><span class="actionscript">            magicType : &#123;show: <span class="literal">true</span>, type: [<span class="string">'line'</span>, <span class="string">'bar'</span>, <span class="string">'stack'</span>, <span class="string">'tiled'</span>]&#125;,</span></span><br><span class="line"><span class="actionscript">            restore : &#123;show: <span class="literal">true</span>&#125;,</span></span><br><span class="line"><span class="actionscript">            saveAsImage : &#123;show: <span class="literal">true</span>&#125;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"><span class="actionscript">        calculable : <span class="literal">true</span>,</span></span><br><span class="line">        xAxis: &#123;</span><br><span class="line">            data: []</span><br><span class="line">        &#125;,</span><br><span class="line">        yAxis: &#123;&#125;,</span><br><span class="line">        series: [&#123;</span><br><span class="line"><span class="actionscript">            name: <span class="string">'cpu2'</span>,</span></span><br><span class="line"><span class="actionscript">            type: <span class="string">'line'</span>,</span></span><br><span class="line"><span class="actionscript">            smooth:<span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">            itemStyle: &#123;normal: &#123;areaStyle: &#123;type: <span class="string">'default'</span>&#125;&#125;&#125;,</span></span><br><span class="line">            data: []</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;);</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">//准备好的 callback 函数</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> update_CPU2 = <span class="function"><span class="keyword">function</span> <span class="params">(res)</span> </span>&#123; <span class="comment">//res是json格式的response对象</span></span></span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 隐藏加载动画</span></span></span><br><span class="line">        CPU2.hideLoading();</span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 准备数据</span></span></span><br><span class="line">        time.push(res.data[0]);</span><br><span class="line"><span class="javascript">        cpu2.push(<span class="built_in">parseFloat</span>(res.data[<span class="number">2</span>]));</span></span><br><span class="line">        if (time.length &gt;= 10)&#123;</span><br><span class="line">            time.shift();</span><br><span class="line">            cpu2.shift();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 填入数据</span></span></span><br><span class="line">        CPU2.setOption(&#123;</span><br><span class="line">            xAxis: &#123;</span><br><span class="line">                data: time</span><br><span class="line">            &#125;,</span><br><span class="line">            series: [&#123;</span><br><span class="line"><span class="actionscript">                name: <span class="string">'cpu2'</span>, <span class="comment">// 根据名字对应到相应的系列</span></span></span><br><span class="line">                data: cpu2</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;);</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">// 首次显示加载动画</span></span></span><br><span class="line">    CPU1.showLoading();</span><br><span class="line">    CPU2.showLoading();</span><br><span class="line">    </span><br><span class="line"><span class="actionscript">    <span class="comment">// 建立socket连接，等待服务器“推送”数据，用回调函数更新图表</span></span></span><br><span class="line"><span class="javascript">    $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">namespace</span> = <span class="string">'/test'</span>;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> socket = io.connect(location.protocol + <span class="string">'//'</span> + document.domain + <span class="string">':'</span> + location.port + <span class="keyword">namespace</span>);</span></span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        socket.on(<span class="string">'server_response'</span>, <span class="function"><span class="keyword">function</span><span class="params">(res)</span> </span>&#123;</span></span><br><span class="line">            update_CPU1(res);</span><br><span class="line">            update_CPU2(res);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>flask</category>
-      </categories>
-      <tags>
-        <tag>flask</tag>
       </tags>
   </entry>
   <entry>
@@ -506,14 +475,6 @@ Box(4,)</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Python装饰器</title>
-    <url>/2019/02/10/Python%E8%A3%85%E9%A5%B0%E5%99%A8/</url>
-    <content><![CDATA[<p>装饰器是Python的重要组成部分。简单来说：它们是修改其它函数的函数。他们有助于使我们的代码更短，更Pythonic。大多数初学者不知道在哪里使用它们，所以本文将介绍一些常见需要使用装饰器的情况。 <a id="more"></a> ## Python中一些都是对象</p>
-<p>首先让我们理解Python中的函数：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hi</span><span class="params">(name=<span class="string">"oliverxu"</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hi"</span> + name</span><br><span class="line"></span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果：'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们可以将一个函数赋值给一个变量</span></span><br><span class="line">greet = hi</span><br><span class="line"><span class="comment"># 我们并不是调用hi()，而是将函数赋值给greet</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 让我们看看如果将hi这个函数删除会出现什么情况</span></span><br><span class="line"><span class="keyword">del</span> hi</span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果： NameError</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>Python配置虚拟环境</title>
     <url>/2018/09/16/Python%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
     <content><![CDATA[<blockquote>
@@ -550,6 +511,14 @@ Box(4,)</code></pre>
       <tags>
         <tag>python</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Python装饰器</title>
+    <url>/2019/02/10/Python%E8%A3%85%E9%A5%B0%E5%99%A8/</url>
+    <content><![CDATA[<p>装饰器是Python的重要组成部分。简单来说：它们是修改其它函数的函数。他们有助于使我们的代码更短，更Pythonic。大多数初学者不知道在哪里使用它们，所以本文将介绍一些常见需要使用装饰器的情况。 <a id="more"></a> ## Python中一些都是对象</p>
+<p>首先让我们理解Python中的函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hi</span><span class="params">(name=<span class="string">"oliverxu"</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hi"</span> + name</span><br><span class="line"></span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果：'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们可以将一个函数赋值给一个变量</span></span><br><span class="line">greet = hi</span><br><span class="line"><span class="comment"># 我们并不是调用hi()，而是将函数赋值给greet</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 让我们看看如果将hi这个函数删除会出现什么情况</span></span><br><span class="line"><span class="keyword">del</span> hi</span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果： NameError</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br></pre></td></tr></table></figure>
+]]></content>
   </entry>
   <entry>
     <title>Simplify: Python VS Matlab</title>
@@ -779,6 +748,37 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </tags>
   </entry>
   <entry>
+    <title>中国学术圈的未来在哪里？</title>
+    <url>/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/</url>
+    <content><![CDATA[<p>最近遇到了很多烦心事，主要是学术生活上的问题，教授没有学术上的指导，且总是push我们做项目，自动化系的教授都只知道赚钱啊，不，都只知道“骗钱”。今天感觉状态还不错，稍有感想，想在这篇文章中简短地谈论一下，权当我乱说的吧，哈哈哈哈。</p>
+<a id="more"></a>
+<p>中国科研圈的问题我个人认为主要来源于以下几点：</p>
+<ul>
+<li>当前50岁以上的老教授，都是出身在1970年以前，他们从小没有接受过完整、科学的教育，所以，一方面，他们中很多人的学术水平其实很垃圾的，工程技术水平也有限啊，而且从小没有接受过爱国主义教育，现在很多的美国的舔狗，也基本都是这个年龄段吧，他们中的某些人入党了，这些人都是对国家有风险的，因为他们只不过是为了入党而入党，而不是真正的爱国家爱党。</li>
+<li>贫富差距过大导致了很多教授老师都拼命想着赚钱，例如江浙沪，其实很多人的收入都很高，每年也都能赚很多钱，但是教授的工资却没有跟上时代的步伐，这就导致老师们只想着去赚钱，骗钱。</li>
+<li>教授老师的权力太大了，国家也没有出台相应的解决办法，所谓的发布的几个文件，都只是象征性的，没有实际意义。</li>
+</ul>
+<p>解决办法：</p>
+<ul>
+<li>学术圈需要降低平均年龄，让那些不给力的老教师抓紧退休，让有能力有抱负的年轻老师赶紧上位。</li>
+<li>国内大学的思政老师要请专业的老师，不能是学生辅导员，要选择真正有理想，有抱负的共产党员来做思政老师，同时赋予他们保护学生的权力。</li>
+<li>需要大量的学生集体出来反抗，这是最无奈，也是最有效的一种解决办法，再来一次文化大革命，什么都解决了。</li>
+</ul>
+<p>写这篇文章的时候主要是感叹现在老师的权力真的太大了，完全不应该这么大啊，而且我现在的科研生活也和我理想中的科研生活完全不一样。我理想中的科研生活应该是自由，纯粹的科研生活，像deepmind，openai，UCB那种真正干科研的生活。而现在的科研生活，一个个教授们美其名曰要结合工程项目，但实际上只是为了赚钱一级一级骗钱，骗国企，骗国家，最终受伤害的还是纳税人。</p>
+<p>但是再往上说，那就要说到共产党了，共产党是先进生产力的代表，怎么不能解决这么明显的问题？</p>
+<p><strong>虽然对中国的科研圈子很失望，但是若不是为了心中那一份崇高的科研理想，我又怎会继续坚持？</strong></p>
+<p>最后，用鲁迅先生的经典《热风》结尾：</p>
+<p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声，有一分热，发一分光，就令萤火虫一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。 倘若有了炬火，出了太阳，我们自然心悦诚服地消失，不但毫无不平，而且还要随喜赞美这炬火或太阳，因为他照亮了人类，连我都在内。</p>
+<p><strong>与君共勉。</strong></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>controllability and observability</title>
     <url>/2019/08/13/controllability-and-observability/</url>
     <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
@@ -979,37 +979,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>中国学术圈的未来在哪里？</title>
-    <url>/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/</url>
-    <content><![CDATA[<p>最近遇到了很多烦心事，主要是学术生活上的问题，教授没有学术上的指导，且总是push我们做项目，自动化系的教授都只知道赚钱啊，不，都只知道“骗钱”。今天感觉状态还不错，稍有感想，想在这篇文章中简短地谈论一下，权当我乱说的吧，哈哈哈哈。</p>
-<a id="more"></a>
-<p>中国科研圈的问题我个人认为主要来源于以下几点：</p>
-<ul>
-<li>当前50岁以上的老教授，都是出身在1970年以前，他们从小没有接受过完整、科学的教育，所以，一方面，他们中很多人的学术水平其实很垃圾的，工程技术水平也有限啊，而且从小没有接受过爱国主义教育，现在很多的美国的舔狗，也基本都是这个年龄段吧，他们中的某些人入党了，这些人都是对国家有风险的，因为他们只不过是为了入党而入党，而不是真正的爱国家爱党。</li>
-<li>贫富差距过大导致了很多教授老师都拼命想着赚钱，例如江浙沪，其实很多人的收入都很高，每年也都能赚很多钱，但是教授的工资却没有跟上时代的步伐，这就导致老师们只想着去赚钱，骗钱。</li>
-<li>教授老师的权力太大了，国家也没有出台相应的解决办法，所谓的发布的几个文件，都只是象征性的，没有实际意义。</li>
-</ul>
-<p>解决办法：</p>
-<ul>
-<li>学术圈需要降低平均年龄，让那些不给力的老教师抓紧退休，让有能力有抱负的年轻老师赶紧上位。</li>
-<li>国内大学的思政老师要请专业的老师，不能是学生辅导员，要选择真正有理想，有抱负的共产党员来做思政老师，同时赋予他们保护学生的权力。</li>
-<li>需要大量的学生集体出来反抗，这是最无奈，也是最有效的一种解决办法，再来一次文化大革命，什么都解决了。</li>
-</ul>
-<p>写这篇文章的时候主要是感叹现在老师的权力真的太大了，完全不应该这么大啊，而且我现在的科研生活也和我理想中的科研生活完全不一样。我理想中的科研生活应该是自由，纯粹的科研生活，像deepmind，openai，UCB那种真正干科研的生活。而现在的科研生活，一个个教授们美其名曰要结合工程项目，但实际上只是为了赚钱一级一级骗钱，骗国企，骗国家，最终受伤害的还是纳税人。</p>
-<p>但是再往上说，那就要说到共产党了，共产党是先进生产力的代表，怎么不能解决这么明显的问题？</p>
-<p><strong>虽然对中国的科研圈子很失望，但是若不是为了心中那一份崇高的科研理想，我又怎会继续坚持？</strong></p>
-<p>最后，用鲁迅先生的经典《热风》结尾：</p>
-<p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声，有一分热，发一分光，就令萤火虫一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。 倘若有了炬火，出了太阳，我们自然心悦诚服地消失，不但毫无不平，而且还要随喜赞美这炬火或太阳，因为他照亮了人类，连我都在内。</p>
-<p><strong>与君共勉。</strong></p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用本地服务器结合github action推送github pages</title>
     <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
     <content><![CDATA[<h2 id="需求">需求</h2>
@@ -1098,25 +1067,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>光纤测温WEB系统</title>
-    <url>/2019/02/01/%E5%85%89%E7%BA%A4%E6%B5%8B%E6%B8%A9WEB%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h2 id="本项目解决的问题">本项目解决的问题：</h2>
-<p>工业上光纤测温仪配有自带的桌面上位机，此上位机是用C++语言编写，在测温的过程中，温度数据会每隔一秒记录一次，写入TXT文件。本项目将此TXT文件中的数据通过Python发送到服务器，并且在服务器上建立WEB接口，使用户可以通过WEB访问。 <a id="more"></a> 访问效果如图所示：</p>
-<figure>
-<img src="web.png" alt="WEB" /><figcaption>WEB</figcaption>
-</figure>
-<h2 id="项目结构">项目结构：</h2>
-<p><strong>client:</strong> 此文件夹中是测温仪的数据文件夹，将打包好的client.exe文件放入DTS系统的数据文件夹，当此文件夹中产生新的数据文件时候，程序将会自动把数据发送到服务器。</p>
-<p><strong>server:</strong> 此文件夹是WEB端的文件，采用Flask进行设计，使用websocket技术。</p>
-]]></content>
-      <categories>
-        <category>flask</category>
-      </categories>
-      <tags>
-        <tag>flask</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>内网端口转发控制面板</title>
     <url>/2020/11/21/%E5%86%85%E7%BD%91%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF/</url>
     <content><![CDATA[<h2 id="背景需求">背景需求：</h2>
@@ -1137,6 +1087,25 @@ x
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>光纤测温WEB系统</title>
+    <url>/2019/02/01/%E5%85%89%E7%BA%A4%E6%B5%8B%E6%B8%A9WEB%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h2 id="本项目解决的问题">本项目解决的问题：</h2>
+<p>工业上光纤测温仪配有自带的桌面上位机，此上位机是用C++语言编写，在测温的过程中，温度数据会每隔一秒记录一次，写入TXT文件。本项目将此TXT文件中的数据通过Python发送到服务器，并且在服务器上建立WEB接口，使用户可以通过WEB访问。 <a id="more"></a> 访问效果如图所示：</p>
+<figure>
+<img src="web.png" alt="WEB" /><figcaption>WEB</figcaption>
+</figure>
+<h2 id="项目结构">项目结构：</h2>
+<p><strong>client:</strong> 此文件夹中是测温仪的数据文件夹，将打包好的client.exe文件放入DTS系统的数据文件夹，当此文件夹中产生新的数据文件时候，程序将会自动把数据发送到服务器。</p>
+<p><strong>server:</strong> 此文件夹是WEB端的文件，采用Flask进行设计，使用websocket技术。</p>
+]]></content>
+      <categories>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
       </tags>
   </entry>
   <entry>
@@ -1400,6 +1369,58 @@ x
       </tags>
   </entry>
   <entry>
+    <title>华为研发岗位面试经验(已拿offer)</title>
+    <url>/2018/09/30/%E5%8D%8E%E4%B8%BA%E7%A0%94%E5%8F%91%E5%B2%97%E4%BD%8D%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C-%E5%B7%B2%E6%8B%BFoffer/</url>
+    <content><![CDATA[<h2 id="专业面试">专业面试：</h2>
+<ul>
+<li>** 自我介绍：3-5分钟把自己的校园经历简单介绍一下**</li>
+</ul>
+<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第1，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。 <a id="more"></a> - ** 项目经历：在项目里做了哪些工作，算法有没有优化的空间**</p>
+<p><strong>1. 基于四旋翼的自动控制与跟随</strong> 本系统基于STM32F407控制器，通过对超声波模块和摄像头数据的采集分析，实时调整飞行器的飞行姿态，从而达到在无遥控的条件下，满足定高、定点悬停等要求。超声波传感器为飞行器的定高飞行提供了高度反馈，摄像头通过识别地面特征点的坐标为飞行器的定点飞行提供了位置反馈，采用python+树莓派+opencv的方式实现，提高了飞行器定点悬停的速度与精度。 a、程序功能描述 根据题目要求软件部分主要实现四旋翼飞行器姿态的获取与控制，实现飞行器的定高和定点飞行。 1）定高部分实现功能：飞行器高度的获取与控制、目标高度的自动切换。 2）定点部分实现功能：飞行器飞行速度的获取、移动距离的转换与控制。 b、程序设计思路 程序分为初始化部分、起飞油门值设置部分、定高PID调节部分、定点PID调节部分。初始化部分完成时钟、定时器、串行口等片上外设的设置，以及飞行模式的检测与设置；起飞油门设置部分完成片上ADC设置、电压采集数据获取与处理、起飞油门值的映射；定高PID调节部分完成高度误差的计算以及飞行高度的调节；定点PID调节部分完成位置误差的计算以及飞行位置的调节。</p>
+<p><strong>2. 机械加工过程中零件位置的自动识别</strong> 此项目研究自动化生产线加工过程中零件的位置识别问题，设计了一种具有普适性的自动化加工生产线上的零件识别系统，能够识别传感器采集到的图像中出现单个，或多个零件的位置，并且对于识别不同的零件，只需要修改极其少量的代码便可以使用。</p>
+<p><strong>3. 高电压增益变换器</strong> 此项目在基于H桥的Buck-Boost DC-DC变换器的基础上，用多个电容与二极管串联输出 实现了高增益，设计了双电感双开关同步控制Boost变换器，并用数字电路实现了闭环稳压的控制。</p>
+<p><strong>3. 无线充电之共享充电</strong> 此项目研究智能无线充电装置的控制方法，采用服务器-客户端的方式，服务器端可以对每个充电节点实施实时监控，用户能够通过手机直接查看无线充电装置的充电状态并对其进行一定的控制操作，此项目正在准备发表论文和申请实用新型专利，预计今年9月份发表之后可以申请结题</p>
+<p><strong>4. 基于Arduino的微型激光雕刻机</strong> 此项目主要采用Arduino UNO型单片机构成中央处理系统模块，并采用开源的控制系统框架Grbl设计和实现了一个可直接进行雕刻的微型激光雕刻机系统。本系统能在非金属物体表面烧刻出由计算机传输的图案的功能。</p>
+<p><strong>5. 海洋输液柔性管设备用的不间断真空控制系统</strong> 海洋输液用柔性管在塑料包覆的过程中，必须提供一个不间断的、稳定的真空度。当真空泵出现故障或其他方面出现故障导致真空度变化时，该装置必须自动调节，确保真空度变化量&lt;10%,响应时间不大于1秒 海洋输液用柔性管在正常情况下单根长度在1km以上，根据不同的用途，包覆层最多达到20多层，如果在包覆的过程中由于真空突然缺失就会导致当前包覆层报废，由于所用的原材料价格昂贵，所以重新返工会导致大量的浪费（国内有生产商因为真空泵出现问题而出现返工，损失50万元以上），在这种情况下，类似UPS的不间断真空就显得非常重要。当前在国内生产普通塑料管材行业由于单根的长度仅为4-12米，所以没有不间断真空这个装置。此项目正在申请实用新型专利。</p>
+<p><strong>6. 聚苯醚大口径管材挤出设备的温度自动控制装置</strong> 聚苯醚材料对加工温度极其敏感，加工温度窗口很窄，温度过高，严重过塑化，粘度急剧降低，温度过低会造成粘度急剧增大，所以温度的不稳定会严重影响产品的质量，该项目实现了温度控制装置的控制精度为0.5℃以内。此项目正在申请实用新型专利。</p>
+<p><strong>7. Python爬虫</strong> 采集网上的内容并将其自动发布到wordpress上</p>
+<p><strong>8. 远程设备状态监测机器人</strong> 针对目前邮件和短信的成本较高，利用成熟的微信机器人框架：Wxbot，实现了实时监测远程设备的状态，并通过微信传送到我的微信</p>
+<ul>
+<li>** 对华为的了解**</li>
+</ul>
+<p>众所周知华为是一个非常大的平台，经营范围非常广，并且在业内处于领先的地位，主要经营电信网络设备，已经成为行业的老大，并且近些年手机品牌和芯片研究有做的非常厉害，也是业界数一数二的。 华为的氛围相对比较而言更像大学，非常单纯，同事之间相处比较简单，并且公司具有良好的人才培养体系，在华为，员工可以快速成长，有很多学习和锻炼的机会，有机会接触到业界的核心技术和最前沿的技术理论，总之，华为是我向往的公司，希望自己能有机会到那里工作。</p>
+<h2 id="综合面试">综合面试：</h2>
+<ul>
+<li>** 自我介绍：**</li>
+</ul>
+<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第6，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。</p>
+<ul>
+<li>** 想不想加入华为**</li>
+</ul>
+<p>想</p>
+<ul>
+<li>** 成绩怎么样参加过什么级别的比赛**</li>
+</ul>
+<p>国家级</p>
+<ul>
+<li>** 以后想从事哪个方面的工作**</li>
+</ul>
+<p>嵌入式，因为我本科期间做的项目都是基于arm平台的，并且对操作系统非常感兴趣，从高中的时候在同学的介绍下就对linux产生了兴趣，所以将来想从事这方面的工作</p>
+<h1 id="华为面试小结">华为面试小结</h1>
+<p>总的来说，华为面试还是挺简单的，专业面试的时候我分到的那个面试官先生好像什么都不会，很难受。不过最终还是拿到了华为的offer，岗位是操作系统工程师，月薪15k以上，简简单单。 <strong>注意：我拿到华为offer时还是个本科生</strong></p>
+<h1 id="最后附上一张华为的offer">最后附上一张华为的offer</h1>
+<figure>
+<img src="huaweioffer.png" alt="华为offer" /><figcaption>华为offer</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>华为</category>
+      </categories>
+      <tags>
+        <tag>华为 面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>单变量线性回归--Pytorch实现</title>
     <url>/2018/11/14/%E5%8D%95%E5%8F%98%E9%87%8F%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92-Pytorch%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h1 id="单变量线性回归pytorch实现">单变量线性回归——Pytorch实现</h1>
@@ -1460,58 +1481,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>华为研发岗位面试经验(已拿offer)</title>
-    <url>/2018/09/30/%E5%8D%8E%E4%B8%BA%E7%A0%94%E5%8F%91%E5%B2%97%E4%BD%8D%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C-%E5%B7%B2%E6%8B%BFoffer/</url>
-    <content><![CDATA[<h2 id="专业面试">专业面试：</h2>
-<ul>
-<li>** 自我介绍：3-5分钟把自己的校园经历简单介绍一下**</li>
-</ul>
-<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第1，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。 <a id="more"></a> - ** 项目经历：在项目里做了哪些工作，算法有没有优化的空间**</p>
-<p><strong>1. 基于四旋翼的自动控制与跟随</strong> 本系统基于STM32F407控制器，通过对超声波模块和摄像头数据的采集分析，实时调整飞行器的飞行姿态，从而达到在无遥控的条件下，满足定高、定点悬停等要求。超声波传感器为飞行器的定高飞行提供了高度反馈，摄像头通过识别地面特征点的坐标为飞行器的定点飞行提供了位置反馈，采用python+树莓派+opencv的方式实现，提高了飞行器定点悬停的速度与精度。 a、程序功能描述 根据题目要求软件部分主要实现四旋翼飞行器姿态的获取与控制，实现飞行器的定高和定点飞行。 1）定高部分实现功能：飞行器高度的获取与控制、目标高度的自动切换。 2）定点部分实现功能：飞行器飞行速度的获取、移动距离的转换与控制。 b、程序设计思路 程序分为初始化部分、起飞油门值设置部分、定高PID调节部分、定点PID调节部分。初始化部分完成时钟、定时器、串行口等片上外设的设置，以及飞行模式的检测与设置；起飞油门设置部分完成片上ADC设置、电压采集数据获取与处理、起飞油门值的映射；定高PID调节部分完成高度误差的计算以及飞行高度的调节；定点PID调节部分完成位置误差的计算以及飞行位置的调节。</p>
-<p><strong>2. 机械加工过程中零件位置的自动识别</strong> 此项目研究自动化生产线加工过程中零件的位置识别问题，设计了一种具有普适性的自动化加工生产线上的零件识别系统，能够识别传感器采集到的图像中出现单个，或多个零件的位置，并且对于识别不同的零件，只需要修改极其少量的代码便可以使用。</p>
-<p><strong>3. 高电压增益变换器</strong> 此项目在基于H桥的Buck-Boost DC-DC变换器的基础上，用多个电容与二极管串联输出 实现了高增益，设计了双电感双开关同步控制Boost变换器，并用数字电路实现了闭环稳压的控制。</p>
-<p><strong>3. 无线充电之共享充电</strong> 此项目研究智能无线充电装置的控制方法，采用服务器-客户端的方式，服务器端可以对每个充电节点实施实时监控，用户能够通过手机直接查看无线充电装置的充电状态并对其进行一定的控制操作，此项目正在准备发表论文和申请实用新型专利，预计今年9月份发表之后可以申请结题</p>
-<p><strong>4. 基于Arduino的微型激光雕刻机</strong> 此项目主要采用Arduino UNO型单片机构成中央处理系统模块，并采用开源的控制系统框架Grbl设计和实现了一个可直接进行雕刻的微型激光雕刻机系统。本系统能在非金属物体表面烧刻出由计算机传输的图案的功能。</p>
-<p><strong>5. 海洋输液柔性管设备用的不间断真空控制系统</strong> 海洋输液用柔性管在塑料包覆的过程中，必须提供一个不间断的、稳定的真空度。当真空泵出现故障或其他方面出现故障导致真空度变化时，该装置必须自动调节，确保真空度变化量&lt;10%,响应时间不大于1秒 海洋输液用柔性管在正常情况下单根长度在1km以上，根据不同的用途，包覆层最多达到20多层，如果在包覆的过程中由于真空突然缺失就会导致当前包覆层报废，由于所用的原材料价格昂贵，所以重新返工会导致大量的浪费（国内有生产商因为真空泵出现问题而出现返工，损失50万元以上），在这种情况下，类似UPS的不间断真空就显得非常重要。当前在国内生产普通塑料管材行业由于单根的长度仅为4-12米，所以没有不间断真空这个装置。此项目正在申请实用新型专利。</p>
-<p><strong>6. 聚苯醚大口径管材挤出设备的温度自动控制装置</strong> 聚苯醚材料对加工温度极其敏感，加工温度窗口很窄，温度过高，严重过塑化，粘度急剧降低，温度过低会造成粘度急剧增大，所以温度的不稳定会严重影响产品的质量，该项目实现了温度控制装置的控制精度为0.5℃以内。此项目正在申请实用新型专利。</p>
-<p><strong>7. Python爬虫</strong> 采集网上的内容并将其自动发布到wordpress上</p>
-<p><strong>8. 远程设备状态监测机器人</strong> 针对目前邮件和短信的成本较高，利用成熟的微信机器人框架：Wxbot，实现了实时监测远程设备的状态，并通过微信传送到我的微信</p>
-<ul>
-<li>** 对华为的了解**</li>
-</ul>
-<p>众所周知华为是一个非常大的平台，经营范围非常广，并且在业内处于领先的地位，主要经营电信网络设备，已经成为行业的老大，并且近些年手机品牌和芯片研究有做的非常厉害，也是业界数一数二的。 华为的氛围相对比较而言更像大学，非常单纯，同事之间相处比较简单，并且公司具有良好的人才培养体系，在华为，员工可以快速成长，有很多学习和锻炼的机会，有机会接触到业界的核心技术和最前沿的技术理论，总之，华为是我向往的公司，希望自己能有机会到那里工作。</p>
-<h2 id="综合面试">综合面试：</h2>
-<ul>
-<li>** 自我介绍：**</li>
-</ul>
-<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第6，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。</p>
-<ul>
-<li>** 想不想加入华为**</li>
-</ul>
-<p>想</p>
-<ul>
-<li>** 成绩怎么样参加过什么级别的比赛**</li>
-</ul>
-<p>国家级</p>
-<ul>
-<li>** 以后想从事哪个方面的工作**</li>
-</ul>
-<p>嵌入式，因为我本科期间做的项目都是基于arm平台的，并且对操作系统非常感兴趣，从高中的时候在同学的介绍下就对linux产生了兴趣，所以将来想从事这方面的工作</p>
-<h1 id="华为面试小结">华为面试小结</h1>
-<p>总的来说，华为面试还是挺简单的，专业面试的时候我分到的那个面试官先生好像什么都不会，很难受。不过最终还是拿到了华为的offer，岗位是操作系统工程师，月薪15k以上，简简单单。 <strong>注意：我拿到华为offer时还是个本科生</strong></p>
-<h1 id="最后附上一张华为的offer">最后附上一张华为的offer</h1>
-<figure>
-<img src="huaweioffer.png" alt="华为offer" /><figcaption>华为offer</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>华为</category>
-      </categories>
-      <tags>
-        <tag>华为 面试</tag>
       </tags>
   </entry>
   <entry>
@@ -1595,38 +1564,30 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>折半查找</title>
-    <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
-    <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
-<p>算法分析：折半查找 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bin_search</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,high,low;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=(high+low)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">10</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">19</span>,<span class="number">21</span>&#125;</span><br><span class="line">    <span class="keyword">int</span> i,n,addr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The contents of the Array A[10] are\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, A[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPlease input a interger for search\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    addr = bin_search(A,<span class="number">10</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(addr != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d is at the %dth unit is array A\n "</span>,n,addr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"There is no %d in array A\n"</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>数据结构 算法 排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>服务器被黑记录</title>
-    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
-<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
-<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
+    <title>强化学习：有限马尔科夫决策过程</title>
+    <url>/2019/04/14/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%9A%E6%9C%89%E9%99%90%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/</url>
+    <content><![CDATA[<p>本文是reinforcement learning:An introduction书第三章的翻译．</p>
+<p>在本章中我们将介绍有限马尔科夫决策过程形式的问题（finite MDPs），本书的剩余部分都将解决此类问题．该问题包括可评估的反馈，就像和bandits问题一样，但是同时也有一个相关性的方面－在不同的情形下选择不同的行为．MDPs是序列决策问题的一种经典的形式．行为不光影响立即的回报，同时影响接下去的状态．因此，MDPs包括未来的奖励并且需要权衡立即的奖励与未来的奖励．在bandit问题中，我们估计每个行为<span class="math inline">\(a\)</span>的值<span class="math inline">\(q_*(a)\)</span>.</p>
+<p>在MDPs中我们估计在<span class="math inline">\(s\)</span>状态下，在<span class="math inline">\(a\)</span>行为的条件下的值<span class="math inline">\(q_*(s,a)\)</span>.</p>
 <a id="more"></a>
-<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
-<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
-<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
-<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
-<p>可以看到一直在被爆破。</p>
-<p><img src="image-20200914140640360.png" /></p>
+<p>MDPs是强化学习的一个数学理想化形式，能够用精确的理论性语句描述．我们介绍强化学习问题的数学结构中的关键问题，例如回报，值函数，贝尔曼方程．我们努力将很大范围的实际问题用MDPs来表示．在人工智能中，算法应用的广度和数学溯源性之间有着一定的张力．在这一章中，我们将介绍这个张力，并且讨论算法实现的挑战和平衡点．</p>
+<h2 id="agent-environment接口">3.1 agent-environment接口</h2>
+<p><span class="math display">\[S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3,...\]</span></p>
+<p><span class="math display">\[P(s\prime,r|s,a) = Pr\{S_t=s\prime,R_t=r|S_{t-1}=s,A_{t-1}=a\}\]</span></p>
+<h2 id="目标和奖励">3.2 目标和奖励</h2>
+<p>在强化学习中，agent的目标被正式化定义为一个特殊的信号，称为奖励(Reward)，从environment传递给agent．在每个time step，奖励是一个实属．不正式得讲，agent的目标是为了最大化所有它收到的回报之和．这意味着最大化的不是立即奖励，而是长期的累计奖励．我们可以清楚地表述这个非正式的想法作为奖励假设：</p>
+<h2 id="回报和episodes">3.3 回报和Episodes</h2>
+<p>至此，我们讨论了强化学习的目标．agent的目标是为了最大化它在长期的过程中接收到的累计奖励．如何正式地定义？ 如果在time step t以后接收到的奖励序列可以表示为<span class="math inline">\(R_{t+1},R_{t+2},R_{t+3},...\)</span>，我们希望最大化这个序列的哪个方面．通常，我们将要最大化<strong>期望回报</strong>，用<span class="math inline">\(G_t\)</span>来表示，定义为奖励序列的一些特定函数，在最简单的情况下，回报是奖励的总和： <span class="math display">\[G_t = R_{t+1}+R_{t+2}+R_{t+3}+...+R_{T}\]</span> 其中，<span class="math inline">\(T\)</span>是最后一个时刻． ## 3.4 Episodes任务与连续任务的统一的记号 在之前的一小节中，我们介绍了两种强化学习任务，一种是</p>
+<h2 id="策略与值函数">3.5 策略与值函数</h2>
+<h2 id="策略的优化与值函数的优化">3.6 策略的优化与值函数的优化</h2>
+<h2 id="优化和近似">3.7 优化和近似</h2>
+<h2 id="总结">3.8 总结</h2>
 ]]></content>
       <categories>
-        <category>Linux</category>
+        <category>强化学习</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>强化学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1719,30 +1680,25 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>强化学习：有限马尔科夫决策过程</title>
-    <url>/2019/04/14/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%9A%E6%9C%89%E9%99%90%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/</url>
-    <content><![CDATA[<p>本文是reinforcement learning:An introduction书第三章的翻译．</p>
-<p>在本章中我们将介绍有限马尔科夫决策过程形式的问题（finite MDPs），本书的剩余部分都将解决此类问题．该问题包括可评估的反馈，就像和bandits问题一样，但是同时也有一个相关性的方面－在不同的情形下选择不同的行为．MDPs是序列决策问题的一种经典的形式．行为不光影响立即的回报，同时影响接下去的状态．因此，MDPs包括未来的奖励并且需要权衡立即的奖励与未来的奖励．在bandit问题中，我们估计每个行为<span class="math inline">\(a\)</span>的值<span class="math inline">\(q_*(a)\)</span>.</p>
-<p>在MDPs中我们估计在<span class="math inline">\(s\)</span>状态下，在<span class="math inline">\(a\)</span>行为的条件下的值<span class="math inline">\(q_*(s,a)\)</span>.</p>
+    <title>服务器被黑记录</title>
+    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
+<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
+<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
 <a id="more"></a>
-<p>MDPs是强化学习的一个数学理想化形式，能够用精确的理论性语句描述．我们介绍强化学习问题的数学结构中的关键问题，例如回报，值函数，贝尔曼方程．我们努力将很大范围的实际问题用MDPs来表示．在人工智能中，算法应用的广度和数学溯源性之间有着一定的张力．在这一章中，我们将介绍这个张力，并且讨论算法实现的挑战和平衡点．</p>
-<h2 id="agent-environment接口">3.1 agent-environment接口</h2>
-<p><span class="math display">\[S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3,...\]</span></p>
-<p><span class="math display">\[P(s\prime,r|s,a) = Pr\{S_t=s\prime,R_t=r|S_{t-1}=s,A_{t-1}=a\}\]</span></p>
-<h2 id="目标和奖励">3.2 目标和奖励</h2>
-<p>在强化学习中，agent的目标被正式化定义为一个特殊的信号，称为奖励(Reward)，从environment传递给agent．在每个time step，奖励是一个实属．不正式得讲，agent的目标是为了最大化所有它收到的回报之和．这意味着最大化的不是立即奖励，而是长期的累计奖励．我们可以清楚地表述这个非正式的想法作为奖励假设：</p>
-<h2 id="回报和episodes">3.3 回报和Episodes</h2>
-<p>至此，我们讨论了强化学习的目标．agent的目标是为了最大化它在长期的过程中接收到的累计奖励．如何正式地定义？ 如果在time step t以后接收到的奖励序列可以表示为<span class="math inline">\(R_{t+1},R_{t+2},R_{t+3},...\)</span>，我们希望最大化这个序列的哪个方面．通常，我们将要最大化<strong>期望回报</strong>，用<span class="math inline">\(G_t\)</span>来表示，定义为奖励序列的一些特定函数，在最简单的情况下，回报是奖励的总和： <span class="math display">\[G_t = R_{t+1}+R_{t+2}+R_{t+3}+...+R_{T}\]</span> 其中，<span class="math inline">\(T\)</span>是最后一个时刻． ## 3.4 Episodes任务与连续任务的统一的记号 在之前的一小节中，我们介绍了两种强化学习任务，一种是</p>
-<h2 id="策略与值函数">3.5 策略与值函数</h2>
-<h2 id="策略的优化与值函数的优化">3.6 策略的优化与值函数的优化</h2>
-<h2 id="优化和近似">3.7 优化和近似</h2>
-<h2 id="总结">3.8 总结</h2>
+<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
+<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
+<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
+<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
+<p>可以看到一直在被爆破。</p>
+<p><img src="image-20200914140640360.png" /></p>
 ]]></content>
       <categories>
-        <category>强化学习</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>强化学习</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1780,6 +1736,19 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>Reinforcement Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>折半查找</title>
+    <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
+    <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
+<p>算法分析：折半查找 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bin_search</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,high,low;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=(high+low)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">10</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">19</span>,<span class="number">21</span>&#125;</span><br><span class="line">    <span class="keyword">int</span> i,n,addr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The contents of the Array A[10] are\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, A[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPlease input a interger for search\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    addr = bin_search(A,<span class="number">10</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(addr != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d is at the %dth unit is array A\n "</span>,n,addr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"There is no %d in array A\n"</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构 算法 排序</tag>
       </tags>
   </entry>
   <entry>
@@ -1834,6 +1803,21 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>软路由</title>
+    <url>/2020/08/17/%E8%BD%AF%E8%B7%AF%E7%94%B1/</url>
+    <content><![CDATA[<p>今天装了用虚拟机装了一台软路由，总结两个字：真香</p>
+<a id="more"></a>
+<p>软路由用作旁路由，搭建socks5代理，速度比windows直接用快了将近30倍。</p>
+<p>不知道是啥原因，可能是Linux和Windows系统上的区别？</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>粒子群算法的Python简单实现</title>
     <url>/2019/02/14/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E7%9A%84Python%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h2 id="需要优化的目标函数">需要优化的目标函数</h2>
@@ -1883,18 +1867,34 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>软路由</title>
-    <url>/2020/08/17/%E8%BD%AF%E8%B7%AF%E7%94%B1/</url>
-    <content><![CDATA[<p>今天装了用虚拟机装了一台软路由，总结两个字：真香</p>
-<a id="more"></a>
-<p>软路由用作旁路由，搭建socks5代理，速度比windows直接用快了将近30倍。</p>
-<p>不知道是啥原因，可能是Linux和Windows系统上的区别？</p>
+    <title>Flask速成项目：Flask实现计算机资源的实时监控</title>
+    <url>/2018/09/30/Flask%E9%80%9F%E6%88%90%E9%A1%B9%E7%9B%AE%EF%BC%9AFlask%E5%AE%9E%E7%8E%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%B5%84%E6%BA%90%E7%9A%84%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7/</url>
+    <content><![CDATA[<blockquote>
+<p>很多人都说使用Python开发WEB应用非常<strong>方便</strong>，那么对于WEB新手来说，到底有多方便呢？本文即将展示给你Python的魔法。 本文将通过一个实例：<strong>Flask实现计算机资源的实时监控</strong>，迅速带你入门Flask开发。 先说一下我的水平，博主的专业并不是做WEB开发的，对于WEB方面，只会写<strong>爬虫</strong>，因此，只能看懂html，略看得懂css与js，我估计有很多像我一样的小伙伴，因此，如果你的WEB掌握的水平在我之上或与我相当，那么，这篇文章将是你迅速入门Flask的<strong>终极教程</strong>。</p>
+</blockquote>
+<p>先放上一张成果图： <img src="1.png" alt="结果" /> 访问，浏览器能够实时显示我的电脑的两个CPU的使用情况，这里特地采用两种显示方式，方便大家学习代码。 <a id="more"></a> ## flask介绍 Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions. And before you ask: It's BSD licensed! <strong>搞科研或者搞技术，还是直接看英文吧，英文是你走向NB的基础。</strong></p>
+<h2 id="flask安装">flask安装</h2>
+<p>可以参考我之前的文章：</p>
+<ol type="1">
+<li><a href="https://blog.oliverxu.cn/2018/09/16/Python%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.html">Python配置虚拟环境</a></li>
+<li><a href="https://blog.oliverxu.cn/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.html">Flask项目结构</a></li>
+</ol>
+<p>另外，需要安装<code>psutil</code>，<code>flask_socketio</code>包，可直接使用<strong>pip</strong>安装</p>
+<h2 id="构建flask项目结构">构建flask项目结构</h2>
+<p>在你的目录下新建如下的目录与文件： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects/CPU_memory$ tree</span><br><span class="line">.</span><br><span class="line">|-- app.py</span><br><span class="line">`-- templates</span><br><span class="line">    `-- index.html</span><br><span class="line"></span><br><span class="line">1 directory, 2 files</span><br></pre></td></tr></table></figure> <strong><em>非常形象的解释下flask完成的任务 </em></strong> 浏览器向服务器发送请求，服务器将html源代码发送给浏览器，浏览器将html解析成可视化的东西展示给用户。也就是说，用户接收到的总是一个html文件，那flask在整个过程中完成了什么任务呢？ 请把Flask想象成一个<strong>火腿肠加工厂</strong>，将<strong>肉</strong>输送给<strong>火腿肠加工厂</strong>，<strong>火腿肠加工厂</strong>生产出<strong>火腿肠</strong>。同样，将<strong>用户请求，例如访问 https://blog.oliverxu.cn 这一请求</strong>发送给<strong>flask</strong>，<strong>flask</strong>能够生产出<strong>html</strong>。 将<strong>请求发送给flask</strong>是通过<strong>flask中的路由</strong>来实现的，flask是通过<strong>直接返回或返回模板</strong>来生成<strong>html</strong>的。</p>
+<p>对于上述项目结构的构成，app.py中实现了路由及启动功能，templates文件夹中是模板文件，（<strong><em>这里插一句:我曾经看到很多人，在读某个用flask做的WEB项目的源码，一打开templates文件夹中，发现了很多css，js，html文件，一打开这些文件，发现几百上前行，一下子头都大了，立马放弃了读代码，哈哈哈哈</em></strong>），其实，对于像我一样专业不是做前端的小伙伴，完全可以不用担心，这些文件其实可以<strong>一行都不写</strong>，例如可以用Bootstrap框架来做前端，<strong>使用Bootstrap要写代码？兄弟，你不会用可视化编辑工具嘛！！！</strong> 等以后我们做大项目，我们主要写的也就是除了templates文件夹中以外的文件。前端不会别担心，我也不会。</p>
+<p>对于这篇文章所要实现的目标，我们做一个小结： 1. 执行app.py，计算机启动flask自带的服务器，开始允许WEB访问 2. 用户使用浏览器访问网址 3. flask接受到用户的请求后，app.py进行逻辑上的处理，将index.html传送给浏览器。</p>
+<h2 id="源码分析">源码分析</h2>
+<h3 id="app.py">app.py</h3>
+<p>源代码的分析在注释中，大家一定能看懂！ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">CPU_and_MEM_Monitor</span></span><br><span class="line"><span class="string">思路：后端后台线程一旦产生数据，即刻推送至前端。</span></span><br><span class="line"><span class="string">好处：不需要前端ajax定时查询，节省服务器资源。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> psutil    <span class="comment">#这个库可以用来获取系统的资源数据，详细可以看文档</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Lock</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, render_template, session, request</span><br><span class="line"><span class="keyword">from</span> flask_socketio <span class="keyword">import</span> SocketIO, emit</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set this variable to "threading", "eventlet" or "gevent" to test the</span></span><br><span class="line"><span class="comment"># different async modes, or leave it set to None for the application to choose</span></span><br><span class="line"><span class="comment"># the best option based on installed packages.</span></span><br><span class="line">async_mode = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config[<span class="string">'SECRET_KEY'</span>] = <span class="string">'secret!'</span></span><br><span class="line">socketio = SocketIO(app, async_mode=async_mode)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">thread = <span class="literal">None</span></span><br><span class="line">thread_lock = Lock()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 后台线程 产生数据，即刻推送至前端</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">background_thread</span><span class="params">()</span>:</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        socketio.sleep(<span class="number">2</span>)</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        t = time.strftime(<span class="string">'%M:%S'</span>, time.localtime()) <span class="comment"># 获取系统时间（只取分:秒）</span></span><br><span class="line">        cpus = psutil.cpu_percent(interval=<span class="literal">None</span>, percpu=<span class="literal">True</span>) <span class="comment"># 获取系统cpu使用率 non-blocking</span></span><br><span class="line">        socketio.emit(<span class="string">'server_response'</span>,</span><br><span class="line">                      &#123;<span class="string">'data'</span>: [t] + list(cpus)[<span class="number">0</span>:<span class="number">4</span>], <span class="string">'count'</span>: count&#125;,</span><br><span class="line">                      namespace=<span class="string">'/test'</span>) <span class="comment"># 注意：这里不需要客户端连接的上下文，默认 broadcast = True ！！！！！！！</span></span><br><span class="line">        <span class="keyword">print</span> [t] +list(cpus)[<span class="number">0</span>:<span class="number">4</span>]</span><br><span class="line">        <span class="keyword">print</span> <span class="number">100</span>*<span class="string">'*'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 当用户访问'/'时，执行index()函数。这也是python装饰器的用法。</span></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'index.html'</span>, async_mode=socketio.async_mode)</span><br><span class="line">    <span class="comment"># 每次执行render_template函数时，渲染器都会将index.html的变量值用其实际值替代。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 与前端建立 socket 连接后，启动后台线程</span></span><br><span class="line"><span class="meta">@socketio.on('connect', namespace='/test')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_connect</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> thread</span><br><span class="line">    <span class="keyword">with</span> thread_lock:</span><br><span class="line">        <span class="keyword">if</span> thread <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            thread = socketio.start_background_task(target=background_thread)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    socketio.run(app, debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="index.html">index.html</h3>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>CPU_and_MEM_Monitor<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/socket.io/1.5.1/socket.io.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- ECharts 3 引入 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://echarts.baidu.com/dist/echarts.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--为ECharts准备一个具备大小（宽高）的Dom--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"CPU1"</span> <span class="attr">style</span>=<span class="string">"height:500px;border:1px solid #ccc;padding:10px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"CPU2"</span> <span class="attr">style</span>=<span class="string">"height:500px;border:1px solid #ccc;padding:10px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">//--- 折柱 ---</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 3个全局变量：time、cpu1、cpu2</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> time = [<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>],</span></span><br><span class="line">        cpu1 = [0,0,0,0,0,0,0,0,0,0],</span><br><span class="line">        cpu2 = [0,0,0,0,0,0,0,0,0,0]</span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">//第一张echarts图初始化</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> CPU1 = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'CPU1'</span>));</span></span><br><span class="line">    CPU1.setOption(&#123;</span><br><span class="line">        title: &#123;</span><br><span class="line"><span class="actionscript">            text: <span class="string">'CPU1'</span></span></span><br><span class="line">        &#125;,</span><br><span class="line">        tooltip: &#123;&#125;,</span><br><span class="line">        legend: &#123;</span><br><span class="line"><span class="actionscript">            data:[<span class="string">'cpu1'</span>]</span></span><br><span class="line">        &#125;,</span><br><span class="line">        xAxis: &#123;</span><br><span class="line">            data: []</span><br><span class="line">        &#125;,</span><br><span class="line">        yAxis: &#123;&#125;,</span><br><span class="line">        series: [&#123;</span><br><span class="line"><span class="actionscript">            name: <span class="string">'cpu1'</span>,</span></span><br><span class="line"><span class="actionscript">            type: <span class="string">'line'</span>,</span></span><br><span class="line">            data: []</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;);</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">//准备好的 callback 函数</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> update_CPU1 = <span class="function"><span class="keyword">function</span> <span class="params">(res)</span> </span>&#123; <span class="comment">//res是json格式的response对象</span></span></span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 隐藏加载动画</span></span></span><br><span class="line">        CPU1.hideLoading();</span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 准备数据</span></span></span><br><span class="line">        time.push(res.data[0]);</span><br><span class="line"><span class="javascript">        cpu1.push(<span class="built_in">parseFloat</span>(res.data[<span class="number">1</span>]));</span></span><br><span class="line">        if (time.length &gt;= 10)&#123;</span><br><span class="line">            time.shift();</span><br><span class="line">            cpu1.shift();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 填入数据</span></span></span><br><span class="line">        CPU1.setOption(&#123;</span><br><span class="line">            xAxis: &#123;</span><br><span class="line">                data: time</span><br><span class="line">            &#125;,</span><br><span class="line">            series: [&#123;</span><br><span class="line"><span class="actionscript">                name: <span class="string">'cpu1'</span>, <span class="comment">// 根据名字对应到相应的系列</span></span></span><br><span class="line">                data: cpu1</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;);</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line"><span class="actionscript">    <span class="comment">//第二张echarts图初始化</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> CPU2 = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'CPU2'</span>));</span></span><br><span class="line">    CPU2.setOption(&#123;</span><br><span class="line">        title: &#123;</span><br><span class="line"><span class="actionscript">            text: <span class="string">'CPU2'</span></span></span><br><span class="line">        &#125;,</span><br><span class="line">        tooltip: &#123;&#125;,</span><br><span class="line">        legend: &#123;</span><br><span class="line"><span class="actionscript">            data:[<span class="string">'cpu2'</span>]</span></span><br><span class="line">        &#125;,</span><br><span class="line">        toolbox: &#123;</span><br><span class="line"><span class="actionscript">        show : <span class="literal">true</span>,</span></span><br><span class="line">        feature : &#123;</span><br><span class="line"><span class="actionscript">            mark : &#123;show: <span class="literal">true</span>&#125;,</span></span><br><span class="line"><span class="actionscript">            dataView : &#123;show: <span class="literal">true</span>, readOnly: <span class="literal">false</span>&#125;,</span></span><br><span class="line"><span class="actionscript">            magicType : &#123;show: <span class="literal">true</span>, type: [<span class="string">'line'</span>, <span class="string">'bar'</span>, <span class="string">'stack'</span>, <span class="string">'tiled'</span>]&#125;,</span></span><br><span class="line"><span class="actionscript">            restore : &#123;show: <span class="literal">true</span>&#125;,</span></span><br><span class="line"><span class="actionscript">            saveAsImage : &#123;show: <span class="literal">true</span>&#125;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"><span class="actionscript">        calculable : <span class="literal">true</span>,</span></span><br><span class="line">        xAxis: &#123;</span><br><span class="line">            data: []</span><br><span class="line">        &#125;,</span><br><span class="line">        yAxis: &#123;&#125;,</span><br><span class="line">        series: [&#123;</span><br><span class="line"><span class="actionscript">            name: <span class="string">'cpu2'</span>,</span></span><br><span class="line"><span class="actionscript">            type: <span class="string">'line'</span>,</span></span><br><span class="line"><span class="actionscript">            smooth:<span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">            itemStyle: &#123;normal: &#123;areaStyle: &#123;type: <span class="string">'default'</span>&#125;&#125;&#125;,</span></span><br><span class="line">            data: []</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;);</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">//准备好的 callback 函数</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> update_CPU2 = <span class="function"><span class="keyword">function</span> <span class="params">(res)</span> </span>&#123; <span class="comment">//res是json格式的response对象</span></span></span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 隐藏加载动画</span></span></span><br><span class="line">        CPU2.hideLoading();</span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 准备数据</span></span></span><br><span class="line">        time.push(res.data[0]);</span><br><span class="line"><span class="javascript">        cpu2.push(<span class="built_in">parseFloat</span>(res.data[<span class="number">2</span>]));</span></span><br><span class="line">        if (time.length &gt;= 10)&#123;</span><br><span class="line">            time.shift();</span><br><span class="line">            cpu2.shift();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 填入数据</span></span></span><br><span class="line">        CPU2.setOption(&#123;</span><br><span class="line">            xAxis: &#123;</span><br><span class="line">                data: time</span><br><span class="line">            &#125;,</span><br><span class="line">            series: [&#123;</span><br><span class="line"><span class="actionscript">                name: <span class="string">'cpu2'</span>, <span class="comment">// 根据名字对应到相应的系列</span></span></span><br><span class="line">                data: cpu2</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;);</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">// 首次显示加载动画</span></span></span><br><span class="line">    CPU1.showLoading();</span><br><span class="line">    CPU2.showLoading();</span><br><span class="line">    </span><br><span class="line"><span class="actionscript">    <span class="comment">// 建立socket连接，等待服务器“推送”数据，用回调函数更新图表</span></span></span><br><span class="line"><span class="javascript">    $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">namespace</span> = <span class="string">'/test'</span>;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> socket = io.connect(location.protocol + <span class="string">'//'</span> + document.domain + <span class="string">':'</span> + location.port + <span class="keyword">namespace</span>);</span></span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        socket.on(<span class="string">'server_response'</span>, <span class="function"><span class="keyword">function</span><span class="params">(res)</span> </span>&#123;</span></span><br><span class="line">            update_CPU1(res);</span><br><span class="line">            update_CPU2(res);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Linux</category>
+        <category>flask</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>flask</tag>
       </tags>
   </entry>
   <entry>
@@ -3436,6 +3436,105 @@ Alabama
       </tags>
   </entry>
   <entry>
+    <title>强化学习之动态规划</title>
+    <url>/2020/08/19/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<p>复习了一下Sutton书中的第四章，动态规划，整理一下。</p>
+<p>动态规划算法是所有强化学习算法的基础，所有强化学习算法都可以看作是为了得到和动态规划相同的效果，同时减少计算量和对环境模型的依赖。</p>
+<p>这一章节主要分为三部分：策略评估，策略改进，策略迭代。</p>
+<p>策略评估：对于一个给定的策略下，迭代地计算策略的价值函数。</p>
+<p>策略改进：根据一个旧的策略的值函数，计算一个改进的策略。</p>
+<p><strong>将这两种方法结合起来，可以得到策略迭代算法和价值迭代算法。</strong></p>
+<a id="more"></a>
+<p>强化学习算法的关键是使用价值函数来寻找到更加好的策略，首先定义价值函数，其满足Bellman最优性方程：</p>
+<p><span class="math display">\[\begin{aligned}
+v_{*}(s) &amp;=\max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{*}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=a\right] \\
+&amp;=\max _{a} \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{*}\left(s^{\prime}\right)\right], \text { or }
+\end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+q_{*}(s, a) &amp;=\mathbb{E}\left[R_{t+1}+\gamma \max _{a^{\prime}} q_{*}\left(S_{t+1}, a^{\prime}\right) \mid S_{t}=s, A_{t}=a\right] \\
+&amp;=\sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma \max _{a^{\prime}} q_{*}\left(s^{\prime}, a^{\prime}\right)\right]
+\end{aligned}\]</span></p>
+<h2 id="策略评估">策略评估</h2>
+<p>目的：给定一个策略<span class="math inline">\(\pi\)</span>，计算它的状态价值函数，也可以被称为<strong>预测</strong>问题。</p>
+<p><span class="math display">\[\begin{aligned}
+v_{\pi}(s) &amp; \doteq \mathbb{E}_{\pi}\left[G_{t} \mid S_{t}=s\right] \\
+&amp;=\mathbb{E}_{\pi}\left[R_{t+1}+\gamma G_{t+1} \mid S_{t}=s\right] \\
+&amp;=\mathbb{E}_{\pi}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s\right] \\
+&amp;=\sum_{a} \pi(a \mid s) \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{\pi}\left(s^{\prime}\right)\right]
+\end{aligned}\]</span></p>
+<p>如果环境动态是完全已知的，那么通过上述价值函数的表达式，可以列出<span class="math inline">\(|S|\)</span>个未知数的<span class="math inline">\(|S|\)</span>个方程构成线性方程组，其中，<span class="math inline">\(|S|\)</span>代表状态<span class="math inline">\(s\)</span>的个数，但是计算过程有些繁杂，因此，采用迭代计算的方式：</p>
+<p><span class="math display">\[\begin{aligned}
+v_{k+1}(s) &amp; \doteq \mathbb{E}_{\pi}\left[R_{t+1}+\gamma v_{k}\left(S_{t+1}\right) \mid S_{t}=s\right] \\
+&amp;=\sum_{a} \pi(a \mid s) \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{k}\left(s^{\prime}\right)\right]
+\end{aligned}\]</span></p>
+<p><span class="math inline">\(v_{k}=v_{\pi}\)</span>是一个不动点（<strong>通过巴拿赫不动点定理来证明</strong>），当<span class="math inline">\(k \rightarrow \infty\)</span>时，<span class="math inline">\(\{v_k\}\)</span>能够收敛到<span class="math inline">\(v_\pi\)</span>。</p>
+<p><img src="1.png" /></p>
+<p>仿真算例：</p>
+<p><img src="2.png" /></p>
+<p>一个简单的额GridWorld的例子，通过不断迭代，即可算出所有的价值函数，代码：</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GridWorld</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.state = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.state = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">step</span><span class="params">(self, state: np.array, action: np.array)</span>:</span></span><br><span class="line">        self.state = state</span><br><span class="line">        next_state = self.state + action</span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">0</span>]&lt;<span class="number">0</span>:</span><br><span class="line">            next_state[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">0</span>]&gt;<span class="number">3</span>:</span><br><span class="line">            next_state[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">1</span>]&lt;<span class="number">0</span>:</span><br><span class="line">            next_state[<span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">1</span>]&gt;<span class="number">3</span>:</span><br><span class="line">            next_state[<span class="number">1</span>] = <span class="number">3</span></span><br><span class="line">        self.state = next_state</span><br><span class="line">        <span class="keyword">if</span> (self.state==np.array([<span class="number">0</span>, <span class="number">0</span>])).all() <span class="keyword">or</span> (self.state==np.array([<span class="number">3</span>, <span class="number">3</span>])).all():</span><br><span class="line">            reward = <span class="number">-1</span></span><br><span class="line">            done = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            reward = <span class="number">-1</span></span><br><span class="line">            done = <span class="literal">False</span></span><br><span class="line">        info = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> self.state, reward, done, info</span><br><span class="line"></span><br><span class="line">actions = [np.array([<span class="number">-1</span>, <span class="number">0</span>]), np.array([<span class="number">1</span>, <span class="number">0</span>]), np.array([<span class="number">0</span>, <span class="number">-1</span>]), np.array([<span class="number">0</span>, <span class="number">1</span>])]</span><br><span class="line"></span><br><span class="line">env = GridWorld()</span><br><span class="line"></span><br><span class="line">v_old = np.zeros(<span class="number">16</span>)</span><br><span class="line">v_new = np.zeros(<span class="number">16</span>)</span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    v_old = copy.deepcopy(v_new)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">15</span>):</span><br><span class="line">        temp = <span class="number">0.0</span></span><br><span class="line">        <span class="keyword">for</span> action <span class="keyword">in</span> actions:</span><br><span class="line">            s = np.array([i//<span class="number">4</span>, i%<span class="number">4</span>])</span><br><span class="line">            s_prime, reward, done, info = env.step(s, action)</span><br><span class="line">            temp += <span class="number">0.25</span>*(reward + v_old[s_prime[<span class="number">0</span>]*<span class="number">4</span>+s_prime[<span class="number">1</span>]])</span><br><span class="line">        v_new[i] = temp</span><br><span class="line">    print(v_new)</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<p><img src="3.png" /></p>
+<h2 id="策略改进">策略改进</h2>
+<p>计算价值函数的一个原因是为了找到更好的策略，我们可以知道如果从状态<span class="math inline">\(s\)</span>使用现有的策略，那么我们可以得到的就是<span class="math inline">\(v_\pi(s)\)</span>。那么当我们更换一个策略的时候，我们怎么知道是更好还是更坏呢。</p>
+<p>一种解决方法是在状态<span class="math inline">\(s\)</span>选择动作<span class="math inline">\(a\)</span>后，继续遵循现有的策略<span class="math inline">\(\pi\)</span>，计算<span class="math inline">\(q_\pi\)</span>(s,a)</p>
+<p>一个关键的准则就是这个值是大于还是小于<span class="math inline">\(v_\pi(s)\)</span>的，如果这个值更大，那么说明在状态<span class="math inline">\(s\)</span>选择一次动作<span class="math inline">\(a\)</span>，然后继续使用策略<span class="math inline">\(\pi\)</span>会比始终使用策略<span class="math inline">\(\pi\)</span>更优化。</p>
+<p>如果<span class="math inline">\(\pi\)</span>和<span class="math inline">\(\pi&#39;\)</span>是两个确定的策略，当：</p>
+<p><span class="math display">\[q_{\pi}\left(s, \pi^{\prime}(s)\right) \geq v_{\pi}(s)\]</span></p>
+<p>那么我们称策略<span class="math inline">\(\pi&#39;\)</span>相比于策略<span class="math inline">\(\pi\)</span>一样好或者更好。</p>
+<p>证明过程：</p>
+<p><span class="math display">\[\begin{aligned}
+v_{\pi}(s) &amp; \leq q_{\pi}\left(s, \pi^{\prime}(s)\right) \\
+&amp;=\mathbb{E}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=\pi^{\prime}(s)\right] \\
+&amp;=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s\right] \\
+&amp; \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma q_{\pi}\left(S_{t+1}, \pi^{\prime}\left(S_{t+1}\right)\right) \mid S_{t}=s\right] \\
+&amp;=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma \mathbb{E}_{\pi^{\prime}}\left[R_{t+2}+\gamma v_{\pi}\left(S_{t+2}\right) \mid S_{t+1}, A_{t+1}=\pi^{\prime}\left(S_{t+1}\right)\right] \mid S_{t}=s\right] \\
+&amp;=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^{2} v_{\pi}\left(S_{t+2}\right) \mid S_{t}=s\right] \\
+&amp; \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^{2} R_{t+3}+\gamma^{3} v_{\pi}\left(S_{t+3}\right) \mid S_{t}=s\right] \\
+&amp; \vdots \\
+&amp; \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^{2} R_{t+3}+\gamma^{3} R_{t+4}+\cdots \mid S_{t}=s\right] \\
+&amp;=v_{\pi^{\prime}}(s)
+\end{aligned}\]</span></p>
+<p>到目前为止，我们已经看到了，给定一个策略及其价值函数，我可以很容易评估一个状态中某个特定动作的改变会产生怎样的后果。我们可以很自然地延伸到所有的状态和所有可能的动作，即在每个状态下根据<span class="math inline">\(q_\pi(s, a)\)</span>选择一个最优的：</p>
+<p><span class="math display">\[\begin{aligned}
+\pi^{\prime}(s) &amp; \doteq \underset{a}{\arg \max } q_{\pi}(s, a) \\
+&amp;=\underset{a}{\arg \max } \mathbb{E}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=a\right] \\
+&amp;=\underset{a}{\arg \max } \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{\pi}\left(s^{\prime}\right)\right]
+\end{aligned}\]</span></p>
+<p>这种根据原策略的价值函数执行贪心算法，来构造一个更好策略的过程，称为<strong>策略改进</strong></p>
+<h2 id="策略迭代">策略迭代</h2>
+<p>一旦一个策略<span class="math inline">\(\pi\)</span>根据<span class="math inline">\(v_\pi\)</span>产生了一个更好的策略<span class="math inline">\(\pi&#39;\)</span>，我们就可以通过计算<span class="math inline">\(v_{\pi&#39;}\)</span>来得到一个更优的策略<span class="math inline">\(\pi&#39;&#39;\)</span>，这样一个链式的方法可以得到一个不断改进的策略和价值函数的序列：</p>
+<p><span class="math display">\[\pi_{0} \stackrel{\mathrm{E}}{\longrightarrow} v_{\pi_{0}} \stackrel{\mathrm{I}}{\longrightarrow} \pi_{1} \stackrel{\mathrm{E}}{\longrightarrow} v_{\pi_{1}} \stackrel{\mathrm{I}}{\longrightarrow} \pi_{2} \stackrel{\mathrm{E}}{\longrightarrow} \cdots \stackrel{\mathrm{I}}{\longrightarrow} \pi_{*} \stackrel{\mathrm{E}}{\longrightarrow} v_{*}\]</span></p>
+<p><img src="4.png" /></p>
+<h2 id="价值迭代">价值迭代</h2>
+<p>策略迭代算法的一个缺点是每一次迭代都涉及了策略评估，这本身就是一个需要多次遍历状态集合的迭代过程，如果策略评估是迭代进行的，那么收敛到<span class="math inline">\(v_\pi\)</span>理论上在极限处才成立。</p>
+<p>上面GridWorld的例子很明显就能说明，我们可以提前截断策略评估的过程，在这个例子中，前三轮策略评估之后的迭代对其贪心策略没有产生影响。</p>
+<p>事实上，由很多方式可以截断策略迭代中的策略评估步骤，一种重要的方法是：在每一次遍历后即刻停止策略评估（对每个状态进行一次更新）。该算法被称为<strong>价值迭代</strong>，可以将此表示为结合了策略改进与截断策略评估的简单更新公式：</p>
+<p><span class="math display">\[\begin{aligned}
+v_{k+1}(s) &amp; \doteq \max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{k}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=a\right] \\
+&amp;=\max _{a} \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{k}\left(s^{\prime}\right)\right]
+\end{aligned}\]</span></p>
+<p>价值迭代与策略评估的更新公式几乎完全相同。</p>
+<p>理论上价值迭代需要迭代无限次才能收敛，事实上，如果一次遍历中仅发生一些细微的变化，那么就可以停止。</p>
+<p><img src="5.png" /></p>
+<h2 id="广义策略迭代">广义策略迭代</h2>
+<p>策略迭代包括两个同时进行的相互作用的流程，一个使得价值函数与当前策略一致（策略评估），另一个根据当前价值函数贪心地更新策略（策略改进）。</p>
+<p>用广义策略迭代（GPI）一词来指代让策略评估和策略改进相互作用地一般思路，几乎所有的强化学习算法都可以被描述成广义策略迭代算法：</p>
+<p><img src="6.png" /></p>
+<p>价值函数只有在与当前策略一致时才稳定，并且策略只有在对当前价值函数是贪心策略时才稳定。</p>
+<p>可以将GPI的评估与改进流程看作竞争与合作。竞争是指它们朝着相反的方向前进，让策略对价值函数贪心通常会使价值函数与当前策略不再匹配，而使价值函数与策略一致通常会导致策略不再贪心。合作是指从长远看，这两个流程相互作用以找到一个联合解决方案：最优价值函数和一个最优策略。</p>
+<p><img src="7.png" /></p>
+<h2 id="动态规划的效率">动态规划的效率</h2>
+<p>DP算法有时会因为<strong>维度灾难</strong>而被认为缺乏实用性。集合太大确实会带来一些困难，但是这是问题本身的困难，而非DP作为一种解法所带来的困难。事实上，相比于直接搜索和线性规划，DP更加适合解决大规模状态空间的问题。</p>
+]]></content>
+      <categories>
+        <category>Reinforcement Learning</category>
+      </categories>
+      <tags>
+        <tag>Reinforcement Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>嵌入式操作系统软件工程师常见面试题</title>
     <url>/2018/08/01/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
     <content><![CDATA[<blockquote>
@@ -3563,105 +3662,6 @@ Alabama
       </categories>
       <tags>
         <tag>华为</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>强化学习之动态规划</title>
-    <url>/2020/08/19/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<p>复习了一下Sutton书中的第四章，动态规划，整理一下。</p>
-<p>动态规划算法是所有强化学习算法的基础，所有强化学习算法都可以看作是为了得到和动态规划相同的效果，同时减少计算量和对环境模型的依赖。</p>
-<p>这一章节主要分为三部分：策略评估，策略改进，策略迭代。</p>
-<p>策略评估：对于一个给定的策略下，迭代地计算策略的价值函数。</p>
-<p>策略改进：根据一个旧的策略的值函数，计算一个改进的策略。</p>
-<p><strong>将这两种方法结合起来，可以得到策略迭代算法和价值迭代算法。</strong></p>
-<a id="more"></a>
-<p>强化学习算法的关键是使用价值函数来寻找到更加好的策略，首先定义价值函数，其满足Bellman最优性方程：</p>
-<p><span class="math display">\[\begin{aligned}
-v_{*}(s) &amp;=\max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{*}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=a\right] \\
-&amp;=\max _{a} \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{*}\left(s^{\prime}\right)\right], \text { or }
-\end{aligned}\]</span></p>
-<p><span class="math display">\[\begin{aligned}
-q_{*}(s, a) &amp;=\mathbb{E}\left[R_{t+1}+\gamma \max _{a^{\prime}} q_{*}\left(S_{t+1}, a^{\prime}\right) \mid S_{t}=s, A_{t}=a\right] \\
-&amp;=\sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma \max _{a^{\prime}} q_{*}\left(s^{\prime}, a^{\prime}\right)\right]
-\end{aligned}\]</span></p>
-<h2 id="策略评估">策略评估</h2>
-<p>目的：给定一个策略<span class="math inline">\(\pi\)</span>，计算它的状态价值函数，也可以被称为<strong>预测</strong>问题。</p>
-<p><span class="math display">\[\begin{aligned}
-v_{\pi}(s) &amp; \doteq \mathbb{E}_{\pi}\left[G_{t} \mid S_{t}=s\right] \\
-&amp;=\mathbb{E}_{\pi}\left[R_{t+1}+\gamma G_{t+1} \mid S_{t}=s\right] \\
-&amp;=\mathbb{E}_{\pi}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s\right] \\
-&amp;=\sum_{a} \pi(a \mid s) \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{\pi}\left(s^{\prime}\right)\right]
-\end{aligned}\]</span></p>
-<p>如果环境动态是完全已知的，那么通过上述价值函数的表达式，可以列出<span class="math inline">\(|S|\)</span>个未知数的<span class="math inline">\(|S|\)</span>个方程构成线性方程组，其中，<span class="math inline">\(|S|\)</span>代表状态<span class="math inline">\(s\)</span>的个数，但是计算过程有些繁杂，因此，采用迭代计算的方式：</p>
-<p><span class="math display">\[\begin{aligned}
-v_{k+1}(s) &amp; \doteq \mathbb{E}_{\pi}\left[R_{t+1}+\gamma v_{k}\left(S_{t+1}\right) \mid S_{t}=s\right] \\
-&amp;=\sum_{a} \pi(a \mid s) \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{k}\left(s^{\prime}\right)\right]
-\end{aligned}\]</span></p>
-<p><span class="math inline">\(v_{k}=v_{\pi}\)</span>是一个不动点（<strong>通过巴拿赫不动点定理来证明</strong>），当<span class="math inline">\(k \rightarrow \infty\)</span>时，<span class="math inline">\(\{v_k\}\)</span>能够收敛到<span class="math inline">\(v_\pi\)</span>。</p>
-<p><img src="1.png" /></p>
-<p>仿真算例：</p>
-<p><img src="2.png" /></p>
-<p>一个简单的额GridWorld的例子，通过不断迭代，即可算出所有的价值函数，代码：</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GridWorld</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.state = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.state = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">step</span><span class="params">(self, state: np.array, action: np.array)</span>:</span></span><br><span class="line">        self.state = state</span><br><span class="line">        next_state = self.state + action</span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">0</span>]&lt;<span class="number">0</span>:</span><br><span class="line">            next_state[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">0</span>]&gt;<span class="number">3</span>:</span><br><span class="line">            next_state[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">1</span>]&lt;<span class="number">0</span>:</span><br><span class="line">            next_state[<span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">1</span>]&gt;<span class="number">3</span>:</span><br><span class="line">            next_state[<span class="number">1</span>] = <span class="number">3</span></span><br><span class="line">        self.state = next_state</span><br><span class="line">        <span class="keyword">if</span> (self.state==np.array([<span class="number">0</span>, <span class="number">0</span>])).all() <span class="keyword">or</span> (self.state==np.array([<span class="number">3</span>, <span class="number">3</span>])).all():</span><br><span class="line">            reward = <span class="number">-1</span></span><br><span class="line">            done = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            reward = <span class="number">-1</span></span><br><span class="line">            done = <span class="literal">False</span></span><br><span class="line">        info = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> self.state, reward, done, info</span><br><span class="line"></span><br><span class="line">actions = [np.array([<span class="number">-1</span>, <span class="number">0</span>]), np.array([<span class="number">1</span>, <span class="number">0</span>]), np.array([<span class="number">0</span>, <span class="number">-1</span>]), np.array([<span class="number">0</span>, <span class="number">1</span>])]</span><br><span class="line"></span><br><span class="line">env = GridWorld()</span><br><span class="line"></span><br><span class="line">v_old = np.zeros(<span class="number">16</span>)</span><br><span class="line">v_new = np.zeros(<span class="number">16</span>)</span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    v_old = copy.deepcopy(v_new)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">15</span>):</span><br><span class="line">        temp = <span class="number">0.0</span></span><br><span class="line">        <span class="keyword">for</span> action <span class="keyword">in</span> actions:</span><br><span class="line">            s = np.array([i//<span class="number">4</span>, i%<span class="number">4</span>])</span><br><span class="line">            s_prime, reward, done, info = env.step(s, action)</span><br><span class="line">            temp += <span class="number">0.25</span>*(reward + v_old[s_prime[<span class="number">0</span>]*<span class="number">4</span>+s_prime[<span class="number">1</span>]])</span><br><span class="line">        v_new[i] = temp</span><br><span class="line">    print(v_new)</span><br></pre></td></tr></table></figure>
-<p>结果：</p>
-<p><img src="3.png" /></p>
-<h2 id="策略改进">策略改进</h2>
-<p>计算价值函数的一个原因是为了找到更好的策略，我们可以知道如果从状态<span class="math inline">\(s\)</span>使用现有的策略，那么我们可以得到的就是<span class="math inline">\(v_\pi(s)\)</span>。那么当我们更换一个策略的时候，我们怎么知道是更好还是更坏呢。</p>
-<p>一种解决方法是在状态<span class="math inline">\(s\)</span>选择动作<span class="math inline">\(a\)</span>后，继续遵循现有的策略<span class="math inline">\(\pi\)</span>，计算<span class="math inline">\(q_\pi\)</span>(s,a)</p>
-<p>一个关键的准则就是这个值是大于还是小于<span class="math inline">\(v_\pi(s)\)</span>的，如果这个值更大，那么说明在状态<span class="math inline">\(s\)</span>选择一次动作<span class="math inline">\(a\)</span>，然后继续使用策略<span class="math inline">\(\pi\)</span>会比始终使用策略<span class="math inline">\(\pi\)</span>更优化。</p>
-<p>如果<span class="math inline">\(\pi\)</span>和<span class="math inline">\(\pi&#39;\)</span>是两个确定的策略，当：</p>
-<p><span class="math display">\[q_{\pi}\left(s, \pi^{\prime}(s)\right) \geq v_{\pi}(s)\]</span></p>
-<p>那么我们称策略<span class="math inline">\(\pi&#39;\)</span>相比于策略<span class="math inline">\(\pi\)</span>一样好或者更好。</p>
-<p>证明过程：</p>
-<p><span class="math display">\[\begin{aligned}
-v_{\pi}(s) &amp; \leq q_{\pi}\left(s, \pi^{\prime}(s)\right) \\
-&amp;=\mathbb{E}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=\pi^{\prime}(s)\right] \\
-&amp;=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s\right] \\
-&amp; \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma q_{\pi}\left(S_{t+1}, \pi^{\prime}\left(S_{t+1}\right)\right) \mid S_{t}=s\right] \\
-&amp;=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma \mathbb{E}_{\pi^{\prime}}\left[R_{t+2}+\gamma v_{\pi}\left(S_{t+2}\right) \mid S_{t+1}, A_{t+1}=\pi^{\prime}\left(S_{t+1}\right)\right] \mid S_{t}=s\right] \\
-&amp;=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^{2} v_{\pi}\left(S_{t+2}\right) \mid S_{t}=s\right] \\
-&amp; \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^{2} R_{t+3}+\gamma^{3} v_{\pi}\left(S_{t+3}\right) \mid S_{t}=s\right] \\
-&amp; \vdots \\
-&amp; \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^{2} R_{t+3}+\gamma^{3} R_{t+4}+\cdots \mid S_{t}=s\right] \\
-&amp;=v_{\pi^{\prime}}(s)
-\end{aligned}\]</span></p>
-<p>到目前为止，我们已经看到了，给定一个策略及其价值函数，我可以很容易评估一个状态中某个特定动作的改变会产生怎样的后果。我们可以很自然地延伸到所有的状态和所有可能的动作，即在每个状态下根据<span class="math inline">\(q_\pi(s, a)\)</span>选择一个最优的：</p>
-<p><span class="math display">\[\begin{aligned}
-\pi^{\prime}(s) &amp; \doteq \underset{a}{\arg \max } q_{\pi}(s, a) \\
-&amp;=\underset{a}{\arg \max } \mathbb{E}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=a\right] \\
-&amp;=\underset{a}{\arg \max } \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{\pi}\left(s^{\prime}\right)\right]
-\end{aligned}\]</span></p>
-<p>这种根据原策略的价值函数执行贪心算法，来构造一个更好策略的过程，称为<strong>策略改进</strong></p>
-<h2 id="策略迭代">策略迭代</h2>
-<p>一旦一个策略<span class="math inline">\(\pi\)</span>根据<span class="math inline">\(v_\pi\)</span>产生了一个更好的策略<span class="math inline">\(\pi&#39;\)</span>，我们就可以通过计算<span class="math inline">\(v_{\pi&#39;}\)</span>来得到一个更优的策略<span class="math inline">\(\pi&#39;&#39;\)</span>，这样一个链式的方法可以得到一个不断改进的策略和价值函数的序列：</p>
-<p><span class="math display">\[\pi_{0} \stackrel{\mathrm{E}}{\longrightarrow} v_{\pi_{0}} \stackrel{\mathrm{I}}{\longrightarrow} \pi_{1} \stackrel{\mathrm{E}}{\longrightarrow} v_{\pi_{1}} \stackrel{\mathrm{I}}{\longrightarrow} \pi_{2} \stackrel{\mathrm{E}}{\longrightarrow} \cdots \stackrel{\mathrm{I}}{\longrightarrow} \pi_{*} \stackrel{\mathrm{E}}{\longrightarrow} v_{*}\]</span></p>
-<p><img src="4.png" /></p>
-<h2 id="价值迭代">价值迭代</h2>
-<p>策略迭代算法的一个缺点是每一次迭代都涉及了策略评估，这本身就是一个需要多次遍历状态集合的迭代过程，如果策略评估是迭代进行的，那么收敛到<span class="math inline">\(v_\pi\)</span>理论上在极限处才成立。</p>
-<p>上面GridWorld的例子很明显就能说明，我们可以提前截断策略评估的过程，在这个例子中，前三轮策略评估之后的迭代对其贪心策略没有产生影响。</p>
-<p>事实上，由很多方式可以截断策略迭代中的策略评估步骤，一种重要的方法是：在每一次遍历后即刻停止策略评估（对每个状态进行一次更新）。该算法被称为<strong>价值迭代</strong>，可以将此表示为结合了策略改进与截断策略评估的简单更新公式：</p>
-<p><span class="math display">\[\begin{aligned}
-v_{k+1}(s) &amp; \doteq \max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{k}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=a\right] \\
-&amp;=\max _{a} \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{k}\left(s^{\prime}\right)\right]
-\end{aligned}\]</span></p>
-<p>价值迭代与策略评估的更新公式几乎完全相同。</p>
-<p>理论上价值迭代需要迭代无限次才能收敛，事实上，如果一次遍历中仅发生一些细微的变化，那么就可以停止。</p>
-<p><img src="5.png" /></p>
-<h2 id="广义策略迭代">广义策略迭代</h2>
-<p>策略迭代包括两个同时进行的相互作用的流程，一个使得价值函数与当前策略一致（策略评估），另一个根据当前价值函数贪心地更新策略（策略改进）。</p>
-<p>用广义策略迭代（GPI）一词来指代让策略评估和策略改进相互作用地一般思路，几乎所有的强化学习算法都可以被描述成广义策略迭代算法：</p>
-<p><img src="6.png" /></p>
-<p>价值函数只有在与当前策略一致时才稳定，并且策略只有在对当前价值函数是贪心策略时才稳定。</p>
-<p>可以将GPI的评估与改进流程看作竞争与合作。竞争是指它们朝着相反的方向前进，让策略对价值函数贪心通常会使价值函数与当前策略不再匹配，而使价值函数与策略一致通常会导致策略不再贪心。合作是指从长远看，这两个流程相互作用以找到一个联合解决方案：最优价值函数和一个最优策略。</p>
-<p><img src="7.png" /></p>
-<h2 id="动态规划的效率">动态规划的效率</h2>
-<p>DP算法有时会因为<strong>维度灾难</strong>而被认为缺乏实用性。集合太大确实会带来一些困难，但是这是问题本身的困难，而非DP作为一种解法所带来的困难。事实上，相比于直接搜索和线性规划，DP更加适合解决大规模状态空间的问题。</p>
-]]></content>
-      <categories>
-        <category>Reinforcement Learning</category>
-      </categories>
-      <tags>
-        <tag>Reinforcement Learning</tag>
       </tags>
   </entry>
   <entry>
