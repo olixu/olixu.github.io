@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="https://blog.oliverxu.cn/"/>
-  <updated>2021-01-09T08:29:46.404Z</updated>
+  <updated>2021-01-31T11:20:21.933Z</updated>
   <id>https://blog.oliverxu.cn/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PyTorch Geometric库使用及经典Demo测试</title>
+    <link href="https://blog.oliverxu.cn/2021/02/07/PyTorch_Geometric%E5%BA%93%E4%BD%BF%E7%94%A8%E5%8F%8A%E6%B5%8B%E8%AF%95demo/"/>
+    <id>https://blog.oliverxu.cn/2021/02/07/PyTorch_Geometric%E5%BA%93%E4%BD%BF%E7%94%A8%E5%8F%8A%E6%B5%8B%E8%AF%95demo/</id>
+    <published>2021-02-07T19:09:00.000Z</published>
+    <updated>2021-01-31T11:20:21.933Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;科研论文写作和平常的写作不太一样，从我自己写下来的感觉，发现自己写的英文句式很死板，读上去没有那些native的作者的语言的感觉，因此需要进行专业训练。训练方式就是模仿那些作者的文字。&lt;/p&gt;
+&lt;p&gt;这篇博客将长期更新，分为5个部分，包括abstract, Introduction, method, simulation, conclusion，争取做到每天更新，每天看一篇论文，在学习其内容的同时，整理其值得学习借鉴的语法句式，分类整理。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="GNN" scheme="https://blog.oliverxu.cn/categories/GNN/"/>
+    
+    
+      <category term="GNN" scheme="https://blog.oliverxu.cn/tags/GNN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>科研论文常用句式语法汇总整理</title>
+    <link href="https://blog.oliverxu.cn/2021/01/31/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%B8%B8%E7%94%A8%E5%8F%A5%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/"/>
+    <id>https://blog.oliverxu.cn/2021/01/31/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%B8%B8%E7%94%A8%E5%8F%A5%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/</id>
+    <published>2021-01-31T19:09:00.000Z</published>
+    <updated>2021-01-31T11:20:21.933Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;科研论文写作和平常的写作不太一样，从我自己写下来的感觉，发现自己写的英文句式很死板，读上去没有那些native的作者的语言的感觉，因此需要进行专业训练。训练方式就是模仿那些作者的文字。&lt;/p&gt;
+&lt;p&gt;这篇博客将长期更新，分为5个部分，包括abstract, Introduction, method, simulation, conclusion，争取做到每天更新，每天看一篇论文，在学习其内容的同时，整理其值得学习借鉴的语法句式，分类整理。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Paper" scheme="https://blog.oliverxu.cn/categories/Paper/"/>
+    
+    
+      <category term="Paper" scheme="https://blog.oliverxu.cn/tags/Paper/"/>
+    
+  </entry>
   
   <entry>
     <title>Tensorboard中的图放到论文中</title>
@@ -203,6 +247,28 @@
   </entry>
   
   <entry>
+    <title>使用PPO设计线性系统控制器</title>
+    <link href="https://blog.oliverxu.cn/2020/08/27/%E4%BD%BF%E7%94%A8PPO%E8%AE%BE%E8%AE%A1%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%99%A8/"/>
+    <id>https://blog.oliverxu.cn/2020/08/27/%E4%BD%BF%E7%94%A8PPO%E8%AE%BE%E8%AE%A1%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%99%A8/</id>
+    <published>2020-08-27T11:46:02.000Z</published>
+    <updated>2020-09-14T07:41:31.665Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;论文《Policy Iteration Adaptive Dynamic Programming Algorithm for Discrete-Time Nonlinear Systems》&lt;/p&gt;
+&lt;p&gt;这几天读了ADP相关的几篇论文，早期08年-14年都是用Policy Iteration方法进行求解，14-18年，Policy Gradient方法多了起来。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/categories/Reinforcement-Learning/"/>
+    
+    
+      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/tags/Reinforcement-Learning/"/>
+    
+  </entry>
+  
+  <entry>
     <title>非线性系统的最优控制器论文整理</title>
     <link href="https://blog.oliverxu.cn/2020/08/27/%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6%E5%99%A8%E8%AE%BA%E6%96%87%E6%95%B4%E7%90%86/"/>
     <id>https://blog.oliverxu.cn/2020/08/27/%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6%E5%99%A8%E8%AE%BA%E6%96%87%E6%95%B4%E7%90%86/</id>
@@ -223,28 +289,6 @@
     
     
       <category term="Nonlinear System" scheme="https://blog.oliverxu.cn/tags/Nonlinear-System/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用PPO设计线性系统控制器</title>
-    <link href="https://blog.oliverxu.cn/2020/08/27/%E4%BD%BF%E7%94%A8PPO%E8%AE%BE%E8%AE%A1%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%99%A8/"/>
-    <id>https://blog.oliverxu.cn/2020/08/27/%E4%BD%BF%E7%94%A8PPO%E8%AE%BE%E8%AE%A1%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%99%A8/</id>
-    <published>2020-08-27T11:46:02.000Z</published>
-    <updated>2020-09-14T07:41:31.665Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;论文《Policy Iteration Adaptive Dynamic Programming Algorithm for Discrete-Time Nonlinear Systems》&lt;/p&gt;
-&lt;p&gt;这几天读了ADP相关的几篇论文，早期08年-14年都是用Policy Iteration方法进行求解，14-18年，Policy Gradient方法多了起来。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/categories/Reinforcement-Learning/"/>
-    
-    
-      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/tags/Reinforcement-Learning/"/>
     
   </entry>
   
@@ -451,56 +495,6 @@
     
     
       <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/tags/Reinforcement-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PolicyGradient公式推导</title>
-    <link href="https://blog.oliverxu.cn/2020/08/01/PolicyGradient%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/"/>
-    <id>https://blog.oliverxu.cn/2020/08/01/PolicyGradient%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/</id>
-    <published>2020-08-01T10:43:54.000Z</published>
-    <updated>2020-09-14T07:41:31.665Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文是对Sutton的《Reinforcement learning An introduction》书中第13章Policy Gradient Methods部分的总结，主要包括&lt;strong&gt;Policy Gradient方法的离散时间情形下的公式推导&lt;/strong&gt;，&lt;strong&gt;REINFORCE算法&lt;/strong&gt;，&lt;strong&gt;REINFORCE with Baseline算法&lt;/strong&gt;，&lt;strong&gt;Short Corridor with switched actions环境下的仿真&lt;/strong&gt;。&lt;/p&gt;
-&lt;h2 id=&quot;policy-gradient&quot;&gt;Policy Gradient&lt;/h2&gt;
-&lt;p&gt;和PG算法相对应的是基于action-value的方法，这些方法学习动作的价值然后根据这些价值的大小选择行为，但是对于PG算法来说，直接学习一个参数化的策略，该策略的输入是状态，输出是动作，策略可以直接选择动作而不是依据价值函数进行判断，用&lt;span class=&quot;math inline&quot;&gt;\(\theta \in R^d\)&lt;/span&gt;来表示策略的参数，可以将需要学习的策略写成：&lt;span class=&quot;math inline&quot;&gt;\(\pi(a|s, \theta)=Pr\{A_t=a|S_t=s,\theta_t=\theta\}\)&lt;/span&gt;，意思是在t时刻，当agent处于状态&lt;span class=&quot;math inline&quot;&gt;\(s\)&lt;/span&gt;，选择动作&lt;span class=&quot;math inline&quot;&gt;\(a\)&lt;/span&gt;的概率，PG算法的目标就是求这个&lt;span class=&quot;math inline&quot;&gt;\(\pi(a|s, \theta)\)&lt;/span&gt;。&lt;/p&gt;
-&lt;p&gt;策略参数的学习需要基于某种性能度量&lt;span class=&quot;math inline&quot;&gt;\(J(\theta)\)&lt;/span&gt;的梯度，PG方法的目标是最大化性能指标，所以它们的更新近似于&lt;span class=&quot;math inline&quot;&gt;\(J\)&lt;/span&gt;的梯度上升：&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;math display&quot;&gt;\[\boldsymbol{\theta}_{t+1}=\boldsymbol{\theta}_{t}+\alpha \widehat{\nabla J\left(\boldsymbol{\theta}_{t}\right)}\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;其中，&lt;span class=&quot;math inline&quot;&gt;\(\widehat{\nabla J\left(\boldsymbol{\theta}_{t}\right)} \in \mathbb{R}^{d}\)&lt;/span&gt;是一个随机估计，它的期望是性能指标对它的参数&lt;span class=&quot;math inline&quot;&gt;\(\boldsymbol{\theta}_{t}\)&lt;/span&gt;的梯度的近似。所有符合这个框架的算法都是策略梯度方法。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/categories/Reinforcement-Learning/"/>
-    
-    
-      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/tags/Reinforcement-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深度学习在无人驾驶中的应用</title>
-    <link href="https://blog.oliverxu.cn/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9C%A8%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/"/>
-    <id>https://blog.oliverxu.cn/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9C%A8%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</id>
-    <published>2020-07-07T11:58:51.000Z</published>
-    <updated>2020-09-14T07:41:31.681Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文主要是对文章《A Survey of Deep Learning Applications to Autonomous Vehicle Control》的整理&lt;/p&gt;
-&lt;p&gt;期刊：IEEE TRANSACTIONS ON INTELLIGENT TRANSPORTATION SYSTEMS&lt;/p&gt;
-&lt;p&gt;影响因子：6.3&lt;/p&gt;
-&lt;p&gt;对于自动驾驶，设计一个满足所有驾驶场景的控制器是一个非常大的挑战因为真实的环境非常复杂且很多场景没有办法去测试。然而，深度学习方法展现出了很好的前景，对于复杂和非线性控制问题，它不光有非常好的性能，而且学习出来的规则很容易迁移到另一个新的场景中。这篇论文对近年来所有用深度学习方法解决自动驾驶问题的文献做了综述，自动驾驶涉及了多学科的内容和方法，该文主要综述控制问题而非感知问题。分析了优缺点，给出了存在的挑战。
-    
-    </summary>
-    
-    
-      <category term="Deep Learning" scheme="https://blog.oliverxu.cn/categories/Deep-Learning/"/>
-    
-    
-      <category term="Deep Learning" scheme="https://blog.oliverxu.cn/tags/Deep-Learning/"/>
     
   </entry>
   
