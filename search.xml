@@ -34,52 +34,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Flask项目结构</title>
-    <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<blockquote>
-<p><strong>拥有良好的项目结构对于开发与维护有着巨大的作用</strong> <a id="more"></a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects$ tree</span><br><span class="line">.</span><br><span class="line">`-- ProjectName</span><br><span class="line">    |-- app                      # 整个程序的包目录</span><br><span class="line">    |   |-- config.py                # 配置文件</span><br><span class="line">    |   |-- email.py                 # 邮件发送</span><br><span class="line">    |   |-- extensions.py            # 各种扩展</span><br><span class="line">    |   |-- forms                    # 表单文件</span><br><span class="line">    |   |-- models                   # 数据模型</span><br><span class="line">    |   |-- static                   # 静态资源文件</span><br><span class="line">    |   |   |-- css                      # 样式表</span><br><span class="line">    |   |   |-- img                      # 图片</span><br><span class="line">    |   |   `-- js                       # JS脚本</span><br><span class="line">    |   |-- templates                # 模板文件</span><br><span class="line">    |   |   |-- common                   # 通用模板</span><br><span class="line">    |   |   |-- email                    # 邮件发送</span><br><span class="line">    |   |   |-- errors                   # 错误页面</span><br><span class="line">    |   |   |-- posts                    # 帖子模板</span><br><span class="line">    |   |   `-- user                     # 用户模板</span><br><span class="line">    |   `-- views                    # 视图文件</span><br><span class="line">    |-- manage.py                    # 项目启动控制文件</span><br><span class="line">    |-- migrations                   # 数据库迁移目录</span><br><span class="line">    |-- requirements.txt             # 依赖包的列表</span><br><span class="line">    `-- tests                        # 测试单元</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>flask</category>
-      </categories>
-      <tags>
-        <tag>flask</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux系统TIPS</title>
-    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
-    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
-<a id="more"></a>
-<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
-<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Manjaro下解决Matplotlib中文显示出错</title>
-    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
-    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
-<ul>
-<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
-<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
-<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>How to reading scientific papers</title>
     <url>/2019/07/09/How-to-reading-scientific-papers/</url>
     <content><![CDATA[<h1 id="step1-choose-the-paper">STEP1: Choose the paper</h1>
@@ -149,6 +103,52 @@
 <p>回到标题，Manjaro不适合搞算学术研究和项目开发的人，尤其是学生：研究生。本科生无聊的话可以玩玩Manjaro。</p>
 <p>操作系统还是有公司支持的比较好，像Ubuntu，真的可以，用了快6年了。</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Flask项目结构</title>
+    <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>拥有良好的项目结构对于开发与维护有着巨大的作用</strong> <a id="more"></a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects$ tree</span><br><span class="line">.</span><br><span class="line">`-- ProjectName</span><br><span class="line">    |-- app                      # 整个程序的包目录</span><br><span class="line">    |   |-- config.py                # 配置文件</span><br><span class="line">    |   |-- email.py                 # 邮件发送</span><br><span class="line">    |   |-- extensions.py            # 各种扩展</span><br><span class="line">    |   |-- forms                    # 表单文件</span><br><span class="line">    |   |-- models                   # 数据模型</span><br><span class="line">    |   |-- static                   # 静态资源文件</span><br><span class="line">    |   |   |-- css                      # 样式表</span><br><span class="line">    |   |   |-- img                      # 图片</span><br><span class="line">    |   |   `-- js                       # JS脚本</span><br><span class="line">    |   |-- templates                # 模板文件</span><br><span class="line">    |   |   |-- common                   # 通用模板</span><br><span class="line">    |   |   |-- email                    # 邮件发送</span><br><span class="line">    |   |   |-- errors                   # 错误页面</span><br><span class="line">    |   |   |-- posts                    # 帖子模板</span><br><span class="line">    |   |   `-- user                     # 用户模板</span><br><span class="line">    |   `-- views                    # 视图文件</span><br><span class="line">    |-- manage.py                    # 项目启动控制文件</span><br><span class="line">    |-- migrations                   # 数据库迁移目录</span><br><span class="line">    |-- requirements.txt             # 依赖包的列表</span><br><span class="line">    `-- tests                        # 测试单元</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux系统TIPS</title>
+    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
+    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
+<a id="more"></a>
+<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
+<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Manjaro下解决Matplotlib中文显示出错</title>
+    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
+    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
+<ul>
+<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
+<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
+<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
   </entry>
   <entry>
     <title>Markdown语法</title>
@@ -225,6 +225,17 @@
       </tags>
   </entry>
   <entry>
+    <title>Monte Carlo Methods</title>
+    <url>/2019/10/21/Monte-Carlo-Methods/</url>
+    <content><![CDATA[<p>Unlike Dynamic Programming Methods, Monte Carlo Methods do not assume complete knowledge of the environment. MC only requires experience--sample sequences of states, actions, and rewards from actual or simulated interaction with an environment.</p>
+<h2 id="monte-carlo-prediction">Monte Carlo Prediction</h2>
+<p>The idea underlies all Monte Carlo methods is that as more returns are observed the average should converge to the expected value. So we begin by considerng Monte Carlo methods for learning the state-value function for a given policy. A way to estimate the value of a state from experience is simply to average the returns observed after visits to that state. <a id="more"></a> ## Play with Blackjack ENV <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">env = BlackjackEnv()</span><br><span class="line"><span class="comment"># The observation is a 3-tuple of: the players current sum,</span></span><br><span class="line"><span class="comment"># the dealer's one showing card (1-10 where 1 is ace),</span></span><br><span class="line"><span class="comment"># and whether or not the player holds a usable ace (0 or 1).</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_observation</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    print(<span class="string">"Player Score: &#123;&#125; (Usable Ace: &#123;&#125;), Dealer Score: &#123;&#125;"</span>.format(</span><br><span class="line">          score, usable_ace, dealer_score))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    <span class="comment"># Stick (action 0) if the score is &gt; 20, hit (action 1) otherwise</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> score &gt;= <span class="number">20</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    observation = env.reset()</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        print_observation(observation)</span><br><span class="line">        action = strategy(observation)</span><br><span class="line">        print(<span class="string">"Taking action: &#123;&#125;"</span>.format( [<span class="string">"Stick"</span>, <span class="string">"Hit"</span>][action]))</span><br><span class="line">        observation, reward, done, _ = env.step(action)</span><br><span class="line">        <span class="keyword">if</span> done:</span><br><span class="line">            print_observation(observation)</span><br><span class="line">            print(<span class="string">"Game end. Reward: &#123;&#125;\n"</span>.format(float(reward)))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="first-visit-mc-prediction-algorithm">First-visit MC prediction algorithm</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mc_prediction</span><span class="params">(policy, env, num_episodes, discount_factor=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Monte Carlo prediction algorithm. Calculates the value function</span></span><br><span class="line"><span class="string">    for a given policy using sampling.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        policy: A function that maps an observation to action probabilities.</span></span><br><span class="line"><span class="string">        env: OpenAI gym environment.</span></span><br><span class="line"><span class="string">        num_episodes: Number of episodes to sample.</span></span><br><span class="line"><span class="string">        discount_factor: Gamma discount factor.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        A dictionary that maps from state -&gt; value.</span></span><br><span class="line"><span class="string">        The state is a tuple and the value is a float.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Keeps track of sum and count of returns for each state</span></span><br><span class="line">    <span class="comment"># to calculate an average. We could use an array to save all</span></span><br><span class="line">    <span class="comment"># returns (like in the book) but that's memory inefficient.</span></span><br><span class="line">    returns_sum = defaultdict(float)</span><br><span class="line">    returns_count = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># The final value function</span></span><br><span class="line">    V = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Implement this!</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        episode = []</span><br><span class="line">        state = env.reset()</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            action = policy(state)</span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            state = next_state</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Find all states the we've visited in this episode</span></span><br><span class="line">        <span class="comment"># We convert each state to a tuple so that we can use it as a dict key</span></span><br><span class="line">        states_in_episode = set([tuple(x[<span class="number">0</span>]) <span class="keyword">for</span> x <span class="keyword">in</span> episode])</span><br><span class="line">        <span class="keyword">for</span> state <span class="keyword">in</span> states_in_episode:</span><br><span class="line">            <span class="comment">#print(state)</span></span><br><span class="line">            <span class="comment">#print(10*'*')</span></span><br><span class="line">            <span class="comment"># Find the first occurance of the state in the episode</span></span><br><span class="line">            first_occurence_idx = next(i <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode) <span class="keyword">if</span> x[<span class="number">0</span>] == state)</span><br><span class="line">            <span class="comment"># Sum up all rewards since the first occurance</span></span><br><span class="line">            G = sum([x[<span class="number">2</span>]*(discount_factor**i) <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode[first_occurence_idx:])])</span><br><span class="line">            <span class="comment"># Calculate average return for this state over all sampled episodes</span></span><br><span class="line">            returns_sum[state] += G</span><br><span class="line">            returns_count[state] += <span class="number">1.0</span></span><br><span class="line">            V[state] = returns_sum[state] / returns_count[state]</span><br><span class="line">    print(len(V))</span><br><span class="line">    print(first_occurence_idx)</span><br><span class="line">    print(states_in_episode)</span><br><span class="line">    print(episode)</span><br><span class="line">    <span class="keyword">return</span> V</span><br></pre></td></tr></table></figure>
+<p><img src="10000_Steps_No_Usable_Ace.png" alt="10000_Steps_No_Usable_Ace" /> <img src="10000_Steps_Usable_Ace.png" alt="10000_Steps_Usable_Ace" /> <img src="500000_Steps_No_Usable_Ace.png" alt="500000_Steps_No_Usable_Ace" /> <img src="500000_Steps_Usable_Ace.png" alt="500000_Steps_Usable_Ace" /></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Mysql Command</title>
     <url>/2019/11/05/Mysql-Command/</url>
     <content><![CDATA[<p>This post will record all the mysql command that i used in my projects.</p>
@@ -240,17 +251,6 @@
       <tags>
         <tag>Mysql</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Monte Carlo Methods</title>
-    <url>/2019/10/21/Monte-Carlo-Methods/</url>
-    <content><![CDATA[<p>Unlike Dynamic Programming Methods, Monte Carlo Methods do not assume complete knowledge of the environment. MC only requires experience--sample sequences of states, actions, and rewards from actual or simulated interaction with an environment.</p>
-<h2 id="monte-carlo-prediction">Monte Carlo Prediction</h2>
-<p>The idea underlies all Monte Carlo methods is that as more returns are observed the average should converge to the expected value. So we begin by considerng Monte Carlo methods for learning the state-value function for a given policy. A way to estimate the value of a state from experience is simply to average the returns observed after visits to that state. <a id="more"></a> ## Play with Blackjack ENV <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">env = BlackjackEnv()</span><br><span class="line"><span class="comment"># The observation is a 3-tuple of: the players current sum,</span></span><br><span class="line"><span class="comment"># the dealer's one showing card (1-10 where 1 is ace),</span></span><br><span class="line"><span class="comment"># and whether or not the player holds a usable ace (0 or 1).</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_observation</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    print(<span class="string">"Player Score: &#123;&#125; (Usable Ace: &#123;&#125;), Dealer Score: &#123;&#125;"</span>.format(</span><br><span class="line">          score, usable_ace, dealer_score))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    <span class="comment"># Stick (action 0) if the score is &gt; 20, hit (action 1) otherwise</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> score &gt;= <span class="number">20</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    observation = env.reset()</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        print_observation(observation)</span><br><span class="line">        action = strategy(observation)</span><br><span class="line">        print(<span class="string">"Taking action: &#123;&#125;"</span>.format( [<span class="string">"Stick"</span>, <span class="string">"Hit"</span>][action]))</span><br><span class="line">        observation, reward, done, _ = env.step(action)</span><br><span class="line">        <span class="keyword">if</span> done:</span><br><span class="line">            print_observation(observation)</span><br><span class="line">            print(<span class="string">"Game end. Reward: &#123;&#125;\n"</span>.format(float(reward)))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="first-visit-mc-prediction-algorithm">First-visit MC prediction algorithm</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mc_prediction</span><span class="params">(policy, env, num_episodes, discount_factor=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Monte Carlo prediction algorithm. Calculates the value function</span></span><br><span class="line"><span class="string">    for a given policy using sampling.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        policy: A function that maps an observation to action probabilities.</span></span><br><span class="line"><span class="string">        env: OpenAI gym environment.</span></span><br><span class="line"><span class="string">        num_episodes: Number of episodes to sample.</span></span><br><span class="line"><span class="string">        discount_factor: Gamma discount factor.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        A dictionary that maps from state -&gt; value.</span></span><br><span class="line"><span class="string">        The state is a tuple and the value is a float.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Keeps track of sum and count of returns for each state</span></span><br><span class="line">    <span class="comment"># to calculate an average. We could use an array to save all</span></span><br><span class="line">    <span class="comment"># returns (like in the book) but that's memory inefficient.</span></span><br><span class="line">    returns_sum = defaultdict(float)</span><br><span class="line">    returns_count = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># The final value function</span></span><br><span class="line">    V = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Implement this!</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        episode = []</span><br><span class="line">        state = env.reset()</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            action = policy(state)</span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            state = next_state</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Find all states the we've visited in this episode</span></span><br><span class="line">        <span class="comment"># We convert each state to a tuple so that we can use it as a dict key</span></span><br><span class="line">        states_in_episode = set([tuple(x[<span class="number">0</span>]) <span class="keyword">for</span> x <span class="keyword">in</span> episode])</span><br><span class="line">        <span class="keyword">for</span> state <span class="keyword">in</span> states_in_episode:</span><br><span class="line">            <span class="comment">#print(state)</span></span><br><span class="line">            <span class="comment">#print(10*'*')</span></span><br><span class="line">            <span class="comment"># Find the first occurance of the state in the episode</span></span><br><span class="line">            first_occurence_idx = next(i <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode) <span class="keyword">if</span> x[<span class="number">0</span>] == state)</span><br><span class="line">            <span class="comment"># Sum up all rewards since the first occurance</span></span><br><span class="line">            G = sum([x[<span class="number">2</span>]*(discount_factor**i) <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode[first_occurence_idx:])])</span><br><span class="line">            <span class="comment"># Calculate average return for this state over all sampled episodes</span></span><br><span class="line">            returns_sum[state] += G</span><br><span class="line">            returns_count[state] += <span class="number">1.0</span></span><br><span class="line">            V[state] = returns_sum[state] / returns_count[state]</span><br><span class="line">    print(len(V))</span><br><span class="line">    print(first_occurence_idx)</span><br><span class="line">    print(states_in_episode)</span><br><span class="line">    print(episode)</span><br><span class="line">    <span class="keyword">return</span> V</span><br></pre></td></tr></table></figure>
-<p><img src="10000_Steps_No_Usable_Ace.png" alt="10000_Steps_No_Usable_Ace" /> <img src="10000_Steps_Usable_Ace.png" alt="10000_Steps_Usable_Ace" /> <img src="500000_Steps_No_Usable_Ace.png" alt="500000_Steps_No_Usable_Ace" /> <img src="500000_Steps_Usable_Ace.png" alt="500000_Steps_Usable_Ace" /></p>
-]]></content>
   </entry>
   <entry>
     <title>PGADP数据驱动的优化控制</title>
@@ -332,6 +332,36 @@ Q_{u}\left(x_{k}, \mu\right) &amp;=\mathcal{R}\left(x_{k}, \mu\right)+Q_{u}\left
       </tags>
   </entry>
   <entry>
+    <title>Play with MountainCar</title>
+    <url>/2019/11/15/Play-with-MountainCar/</url>
+    <content><![CDATA[<p>MountainCar is a task of driving an underpowered car up a steep mountain road. The difficulty is that gravity is stronger than the car's engine, and even at full throttle the car cannot accelerate up the steep slope. The only solution is to first move away from the goal and up the opposite slope on the left. Then, by applying full throttle the car can build up enough inertia to carry it up the steep slope even though it is slowing down the whole way.</p>
+<h2 id="state">State</h2>
+<p>Its state space has only two entries. The first is the position of the car. The second is the speed of the car. They are limited in:</p>
+<p><span class="math display">\[position \in [-1.2, 0.6]\]</span> <span class="math display">\[speed \in [-0.07, 0.07]\]</span></p>
+<p>The negative speed means that the direction of the movement of the car is opposite to the right, which is left in this environement. <a id="more"></a> ## Action <code>0:</code> full throttle backword</p>
+<p><code>1:</code> zero throttle</p>
+<p><code>2:</code> full throttle forward</p>
+<h2 id="reward">Reward</h2>
+<p>The reward of this environment is always -1 on all time steps until it moves past its goal position at the top of the mountain, which ends the spisode.</p>
+<h2 id="physical-model">Physical Model</h2>
+<h2 id="play-with-mountaincar-by-yourself">Play with MountainCar by yourself</h2>
+<p>This section I would not use a reinforcement learning algorithm, instead following a very simple principle.</p>
+<p>When the car is at right of the zero positon and the speed comes close to zero, I choose full throttle backword action to move away from the goal direction to build more inertia.</p>
+<p>When the car is at left of the zero positon and the speed comes close to zero, which means the car cannot get more inertia in this period, so i choose full throttle forward action to move towards the goal.</p>
+<p>In this period, Gravitational potential energy transforms to kinetic energy first and then kinetic energy transforms to gravitational potential energy.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">import</span> gym.spaces</span><br><span class="line">gym.logger.set_level(<span class="number">40</span>)</span><br><span class="line">gym.__version__</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line">env = gym.make(<span class="string">'MountainCar-v0'</span>)</span><br><span class="line">env = gym.wrappers.Monitor(env, <span class="string">"recording"</span>)</span><br><span class="line">print(env.observation_space.high)</span><br><span class="line">state = env.reset()</span><br><span class="line">env.render()</span><br><span class="line">state, reward, done, _ = env.step(<span class="number">2</span>)</span><br><span class="line">print(state)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">    print(state)</span><br><span class="line">    <span class="keyword">if</span> state[<span class="number">0</span>] &gt; <span class="number">0.599</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&gt;<span class="number">-0.5</span>:</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            state, reward, done, _ = env.step(<span class="number">0</span>)</span><br><span class="line">            print(<span class="string">"Full throttle backword"</span>)</span><br><span class="line">            print(state)</span><br><span class="line">            time.sleep(<span class="number">0.1</span>)</span><br><span class="line">            env.render()</span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&lt;<span class="number">-0.5</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">0</span>] &gt; <span class="number">0.599</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&lt;<span class="number">-0.5</span>:</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            state, reward, done, _ = env.step(<span class="number">2</span>)</span><br><span class="line">            print(<span class="string">"Ful throttle forward"</span>)</span><br><span class="line">            print(state)</span><br><span class="line">            time.sleep(<span class="number">0.1</span>)</span><br><span class="line">            env.render()</span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&gt;<span class="number">-0.5</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">0</span>] &gt; <span class="number">0.599</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">env.close()</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="mountaincar.gif" alt="MountainCar" /><figcaption>MountainCar</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Reinforcement Learning</category>
+      </categories>
+      <tags>
+        <tag>Reinforcement Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Play with CartPole</title>
     <url>/2019/10/25/Play-with-CartPole/</url>
     <content><![CDATA[<p>Gym is a toolkit for developing and comparing reinforcement learning algorithms. The Gym library is a collection of test problems - environments - that you can use to work out your reinforcement learning algorithms. These environments have a shared interface, allowing you to write general algorithms.</p>
@@ -378,36 +408,6 @@ Box(4,)</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Play with MountainCar</title>
-    <url>/2019/11/15/Play-with-MountainCar/</url>
-    <content><![CDATA[<p>MountainCar is a task of driving an underpowered car up a steep mountain road. The difficulty is that gravity is stronger than the car's engine, and even at full throttle the car cannot accelerate up the steep slope. The only solution is to first move away from the goal and up the opposite slope on the left. Then, by applying full throttle the car can build up enough inertia to carry it up the steep slope even though it is slowing down the whole way.</p>
-<h2 id="state">State</h2>
-<p>Its state space has only two entries. The first is the position of the car. The second is the speed of the car. They are limited in:</p>
-<p><span class="math display">\[position \in [-1.2, 0.6]\]</span> <span class="math display">\[speed \in [-0.07, 0.07]\]</span></p>
-<p>The negative speed means that the direction of the movement of the car is opposite to the right, which is left in this environement. <a id="more"></a> ## Action <code>0:</code> full throttle backword</p>
-<p><code>1:</code> zero throttle</p>
-<p><code>2:</code> full throttle forward</p>
-<h2 id="reward">Reward</h2>
-<p>The reward of this environment is always -1 on all time steps until it moves past its goal position at the top of the mountain, which ends the spisode.</p>
-<h2 id="physical-model">Physical Model</h2>
-<h2 id="play-with-mountaincar-by-yourself">Play with MountainCar by yourself</h2>
-<p>This section I would not use a reinforcement learning algorithm, instead following a very simple principle.</p>
-<p>When the car is at right of the zero positon and the speed comes close to zero, I choose full throttle backword action to move away from the goal direction to build more inertia.</p>
-<p>When the car is at left of the zero positon and the speed comes close to zero, which means the car cannot get more inertia in this period, so i choose full throttle forward action to move towards the goal.</p>
-<p>In this period, Gravitational potential energy transforms to kinetic energy first and then kinetic energy transforms to gravitational potential energy.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">import</span> gym.spaces</span><br><span class="line">gym.logger.set_level(<span class="number">40</span>)</span><br><span class="line">gym.__version__</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line">env = gym.make(<span class="string">'MountainCar-v0'</span>)</span><br><span class="line">env = gym.wrappers.Monitor(env, <span class="string">"recording"</span>)</span><br><span class="line">print(env.observation_space.high)</span><br><span class="line">state = env.reset()</span><br><span class="line">env.render()</span><br><span class="line">state, reward, done, _ = env.step(<span class="number">2</span>)</span><br><span class="line">print(state)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">    print(state)</span><br><span class="line">    <span class="keyword">if</span> state[<span class="number">0</span>] &gt; <span class="number">0.599</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&gt;<span class="number">-0.5</span>:</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            state, reward, done, _ = env.step(<span class="number">0</span>)</span><br><span class="line">            print(<span class="string">"Full throttle backword"</span>)</span><br><span class="line">            print(state)</span><br><span class="line">            time.sleep(<span class="number">0.1</span>)</span><br><span class="line">            env.render()</span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&lt;<span class="number">-0.5</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">0</span>] &gt; <span class="number">0.599</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&lt;<span class="number">-0.5</span>:</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            state, reward, done, _ = env.step(<span class="number">2</span>)</span><br><span class="line">            print(<span class="string">"Ful throttle forward"</span>)</span><br><span class="line">            print(state)</span><br><span class="line">            time.sleep(<span class="number">0.1</span>)</span><br><span class="line">            env.render()</span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&gt;<span class="number">-0.5</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">0</span>] &gt; <span class="number">0.599</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">env.close()</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="mountaincar.gif" alt="MountainCar" /><figcaption>MountainCar</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Reinforcement Learning</category>
-      </categories>
-      <tags>
-        <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python的Anoymous Functions</title>
     <url>/2019/02/15/Python%E7%9A%84Anoymous-Functions/</url>
     <content><![CDATA[<h2 id="什么是python的匿名函数">什么是Python的匿名函数</h2>
@@ -425,52 +425,6 @@ Box(4,)</code></pre>
       </categories>
       <tags>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python装饰器</title>
-    <url>/2019/02/10/Python%E8%A3%85%E9%A5%B0%E5%99%A8/</url>
-    <content><![CDATA[<p>装饰器是Python的重要组成部分。简单来说：它们是修改其它函数的函数。他们有助于使我们的代码更短，更Pythonic。大多数初学者不知道在哪里使用它们，所以本文将介绍一些常见需要使用装饰器的情况。 <a id="more"></a> ## Python中一些都是对象</p>
-<p>首先让我们理解Python中的函数：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hi</span><span class="params">(name=<span class="string">"oliverxu"</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hi"</span> + name</span><br><span class="line"></span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果：'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们可以将一个函数赋值给一个变量</span></span><br><span class="line">greet = hi</span><br><span class="line"><span class="comment"># 我们并不是调用hi()，而是将函数赋值给greet</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 让我们看看如果将hi这个函数删除会出现什么情况</span></span><br><span class="line"><span class="keyword">del</span> hi</span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果： NameError</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>Python配置虚拟环境</title>
-    <url>/2018/09/16/Python%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<blockquote>
-<p>Python的开发过程中往往会遇到<strong>不同库</strong>存在<strong>不同版本</strong>的问题，例如我使用flask框架开发一个网站，A网站可能会使用<strong>flask 1.0</strong>，B网站可能会使用<strong>flask 2.0</strong>， 那么如何在电脑上进行配置，可以很方便的对开发环境进行<strong><em>隔离</em></strong>呢？这就要用到本文介绍的工具了</p>
-</blockquote>
-<blockquote>
-<p>VirtualEnv可以搭建虚拟且独立的python运行环境,使得单个项目的运行环境与其它项目独立起来。同时也可以用于在一台机器上创建多个独立的python运行环境，<strong><em>VirtualEnvWrapper为前者提供了一些便利的命令行上的封装</em></strong>。</p>
-</blockquote>
-<blockquote>
-<p>Virtualenv是一个非常好的virtual python environment builder，他最大的好处是，可以让每一个python项目单独使用一个环境，而不会影响python系统环境，也不会影响其他项目的环境。</p>
-</blockquote>
-<blockquote>
-<p>Virtualenv可用于创建独立的Python环境，在这些环境里面可以选择不同的Python版本或者不同的Packages，并且可以在没有root权限的情况下在环境里安装新套件，互相不会产生任何的影响。 <a id="more"></a> # virtualenv virtualenv是个采用python开发的包，可以使用pip安装： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure> 在工作目录下创建虚拟环境，注意需要自定义虚拟环境的名字 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">~$virtualenv TestEnv</span><br><span class="line">New python executable in ~/TestEnv/bin/python</span><br><span class="line">Installing setuptools, pip, wheel...done.</span><br></pre></td></tr></table></figure> 默认情况下，虚拟环境中不包括系统的site-packages, 若要使用请添加参数: <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">语法：virtualenv --system-site-packages TestEnv</span><br></pre></td></tr></table></figure> 使用virtualenv默认python版本创建虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">语法：virtualenv --no-site-packages ubuntu_env</span><br></pre></td></tr></table></figure> 该命令在当前目录创建一个env目录(虚拟环境名称，这个文件夹就是保存 Python 虚拟环境)，你会注意到，virtualenv会把python，setuptools和pip给你安装上。</p>
-</blockquote>
-<p><strong><em>这里virtualenv 有些不便，因为virtual的启动、停止脚本都在特定文件夹，可能一段时间后，你可能会有很多个虚拟环境散落在系统各处，你可能忘记它们的名字或者位置。</em></strong></p>
-<h1 id="virtualenvwrapper">virtualenvwrapper</h1>
-<p>鉴于virtualenv不便于对虚拟环境集中管理，所以推荐直接使用virtualenvwrapper。 virtualenvwrapper提供了一系列命令使得和虚拟环境工作变得便利。它把你所有的虚拟环境都放在一个地方。</p>
-<h3 id="安装virtualenvwrapper确保virtualenv已安装">安装virtualenvwrapper(确保virtualenv已安装)</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install virtualenvwrapper</span><br><span class="line">pip install virtualenvwrapper-win　　#Windows使用该命令</span><br></pre></td></tr></table></figure>
-<h3 id="安装完成后在.bashrc写入以下内容">安装完成后，在~/.bashrc写入以下内容</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export WORKON_HOME=~/Envs</span><br><span class="line">source /usr/local/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
-<ol type="1">
-<li>第一行：virtualenvwrapper存放虚拟环境目录</li>
-<li>第二行：virtrualenvwrapper会安装到python的bin目录下，所以该路径是python安装目录下(注意，ubuntu18.04的安装路径为<strong><code>~/.local/bin/</code></strong>目录下，因此，第二行改为<strong><code>source ~/.local/bin/virtualenvwrapper.sh</code></strong>，其他系统如果不一样清自行查找，否则下一条命令在执行时候会报错！)</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc　　　　#读入配置文件，立即生效</span><br></pre></td></tr></table></figure>
-<h3 id="virtualenvwrapper基本使用">virtualenvwrapper基本使用</h3>
-<p>1 创建虚拟环境 <code>mkvirtualenv</code> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkvirtualenv venv</span><br></pre></td></tr></table></figure> 这样会在WORKON_HOME变量指定的目录下新建名为venv的虚拟环境。 若想指定python版本，可通过"--python"指定python解释器 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkvirtualenv --python=/usr/local/python3.5.3/bin/python venv</span><br></pre></td></tr></table></figure> 2 查看当前的虚拟环境目录 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# workon</span><br><span class="line">py2</span><br><span class="line">py3</span><br></pre></td></tr></table></figure> 3 切换到虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# workon py3</span><br><span class="line">(py3) [root@localhost ~]#</span><br></pre></td></tr></table></figure></p>
-<p>4 退出虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(py3) [root@localhost ~]# deactivate</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure> 5 删除虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rmvirtualenv venv</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -521,30 +475,49 @@ Box(4,)</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Simplify: Python VS Matlab</title>
-    <url>/2019/10/20/Simplify-Python-VS-Matlab/</url>
-    <content><![CDATA[<h2 id="background">Background</h2>
-<p>The homework of Linear System Theory is challenging. Here is Problem 1:</p>
-<p>Consider a linear system with a state transition matrix <span class="math inline">\(\phi(t,t_0)\)</span></p>
-<p><span class="math display">\[\phi(t,t_0)=\displaystyle \left[\begin{matrix}
-e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
--e^{t} \sin{\left(2 t \right)} &amp; e^{- 2 t} \cos{\left(2 t \right)}
-\end{matrix}\right]\]</span></p>
-<p>Compute A(t).</p>
-<p>Since the given system is linear time variant system, by using some properties of <span class="math inline">\(\phi\)</span>, we can easily compute <span class="math inline">\(A(t)\)</span>. However, the expression is so complicate that i could not simplify it by hand. I call for some tools for help. The tools are <strong>Python</strong> and <strong>Matlab</strong>.</p>
-<p>This post compare the difference of <strong>simplify</strong> function in Python and Matlab. <a id="more"></a> ## Comparision ### Python sympy.simplify.simplify.simplify(expr, ratio=1.7, measure=<function count_ops>, rational=False, inverse=False). Link https://docs.sympy.org/latest/modules/simplify/simplify.html</p>
-<p>This function does not work well, it did not simplify the expression, giving th following outcome.</p>
-<p><span class="math display">\[\displaystyle \left[\begin{matrix}\frac{\left(- \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\\\frac{\left(- \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\end{matrix}\right]\]</span></p>
-<p>It's <strong>rediculous</strong>!</p>
-<h3 id="matlab">Matlab</h3>
-<p>S = simplify(expr) performs algebraic simplification of expr. If expr is a symbolic vector or matrix, this function simplifies each element of expr. Link https://www.mathworks.com/help/symbolic/simplify.html</p>
-<p>This function works very well and much faster than Sympy.</p>
+    <title>Python装饰器</title>
+    <url>/2019/02/10/Python%E8%A3%85%E9%A5%B0%E5%99%A8/</url>
+    <content><![CDATA[<p>装饰器是Python的重要组成部分。简单来说：它们是修改其它函数的函数。他们有助于使我们的代码更短，更Pythonic。大多数初学者不知道在哪里使用它们，所以本文将介绍一些常见需要使用装饰器的情况。 <a id="more"></a> ## Python中一些都是对象</p>
+<p>首先让我们理解Python中的函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hi</span><span class="params">(name=<span class="string">"oliverxu"</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hi"</span> + name</span><br><span class="line"></span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果：'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们可以将一个函数赋值给一个变量</span></span><br><span class="line">greet = hi</span><br><span class="line"><span class="comment"># 我们并不是调用hi()，而是将函数赋值给greet</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 让我们看看如果将hi这个函数删除会出现什么情况</span></span><br><span class="line"><span class="keyword">del</span> hi</span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果： NameError</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>Python配置虚拟环境</title>
+    <url>/2018/09/16/Python%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<blockquote>
+<p>Python的开发过程中往往会遇到<strong>不同库</strong>存在<strong>不同版本</strong>的问题，例如我使用flask框架开发一个网站，A网站可能会使用<strong>flask 1.0</strong>，B网站可能会使用<strong>flask 2.0</strong>， 那么如何在电脑上进行配置，可以很方便的对开发环境进行<strong><em>隔离</em></strong>呢？这就要用到本文介绍的工具了</p>
+</blockquote>
+<blockquote>
+<p>VirtualEnv可以搭建虚拟且独立的python运行环境,使得单个项目的运行环境与其它项目独立起来。同时也可以用于在一台机器上创建多个独立的python运行环境，<strong><em>VirtualEnvWrapper为前者提供了一些便利的命令行上的封装</em></strong>。</p>
+</blockquote>
+<blockquote>
+<p>Virtualenv是一个非常好的virtual python environment builder，他最大的好处是，可以让每一个python项目单独使用一个环境，而不会影响python系统环境，也不会影响其他项目的环境。</p>
+</blockquote>
+<blockquote>
+<p>Virtualenv可用于创建独立的Python环境，在这些环境里面可以选择不同的Python版本或者不同的Packages，并且可以在没有root权限的情况下在环境里安装新套件，互相不会产生任何的影响。 <a id="more"></a> # virtualenv virtualenv是个采用python开发的包，可以使用pip安装： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure> 在工作目录下创建虚拟环境，注意需要自定义虚拟环境的名字 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">~$virtualenv TestEnv</span><br><span class="line">New python executable in ~/TestEnv/bin/python</span><br><span class="line">Installing setuptools, pip, wheel...done.</span><br></pre></td></tr></table></figure> 默认情况下，虚拟环境中不包括系统的site-packages, 若要使用请添加参数: <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">语法：virtualenv --system-site-packages TestEnv</span><br></pre></td></tr></table></figure> 使用virtualenv默认python版本创建虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">语法：virtualenv --no-site-packages ubuntu_env</span><br></pre></td></tr></table></figure> 该命令在当前目录创建一个env目录(虚拟环境名称，这个文件夹就是保存 Python 虚拟环境)，你会注意到，virtualenv会把python，setuptools和pip给你安装上。</p>
+</blockquote>
+<p><strong><em>这里virtualenv 有些不便，因为virtual的启动、停止脚本都在特定文件夹，可能一段时间后，你可能会有很多个虚拟环境散落在系统各处，你可能忘记它们的名字或者位置。</em></strong></p>
+<h1 id="virtualenvwrapper">virtualenvwrapper</h1>
+<p>鉴于virtualenv不便于对虚拟环境集中管理，所以推荐直接使用virtualenvwrapper。 virtualenvwrapper提供了一系列命令使得和虚拟环境工作变得便利。它把你所有的虚拟环境都放在一个地方。</p>
+<h3 id="安装virtualenvwrapper确保virtualenv已安装">安装virtualenvwrapper(确保virtualenv已安装)</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install virtualenvwrapper</span><br><span class="line">pip install virtualenvwrapper-win　　#Windows使用该命令</span><br></pre></td></tr></table></figure>
+<h3 id="安装完成后在.bashrc写入以下内容">安装完成后，在~/.bashrc写入以下内容</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export WORKON_HOME=~/Envs</span><br><span class="line">source /usr/local/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
+<ol type="1">
+<li>第一行：virtualenvwrapper存放虚拟环境目录</li>
+<li>第二行：virtrualenvwrapper会安装到python的bin目录下，所以该路径是python安装目录下(注意，ubuntu18.04的安装路径为<strong><code>~/.local/bin/</code></strong>目录下，因此，第二行改为<strong><code>source ~/.local/bin/virtualenvwrapper.sh</code></strong>，其他系统如果不一样清自行查找，否则下一条命令在执行时候会报错！)</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc　　　　#读入配置文件，立即生效</span><br></pre></td></tr></table></figure>
+<h3 id="virtualenvwrapper基本使用">virtualenvwrapper基本使用</h3>
+<p>1 创建虚拟环境 <code>mkvirtualenv</code> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkvirtualenv venv</span><br></pre></td></tr></table></figure> 这样会在WORKON_HOME变量指定的目录下新建名为venv的虚拟环境。 若想指定python版本，可通过"--python"指定python解释器 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkvirtualenv --python=/usr/local/python3.5.3/bin/python venv</span><br></pre></td></tr></table></figure> 2 查看当前的虚拟环境目录 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# workon</span><br><span class="line">py2</span><br><span class="line">py3</span><br></pre></td></tr></table></figure> 3 切换到虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# workon py3</span><br><span class="line">(py3) [root@localhost ~]#</span><br></pre></td></tr></table></figure></p>
+<p>4 退出虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(py3) [root@localhost ~]# deactivate</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure> 5 删除虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rmvirtualenv venv</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
-        <category>Python</category>
+        <category>python</category>
       </categories>
       <tags>
-        <tag>Python</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -651,6 +624,33 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </tags>
   </entry>
   <entry>
+    <title>Simplify: Python VS Matlab</title>
+    <url>/2019/10/20/Simplify-Python-VS-Matlab/</url>
+    <content><![CDATA[<h2 id="background">Background</h2>
+<p>The homework of Linear System Theory is challenging. Here is Problem 1:</p>
+<p>Consider a linear system with a state transition matrix <span class="math inline">\(\phi(t,t_0)\)</span></p>
+<p><span class="math display">\[\phi(t,t_0)=\displaystyle \left[\begin{matrix}
+e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
+-e^{t} \sin{\left(2 t \right)} &amp; e^{- 2 t} \cos{\left(2 t \right)}
+\end{matrix}\right]\]</span></p>
+<p>Compute A(t).</p>
+<p>Since the given system is linear time variant system, by using some properties of <span class="math inline">\(\phi\)</span>, we can easily compute <span class="math inline">\(A(t)\)</span>. However, the expression is so complicate that i could not simplify it by hand. I call for some tools for help. The tools are <strong>Python</strong> and <strong>Matlab</strong>.</p>
+<p>This post compare the difference of <strong>simplify</strong> function in Python and Matlab. <a id="more"></a> ## Comparision ### Python sympy.simplify.simplify.simplify(expr, ratio=1.7, measure=<function count_ops>, rational=False, inverse=False). Link https://docs.sympy.org/latest/modules/simplify/simplify.html</p>
+<p>This function does not work well, it did not simplify the expression, giving th following outcome.</p>
+<p><span class="math display">\[\displaystyle \left[\begin{matrix}\frac{\left(- \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\\\frac{\left(- \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\end{matrix}\right]\]</span></p>
+<p>It's <strong>rediculous</strong>!</p>
+<h3 id="matlab">Matlab</h3>
+<p>S = simplify(expr) performs algebraic simplification of expr. If expr is a symbolic vector or matrix, this function simplifies each element of expr. Link https://www.mathworks.com/help/symbolic/simplify.html</p>
+<p>This function works very well and much faster than Sympy.</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tensorboard中的图放到论文中</title>
     <url>/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/</url>
     <content><![CDATA[<p>最近写了一篇强化学习用于供水管网的论文，算法的训练过程中用到了Tensorboard(stable-baselines提供了tansorboard的接口)来可视化训练数据，但是，tensorboard的图直接放入到论文中会显得很难看，包括xlabel和ylabel需要重新定义，图片的风格需要修改等等操作直接在tensorboard中很难操作，需要将这些数据导出来，然后使用matplotlib和seaboarn来进行plot，这篇博客记录一下如何将tensorboard中的数据进行导出并画图。</p>
@@ -689,6 +689,52 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </tags>
   </entry>
   <entry>
+    <title>*args 和 **kwargs</title>
+    <url>/2019/02/12/args-%E5%92%8C-kwargs/</url>
+    <content><![CDATA[<p>很多Python新手都无法搞清<code>*args</code>与<code>**kwargs</code>这两个魔术变量。那么他们到底是什么呢？让我来告诉你。在实际程序中，我们没有必要非得写成<code>*args</code>与<code>**kwargs</code>这样的形式，你也可以写成<code>*var</code>与<code>**vars</code>。写成<code>*args</code>与<code>**kwargs</code>的形式只是一种惯例。 <a id="more"></a> ## *args的用法 <code>*args</code>与<code>**kwargs</code>主要用于函数的定义。<code>*args</code>与<code>**kwargs</code>允许你将可变数量的参数传递给函数。这里的<strong>可变</strong>意味着你事先是不知道用户可以向你传递多少参数。因此在这种情况下你可以使用这两个关键字。<code>*args</code>用于向函数发送没有关键字的可变长度参数列表。以下是一个例子：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_var_args</span><span class="params">(f_arg, *args)</span>:</span></span><br><span class="line">    print(<span class="string">"first normal arg: "</span>, f_arg)</span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> args:</span><br><span class="line">        print(<span class="string">"another arg through *args: "</span>, ar)</span><br><span class="line"></span><br><span class="line">test_var_args(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>)</span><br></pre></td></tr></table></figure>
+<p>这会产生以下结果： <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">first normal arg: a</span><br><span class="line">another arg through *args: b</span><br><span class="line">another arg through *args: c</span><br><span class="line">another arg through *args: d</span><br></pre></td></tr></table></figure></p>
+<h2 id="kwargs-kwargs允许你将键值对也就是字典形式的参数的可变长度的参数传递给函数如果要在函数中处理命名参数则应该使用kwargs下面是一个例子">**kwargs <code>kwargs</code>允许你将键值对[也就是字典形式的参数]的可变长度的参数传递给函数。如果要在函数中处理命名参数，则应该使用<code>**kwargs</code>，下面是一个例子：</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_me</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> kwargs.items():</span><br><span class="line">        print(<span class="string">"&#123;0&#125; = &#123;1&#125;"</span>.format(key, value))</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>greet_me(name=<span class="string">"oliverxu"</span>)</span><br><span class="line">name = oliverxu</span><br></pre></td></tr></table></figure>
+<h2 id="使用args和kwargs来调用函数">使用<code>*args</code>和<code>*kwargs</code>来调用函数</h2>
+<p>首先我们先定义一个函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_args_kwargs</span><span class="params">(arg1, arg2, arg3)</span>:</span></span><br><span class="line">    print(<span class="string">"arg1:"</span>, arg1)</span><br><span class="line">    print(<span class="string">"arg2:"</span>, arg2)</span><br><span class="line">    print(<span class="string">"arg3:"</span>, arg3)</span><br></pre></td></tr></table></figure>
+<p>现在，可以用<code>*args</code>和<code>**kwargs</code>来将参数传递给这个函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>args = (<span class="string">"two"</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(*args)</span><br><span class="line">arg1: arg1</span><br><span class="line">arg2: arg2</span><br><span class="line">arg3: arg3</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>kwargs = &#123;<span class="string">"arg3"</span>:<span class="number">3</span>, <span class="string">"arg2"</span>: <span class="string">"two"</span>, <span class="string">"arg1"</span>: <span class="number">5</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(**kwargs)</span><br><span class="line">arg1: <span class="number">5</span></span><br><span class="line">arg2: two</span><br><span class="line">arg3: <span class="number">3</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Word与Latex</title>
+    <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
+    <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
+<h2 id="mathpix将论文中的公式识别成latex或者mathml格式">Mathpix：将论文中的公式识别成latex或者mathml格式</h2>
+<p>有一款软件：Mathpix，能够将公式识别成latex或者mathml格式。</p>
+<p>使用该软件需要使用邮箱注册账户，免费版一个月只能识别50次，也有一个开发版，一个月能识别1000次，但是需要信用卡验证，对于国内用户来说，比较麻烦。</p>
+<p>这里给出一个解决办法：使用临时邮箱，待免费套餐使用完后，重新注册账户，测试了几个免费邮箱服务，大多被mathpix识别了，<span class="exturl" data-url="aHR0cHM6Ly90ZW1wLW1haWwub3JnL2VuLw==">https://temp-mail.org/en/<i class="fa fa-external-link-alt"></i></span> 这个我测试了一下，没有被mathpix识别，可以用于注册。 <a id="more"></a></p>
+<h2 id="word中的latex公式">Word中的latex公式</h2>
+<h3 id="简单的单行公式">简单的单行公式</h3>
+<p>简单的单行公式可以直接用latex格式。</p>
+<h3 id="复杂的多行公式">复杂的多行公式</h3>
+<p>复杂的多行公式，可以复制Mathpix中的Mathml格式，粘贴到word中。</p>
+<h3 id="插入公式编号">插入公式编号</h3>
+<p>Word中提供了一种比较方便的插入公式编号的方法：在公式末尾键入<code>#(x)</code>，然后按下<code>Enter</code>即可。</p>
+<h2 id="创作流程">创作流程</h2>
+<p>我个人比较喜欢读完文献，用Markdown（Typora）整理一下阅读笔记，这样既可以发布到博客上，又很方便的能够迁移到Word中（我一般交作业交报告都是用Word）。</p>
+]]></content>
+      <categories>
+        <category>Latex</category>
+      </categories>
+      <tags>
+        <tag>Latex</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo-gittalk问题总结</title>
     <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
@@ -699,6 +745,28 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </categories>
       <tags>
         <tag>经验</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vs code remote ssh 使用x11转发显示远程图像</title>
+    <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
+    <content><![CDATA[<h2 id="需求">需求</h2>
+<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
+<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
+<a id="more"></a>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+<h2 id="问题">问题</h2>
+<ul>
+<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
+<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -844,49 +912,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>*args 和 **kwargs</title>
-    <url>/2019/02/12/args-%E5%92%8C-kwargs/</url>
-    <content><![CDATA[<p>很多Python新手都无法搞清<code>*args</code>与<code>**kwargs</code>这两个魔术变量。那么他们到底是什么呢？让我来告诉你。在实际程序中，我们没有必要非得写成<code>*args</code>与<code>**kwargs</code>这样的形式，你也可以写成<code>*var</code>与<code>**vars</code>。写成<code>*args</code>与<code>**kwargs</code>的形式只是一种惯例。 <a id="more"></a> ## *args的用法 <code>*args</code>与<code>**kwargs</code>主要用于函数的定义。<code>*args</code>与<code>**kwargs</code>允许你将可变数量的参数传递给函数。这里的<strong>可变</strong>意味着你事先是不知道用户可以向你传递多少参数。因此在这种情况下你可以使用这两个关键字。<code>*args</code>用于向函数发送没有关键字的可变长度参数列表。以下是一个例子：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_var_args</span><span class="params">(f_arg, *args)</span>:</span></span><br><span class="line">    print(<span class="string">"first normal arg: "</span>, f_arg)</span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> args:</span><br><span class="line">        print(<span class="string">"another arg through *args: "</span>, ar)</span><br><span class="line"></span><br><span class="line">test_var_args(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>)</span><br></pre></td></tr></table></figure>
-<p>这会产生以下结果： <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">first normal arg: a</span><br><span class="line">another arg through *args: b</span><br><span class="line">another arg through *args: c</span><br><span class="line">another arg through *args: d</span><br></pre></td></tr></table></figure></p>
-<h2 id="kwargs-kwargs允许你将键值对也就是字典形式的参数的可变长度的参数传递给函数如果要在函数中处理命名参数则应该使用kwargs下面是一个例子">**kwargs <code>kwargs</code>允许你将键值对[也就是字典形式的参数]的可变长度的参数传递给函数。如果要在函数中处理命名参数，则应该使用<code>**kwargs</code>，下面是一个例子：</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_me</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> kwargs.items():</span><br><span class="line">        print(<span class="string">"&#123;0&#125; = &#123;1&#125;"</span>.format(key, value))</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>greet_me(name=<span class="string">"oliverxu"</span>)</span><br><span class="line">name = oliverxu</span><br></pre></td></tr></table></figure>
-<h2 id="使用args和kwargs来调用函数">使用<code>*args</code>和<code>*kwargs</code>来调用函数</h2>
-<p>首先我们先定义一个函数：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_args_kwargs</span><span class="params">(arg1, arg2, arg3)</span>:</span></span><br><span class="line">    print(<span class="string">"arg1:"</span>, arg1)</span><br><span class="line">    print(<span class="string">"arg2:"</span>, arg2)</span><br><span class="line">    print(<span class="string">"arg3:"</span>, arg3)</span><br></pre></td></tr></table></figure>
-<p>现在，可以用<code>*args</code>和<code>**kwargs</code>来将参数传递给这个函数：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>args = (<span class="string">"two"</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(*args)</span><br><span class="line">arg1: arg1</span><br><span class="line">arg2: arg2</span><br><span class="line">arg3: arg3</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>kwargs = &#123;<span class="string">"arg3"</span>:<span class="number">3</span>, <span class="string">"arg2"</span>: <span class="string">"two"</span>, <span class="string">"arg1"</span>: <span class="number">5</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(**kwargs)</span><br><span class="line">arg1: <span class="number">5</span></span><br><span class="line">arg2: two</span><br><span class="line">arg3: <span class="number">3</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vs code remote ssh 使用x11转发显示远程图像</title>
-    <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
-    <content><![CDATA[<h2 id="需求">需求</h2>
-<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
-<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
-<a id="more"></a>
-<h2 id="参考链接">参考链接</h2>
-<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-<h2 id="问题">问题</h2>
-<ul>
-<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
-<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用PPO设计线性系统控制器</title>
     <url>/2020/08/27/%E4%BD%BF%E7%94%A8PPO%E8%AE%BE%E8%AE%A1%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%99%A8/</url>
     <content><![CDATA[<p>论文《Policy Iteration Adaptive Dynamic Programming Algorithm for Discrete-Time Nonlinear Systems》</p>
@@ -923,31 +948,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>Word与Latex</title>
-    <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
-    <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
-<h2 id="mathpix将论文中的公式识别成latex或者mathml格式">Mathpix：将论文中的公式识别成latex或者mathml格式</h2>
-<p>有一款软件：Mathpix，能够将公式识别成latex或者mathml格式。</p>
-<p>使用该软件需要使用邮箱注册账户，免费版一个月只能识别50次，也有一个开发版，一个月能识别1000次，但是需要信用卡验证，对于国内用户来说，比较麻烦。</p>
-<p>这里给出一个解决办法：使用临时邮箱，待免费套餐使用完后，重新注册账户，测试了几个免费邮箱服务，大多被mathpix识别了，<span class="exturl" data-url="aHR0cHM6Ly90ZW1wLW1haWwub3JnL2VuLw==">https://temp-mail.org/en/<i class="fa fa-external-link-alt"></i></span> 这个我测试了一下，没有被mathpix识别，可以用于注册。 <a id="more"></a></p>
-<h2 id="word中的latex公式">Word中的latex公式</h2>
-<h3 id="简单的单行公式">简单的单行公式</h3>
-<p>简单的单行公式可以直接用latex格式。</p>
-<h3 id="复杂的多行公式">复杂的多行公式</h3>
-<p>复杂的多行公式，可以复制Mathpix中的Mathml格式，粘贴到word中。</p>
-<h3 id="插入公式编号">插入公式编号</h3>
-<p>Word中提供了一种比较方便的插入公式编号的方法：在公式末尾键入<code>#(x)</code>，然后按下<code>Enter</code>即可。</p>
-<h2 id="创作流程">创作流程</h2>
-<p>我个人比较喜欢读完文献，用Markdown（Typora）整理一下阅读笔记，这样既可以发布到博客上，又很方便的能够迁移到Word中（我一般交作业交报告都是用Word）。</p>
-]]></content>
-      <categories>
-        <category>Latex</category>
-      </categories>
-      <tags>
-        <tag>Latex</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>中国学术圈的未来在哪里？</title>
     <url>/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/</url>
     <content><![CDATA[<p>最近遇到了很多烦心事，主要是学术生活上的问题，教授没有学术上的指导，且总是push我们做项目，自动化系的教授都只知道赚钱啊，不，都只知道“骗钱”。今天感觉状态还不错，稍有感想，想在这篇文章中简短地谈论一下，权当我乱说的吧，哈哈哈哈。</p>
@@ -970,6 +970,34 @@ x
 <p>最后，用鲁迅先生的经典《热风》结尾：</p>
 <p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声，有一分热，发一分光，就令萤火虫一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。 倘若有了炬火，出了太阳，我们自然心悦诚服地消失，不但毫无不平，而且还要随喜赞美这炬火或太阳，因为他照亮了人类，连我都在内。</p>
 <p><strong>与君共勉。</strong></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>健身房计划制定与动作</title>
+    <url>/2020/08/24/%E5%81%A5%E8%BA%AB%E6%88%BF%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
+    <content><![CDATA[<p>这篇文章整理我用到的训练计划和训练动作与健身记录。</p>
+<a id="more"></a>
+<h2 id="手臂超级组">手臂超级组</h2>
+<h3 id="组1">组1</h3>
+<p>杠铃弯举</p>
+<p>窄距杠铃卧推</p>
+<h3 id="组2">组2</h3>
+<p>锤式哑铃弯举</p>
+<p>仰卧杠铃臂屈伸</p>
+<h3 id="组3">组3</h3>
+<p>二头绳索弯举</p>
+<p>三头绳索下压</p>
+<h3 id="组4">组4</h3>
+<p>背后曲臂伸</p>
+<p>哑铃交替弯举</p>
+<h3 id="做法">做法</h3>
+<p>每两个动作（二头屈，三头伸）为一个超级组，每个超级组做3组，每组的两个动作分别做8-12RM。</p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -1002,34 +1030,6 @@ x
       </categories>
       <tags>
         <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>健身房计划制定与动作</title>
-    <url>/2020/08/24/%E5%81%A5%E8%BA%AB%E6%88%BF%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
-    <content><![CDATA[<p>这篇文章整理我用到的训练计划和训练动作与健身记录。</p>
-<a id="more"></a>
-<h2 id="手臂超级组">手臂超级组</h2>
-<h3 id="组1">组1</h3>
-<p>杠铃弯举</p>
-<p>窄距杠铃卧推</p>
-<h3 id="组2">组2</h3>
-<p>锤式哑铃弯举</p>
-<p>仰卧杠铃臂屈伸</p>
-<h3 id="组3">组3</h3>
-<p>二头绳索弯举</p>
-<p>三头绳索下压</p>
-<h3 id="组4">组4</h3>
-<p>背后曲臂伸</p>
-<p>哑铃交替弯举</p>
-<h3 id="做法">做法</h3>
-<p>每两个动作（二头屈，三头伸）为一个超级组，每个超级组做3组，每组的两个动作分别做8-12RM。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -1083,29 +1083,6 @@ x
       </categories>
       <tags>
         <tag>flask</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>内网端口转发控制面板</title>
-    <url>/2020/11/21/%E5%86%85%E7%BD%91%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF/</url>
-    <content><![CDATA[<h2 id="背景需求">背景需求：</h2>
-<p>办公室用的TP-Link WDR7660路由器，有公网IP，所以可以设置端口映射，但是由于局域网中的设备较多，需要映射的端口超过了TP-Link的限制(TP-Link默认只能16个端口)需要做一个端口中转服务器</p>
-<a id="more"></a>
-<h2 id="解决方案">解决方案：</h2>
-<p>TP-Link虽然默认只能设置16条记录，但是其可以设置端口转发段，例如外网端口可以设置为:50000-50999，内网端口可以设置为：50000-50999。</p>
-<p><img src="1.JPG" /></p>
-<p>利用局域网中的一台服务器，用做专门的端口转发服务器，将局域网中需要做端口转发的设备的端口都映射到该服务器上，TP-Link做一个端口转发的端口段</p>
-<p><img src="2.jpg" /></p>
-<h2 id="实现效果">实现效果：</h2>
-<p><img src="3.JPG" /></p>
-<h2 id="源代码">源代码：</h2>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29saXh1L3BvcnR0cmFuc2l0">https://github.com/olixu/porttransit<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1254,6 +1231,29 @@ x
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>内网端口转发控制面板</title>
+    <url>/2020/11/21/%E5%86%85%E7%BD%91%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF/</url>
+    <content><![CDATA[<h2 id="背景需求">背景需求：</h2>
+<p>办公室用的TP-Link WDR7660路由器，有公网IP，所以可以设置端口映射，但是由于局域网中的设备较多，需要映射的端口超过了TP-Link的限制(TP-Link默认只能16个端口)需要做一个端口中转服务器</p>
+<a id="more"></a>
+<h2 id="解决方案">解决方案：</h2>
+<p>TP-Link虽然默认只能设置16条记录，但是其可以设置端口转发段，例如外网端口可以设置为:50000-50999，内网端口可以设置为：50000-50999。</p>
+<p><img src="1.JPG" /></p>
+<p>利用局域网中的一台服务器，用做专门的端口转发服务器，将局域网中需要做端口转发的设备的端口都映射到该服务器上，TP-Link做一个端口转发的端口段</p>
+<p><img src="2.jpg" /></p>
+<h2 id="实现效果">实现效果：</h2>
+<p><img src="3.JPG" /></p>
+<h2 id="源代码">源代码：</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29saXh1L3BvcnR0cmFuc2l0">https://github.com/olixu/porttransit<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1564,6 +1564,19 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>折半查找</title>
+    <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
+    <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
+<p>算法分析：折半查找 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bin_search</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,high,low;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=(high+low)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">10</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">19</span>,<span class="number">21</span>&#125;</span><br><span class="line">    <span class="keyword">int</span> i,n,addr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The contents of the Array A[10] are\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, A[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPlease input a interger for search\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    addr = bin_search(A,<span class="number">10</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(addr != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d is at the %dth unit is array A\n "</span>,n,addr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"There is no %d in array A\n"</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构 算法 排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>强化学习：有限马尔科夫决策过程</title>
     <url>/2019/04/14/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%9A%E6%9C%89%E9%99%90%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/</url>
     <content><![CDATA[<p>本文是reinforcement learning:An introduction书第三章的翻译．</p>
@@ -1588,41 +1601,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>强化学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>折半查找</title>
-    <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
-    <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
-<p>算法分析：折半查找 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bin_search</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,high,low;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=(high+low)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">10</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">19</span>,<span class="number">21</span>&#125;</span><br><span class="line">    <span class="keyword">int</span> i,n,addr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The contents of the Array A[10] are\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, A[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPlease input a interger for search\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    addr = bin_search(A,<span class="number">10</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(addr != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d is at the %dth unit is array A\n "</span>,n,addr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"There is no %d in array A\n"</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>数据结构 算法 排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>服务器被黑记录</title>
-    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
-<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
-<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
-<a id="more"></a>
-<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
-<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
-<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
-<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
-<p>可以看到一直在被爆破。</p>
-<p><img src="image-20200914140640360.png" /></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1715,6 +1693,28 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>服务器被黑记录</title>
+    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
+<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
+<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
+<a id="more"></a>
+<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
+<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
+<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
+<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
+<p>可以看到一直在被爆破。</p>
+<p><img src="image-20200914140640360.png" /></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>检查强化学习自定义环境是否符合Gym的API</title>
     <url>/2020/08/22/%E6%A3%80%E6%9F%A5%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E7%AC%A6%E5%90%88Gym%E7%9A%84API/</url>
     <content><![CDATA[<p>虽然Openai Gym给我们提供了很多有趣的环境，但是，针对实际问题，我们一般都需要建立自己的强化学习环境，也就是说，建立一个函数，输入是<code>action</code>，输出是<code>next_state, reward, done, info</code>，建立这样一个环境的时候最好按照Gym的API来设计，这样方便代码的编写与调试，很多网上实现的算法都是按照Gym的环境进行设计的，同时，Gym的API本身设计的就比较合理的。</p>
@@ -1749,44 +1749,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>粒子群算法(PSO)的数学原理</title>
-    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95-PSO-%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
-    <content><![CDATA[<h2 id="粒子群算法的起源">粒子群算法的起源</h2>
-<p>粒子群优化算法(Particle Swarm Optimization[PSO])是一种基于群体智能的启发式全局搜索算法，因为我的毕业设计需要用到，学习整理一下。</p>
-<p>求函数最优值的问题，即求函数的最大或者最小值。粒子群算法通过粒子间的竞争和协作以实现在复杂搜索空间中寻找全局最优点。它具有易理解，易实现，全局搜索能力强等特点，倍受科学与工程的领域的广泛关注，已经成为发展最快的智能优化算法之一。 <a id="more"></a> 粒子群算法由Kennedy和Eberhart于1995年提出，它的基本思想源于对鸟群捕食行为的研究。具体来说，已知：</p>
-<ul>
-<li>在这块区域里面只有一块食物</li>
-<li>所有的鸟都不知道食物在哪里</li>
-<li>但是他们能感受到当前的位置距离食物还有多远</li>
-</ul>
-<p>那么，找到食物的最优策略是什么呢？</p>
-<p>通过与上述情景类比，研究人员发现了粒子群算法： - 目标函数只有一个极值 - 函数的一组随机自变量的函数值不确定是极值 - 但是N组函数的一组随机自变量对应的函数值通过比较大小，可以出最值</p>
-<p>PS:我在学习的时候，看了半小时，都没有想出<code>但是他们能感受到当前的位置距离食物还有多远</code>这句话的具体含义。既然不知道食物的位置，又何来知道距离食物还有多远？后来想想，这句话还是稍微有些问题的，两者的类比还是有一些区别。</p>
-<p>我现在对第三句话的理解是，目标函数是多元函数，我们可以初始化若干组自变量，于是可以得到函数值，找出这些函数值中的最值，再进行接下去的操作即可。</p>
-<h2 id="粒子群算法的数学描述">粒子群算法的数学描述</h2>
-<p>PSO从上述模型中得到启示并用于解决优化问题。PSO中，每个优化问题的潜在解都是搜索空间中的一只鸟，称之为粒子。所有的粒子都有一个由被优化的函数决定的适值<strong>(fitness value)[也就是每组自变量所对应的函数值]</strong>，每个粒子还有一个速度决定他们飞翔的方向和距离。然后粒子们就追随当前的最优粒子在解空间中搜索。</p>
-<p>PSO初始化为一组随机粒子<strong>[随机的一组自变量]</strong>，然后通过迭代找到最优解。在每一次的迭代中，粒子通过跟踪两个极值来更新自己，第一个就是粒子本身所找到的最优解，这个解称为个体极值；另外一个极值是整个种群目前所找到的最优解，这个极值是全局极值。</p>
-<p>假设在一个D维的目标搜索空间中<strong>([也就是D元函数])</strong>，有N个粒子组成一个群落，其中第i个粒子表示为一个D维的向量：</p>
-<p><span class="math display">\[X_i=(x_{i1},x_{i2},...,x_{iD}), i=1,2,...,N\]</span></p>
-<p>第i个粒子的飞行速度也是一个D维的向量，记为：</p>
-<p><span class="math display">\[V_i=(v_{i1},v_{i2},...,v_{iD}), i=1,2,...,N\]</span></p>
-<p>第i个粒子迄今为止搜索到的最优位置称为个体极值，记为：</p>
-<p><span class="math display">\[P_{best}=(P_{i1},P_{i2},...,P_{iD}), i=1,2,...,N\]</span></p>
-<p>整个粒子群迄今为止搜索到的最优位置为全局极值，记为：</p>
-<p><span class="math display">\[g_{best}=(P_{g1},P_{g2},...,P_{gD})\]</span></p>
-<p>在找到这两个最优值时，粒子需要根据如下公式来更新自己的速度和位置：</p>
-<p><span class="math display">\[v_{id}=w\times v_{id}+c_1r_1(P_{id}-x_{id})+c_2r_2(P_{gd}-x_{id})\]</span></p>
-<p><span class="math display">\[x_{id}=x_{id}+v_{id}\]</span></p>
-<p>其中：c1和c2为学习因子，也称为加速常数<code>acceleration constant</code>，r1和r2为<code>[0,1]</code>范围内的均匀随机数。速度更新公式由三部分组成，第一部分为<code>惯性</code>，代表粒子有维持自己先前速度的趋势，第二部分为<code>认知</code>部分，反映了对自身历史经验的记忆，代表粒子有向自身历史最佳位置逼近的趋势，第三部分为<code>社会</code>部分，反映了粒子之间协同合作与知识共享的群体历史经验。</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1833,21 +1795,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>软路由</title>
-    <url>/2020/08/17/%E8%BD%AF%E8%B7%AF%E7%94%B1/</url>
-    <content><![CDATA[<p>今天装了用虚拟机装了一台软路由，总结两个字：真香</p>
-<a id="more"></a>
-<p>软路由用作旁路由，搭建socks5代理，速度比windows直接用快了将近30倍。</p>
-<p>不知道是啥原因，可能是Linux和Windows系统上的区别？</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>维护爬虫代理IP池--采集并验证</title>
     <url>/2018/10/21/%E7%BB%B4%E6%8A%A4%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%B1%A0-%E9%87%87%E9%9B%86%E5%B9%B6%E9%AA%8C%E8%AF%81/</url>
     <content><![CDATA[<blockquote>
@@ -1864,6 +1811,59 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>爬虫 代理IP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>粒子群算法(PSO)的数学原理</title>
+    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95-PSO-%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h2 id="粒子群算法的起源">粒子群算法的起源</h2>
+<p>粒子群优化算法(Particle Swarm Optimization[PSO])是一种基于群体智能的启发式全局搜索算法，因为我的毕业设计需要用到，学习整理一下。</p>
+<p>求函数最优值的问题，即求函数的最大或者最小值。粒子群算法通过粒子间的竞争和协作以实现在复杂搜索空间中寻找全局最优点。它具有易理解，易实现，全局搜索能力强等特点，倍受科学与工程的领域的广泛关注，已经成为发展最快的智能优化算法之一。 <a id="more"></a> 粒子群算法由Kennedy和Eberhart于1995年提出，它的基本思想源于对鸟群捕食行为的研究。具体来说，已知：</p>
+<ul>
+<li>在这块区域里面只有一块食物</li>
+<li>所有的鸟都不知道食物在哪里</li>
+<li>但是他们能感受到当前的位置距离食物还有多远</li>
+</ul>
+<p>那么，找到食物的最优策略是什么呢？</p>
+<p>通过与上述情景类比，研究人员发现了粒子群算法： - 目标函数只有一个极值 - 函数的一组随机自变量的函数值不确定是极值 - 但是N组函数的一组随机自变量对应的函数值通过比较大小，可以出最值</p>
+<p>PS:我在学习的时候，看了半小时，都没有想出<code>但是他们能感受到当前的位置距离食物还有多远</code>这句话的具体含义。既然不知道食物的位置，又何来知道距离食物还有多远？后来想想，这句话还是稍微有些问题的，两者的类比还是有一些区别。</p>
+<p>我现在对第三句话的理解是，目标函数是多元函数，我们可以初始化若干组自变量，于是可以得到函数值，找出这些函数值中的最值，再进行接下去的操作即可。</p>
+<h2 id="粒子群算法的数学描述">粒子群算法的数学描述</h2>
+<p>PSO从上述模型中得到启示并用于解决优化问题。PSO中，每个优化问题的潜在解都是搜索空间中的一只鸟，称之为粒子。所有的粒子都有一个由被优化的函数决定的适值<strong>(fitness value)[也就是每组自变量所对应的函数值]</strong>，每个粒子还有一个速度决定他们飞翔的方向和距离。然后粒子们就追随当前的最优粒子在解空间中搜索。</p>
+<p>PSO初始化为一组随机粒子<strong>[随机的一组自变量]</strong>，然后通过迭代找到最优解。在每一次的迭代中，粒子通过跟踪两个极值来更新自己，第一个就是粒子本身所找到的最优解，这个解称为个体极值；另外一个极值是整个种群目前所找到的最优解，这个极值是全局极值。</p>
+<p>假设在一个D维的目标搜索空间中<strong>([也就是D元函数])</strong>，有N个粒子组成一个群落，其中第i个粒子表示为一个D维的向量：</p>
+<p><span class="math display">\[X_i=(x_{i1},x_{i2},...,x_{iD}), i=1,2,...,N\]</span></p>
+<p>第i个粒子的飞行速度也是一个D维的向量，记为：</p>
+<p><span class="math display">\[V_i=(v_{i1},v_{i2},...,v_{iD}), i=1,2,...,N\]</span></p>
+<p>第i个粒子迄今为止搜索到的最优位置称为个体极值，记为：</p>
+<p><span class="math display">\[P_{best}=(P_{i1},P_{i2},...,P_{iD}), i=1,2,...,N\]</span></p>
+<p>整个粒子群迄今为止搜索到的最优位置为全局极值，记为：</p>
+<p><span class="math display">\[g_{best}=(P_{g1},P_{g2},...,P_{gD})\]</span></p>
+<p>在找到这两个最优值时，粒子需要根据如下公式来更新自己的速度和位置：</p>
+<p><span class="math display">\[v_{id}=w\times v_{id}+c_1r_1(P_{id}-x_{id})+c_2r_2(P_{gd}-x_{id})\]</span></p>
+<p><span class="math display">\[x_{id}=x_{id}+v_{id}\]</span></p>
+<p>其中：c1和c2为学习因子，也称为加速常数<code>acceleration constant</code>，r1和r2为<code>[0,1]</code>范围内的均匀随机数。速度更新公式由三部分组成，第一部分为<code>惯性</code>，代表粒子有维持自己先前速度的趋势，第二部分为<code>认知</code>部分，反映了对自身历史经验的记忆，代表粒子有向自身历史最佳位置逼近的趋势，第三部分为<code>社会</code>部分，反映了粒子之间协同合作与知识共享的群体历史经验。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>软路由</title>
+    <url>/2020/08/17/%E8%BD%AF%E8%B7%AF%E7%94%B1/</url>
+    <content><![CDATA[<p>今天装了用虚拟机装了一台软路由，总结两个字：真香</p>
+<a id="more"></a>
+<p>软路由用作旁路由，搭建socks5代理，速度比windows直接用快了将近30倍。</p>
+<p>不知道是啥原因，可能是Linux和Windows系统上的区别？</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -3189,54 +3189,6 @@ Alabama
       </tags>
   </entry>
   <entry>
-    <title>Playing Cartpole with natural deep reinforcement learning</title>
-    <url>/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/</url>
-    <content><![CDATA[<h2 id="introduction">Introduction</h2>
-<p>There are two kinds of methods in reinforcement learning, <strong>tabular methods</strong> and <strong>approximate methods</strong>. The purpose of RL is to get an <strong>optimal policy</strong>, which tells you to choose what action <em>A</em> when you at state <em>S</em>. If the state and aciton spaces are small enough, value fucntion can be represented as arrays, or tables. The problem with large state space is not just the memory needed for large tables, but the time and data needed to fill them accurately. If the state and aciton spaces are too large, due to the limitions of time and data, value functions need to be approximated with limited computational resources. In this case, out goal instead is to find a good enough approximate solution compared to optimal solution. <a id="more"></a> This post is some reading notes for <em>Playing Atari with Deep Reinforcement learning</em> which published by DeepMind(2013). Instead playing Atari games, I play CartPole games whose simulation environment is provided by Openai Gym. I implement the algorithm proposed by the DeepMind which known as DQN to solve CartPole. Besides, a discrete-q-learing method is discussed compared to DQN.</p>
-<p>CartPole is a classic control task which has infinite state space and finite action space. It is difficult to solve the problem use tabular methods. A neural network can solve this problem to learn successful control polcies. The network is trained with a variant of the Q-learning algorithm, with stochastic gradient descent to update the weights. To alleviate the problems of correlated data and non-stationary distributions, we use an experience replay mechanism which randomly samples previous transitions, and thereby smooths the training distribution over many past behaviors.</p>
-<h2 id="background">Background</h2>
-<p>We consider tasks in which an agent interacts with an environment <span class="math inline">\(\epsilon\)</span>, in this case the openai gym emulator, in a sequence of actions, observations and rewards. At each time-step the agent selects an action <span class="math inline">\(a_t\)</span> from the set of legal game actions, <span class="math inline">\(A=\)</span>{0, 1}. The action is passed to the emulator and it returns a list of next_state, reward, done.</p>
-<p>We consider sequences of actions and observations, <span class="math inline">\(s_t=x_1, a_1, x_2,..., a_{t-1},x_t\)</span> and learn game strategies that depend opon these sequences. All sequences in the emulator are assumed to terminate in a finite number of time-steps. This formalism gives rise to a large but finite Markov decision process(MDP) in which each sequence is a distinct state. As a result, we can apply standard reinforcement learning methods for MDPs, simply by using the complete sequence <span class="math inline">\(s_t\)</span> as the state representation at time t.</p>
-<p>The goal of the agent is to interact with the agent by selecting actions in a way that maximize future rewards. We some following definitons:</p>
-<ul>
-<li>We make the standard assumption that future rewards are discounted by a factor of <span class="math inline">\(\gamma\)</span> per time-step.</li>
-<li>The future discounted return at time <span class="math inline">\(t\)</span> as <span class="math inline">\(R_t=\Sigma_{t&#39;=t}^{T}\gamma^{t&#39;-t}r_{t&#39;}\)</span>, where <span class="math inline">\(T\)</span> is the time step at which the game terminates.</li>
-<li>Optimal action-value function <span class="math inline">\(Q^*(s, a)\)</span> as the maximum expected return achievable by following any strategy, after seeing some sequence <span class="math inline">\(s\)</span> and then taking some action <span class="math inline">\(a\)</span>, <span class="math inline">\(Q^*(s, a)=max_\pi E[R _ t|s _ t=s,a _ t=a,\pi]\)</span>, where <span class="math inline">\(\pi\)</span> is a policy mapping sequences to actions (or distributions over actions).</li>
-</ul>
-<p>The optimal action-value function obeys an important identity known as the <em>Bellman equation</em>. This is based on the following intuition: if the optimal value <span class="math inline">\(Q^*(s&#39;, a&#39;)\)</span> of the sequence <span class="math inline">\(s&#39;\)</span> at the next time-step was known for all possible actions <span class="math inline">\(a&#39;\)</span>, then the optimal strategy is to select the action <span class="math inline">\(a&#39;\)</span> maximizing the expected value of <span class="math inline">\(r+\gamma Q^*(s&#39;, a&#39;)\)</span></p>
-<p><span class="math display">\[Q^*(s, a)=E_{s&#39; \in \epsilon}[r+\gamma max_{a&#39;}Q^*(s&#39;, a&#39;|s, a)]\]</span></p>
-<p>Such value iteration algorithms converge to the optimal action value function, <span class="math inline">\(Q_i \rightarrow Q^*(s, a)\)</span> as <span class="math inline">\(i \rightarrow \infty\)</span></p>
-<p>In practice, this basic approach is totally impractical, because the action-value function is estimated separately for each sequence, without any generalisation. Instead, it is common to use a function approximator to estimate the action-value function, <span class="math inline">\(Q(s, a; \theta)=Q^*(s, a)\)</span>. In the reinforcement learning community this is typically a linear function approximator, but sometimes a non-linear function aproximator is used instead, such as a neural network. We refer to a neural network function approximator with weights <span class="math inline">\(\theta\)</span> as a Q-network. A Q-network can be trained by minimizing a sequence of loss functions <span class="math inline">\(L_i(\theta_i)\)</span> that changes at each iteration i.</p>
-<p><span class="math display">\[L_i(\theta_i)=E_{s,a \in \rho(\cdot)}[(y _ i-Q(s,a;\theta _ i))^2]\]</span></p>
-<p>where <span class="math inline">\(y_i=E_{s&#39; \in \epsilon}[r+\gamma max_{a&#39;}Q(s&#39;, a&#39;;\theta_{i-1}|s, a)]\)</span> is the target for iteration <span class="math inline">\(i\)</span> and <span class="math inline">\(\rho(s, a)\)</span> is a probability distribution over sequences <span class="math inline">\(s\)</span> and aciton <span class="math inline">\(a\)</span> that we refer to as the behaviour distribution.</p>
-<h2 id="deep-reinforcement-learning">Deep Reinforcement Learning</h2>
-<h3 id="dqn-pseudocode">DQN pseudocode</h3>
-<figure>
-<img src="dqn_algorithm.png" alt="dqn_algorithm" /><figcaption>dqn_algorithm</figcaption>
-</figure>
-<h2 id="code">Code</h2>
-<h3 id="dqn.py"><code>dqn.py</code></h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> math, random</span><br><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">import</span> torch.autograd <span class="keyword">as</span> autograd </span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"><span class="keyword">import</span> GPUtil</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">action_space = <span class="number">2</span></span><br><span class="line">state_space = <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Replay buffer </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReplayBuffer</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, capacity)</span>:</span></span><br><span class="line">        self.buffer = deque(maxlen=capacity)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, state, action, reward, next_state, done)</span>:</span></span><br><span class="line">        state = np.expand_dims(state, <span class="number">0</span>)</span><br><span class="line">        next_state = np.expand_dims(next_state, <span class="number">0</span>)</span><br><span class="line">            </span><br><span class="line">        self.buffer.append((state, action, reward, next_state, done))</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sample</span><span class="params">(self, batch_size)</span>:</span></span><br><span class="line">        state, action, reward, next_state, done = zip(*random.sample(self.buffer, batch_size))</span><br><span class="line">        <span class="keyword">return</span> np.concatenate(state), action, reward, np.concatenate(next_state), done</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.buffer)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deep Q Network</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DQN</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, num_inputs, num_actions, device)</span>:</span></span><br><span class="line">        super(DQN, self).__init__()</span><br><span class="line">        self.device = device</span><br><span class="line">        self.layers = nn.Sequential(</span><br><span class="line">            nn.Linear(state_space, <span class="number">256</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">256</span>, <span class="number">256</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">256</span>, action_space)</span><br><span class="line">        ).to(self.device)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.layers(x)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">act</span><span class="params">(self, state, epsilon)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> random.random() &gt; epsilon:</span><br><span class="line">            state = torch.FloatTensor(state).to(self.device)</span><br><span class="line">            q_value = self.forward(state)</span><br><span class="line">            action = q_value.max(<span class="number">0</span>)[<span class="number">1</span>].item()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            action = random.randrange(action_space)</span><br><span class="line">        <span class="keyword">return</span> action</span><br><span class="line"></span><br><span class="line"><span class="comment"># Computing TD difference</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_td_loss</span><span class="params">(model, batch_size, gamma, replay_buffer, optimizer, device)</span>:</span></span><br><span class="line">    state, action, reward, next_state, done = replay_buffer.sample(batch_size)</span><br><span class="line"></span><br><span class="line">    state = torch.FloatTensor(state).to(device)</span><br><span class="line">    next_state = torch.FloatTensor(next_state).to(device)</span><br><span class="line">    action = torch.LongTensor(action).to(device)</span><br><span class="line">    reward = torch.FloatTensor(reward).to(device)</span><br><span class="line">    done = torch.FloatTensor(done).to(device)</span><br><span class="line">    q_values = model.forward(state).to(device)</span><br><span class="line">    next_q_values = model.forward(next_state).to(device)</span><br><span class="line">    <span class="comment"># the value corresponding to the (s, a)</span></span><br><span class="line">    q_value = q_values.gather(<span class="number">1</span>, action.unsqueeze(<span class="number">1</span>)).squeeze(<span class="number">1</span>)</span><br><span class="line">    next_q_value = next_q_values.max(<span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">    expected_q_value = reward + gamma * next_q_value * (<span class="number">1</span> - done)</span><br><span class="line">    loss = (q_value - expected_q_value.data).pow(<span class="number">2</span>).mean()</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">50</span>)</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">return</span> loss</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print the size of the model</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_model_size</span><span class="params">()</span>:</span></span><br><span class="line">    para = sum([np.prod(list(p.size())) <span class="keyword">for</span> p <span class="keyword">in</span> model.parameters()])</span><br><span class="line">    print(<span class="string">'Model &#123;&#125; : params: &#123;:4f&#125;M'</span>.format(model._get_name(), para * <span class="number">4</span> / <span class="number">1000</span> / <span class="number">1000</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print GPU usage</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Monitor</span><span class="params">(Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, delay)</span>:</span></span><br><span class="line">        super(Monitor, self).__init__()</span><br><span class="line">        self.stopped = <span class="literal">False</span></span><br><span class="line">        self.delay = delay <span class="comment"># Time between calls to GPUtil</span></span><br><span class="line">        self.start()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> self.stopped:</span><br><span class="line">            GPUtil.showUtilization()</span><br><span class="line">            time.sleep(self.delay)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">stop</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.stopped = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Get the training time cost</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timeit</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></span><br><span class="line">        start_time = time.time()</span><br><span class="line">        func()</span><br><span class="line">        end_time = time.time()</span><br><span class="line">        print(<span class="string">"The Training is finished. Cost "</span>, end_time-start_time, <span class="string">" S"</span>)</span><br><span class="line">    <span class="keyword">return</span> inner</span><br></pre></td></tr></table></figure>
-<h3 id="traindqn.py"><code>traindqn.py</code></h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> dqn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> torch.utils.tensorboard <span class="keyword">import</span> SummaryWriter</span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line">writer = SummaryWriter()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Gym CartPole environment</span></span><br><span class="line">env = gym.make(<span class="string">"CartPole-v0"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a DQN model using CUDA</span></span><br><span class="line">device = torch.device(<span class="string">"cuda"</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">"cpu"</span>)</span><br><span class="line">model = DQN(env.observation_space.shape[<span class="number">0</span>], env.action_space.n, device)</span><br><span class="line"><span class="keyword">if</span> device == <span class="string">"cuda"</span>:</span><br><span class="line">    print(<span class="string">"Using GPU"</span>)</span><br><span class="line">    model.to(device)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Parameters</span></span><br><span class="line"><span class="comment">## Epsilon greedy exploration</span></span><br><span class="line">epsilon_start = <span class="number">0.9</span></span><br><span class="line">epsilon_final = <span class="number">0.05</span></span><br><span class="line">epsilon_decay = <span class="number">200</span></span><br><span class="line">epsilon_by_episode = <span class="keyword">lambda</span> frame_idx: epsilon_final + (epsilon_start - epsilon_final) * math.exp(<span class="number">-1.</span> * frame_idx / epsilon_decay)</span><br><span class="line"><span class="comment">## gamma</span></span><br><span class="line">gamma = <span class="number">0.99</span></span><br><span class="line"><span class="comment">## Training parameters</span></span><br><span class="line">episodes = <span class="number">1000</span></span><br><span class="line">batch_size = <span class="number">4</span></span><br><span class="line">losses = []</span><br><span class="line">all_rewards = []</span><br><span class="line">episode_reward = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Computing Temporal Difference Loss</span></span><br><span class="line">replay_buffer = ReplayBuffer(<span class="number">5000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a optimizer</span></span><br><span class="line">optimizer = optim.Adam(model.parameters(), lr=<span class="number">0.0001</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Trainning</span></span><br><span class="line"><span class="meta">@timeit</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> gamma, num_frames, batch_size, losses, all_rewards, episode_reward</span><br><span class="line">    state = env.reset()</span><br><span class="line">    <span class="keyword">for</span> episode_idx <span class="keyword">in</span> range(<span class="number">1</span>, episodes + <span class="number">1</span>):</span><br><span class="line">        epsilon = epsilon_by_episode(episode_idx)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> itertools.count():</span><br><span class="line">            action = model.act(state, epsilon)</span><br><span class="line">            <span class="comment">#print(action)</span></span><br><span class="line">            </span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            replay_buffer.push(state, action, reward, next_state, done)</span><br><span class="line">            </span><br><span class="line">            state = next_state</span><br><span class="line">            episode_reward += reward</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                state = env.reset()</span><br><span class="line">                all_rewards.append(episode_reward)</span><br><span class="line">                print(episode_reward)</span><br><span class="line">                episode_reward = <span class="number">0</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">                </span><br><span class="line">            <span class="keyword">if</span> len(replay_buffer) &gt; batch_size:</span><br><span class="line">                loss = compute_td_loss(model, batch_size, gamma, replay_buffer, optimizer, device)</span><br><span class="line">                losses.append(loss.item())</span><br><span class="line">    <span class="comment">#plot(all_rewards, losses)</span></span><br><span class="line">            </span><br><span class="line">        <span class="comment">#if frame_idx % 200 == 0:</span></span><br><span class="line">            <span class="comment">#plot(frame_idx, all_rewards, losses)</span></span><br><span class="line">    plt.plot(all_rewards)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_policy</span><span class="params">()</span>:</span></span><br><span class="line">    pole_angle = np.random.uniform(-env.observation_space.high[<span class="number">2</span>], env.observation_space.high[<span class="number">2</span>], <span class="number">10000</span>)</span><br><span class="line">    pole_velocity = np.random.uniform(-math.radians(<span class="number">50</span>), math.radians(<span class="number">50</span>), <span class="number">10000</span>)</span><br><span class="line">    action_list = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(pole_angle)):</span><br><span class="line">        state = env.reset()</span><br><span class="line">        state[<span class="number">2</span>] = pole_angle[i]</span><br><span class="line">        state[<span class="number">3</span>] = pole_velocity[i]</span><br><span class="line">        <span class="comment">#print(state, model.act(state, 0))</span></span><br><span class="line">        action = model.act(state, <span class="number">0</span>)</span><br><span class="line">        action_list.append(action)</span><br><span class="line">    colors = &#123;<span class="number">0</span>:<span class="string">'blue'</span>,<span class="number">1</span>:<span class="string">'red'</span>&#125;</span><br><span class="line">    colors = [<span class="string">'blue'</span> <span class="keyword">if</span> i==<span class="number">0</span> <span class="keyword">else</span> <span class="string">'red'</span> <span class="keyword">for</span> i <span class="keyword">in</span> action_list]</span><br><span class="line">    labels = [<span class="string">'Left'</span>,<span class="string">'Right'</span>]</span><br><span class="line">    print(colors)</span><br><span class="line">    <span class="keyword">import</span> matplotlib.patches <span class="keyword">as</span> mpatches</span><br><span class="line">    <span class="keyword">from</span> matplotlib.colors <span class="keyword">import</span> ListedColormap</span><br><span class="line">    fig = plt.figure(<span class="number">5</span>, figsize=[<span class="number">7</span>,<span class="number">7</span>])</span><br><span class="line">    ax = fig.gca()</span><br><span class="line">    plt.set_cmap(<span class="string">'brg'</span>)</span><br><span class="line">    surf = ax.scatter(pole_angle,pole_velocity, c=colors)</span><br><span class="line">    ax.set_xlabel(<span class="string">'pole_angle'</span>)</span><br><span class="line">    ax.set_ylabel(<span class="string">'pole_velocity'</span>)</span><br><span class="line">    ax.set_title(<span class="string">'Policy'</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Instantiate monitor with a 10-second delay between updates</span></span><br><span class="line">monitor = Monitor(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#writer.add_graph(model, torch.Tensor([1.0, 1.0, 1.0, 1.0]).to(device))</span></span><br><span class="line"><span class="comment"># Train here</span></span><br><span class="line">train()</span><br><span class="line">plot_policy()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Close monitor</span></span><br><span class="line">monitor.stop()</span><br></pre></td></tr></table></figure>
-<h2 id="result">Result</h2>
-<p>After training for 1000 episodes, we get the following policy:</p>
-<p><img src="dqn_policy.png" alt="policy" /> ## Code Comments ### How to compute TD Loss <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_td_loss</span><span class="params">(model, batch_size, gamma, replay_buffer, optimizer, device)</span>:</span></span><br><span class="line">    state, action, reward, next_state, done = replay_buffer.sample(batch_size)</span><br><span class="line"></span><br><span class="line">    state = torch.FloatTensor(state).to(device)</span><br><span class="line">    next_state = torch.FloatTensor(next_state).to(device)</span><br><span class="line">    action = torch.LongTensor(action).to(device)</span><br><span class="line">    reward = torch.FloatTensor(reward).to(device)</span><br><span class="line">    done = torch.FloatTensor(done).to(device)</span><br><span class="line"></span><br><span class="line">    q_values = model.forward(state).to(device)</span><br><span class="line">    next_q_values = model.forward(next_state).to(device)</span><br><span class="line">    <span class="comment"># the value corresponding to the (s, a)</span></span><br><span class="line">    q_value = q_values.gather(<span class="number">1</span>, action.unsqueeze(<span class="number">1</span>)).squeeze(<span class="number">1</span>)</span><br><span class="line">    next_q_value = next_q_values.max(<span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">    expected_q_value = reward + gamma * next_q_value * (<span class="number">1</span> - done)</span><br><span class="line">    loss = (q_value - expected_q_value.data).pow(<span class="number">2</span>).mean()</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">50</span>)</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">return</span> loss</span><br></pre></td></tr></table></figure> In contrast to TD-Gammon and similar online approaches, we utilize a technique known as <em>experience replay</em> where we store the agent's experiences at each time-step, <span class="math inline">\(e_t=(s_t, a_t, r_t, _{t+1})\)</span> in a data-set <span class="math inline">\(D=e_1, e_2, ... ,e_N\)</span>, pooled over many episodes into a replay memory.</p>
-<p>Since we have known the pair <span class="math inline">\((s_t, a_t)\)</span>, we can get the <code>q_value = q_values.gather(1, action.unsqueeze(1)).squeeze(1)</code>. Then, we know next_state, compute next_q_value. Choose <span class="math inline">\(a&#39;\)</span> which maximize the next_q_value.</p>
-<h2 id="reference">Reference</h2>
-<p>[1] Mnih, Volodymyr, et al. "Playing atari with deep reinforcement learning." arXiv preprint arXiv:1312.5602 (2013).</p>
-<p>[2] https://stackoverflow.com/questions/50999977/what-does-the-gather-function-do-in-pytorch-in-layman-terms</p>
-<p>[3] https://stackoverflow.com/questions/57237352/what-does-unsqueeze-do-in-pytorch</p>
-<p>[4] https://gist.github.com/ts1829/62b9ae7687d79279b9381bb6808bf6ab#file-mountain-car-v0-q-learning-modified-reward-ipynb</p>
-]]></content>
-      <categories>
-        <category>Reinforcement Learning</category>
-      </categories>
-      <tags>
-        <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>PolicyGradient公式推导</title>
     <url>/2020/08/01/PolicyGradient%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/</url>
     <content><![CDATA[<p>本文是对Sutton的《Reinforcement learning An introduction》书中第13章Policy Gradient Methods部分的总结，主要包括<strong>Policy Gradient方法的离散时间情形下的公式推导</strong>，<strong>REINFORCE算法</strong>，<strong>REINFORCE with Baseline算法</strong>，<strong>Short Corridor with switched actions环境下的仿真</strong>。</p>
@@ -3355,6 +3307,54 @@ Alabama
 <h3 id="openai-gym-maze环境下的仿真">openai gym maze环境下的仿真</h3>
 <p><img src="8.png" /></p>
 <p>暂时还没调试好，训练过程不收敛或者陷入局部最优，训练的过程发现初始参数的设定，学习率<span class="math inline">\(\alpha\)</span>等参数对训练效果的影响较大，需要进一步进行研究原因。</p>
+]]></content>
+      <categories>
+        <category>Reinforcement Learning</category>
+      </categories>
+      <tags>
+        <tag>Reinforcement Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Playing Cartpole with natural deep reinforcement learning</title>
+    <url>/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/</url>
+    <content><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>There are two kinds of methods in reinforcement learning, <strong>tabular methods</strong> and <strong>approximate methods</strong>. The purpose of RL is to get an <strong>optimal policy</strong>, which tells you to choose what action <em>A</em> when you at state <em>S</em>. If the state and aciton spaces are small enough, value fucntion can be represented as arrays, or tables. The problem with large state space is not just the memory needed for large tables, but the time and data needed to fill them accurately. If the state and aciton spaces are too large, due to the limitions of time and data, value functions need to be approximated with limited computational resources. In this case, out goal instead is to find a good enough approximate solution compared to optimal solution. <a id="more"></a> This post is some reading notes for <em>Playing Atari with Deep Reinforcement learning</em> which published by DeepMind(2013). Instead playing Atari games, I play CartPole games whose simulation environment is provided by Openai Gym. I implement the algorithm proposed by the DeepMind which known as DQN to solve CartPole. Besides, a discrete-q-learing method is discussed compared to DQN.</p>
+<p>CartPole is a classic control task which has infinite state space and finite action space. It is difficult to solve the problem use tabular methods. A neural network can solve this problem to learn successful control polcies. The network is trained with a variant of the Q-learning algorithm, with stochastic gradient descent to update the weights. To alleviate the problems of correlated data and non-stationary distributions, we use an experience replay mechanism which randomly samples previous transitions, and thereby smooths the training distribution over many past behaviors.</p>
+<h2 id="background">Background</h2>
+<p>We consider tasks in which an agent interacts with an environment <span class="math inline">\(\epsilon\)</span>, in this case the openai gym emulator, in a sequence of actions, observations and rewards. At each time-step the agent selects an action <span class="math inline">\(a_t\)</span> from the set of legal game actions, <span class="math inline">\(A=\)</span>{0, 1}. The action is passed to the emulator and it returns a list of next_state, reward, done.</p>
+<p>We consider sequences of actions and observations, <span class="math inline">\(s_t=x_1, a_1, x_2,..., a_{t-1},x_t\)</span> and learn game strategies that depend opon these sequences. All sequences in the emulator are assumed to terminate in a finite number of time-steps. This formalism gives rise to a large but finite Markov decision process(MDP) in which each sequence is a distinct state. As a result, we can apply standard reinforcement learning methods for MDPs, simply by using the complete sequence <span class="math inline">\(s_t\)</span> as the state representation at time t.</p>
+<p>The goal of the agent is to interact with the agent by selecting actions in a way that maximize future rewards. We some following definitons:</p>
+<ul>
+<li>We make the standard assumption that future rewards are discounted by a factor of <span class="math inline">\(\gamma\)</span> per time-step.</li>
+<li>The future discounted return at time <span class="math inline">\(t\)</span> as <span class="math inline">\(R_t=\Sigma_{t&#39;=t}^{T}\gamma^{t&#39;-t}r_{t&#39;}\)</span>, where <span class="math inline">\(T\)</span> is the time step at which the game terminates.</li>
+<li>Optimal action-value function <span class="math inline">\(Q^*(s, a)\)</span> as the maximum expected return achievable by following any strategy, after seeing some sequence <span class="math inline">\(s\)</span> and then taking some action <span class="math inline">\(a\)</span>, <span class="math inline">\(Q^*(s, a)=max_\pi E[R _ t|s _ t=s,a _ t=a,\pi]\)</span>, where <span class="math inline">\(\pi\)</span> is a policy mapping sequences to actions (or distributions over actions).</li>
+</ul>
+<p>The optimal action-value function obeys an important identity known as the <em>Bellman equation</em>. This is based on the following intuition: if the optimal value <span class="math inline">\(Q^*(s&#39;, a&#39;)\)</span> of the sequence <span class="math inline">\(s&#39;\)</span> at the next time-step was known for all possible actions <span class="math inline">\(a&#39;\)</span>, then the optimal strategy is to select the action <span class="math inline">\(a&#39;\)</span> maximizing the expected value of <span class="math inline">\(r+\gamma Q^*(s&#39;, a&#39;)\)</span></p>
+<p><span class="math display">\[Q^*(s, a)=E_{s&#39; \in \epsilon}[r+\gamma max_{a&#39;}Q^*(s&#39;, a&#39;|s, a)]\]</span></p>
+<p>Such value iteration algorithms converge to the optimal action value function, <span class="math inline">\(Q_i \rightarrow Q^*(s, a)\)</span> as <span class="math inline">\(i \rightarrow \infty\)</span></p>
+<p>In practice, this basic approach is totally impractical, because the action-value function is estimated separately for each sequence, without any generalisation. Instead, it is common to use a function approximator to estimate the action-value function, <span class="math inline">\(Q(s, a; \theta)=Q^*(s, a)\)</span>. In the reinforcement learning community this is typically a linear function approximator, but sometimes a non-linear function aproximator is used instead, such as a neural network. We refer to a neural network function approximator with weights <span class="math inline">\(\theta\)</span> as a Q-network. A Q-network can be trained by minimizing a sequence of loss functions <span class="math inline">\(L_i(\theta_i)\)</span> that changes at each iteration i.</p>
+<p><span class="math display">\[L_i(\theta_i)=E_{s,a \in \rho(\cdot)}[(y _ i-Q(s,a;\theta _ i))^2]\]</span></p>
+<p>where <span class="math inline">\(y_i=E_{s&#39; \in \epsilon}[r+\gamma max_{a&#39;}Q(s&#39;, a&#39;;\theta_{i-1}|s, a)]\)</span> is the target for iteration <span class="math inline">\(i\)</span> and <span class="math inline">\(\rho(s, a)\)</span> is a probability distribution over sequences <span class="math inline">\(s\)</span> and aciton <span class="math inline">\(a\)</span> that we refer to as the behaviour distribution.</p>
+<h2 id="deep-reinforcement-learning">Deep Reinforcement Learning</h2>
+<h3 id="dqn-pseudocode">DQN pseudocode</h3>
+<figure>
+<img src="dqn_algorithm.png" alt="dqn_algorithm" /><figcaption>dqn_algorithm</figcaption>
+</figure>
+<h2 id="code">Code</h2>
+<h3 id="dqn.py"><code>dqn.py</code></h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> math, random</span><br><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">import</span> torch.autograd <span class="keyword">as</span> autograd </span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"><span class="keyword">import</span> GPUtil</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">action_space = <span class="number">2</span></span><br><span class="line">state_space = <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Replay buffer </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReplayBuffer</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, capacity)</span>:</span></span><br><span class="line">        self.buffer = deque(maxlen=capacity)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, state, action, reward, next_state, done)</span>:</span></span><br><span class="line">        state = np.expand_dims(state, <span class="number">0</span>)</span><br><span class="line">        next_state = np.expand_dims(next_state, <span class="number">0</span>)</span><br><span class="line">            </span><br><span class="line">        self.buffer.append((state, action, reward, next_state, done))</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sample</span><span class="params">(self, batch_size)</span>:</span></span><br><span class="line">        state, action, reward, next_state, done = zip(*random.sample(self.buffer, batch_size))</span><br><span class="line">        <span class="keyword">return</span> np.concatenate(state), action, reward, np.concatenate(next_state), done</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.buffer)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deep Q Network</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DQN</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, num_inputs, num_actions, device)</span>:</span></span><br><span class="line">        super(DQN, self).__init__()</span><br><span class="line">        self.device = device</span><br><span class="line">        self.layers = nn.Sequential(</span><br><span class="line">            nn.Linear(state_space, <span class="number">256</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">256</span>, <span class="number">256</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">256</span>, action_space)</span><br><span class="line">        ).to(self.device)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.layers(x)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">act</span><span class="params">(self, state, epsilon)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> random.random() &gt; epsilon:</span><br><span class="line">            state = torch.FloatTensor(state).to(self.device)</span><br><span class="line">            q_value = self.forward(state)</span><br><span class="line">            action = q_value.max(<span class="number">0</span>)[<span class="number">1</span>].item()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            action = random.randrange(action_space)</span><br><span class="line">        <span class="keyword">return</span> action</span><br><span class="line"></span><br><span class="line"><span class="comment"># Computing TD difference</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_td_loss</span><span class="params">(model, batch_size, gamma, replay_buffer, optimizer, device)</span>:</span></span><br><span class="line">    state, action, reward, next_state, done = replay_buffer.sample(batch_size)</span><br><span class="line"></span><br><span class="line">    state = torch.FloatTensor(state).to(device)</span><br><span class="line">    next_state = torch.FloatTensor(next_state).to(device)</span><br><span class="line">    action = torch.LongTensor(action).to(device)</span><br><span class="line">    reward = torch.FloatTensor(reward).to(device)</span><br><span class="line">    done = torch.FloatTensor(done).to(device)</span><br><span class="line">    q_values = model.forward(state).to(device)</span><br><span class="line">    next_q_values = model.forward(next_state).to(device)</span><br><span class="line">    <span class="comment"># the value corresponding to the (s, a)</span></span><br><span class="line">    q_value = q_values.gather(<span class="number">1</span>, action.unsqueeze(<span class="number">1</span>)).squeeze(<span class="number">1</span>)</span><br><span class="line">    next_q_value = next_q_values.max(<span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">    expected_q_value = reward + gamma * next_q_value * (<span class="number">1</span> - done)</span><br><span class="line">    loss = (q_value - expected_q_value.data).pow(<span class="number">2</span>).mean()</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">50</span>)</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">return</span> loss</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print the size of the model</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_model_size</span><span class="params">()</span>:</span></span><br><span class="line">    para = sum([np.prod(list(p.size())) <span class="keyword">for</span> p <span class="keyword">in</span> model.parameters()])</span><br><span class="line">    print(<span class="string">'Model &#123;&#125; : params: &#123;:4f&#125;M'</span>.format(model._get_name(), para * <span class="number">4</span> / <span class="number">1000</span> / <span class="number">1000</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print GPU usage</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Monitor</span><span class="params">(Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, delay)</span>:</span></span><br><span class="line">        super(Monitor, self).__init__()</span><br><span class="line">        self.stopped = <span class="literal">False</span></span><br><span class="line">        self.delay = delay <span class="comment"># Time between calls to GPUtil</span></span><br><span class="line">        self.start()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> self.stopped:</span><br><span class="line">            GPUtil.showUtilization()</span><br><span class="line">            time.sleep(self.delay)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">stop</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.stopped = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Get the training time cost</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timeit</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></span><br><span class="line">        start_time = time.time()</span><br><span class="line">        func()</span><br><span class="line">        end_time = time.time()</span><br><span class="line">        print(<span class="string">"The Training is finished. Cost "</span>, end_time-start_time, <span class="string">" S"</span>)</span><br><span class="line">    <span class="keyword">return</span> inner</span><br></pre></td></tr></table></figure>
+<h3 id="traindqn.py"><code>traindqn.py</code></h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> dqn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> torch.utils.tensorboard <span class="keyword">import</span> SummaryWriter</span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line">writer = SummaryWriter()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Gym CartPole environment</span></span><br><span class="line">env = gym.make(<span class="string">"CartPole-v0"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a DQN model using CUDA</span></span><br><span class="line">device = torch.device(<span class="string">"cuda"</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">"cpu"</span>)</span><br><span class="line">model = DQN(env.observation_space.shape[<span class="number">0</span>], env.action_space.n, device)</span><br><span class="line"><span class="keyword">if</span> device == <span class="string">"cuda"</span>:</span><br><span class="line">    print(<span class="string">"Using GPU"</span>)</span><br><span class="line">    model.to(device)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Parameters</span></span><br><span class="line"><span class="comment">## Epsilon greedy exploration</span></span><br><span class="line">epsilon_start = <span class="number">0.9</span></span><br><span class="line">epsilon_final = <span class="number">0.05</span></span><br><span class="line">epsilon_decay = <span class="number">200</span></span><br><span class="line">epsilon_by_episode = <span class="keyword">lambda</span> frame_idx: epsilon_final + (epsilon_start - epsilon_final) * math.exp(<span class="number">-1.</span> * frame_idx / epsilon_decay)</span><br><span class="line"><span class="comment">## gamma</span></span><br><span class="line">gamma = <span class="number">0.99</span></span><br><span class="line"><span class="comment">## Training parameters</span></span><br><span class="line">episodes = <span class="number">1000</span></span><br><span class="line">batch_size = <span class="number">4</span></span><br><span class="line">losses = []</span><br><span class="line">all_rewards = []</span><br><span class="line">episode_reward = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Computing Temporal Difference Loss</span></span><br><span class="line">replay_buffer = ReplayBuffer(<span class="number">5000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a optimizer</span></span><br><span class="line">optimizer = optim.Adam(model.parameters(), lr=<span class="number">0.0001</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Trainning</span></span><br><span class="line"><span class="meta">@timeit</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> gamma, num_frames, batch_size, losses, all_rewards, episode_reward</span><br><span class="line">    state = env.reset()</span><br><span class="line">    <span class="keyword">for</span> episode_idx <span class="keyword">in</span> range(<span class="number">1</span>, episodes + <span class="number">1</span>):</span><br><span class="line">        epsilon = epsilon_by_episode(episode_idx)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> itertools.count():</span><br><span class="line">            action = model.act(state, epsilon)</span><br><span class="line">            <span class="comment">#print(action)</span></span><br><span class="line">            </span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            replay_buffer.push(state, action, reward, next_state, done)</span><br><span class="line">            </span><br><span class="line">            state = next_state</span><br><span class="line">            episode_reward += reward</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                state = env.reset()</span><br><span class="line">                all_rewards.append(episode_reward)</span><br><span class="line">                print(episode_reward)</span><br><span class="line">                episode_reward = <span class="number">0</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">                </span><br><span class="line">            <span class="keyword">if</span> len(replay_buffer) &gt; batch_size:</span><br><span class="line">                loss = compute_td_loss(model, batch_size, gamma, replay_buffer, optimizer, device)</span><br><span class="line">                losses.append(loss.item())</span><br><span class="line">    <span class="comment">#plot(all_rewards, losses)</span></span><br><span class="line">            </span><br><span class="line">        <span class="comment">#if frame_idx % 200 == 0:</span></span><br><span class="line">            <span class="comment">#plot(frame_idx, all_rewards, losses)</span></span><br><span class="line">    plt.plot(all_rewards)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_policy</span><span class="params">()</span>:</span></span><br><span class="line">    pole_angle = np.random.uniform(-env.observation_space.high[<span class="number">2</span>], env.observation_space.high[<span class="number">2</span>], <span class="number">10000</span>)</span><br><span class="line">    pole_velocity = np.random.uniform(-math.radians(<span class="number">50</span>), math.radians(<span class="number">50</span>), <span class="number">10000</span>)</span><br><span class="line">    action_list = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(pole_angle)):</span><br><span class="line">        state = env.reset()</span><br><span class="line">        state[<span class="number">2</span>] = pole_angle[i]</span><br><span class="line">        state[<span class="number">3</span>] = pole_velocity[i]</span><br><span class="line">        <span class="comment">#print(state, model.act(state, 0))</span></span><br><span class="line">        action = model.act(state, <span class="number">0</span>)</span><br><span class="line">        action_list.append(action)</span><br><span class="line">    colors = &#123;<span class="number">0</span>:<span class="string">'blue'</span>,<span class="number">1</span>:<span class="string">'red'</span>&#125;</span><br><span class="line">    colors = [<span class="string">'blue'</span> <span class="keyword">if</span> i==<span class="number">0</span> <span class="keyword">else</span> <span class="string">'red'</span> <span class="keyword">for</span> i <span class="keyword">in</span> action_list]</span><br><span class="line">    labels = [<span class="string">'Left'</span>,<span class="string">'Right'</span>]</span><br><span class="line">    print(colors)</span><br><span class="line">    <span class="keyword">import</span> matplotlib.patches <span class="keyword">as</span> mpatches</span><br><span class="line">    <span class="keyword">from</span> matplotlib.colors <span class="keyword">import</span> ListedColormap</span><br><span class="line">    fig = plt.figure(<span class="number">5</span>, figsize=[<span class="number">7</span>,<span class="number">7</span>])</span><br><span class="line">    ax = fig.gca()</span><br><span class="line">    plt.set_cmap(<span class="string">'brg'</span>)</span><br><span class="line">    surf = ax.scatter(pole_angle,pole_velocity, c=colors)</span><br><span class="line">    ax.set_xlabel(<span class="string">'pole_angle'</span>)</span><br><span class="line">    ax.set_ylabel(<span class="string">'pole_velocity'</span>)</span><br><span class="line">    ax.set_title(<span class="string">'Policy'</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Instantiate monitor with a 10-second delay between updates</span></span><br><span class="line">monitor = Monitor(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#writer.add_graph(model, torch.Tensor([1.0, 1.0, 1.0, 1.0]).to(device))</span></span><br><span class="line"><span class="comment"># Train here</span></span><br><span class="line">train()</span><br><span class="line">plot_policy()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Close monitor</span></span><br><span class="line">monitor.stop()</span><br></pre></td></tr></table></figure>
+<h2 id="result">Result</h2>
+<p>After training for 1000 episodes, we get the following policy:</p>
+<p><img src="dqn_policy.png" alt="policy" /> ## Code Comments ### How to compute TD Loss <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_td_loss</span><span class="params">(model, batch_size, gamma, replay_buffer, optimizer, device)</span>:</span></span><br><span class="line">    state, action, reward, next_state, done = replay_buffer.sample(batch_size)</span><br><span class="line"></span><br><span class="line">    state = torch.FloatTensor(state).to(device)</span><br><span class="line">    next_state = torch.FloatTensor(next_state).to(device)</span><br><span class="line">    action = torch.LongTensor(action).to(device)</span><br><span class="line">    reward = torch.FloatTensor(reward).to(device)</span><br><span class="line">    done = torch.FloatTensor(done).to(device)</span><br><span class="line"></span><br><span class="line">    q_values = model.forward(state).to(device)</span><br><span class="line">    next_q_values = model.forward(next_state).to(device)</span><br><span class="line">    <span class="comment"># the value corresponding to the (s, a)</span></span><br><span class="line">    q_value = q_values.gather(<span class="number">1</span>, action.unsqueeze(<span class="number">1</span>)).squeeze(<span class="number">1</span>)</span><br><span class="line">    next_q_value = next_q_values.max(<span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">    expected_q_value = reward + gamma * next_q_value * (<span class="number">1</span> - done)</span><br><span class="line">    loss = (q_value - expected_q_value.data).pow(<span class="number">2</span>).mean()</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">50</span>)</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">return</span> loss</span><br></pre></td></tr></table></figure> In contrast to TD-Gammon and similar online approaches, we utilize a technique known as <em>experience replay</em> where we store the agent's experiences at each time-step, <span class="math inline">\(e_t=(s_t, a_t, r_t, _{t+1})\)</span> in a data-set <span class="math inline">\(D=e_1, e_2, ... ,e_N\)</span>, pooled over many episodes into a replay memory.</p>
+<p>Since we have known the pair <span class="math inline">\((s_t, a_t)\)</span>, we can get the <code>q_value = q_values.gather(1, action.unsqueeze(1)).squeeze(1)</code>. Then, we know next_state, compute next_q_value. Choose <span class="math inline">\(a&#39;\)</span> which maximize the next_q_value.</p>
+<h2 id="reference">Reference</h2>
+<p>[1] Mnih, Volodymyr, et al. "Playing atari with deep reinforcement learning." arXiv preprint arXiv:1312.5602 (2013).</p>
+<p>[2] https://stackoverflow.com/questions/50999977/what-does-the-gather-function-do-in-pytorch-in-layman-terms</p>
+<p>[3] https://stackoverflow.com/questions/57237352/what-does-unsqueeze-do-in-pytorch</p>
+<p>[4] https://gist.github.com/ts1829/62b9ae7687d79279b9381bb6808bf6ab#file-mountain-car-v0-q-learning-modified-reward-ipynb</p>
 ]]></content>
       <categories>
         <category>Reinforcement Learning</category>
@@ -3665,6 +3665,76 @@ v_{k+1}(s) &amp; \doteq \max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{k}\left(S_{t
       </tags>
   </entry>
   <entry>
+    <title>科研论文常用句式语法汇总整理</title>
+    <url>/2021/01/31/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%B8%B8%E7%94%A8%E5%8F%A5%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<p>科研论文写作和平常的写作不太一样，从我自己写下来的感觉，发现自己写的英文句式很死板，读上去没有那些native的作者的语言的感觉，因此需要进行专业训练。训练方式就是模仿那些作者的文字。</p>
+<p>这篇博客将长期更新，分为5个部分，包括abstract, Introduction, method, simulation, conclusion，争取做到每天更新，每天看一篇论文，在学习其内容的同时，整理其值得学习借鉴的语法句式，分类整理。</p>
+<p>对于每一篇文章，每一个section找5局有特色的句子，将其中文意思和英文表单都整理一下，因为从实际写作的角度来看，很多情况下我们无法写出合适的英文表达，有一部分原因是因为我们使用中文都无法准确将我们想要表达的内容表达出来，所以英译汉也是一个十分重要的部分。</p>
+<p>通过不断整理，相当于整理了一个可供中文查询的数据库，例如，我想搜"关系"，直接可以搜到整理到的相关的语句表达。</p>
+<p>*在阅读文献的时候，将好的语句表达用不同颜色标注一下。</p>
+<a id="more"></a>
+<h2 id="abstract">Abstract</h2>
+<p>We introduce Adam, an algorithm for first-order gradient-based optimization of stochastic objective functions, based on adaptive estimates of lower-order moments.</p>
+<p>我们介绍了Adam，一种基于自适应低阶矩估计的用于随机目标函数的一阶梯度优化算法。</p>
+<p>The hyper-parameters have intuitive interpretations and typically require little tuning.</p>
+<p>超参数具有直观的解释，通常需要很少的调整。</p>
+<p>Some connections to related algorithms, on which Adam was inspired, are discussed.</p>
+<p>讨论了一些对Adam启发的相关算法的联系</p>
+<p>We also analyze the theoretical convergence properties of the algorithm and provide a regret bound on the convergence rate that is comparable to the best known results under the online convex optimization framework.</p>
+<p>我们还分析了算法的理论收敛性，并提供了与在线凸优化框架下已知的最好的结果相当的收敛率的后悔界。</p>
+<p>Empirical results demonstrate that Adam works well in practice and compares favorably to other stochastic optimization methods.</p>
+<p>实证结果表明，Adam在实践中效果很好，并且可以与其他随机优化方法进行比较。</p>
+<h2 id="introduction">Introduction</h2>
+<p>Stochastic gradient-based optimization is of core practical importance in many fields of science and engineering</p>
+<p>基于随机梯度的优化在科学和工程学的许多领域中具有核心的实践重要性</p>
+<p>Many problems in these fields can be cast as the optimization of some scalar parameterized objective function requiring maximization or minimization with respect to its parameters.</p>
+<p>这些领域中的许多问题都可以归结为某些标量参数化目标函数的优化，要求对其参数进行最大化或最小化。</p>
+<p>If the function is differentiable w.r.t. its parameters, gradient descent is a relatively efficient optimization method, since the computation of first-order partial derivatives w.r.t. all the parameters is of the same computational complexity as just evaluating the function.</p>
+<p>如果函数是可微的 由于其一阶偏导数w.r.t的计算，梯度下降是一种相对有效的优化方法。 所有参数的计算复杂度与评估函数相同。</p>
+<p>The focus of this paper is on the optimization of stochastic objectives with high-dimensional parameters spaces.</p>
+<p>本文的重点是优化具有高维参数空间的随机目标。</p>
+<p>Some of Adam’s advantages are that the magnitudes of parameter updates are invariant to rescaling of the gradient, its stepsizes are approximately bounded by the stepsize hyperparameter, it does not require a stationary objective, it works with sparse gradients, and it naturally performs aform of step size annealing.</p>
+<p>Adam的一些优点是参数更新的大小对于梯度的重新缩放是不变的，其步长大约由步长超参数界定，它不需要固定的目标函数，它适用于稀疏梯度，并且自然地执行阶跃形式 尺寸退火。</p>
+<h2 id="method">Method</h2>
+<p>This can be understood as establishing a trust region around the current parameter value, beyond which the current gradient estimate does not provide sufficient information.</p>
+<p>这可以理解为在当前参数值周围建立信任区域，超过该范围当前梯度估计将无法提供足够的信息。</p>
+<p>For many machine learning models, for instance, we often know in advance that good optima are with high probability within some set region in parameter space</p>
+<p>例如，对于许多机器学习模型，我们通常会事先知道，在参数空间的某些设置区域内，良好的最优概率很高</p>
+<p>This is a desirable property, since a smaller SNR means that there is greater uncertainty about whether the direction of mb t corresponds to the direction of the true gradient.</p>
+<p>这是一个理想的特性，因为SNR越小意味着mb t的方向是否对应于真实梯度的方向的不确定性就越大。</p>
+<p>Let g be the gradient of the stochastic objective f, and we wish to estimate its second raw moment (uncentered variance) using an exponential moving average of the squared gradient, with decay rate β2. Let g1, ..., gT be the gradients at subsequent timesteps, each a draw from an underlying gradient distribution gt ∼ p(gt).</p>
+<p>令g为随机目标f的梯度，我们希望使用平方梯度的指数移动平均值（衰减率为β2）来估计其第二原始矩（无中心方差）。 令g1，...，gT为后续时间步长的梯度，每个梯度都是从基础梯度分布gt〜p（gt）中得出的。</p>
+<p>We wish to know how E[vt], the expected value of the exponential moving average at timestep t, relates to the true second moment E[gt2], so we can correct for the discrepancy between the two.</p>
+<p>我们希望知道E [vt]，即时间步长t处的指数移动平均值的期望值与真实的第二矩E [gt2]之间的关系，因此我们可以校正两者之间的差异。</p>
+<p>Since the nature of the sequence is unknown in advance, we evaluate our algorithm using the regret, that is the sum of all the previous difference between the online prediction ft(θt) and the best fixed point parameter ft(θ∗) from a feasible set X for all the previous steps.</p>
+<p>由于序列的性质事先未知，因此我们遗憾地评估了我们的算法，即在线预测ft（θt）和最佳定点参数ft（θ∗）之间所有先前差值的总和。 为前面的所有步骤设置X。</p>
+<h2 id="simulation">Simulation</h2>
+<p>To empirically evaluate the proposed method, we investigated different popular machine learning models, including logistic regression, multilayer fully connected neural networks and deep convolutional neural networks.</p>
+<p>为了从经验上评估所提出的方法，我们研究了各种流行的机器学习模型，包括逻辑回归，多层完全连接神经网络和深度卷积神经网络。</p>
+<p>Logistic regression has a well-studied convex objective, making it suitable for comparison of different optimizers without worrying about local minimum issues.</p>
+<p>Logistic回归具有经过充分研究的凸目标，使其适合比较不同的优化器，而不必担心局部最小问题。</p>
+<p>In our experiments, we made model choices that are consistent with previous publications in the area; a neural network model with two fully connected hidden layers with 1000 hidden units each and ReLU activation are used for this experiment with minibatch size of 128.</p>
+<p>在我们的实验中，我们做出了与该领域以前的出版物一致的模型选择。 该神经网络模型具有两个完全连接的隐藏层，每个隐藏层各具有1000个隐藏单元，并且ReLU激活用于最小批量为128的实验。</p>
+<p>Due to the cost of updating curvature information, SFO is 5-10x slower per iteration compared to Adam, and has a memory requirement that is linear in the number minibatches.</p>
+<p>由于更新曲率信息的成本，SFO与Adam相比，每次迭代的速度慢5-10倍，并且内存需求在微型批处理中是线性的。</p>
+<p>Whereas, reducing the minibatch variance through the first moment is more important in CNNs and contributes to the speed-up.</p>
+<p>然而，在CNN中降低第一时刻的最小批量差异更为重要，并有助于提高速度。</p>
+<p>Though Adam shows marginal improvement over SGD with momentum, it adapts learning rate scale for different layers instead of hand picking manually as in SGD.</p>
+<p>尽管Adam在动量方面比SGD略有改善，但它会针对不同层次调整学习率范围，而不是像SGD中那样手动进行选择。</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Our method is aimed towards machine learning problems with large datasets and/or high-dimensional parameter spaces.</p>
+<p>我们的方法旨在解决大型数据集和/或高维参数空间的机器学习问题。</p>
+<p>Overall, we found Adam to be robust and well-suited to a wide range of non-convex optimization problems in the field machine learning.</p>
+<p>总体而言，我们发现Adam非常强大，非常适合于现场机器学习中的各种非凸优化问题。</p>
+]]></content>
+      <categories>
+        <category>Paper</category>
+      </categories>
+      <tags>
+        <tag>Paper</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>深度学习在无人驾驶中的应用</title>
     <url>/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9C%A8%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<p>本文主要是对文章《A Survey of Deep Learning Applications to Autonomous Vehicle Control》的整理</p>
@@ -3932,76 +4002,6 @@ v_{k+1}(s) &amp; \doteq \max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{k}\left(S_{t
       </categories>
       <tags>
         <tag>Nonlinear System</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>科研论文常用句式语法汇总整理</title>
-    <url>/2021/01/31/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%B8%B8%E7%94%A8%E5%8F%A5%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<p>科研论文写作和平常的写作不太一样，从我自己写下来的感觉，发现自己写的英文句式很死板，读上去没有那些native的作者的语言的感觉，因此需要进行专业训练。训练方式就是模仿那些作者的文字。</p>
-<p>这篇博客将长期更新，分为5个部分，包括abstract, Introduction, method, simulation, conclusion，争取做到每天更新，每天看一篇论文，在学习其内容的同时，整理其值得学习借鉴的语法句式，分类整理。</p>
-<p>对于每一篇文章，每一个section找5局有特色的句子，将其中文意思和英文表单都整理一下，因为从实际写作的角度来看，很多情况下我们无法写出合适的英文表达，有一部分原因是因为我们使用中文都无法准确将我们想要表达的内容表达出来，所以英译汉也是一个十分重要的部分。</p>
-<p>通过不断整理，相当于整理了一个可供中文查询的数据库，例如，我想搜"关系"，直接可以搜到整理到的相关的语句表达。</p>
-<p>*在阅读文献的时候，将好的语句表达用不同颜色标注一下。</p>
-<a id="more"></a>
-<h2 id="abstract">Abstract</h2>
-<p>We introduce Adam, an algorithm for first-order gradient-based optimization of stochastic objective functions, based on adaptive estimates of lower-order moments.</p>
-<p>我们介绍了Adam，一种基于自适应低阶矩估计的用于随机目标函数的一阶梯度优化算法。</p>
-<p>The hyper-parameters have intuitive interpretations and typically require little tuning.</p>
-<p>超参数具有直观的解释，通常需要很少的调整。</p>
-<p>Some connections to related algorithms, on which Adam was inspired, are discussed.</p>
-<p>讨论了一些对Adam启发的相关算法的联系</p>
-<p>We also analyze the theoretical convergence properties of the algorithm and provide a regret bound on the convergence rate that is comparable to the best known results under the online convex optimization framework.</p>
-<p>我们还分析了算法的理论收敛性，并提供了与在线凸优化框架下已知的最好的结果相当的收敛率的后悔界。</p>
-<p>Empirical results demonstrate that Adam works well in practice and compares favorably to other stochastic optimization methods.</p>
-<p>实证结果表明，Adam在实践中效果很好，并且可以与其他随机优化方法进行比较。</p>
-<h2 id="introduction">Introduction</h2>
-<p>Stochastic gradient-based optimization is of core practical importance in many fields of science and engineering</p>
-<p>基于随机梯度的优化在科学和工程学的许多领域中具有核心的实践重要性</p>
-<p>Many problems in these fields can be cast as the optimization of some scalar parameterized objective function requiring maximization or minimization with respect to its parameters.</p>
-<p>这些领域中的许多问题都可以归结为某些标量参数化目标函数的优化，要求对其参数进行最大化或最小化。</p>
-<p>If the function is differentiable w.r.t. its parameters, gradient descent is a relatively efficient optimization method, since the computation of first-order partial derivatives w.r.t. all the parameters is of the same computational complexity as just evaluating the function.</p>
-<p>如果函数是可微的 由于其一阶偏导数w.r.t的计算，梯度下降是一种相对有效的优化方法。 所有参数的计算复杂度与评估函数相同。</p>
-<p>The focus of this paper is on the optimization of stochastic objectives with high-dimensional parameters spaces.</p>
-<p>本文的重点是优化具有高维参数空间的随机目标。</p>
-<p>Some of Adam’s advantages are that the magnitudes of parameter updates are invariant to rescaling of the gradient, its stepsizes are approximately bounded by the stepsize hyperparameter, it does not require a stationary objective, it works with sparse gradients, and it naturally performs aform of step size annealing.</p>
-<p>Adam的一些优点是参数更新的大小对于梯度的重新缩放是不变的，其步长大约由步长超参数界定，它不需要固定的目标函数，它适用于稀疏梯度，并且自然地执行阶跃形式 尺寸退火。</p>
-<h2 id="method">Method</h2>
-<p>This can be understood as establishing a trust region around the current parameter value, beyond which the current gradient estimate does not provide sufficient information.</p>
-<p>这可以理解为在当前参数值周围建立信任区域，超过该范围当前梯度估计将无法提供足够的信息。</p>
-<p>For many machine learning models, for instance, we often know in advance that good optima are with high probability within some set region in parameter space</p>
-<p>例如，对于许多机器学习模型，我们通常会事先知道，在参数空间的某些设置区域内，良好的最优概率很高</p>
-<p>This is a desirable property, since a smaller SNR means that there is greater uncertainty about whether the direction of mb t corresponds to the direction of the true gradient.</p>
-<p>这是一个理想的特性，因为SNR越小意味着mb t的方向是否对应于真实梯度的方向的不确定性就越大。</p>
-<p>Let g be the gradient of the stochastic objective f, and we wish to estimate its second raw moment (uncentered variance) using an exponential moving average of the squared gradient, with decay rate β2. Let g1, ..., gT be the gradients at subsequent timesteps, each a draw from an underlying gradient distribution gt ∼ p(gt).</p>
-<p>令g为随机目标f的梯度，我们希望使用平方梯度的指数移动平均值（衰减率为β2）来估计其第二原始矩（无中心方差）。 令g1，...，gT为后续时间步长的梯度，每个梯度都是从基础梯度分布gt〜p（gt）中得出的。</p>
-<p>We wish to know how E[vt], the expected value of the exponential moving average at timestep t, relates to the true second moment E[gt2], so we can correct for the discrepancy between the two.</p>
-<p>我们希望知道E [vt]，即时间步长t处的指数移动平均值的期望值与真实的第二矩E [gt2]之间的关系，因此我们可以校正两者之间的差异。</p>
-<p>Since the nature of the sequence is unknown in advance, we evaluate our algorithm using the regret, that is the sum of all the previous difference between the online prediction ft(θt) and the best fixed point parameter ft(θ∗) from a feasible set X for all the previous steps.</p>
-<p>由于序列的性质事先未知，因此我们遗憾地评估了我们的算法，即在线预测ft（θt）和最佳定点参数ft（θ∗）之间所有先前差值的总和。 为前面的所有步骤设置X。</p>
-<h2 id="simulation">Simulation</h2>
-<p>To empirically evaluate the proposed method, we investigated different popular machine learning models, including logistic regression, multilayer fully connected neural networks and deep convolutional neural networks.</p>
-<p>为了从经验上评估所提出的方法，我们研究了各种流行的机器学习模型，包括逻辑回归，多层完全连接神经网络和深度卷积神经网络。</p>
-<p>Logistic regression has a well-studied convex objective, making it suitable for comparison of different optimizers without worrying about local minimum issues.</p>
-<p>Logistic回归具有经过充分研究的凸目标，使其适合比较不同的优化器，而不必担心局部最小问题。</p>
-<p>In our experiments, we made model choices that are consistent with previous publications in the area; a neural network model with two fully connected hidden layers with 1000 hidden units each and ReLU activation are used for this experiment with minibatch size of 128.</p>
-<p>在我们的实验中，我们做出了与该领域以前的出版物一致的模型选择。 该神经网络模型具有两个完全连接的隐藏层，每个隐藏层各具有1000个隐藏单元，并且ReLU激活用于最小批量为128的实验。</p>
-<p>Due to the cost of updating curvature information, SFO is 5-10x slower per iteration compared to Adam, and has a memory requirement that is linear in the number minibatches.</p>
-<p>由于更新曲率信息的成本，SFO与Adam相比，每次迭代的速度慢5-10倍，并且内存需求在微型批处理中是线性的。</p>
-<p>Whereas, reducing the minibatch variance through the first moment is more important in CNNs and contributes to the speed-up.</p>
-<p>然而，在CNN中降低第一时刻的最小批量差异更为重要，并有助于提高速度。</p>
-<p>Though Adam shows marginal improvement over SGD with momentum, it adapts learning rate scale for different layers instead of hand picking manually as in SGD.</p>
-<p>尽管Adam在动量方面比SGD略有改善，但它会针对不同层次调整学习率范围，而不是像SGD中那样手动进行选择。</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>Our method is aimed towards machine learning problems with large datasets and/or high-dimensional parameter spaces.</p>
-<p>我们的方法旨在解决大型数据集和/或高维参数空间的机器学习问题。</p>
-<p>Overall, we found Adam to be robust and well-suited to a wide range of non-convex optimization problems in the field machine learning.</p>
-<p>总体而言，我们发现Adam非常强大，非常适合于现场机器学习中的各种非凸优化问题。</p>
-]]></content>
-      <categories>
-        <category>Paper</category>
-      </categories>
-      <tags>
-        <tag>Paper</tag>
       </tags>
   </entry>
   <entry>
