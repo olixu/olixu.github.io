@@ -31,7 +31,7 @@
 <meta property="og:description" content="上一篇博客中，科研论文常用句式语法汇总整理，每天将所看论文中的优秀的语句进行摘录整理，经过一个月的使用（其实也就不到一周，中间春节没有学习），感觉也还是有点不得劲，所以，这篇博客是对论文的各部分的段落进行整理，翻译成中文，最好能背诵下来（笨办法，先试试看，毕竟身边没人教我hhhh）。 这篇博客将长期更新，分为5个部分，包括abstract, Introduction, method, simula">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-28T19:47:00.000Z">
-<meta property="article:modified_time" content="2021-02-28T13:31:14.652Z">
+<meta property="article:modified_time" content="2021-02-28T15:51:04.779Z">
 <meta property="article:author" content="Oliver xu">
 <meta property="article:tag" content="Paper">
 <meta name="twitter:card" content="summary">
@@ -237,7 +237,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-02-28 19:47:00 / 修改时间：13:31:14" itemprop="dateCreated datePublished" datetime="2021-02-28T19:47:00+00:00">2021-02-28</time>
+              <time title="创建时间：2021-02-28 19:47:00 / 修改时间：15:51:04" itemprop="dateCreated datePublished" datetime="2021-02-28T19:47:00+00:00">2021-02-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -255,14 +255,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>326</span>
+              <span>3.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -279,11 +279,20 @@
 <p><strong>每天整理并背诵一段话。</strong></p>
 <a id="more"></a>
 <h2 id="abstract">Abstract</h2>
+<h3 id="evolving-reinforcement-learning-algorithms">1. Evolving reinforcement learning algorithms</h3>
+<p>We propose a method for meta-learning reinforcement learning algorithms by searching over the space of computational graphs which compute the loss function for a value-based model-free RL agent to optimize. The learned algorithms are domain-agnostic and can generalize to new environments not seen during training. Our method can both learn from scratch and bootstrap off known existing algorithms, like DQN, enabling interpretable modifications which improve performance. Learning from scratch on simple classical control and gridworld tasks, our method rediscovers the temporal-difference (TD) algorithm. Bootstrapped from DQN, we highlight two learned algorithms which obtain good generalization performance over other classical control tasks, gridworld type tasks, and Atari games. The analysis of the learned algorithm behavior shows resemblance to recently proposed RL algorithms that address overestimation in value-based methods.</p>
+<p>我们通过搜索计算图的空间来提出一种用于元学习强化学习算法的方法，该计算图可计算基于值的无模型RL代理的损失函数以进行优化。 学习的算法与领域无关，并且可以推广到训练期间未看到的新环境。 我们的方法既可以从头开始学习，又可以引导已知的现有算法（例如DQN）进行访问，从而可以进行可解释的修改，从而提高性能。 从简单的经典控制和gridworld任务开始学习，我们的方法重新发现了时差（TD）算法。 从DQN开始，我们重点介绍了两种学习过的算法，它们在其他经典控制任务，gridworld类型任务和Atari游戏上均具有良好的概括性能。 对学习到的算法行为的分析表明，它与最近提出的RL算法相似，后者解决了基于值的方法中的高估问题。</p>
 <h2 id="introduction">Introduction</h2>
+<h3 id="evolving-reinforcement-learning-algorithms-1">1. Evolving reinforcement learning algorithms</h3>
+<p>Our learned loss function should generalize across many different environments, instead of being specific to a particular domain. Thus, we design a search language based on genetic programming (Koza, 1993) that can express general symbolic loss functions which can be applied to any environment. Data typing and a generic interface to variables in the MDP allow the learned program to be domain agnostic. This language also supports the use of neural network modules as subcomponents of the program, so that more complex neural network architectures can be realized. Efficiently searching over the space of useful programs is generally difficult. For the outer loop optimization, we use regularized evolution (Real et al., 2019), a recent variant of classic evolutionary algorithms that employ tournament selection (Goldberg &amp; Deb, 1991). This approach can scale with the number of compute nodes and has been shown to work for designing algorithms for supervised learning (Real et al., 2020). We adapt this method to automatically design algorithms for reinforcement learning.</p>
+<p>我们的学习损失函数应该在许多不同的环境中推广，而不是特定于特定领域。因此，我们设计了一种基于遗传程序设计的搜索语言（Koza，1993），该语言可以表达可应用于任何环境的通用符号损失函数。数据类型输入和MDP中变量的通用接口使学习的程序与域无关。该语言还支持将神经网络模块用作程序的子组件，以便可以实现更复杂的神经网络体系结构。通常很难有效地搜索有用程序的空间。对于外循环优化，我们使用正则化进化（Real et al。，2019），这是采用锦标赛选择的经典进化算法的最新变体（Goldberg＆Deb，1991）。这种方法可以随着计算节点的数量而扩展，并且已经证明可用于设计监督学习的算法（Real等，2020）。我们采用这种方法来自动设计用于强化学习的算法。</p>
 <h2 id="related-work">Related Work</h2>
 <h2 id="method">Method</h2>
 <h2 id="simulation">Simulation</h2>
 <h2 id="conclusion">Conclusion</h2>
+<h3 id="evolving-reinforcement-learning-algorithms-2">1. Evolving reinforcement learning algorithms</h3>
+<p>In this work, we have presented a method for learning reinforcement learning algorithms. We design a general language for representing algorithms which compute the loss function for value-based model-free RL agents to optimize. We highlight two learned algorithms which although relatively simple, can obtain good generalization performance over a wide range of environments. Our analysis of the learned algorithms sheds insight on their benefit as regularization terms which are similar to recently proposed algorithms. Our work is limited to discrete action and value-based RL algorithms that are close to DQN, but could easily be expanded to express more general RL algorithms such as actor-critic or policy gradient methods. How actions are sampled from the policy could also be part of the search space. The set of environments we use for both training and testing could also be expanded to include a more diverse set of problem types. We leave these problems for future work.</p>
+<p>在这项工作中，我们提出了一种学习强化学习算法的方法。 我们设计了一种通用语言来表示算法，该算法可为基于价值的无模型RL代理计算损失函数以进行优化。 我们重点介绍了两种学习算法，这些算法虽然相对简单，但可以在多种环境中获得良好的泛化性能。 我们对所学算法的分析揭示了它们作为正则化术语的好处，与最近提出的算法相似。 我们的工作仅限于接近DQN的离散行动和基于价值的RL算法，但可以轻松扩展以表达更通用的RL算法，例如参与者批评法或策略梯度法。 如何从策略中采样操作也可能是搜索空间的一部分。 我们用于培训和测试的环境也可以扩展为包括更多不同类型的问题。 我们将这些问题留给以后的工作。</p>
 
     </div>
 
@@ -380,7 +389,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#related-work"><span class="nav-number">3.</span> <span class="nav-text">Related Work</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#method"><span class="nav-number">4.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#simulation"><span class="nav-number">5.</span> <span class="nav-text">Simulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conclusion"><span class="nav-number">6.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#evolving-reinforcement-learning-algorithms"><span class="nav-number">1.1.</span> <span class="nav-text">1. Evolving reinforcement learning algorithms</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#evolving-reinforcement-learning-algorithms-1"><span class="nav-number">2.1.</span> <span class="nav-text">1. Evolving reinforcement learning algorithms</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#related-work"><span class="nav-number">3.</span> <span class="nav-text">Related Work</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#method"><span class="nav-number">4.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#simulation"><span class="nav-number">5.</span> <span class="nav-text">Simulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conclusion"><span class="nav-number">6.</span> <span class="nav-text">Conclusion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#evolving-reinforcement-learning-algorithms-2"><span class="nav-number">6.1.</span> <span class="nav-text">1. Evolving reinforcement learning algorithms</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -453,12 +462,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">214k</span>
+    <span title="站点总字数">217k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:14</span>
+    <span title="站点阅读时长">3:18</span>
 </div>
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
   </div>
