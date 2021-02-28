@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="https://blog.oliverxu.cn/"/>
-  <updated>2021-02-28T10:18:09.670Z</updated>
+  <updated>2021-02-28T13:31:14.652Z</updated>
   <id>https://blog.oliverxu.cn/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>科研论文各段落表达整理背诵</title>
+    <link href="https://blog.oliverxu.cn/2021/02/28/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%90%84%E6%AE%B5%E8%90%BD%E8%A1%A8%E8%BE%BE%E6%95%B4%E7%90%86%E8%83%8C%E8%AF%B5/"/>
+    <id>https://blog.oliverxu.cn/2021/02/28/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%90%84%E6%AE%B5%E8%90%BD%E8%A1%A8%E8%BE%BE%E6%95%B4%E7%90%86%E8%83%8C%E8%AF%B5/</id>
+    <published>2021-02-28T19:47:00.000Z</published>
+    <updated>2021-02-28T13:31:14.652Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;上一篇博客中，&lt;a href=&quot;https://blog.oliverxu.cn/2021/01/31/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%B8%B8%E7%94%A8%E5%8F%A5%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/#more&quot;&gt;科研论文常用句式语法汇总整理&lt;/a&gt;，每天将所看论文中的优秀的语句进行摘录整理，经过一个月的使用（其实也就不到一周，中间春节没有学习），感觉也还是有点不得劲，所以，这篇博客是对论文的各部分的段落进行整理，翻译成中文，最好能背诵下来（笨办法，先试试看，毕竟身边没人教我hhhh）。&lt;/p&gt;
+&lt;p&gt;这篇博客将长期更新，分为5个部分，包括abstract, Introduction, method, simulation, conclusion，争取做到每天更新，每天看一篇论文，在学习其内容的同时，摘录其优秀的整段文字，并进行分类整理。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;每天整理并背诵一段话。&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Paper" scheme="https://blog.oliverxu.cn/categories/Paper/"/>
+    
+    
+      <category term="Paper" scheme="https://blog.oliverxu.cn/tags/Paper/"/>
+    
+  </entry>
+  
+  <entry>
     <title>科研论文常用句式语法汇总整理</title>
     <link href="https://blog.oliverxu.cn/2021/01/31/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%B8%B8%E7%94%A8%E5%8F%A5%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/"/>
     <id>https://blog.oliverxu.cn/2021/01/31/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%B8%B8%E7%94%A8%E5%8F%A5%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/</id>
     <published>2021-01-31T19:09:00.000Z</published>
-    <updated>2021-02-28T10:18:09.670Z</updated>
+    <updated>2021-02-28T13:31:14.652Z</updated>
     
     <summary type="html">
     
@@ -468,32 +491,6 @@
 &lt;li&gt;partially model based：既用模型也用数据&lt;/li&gt;
 &lt;li&gt;model free：模型未知，完全从数据中学习控制策略&lt;/li&gt;
 &lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/categories/Reinforcement-Learning/"/>
-    
-    
-      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/tags/Reinforcement-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PolicyGradient公式推导</title>
-    <link href="https://blog.oliverxu.cn/2020/08/01/PolicyGradient%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/"/>
-    <id>https://blog.oliverxu.cn/2020/08/01/PolicyGradient%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/</id>
-    <published>2020-08-01T10:43:54.000Z</published>
-    <updated>2020-09-14T07:41:31.665Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文是对Sutton的《Reinforcement learning An introduction》书中第13章Policy Gradient Methods部分的总结，主要包括&lt;strong&gt;Policy Gradient方法的离散时间情形下的公式推导&lt;/strong&gt;，&lt;strong&gt;REINFORCE算法&lt;/strong&gt;，&lt;strong&gt;REINFORCE with Baseline算法&lt;/strong&gt;，&lt;strong&gt;Short Corridor with switched actions环境下的仿真&lt;/strong&gt;。&lt;/p&gt;
-&lt;h2 id=&quot;policy-gradient&quot;&gt;Policy Gradient&lt;/h2&gt;
-&lt;p&gt;和PG算法相对应的是基于action-value的方法，这些方法学习动作的价值然后根据这些价值的大小选择行为，但是对于PG算法来说，直接学习一个参数化的策略，该策略的输入是状态，输出是动作，策略可以直接选择动作而不是依据价值函数进行判断，用&lt;span class=&quot;math inline&quot;&gt;\(\theta \in R^d\)&lt;/span&gt;来表示策略的参数，可以将需要学习的策略写成：&lt;span class=&quot;math inline&quot;&gt;\(\pi(a|s, \theta)=Pr\{A_t=a|S_t=s,\theta_t=\theta\}\)&lt;/span&gt;，意思是在t时刻，当agent处于状态&lt;span class=&quot;math inline&quot;&gt;\(s\)&lt;/span&gt;，选择动作&lt;span class=&quot;math inline&quot;&gt;\(a\)&lt;/span&gt;的概率，PG算法的目标就是求这个&lt;span class=&quot;math inline&quot;&gt;\(\pi(a|s, \theta)\)&lt;/span&gt;。&lt;/p&gt;
-&lt;p&gt;策略参数的学习需要基于某种性能度量&lt;span class=&quot;math inline&quot;&gt;\(J(\theta)\)&lt;/span&gt;的梯度，PG方法的目标是最大化性能指标，所以它们的更新近似于&lt;span class=&quot;math inline&quot;&gt;\(J\)&lt;/span&gt;的梯度上升：&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;math display&quot;&gt;\[\boldsymbol{\theta}_{t+1}=\boldsymbol{\theta}_{t}+\alpha \widehat{\nabla J\left(\boldsymbol{\theta}_{t}\right)}\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;其中，&lt;span class=&quot;math inline&quot;&gt;\(\widehat{\nabla J\left(\boldsymbol{\theta}_{t}\right)} \in \mathbb{R}^{d}\)&lt;/span&gt;是一个随机估计，它的期望是性能指标对它的参数&lt;span class=&quot;math inline&quot;&gt;\(\boldsymbol{\theta}_{t}\)&lt;/span&gt;的梯度的近似。所有符合这个框架的算法都是策略梯度方法。&lt;/p&gt;
     
     </summary>
     
