@@ -483,33 +483,6 @@ Box(4,)</code></pre>
 ]]></content>
   </entry>
   <entry>
-    <title>Simplify: Python VS Matlab</title>
-    <url>/2019/10/20/Simplify-Python-VS-Matlab/</url>
-    <content><![CDATA[<h2 id="background">Background</h2>
-<p>The homework of Linear System Theory is challenging. Here is Problem 1:</p>
-<p>Consider a linear system with a state transition matrix <span class="math inline">\(\phi(t,t_0)\)</span></p>
-<p><span class="math display">\[\phi(t,t_0)=\displaystyle \left[\begin{matrix}
-e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
--e^{t} \sin{\left(2 t \right)} &amp; e^{- 2 t} \cos{\left(2 t \right)}
-\end{matrix}\right]\]</span></p>
-<p>Compute A(t).</p>
-<p>Since the given system is linear time variant system, by using some properties of <span class="math inline">\(\phi\)</span>, we can easily compute <span class="math inline">\(A(t)\)</span>. However, the expression is so complicate that i could not simplify it by hand. I call for some tools for help. The tools are <strong>Python</strong> and <strong>Matlab</strong>.</p>
-<p>This post compare the difference of <strong>simplify</strong> function in Python and Matlab. <a id="more"></a> ## Comparision ### Python sympy.simplify.simplify.simplify(expr, ratio=1.7, measure=<function count_ops>, rational=False, inverse=False). Link https://docs.sympy.org/latest/modules/simplify/simplify.html</p>
-<p>This function does not work well, it did not simplify the expression, giving th following outcome.</p>
-<p><span class="math display">\[\displaystyle \left[\begin{matrix}\frac{\left(- \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\\\frac{\left(- \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\end{matrix}\right]\]</span></p>
-<p>It's <strong>rediculous</strong>!</p>
-<h3 id="matlab">Matlab</h3>
-<p>S = simplify(expr) performs algebraic simplification of expr. If expr is a symbolic vector or matrix, this function simplifies each element of expr. Link https://www.mathworks.com/help/symbolic/simplify.html</p>
-<p>This function works very well and much faster than Sympy.</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python配置虚拟环境</title>
     <url>/2018/09/16/Python%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
     <content><![CDATA[<blockquote>
@@ -651,6 +624,71 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </tags>
   </entry>
   <entry>
+    <title>Simplify: Python VS Matlab</title>
+    <url>/2019/10/20/Simplify-Python-VS-Matlab/</url>
+    <content><![CDATA[<h2 id="background">Background</h2>
+<p>The homework of Linear System Theory is challenging. Here is Problem 1:</p>
+<p>Consider a linear system with a state transition matrix <span class="math inline">\(\phi(t,t_0)\)</span></p>
+<p><span class="math display">\[\phi(t,t_0)=\displaystyle \left[\begin{matrix}
+e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
+-e^{t} \sin{\left(2 t \right)} &amp; e^{- 2 t} \cos{\left(2 t \right)}
+\end{matrix}\right]\]</span></p>
+<p>Compute A(t).</p>
+<p>Since the given system is linear time variant system, by using some properties of <span class="math inline">\(\phi\)</span>, we can easily compute <span class="math inline">\(A(t)\)</span>. However, the expression is so complicate that i could not simplify it by hand. I call for some tools for help. The tools are <strong>Python</strong> and <strong>Matlab</strong>.</p>
+<p>This post compare the difference of <strong>simplify</strong> function in Python and Matlab. <a id="more"></a> ## Comparision ### Python sympy.simplify.simplify.simplify(expr, ratio=1.7, measure=<function count_ops>, rational=False, inverse=False). Link https://docs.sympy.org/latest/modules/simplify/simplify.html</p>
+<p>This function does not work well, it did not simplify the expression, giving th following outcome.</p>
+<p><span class="math display">\[\displaystyle \left[\begin{matrix}\frac{\left(- \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} + \frac{\sqrt{2} \left(- \sin{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} + \sin{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(2 \sin{\left(2 t \right)} - \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} + 2 \sqrt{2} e^{3 t_{0}} \cos{\left(2 t_{0} \right)} \cos{\left(2 t + \frac{\pi}{4} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\\\frac{\left(- \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \cos{\left(2 t_{0} \right)} - \frac{\left(\cos{\left(4 t - 2 t_{0} \right)} - \cos{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(\left(\sin^{2}{\left(2 t \right)} - 1\right) e^{3 t_{0}} \sin{\left(2 t_{0} \right)} + \frac{\left(\sin{\left(4 t - 2 t_{0} \right)} + \sin{\left(4 t + 2 t_{0} \right)}\right) e^{3 t}}{4}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)}} &amp; \frac{\left(\left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) \left(\sin^{2}{\left(2 t_{0} \right)} - 1\right) e^{3 t} - \frac{\sqrt{2} \left(\cos{\left(2 t - 4 t_{0} + \frac{\pi}{4} \right)} - \cos{\left(2 t + 4 t_{0} + \frac{\pi}{4} \right)}\right) e^{3 t_{0}}}{2}\right) \left(e^{3 t} \sin{\left(2 t_{0} \right)} \cos{\left(2 t \right)} - e^{3 t_{0}} \sin{\left(2 t \right)} \cos{\left(2 t_{0} \right)}\right) + \left(\left(\sin{\left(2 t \right)} + 2 \cos{\left(2 t \right)}\right) e^{3 t} \sin{\left(2 t_{0} \right)} - 2 \sqrt{2} e^{3 t_{0}} \sin{\left(2 t + \frac{\pi}{4} \right)} \cos{\left(2 t_{0} \right)}\right) \left(e^{3 t} \cos{\left(2 t \right)} \cos{\left(2 t_{0} \right)} + e^{3 t_{0}} \sin{\left(2 t \right)} \sin{\left(2 t_{0} \right)}\right) \cos{\left(2 t_{0} \right)}\right) e^{- 3 t - 3 t_{0}}}{\cos{\left(2 t_{0} \right)}}\end{matrix}\right]\]</span></p>
+<p>It's <strong>rediculous</strong>!</p>
+<h3 id="matlab">Matlab</h3>
+<p>S = simplify(expr) performs algebraic simplification of expr. If expr is a symbolic vector or matrix, this function simplifies each element of expr. Link https://www.mathworks.com/help/symbolic/simplify.html</p>
+<p>This function works very well and much faster than Sympy.</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tensorboard中的图放到论文中</title>
+    <url>/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/</url>
+    <content><![CDATA[<p>最近写了一篇强化学习用于供水管网的论文，算法的训练过程中用到了Tensorboard(stable-baselines提供了tansorboard的接口)来可视化训练数据，但是，tensorboard的图直接放入到论文中会显得很难看，包括xlabel和ylabel需要重新定义，图片的风格需要修改等等操作直接在tensorboard中很难操作，需要将这些数据导出来，然后使用matplotlib和seaboarn来进行plot，这篇博客记录一下如何将tensorboard中的数据进行导出并画图。</p>
+<a id="more"></a>
+<h2 id="利用tensorboard中的导出数据功能">利用tensorboard中的导出数据功能</h2>
+<figure>
+<img src="image-20210109132225126.png" alt="image-20210109132225126" /><figcaption>image-20210109132225126</figcaption>
+</figure>
+<p>选中左上角的<code>Show data download links</code></p>
+<p>在每张图的右下角选择<code>run to download</code>，然后可以选择<code>csv</code>或者<code>json</code>格式的文件。</p>
+<p>导出CSV文件，经过测试发现，当修改左边平滑之类的参数，导出的数据都是一样的，都是原始的数据。</p>
+<figure>
+<img src="image-20210109161242435.png" alt="image-20210109161242435" /><figcaption>image-20210109161242435</figcaption>
+</figure>
+<h2 id="tensorboard可视化界面中的功能键介绍">Tensorboard可视化界面中的功能键介绍</h2>
+<figure>
+<img src="image-20210109132627928.png" alt="image-20210109132627928" /><figcaption>image-20210109132627928</figcaption>
+</figure>
+<p>第二个：Toggle y-axis log scale：将y轴对数化</p>
+<p>第三个：Fit domain to data：如果拖动了图片等，再重新回到原始位置</p>
+<p>第四个：Download Current Chart as SVG</p>
+<p>Stable-baselines3的tensorboard integration的文档：Stable-baselines3已经集成了tensorboard的记录，默认记录三大块部分：rollout，time，train(这三个文件体现在代码的哪里)。当然，也可以记录更多的数据，包括图片视频，可以在训练一段时间后评估一下agent的效果和状态。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9zdGFibGUtYmFzZWxpbmVzMy5yZWFkdGhlZG9jcy5pby9lbi9tYXN0ZXIvZ3VpZGUvdGVuc29yYm9hcmQuaHRtbD9oaWdobGlnaHQ9dGVuc29yYm9hcmQ=">https://stable-baselines3.readthedocs.io/en/master/guide/tensorboard.html?highlight=tensorboard<i class="fa fa-external-link-alt"></i></span></p>
+<p>stable-baselines3中关于tensorboard的核心文件在：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RMUi1STS9zdGFibGUtYmFzZWxpbmVzMy9ibG9iLzU5OTMwMzNjNzNkNTZlOGFjMTNmNTk2NDdkNDczNzQ3NjZkMGI2M2Qvc3RhYmxlX2Jhc2VsaW5lczMvY29tbW9uL2xvZ2dlci5weQ==">https://github.com/DLR-RM/stable-baselines3/blob/5993033c73d56e8ac13f59647d47374766d0b63d/stable_baselines3/common/logger.py<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="利用matplotlib画图">利用Matplotlib画图</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 第一幅图片：训练的平均长度</span></span><br><span class="line">fig, ax1 = plt.subplots(<span class="number">1</span>, <span class="number">1</span>)    <span class="comment"># a figure with a 2x1 grid of Axes</span></span><br><span class="line">len_mean = pd.read_csv(<span class="string">"run-PPO_2-tag-rollout_ep_len_mean.csv"</span>)</span><br><span class="line">ax1.plot(len_mean[<span class="string">'Step'</span>], tensorboard_smoothing(len_mean[<span class="string">'Value'</span>], smooth=<span class="number">0.6</span>), color=<span class="string">"#3399FF"</span>)</span><br><span class="line"><span class="comment">#ax1.set_xticks(np.arange(0, 24, step=2))</span></span><br><span class="line">ax1.set_xlabel(<span class="string">"timesteps"</span>)</span><br><span class="line">ax1.set_ylabel(<span class="string">"Average Episode Length(steps)"</span>, color=<span class="string">"#3399FF"</span>)</span><br><span class="line">ax1.set_title(<span class="string">"Average Episode Length"</span>)</span><br><span class="line">plt.show()</span><br><span class="line">fig.savefig(fname=<span class="string">'./figures/ep_len_mean'</span>+<span class="string">'.pdf'</span>, format=<span class="string">'pdf'</span>)</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="image-20210109161033044.png" alt="image-20210109161033044" /><figcaption>image-20210109161033044</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Tensorboard</category>
+      </categories>
+      <tags>
+        <tag>Tensorboard</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Word与Latex</title>
     <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
     <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
@@ -694,79 +732,6 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tensorboard中的图放到论文中</title>
-    <url>/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/</url>
-    <content><![CDATA[<p>最近写了一篇强化学习用于供水管网的论文，算法的训练过程中用到了Tensorboard(stable-baselines提供了tansorboard的接口)来可视化训练数据，但是，tensorboard的图直接放入到论文中会显得很难看，包括xlabel和ylabel需要重新定义，图片的风格需要修改等等操作直接在tensorboard中很难操作，需要将这些数据导出来，然后使用matplotlib和seaboarn来进行plot，这篇博客记录一下如何将tensorboard中的数据进行导出并画图。</p>
-<a id="more"></a>
-<h2 id="利用tensorboard中的导出数据功能">利用tensorboard中的导出数据功能</h2>
-<figure>
-<img src="image-20210109132225126.png" alt="image-20210109132225126" /><figcaption>image-20210109132225126</figcaption>
-</figure>
-<p>选中左上角的<code>Show data download links</code></p>
-<p>在每张图的右下角选择<code>run to download</code>，然后可以选择<code>csv</code>或者<code>json</code>格式的文件。</p>
-<p>导出CSV文件，经过测试发现，当修改左边平滑之类的参数，导出的数据都是一样的，都是原始的数据。</p>
-<figure>
-<img src="image-20210109161242435.png" alt="image-20210109161242435" /><figcaption>image-20210109161242435</figcaption>
-</figure>
-<h2 id="tensorboard可视化界面中的功能键介绍">Tensorboard可视化界面中的功能键介绍</h2>
-<figure>
-<img src="image-20210109132627928.png" alt="image-20210109132627928" /><figcaption>image-20210109132627928</figcaption>
-</figure>
-<p>第二个：Toggle y-axis log scale：将y轴对数化</p>
-<p>第三个：Fit domain to data：如果拖动了图片等，再重新回到原始位置</p>
-<p>第四个：Download Current Chart as SVG</p>
-<p>Stable-baselines3的tensorboard integration的文档：Stable-baselines3已经集成了tensorboard的记录，默认记录三大块部分：rollout，time，train(这三个文件体现在代码的哪里)。当然，也可以记录更多的数据，包括图片视频，可以在训练一段时间后评估一下agent的效果和状态。</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9zdGFibGUtYmFzZWxpbmVzMy5yZWFkdGhlZG9jcy5pby9lbi9tYXN0ZXIvZ3VpZGUvdGVuc29yYm9hcmQuaHRtbD9oaWdobGlnaHQ9dGVuc29yYm9hcmQ=">https://stable-baselines3.readthedocs.io/en/master/guide/tensorboard.html?highlight=tensorboard<i class="fa fa-external-link-alt"></i></span></p>
-<p>stable-baselines3中关于tensorboard的核心文件在：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RMUi1STS9zdGFibGUtYmFzZWxpbmVzMy9ibG9iLzU5OTMwMzNjNzNkNTZlOGFjMTNmNTk2NDdkNDczNzQ3NjZkMGI2M2Qvc3RhYmxlX2Jhc2VsaW5lczMvY29tbW9uL2xvZ2dlci5weQ==">https://github.com/DLR-RM/stable-baselines3/blob/5993033c73d56e8ac13f59647d47374766d0b63d/stable_baselines3/common/logger.py<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="利用matplotlib画图">利用Matplotlib画图</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 第一幅图片：训练的平均长度</span></span><br><span class="line">fig, ax1 = plt.subplots(<span class="number">1</span>, <span class="number">1</span>)    <span class="comment"># a figure with a 2x1 grid of Axes</span></span><br><span class="line">len_mean = pd.read_csv(<span class="string">"run-PPO_2-tag-rollout_ep_len_mean.csv"</span>)</span><br><span class="line">ax1.plot(len_mean[<span class="string">'Step'</span>], tensorboard_smoothing(len_mean[<span class="string">'Value'</span>], smooth=<span class="number">0.6</span>), color=<span class="string">"#3399FF"</span>)</span><br><span class="line"><span class="comment">#ax1.set_xticks(np.arange(0, 24, step=2))</span></span><br><span class="line">ax1.set_xlabel(<span class="string">"timesteps"</span>)</span><br><span class="line">ax1.set_ylabel(<span class="string">"Average Episode Length(steps)"</span>, color=<span class="string">"#3399FF"</span>)</span><br><span class="line">ax1.set_title(<span class="string">"Average Episode Length"</span>)</span><br><span class="line">plt.show()</span><br><span class="line">fig.savefig(fname=<span class="string">'./figures/ep_len_mean'</span>+<span class="string">'.pdf'</span>, format=<span class="string">'pdf'</span>)</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="image-20210109161033044.png" alt="image-20210109161033044" /><figcaption>image-20210109161033044</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Tensorboard</category>
-      </categories>
-      <tags>
-        <tag>Tensorboard</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo-gittalk问题总结</title>
-    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
-<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>经验</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vs code remote ssh 使用x11转发显示远程图像</title>
-    <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
-    <content><![CDATA[<h2 id="需求">需求</h2>
-<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
-<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
-<a id="more"></a>
-<h2 id="参考链接">参考链接</h2>
-<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-<h2 id="问题">问题</h2>
-<ul>
-<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
-<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -912,6 +877,41 @@ x
       </tags>
   </entry>
   <entry>
+    <title>hexo-gittalk问题总结</title>
+    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
+<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>经验</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vs code remote ssh 使用x11转发显示远程图像</title>
+    <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
+    <content><![CDATA[<h2 id="需求">需求</h2>
+<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
+<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
+<a id="more"></a>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+<h2 id="问题">问题</h2>
+<ul>
+<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
+<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>中国学术圈的未来在哪里？</title>
     <url>/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/</url>
     <content><![CDATA[<p>最近遇到了很多烦心事，主要是学术生活上的问题，教授没有学术上的指导，且总是push我们做项目，自动化系的教授都只知道赚钱啊，不，都只知道“骗钱”。今天感觉状态还不错，稍有感想，想在这篇文章中简短地谈论一下，权当我乱说的吧，哈哈哈哈。</p>
@@ -976,6 +976,32 @@ x
       </categories>
       <tags>
         <tag>Reinforcement Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用本地服务器结合github action推送github pages</title>
+    <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
+    <content><![CDATA[<h2 id="需求">需求</h2>
+<p>网上很多人使用github action，借助github的服务器来进行博客的推送，但是，当你博客文章数量较多，且使用了国内的CDN，例如本博客使用了阿里云CDN，本站的解析是国外IP访问的是github仓库的网站，国内用户访问的是阿里云CDN的节点，在使用github action的时候，发现推送速度非常慢，原因是github的服务器在国外，<strong>往阿里云服务器推送的时候速度很慢</strong>。所以，每次更新博客，往往需要10分钟的时间才能推送好。这是不能忍受的。。。</p>
+<a id="more"></a>
+<p>我本地有一台服务器，装了Proxmox来管理虚拟机，且有公网IP，接助GitHub action来连接到我本地推送服务器进行推送</p>
+<h2 id="整个流程如图">整个流程如图：</h2>
+<p><img src="1.svg" /></p>
+<ul>
+<li>本地git pull github仓库中的文件到本地博客开发服务器，进行博客开发。</li>
+<li>博客写完后，git push到github仓库</li>
+<li>github仓库根据仓库中的yaml文件，创建github action，action的功能是连接SSH到Github推送服务器</li>
+<li>Github推送服务器上已经安装好了hexo等博客需要的环境，进行博客推送</li>
+</ul>
+<p>这样操作，全自动的，且速度非常快，整个流程在1分钟左右。</p>
+<h2 id="附上github-action的代码">附上github action的代码：</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Hexo deploy by remote ssh</span><br><span class="line">on: </span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line"></span><br><span class="line">  build:</span><br><span class="line">    name: Build</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">    - name: executing remote ssh commands using password</span><br><span class="line">      uses: appleboy/ssh-action@master</span><br><span class="line">      with:</span><br><span class="line">        host: <span class="variable">$&#123;&#123; secrets.HOST &#125;</span>&#125;</span><br><span class="line">        username: <span class="variable">$&#123;&#123; secrets.USERNAME &#125;</span>&#125;</span><br><span class="line">        password: <span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;</span><br><span class="line">        port: <span class="variable">$&#123;&#123; secrets.PORT &#125;</span>&#125;</span><br><span class="line">        script: <span class="built_in">cd</span> blog;</span><br><span class="line">                git pull https://olixu:<span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;@github.com/olixu/blog.git; </span><br><span class="line">                hexo clean;</span><br><span class="line">                hexo g;</span><br><span class="line">                hexo d;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -1080,117 +1106,6 @@ x
       </categories>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>减肥的科学原理</title>
-    <url>/2019/02/20/%E5%87%8F%E8%82%A5%E7%9A%84%E7%A7%91%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
-    <content><![CDATA[<h2 id="减肥中的热量单位">减肥中的热量单位</h2>
-<p>在了解减肥的原理之前，需要首先了解常用的热量单位，卡，卡路里，千卡，大卡，千焦。我们买来的食品的包装袋上一般都标注着每100克该食品的营养成分，使用的就是这些单位。 - 卡 = 卡路里 = 4.184焦耳 - 1千卡 = 1大卡 = 1000卡 = 4184焦耳 = 4.184千焦</p>
-<a id="more"></a>
-<p>每100克的脂肪的热量约为900大卡，每100克糖类和蛋白质的热量约为400大卡。</p>
-<p>这里再给出一个参考：跑步机上以8KM/H的速度跑1小时大约消耗600大卡。</p>
-<h2 id="能量守恒定律">能量守恒定律</h2>
-<p>一个孤立系统的总能量保持不变。如果将人看做是一个系统，则系统存在消耗的能量和吸收的能量。当吸收的能量大于消耗的能量，你的身体将会把多余的能量存储起来。当吸收的能量小于消耗的能量，你的身体将会分解体内的碳水化合物，蛋白质，脂肪。因此，从这个原理可以看出，减肥的原理可以总结为一句话：<strong>少吃饭多运动</strong>。但是我们需要做的是用最科学的方法来减肥。<strong>减肥的热力学法则是唯一经过科学证实的减肥方法。</strong></p>
-<h2 id="人为什么会肥胖">人为什么会肥胖</h2>
-<p>根本原因则是现代人的摄入能量远远大于实际需要的能量，并且饮食结构不合理，米饭和油太多，缺少大量蛋白质，从而导致体型比欧美人矮小很多（蛋白质极其大的程度上决定了身高和体质）。</p>
-<p>以吃垃圾食品(肯德基，麦当劳，星巴克)的美国人举例，他们有很多人都是胖子，但是他们不是光只有肚子胖，他们的全身的肉都很多，手臂大腿等等，这些肉不光是脂肪，肌肉也很多。</p>
-<p>而中国人由于特有的饮食结构的缺陷，导致脂肪和碳水化合物摄入偏高，不长肌肉，同时，由于久坐的原因，脂肪堆积到肚子上和屁股上。所以中国的胖子大多是肚子上肥肉较多。</p>
-<h2 id="减肥中的热量">减肥中的热量</h2>
-<p>人体中所需要的能量来自于三种物质：碳水化合物，脂肪和蛋白质。 这些能量用于3个用途： - 用于基础代谢：维持生命活动的必要消耗。 - 用于身体的建设：合成身体中的蛋白质，制造血液。。。 - 用于脑力和体力劳动：大脑思考和肌肉收缩。</p>
-<p>在这三部分的热量中，第一和第二部分的热量是不能直接人为控制的，我们主要能改变的部分是第三部分。肌肉活动量越大，消耗的能量越多。而第一部分的基础代谢虽然不能人为控制，但是它与你自身的蛋白质含量有关，蛋白质含量越高，你的基础代谢就越大，所以往往肌肉多的人怎么吃也吃不胖，而有的人减完肥立马就反弹是因为减肥的过程中蛋白质流失了很多，导致基础代谢非常低，因此稍微吃点东西就胖。</p>
-<h2 id="减肥热量详细计算">减肥热量详细计算</h2>
-<p>假设你现在想要在100天内减去10千克的纯脂肪，那么这10千克的脂肪产生的热量为：</p>
-<p><span class="math display">\[10\times1000\times9=90000大卡\]</span></p>
-<p>分摊到100天，那么你每天总的消耗的能量需要比你吃的能量多900大卡。</p>
-<ul>
-<li>假如你每天摄入1500大卡，基础代谢1200大卡，那么你需要通过运动消耗1200大卡来完成目标。</li>
-<li>假如你每天摄入900大卡，基础代谢1200大卡，那么你需要通过运动消耗600大卡来完成目标。</li>
-</ul>
-<h2 id="减肥辅助工具">减肥辅助工具</h2>
-<p>我准备用的是JEFIT和薄荷健康。</p>
-<p>JEFIT是一个国外软件，收费版一年40刀，免费版够用。它上面有很多健身房训练计划，包括综合训练，减脂，增肌等条目，适合有健身房基础的人使用(因为免费版不能看完整的动作视频，如果你对训练计划中的动作完全熟练掌握，那么可以直接用，我只是需要用这个软件给出的训练计划，具体动作我有健身房教练带)。这个软件还能记录你每天的运动量，非常不错。</p>
-<p>薄荷健康是一个国内开发的软件，它的最主要的功能是搜索食物的营养和热量。并且可以记录你每天的饮食，方便计算。</p>
-<h2 id="制定减肥的百日计划">制定减肥的百日计划</h2>
-<p>我曾于2018年10月份开始了一个月的健身计划，是以尽量不掉肌肉并尽可能减少脂肪为目标的。体重从80千克降低为72千克，并且感觉力量增加了许多，标准的引体向上可以做10个。</p>
-<p>我当时并未控制饮食，早上多加了几个鸡蛋白。硬拉，深蹲，卧推3天一循环。</p>
-<p>一个月过后，经常吃麻辣烫，外卖，也没怎么再胖。不过寒假没有一天在运动，又胖回了80千克。这说明我之前练得肌肉都还是太少了，基础代谢太低。</p>
-<p>因此制定一个百日计划。通过100天，减掉10千克纯脂肪（至少能看见腹肌）。未来的某一天再开始这个计划。</p>
-<p>饮食严格按照薄荷健康上我设定的吃，运动按照JEFIT上的训练计划完成。成功的关键在于每天严格控制，仔细记录。</p>
-<h2 id="每日饮食推荐">每日饮食推荐</h2>
-<p>如果你想通过运动减肥，那么每天需要摄入的蛋白质在2g/KG，80千克的人需要每天摄入160克蛋白质才能保证训练效果。一个煮鸡蛋含有蛋白13.3克，那么需要吃12个鸡蛋。由于我每餐都会有一些肉质，含蛋白质的蔬菜，我实际一天需要吃6个鸡蛋白，推荐早上吃2个，健身结束以后吃4个。</p>
-<p>但是吃那么多蛋白质的前提是你每天有一定的训练量，否则，不运动吃这么多蛋白质容易对肾脏造成损伤。</p>
-<h2 id="参考文献">参考文献</h2>
-<p>以后有时间更新</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用本地服务器结合github action推送github pages</title>
-    <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
-    <content><![CDATA[<h2 id="需求">需求</h2>
-<p>网上很多人使用github action，借助github的服务器来进行博客的推送，但是，当你博客文章数量较多，且使用了国内的CDN，例如本博客使用了阿里云CDN，本站的解析是国外IP访问的是github仓库的网站，国内用户访问的是阿里云CDN的节点，在使用github action的时候，发现推送速度非常慢，原因是github的服务器在国外，<strong>往阿里云服务器推送的时候速度很慢</strong>。所以，每次更新博客，往往需要10分钟的时间才能推送好。这是不能忍受的。。。</p>
-<a id="more"></a>
-<p>我本地有一台服务器，装了Proxmox来管理虚拟机，且有公网IP，接助GitHub action来连接到我本地推送服务器进行推送</p>
-<h2 id="整个流程如图">整个流程如图：</h2>
-<p><img src="1.svg" /></p>
-<ul>
-<li>本地git pull github仓库中的文件到本地博客开发服务器，进行博客开发。</li>
-<li>博客写完后，git push到github仓库</li>
-<li>github仓库根据仓库中的yaml文件，创建github action，action的功能是连接SSH到Github推送服务器</li>
-<li>Github推送服务器上已经安装好了hexo等博客需要的环境，进行博客推送</li>
-</ul>
-<p>这样操作，全自动的，且速度非常快，整个流程在1分钟左右。</p>
-<h2 id="附上github-action的代码">附上github action的代码：</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Hexo deploy by remote ssh</span><br><span class="line">on: </span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line"></span><br><span class="line">  build:</span><br><span class="line">    name: Build</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">    - name: executing remote ssh commands using password</span><br><span class="line">      uses: appleboy/ssh-action@master</span><br><span class="line">      with:</span><br><span class="line">        host: <span class="variable">$&#123;&#123; secrets.HOST &#125;</span>&#125;</span><br><span class="line">        username: <span class="variable">$&#123;&#123; secrets.USERNAME &#125;</span>&#125;</span><br><span class="line">        password: <span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;</span><br><span class="line">        port: <span class="variable">$&#123;&#123; secrets.PORT &#125;</span>&#125;</span><br><span class="line">        script: <span class="built_in">cd</span> blog;</span><br><span class="line">                git pull https://olixu:<span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;@github.com/olixu/blog.git; </span><br><span class="line">                hexo clean;</span><br><span class="line">                hexo g;</span><br><span class="line">                hexo d;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用虚拟主机搭建一个验证爬虫代理IP是否有效的服务</title>
-    <url>/2018/10/14/%E5%88%A9%E7%94%A8%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%AA%8C%E8%AF%81%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88%E7%9A%84%E6%9C%8D%E5%8A%A1/</url>
-    <content><![CDATA[<blockquote>
-<p>经常写爬虫的小伙伴们肯定有自己的代理IP池，我们在验证代理IP是否有效时，往往是利用<code>response=requests.get(ipcheck_url,proxies=proxy)</code>这样的方法去验证，通过访问<code>ipcheck_url</code>，<code>response</code>能返回当前访客的ip地址，通过和代理ip对比一下，若一样，则代理ip有效，若response中的ip和你的电脑ip相同，则代理无效。ipcheck_url我们常常是选择的例如站长工具等之类的工具，这类工具往往访问量大，随时可能会出问题，这篇文章教你自己搭建一个验证有效性的这样一个平台，永不掉线，成本为一年20RMB，具体搭建耗时约在15分钟内。</p>
-</blockquote>
-<h3 id="先放一张效果图">先放一张效果图：</h3>
-<p>当我访问这个网址时，返回了我电脑的ip地址。 <a id="more"></a> <img src="1.png" alt="效果图" /></p>
-<p>我个人搭建的服务在<span class="exturl" data-url="aHR0cDovL2lwY2hlY2suY2hpbmFob3N0aW5nLnRr">http://ipcheck.chinahosting.tk<i class="fa fa-external-link-alt"></i></span>，我搭建的这个仅供大家测试使用，不一定什么时候会关掉呢，大家想要用的还是自己搭建一个吧。</p>
-<h3 id="购买主机">购买主机</h3>
-<p>进入<span class="exturl" data-url="aHR0cHM6Ly9uYmhvc3QuY24=">https://nbhost.cn<i class="fa fa-external-link-alt"></i></span></p>
-<p>选择这个套餐： <img src="2.png" alt="请输入图片描述" /></p>
-<p>然后就是一套购买流程了。 <strong>介绍一下，这个主机我已经用了一年多了，便宜实惠！</strong></p>
-<h3 id="进入cpanel面板">进入Cpanel面板</h3>
-<figure>
-<img src="3.png" alt="请输入图片描述" /><figcaption>请输入图片描述</figcaption>
-</figure>
-<h3 id="进入文件管理器">进入文件管理器</h3>
-<figure>
-<img src="4.png" alt="请输入图片描述" /><figcaption>请输入图片描述</figcaption>
-</figure>
-<h3 id="新建一个文件命名为index.php">新建一个文件,命名为index.php</h3>
-<figure>
-<img src="5.png" alt="请输入图片描述" /><figcaption>请输入图片描述</figcaption>
-</figure>
-<h3 id="写入代码">写入代码</h3>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>                                                                                                                               </span><br><span class="line">$ip = $_SERVER[<span class="string">"REMOTE_ADDR"</span>];</span><br><span class="line"><span class="keyword">echo</span> $ip;</span><br></pre></td></tr></table></figure>
-<h3 id="访问你的域名即可">访问你的域名即可</h3>
-<p><strong><em>搭建出来的服务并发行极强，大家可以自行测试，可以用我搭建的测试下，个人用应该完全没问题的。</em></strong></p>
-]]></content>
-      <categories>
-        <category>爬虫</category>
-      </categories>
-      <tags>
-        <tag>爬虫 代理IP</tag>
       </tags>
   </entry>
   <entry>
@@ -1342,6 +1257,54 @@ x
       </tags>
   </entry>
   <entry>
+    <title>减肥的科学原理</title>
+    <url>/2019/02/20/%E5%87%8F%E8%82%A5%E7%9A%84%E7%A7%91%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h2 id="减肥中的热量单位">减肥中的热量单位</h2>
+<p>在了解减肥的原理之前，需要首先了解常用的热量单位，卡，卡路里，千卡，大卡，千焦。我们买来的食品的包装袋上一般都标注着每100克该食品的营养成分，使用的就是这些单位。 - 卡 = 卡路里 = 4.184焦耳 - 1千卡 = 1大卡 = 1000卡 = 4184焦耳 = 4.184千焦</p>
+<a id="more"></a>
+<p>每100克的脂肪的热量约为900大卡，每100克糖类和蛋白质的热量约为400大卡。</p>
+<p>这里再给出一个参考：跑步机上以8KM/H的速度跑1小时大约消耗600大卡。</p>
+<h2 id="能量守恒定律">能量守恒定律</h2>
+<p>一个孤立系统的总能量保持不变。如果将人看做是一个系统，则系统存在消耗的能量和吸收的能量。当吸收的能量大于消耗的能量，你的身体将会把多余的能量存储起来。当吸收的能量小于消耗的能量，你的身体将会分解体内的碳水化合物，蛋白质，脂肪。因此，从这个原理可以看出，减肥的原理可以总结为一句话：<strong>少吃饭多运动</strong>。但是我们需要做的是用最科学的方法来减肥。<strong>减肥的热力学法则是唯一经过科学证实的减肥方法。</strong></p>
+<h2 id="人为什么会肥胖">人为什么会肥胖</h2>
+<p>根本原因则是现代人的摄入能量远远大于实际需要的能量，并且饮食结构不合理，米饭和油太多，缺少大量蛋白质，从而导致体型比欧美人矮小很多（蛋白质极其大的程度上决定了身高和体质）。</p>
+<p>以吃垃圾食品(肯德基，麦当劳，星巴克)的美国人举例，他们有很多人都是胖子，但是他们不是光只有肚子胖，他们的全身的肉都很多，手臂大腿等等，这些肉不光是脂肪，肌肉也很多。</p>
+<p>而中国人由于特有的饮食结构的缺陷，导致脂肪和碳水化合物摄入偏高，不长肌肉，同时，由于久坐的原因，脂肪堆积到肚子上和屁股上。所以中国的胖子大多是肚子上肥肉较多。</p>
+<h2 id="减肥中的热量">减肥中的热量</h2>
+<p>人体中所需要的能量来自于三种物质：碳水化合物，脂肪和蛋白质。 这些能量用于3个用途： - 用于基础代谢：维持生命活动的必要消耗。 - 用于身体的建设：合成身体中的蛋白质，制造血液。。。 - 用于脑力和体力劳动：大脑思考和肌肉收缩。</p>
+<p>在这三部分的热量中，第一和第二部分的热量是不能直接人为控制的，我们主要能改变的部分是第三部分。肌肉活动量越大，消耗的能量越多。而第一部分的基础代谢虽然不能人为控制，但是它与你自身的蛋白质含量有关，蛋白质含量越高，你的基础代谢就越大，所以往往肌肉多的人怎么吃也吃不胖，而有的人减完肥立马就反弹是因为减肥的过程中蛋白质流失了很多，导致基础代谢非常低，因此稍微吃点东西就胖。</p>
+<h2 id="减肥热量详细计算">减肥热量详细计算</h2>
+<p>假设你现在想要在100天内减去10千克的纯脂肪，那么这10千克的脂肪产生的热量为：</p>
+<p><span class="math display">\[10\times1000\times9=90000大卡\]</span></p>
+<p>分摊到100天，那么你每天总的消耗的能量需要比你吃的能量多900大卡。</p>
+<ul>
+<li>假如你每天摄入1500大卡，基础代谢1200大卡，那么你需要通过运动消耗1200大卡来完成目标。</li>
+<li>假如你每天摄入900大卡，基础代谢1200大卡，那么你需要通过运动消耗600大卡来完成目标。</li>
+</ul>
+<h2 id="减肥辅助工具">减肥辅助工具</h2>
+<p>我准备用的是JEFIT和薄荷健康。</p>
+<p>JEFIT是一个国外软件，收费版一年40刀，免费版够用。它上面有很多健身房训练计划，包括综合训练，减脂，增肌等条目，适合有健身房基础的人使用(因为免费版不能看完整的动作视频，如果你对训练计划中的动作完全熟练掌握，那么可以直接用，我只是需要用这个软件给出的训练计划，具体动作我有健身房教练带)。这个软件还能记录你每天的运动量，非常不错。</p>
+<p>薄荷健康是一个国内开发的软件，它的最主要的功能是搜索食物的营养和热量。并且可以记录你每天的饮食，方便计算。</p>
+<h2 id="制定减肥的百日计划">制定减肥的百日计划</h2>
+<p>我曾于2018年10月份开始了一个月的健身计划，是以尽量不掉肌肉并尽可能减少脂肪为目标的。体重从80千克降低为72千克，并且感觉力量增加了许多，标准的引体向上可以做10个。</p>
+<p>我当时并未控制饮食，早上多加了几个鸡蛋白。硬拉，深蹲，卧推3天一循环。</p>
+<p>一个月过后，经常吃麻辣烫，外卖，也没怎么再胖。不过寒假没有一天在运动，又胖回了80千克。这说明我之前练得肌肉都还是太少了，基础代谢太低。</p>
+<p>因此制定一个百日计划。通过100天，减掉10千克纯脂肪（至少能看见腹肌）。未来的某一天再开始这个计划。</p>
+<p>饮食严格按照薄荷健康上我设定的吃，运动按照JEFIT上的训练计划完成。成功的关键在于每天严格控制，仔细记录。</p>
+<h2 id="每日饮食推荐">每日饮食推荐</h2>
+<p>如果你想通过运动减肥，那么每天需要摄入的蛋白质在2g/KG，80千克的人需要每天摄入160克蛋白质才能保证训练效果。一个煮鸡蛋含有蛋白13.3克，那么需要吃12个鸡蛋。由于我每餐都会有一些肉质，含蛋白质的蔬菜，我实际一天需要吃6个鸡蛋白，推荐早上吃2个，健身结束以后吃4个。</p>
+<p>但是吃那么多蛋白质的前提是你每天有一定的训练量，否则，不运动吃这么多蛋白质容易对肾脏造成损伤。</p>
+<h2 id="参考文献">参考文献</h2>
+<p>以后有时间更新</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>初学数据库-sqlite3 简介</title>
     <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
     <content><![CDATA[<blockquote>
@@ -1366,6 +1329,43 @@ x
       </categories>
       <tags>
         <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用虚拟主机搭建一个验证爬虫代理IP是否有效的服务</title>
+    <url>/2018/10/14/%E5%88%A9%E7%94%A8%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%AA%8C%E8%AF%81%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88%E7%9A%84%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<blockquote>
+<p>经常写爬虫的小伙伴们肯定有自己的代理IP池，我们在验证代理IP是否有效时，往往是利用<code>response=requests.get(ipcheck_url,proxies=proxy)</code>这样的方法去验证，通过访问<code>ipcheck_url</code>，<code>response</code>能返回当前访客的ip地址，通过和代理ip对比一下，若一样，则代理ip有效，若response中的ip和你的电脑ip相同，则代理无效。ipcheck_url我们常常是选择的例如站长工具等之类的工具，这类工具往往访问量大，随时可能会出问题，这篇文章教你自己搭建一个验证有效性的这样一个平台，永不掉线，成本为一年20RMB，具体搭建耗时约在15分钟内。</p>
+</blockquote>
+<h3 id="先放一张效果图">先放一张效果图：</h3>
+<p>当我访问这个网址时，返回了我电脑的ip地址。 <a id="more"></a> <img src="1.png" alt="效果图" /></p>
+<p>我个人搭建的服务在<span class="exturl" data-url="aHR0cDovL2lwY2hlY2suY2hpbmFob3N0aW5nLnRr">http://ipcheck.chinahosting.tk<i class="fa fa-external-link-alt"></i></span>，我搭建的这个仅供大家测试使用，不一定什么时候会关掉呢，大家想要用的还是自己搭建一个吧。</p>
+<h3 id="购买主机">购买主机</h3>
+<p>进入<span class="exturl" data-url="aHR0cHM6Ly9uYmhvc3QuY24=">https://nbhost.cn<i class="fa fa-external-link-alt"></i></span></p>
+<p>选择这个套餐： <img src="2.png" alt="请输入图片描述" /></p>
+<p>然后就是一套购买流程了。 <strong>介绍一下，这个主机我已经用了一年多了，便宜实惠！</strong></p>
+<h3 id="进入cpanel面板">进入Cpanel面板</h3>
+<figure>
+<img src="3.png" alt="请输入图片描述" /><figcaption>请输入图片描述</figcaption>
+</figure>
+<h3 id="进入文件管理器">进入文件管理器</h3>
+<figure>
+<img src="4.png" alt="请输入图片描述" /><figcaption>请输入图片描述</figcaption>
+</figure>
+<h3 id="新建一个文件命名为index.php">新建一个文件,命名为index.php</h3>
+<figure>
+<img src="5.png" alt="请输入图片描述" /><figcaption>请输入图片描述</figcaption>
+</figure>
+<h3 id="写入代码">写入代码</h3>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>                                                                                                                               </span><br><span class="line">$ip = $_SERVER[<span class="string">"REMOTE_ADDR"</span>];</span><br><span class="line"><span class="keyword">echo</span> $ip;</span><br></pre></td></tr></table></figure>
+<h3 id="访问你的域名即可">访问你的域名即可</h3>
+<p><strong><em>搭建出来的服务并发行极强，大家可以自行测试，可以用我搭建的测试下，个人用应该完全没问题的。</em></strong></p>
+]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>爬虫 代理IP</tag>
       </tags>
   </entry>
   <entry>
@@ -1418,46 +1418,6 @@ x
       </categories>
       <tags>
         <tag>华为 面试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基金投资管理系统</title>
-    <url>/2020/06/29/%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<p>基金推荐与投资记录系统：如何成为一名合格的韭菜！</p>
-<h2 id="项目背景">项目背景</h2>
-<p>基金相比于股票，收益要更加稳定，不需要过多专业知识且无需花自己大量的时间去盯盘，适合有一些闲钱却又不会投资的人进行投资。</p>
-<p>今年2月份以来我开始投资基金，使用支付宝进行购买。</p>
-<p>在投资的过程中，我发现了几个问题：</p>
-<a id="more"></a>
-<h3 id="持有成本明细不明确">1. 持有成本明细不明确</h3>
-<p><strong>持有基金详情页</strong>中只有基金的总的持有成本，昨日收益，持有收益，但是，在不同时期购入的基金的成本是不同的，点击<strong>详情</strong>可以查看业绩走势，但是没有具体的成本，购买记录，申购和赎回手续费。当你购买了好几个不同的基金，这需要你每次一个一个点进去看，这样不容易且不直观分析数据。</p>
-<h3 id="挑选基金时不方便">2. 挑选基金时不方便</h3>
-<p>支付宝没有一个很好的挑选基金的方法，对于购买基金的韭菜来说，讲的就是效率，不用讲什么技术，低买高卖就是王道。</p>
-<h3 id="基金走势查看不方便">3. 基金走势查看不方便</h3>
-<p>支付宝的基金走势需要你去一个个点进去看，当你购买的基金数量和种类较多时，查看很不方便。</p>
-<h2 id="项目方案">项目方案</h2>
-<p>本项目拟解决上述三个问题，解决方案：</p>
-<ol type="1">
-<li>设计一套基金投资记录系统，用于记录每次基金的投资明细，基于B/S架构，具有可视化和数据分析的功能。</li>
-<li>设计一个基金推荐系统，该系统采集和监控每天的基金数据，根据一定的策略，生成推荐的基金，推送到微信。</li>
-</ol>
-<h2 id="技术框架">技术框架</h2>
-<ol type="1">
-<li>可视化系统使用Streamlit实现，该库是一个优秀的大数据分析和可视化库，之前在商业项目中使用过，效果不错。</li>
-<li>数据来源：设计爬虫爬取天天基金网的数据或者采用可以直接调用数据的库。</li>
-<li>数据库采用Sqlite，方便用户配置，可以做到开箱即用。</li>
-<li>微信推送采用【Server酱】的微信推送服务。</li>
-<li>部署环境：IBM 的CF服务可以免费注册使用，基金设置策略筛选模块我在本地已经测试了一个月，非常稳定。所有基金的历史数据到20200629日，共占用存储空间400多MB，IBM的免费套餐支持1GB的存储空间，应该可以支持长期使用。</li>
-</ol>
-<h2 id="更新日志">更新日志：</h2>
-<h4 id="设计投资管理系统原型草稿">20200629：设计投资管理系统原型草稿</h4>
-<p><img src="项目草稿20200629.png" /></p>
-]]></content>
-      <categories>
-        <category>fund</category>
-      </categories>
-      <tags>
-        <tag>fund</tag>
       </tags>
   </entry>
   <entry>
@@ -1524,10 +1484,63 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>基金投资管理系统</title>
+    <url>/2020/06/29/%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<p>基金推荐与投资记录系统：如何成为一名合格的韭菜！</p>
+<h2 id="项目背景">项目背景</h2>
+<p>基金相比于股票，收益要更加稳定，不需要过多专业知识且无需花自己大量的时间去盯盘，适合有一些闲钱却又不会投资的人进行投资。</p>
+<p>今年2月份以来我开始投资基金，使用支付宝进行购买。</p>
+<p>在投资的过程中，我发现了几个问题：</p>
+<a id="more"></a>
+<h3 id="持有成本明细不明确">1. 持有成本明细不明确</h3>
+<p><strong>持有基金详情页</strong>中只有基金的总的持有成本，昨日收益，持有收益，但是，在不同时期购入的基金的成本是不同的，点击<strong>详情</strong>可以查看业绩走势，但是没有具体的成本，购买记录，申购和赎回手续费。当你购买了好几个不同的基金，这需要你每次一个一个点进去看，这样不容易且不直观分析数据。</p>
+<h3 id="挑选基金时不方便">2. 挑选基金时不方便</h3>
+<p>支付宝没有一个很好的挑选基金的方法，对于购买基金的韭菜来说，讲的就是效率，不用讲什么技术，低买高卖就是王道。</p>
+<h3 id="基金走势查看不方便">3. 基金走势查看不方便</h3>
+<p>支付宝的基金走势需要你去一个个点进去看，当你购买的基金数量和种类较多时，查看很不方便。</p>
+<h2 id="项目方案">项目方案</h2>
+<p>本项目拟解决上述三个问题，解决方案：</p>
+<ol type="1">
+<li>设计一套基金投资记录系统，用于记录每次基金的投资明细，基于B/S架构，具有可视化和数据分析的功能。</li>
+<li>设计一个基金推荐系统，该系统采集和监控每天的基金数据，根据一定的策略，生成推荐的基金，推送到微信。</li>
+</ol>
+<h2 id="技术框架">技术框架</h2>
+<ol type="1">
+<li>可视化系统使用Streamlit实现，该库是一个优秀的大数据分析和可视化库，之前在商业项目中使用过，效果不错。</li>
+<li>数据来源：设计爬虫爬取天天基金网的数据或者采用可以直接调用数据的库。</li>
+<li>数据库采用Sqlite，方便用户配置，可以做到开箱即用。</li>
+<li>微信推送采用【Server酱】的微信推送服务。</li>
+<li>部署环境：IBM 的CF服务可以免费注册使用，基金设置策略筛选模块我在本地已经测试了一个月，非常稳定。所有基金的历史数据到20200629日，共占用存储空间400多MB，IBM的免费套餐支持1GB的存储空间，应该可以支持长期使用。</li>
+</ol>
+<h2 id="更新日志">更新日志：</h2>
+<h4 id="设计投资管理系统原型草稿">20200629：设计投资管理系统原型草稿</h4>
+<p><img src="项目草稿20200629.png" /></p>
+]]></content>
+      <categories>
+        <category>fund</category>
+      </categories>
+      <tags>
+        <tag>fund</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用排序算法之冒泡排序</title>
     <url>/2018/08/19/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<p>题目：编写一个C程序，应用冒泡排序法对序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的序列元素</p>
 <p>算法分析：直接运用冒泡排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubblesort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span> &amp;&amp; flag==<span class="number">1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n-i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j+<span class="number">1</span>]&lt;a[j])</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j+<span class="number">1</span>];</span><br><span class="line">                a[j+<span class="number">1</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="number">0</span>];</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    bubblesort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of bubble sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构 算法 排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用排序算法之直接插入排序</title>
+    <url>/2018/08/12/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>题目：编写一个C程序，应用直接插入排序算法将序列｛2，5，6，，3，7，8，0，9，12，1｝进行排序，要求从小到大排列，并输出排序后的数列元素。</p>
+<p>算法分析：直接运用直接插入排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertionsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>] = a[i];</span><br><span class="line">        j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; a[<span class="number">0</span>]&lt;a[j])</span><br><span class="line">        &#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j--];</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The original data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    insertsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of insertion sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
@@ -1551,16 +1564,30 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>常用排序算法之直接插入排序</title>
-    <url>/2018/08/12/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>题目：编写一个C程序，应用直接插入排序算法将序列｛2，5，6，，3，7，8，0，9，12，1｝进行排序，要求从小到大排列，并输出排序后的数列元素。</p>
-<p>算法分析：直接运用直接插入排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertionsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>] = a[i];</span><br><span class="line">        j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; a[<span class="number">0</span>]&lt;a[j])</span><br><span class="line">        &#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j--];</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The original data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    insertsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of insertion sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <title>强化学习：有限马尔科夫决策过程</title>
+    <url>/2019/04/14/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%9A%E6%9C%89%E9%99%90%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/</url>
+    <content><![CDATA[<p>本文是reinforcement learning:An introduction书第三章的翻译．</p>
+<p>在本章中我们将介绍有限马尔科夫决策过程形式的问题（finite MDPs），本书的剩余部分都将解决此类问题．该问题包括可评估的反馈，就像和bandits问题一样，但是同时也有一个相关性的方面－在不同的情形下选择不同的行为．MDPs是序列决策问题的一种经典的形式．行为不光影响立即的回报，同时影响接下去的状态．因此，MDPs包括未来的奖励并且需要权衡立即的奖励与未来的奖励．在bandit问题中，我们估计每个行为<span class="math inline">\(a\)</span>的值<span class="math inline">\(q_*(a)\)</span>.</p>
+<p>在MDPs中我们估计在<span class="math inline">\(s\)</span>状态下，在<span class="math inline">\(a\)</span>行为的条件下的值<span class="math inline">\(q_*(s,a)\)</span>.</p>
+<a id="more"></a>
+<p>MDPs是强化学习的一个数学理想化形式，能够用精确的理论性语句描述．我们介绍强化学习问题的数学结构中的关键问题，例如回报，值函数，贝尔曼方程．我们努力将很大范围的实际问题用MDPs来表示．在人工智能中，算法应用的广度和数学溯源性之间有着一定的张力．在这一章中，我们将介绍这个张力，并且讨论算法实现的挑战和平衡点．</p>
+<h2 id="agent-environment接口">3.1 agent-environment接口</h2>
+<p><span class="math display">\[S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3,...\]</span></p>
+<p><span class="math display">\[P(s\prime,r|s,a) = Pr\{S_t=s\prime,R_t=r|S_{t-1}=s,A_{t-1}=a\}\]</span></p>
+<h2 id="目标和奖励">3.2 目标和奖励</h2>
+<p>在强化学习中，agent的目标被正式化定义为一个特殊的信号，称为奖励(Reward)，从environment传递给agent．在每个time step，奖励是一个实属．不正式得讲，agent的目标是为了最大化所有它收到的回报之和．这意味着最大化的不是立即奖励，而是长期的累计奖励．我们可以清楚地表述这个非正式的想法作为奖励假设：</p>
+<h2 id="回报和episodes">3.3 回报和Episodes</h2>
+<p>至此，我们讨论了强化学习的目标．agent的目标是为了最大化它在长期的过程中接收到的累计奖励．如何正式地定义？ 如果在time step t以后接收到的奖励序列可以表示为<span class="math inline">\(R_{t+1},R_{t+2},R_{t+3},...\)</span>，我们希望最大化这个序列的哪个方面．通常，我们将要最大化<strong>期望回报</strong>，用<span class="math inline">\(G_t\)</span>来表示，定义为奖励序列的一些特定函数，在最简单的情况下，回报是奖励的总和： <span class="math display">\[G_t = R_{t+1}+R_{t+2}+R_{t+3}+...+R_{T}\]</span> 其中，<span class="math inline">\(T\)</span>是最后一个时刻． ## 3.4 Episodes任务与连续任务的统一的记号 在之前的一小节中，我们介绍了两种强化学习任务，一种是</p>
+<h2 id="策略与值函数">3.5 策略与值函数</h2>
+<h2 id="策略的优化与值函数的优化">3.6 策略的优化与值函数的优化</h2>
+<h2 id="优化和近似">3.7 优化和近似</h2>
+<h2 id="总结">3.8 总结</h2>
 ]]></content>
       <categories>
-        <category>数据结构与算法</category>
+        <category>强化学习</category>
       </categories>
       <tags>
-        <tag>数据结构 算法 排序</tag>
+        <tag>强化学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1574,28 +1601,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>数据结构 算法 排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>服务器被黑记录</title>
-    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
-<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
-<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
-<a id="more"></a>
-<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
-<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
-<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
-<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
-<p>可以看到一直在被爆破。</p>
-<p><img src="image-20200914140640360.png" /></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1688,30 +1693,25 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>强化学习：有限马尔科夫决策过程</title>
-    <url>/2019/04/14/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%9A%E6%9C%89%E9%99%90%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/</url>
-    <content><![CDATA[<p>本文是reinforcement learning:An introduction书第三章的翻译．</p>
-<p>在本章中我们将介绍有限马尔科夫决策过程形式的问题（finite MDPs），本书的剩余部分都将解决此类问题．该问题包括可评估的反馈，就像和bandits问题一样，但是同时也有一个相关性的方面－在不同的情形下选择不同的行为．MDPs是序列决策问题的一种经典的形式．行为不光影响立即的回报，同时影响接下去的状态．因此，MDPs包括未来的奖励并且需要权衡立即的奖励与未来的奖励．在bandit问题中，我们估计每个行为<span class="math inline">\(a\)</span>的值<span class="math inline">\(q_*(a)\)</span>.</p>
-<p>在MDPs中我们估计在<span class="math inline">\(s\)</span>状态下，在<span class="math inline">\(a\)</span>行为的条件下的值<span class="math inline">\(q_*(s,a)\)</span>.</p>
+    <title>服务器被黑记录</title>
+    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
+<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
+<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
 <a id="more"></a>
-<p>MDPs是强化学习的一个数学理想化形式，能够用精确的理论性语句描述．我们介绍强化学习问题的数学结构中的关键问题，例如回报，值函数，贝尔曼方程．我们努力将很大范围的实际问题用MDPs来表示．在人工智能中，算法应用的广度和数学溯源性之间有着一定的张力．在这一章中，我们将介绍这个张力，并且讨论算法实现的挑战和平衡点．</p>
-<h2 id="agent-environment接口">3.1 agent-environment接口</h2>
-<p><span class="math display">\[S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3,...\]</span></p>
-<p><span class="math display">\[P(s\prime,r|s,a) = Pr\{S_t=s\prime,R_t=r|S_{t-1}=s,A_{t-1}=a\}\]</span></p>
-<h2 id="目标和奖励">3.2 目标和奖励</h2>
-<p>在强化学习中，agent的目标被正式化定义为一个特殊的信号，称为奖励(Reward)，从environment传递给agent．在每个time step，奖励是一个实属．不正式得讲，agent的目标是为了最大化所有它收到的回报之和．这意味着最大化的不是立即奖励，而是长期的累计奖励．我们可以清楚地表述这个非正式的想法作为奖励假设：</p>
-<h2 id="回报和episodes">3.3 回报和Episodes</h2>
-<p>至此，我们讨论了强化学习的目标．agent的目标是为了最大化它在长期的过程中接收到的累计奖励．如何正式地定义？ 如果在time step t以后接收到的奖励序列可以表示为<span class="math inline">\(R_{t+1},R_{t+2},R_{t+3},...\)</span>，我们希望最大化这个序列的哪个方面．通常，我们将要最大化<strong>期望回报</strong>，用<span class="math inline">\(G_t\)</span>来表示，定义为奖励序列的一些特定函数，在最简单的情况下，回报是奖励的总和： <span class="math display">\[G_t = R_{t+1}+R_{t+2}+R_{t+3}+...+R_{T}\]</span> 其中，<span class="math inline">\(T\)</span>是最后一个时刻． ## 3.4 Episodes任务与连续任务的统一的记号 在之前的一小节中，我们介绍了两种强化学习任务，一种是</p>
-<h2 id="策略与值函数">3.5 策略与值函数</h2>
-<h2 id="策略的优化与值函数的优化">3.6 策略的优化与值函数的优化</h2>
-<h2 id="优化和近似">3.7 优化和近似</h2>
-<h2 id="总结">3.8 总结</h2>
+<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
+<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
+<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
+<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
+<p>可以看到一直在被爆破。</p>
+<p><img src="image-20200914140640360.png" /></p>
 ]]></content>
       <categories>
-        <category>强化学习</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>强化学习</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1790,19 +1790,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>粒子群算法库-PySwarms的可视化</title>
-    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
-    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
-<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>粒子群算法的Python简单实现</title>
     <url>/2019/02/14/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E7%9A%84Python%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h2 id="需要优化的目标函数">需要优化的目标函数</h2>
@@ -1833,18 +1820,16 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>软路由</title>
-    <url>/2020/08/17/%E8%BD%AF%E8%B7%AF%E7%94%B1/</url>
-    <content><![CDATA[<p>今天装了用虚拟机装了一台软路由，总结两个字：真香</p>
-<a id="more"></a>
-<p>软路由用作旁路由，搭建socks5代理，速度比windows直接用快了将近30倍。</p>
-<p>不知道是啥原因，可能是Linux和Windows系统上的区别？</p>
+    <title>粒子群算法库-PySwarms的可视化</title>
+    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
+    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
+<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
 ]]></content>
       <categories>
-        <category>Linux</category>
+        <category>机器学习</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1867,68 +1852,18 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Input Convex Neural Network复现及仿真验证</title>
-    <url>/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/</url>
-    <content><![CDATA[<p>《Input Convex Neural Networks》</p>
-<p>《Optimal Control Via Neural Networks: A Convex Approach》</p>
-<p>对于复杂系统的控制往往分为两步，对系统的辨识和控制器的设计。 深度神经网络被证明在辨识任务中取得了重大成功，但是，由于这些辨识出来的系统往往是非线性和非凸的，其控制器很难设计，所以，实际系统往往还是用线性模型去逼近，尽管这些线性模型的拟合能力很弱，因此，往往设计出来的控制器的性能都不行。</p>
-<p>这两篇文章，主要提出了ICNN及其改进网络结构，ICNN的特点就是对于输入是凸的，第一篇文章主要提出了ICNN这一网络结构，通过将神经网络的前向通道中的权重设置为非负值，这一简单的改变，就可以将神经网络变为输入凸的，且该网络的拟合能力并为受到较大的影响。</p>
-<p>这篇文章主要完成3点：</p>
-<ol type="1">
-<li>复现ICNN，原版的ICNN是用tensorflow写的，代码不全，且使用了较老的库版本，运行不了，在此采用pytorch进行复现出一个通用程序。</li>
-<li>对于一个给定的函数：<span class="math inline">\(y=3x_1^2+4x_2^2\)</span>，利用普通的DNN，和ICNN进行对比，验证ICNN的拟合能力（验证的过程使用相同的网络层数，每层的节点数，学习率等参数）。</li>
-<li>对于《Input Convex Neural Networks》中的simulation中的synthetic 2D example和《Optimal Control Via Neural Networks: A Convex Approach》中的APPENDIX中的Toy Example分别进行复现及仿真验证。</li>
-</ol>
+    <title>软路由</title>
+    <url>/2020/08/17/%E8%BD%AF%E8%B7%AF%E7%94%B1/</url>
+    <content><![CDATA[<p>今天装了用虚拟机装了一台软路由，总结两个字：真香</p>
 <a id="more"></a>
-<h2 id="icnn原理及证明">ICNN原理及证明</h2>
-<h3 id="icnn网络结构">ICNN网络结构</h3>
-<figure>
-<img src="Input_convex_neural_network复现及对比验证/image-20210302145927461.png" alt="image-20210302145927461" /><figcaption>image-20210302145927461</figcaption>
-</figure>
-<p><span class="math display">\[z_{i+1}=g_{i}\left(W_{i}^{(z)} z_{i}+W_{i}^{(y)} y+b_{i}\right), \quad f(y ; \theta)=z_{k}\]</span>，</p>
-<p>Figure1是全连接的凸的，k层ICNN，记为：FICNN，令输入记为：<span class="math inline">\(y\)</span>，<span class="math inline">\(z_i\)</span>记为每一个激活函数的输出，<span class="math inline">\(\theta\)</span>记为所有的参数：<span class="math inline">\(\theta=\left\{W_{0: k-1}^{(y)}, W_{1: k-1}^{(z)}, b_{0: k-1}\right\}\)</span>，<span class="math inline">\(g_i\)</span>是非线性激活函数，网络凸的性质的主要结果如下：</p>
-<p><strong><em>结论</em></strong>：<strong>函数<span class="math inline">\(f\)</span>对于<span class="math inline">\(y\)</span>是凸函数，当所有的<span class="math inline">\(W_{1: k-1}^{(z)}\)</span>是非负，且所有的<span class="math inline">\(g_i\)</span>是凸的非增函数</strong></p>
-<p><strong><em>分析：</em></strong></p>
-<ol type="1">
-<li><p>ICNN网络结构中，从输入直接传递到隐含层的叫"passthrough"，这样的连接在传统的前馈神经网络中是没有必要的，因为前面的神经网络的层的信息总是会被映射到下一个神经网络层中，但是在ICNN中，由于<span class="math inline">\(W^{(z)}\)</span>被限制为非负，所以导致拟合能力下降，且前面网络的信息无法被传递到下一个层中，因此，需要使用额外的passthrough。</p></li>
-<li><p>对于<span class="math inline">\(b_i\)</span>来说，放到前向传播中，或者passthrough中，都是等价的。</p></li>
-<li><p>passthrough中的weight和bias都是可以为负的，没有限制。</p></li>
-</ol>
-<h3 id="icnn输入凸的证明">ICNN输入凸的证明</h3>
-<h2 id="icnn基本结构pytorch复现">ICNN基本结构Pytorch复现</h2>
-<h2 id="y3x_124x_22仿真算例"><span class="math inline">\(y=3x_1^2+4x_2^2\)</span>仿真算例</h2>
-<p>仿真算例：<span class="math inline">\(y=3x_1^2+4x_2^2\)</span></p>
-<figure>
-<img src="Input_convex_neural_network复现及对比验证/image-20210302152548355.png" alt="image-20210302152548355" /><figcaption>image-20210302152548355</figcaption>
-</figure>
-<h3 id="训练数据生成">训练数据生成</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<p>在-5, 5中随机采样1000个数据点</p>
-<p>验证方法：对单个目标进行验证时，当输入是[2, 2]时，理论输出应该是[28]，同时，输出其MSE的数值并画出其图片。</p>
-<h3 id="对比其拟合能力">对比其拟合能力：</h3>
-<h4 id="普通神经网络的拟合能力">普通神经网络的拟合能力</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Model</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">  <span class="string">'''</span></span><br><span class="line"><span class="string">  定义普通全连结神经网络模型</span></span><br><span class="line"><span class="string">  '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n_feature=<span class="number">2</span>, n_hidden=<span class="number">4</span>, n_output=<span class="number">1</span>, nGdIter=<span class="number">30</span>)</span>:</span></span><br><span class="line">        super(Model, self).__init__()</span><br><span class="line">        self.input_layer = nn.Linear(n_feature, n_hidden)</span><br><span class="line">        self.hidden_layer = nn.Linear(n_hidden, n_hidden)</span><br><span class="line">        self.output_layer = nn.Linear(n_hidden, n_output)</span><br><span class="line">        self.act = nn.ReLU()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x = self.input_layer(x)</span><br><span class="line">        x = self.act(x)</span><br><span class="line">        x = self.hidden_layer(x)</span><br><span class="line">        x = self.act(x)</span><br><span class="line">        x = self.output_layer(x)</span><br><span class="line">        <span class="comment"># 输出层加上了relu激活函数后会导致很难收敛</span></span><br><span class="line">        <span class="comment">#x = self.act(x)</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_noncvx_network</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 构造虚拟数据用于训练：y=3x1^2+4x2^2</span></span><br><span class="line">    x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">    x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">    x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">    x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">    y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br><span class="line">    model = NonCvxModel(n_feature=<span class="number">2</span>, n_hidden=<span class="number">200</span>, n_output=<span class="number">1</span>)</span><br><span class="line">    criterion = torch.nn.MSELoss(reduction=<span class="string">'sum'</span>)</span><br><span class="line">    learning_rate = <span class="number">1e-3</span></span><br><span class="line">    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)</span><br><span class="line">    terminate_threshold = <span class="number">1e-5</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">        y_pred = model(x)</span><br><span class="line">        loss = criterion(y_pred, y)/y.size()[<span class="number">0</span>]</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">500</span> == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"当前正在训练第&#123;&#125;次， 损失是&#123;&#125;"</span>.format(i, loss.item()))</span><br><span class="line">            test_model(model)</span><br><span class="line">        <span class="keyword">if</span> loss.item()&lt;terminate_threshold:</span><br><span class="line">            print(<span class="string">"训练满足精度要求，训练了&#123;&#125;次。"</span>.format(i))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">0     500  29.005009</span><br><span class="line">1    1000   5.884062</span><br><span class="line">2    1500   1.050613</span><br><span class="line">3    2000   0.301482</span><br><span class="line">4    2500   0.141028</span><br><span class="line">5    3000   0.078763</span><br><span class="line">6    3500   0.048814</span><br><span class="line">7    4000   0.030913</span><br><span class="line">8    4500   0.021231</span><br><span class="line">9    5000   0.016060</span><br><span class="line">10   5500   0.012875</span><br><span class="line">11   6000   0.010986</span><br><span class="line">12   6500   0.009771</span><br><span class="line">13   7000   0.008564</span><br><span class="line">14   7500   0.007799</span><br><span class="line">15   8000   0.009830</span><br><span class="line">16   8500   0.046179</span><br><span class="line">17   9000   0.006437</span><br><span class="line">18   9500   0.013724</span><br><span class="line">19  10000   0.005822</span><br><span class="line">20  10500   0.005917</span><br><span class="line">21  11000   0.005384</span><br><span class="line">22  11500   0.005134</span><br><span class="line">23  12000   0.030397</span><br><span class="line">24  12500   0.005959</span><br><span class="line">25  13000   0.004671</span><br><span class="line">26  13500   0.004517</span><br><span class="line">27  14000   0.004421</span><br><span class="line">28  14500   0.004290</span><br><span class="line">29  15000   0.008322</span><br><span class="line">30  15500   0.019044</span><br><span class="line">31  16000   0.011500</span><br><span class="line">32  16500   0.003893</span><br><span class="line">33  17000   0.003794</span><br><span class="line">34  17500   0.003694</span><br><span class="line">35  18000   0.004458</span><br><span class="line">36  18500   0.003805</span><br><span class="line">37  19000   0.003468</span><br><span class="line">38  19500   0.008987</span><br><span class="line">39  20000   0.003343</span><br><span class="line">40  20500   0.003368</span><br><span class="line">41  21000   0.007225</span><br><span class="line">42  21500   0.003226</span><br><span class="line">43  22000   0.003124</span><br><span class="line">44  22500   0.003073</span><br><span class="line">45  23000   0.002998</span><br><span class="line">46  23500   0.025686</span><br><span class="line">47  24000   0.003000</span><br><span class="line">48  24500   0.002887</span><br><span class="line">49  25000   0.002838</span><br><span class="line">50  25500   0.002903</span><br><span class="line">51  26000   0.002845</span><br><span class="line">52  26500   0.004229</span><br><span class="line">53  27000   0.002733</span><br><span class="line">54  27500   0.008934</span><br><span class="line">55  28000   0.012964</span><br><span class="line">56  28500   0.018379</span><br><span class="line">57  29000   0.011293</span><br><span class="line">58  29500   0.007785</span><br><span class="line">59  30000   0.002500</span><br><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第30000次， 损失是0.002500230213627219</span><br><span class="line">模型预测的数值是： tensor([27.9667], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
-<p><img src="Input_convex_neural_network复现及对比验证/image-20210302162912494.png" alt="image-20210302162912494" style="zoom:50%;" /></p>
-<h4 id="icnn的拟合能力">ICNN的拟合能力</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CvxModel</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        输入凸神经网络结构定义</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n_feature=<span class="number">2</span>, n_hidden=<span class="number">4</span>, n_output=<span class="number">1</span>, nGdIter=<span class="number">30</span>)</span>:</span></span><br><span class="line">        super(CvxModel, self).__init__()</span><br><span class="line">        self.input_layer = nn.Linear(n_feature, n_hidden, bias=<span class="literal">False</span>)</span><br><span class="line">        self.hidden_layer = nn.Linear(n_hidden, n_hidden, bias=<span class="literal">False</span>)</span><br><span class="line">        self.output_layer = nn.Linear(n_hidden, n_output, bias=<span class="literal">False</span>)</span><br><span class="line">        self.passthrough_layer = nn.Linear(n_feature, n_hidden)</span><br><span class="line">        self.passthrough_output_layer = nn.Linear(n_feature, n_output)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        zx1 = F.relu(self.input_layer(x))</span><br><span class="line">        pass1 = self.passthrough_layer(x)</span><br><span class="line">        pass2 = self.passthrough_output_layer(x)</span><br><span class="line">        zx2 = F.relu(self.hidden_layer(zx1) + pass1)</span><br><span class="line">        zx3 = self.output_layer(zx2) + pass2</span><br><span class="line">        <span class="keyword">return</span> zx3</span><br><span class="line">      </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">weightConstraint</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        对一个特定的层的weight进行参数限制</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, module)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> hasattr(module, <span class="string">'weight'</span>):</span><br><span class="line">            w = module.weight.data</span><br><span class="line">            w = w.clamp(<span class="number">0.0</span>, <span class="number">100.0</span>)</span><br><span class="line">            module.weight.data = w</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当对权重有非负的限制时，训练神经网络</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train_with_constrains</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 先对参数进行限制到[-1, 1]进行仿真验证</span></span><br><span class="line">    <span class="comment"># 构造虚拟数据用于训练：y=3x1^2+4x2^2</span></span><br><span class="line">    x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">    x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">    x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">    x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">    y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    model = CvxModel(n_feature=<span class="number">2</span>, n_hidden=<span class="number">200</span>, n_output=<span class="number">1</span>)</span><br><span class="line">    constraints = weightConstraint()</span><br><span class="line">    criterion = torch.nn.MSELoss(reduction=<span class="string">'sum'</span>)</span><br><span class="line">    learning_rate = <span class="number">1e-3</span></span><br><span class="line">    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)</span><br><span class="line">    terminate_threshold = <span class="number">1e-5</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">        y_pred = model(x)</span><br><span class="line">        loss = criterion(y_pred, y)/y.size()[<span class="number">0</span>]</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        model._modules[<span class="string">'input_layer'</span>].apply(constraints)</span><br><span class="line">        model._modules[<span class="string">'hidden_layer'</span>].apply(constraints)</span><br><span class="line">        model._modules[<span class="string">'output_layer'</span>].apply(constraints)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">500</span> == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"当前正在训练第&#123;&#125;次， 损失是&#123;&#125;"</span>.format(i, loss.item()))</span><br><span class="line">            test_model(model)</span><br><span class="line">            weight_print(model)</span><br><span class="line">        <span class="keyword">if</span> loss.item()&lt;terminate_threshold:</span><br><span class="line">            print(<span class="string">"训练满足精度要求，训练了&#123;&#125;次。"</span>.format(i))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">0     500  250.070984</span><br><span class="line">1    1000  140.255447</span><br><span class="line">2    1500   67.511780</span><br><span class="line">3    2000   28.515696</span><br><span class="line">4    2500   13.275652</span><br><span class="line">5    3000    7.189941</span><br><span class="line">6    3500    4.197995</span><br><span class="line">7    4000    2.512518</span><br><span class="line">8    4500    1.544901</span><br><span class="line">9    5000    0.974513</span><br><span class="line">10   5500    0.637949</span><br><span class="line">11   6000    0.421706</span><br><span class="line">12   6500    0.279455</span><br><span class="line">13   7000    0.605793</span><br><span class="line">14   7500    0.140771</span><br><span class="line">15   8000    0.100952</span><br><span class="line">16   8500    0.072434</span><br><span class="line">17   9000    0.065805</span><br><span class="line">18   9500    0.046082</span><br><span class="line">19  10000    0.035448</span><br><span class="line">20  10500    0.027883</span><br><span class="line">21  11000    0.035439</span><br><span class="line">22  11500    0.020767</span><br><span class="line">23  12000    0.017025</span><br><span class="line">24  12500    0.020460</span><br><span class="line">25  13000    0.016357</span><br><span class="line">26  13500    0.013486</span><br><span class="line">27  14000    0.013836</span><br><span class="line">28  14500    0.011874</span><br><span class="line">29  15000    0.019069</span><br><span class="line">30  15500    0.011665</span><br><span class="line">31  16000    0.010154</span><br><span class="line">32  16500    0.011716</span><br><span class="line">33  17000    0.009304</span><br><span class="line">34  17500    0.007975</span><br><span class="line">35  18000    0.007628</span><br><span class="line">36  18500    0.006882</span><br><span class="line">37  19000    0.993199</span><br><span class="line">38  19500    0.006250</span><br><span class="line">39  20000    0.076224</span><br><span class="line">40  20500    0.005728</span><br><span class="line">41  21000    0.005862</span><br><span class="line">42  21500    0.005021</span><br><span class="line">43  22000    0.005911</span><br><span class="line">44  22500    0.005376</span><br><span class="line">45  23000    0.004734</span><br><span class="line">46  23500    0.004461</span><br><span class="line">47  24000    0.004778</span><br><span class="line">48  24500    0.004454</span><br><span class="line">49  25000    0.004859</span><br><span class="line">50  25500    0.004430</span><br><span class="line">51  26000    0.004365</span><br><span class="line">52  26500    0.004022</span><br><span class="line">53  27000    0.044836</span><br><span class="line">54  27500    0.003724</span><br><span class="line">55  28000    0.003986</span><br><span class="line">56  28500    0.003676</span><br><span class="line">57  29000    0.003535</span><br><span class="line">58  29500    0.003660</span><br><span class="line">59  30000    0.003258</span><br><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第30000次， 损失是0.00325777824036777</span><br><span class="line">模型预测的数值是： tensor([28.0241], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
-<p><img src="Input_convex_neural_network复现及对比验证/image-20210302162929557.png" alt="image-20210302162929557" style="zoom:50%;" /></p>
-<p>可以看出，在使用相同adam优化器参数的条件下，DNN相比ICNN，优化的速度更快。</p>
-<p>而当将adam优化器的参数从<span class="math inline">\(1e-3\)</span>改变为<span class="math inline">\(1e-2\)</span>后，仿真结果如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第500次， 损失是4.0928754806518555</span><br><span class="line">模型预测的数值是： tensor([26.7256], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
-<p>对于上面所仿真的普通的DNN，若将其adam优化器同时改变之后，仿真结果如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第500次， 损失是0.12059637159109116</span><br><span class="line">模型预测的数值是： tensor([28.0837], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
-<p>Adam优化器的参数对于网络的训练有着很大的影响，经过实验仿真可得：传统的DNN和ICNN都能找到一组Adam优化器参数，使得其训练效果较好。</p>
-<h2 id="原始论文中的仿真验证的复现">原始论文中的仿真验证的复现</h2>
+<p>软路由用作旁路由，搭建socks5代理，速度比windows直接用快了将近30倍。</p>
+<p>不知道是啥原因，可能是Linux和Windows系统上的区别？</p>
 ]]></content>
       <categories>
-        <category>神经网络</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>神经网络</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1960,6 +1895,159 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Input Convex Neural Network复现及仿真验证</title>
+    <url>/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/</url>
+    <content><![CDATA[<p>《Input Convex Neural Networks》</p>
+<p>《Optimal Control Via Neural Networks: A Convex Approach》</p>
+<p>对于复杂系统的控制往往分为两步，对系统的辨识和控制器的设计。 深度神经网络被证明在辨识任务中取得了重大成功，但是，由于这些辨识出来的系统往往是非线性和非凸的，其控制器很难设计，所以，实际系统往往还是用线性模型去逼近，尽管这些线性模型的拟合能力很弱，因此，往往设计出来的控制器的性能都不行。</p>
+<p>这两篇文章，主要提出了ICNN及其改进网络结构，ICNN的特点就是对于输入是凸的，第一篇文章主要提出了ICNN这一网络结构，通过将神经网络的前向通道中的权重设置为非负值，这一简单的改变，就可以将神经网络变为输入凸的，且该网络的拟合能力并为受到较大的影响。</p>
+<p>这篇文章主要完成3点：</p>
+<ol type="1">
+<li>复现ICNN，原版的ICNN是用tensorflow写的，代码不全，且使用了较老的库版本，运行不了，在此采用pytorch进行复现出一个通用程序。</li>
+<li>对于一个给定的函数：<span class="math inline">\(y=3x_1^2+4x_2^2\)</span>，利用普通的DNN，和ICNN进行对比，验证ICNN的拟合能力（验证的过程使用相同的网络层数，每层的节点数，学习率等参数）。</li>
+<li>对于《Input Convex Neural Networks》中的simulation中的synthetic 2D example和《Optimal Control Via Neural Networks: A Convex Approach》中的APPENDIX中的Toy Example分别进行复现及仿真验证。</li>
+</ol>
+<a id="more"></a>
+<h2 id="icnn原理及证明">ICNN原理及证明</h2>
+<h3 id="icnn网络结构">ICNN网络结构</h3>
+<figure>
+<img src="image-20210302145927461.png" alt="image-20210302145927461" /><figcaption>image-20210302145927461</figcaption>
+</figure>
+<p><span class="math display">\[z_{i+1}=g_{i}\left(W_{i}^{(z)} z_{i}+W_{i}^{(y)} y+b_{i}\right), \quad f(y ; \theta)=z_{k}\]</span>，</p>
+<p>Figure1是全连接的凸的，k层ICNN，记为：FICNN，令输入记为：<span class="math inline">\(y\)</span>，<span class="math inline">\(z_i\)</span>记为每一个激活函数的输出，<span class="math inline">\(\theta\)</span>记为所有的参数：<span class="math inline">\(\theta=\left\{W_{0: k-1}^{(y)}, W_{1: k-1}^{(z)}, b_{0: k-1}\right\}\)</span>，<span class="math inline">\(g_i\)</span>是非线性激活函数，网络凸的性质的主要结果如下：</p>
+<p><strong><em>结论</em></strong>：<strong>函数<span class="math inline">\(f\)</span>对于<span class="math inline">\(y\)</span>是凸函数，当所有的<span class="math inline">\(W_{1: k-1}^{(z)}\)</span>是非负，且所有的<span class="math inline">\(g_i\)</span>是凸的非增函数</strong></p>
+<p><strong><em>分析：</em></strong></p>
+<ol type="1">
+<li><p>ICNN网络结构中，从输入直接传递到隐含层的叫"passthrough"，这样的连接在传统的前馈神经网络中是没有必要的，因为前面的神经网络的层的信息总是会被映射到下一个神经网络层中，但是在ICNN中，由于<span class="math inline">\(W^{(z)}\)</span>被限制为非负，所以导致拟合能力下降，且前面网络的信息无法被传递到下一个层中，因此，需要使用额外的passthrough。</p></li>
+<li><p>对于<span class="math inline">\(b_i\)</span>来说，放到前向传播中，或者passthrough中，都是等价的。</p></li>
+<li><p>passthrough中的weight和bias都是可以为负的，没有限制。</p></li>
+</ol>
+<h3 id="icnn输入凸的证明">ICNN输入凸的证明</h3>
+<h2 id="icnn基本结构pytorch复现">ICNN基本结构Pytorch复现</h2>
+<h2 id="y3x_124x_22仿真算例"><span class="math inline">\(y=3x_1^2+4x_2^2\)</span>仿真算例</h2>
+<p>仿真算例：<span class="math inline">\(y=3x_1^2+4x_2^2\)</span></p>
+<figure>
+<img src="image-20210302152548355.png" alt="image-20210302152548355" /><figcaption>image-20210302152548355</figcaption>
+</figure>
+<h3 id="训练数据生成">训练数据生成</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>在-5, 5中随机采样1000个数据点</p>
+<p>验证方法：对单个目标进行验证时，当输入是[2, 2]时，理论输出应该是[28]，同时，输出其MSE的数值并画出其图片。</p>
+<h3 id="对比其拟合能力">对比其拟合能力：</h3>
+<h4 id="普通神经网络的拟合能力">普通神经网络的拟合能力</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Model</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">  <span class="string">'''</span></span><br><span class="line"><span class="string">  定义普通全连结神经网络模型</span></span><br><span class="line"><span class="string">  '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n_feature=<span class="number">2</span>, n_hidden=<span class="number">4</span>, n_output=<span class="number">1</span>, nGdIter=<span class="number">30</span>)</span>:</span></span><br><span class="line">        super(Model, self).__init__()</span><br><span class="line">        self.input_layer = nn.Linear(n_feature, n_hidden)</span><br><span class="line">        self.hidden_layer = nn.Linear(n_hidden, n_hidden)</span><br><span class="line">        self.output_layer = nn.Linear(n_hidden, n_output)</span><br><span class="line">        self.act = nn.ReLU()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x = self.input_layer(x)</span><br><span class="line">        x = self.act(x)</span><br><span class="line">        x = self.hidden_layer(x)</span><br><span class="line">        x = self.act(x)</span><br><span class="line">        x = self.output_layer(x)</span><br><span class="line">        <span class="comment"># 输出层加上了relu激活函数后会导致很难收敛</span></span><br><span class="line">        <span class="comment">#x = self.act(x)</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_noncvx_network</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 构造虚拟数据用于训练：y=3x1^2+4x2^2</span></span><br><span class="line">    x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">    x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">    x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">    x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">    y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br><span class="line">    model = NonCvxModel(n_feature=<span class="number">2</span>, n_hidden=<span class="number">200</span>, n_output=<span class="number">1</span>)</span><br><span class="line">    criterion = torch.nn.MSELoss(reduction=<span class="string">'sum'</span>)</span><br><span class="line">    learning_rate = <span class="number">1e-3</span></span><br><span class="line">    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)</span><br><span class="line">    terminate_threshold = <span class="number">1e-5</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">        y_pred = model(x)</span><br><span class="line">        loss = criterion(y_pred, y)/y.size()[<span class="number">0</span>]</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">500</span> == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"当前正在训练第&#123;&#125;次， 损失是&#123;&#125;"</span>.format(i, loss.item()))</span><br><span class="line">            test_model(model)</span><br><span class="line">        <span class="keyword">if</span> loss.item()&lt;terminate_threshold:</span><br><span class="line">            print(<span class="string">"训练满足精度要求，训练了&#123;&#125;次。"</span>.format(i))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">0     500  29.005009</span><br><span class="line">1    1000   5.884062</span><br><span class="line">2    1500   1.050613</span><br><span class="line">3    2000   0.301482</span><br><span class="line">4    2500   0.141028</span><br><span class="line">5    3000   0.078763</span><br><span class="line">6    3500   0.048814</span><br><span class="line">7    4000   0.030913</span><br><span class="line">8    4500   0.021231</span><br><span class="line">9    5000   0.016060</span><br><span class="line">10   5500   0.012875</span><br><span class="line">11   6000   0.010986</span><br><span class="line">12   6500   0.009771</span><br><span class="line">13   7000   0.008564</span><br><span class="line">14   7500   0.007799</span><br><span class="line">15   8000   0.009830</span><br><span class="line">16   8500   0.046179</span><br><span class="line">17   9000   0.006437</span><br><span class="line">18   9500   0.013724</span><br><span class="line">19  10000   0.005822</span><br><span class="line">20  10500   0.005917</span><br><span class="line">21  11000   0.005384</span><br><span class="line">22  11500   0.005134</span><br><span class="line">23  12000   0.030397</span><br><span class="line">24  12500   0.005959</span><br><span class="line">25  13000   0.004671</span><br><span class="line">26  13500   0.004517</span><br><span class="line">27  14000   0.004421</span><br><span class="line">28  14500   0.004290</span><br><span class="line">29  15000   0.008322</span><br><span class="line">30  15500   0.019044</span><br><span class="line">31  16000   0.011500</span><br><span class="line">32  16500   0.003893</span><br><span class="line">33  17000   0.003794</span><br><span class="line">34  17500   0.003694</span><br><span class="line">35  18000   0.004458</span><br><span class="line">36  18500   0.003805</span><br><span class="line">37  19000   0.003468</span><br><span class="line">38  19500   0.008987</span><br><span class="line">39  20000   0.003343</span><br><span class="line">40  20500   0.003368</span><br><span class="line">41  21000   0.007225</span><br><span class="line">42  21500   0.003226</span><br><span class="line">43  22000   0.003124</span><br><span class="line">44  22500   0.003073</span><br><span class="line">45  23000   0.002998</span><br><span class="line">46  23500   0.025686</span><br><span class="line">47  24000   0.003000</span><br><span class="line">48  24500   0.002887</span><br><span class="line">49  25000   0.002838</span><br><span class="line">50  25500   0.002903</span><br><span class="line">51  26000   0.002845</span><br><span class="line">52  26500   0.004229</span><br><span class="line">53  27000   0.002733</span><br><span class="line">54  27500   0.008934</span><br><span class="line">55  28000   0.012964</span><br><span class="line">56  28500   0.018379</span><br><span class="line">57  29000   0.011293</span><br><span class="line">58  29500   0.007785</span><br><span class="line">59  30000   0.002500</span><br><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第30000次， 损失是0.002500230213627219</span><br><span class="line">模型预测的数值是： tensor([27.9667], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
+<p><img src="image-20210302162912494.png" alt="image-20210302162912494" style="zoom:50%;" /></p>
+<h4 id="icnn的拟合能力">ICNN的拟合能力</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CvxModel</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        输入凸神经网络结构定义</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n_feature=<span class="number">2</span>, n_hidden=<span class="number">4</span>, n_output=<span class="number">1</span>, nGdIter=<span class="number">30</span>)</span>:</span></span><br><span class="line">        super(CvxModel, self).__init__()</span><br><span class="line">        self.input_layer = nn.Linear(n_feature, n_hidden, bias=<span class="literal">False</span>)</span><br><span class="line">        self.hidden_layer = nn.Linear(n_hidden, n_hidden, bias=<span class="literal">False</span>)</span><br><span class="line">        self.output_layer = nn.Linear(n_hidden, n_output, bias=<span class="literal">False</span>)</span><br><span class="line">        self.passthrough_layer = nn.Linear(n_feature, n_hidden)</span><br><span class="line">        self.passthrough_output_layer = nn.Linear(n_feature, n_output)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        zx1 = F.relu(self.input_layer(x))</span><br><span class="line">        pass1 = self.passthrough_layer(x)</span><br><span class="line">        pass2 = self.passthrough_output_layer(x)</span><br><span class="line">        zx2 = F.relu(self.hidden_layer(zx1) + pass1)</span><br><span class="line">        zx3 = self.output_layer(zx2) + pass2</span><br><span class="line">        <span class="keyword">return</span> zx3</span><br><span class="line">      </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">weightConstraint</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        对一个特定的层的weight进行参数限制</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, module)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> hasattr(module, <span class="string">'weight'</span>):</span><br><span class="line">            w = module.weight.data</span><br><span class="line">            w = w.clamp(<span class="number">0.0</span>, <span class="number">100.0</span>)</span><br><span class="line">            module.weight.data = w</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当对权重有非负的限制时，训练神经网络</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train_with_constrains</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 先对参数进行限制到[-1, 1]进行仿真验证</span></span><br><span class="line">    <span class="comment"># 构造虚拟数据用于训练：y=3x1^2+4x2^2</span></span><br><span class="line">    x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">    x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">    x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">    x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">    y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    model = CvxModel(n_feature=<span class="number">2</span>, n_hidden=<span class="number">200</span>, n_output=<span class="number">1</span>)</span><br><span class="line">    constraints = weightConstraint()</span><br><span class="line">    criterion = torch.nn.MSELoss(reduction=<span class="string">'sum'</span>)</span><br><span class="line">    learning_rate = <span class="number">1e-3</span></span><br><span class="line">    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)</span><br><span class="line">    terminate_threshold = <span class="number">1e-5</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">        y_pred = model(x)</span><br><span class="line">        loss = criterion(y_pred, y)/y.size()[<span class="number">0</span>]</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        model._modules[<span class="string">'input_layer'</span>].apply(constraints)</span><br><span class="line">        model._modules[<span class="string">'hidden_layer'</span>].apply(constraints)</span><br><span class="line">        model._modules[<span class="string">'output_layer'</span>].apply(constraints)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">500</span> == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"当前正在训练第&#123;&#125;次， 损失是&#123;&#125;"</span>.format(i, loss.item()))</span><br><span class="line">            test_model(model)</span><br><span class="line">            weight_print(model)</span><br><span class="line">        <span class="keyword">if</span> loss.item()&lt;terminate_threshold:</span><br><span class="line">            print(<span class="string">"训练满足精度要求，训练了&#123;&#125;次。"</span>.format(i))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">0     500  250.070984</span><br><span class="line">1    1000  140.255447</span><br><span class="line">2    1500   67.511780</span><br><span class="line">3    2000   28.515696</span><br><span class="line">4    2500   13.275652</span><br><span class="line">5    3000    7.189941</span><br><span class="line">6    3500    4.197995</span><br><span class="line">7    4000    2.512518</span><br><span class="line">8    4500    1.544901</span><br><span class="line">9    5000    0.974513</span><br><span class="line">10   5500    0.637949</span><br><span class="line">11   6000    0.421706</span><br><span class="line">12   6500    0.279455</span><br><span class="line">13   7000    0.605793</span><br><span class="line">14   7500    0.140771</span><br><span class="line">15   8000    0.100952</span><br><span class="line">16   8500    0.072434</span><br><span class="line">17   9000    0.065805</span><br><span class="line">18   9500    0.046082</span><br><span class="line">19  10000    0.035448</span><br><span class="line">20  10500    0.027883</span><br><span class="line">21  11000    0.035439</span><br><span class="line">22  11500    0.020767</span><br><span class="line">23  12000    0.017025</span><br><span class="line">24  12500    0.020460</span><br><span class="line">25  13000    0.016357</span><br><span class="line">26  13500    0.013486</span><br><span class="line">27  14000    0.013836</span><br><span class="line">28  14500    0.011874</span><br><span class="line">29  15000    0.019069</span><br><span class="line">30  15500    0.011665</span><br><span class="line">31  16000    0.010154</span><br><span class="line">32  16500    0.011716</span><br><span class="line">33  17000    0.009304</span><br><span class="line">34  17500    0.007975</span><br><span class="line">35  18000    0.007628</span><br><span class="line">36  18500    0.006882</span><br><span class="line">37  19000    0.993199</span><br><span class="line">38  19500    0.006250</span><br><span class="line">39  20000    0.076224</span><br><span class="line">40  20500    0.005728</span><br><span class="line">41  21000    0.005862</span><br><span class="line">42  21500    0.005021</span><br><span class="line">43  22000    0.005911</span><br><span class="line">44  22500    0.005376</span><br><span class="line">45  23000    0.004734</span><br><span class="line">46  23500    0.004461</span><br><span class="line">47  24000    0.004778</span><br><span class="line">48  24500    0.004454</span><br><span class="line">49  25000    0.004859</span><br><span class="line">50  25500    0.004430</span><br><span class="line">51  26000    0.004365</span><br><span class="line">52  26500    0.004022</span><br><span class="line">53  27000    0.044836</span><br><span class="line">54  27500    0.003724</span><br><span class="line">55  28000    0.003986</span><br><span class="line">56  28500    0.003676</span><br><span class="line">57  29000    0.003535</span><br><span class="line">58  29500    0.003660</span><br><span class="line">59  30000    0.003258</span><br><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第30000次， 损失是0.00325777824036777</span><br><span class="line">模型预测的数值是： tensor([28.0241], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
+<p><img src="image-20210302162929557.png" alt="image-20210302162929557" style="zoom:50%;" /></p>
+<p>可以看出，在使用相同adam优化器参数的条件下，DNN相比ICNN，优化的速度更快。</p>
+<p>而当将adam优化器的参数从<span class="math inline">\(1e-3\)</span>改变为<span class="math inline">\(1e-2\)</span>后，仿真结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第500次， 损失是4.0928754806518555</span><br><span class="line">模型预测的数值是： tensor([26.7256], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
+<p>对于上面所仿真的普通的DNN，若将其adam优化器同时改变之后，仿真结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第500次， 损失是0.12059637159109116</span><br><span class="line">模型预测的数值是： tensor([28.0837], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
+<p>Adam优化器的参数对于网络的训练有着很大的影响，经过实验仿真可得：传统的DNN和ICNN都能找到一组Adam优化器参数，使得其训练效果较好。</p>
+<h2 id="原始论文中的仿真验证的复现">原始论文中的仿真验证的复现</h2>
+]]></content>
+      <categories>
+        <category>神经网络</category>
+      </categories>
+      <tags>
+        <tag>神经网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PPO算法公式推导</title>
+    <url>/2020/09/07/PPO%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/</url>
+    <content><![CDATA[<p><strong>论文：</strong></p>
+<p>[1] Schulman, J., Levine, S., Moritz, P., Jordan, M. I. &amp; Abbeel, P. Trust Region Policy Optimization. <em>arXiv:1502.05477 [cs]</em> (2017).</p>
+<p>[2] Schulman, J., Wolski, F., Dhariwal, P., Radford, A. &amp; Klimov, O. Proximal Policy Optimization Algorithms. <em>arXiv:1707.06347 [cs]</em> (2017).</p>
+<p>[3] Heess, N. <em>et al.</em> Emergence of Locomotion Behaviours in Rich Environments. <em>arXiv:1707.02286 [cs]</em> (2017).</p>
+<p>第一、二篇是openai的，第三篇是deepmind的</p>
+<p>Trust Region Policy Optimization算法是在2015年由UCB/Openai的John Schulman提出的，基本思想就是在传统的Policy Gradient算法中对梯度的更新增加一个信赖域，来保证梯度更新前后的策略相差不超过一定的阈值，用两个概率分布的KL散度来衡量这个阈值，TRPO算法的表达形式中有一个硬约束，这给求解最优问题带来了困难，而PPO则是在2017年由UCB/Openai的John Schulman提出的，是TRPO的近似算法，将TRPO的软约束转化成目标函数中的一个惩罚项，以此来简化计算，方便实现。</p>
+<a id="more"></a>
+<h2 id="trpo算法推导">TRPO算法推导</h2>
+<h3 id="notation">Notation</h3>
+<p>令<span class="math inline">\(\eta(\pi)\)</span>表示累积折扣回报：</p>
+<p><span class="math inline">\(\eta(\pi)=\mathbb{E}_{s_{0}, a_{0}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} c\left(s_{t}\right)\right]\)</span></p>
+<p>其中，<span class="math inline">\(s_{0} \sim \rho_{0}\left(s_{0}\right), a_{t} \sim \pi\left(a_{t} \mid s_{t}\right), s_{t+1} \sim P\left(s_{t+1} \mid s_{t}, a_{t}\right)\)</span></p>
+<p>state-action值函数的定义：<span class="math inline">\(Q_{\pi}\left(s_{t}, a_{t}\right)=\mathbb{E}_{s_{t+1}, a_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
+<p>价值函数的定义：<span class="math inline">\(V_{\pi}\left(s_{t}\right)=\mathbb{E}_{a_{t}, s_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
+<p>优势函数：<span class="math inline">\(A_{\pi}(s, a)=Q_{\pi}(s, a)-V_{\pi}(s)\)</span></p>
+<p><strong>Lemma1：策略差分定理</strong>：原始策略记为<span class="math inline">\(\pi\)</span>，更新后的策略记为<span class="math inline">\(\tilde{\pi}\)</span>，则更新后的策略的期望折扣回报可以写成更新前策略的期望折扣回报加上一个<span class="math inline">\(\tilde{\pi}\)</span>对<span class="math inline">\(\pi\)</span>的优势函数：</p>
+<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span></p>
+<p>上述等式能够体现TRPO的思想：将新的策略得到的性能函数写成旧策略的性能函数加上一个新策略对旧策略的的优势函数的期望值，若能保证这个期望值是正数，则可以保证新策略的性能函数要优于旧策略的性能函数。</p>
+<p>这个定理由2002年 Kakade &amp; Langford证得：</p>
+<p>因为<span class="math inline">\(A_{\pi}(s, a)=\mathbb{E}_{s^{\prime} \sim P\left(s^{\prime} \mid s, a\right)}\left[r(s)+\gamma V_{\pi}\left(s^{\prime}\right)-V_{\pi}(s)\right]\)</span></p>
+<p><span class="math inline">\(\begin{array}{l} \mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t}\left(r\left(s_{t}\right)+\gamma V_{\pi}\left(s_{t+1}\right)-V_{\pi}\left(s_{t}\right)\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[-V_{\pi}\left(s_{0}\right)+\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\mathbb{E}_{s_{0}}\left[V_{\pi}\left(s_{0}\right)\right]+\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\eta(\pi)+\eta(\tilde{\pi}) \end{array}\)</span></p>
+<p>定义discounted visitation frequencies：<span class="math inline">\(\rho_{\pi}(s)=\left(P\left(s_{0}=s\right)+\gamma P\left(s_{1}=s\right)+\gamma^{2} P\left(s_{2}=s\right)+\ldots\right)\)</span></p>
+<p>定义这个频率的目的主要是换一个角度来表示基于累计折扣回报函数的性能函数，因为<span class="math inline">\(\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span>很难表示。</p>
+<p>当<span class="math inline">\(\gamma\)</span>等于1的时候，显然，这个频率代表着在一个trajectory中状态<span class="math inline">\(s\)</span>出现次数的期望，当reward function只和状态有关而和action无关的时候，那么在这个trajectory中由<span class="math inline">\(s\)</span>贡献的return就只和这个frequency相关了。</p>
+<p>当<span class="math inline">\(\gamma\)</span>小于1的时候，在每个timestep会对reward进行一个discount的处理，所以想使用discounted frequencies来表示return的期望的话，需要在frequency上面做一个discount。</p>
+<p>通过使用discounted visitation frequencies方法，可以将上述级数形式的期望写成如下容易处理的形式</p>
+<p><span class="math display">\[\begin{aligned}
+\eta(\tilde{\pi}) &amp;=\eta(\pi)+\sum_{t=0}^{\infty} \sum_{s} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) \gamma^{t} A_{\pi}(s, a) \\
+&amp;=\eta(\pi)+\sum_{s} \sum_{t=0}^{\infty} \gamma^{t} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a) \\
+&amp;=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)
+\end{aligned}\]</span></p>
+<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
+<p>因为<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>依赖于<span class="math inline">\(\tilde{\pi}\)</span>，而因为<span class="math inline">\(\tilde{\pi}\)</span>是更新后的策略，在<span class="math inline">\(t\)</span>时刻，我们只有更新前的策略，上述优化问题很难求解，所以需要做一个近似：</p>
+<p><span class="math inline">\(L_{\pi}(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\pi}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
+<p>其中，<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>使用的是<span class="math inline">\(\rho_{\pi}\)</span>而不是<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>，因为策略的改变会导致相应的state visitation density的变化，而上面这个式子忽略了这一点，但是，(Kakade &amp; Langford 2002)证明了<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>和<span class="math inline">\(\eta(\pi)\)</span>是一阶近似的：</p>
+<p>对于任意的参数<span class="math inline">\(\theta_0\)</span>，有：</p>
+<p><span class="math inline">\(\begin{aligned} L_{\pi_{\theta_{0}}}\left(\pi_{\theta_{0}}\right) &amp;=\eta\left(\pi_{\theta_{0}}\right) \\ \left.\nabla_{\theta} L_{\pi_{\theta_{0}}}\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} &amp;=\left.\nabla_{\theta} \eta\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} \end{aligned}\)</span></p>
+<p>因此，当对策略进行一步充分小的更新，<span class="math inline">\(\pi_{\theta_{0}} \rightarrow \tilde{\pi}\)</span>，改进<span class="math inline">\(L_{\pi_{\theta_{0}}}\)</span>的同时，也能改进<span class="math inline">\(\eta(\pi_{\theta_{0}})\)</span></p>
+<p>上述过程只说明了一个充分的改进会得到非减的性能指标序列，但是选取步长很重要，选的小了会导致收敛速度慢，选了大了会导致可能的不能得到非减的性能指标序列，因此，(Kakade &amp; Langford)提出了一个policy update的方法：conservative policy iteration(保守策略迭代)，该方法给出了一个显式策略更新的下界：</p>
+<p>令<span class="math inline">\(\pi_{old}\)</span>为当前的策略，<span class="math inline">\(\pi^{\prime}=\arg \max _{\pi^{\prime}} L_{\pi_{\mathrm{old}}}\left(\pi^{\prime}\right)\)</span>，新的策略为<span class="math inline">\(\pi_{new}\)</span>，定义为：</p>
+<p><span class="math display">\[\pi_{\mathrm{new}}(a \mid s)=(1-\alpha) \pi_{\mathrm{old}}(a \mid s)+\alpha \pi^{\prime}(a \mid s)\]</span></p>
+<p>(Kakade &amp; Langford)推导出来的期望折扣累计回报的下界是：</p>
+<p><span class="math inline">\(\begin{aligned} \eta\left(\pi_{\text {new }}\right) &amp; \geq L_{\pi_{\text {old}}}\left(\pi_{\text {new}}\right)-\frac{2 \epsilon \gamma}{(1-\gamma)^{2}} \alpha^{2} \\ &amp; \text { where } \epsilon=\max _{s}\left|\mathbb{E}_{a \sim \pi^{\prime}(a \mid s)}\left[A_{\pi}(s, a)\right]\right| \end{aligned}\)</span></p>
+<p>以上都是(Kakade &amp; Langford 2002)的结论和证明</p>
+<p>其中<span class="math inline">\(\alpha\)</span>并未给出合适的计算方法，TRPO利用两个概率分布之间的KL散度来计算这个<span class="math inline">\(\alpha\)</span></p>
+<p>用概率论中的全变差距离来衡量两个策略之间的差距，<span class="math inline">\(D_{T V}(p \| q)=\frac{1}{2} \sum_{i}\left|p_{i}-q_{i}\right|\)</span></p>
+<p>其中，<span class="math inline">\(p_i\)</span>和<span class="math inline">\(q_i\)</span>是两个策略的离散的概率分布，定义<span class="math inline">\(D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})\)</span>为：</p>
+<p><span class="math display">\[D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})=\max _{s} D_{T V}(\pi(\cdot \mid s) \| \tilde{\pi}(\cdot \mid s))\]</span></p>
+<p>因为全变差距离和KL散度具有关系：<span class="math inline">\(D_{T V}(p \| q)^{2} \leq D_{\mathrm{KL}}(p \| q)\)</span></p>
+<p>所以可以将<span class="math inline">\(\alpha^2\)</span>替换为<span class="math inline">\(D_{T V}(p \| q)^{2}\)</span>，进一步可以替换为<span class="math inline">\(D_{\mathrm{KL}}(p \| q)\)</span></p>
+<p>利用KL divergence来衡量差距，计算方法：</p>
+<p>对于离散分布：<span class="math inline">\(D_{K L}(P \mid Q)=\sum_{i} P(i) \log \frac{P(i)}{Q(i)}\)</span></p>
+<p>对于连续分布：<span class="math inline">\(D_{K L}(P \mid Q)=\int_{-\infty}^{\infty} p(x) \log \frac{p(x)}{q(x)} d x\)</span></p>
+<p><strong>TRPO算法</strong></p>
+<p><img src="image-20200913171805500.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
+<p>策略的单调改进：TRPO算法能够保证策略每次更新都是单调改进的，即值函数<span class="math inline">\(\eta\left(\pi_{0}\right) \leq \eta\left(\pi_{1}\right) \leq \eta\left(\pi_{2}\right) \leq \ldots\)</span></p>
+<p><img src="image-20200913191418918.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
+<h2 id="ppo算法">PPO算法</h2>
+<p>TRPO算法是找到原目标函数的替代函数，并最大化这个替代函数，优化问题的约束是策略参数的更新不能超过一个设定的阈值，优化过程可以写成：</p>
+<p><span class="math inline">\(\begin{array}{ll} \underset{\theta}{\operatorname{maximize}} &amp; \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right] \\ \text { subject to } &amp; \hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right] \leq \delta \end{array}\)</span></p>
+<p>PPO是TRPO的一个改进，或者可以说是一个近似算法，可以将上述的带约束优化问题转化为无约束优化问题，可以写出TRPO的另一个形式：</p>
+<p><span class="math inline">\(\underset{\theta}{\operatorname{maximize}} \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
+<p>令<span class="math inline">\(r_t(\theta)\)</span>表示概率比：<span class="math inline">\(r_{t}(\theta)=\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\mathrm{old}}}\left(a_{t} \mid s_{t}\right)}\)</span>，因此<span class="math inline">\(r(\theta){old}=1\)</span>，</p>
+<p>TRPO最大化一个替代的目标函数：</p>
+<p><span class="math inline">\(L^{C P I}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right]=\hat{\mathbb{E}}_{t}\left[r_{t}(\theta) \hat{A}_{t}\right]\)</span></p>
+<p>如果使用策略迭代进行求解，那么策略的更新的步长可能会很大，<strong>以下是PPO的一个实现：对ration直接进行限制</strong></p>
+<p><span class="math inline">\(L^{C L I P}(\theta)=\hat{\mathbb{E}}_{t}\left[\min \left(r_{t}(\theta) \hat{A}_{t}, \operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\right)\right]\)</span></p>
+<p>上述min中有两项：第一项为<span class="math inline">\(r_{t}(\theta) \hat{A}_{t}\)</span>，第二项为<span class="math inline">\(\operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\)</span></p>
+<p><strong>Clip</strong>：为目标函数限定一个范围，意思就是通过计算概率比<span class="math inline">\(r_t(\theta)\)</span>，设定一个阈值，将其限制在一定的范围内<span class="math inline">\((1-\epsilon, 1+\epsilon)\)</span>，来避免策略网络的权重更新步长过大。</p>
+<p><span class="math inline">\(L^{CLIP}\)</span>是<span class="math inline">\(L^{CPI}\)</span>的一个下界。</p>
+<p><img src="image-20200913162249801.png" alt="image-20200913162249801" style="zoom:50%;" /></p>
+<p>PPO算法的第二种形式：</p>
+<p>以目标函数加入惩罚项的形式：</p>
+<p><span class="math inline">\(L^{K L P E N}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
+<p>其中，<span class="math inline">\(\beta\)</span>不是固定的，需要进行自适应设计，设计方法如下：</p>
+<p>计算两个策略的KL散度：<span class="math inline">\(d=\hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
+<p><span class="math inline">\(\begin{array}{l} -\text { If } d&lt;d_{\operatorname{targ}} / 1.5, \beta \leftarrow \beta / 2 \\ -\text { If } d&gt;d_{\text {targ }} \times 1.5, \beta \leftarrow \beta \times 2 \end{array}\)</span></p>
+]]></content>
+      <categories>
+        <category>Reinforcement Learning</category>
+      </categories>
+      <tags>
+        <tag>Reinforcement Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -3166,94 +3254,6 @@ Alabama
       </tags>
   </entry>
   <entry>
-    <title>PPO算法公式推导</title>
-    <url>/2020/09/07/PPO%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/</url>
-    <content><![CDATA[<p><strong>论文：</strong></p>
-<p>[1] Schulman, J., Levine, S., Moritz, P., Jordan, M. I. &amp; Abbeel, P. Trust Region Policy Optimization. <em>arXiv:1502.05477 [cs]</em> (2017).</p>
-<p>[2] Schulman, J., Wolski, F., Dhariwal, P., Radford, A. &amp; Klimov, O. Proximal Policy Optimization Algorithms. <em>arXiv:1707.06347 [cs]</em> (2017).</p>
-<p>[3] Heess, N. <em>et al.</em> Emergence of Locomotion Behaviours in Rich Environments. <em>arXiv:1707.02286 [cs]</em> (2017).</p>
-<p>第一、二篇是openai的，第三篇是deepmind的</p>
-<p>Trust Region Policy Optimization算法是在2015年由UCB/Openai的John Schulman提出的，基本思想就是在传统的Policy Gradient算法中对梯度的更新增加一个信赖域，来保证梯度更新前后的策略相差不超过一定的阈值，用两个概率分布的KL散度来衡量这个阈值，TRPO算法的表达形式中有一个硬约束，这给求解最优问题带来了困难，而PPO则是在2017年由UCB/Openai的John Schulman提出的，是TRPO的近似算法，将TRPO的软约束转化成目标函数中的一个惩罚项，以此来简化计算，方便实现。</p>
-<a id="more"></a>
-<h2 id="trpo算法推导">TRPO算法推导</h2>
-<h3 id="notation">Notation</h3>
-<p>令<span class="math inline">\(\eta(\pi)\)</span>表示累积折扣回报：</p>
-<p><span class="math inline">\(\eta(\pi)=\mathbb{E}_{s_{0}, a_{0}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} c\left(s_{t}\right)\right]\)</span></p>
-<p>其中，<span class="math inline">\(s_{0} \sim \rho_{0}\left(s_{0}\right), a_{t} \sim \pi\left(a_{t} \mid s_{t}\right), s_{t+1} \sim P\left(s_{t+1} \mid s_{t}, a_{t}\right)\)</span></p>
-<p>state-action值函数的定义：<span class="math inline">\(Q_{\pi}\left(s_{t}, a_{t}\right)=\mathbb{E}_{s_{t+1}, a_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
-<p>价值函数的定义：<span class="math inline">\(V_{\pi}\left(s_{t}\right)=\mathbb{E}_{a_{t}, s_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
-<p>优势函数：<span class="math inline">\(A_{\pi}(s, a)=Q_{\pi}(s, a)-V_{\pi}(s)\)</span></p>
-<p><strong>Lemma1：策略差分定理</strong>：原始策略记为<span class="math inline">\(\pi\)</span>，更新后的策略记为<span class="math inline">\(\tilde{\pi}\)</span>，则更新后的策略的期望折扣回报可以写成更新前策略的期望折扣回报加上一个<span class="math inline">\(\tilde{\pi}\)</span>对<span class="math inline">\(\pi\)</span>的优势函数：</p>
-<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span></p>
-<p>上述等式能够体现TRPO的思想：将新的策略得到的性能函数写成旧策略的性能函数加上一个新策略对旧策略的的优势函数的期望值，若能保证这个期望值是正数，则可以保证新策略的性能函数要优于旧策略的性能函数。</p>
-<p>这个定理由2002年 Kakade &amp; Langford证得：</p>
-<p>因为<span class="math inline">\(A_{\pi}(s, a)=\mathbb{E}_{s^{\prime} \sim P\left(s^{\prime} \mid s, a\right)}\left[r(s)+\gamma V_{\pi}\left(s^{\prime}\right)-V_{\pi}(s)\right]\)</span></p>
-<p><span class="math inline">\(\begin{array}{l} \mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t}\left(r\left(s_{t}\right)+\gamma V_{\pi}\left(s_{t+1}\right)-V_{\pi}\left(s_{t}\right)\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[-V_{\pi}\left(s_{0}\right)+\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\mathbb{E}_{s_{0}}\left[V_{\pi}\left(s_{0}\right)\right]+\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\eta(\pi)+\eta(\tilde{\pi}) \end{array}\)</span></p>
-<p>定义discounted visitation frequencies：<span class="math inline">\(\rho_{\pi}(s)=\left(P\left(s_{0}=s\right)+\gamma P\left(s_{1}=s\right)+\gamma^{2} P\left(s_{2}=s\right)+\ldots\right)\)</span></p>
-<p>定义这个频率的目的主要是换一个角度来表示基于累计折扣回报函数的性能函数，因为<span class="math inline">\(\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span>很难表示。</p>
-<p>当<span class="math inline">\(\gamma\)</span>等于1的时候，显然，这个频率代表着在一个trajectory中状态<span class="math inline">\(s\)</span>出现次数的期望，当reward function只和状态有关而和action无关的时候，那么在这个trajectory中由<span class="math inline">\(s\)</span>贡献的return就只和这个frequency相关了。</p>
-<p>当<span class="math inline">\(\gamma\)</span>小于1的时候，在每个timestep会对reward进行一个discount的处理，所以想使用discounted frequencies来表示return的期望的话，需要在frequency上面做一个discount。</p>
-<p>通过使用discounted visitation frequencies方法，可以将上述级数形式的期望写成如下容易处理的形式</p>
-<p><span class="math display">\[\begin{aligned}
-\eta(\tilde{\pi}) &amp;=\eta(\pi)+\sum_{t=0}^{\infty} \sum_{s} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) \gamma^{t} A_{\pi}(s, a) \\
-&amp;=\eta(\pi)+\sum_{s} \sum_{t=0}^{\infty} \gamma^{t} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a) \\
-&amp;=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)
-\end{aligned}\]</span></p>
-<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
-<p>因为<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>依赖于<span class="math inline">\(\tilde{\pi}\)</span>，而因为<span class="math inline">\(\tilde{\pi}\)</span>是更新后的策略，在<span class="math inline">\(t\)</span>时刻，我们只有更新前的策略，上述优化问题很难求解，所以需要做一个近似：</p>
-<p><span class="math inline">\(L_{\pi}(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\pi}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
-<p>其中，<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>使用的是<span class="math inline">\(\rho_{\pi}\)</span>而不是<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>，因为策略的改变会导致相应的state visitation density的变化，而上面这个式子忽略了这一点，但是，(Kakade &amp; Langford 2002)证明了<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>和<span class="math inline">\(\eta(\pi)\)</span>是一阶近似的：</p>
-<p>对于任意的参数<span class="math inline">\(\theta_0\)</span>，有：</p>
-<p><span class="math inline">\(\begin{aligned} L_{\pi_{\theta_{0}}}\left(\pi_{\theta_{0}}\right) &amp;=\eta\left(\pi_{\theta_{0}}\right) \\ \left.\nabla_{\theta} L_{\pi_{\theta_{0}}}\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} &amp;=\left.\nabla_{\theta} \eta\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} \end{aligned}\)</span></p>
-<p>因此，当对策略进行一步充分小的更新，<span class="math inline">\(\pi_{\theta_{0}} \rightarrow \tilde{\pi}\)</span>，改进<span class="math inline">\(L_{\pi_{\theta_{0}}}\)</span>的同时，也能改进<span class="math inline">\(\eta(\pi_{\theta_{0}})\)</span></p>
-<p>上述过程只说明了一个充分的改进会得到非减的性能指标序列，但是选取步长很重要，选的小了会导致收敛速度慢，选了大了会导致可能的不能得到非减的性能指标序列，因此，(Kakade &amp; Langford)提出了一个policy update的方法：conservative policy iteration(保守策略迭代)，该方法给出了一个显式策略更新的下界：</p>
-<p>令<span class="math inline">\(\pi_{old}\)</span>为当前的策略，<span class="math inline">\(\pi^{\prime}=\arg \max _{\pi^{\prime}} L_{\pi_{\mathrm{old}}}\left(\pi^{\prime}\right)\)</span>，新的策略为<span class="math inline">\(\pi_{new}\)</span>，定义为：</p>
-<p><span class="math display">\[\pi_{\mathrm{new}}(a \mid s)=(1-\alpha) \pi_{\mathrm{old}}(a \mid s)+\alpha \pi^{\prime}(a \mid s)\]</span></p>
-<p>(Kakade &amp; Langford)推导出来的期望折扣累计回报的下界是：</p>
-<p><span class="math inline">\(\begin{aligned} \eta\left(\pi_{\text {new }}\right) &amp; \geq L_{\pi_{\text {old}}}\left(\pi_{\text {new}}\right)-\frac{2 \epsilon \gamma}{(1-\gamma)^{2}} \alpha^{2} \\ &amp; \text { where } \epsilon=\max _{s}\left|\mathbb{E}_{a \sim \pi^{\prime}(a \mid s)}\left[A_{\pi}(s, a)\right]\right| \end{aligned}\)</span></p>
-<p>以上都是(Kakade &amp; Langford 2002)的结论和证明</p>
-<p>其中<span class="math inline">\(\alpha\)</span>并未给出合适的计算方法，TRPO利用两个概率分布之间的KL散度来计算这个<span class="math inline">\(\alpha\)</span></p>
-<p>用概率论中的全变差距离来衡量两个策略之间的差距，<span class="math inline">\(D_{T V}(p \| q)=\frac{1}{2} \sum_{i}\left|p_{i}-q_{i}\right|\)</span></p>
-<p>其中，<span class="math inline">\(p_i\)</span>和<span class="math inline">\(q_i\)</span>是两个策略的离散的概率分布，定义<span class="math inline">\(D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})\)</span>为：</p>
-<p><span class="math display">\[D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})=\max _{s} D_{T V}(\pi(\cdot \mid s) \| \tilde{\pi}(\cdot \mid s))\]</span></p>
-<p>因为全变差距离和KL散度具有关系：<span class="math inline">\(D_{T V}(p \| q)^{2} \leq D_{\mathrm{KL}}(p \| q)\)</span></p>
-<p>所以可以将<span class="math inline">\(\alpha^2\)</span>替换为<span class="math inline">\(D_{T V}(p \| q)^{2}\)</span>，进一步可以替换为<span class="math inline">\(D_{\mathrm{KL}}(p \| q)\)</span></p>
-<p>利用KL divergence来衡量差距，计算方法：</p>
-<p>对于离散分布：<span class="math inline">\(D_{K L}(P \mid Q)=\sum_{i} P(i) \log \frac{P(i)}{Q(i)}\)</span></p>
-<p>对于连续分布：<span class="math inline">\(D_{K L}(P \mid Q)=\int_{-\infty}^{\infty} p(x) \log \frac{p(x)}{q(x)} d x\)</span></p>
-<p><strong>TRPO算法</strong></p>
-<p><img src="image-20200913171805500.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
-<p>策略的单调改进：TRPO算法能够保证策略每次更新都是单调改进的，即值函数<span class="math inline">\(\eta\left(\pi_{0}\right) \leq \eta\left(\pi_{1}\right) \leq \eta\left(\pi_{2}\right) \leq \ldots\)</span></p>
-<p><img src="image-20200913191418918.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
-<h2 id="ppo算法">PPO算法</h2>
-<p>TRPO算法是找到原目标函数的替代函数，并最大化这个替代函数，优化问题的约束是策略参数的更新不能超过一个设定的阈值，优化过程可以写成：</p>
-<p><span class="math inline">\(\begin{array}{ll} \underset{\theta}{\operatorname{maximize}} &amp; \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right] \\ \text { subject to } &amp; \hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right] \leq \delta \end{array}\)</span></p>
-<p>PPO是TRPO的一个改进，或者可以说是一个近似算法，可以将上述的带约束优化问题转化为无约束优化问题，可以写出TRPO的另一个形式：</p>
-<p><span class="math inline">\(\underset{\theta}{\operatorname{maximize}} \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
-<p>令<span class="math inline">\(r_t(\theta)\)</span>表示概率比：<span class="math inline">\(r_{t}(\theta)=\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\mathrm{old}}}\left(a_{t} \mid s_{t}\right)}\)</span>，因此<span class="math inline">\(r(\theta){old}=1\)</span>，</p>
-<p>TRPO最大化一个替代的目标函数：</p>
-<p><span class="math inline">\(L^{C P I}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right]=\hat{\mathbb{E}}_{t}\left[r_{t}(\theta) \hat{A}_{t}\right]\)</span></p>
-<p>如果使用策略迭代进行求解，那么策略的更新的步长可能会很大，<strong>以下是PPO的一个实现：对ration直接进行限制</strong></p>
-<p><span class="math inline">\(L^{C L I P}(\theta)=\hat{\mathbb{E}}_{t}\left[\min \left(r_{t}(\theta) \hat{A}_{t}, \operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\right)\right]\)</span></p>
-<p>上述min中有两项：第一项为<span class="math inline">\(r_{t}(\theta) \hat{A}_{t}\)</span>，第二项为<span class="math inline">\(\operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\)</span></p>
-<p><strong>Clip</strong>：为目标函数限定一个范围，意思就是通过计算概率比<span class="math inline">\(r_t(\theta)\)</span>，设定一个阈值，将其限制在一定的范围内<span class="math inline">\((1-\epsilon, 1+\epsilon)\)</span>，来避免策略网络的权重更新步长过大。</p>
-<p><span class="math inline">\(L^{CLIP}\)</span>是<span class="math inline">\(L^{CPI}\)</span>的一个下界。</p>
-<p><img src="image-20200913162249801.png" alt="image-20200913162249801" style="zoom:50%;" /></p>
-<p>PPO算法的第二种形式：</p>
-<p>以目标函数加入惩罚项的形式：</p>
-<p><span class="math inline">\(L^{K L P E N}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
-<p>其中，<span class="math inline">\(\beta\)</span>不是固定的，需要进行自适应设计，设计方法如下：</p>
-<p>计算两个策略的KL散度：<span class="math inline">\(d=\hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
-<p><span class="math inline">\(\begin{array}{l} -\text { If } d&lt;d_{\operatorname{targ}} / 1.5, \beta \leftarrow \beta / 2 \\ -\text { If } d&gt;d_{\text {targ }} \times 1.5, \beta \leftarrow \beta \times 2 \end{array}\)</span></p>
-]]></content>
-      <categories>
-        <category>Reinforcement Learning</category>
-      </categories>
-      <tags>
-        <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Playing Cartpole with natural deep reinforcement learning</title>
     <url>/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/</url>
     <content><![CDATA[<h2 id="introduction">Introduction</h2>
@@ -3904,6 +3904,99 @@ v_{k+1}(s) &amp; \doteq \max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{k}\left(S_{t
       </categories>
       <tags>
         <tag>爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>非线性系统的最优控制器论文整理</title>
+    <url>/2020/08/27/%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6%E5%99%A8%E8%AE%BA%E6%96%87%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<h1 id="非线性系统的最优控制器论文整理">非线性系统的最优控制器论文整理</h1>
+<h2 id="仿射非线性系统">仿射非线性系统：</h2>
+<p><strong>Al-Tamimi, A., Lewis, F. L. &amp; Abu-Khalaf, M. Discrete-Time Nonlinear HJB Solution Using Approximate Dynamic Programming: Convergence Proof. <em>IEEE Trans. Syst., Man, Cybern. B</em> 38, 943–949 (2008).</strong></p>
+<p>这篇文章的主要贡献是给出了使用值迭代的启发式算法求解仿射非线性系统的收敛性的证明</p>
+<a id="more"></a>
+<p>1.首先给出了HDP 值迭代算法，是一个求解离散时间HJB方程的在线算法：</p>
+<p>给定一个初始值函数<span class="math inline">\(V_0(x)=0\)</span>，然后，根据Bellman方程求解控制策略<span class="math inline">\(u_0\)</span></p>
+<p><span class="math inline">\(u_{o}\left(x_{k}\right)=\arg \min _{u}\left(x_{k}^{T} Q x_{k}+u^{T} R u+V_{0}\left(x_{k+1}\right)\right)\)</span></p>
+<p>一旦这个<span class="math inline">\(u_0\)</span>求出来以后，可以求得该时刻的价值函数：</p>
+<p><span class="math inline">\(\begin{aligned} V_{1}\left(x_{k}\right) &amp;=x_{k}^{T} Q x_{k}+u_{0}^{T}\left(x_{k}\right) R u_{0}\left(x_{k}\right)+V_{0}\left(f\left(x_{k}\right)+g\left(x_{k}\right) u_{0}\left(x_{k}\right)\right) \\ &amp;=x_{k}^{T} Q x_{k}+u_{0}^{T}\left(x_{k}\right) R u_{0}\left(x_{k}\right)+V_{0}\left(x_{k+1}\right) \end{aligned}\)</span></p>
+<p>HDP算法是一个增量式的优化算法，需要不断在策略与值函数之间进行交互迭代，简而言之，利用policy improvement来根据值函数求得最优策略，然后用求得的策略与环境进行交互，得到trajectory，然后计算值函数，如此反复下去</p>
+<p>这个过程可以表示为：</p>
+<p><span class="math inline">\(\begin{aligned} u_{i}\left(x_{k}\right) &amp;=\arg \min _{u}\left(x_{k}^{T} Q x_{k}+u^{T} R u+V_{i}\left(x_{k+1}\right)\right) \\ &amp;=\arg \min _{u}\left(x_{k}^{T} Q x_{k}+u^{T} R u+V_{i}\left(f\left(x_{k}\right)+g\left(x_{k}\right) u\right)\right) \\ &amp;=\frac{1}{2} R^{-1} g\left(x_{k}\right)^{T} \frac{\partial V_{i}\left(x_{k+1}\right)}{\partial x_{k+1}} \end{aligned}\)</span></p>
+<p>对于仿射非线性系统，可以表示成上述的形式，而对于非仿射非线性系统，由于没有<span class="math inline">\(g(x_k)\)</span>的这种特定的形式，所以不能写成上面这种形式，但是也是按照第一个形式来进行数值求解</p>
+<p><span class="math inline">\(\begin{aligned} V_{i+1}\left(x_{k}\right) &amp;=\min _{u}\left(x_{k}^{T} Q x_{k}+u^{T} R u+V_{i}\left(x_{k+1}\right)\right) \\ &amp;=x_{k}^{T} Q x_{k}+u_{i}^{T}\left(x_{k}\right) R u_{i}\left(x_{k}\right)+V_{i}\left(f\left(x_{k}\right)+g\left(x_{k}\right) u_{i}\left(x_{k}\right)\right) \end{aligned}\)</span></p>
+<p>值迭代相比于策略迭代不需要初始容许策略，而一般的非线性系统往往很难找到初始容许的策略，所以很多方法往往用的都是值迭代</p>
+<p>策略迭代每次需要策略评估，而策略评估理论上来说需要计算无穷次才能收敛，</p>
+<p>值迭代和策略迭代的关系：值迭代是策略评估过程只进行一次的策略迭代算法，</p>
+<p><strong>Theorem1</strong>:考虑序列<span class="math inline">\(V_i\)</span>和<span class="math inline">\(u_i\)</span>，如果<span class="math inline">\(V_0(x_k)=0\)</span>，则<span class="math inline">\(V_i\)</span>是一个非减序列，对于<span class="math inline">\(\forall i: V_{i+1}\left(x_{k}\right) \geq V_{i}\left(x_{k}\right)\)</span>，当<span class="math inline">\(i \rightarrow \infty, V_{i} \rightarrow V^{*}, u_{i} \rightarrow u^{*}\)</span></p>
+<p>本文提出的HDP算法流程图（其实就是Value Iteration算法）</p>
+<p><img src="image-20200911214717704.png" alt="image-20200911214717704" style="zoom:50%;" /></p>
+<p><strong>Liu, D. &amp; Li, H. Optimal control for discrete-time affine non-linear systems using general value iteration. <em>IET Control Theory &amp; Applications</em> 6, 2725–2736 (2012).</strong></p>
+<p>这篇文章的研究目标和<strong>Al-Tamimi</strong>的这篇一样，都是仿射非线性系统，但是Tamimi的文章中用的是一般的VI算法，它假设<span class="math inline">\(V_{0}(\cdot)=0\)</span>，而liu的这篇文章假设<span class="math inline">\(V_{0}\left(x_{k}\right)=x_{k}^{\mathrm{T}} P_{0} x_{k}\)</span>，并在此条件下得到了和Tamimi的更加一般的结论，并给出了值函数收敛的证明。</p>
+<p><strong>Theorem1</strong>：定义控制序列<span class="math inline">\(\{v_i\}\)</span>，值函数序列<span class="math inline">\(\{V_i\}\)</span>，<span class="math inline">\(V_{0}\left(x_{k}\right)=x_{k}^{\mathrm{T}} P_{0} x_{k}\)</span>，如果<span class="math inline">\(V_{0}\left(x_{k}\right) \geq V_{1}\left(x_{k}\right)\)</span>对于所有<span class="math inline">\(x_k\)</span>都成立，则值函数<span class="math inline">\(\{V_i\}\)</span>是一个非增序列，如果<span class="math inline">\(V_{0}\left(x_{k}\right) \leq V_{1}\left(x_{k}\right)\)</span>对于所有<span class="math inline">\(x_k\)</span>都成立，则值函数<span class="math inline">\(\{V_i\}\)</span>是一个非减序列</p>
+<p>证明过程采用数学归纳法</p>
+<p><strong>Theorem3</strong>：控制序列<span class="math inline">\(\{v_i\}\)</span>和值函数<span class="math inline">\(\{V_i\}\)</span>依次使用策略改进和策略评估的表达式进行迭代，如果<span class="math inline">\(V_{0}\left(x_{k}\right)=x_{k}^{\mathrm{T}} P_{0} x_{k} \geq V_1(x_k)\)</span>对所有的<span class="math inline">\(x_k\)</span>都成立，则值函数<span class="math inline">\(V_i(x_k)\)</span>是一个Lyapuonv函数，且系统的控制策略<span class="math inline">\(v_i(x_k)\)</span>是是渐进稳定的</p>
+<p>这些定理的证明是为了说明随着迭代次数的增加值函数<span class="math inline">\(V(x_k)\)</span>慢慢收敛到最优值，下界逐渐增大，上界逐渐减小</p>
+<p>HDP算法的结构框图</p>
+<p><img src="image-20200912094933167.png" alt="image-20200912094933167" style="zoom:60%;" /></p>
+<p><strong>仿真实例</strong></p>
+<p><span class="math inline">\(\begin{aligned} &amp;f\left(x_{k}\right)=\left[\begin{array}{c} 0.9 x_{1_{k}}+0.1 x_{2_{k}} \\ -0.05\left(x_{1_{k}}+x_{2_{k}}\left(1-\left(\cos \left(2 x_{1_{k}}\right)+2\right)^{2}\right)\right)+x_{2_{k}} \end{array}\right]\\ &amp;g\left(x_{k}\right)=\left[\begin{array}{c} 0 \\ 0.1 \cos \left(2 x_{1_{k}}\right)+0.2 \end{array}\right] \end{aligned}\)</span></p>
+<p><img src="image-20200912121540784.png" alt="image-20200912121540784" style="zoom:30%;" /></p>
+<p><img src="image-20200912121601256.png" alt="image-20200912121601256" style="zoom:30%;" /></p>
+<p><img src="image-20200912121631385.png" alt="image-20200912121631385" style="zoom:30%;" /></p>
+<p><img src="image-20200912121716266.png" alt="image-20200912121716266" style="zoom:30%;" /></p>
+<p><strong>Wei, Q. &amp; Liu, D. Neural-network-based adaptive optimal tracking control scheme for discrete-time nonlinear systems with approximation errors. <em>Neurocomputing</em> 149, 106–115 (2015).</strong></p>
+<p>这篇文章研究了基于ADP的最优跟踪控制问题，</p>
+<h2 id="非仿射非线性系统">非仿射非线性系统：</h2>
+<p><strong>Liu, D. &amp; Wei, Q. Policy Iteration Adaptive Dynamic Programming Algorithm for Discrete-Time Nonlinear Systems. <em>IEEE Trans. Neural Netw. Learning Syst.</em> 25, 621–634 (2014).</strong></p>
+<p>这篇文章研究了基于策略迭代的最优控制问题</p>
+<p>对于值迭代的方法，给定一个初始为0的性能指标函数，可以证明迭代的性能指标函数是非减的序列且有界，当迭代次数趋向于无穷时，性能指标函数趋向于最优性能指标，但是，这也带来了一个问题，因为理论上需要迭代无穷次才能收敛，所以效率比较低</p>
+<p>因为策略迭代算法需要一个初始容许的控制才能保证收敛，所以找到这个初始容许的控制策略很重要，这篇文章给出了一个找到初始容许控制策略的方法：</p>
+<p><img src="image-20200912135643639.png" alt="image-20200912135643639" style="zoom:40%;" /></p>
+<p>离散时间策略迭代算法：</p>
+<p><img src="image-20200912143048258.png" alt="image-20200912143048258" style="zoom:50%;" /></p>
+<p>仿真实例</p>
+<p><strong>1.线性系统：</strong></p>
+<p><span class="math inline">\(x_{k+1}=A x_{k}+B u_{k}\)</span></p>
+<p>其中，<span class="math inline">\(A=\left[\begin{array}{cc} 0 &amp; 0.1 \\ 0.3 &amp; -1 \end{array}\right], \quad B=\left[\begin{array}{c} 0 \\ 0.5 \end{array}\right]\)</span></p>
+<p><img src="image-20200912144057996.png" alt="image-20200912144057996" style="zoom:40%;" /></p>
+<p><strong>2.仿射非线性系统</strong></p>
+<p><span class="math inline">\(x_{k+1}=f\left(x_{k}\right)+g\left(x_{k}\right) u_{k}\)</span></p>
+<p>其中，<span class="math inline">\(f\left(x_{k}\right)=\left[\begin{array}{c} 0.2 x_{1 k} \exp \left(x_{2 k}^{2}\right) \\ 0.3 x_{2 k}^{3} \end{array}\right], \quad g\left(x_{k}\right)=\left[\begin{array}{c} 0 \\ -0.2 \end{array}\right]\)</span></p>
+<p><img src="image-20200912144530678.png" alt="image-20200912144530678" style="zoom:40%;" /></p>
+<p><strong>Luo, B., Liu, D., Wu, H.-N., Wang, D. &amp; Lewis, F. L. Policy gradient adaptive dynamic programming for data-based optimal control. <em>IEEE transactions on cybernetics</em> 47, 3341–3354 (2016).</strong></p>
+<p>这篇文章研究了无模型的非仿射非线性离散时间系统的最优控制，提出了基于策略梯度的ADP算法，是一个off-policy算法，off-policy算法相对于on-policy算法，行为策略(behaviour policy)和目标策略(target policy)不是同一个策略，可以保持良好的''exploration'的性质，因为on-policy基于当前的策略直接执行一次动作选择，然后用这个样本去更新当前的策略，因此，生成样本时的策略和学习时的策略是同一个策略，而on-policy算法通常光利用已知的最优动作的选择，往往学习不到最优解，可能陷入局部最优</p>
+<p><img src="image-20200912205900152.png" alt="image-20200912205900152" style="zoom:50%;" /></p>
+<p>文章给出了算法收敛性的证明，但是一般情况下，策略梯度算法往往需要大量采样，具有随机性的特征，证明过程需要引入期望。而这篇文章中，其实证明的还是policy iteration的方法的收敛性，通过证明价值函数是一个单调非增序列。</p>
+<p>具体实现也是采用两个神经网络构成的actor-critic框架</p>
+<p><strong>仿真实例：</strong></p>
+<p>非仿射非线性系统</p>
+<p><span class="math inline">\(x_{k+1}=\left[\begin{array}{c} \left(x_{k, 1}+x_{k, 2}^{2}+u_{k}\right) \cos \left(x_{k, 2}\right) \\ 0.5\left(x_{k, 1}^{2}+x_{k, 2}+u_{k}\right) \sin \left(x_{k, 2}\right) \end{array}\right]\)</span></p>
+<figure>
+<img src="image-20200912203527700.png" alt="image-20200912203527700" /><figcaption>image-20200912203527700</figcaption>
+</figure>
+<p><strong>Zhang, Y., Zhao, B. &amp; Liu, D. Deterministic policy gradient adaptive dynamic programming for model-free optimal control. <em>Neurocomputing</em> 387, 40–50 (2020).</strong></p>
+<p><img src="image-20200912233725193.png" alt="image-20200912233725193" style="zoom:40%;" /></p>
+<p><img src="image-20200912233804920.png" alt="image-20200912233804920" style="zoom:50%;" /></p>
+<p><img src="image-20200912233836888.png" alt="image-20200912233836888" style="zoom:50%;" /></p>
+<p><img src="image-20200912235825882.png" alt="image-20200912235825882" style="zoom:40%;" /></p>
+<h2 id="关于上述几篇文章的问题">关于上述几篇文章的问题：</h2>
+<p><strong>文章结构和证明过程都是一个套路：</strong></p>
+<ul>
+<li>首先给出算法流程（策略迭代，值迭代，策略梯度，确定策略梯度等算法，基本上都是直接将CS提出的算法复制过来，没有改变）</li>
+<li>然后证明该算法的性能指标函数能够收敛到最优值（非仿射系统的几篇文章虽然使用了策略梯度等算法，但是其证明的其实还是策略迭代算法，基本方法是通过构造误差函数，即<span class="math inline">\(e=V_i-V_{i+1}\)</span>，随着迭代次数的增多，误差函数趋近于0）</li>
+<li>然后证明性能指标函数是一个非增序列，即算法每次的改进都能够保证越来越好</li>
+<li>上述所有的算法都是actor-critic结构，需要用到两个网络，如果需要辨识系统模型，则需要增加一个模型的网络，证明网络权重会收敛到最优值。</li>
+</ul>
+<p><strong>创新点很弱</strong>：基本上上面几篇文章中所有的方法，策略迭代，值迭代，策略梯度，确定策略梯度等算法都是CS领域提出来的算法，但是这些文章将这些方法和最优控制结合起来考虑（这是很多文章的主要贡献），多篇文章都提到了类似的contribution</p>
+<p>'the Q-function based ADP methods are rarely studied for general discrete-time nonlinear systems, and the data-based PGADP algorithm is proposed for model-free optimal control design in this paper. Detailed merits of the PGADP algorithm can be found in'</p>
+<p><strong>训练过程没有给出来：</strong>所有的仿真过程给出的结果都是利用训练好的模型来求解控制策略<span class="math inline">\(u\)</span>，而其训练过程没有给出来，虽然有些文章中说利用100个数据进行训练就能收敛，但是从我仿真的过程来看，很难实现。</p>
+<p><strong>实际意义有限：</strong>这些方法，包括策略迭代，值迭代，策略梯度，确定策略梯度等算法在其原始的文章就已经得到了很多很好的结果，其解决的问题的复杂度和难度远比这些文章中给出的仿真实例的仿射非线性系统，非仿射非线性系统要大得多，所以，个人认为这些文章只是将CS领域的结果复制过来，推导他们的结果（很多推导都是换了一些方法，实际结果都还是CS领域的）。</p>
+]]></content>
+      <categories>
+        <category>Nonlinear System</category>
+      </categories>
+      <tags>
+        <tag>Nonlinear System</tag>
       </tags>
   </entry>
   <entry>
@@ -4660,99 +4753,6 @@ L^{i+1}=&amp;-\left[R_{2}+\hat{X}_{7}^{i}-\hat{X}_{5}^{i}\left(R_{1}+\hat{X}_{3}
       </categories>
       <tags>
         <tag>Paper</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>非线性系统的最优控制器论文整理</title>
-    <url>/2020/08/27/%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6%E5%99%A8%E8%AE%BA%E6%96%87%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h1 id="非线性系统的最优控制器论文整理">非线性系统的最优控制器论文整理</h1>
-<h2 id="仿射非线性系统">仿射非线性系统：</h2>
-<p><strong>Al-Tamimi, A., Lewis, F. L. &amp; Abu-Khalaf, M. Discrete-Time Nonlinear HJB Solution Using Approximate Dynamic Programming: Convergence Proof. <em>IEEE Trans. Syst., Man, Cybern. B</em> 38, 943–949 (2008).</strong></p>
-<p>这篇文章的主要贡献是给出了使用值迭代的启发式算法求解仿射非线性系统的收敛性的证明</p>
-<a id="more"></a>
-<p>1.首先给出了HDP 值迭代算法，是一个求解离散时间HJB方程的在线算法：</p>
-<p>给定一个初始值函数<span class="math inline">\(V_0(x)=0\)</span>，然后，根据Bellman方程求解控制策略<span class="math inline">\(u_0\)</span></p>
-<p><span class="math inline">\(u_{o}\left(x_{k}\right)=\arg \min _{u}\left(x_{k}^{T} Q x_{k}+u^{T} R u+V_{0}\left(x_{k+1}\right)\right)\)</span></p>
-<p>一旦这个<span class="math inline">\(u_0\)</span>求出来以后，可以求得该时刻的价值函数：</p>
-<p><span class="math inline">\(\begin{aligned} V_{1}\left(x_{k}\right) &amp;=x_{k}^{T} Q x_{k}+u_{0}^{T}\left(x_{k}\right) R u_{0}\left(x_{k}\right)+V_{0}\left(f\left(x_{k}\right)+g\left(x_{k}\right) u_{0}\left(x_{k}\right)\right) \\ &amp;=x_{k}^{T} Q x_{k}+u_{0}^{T}\left(x_{k}\right) R u_{0}\left(x_{k}\right)+V_{0}\left(x_{k+1}\right) \end{aligned}\)</span></p>
-<p>HDP算法是一个增量式的优化算法，需要不断在策略与值函数之间进行交互迭代，简而言之，利用policy improvement来根据值函数求得最优策略，然后用求得的策略与环境进行交互，得到trajectory，然后计算值函数，如此反复下去</p>
-<p>这个过程可以表示为：</p>
-<p><span class="math inline">\(\begin{aligned} u_{i}\left(x_{k}\right) &amp;=\arg \min _{u}\left(x_{k}^{T} Q x_{k}+u^{T} R u+V_{i}\left(x_{k+1}\right)\right) \\ &amp;=\arg \min _{u}\left(x_{k}^{T} Q x_{k}+u^{T} R u+V_{i}\left(f\left(x_{k}\right)+g\left(x_{k}\right) u\right)\right) \\ &amp;=\frac{1}{2} R^{-1} g\left(x_{k}\right)^{T} \frac{\partial V_{i}\left(x_{k+1}\right)}{\partial x_{k+1}} \end{aligned}\)</span></p>
-<p>对于仿射非线性系统，可以表示成上述的形式，而对于非仿射非线性系统，由于没有<span class="math inline">\(g(x_k)\)</span>的这种特定的形式，所以不能写成上面这种形式，但是也是按照第一个形式来进行数值求解</p>
-<p><span class="math inline">\(\begin{aligned} V_{i+1}\left(x_{k}\right) &amp;=\min _{u}\left(x_{k}^{T} Q x_{k}+u^{T} R u+V_{i}\left(x_{k+1}\right)\right) \\ &amp;=x_{k}^{T} Q x_{k}+u_{i}^{T}\left(x_{k}\right) R u_{i}\left(x_{k}\right)+V_{i}\left(f\left(x_{k}\right)+g\left(x_{k}\right) u_{i}\left(x_{k}\right)\right) \end{aligned}\)</span></p>
-<p>值迭代相比于策略迭代不需要初始容许策略，而一般的非线性系统往往很难找到初始容许的策略，所以很多方法往往用的都是值迭代</p>
-<p>策略迭代每次需要策略评估，而策略评估理论上来说需要计算无穷次才能收敛，</p>
-<p>值迭代和策略迭代的关系：值迭代是策略评估过程只进行一次的策略迭代算法，</p>
-<p><strong>Theorem1</strong>:考虑序列<span class="math inline">\(V_i\)</span>和<span class="math inline">\(u_i\)</span>，如果<span class="math inline">\(V_0(x_k)=0\)</span>，则<span class="math inline">\(V_i\)</span>是一个非减序列，对于<span class="math inline">\(\forall i: V_{i+1}\left(x_{k}\right) \geq V_{i}\left(x_{k}\right)\)</span>，当<span class="math inline">\(i \rightarrow \infty, V_{i} \rightarrow V^{*}, u_{i} \rightarrow u^{*}\)</span></p>
-<p>本文提出的HDP算法流程图（其实就是Value Iteration算法）</p>
-<p><img src="image-20200911214717704.png" alt="image-20200911214717704" style="zoom:50%;" /></p>
-<p><strong>Liu, D. &amp; Li, H. Optimal control for discrete-time affine non-linear systems using general value iteration. <em>IET Control Theory &amp; Applications</em> 6, 2725–2736 (2012).</strong></p>
-<p>这篇文章的研究目标和<strong>Al-Tamimi</strong>的这篇一样，都是仿射非线性系统，但是Tamimi的文章中用的是一般的VI算法，它假设<span class="math inline">\(V_{0}(\cdot)=0\)</span>，而liu的这篇文章假设<span class="math inline">\(V_{0}\left(x_{k}\right)=x_{k}^{\mathrm{T}} P_{0} x_{k}\)</span>，并在此条件下得到了和Tamimi的更加一般的结论，并给出了值函数收敛的证明。</p>
-<p><strong>Theorem1</strong>：定义控制序列<span class="math inline">\(\{v_i\}\)</span>，值函数序列<span class="math inline">\(\{V_i\}\)</span>，<span class="math inline">\(V_{0}\left(x_{k}\right)=x_{k}^{\mathrm{T}} P_{0} x_{k}\)</span>，如果<span class="math inline">\(V_{0}\left(x_{k}\right) \geq V_{1}\left(x_{k}\right)\)</span>对于所有<span class="math inline">\(x_k\)</span>都成立，则值函数<span class="math inline">\(\{V_i\}\)</span>是一个非增序列，如果<span class="math inline">\(V_{0}\left(x_{k}\right) \leq V_{1}\left(x_{k}\right)\)</span>对于所有<span class="math inline">\(x_k\)</span>都成立，则值函数<span class="math inline">\(\{V_i\}\)</span>是一个非减序列</p>
-<p>证明过程采用数学归纳法</p>
-<p><strong>Theorem3</strong>：控制序列<span class="math inline">\(\{v_i\}\)</span>和值函数<span class="math inline">\(\{V_i\}\)</span>依次使用策略改进和策略评估的表达式进行迭代，如果<span class="math inline">\(V_{0}\left(x_{k}\right)=x_{k}^{\mathrm{T}} P_{0} x_{k} \geq V_1(x_k)\)</span>对所有的<span class="math inline">\(x_k\)</span>都成立，则值函数<span class="math inline">\(V_i(x_k)\)</span>是一个Lyapuonv函数，且系统的控制策略<span class="math inline">\(v_i(x_k)\)</span>是是渐进稳定的</p>
-<p>这些定理的证明是为了说明随着迭代次数的增加值函数<span class="math inline">\(V(x_k)\)</span>慢慢收敛到最优值，下界逐渐增大，上界逐渐减小</p>
-<p>HDP算法的结构框图</p>
-<p><img src="image-20200912094933167.png" alt="image-20200912094933167" style="zoom:60%;" /></p>
-<p><strong>仿真实例</strong></p>
-<p><span class="math inline">\(\begin{aligned} &amp;f\left(x_{k}\right)=\left[\begin{array}{c} 0.9 x_{1_{k}}+0.1 x_{2_{k}} \\ -0.05\left(x_{1_{k}}+x_{2_{k}}\left(1-\left(\cos \left(2 x_{1_{k}}\right)+2\right)^{2}\right)\right)+x_{2_{k}} \end{array}\right]\\ &amp;g\left(x_{k}\right)=\left[\begin{array}{c} 0 \\ 0.1 \cos \left(2 x_{1_{k}}\right)+0.2 \end{array}\right] \end{aligned}\)</span></p>
-<p><img src="image-20200912121540784.png" alt="image-20200912121540784" style="zoom:30%;" /></p>
-<p><img src="image-20200912121601256.png" alt="image-20200912121601256" style="zoom:30%;" /></p>
-<p><img src="image-20200912121631385.png" alt="image-20200912121631385" style="zoom:30%;" /></p>
-<p><img src="image-20200912121716266.png" alt="image-20200912121716266" style="zoom:30%;" /></p>
-<p><strong>Wei, Q. &amp; Liu, D. Neural-network-based adaptive optimal tracking control scheme for discrete-time nonlinear systems with approximation errors. <em>Neurocomputing</em> 149, 106–115 (2015).</strong></p>
-<p>这篇文章研究了基于ADP的最优跟踪控制问题，</p>
-<h2 id="非仿射非线性系统">非仿射非线性系统：</h2>
-<p><strong>Liu, D. &amp; Wei, Q. Policy Iteration Adaptive Dynamic Programming Algorithm for Discrete-Time Nonlinear Systems. <em>IEEE Trans. Neural Netw. Learning Syst.</em> 25, 621–634 (2014).</strong></p>
-<p>这篇文章研究了基于策略迭代的最优控制问题</p>
-<p>对于值迭代的方法，给定一个初始为0的性能指标函数，可以证明迭代的性能指标函数是非减的序列且有界，当迭代次数趋向于无穷时，性能指标函数趋向于最优性能指标，但是，这也带来了一个问题，因为理论上需要迭代无穷次才能收敛，所以效率比较低</p>
-<p>因为策略迭代算法需要一个初始容许的控制才能保证收敛，所以找到这个初始容许的控制策略很重要，这篇文章给出了一个找到初始容许控制策略的方法：</p>
-<p><img src="image-20200912135643639.png" alt="image-20200912135643639" style="zoom:40%;" /></p>
-<p>离散时间策略迭代算法：</p>
-<p><img src="image-20200912143048258.png" alt="image-20200912143048258" style="zoom:50%;" /></p>
-<p>仿真实例</p>
-<p><strong>1.线性系统：</strong></p>
-<p><span class="math inline">\(x_{k+1}=A x_{k}+B u_{k}\)</span></p>
-<p>其中，<span class="math inline">\(A=\left[\begin{array}{cc} 0 &amp; 0.1 \\ 0.3 &amp; -1 \end{array}\right], \quad B=\left[\begin{array}{c} 0 \\ 0.5 \end{array}\right]\)</span></p>
-<p><img src="image-20200912144057996.png" alt="image-20200912144057996" style="zoom:40%;" /></p>
-<p><strong>2.仿射非线性系统</strong></p>
-<p><span class="math inline">\(x_{k+1}=f\left(x_{k}\right)+g\left(x_{k}\right) u_{k}\)</span></p>
-<p>其中，<span class="math inline">\(f\left(x_{k}\right)=\left[\begin{array}{c} 0.2 x_{1 k} \exp \left(x_{2 k}^{2}\right) \\ 0.3 x_{2 k}^{3} \end{array}\right], \quad g\left(x_{k}\right)=\left[\begin{array}{c} 0 \\ -0.2 \end{array}\right]\)</span></p>
-<p><img src="image-20200912144530678.png" alt="image-20200912144530678" style="zoom:40%;" /></p>
-<p><strong>Luo, B., Liu, D., Wu, H.-N., Wang, D. &amp; Lewis, F. L. Policy gradient adaptive dynamic programming for data-based optimal control. <em>IEEE transactions on cybernetics</em> 47, 3341–3354 (2016).</strong></p>
-<p>这篇文章研究了无模型的非仿射非线性离散时间系统的最优控制，提出了基于策略梯度的ADP算法，是一个off-policy算法，off-policy算法相对于on-policy算法，行为策略(behaviour policy)和目标策略(target policy)不是同一个策略，可以保持良好的''exploration'的性质，因为on-policy基于当前的策略直接执行一次动作选择，然后用这个样本去更新当前的策略，因此，生成样本时的策略和学习时的策略是同一个策略，而on-policy算法通常光利用已知的最优动作的选择，往往学习不到最优解，可能陷入局部最优</p>
-<p><img src="image-20200912205900152.png" alt="image-20200912205900152" style="zoom:50%;" /></p>
-<p>文章给出了算法收敛性的证明，但是一般情况下，策略梯度算法往往需要大量采样，具有随机性的特征，证明过程需要引入期望。而这篇文章中，其实证明的还是policy iteration的方法的收敛性，通过证明价值函数是一个单调非增序列。</p>
-<p>具体实现也是采用两个神经网络构成的actor-critic框架</p>
-<p><strong>仿真实例：</strong></p>
-<p>非仿射非线性系统</p>
-<p><span class="math inline">\(x_{k+1}=\left[\begin{array}{c} \left(x_{k, 1}+x_{k, 2}^{2}+u_{k}\right) \cos \left(x_{k, 2}\right) \\ 0.5\left(x_{k, 1}^{2}+x_{k, 2}+u_{k}\right) \sin \left(x_{k, 2}\right) \end{array}\right]\)</span></p>
-<figure>
-<img src="image-20200912203527700.png" alt="image-20200912203527700" /><figcaption>image-20200912203527700</figcaption>
-</figure>
-<p><strong>Zhang, Y., Zhao, B. &amp; Liu, D. Deterministic policy gradient adaptive dynamic programming for model-free optimal control. <em>Neurocomputing</em> 387, 40–50 (2020).</strong></p>
-<p><img src="image-20200912233725193.png" alt="image-20200912233725193" style="zoom:40%;" /></p>
-<p><img src="image-20200912233804920.png" alt="image-20200912233804920" style="zoom:50%;" /></p>
-<p><img src="image-20200912233836888.png" alt="image-20200912233836888" style="zoom:50%;" /></p>
-<p><img src="image-20200912235825882.png" alt="image-20200912235825882" style="zoom:40%;" /></p>
-<h2 id="关于上述几篇文章的问题">关于上述几篇文章的问题：</h2>
-<p><strong>文章结构和证明过程都是一个套路：</strong></p>
-<ul>
-<li>首先给出算法流程（策略迭代，值迭代，策略梯度，确定策略梯度等算法，基本上都是直接将CS提出的算法复制过来，没有改变）</li>
-<li>然后证明该算法的性能指标函数能够收敛到最优值（非仿射系统的几篇文章虽然使用了策略梯度等算法，但是其证明的其实还是策略迭代算法，基本方法是通过构造误差函数，即<span class="math inline">\(e=V_i-V_{i+1}\)</span>，随着迭代次数的增多，误差函数趋近于0）</li>
-<li>然后证明性能指标函数是一个非增序列，即算法每次的改进都能够保证越来越好</li>
-<li>上述所有的算法都是actor-critic结构，需要用到两个网络，如果需要辨识系统模型，则需要增加一个模型的网络，证明网络权重会收敛到最优值。</li>
-</ul>
-<p><strong>创新点很弱</strong>：基本上上面几篇文章中所有的方法，策略迭代，值迭代，策略梯度，确定策略梯度等算法都是CS领域提出来的算法，但是这些文章将这些方法和最优控制结合起来考虑（这是很多文章的主要贡献），多篇文章都提到了类似的contribution</p>
-<p>'the Q-function based ADP methods are rarely studied for general discrete-time nonlinear systems, and the data-based PGADP algorithm is proposed for model-free optimal control design in this paper. Detailed merits of the PGADP algorithm can be found in'</p>
-<p><strong>训练过程没有给出来：</strong>所有的仿真过程给出的结果都是利用训练好的模型来求解控制策略<span class="math inline">\(u\)</span>，而其训练过程没有给出来，虽然有些文章中说利用100个数据进行训练就能收敛，但是从我仿真的过程来看，很难实现。</p>
-<p><strong>实际意义有限：</strong>这些方法，包括策略迭代，值迭代，策略梯度，确定策略梯度等算法在其原始的文章就已经得到了很多很好的结果，其解决的问题的复杂度和难度远比这些文章中给出的仿真实例的仿射非线性系统，非仿射非线性系统要大得多，所以，个人认为这些文章只是将CS领域的结果复制过来，推导他们的结果（很多推导都是换了一些方法，实际结果都还是CS领域的）。</p>
-]]></content>
-      <categories>
-        <category>Nonlinear System</category>
-      </categories>
-      <tags>
-        <tag>Nonlinear System</tag>
       </tags>
   </entry>
   <entry>
