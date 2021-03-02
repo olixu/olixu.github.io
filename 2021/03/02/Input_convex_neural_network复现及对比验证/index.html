@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons8-dog-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons8-dog-16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="B9DN3IrX7m2gTbRqa4D1C1Lluvo_zP2P5KC0wh4-ej4">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.oliverxu.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="《Input Convex Neural Networks》 《Optimal Control Via Neural Networks: A Convex Approach》 对于复杂系统的控制往往分为两步，对系统的辨识和控制器的设计。 深度神经网络被证明在辨识任务中取得了重大成功，但是，由于这些辨识出来的系统往往是非线性和非凸的，其控制器很难设计，所以，实际系统往往还是用线性模型去逼近，尽管这些">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Input Convex Neural Network复现及仿真验证">
+<meta property="og:url" content="https://blog.oliverxu.cn/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/index.html">
+<meta property="og:site_name" content="Oliver xu&#39;s Blog">
+<meta property="og:description" content="《Input Convex Neural Networks》 《Optimal Control Via Neural Networks: A Convex Approach》 对于复杂系统的控制往往分为两步，对系统的辨识和控制器的设计。 深度神经网络被证明在辨识任务中取得了重大成功，但是，由于这些辨识出来的系统往往是非线性和非凸的，其控制器很难设计，所以，实际系统往往还是用线性模型去逼近，尽管这些">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/image-20210302145927461.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/image-20210302152548355.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/image-20210302162912494.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/image-20210302162929557.png">
+<meta property="article:published_time" content="2021-03-02T14:34:00.000Z">
+<meta property="article:modified_time" content="2021-03-02T08:40:36.136Z">
+<meta property="article:author" content="Oliver xu">
+<meta property="article:tag" content="神经网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.oliverxu.cn/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/image-20210302145927461.png">
+
+<link rel="canonical" href="https://blog.oliverxu.cn/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Input Convex Neural Network复现及仿真验证 | Oliver xu's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?473560aefa55cb0313599b95a2994bf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss.xml" title="Oliver xu's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Oliver xu's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-album">
+
+    <a href="/album/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.oliverxu.cn/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Oliver xu">
+      <meta itemprop="description" content="愿中国青年都摆脱冷气，只是向上走">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oliver xu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Input Convex Neural Network复现及仿真验证
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-02 14:34:00 / 修改时间：08:40:36" itemprop="dateCreated datePublished" datetime="2021-03-02T14:34:00+00:00">2021-03-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">神经网络</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>8.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>《Input Convex Neural Networks》</p>
+<p>《Optimal Control Via Neural Networks: A Convex Approach》</p>
+<p>对于复杂系统的控制往往分为两步，对系统的辨识和控制器的设计。 深度神经网络被证明在辨识任务中取得了重大成功，但是，由于这些辨识出来的系统往往是非线性和非凸的，其控制器很难设计，所以，实际系统往往还是用线性模型去逼近，尽管这些线性模型的拟合能力很弱，因此，往往设计出来的控制器的性能都不行。</p>
+<p>这两篇文章，主要提出了ICNN及其改进网络结构，ICNN的特点就是对于输入是凸的，第一篇文章主要提出了ICNN这一网络结构，通过将神经网络的前向通道中的权重设置为非负值，这一简单的改变，就可以将神经网络变为输入凸的，且该网络的拟合能力并为受到较大的影响。</p>
+<p>这篇文章主要完成3点：</p>
+<ol type="1">
+<li>复现ICNN，原版的ICNN是用tensorflow写的，代码不全，且使用了较老的库版本，运行不了，在此采用pytorch进行复现出一个通用程序。</li>
+<li>对于一个给定的函数：<span class="math inline">\(y=3x_1^2+4x_2^2\)</span>，利用普通的DNN，和ICNN进行对比，验证ICNN的拟合能力（验证的过程使用相同的网络层数，每层的节点数，学习率等参数）。</li>
+<li>对于《Input Convex Neural Networks》中的simulation中的synthetic 2D example和《Optimal Control Via Neural Networks: A Convex Approach》中的APPENDIX中的Toy Example分别进行复现及仿真验证。</li>
+</ol>
+<a id="more"></a>
+<h2 id="icnn原理及证明">ICNN原理及证明</h2>
+<h3 id="icnn网络结构">ICNN网络结构</h3>
+<figure>
+<img src="Input_convex_neural_network复现及对比验证/image-20210302145927461.png" alt="image-20210302145927461" /><figcaption>image-20210302145927461</figcaption>
+</figure>
+<p><span class="math display">\[z_{i+1}=g_{i}\left(W_{i}^{(z)} z_{i}+W_{i}^{(y)} y+b_{i}\right), \quad f(y ; \theta)=z_{k}\]</span>，</p>
+<p>Figure1是全连接的凸的，k层ICNN，记为：FICNN，令输入记为：<span class="math inline">\(y\)</span>，<span class="math inline">\(z_i\)</span>记为每一个激活函数的输出，<span class="math inline">\(\theta\)</span>记为所有的参数：<span class="math inline">\(\theta=\left\{W_{0: k-1}^{(y)}, W_{1: k-1}^{(z)}, b_{0: k-1}\right\}\)</span>，<span class="math inline">\(g_i\)</span>是非线性激活函数，网络凸的性质的主要结果如下：</p>
+<p><strong><em>结论</em></strong>：<strong>函数<span class="math inline">\(f\)</span>对于<span class="math inline">\(y\)</span>是凸函数，当所有的<span class="math inline">\(W_{1: k-1}^{(z)}\)</span>是非负，且所有的<span class="math inline">\(g_i\)</span>是凸的非增函数</strong></p>
+<p><strong><em>分析：</em></strong></p>
+<ol type="1">
+<li><p>ICNN网络结构中，从输入直接传递到隐含层的叫"passthrough"，这样的连接在传统的前馈神经网络中是没有必要的，因为前面的神经网络的层的信息总是会被映射到下一个神经网络层中，但是在ICNN中，由于<span class="math inline">\(W^{(z)}\)</span>被限制为非负，所以导致拟合能力下降，且前面网络的信息无法被传递到下一个层中，因此，需要使用额外的passthrough。</p></li>
+<li><p>对于<span class="math inline">\(b_i\)</span>来说，放到前向传播中，或者passthrough中，都是等价的。</p></li>
+<li><p>passthrough中的weight和bias都是可以为负的，没有限制。</p></li>
+</ol>
+<h3 id="icnn输入凸的证明">ICNN输入凸的证明</h3>
+<h2 id="icnn基本结构pytorch复现">ICNN基本结构Pytorch复现</h2>
+<h2 id="y3x_124x_22仿真算例"><span class="math inline">\(y=3x_1^2+4x_2^2\)</span>仿真算例</h2>
+<p>仿真算例：<span class="math inline">\(y=3x_1^2+4x_2^2\)</span></p>
+<figure>
+<img src="Input_convex_neural_network复现及对比验证/image-20210302152548355.png" alt="image-20210302152548355" /><figcaption>image-20210302152548355</figcaption>
+</figure>
+<h3 id="训练数据生成">训练数据生成</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>在-5, 5中随机采样1000个数据点</p>
+<p>验证方法：对单个目标进行验证时，当输入是[2, 2]时，理论输出应该是[28]，同时，输出其MSE的数值并画出其图片。</p>
+<h3 id="对比其拟合能力">对比其拟合能力：</h3>
+<h4 id="普通神经网络的拟合能力">普通神经网络的拟合能力</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Model</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">  <span class="string">'''</span></span><br><span class="line"><span class="string">  定义普通全连结神经网络模型</span></span><br><span class="line"><span class="string">  '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n_feature=<span class="number">2</span>, n_hidden=<span class="number">4</span>, n_output=<span class="number">1</span>, nGdIter=<span class="number">30</span>)</span>:</span></span><br><span class="line">        super(Model, self).__init__()</span><br><span class="line">        self.input_layer = nn.Linear(n_feature, n_hidden)</span><br><span class="line">        self.hidden_layer = nn.Linear(n_hidden, n_hidden)</span><br><span class="line">        self.output_layer = nn.Linear(n_hidden, n_output)</span><br><span class="line">        self.act = nn.ReLU()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x = self.input_layer(x)</span><br><span class="line">        x = self.act(x)</span><br><span class="line">        x = self.hidden_layer(x)</span><br><span class="line">        x = self.act(x)</span><br><span class="line">        x = self.output_layer(x)</span><br><span class="line">        <span class="comment"># 输出层加上了relu激活函数后会导致很难收敛</span></span><br><span class="line">        <span class="comment">#x = self.act(x)</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_noncvx_network</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 构造虚拟数据用于训练：y=3x1^2+4x2^2</span></span><br><span class="line">    x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">    x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">    x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">    x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">    y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br><span class="line">    model = NonCvxModel(n_feature=<span class="number">2</span>, n_hidden=<span class="number">200</span>, n_output=<span class="number">1</span>)</span><br><span class="line">    criterion = torch.nn.MSELoss(reduction=<span class="string">'sum'</span>)</span><br><span class="line">    learning_rate = <span class="number">1e-3</span></span><br><span class="line">    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)</span><br><span class="line">    terminate_threshold = <span class="number">1e-5</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">        y_pred = model(x)</span><br><span class="line">        loss = criterion(y_pred, y)/y.size()[<span class="number">0</span>]</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">500</span> == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"当前正在训练第&#123;&#125;次， 损失是&#123;&#125;"</span>.format(i, loss.item()))</span><br><span class="line">            test_model(model)</span><br><span class="line">        <span class="keyword">if</span> loss.item()&lt;terminate_threshold:</span><br><span class="line">            print(<span class="string">"训练满足精度要求，训练了&#123;&#125;次。"</span>.format(i))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">0     500  29.005009</span><br><span class="line">1    1000   5.884062</span><br><span class="line">2    1500   1.050613</span><br><span class="line">3    2000   0.301482</span><br><span class="line">4    2500   0.141028</span><br><span class="line">5    3000   0.078763</span><br><span class="line">6    3500   0.048814</span><br><span class="line">7    4000   0.030913</span><br><span class="line">8    4500   0.021231</span><br><span class="line">9    5000   0.016060</span><br><span class="line">10   5500   0.012875</span><br><span class="line">11   6000   0.010986</span><br><span class="line">12   6500   0.009771</span><br><span class="line">13   7000   0.008564</span><br><span class="line">14   7500   0.007799</span><br><span class="line">15   8000   0.009830</span><br><span class="line">16   8500   0.046179</span><br><span class="line">17   9000   0.006437</span><br><span class="line">18   9500   0.013724</span><br><span class="line">19  10000   0.005822</span><br><span class="line">20  10500   0.005917</span><br><span class="line">21  11000   0.005384</span><br><span class="line">22  11500   0.005134</span><br><span class="line">23  12000   0.030397</span><br><span class="line">24  12500   0.005959</span><br><span class="line">25  13000   0.004671</span><br><span class="line">26  13500   0.004517</span><br><span class="line">27  14000   0.004421</span><br><span class="line">28  14500   0.004290</span><br><span class="line">29  15000   0.008322</span><br><span class="line">30  15500   0.019044</span><br><span class="line">31  16000   0.011500</span><br><span class="line">32  16500   0.003893</span><br><span class="line">33  17000   0.003794</span><br><span class="line">34  17500   0.003694</span><br><span class="line">35  18000   0.004458</span><br><span class="line">36  18500   0.003805</span><br><span class="line">37  19000   0.003468</span><br><span class="line">38  19500   0.008987</span><br><span class="line">39  20000   0.003343</span><br><span class="line">40  20500   0.003368</span><br><span class="line">41  21000   0.007225</span><br><span class="line">42  21500   0.003226</span><br><span class="line">43  22000   0.003124</span><br><span class="line">44  22500   0.003073</span><br><span class="line">45  23000   0.002998</span><br><span class="line">46  23500   0.025686</span><br><span class="line">47  24000   0.003000</span><br><span class="line">48  24500   0.002887</span><br><span class="line">49  25000   0.002838</span><br><span class="line">50  25500   0.002903</span><br><span class="line">51  26000   0.002845</span><br><span class="line">52  26500   0.004229</span><br><span class="line">53  27000   0.002733</span><br><span class="line">54  27500   0.008934</span><br><span class="line">55  28000   0.012964</span><br><span class="line">56  28500   0.018379</span><br><span class="line">57  29000   0.011293</span><br><span class="line">58  29500   0.007785</span><br><span class="line">59  30000   0.002500</span><br><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第30000次， 损失是0.002500230213627219</span><br><span class="line">模型预测的数值是： tensor([27.9667], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
+<p><img src="Input_convex_neural_network复现及对比验证/image-20210302162912494.png" alt="image-20210302162912494" style="zoom:50%;" /></p>
+<h4 id="icnn的拟合能力">ICNN的拟合能力</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CvxModel</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        输入凸神经网络结构定义</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n_feature=<span class="number">2</span>, n_hidden=<span class="number">4</span>, n_output=<span class="number">1</span>, nGdIter=<span class="number">30</span>)</span>:</span></span><br><span class="line">        super(CvxModel, self).__init__()</span><br><span class="line">        self.input_layer = nn.Linear(n_feature, n_hidden, bias=<span class="literal">False</span>)</span><br><span class="line">        self.hidden_layer = nn.Linear(n_hidden, n_hidden, bias=<span class="literal">False</span>)</span><br><span class="line">        self.output_layer = nn.Linear(n_hidden, n_output, bias=<span class="literal">False</span>)</span><br><span class="line">        self.passthrough_layer = nn.Linear(n_feature, n_hidden)</span><br><span class="line">        self.passthrough_output_layer = nn.Linear(n_feature, n_output)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        zx1 = F.relu(self.input_layer(x))</span><br><span class="line">        pass1 = self.passthrough_layer(x)</span><br><span class="line">        pass2 = self.passthrough_output_layer(x)</span><br><span class="line">        zx2 = F.relu(self.hidden_layer(zx1) + pass1)</span><br><span class="line">        zx3 = self.output_layer(zx2) + pass2</span><br><span class="line">        <span class="keyword">return</span> zx3</span><br><span class="line">      </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">weightConstraint</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        对一个特定的层的weight进行参数限制</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, module)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> hasattr(module, <span class="string">'weight'</span>):</span><br><span class="line">            w = module.weight.data</span><br><span class="line">            w = w.clamp(<span class="number">0.0</span>, <span class="number">100.0</span>)</span><br><span class="line">            module.weight.data = w</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当对权重有非负的限制时，训练神经网络</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train_with_constrains</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 先对参数进行限制到[-1, 1]进行仿真验证</span></span><br><span class="line">    <span class="comment"># 构造虚拟数据用于训练：y=3x1^2+4x2^2</span></span><br><span class="line">    x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">    x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">    x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">    x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">    y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    model = CvxModel(n_feature=<span class="number">2</span>, n_hidden=<span class="number">200</span>, n_output=<span class="number">1</span>)</span><br><span class="line">    constraints = weightConstraint()</span><br><span class="line">    criterion = torch.nn.MSELoss(reduction=<span class="string">'sum'</span>)</span><br><span class="line">    learning_rate = <span class="number">1e-3</span></span><br><span class="line">    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)</span><br><span class="line">    terminate_threshold = <span class="number">1e-5</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">        y_pred = model(x)</span><br><span class="line">        loss = criterion(y_pred, y)/y.size()[<span class="number">0</span>]</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        model._modules[<span class="string">'input_layer'</span>].apply(constraints)</span><br><span class="line">        model._modules[<span class="string">'hidden_layer'</span>].apply(constraints)</span><br><span class="line">        model._modules[<span class="string">'output_layer'</span>].apply(constraints)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">500</span> == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"当前正在训练第&#123;&#125;次， 损失是&#123;&#125;"</span>.format(i, loss.item()))</span><br><span class="line">            test_model(model)</span><br><span class="line">            weight_print(model)</span><br><span class="line">        <span class="keyword">if</span> loss.item()&lt;terminate_threshold:</span><br><span class="line">            print(<span class="string">"训练满足精度要求，训练了&#123;&#125;次。"</span>.format(i))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">0     500  250.070984</span><br><span class="line">1    1000  140.255447</span><br><span class="line">2    1500   67.511780</span><br><span class="line">3    2000   28.515696</span><br><span class="line">4    2500   13.275652</span><br><span class="line">5    3000    7.189941</span><br><span class="line">6    3500    4.197995</span><br><span class="line">7    4000    2.512518</span><br><span class="line">8    4500    1.544901</span><br><span class="line">9    5000    0.974513</span><br><span class="line">10   5500    0.637949</span><br><span class="line">11   6000    0.421706</span><br><span class="line">12   6500    0.279455</span><br><span class="line">13   7000    0.605793</span><br><span class="line">14   7500    0.140771</span><br><span class="line">15   8000    0.100952</span><br><span class="line">16   8500    0.072434</span><br><span class="line">17   9000    0.065805</span><br><span class="line">18   9500    0.046082</span><br><span class="line">19  10000    0.035448</span><br><span class="line">20  10500    0.027883</span><br><span class="line">21  11000    0.035439</span><br><span class="line">22  11500    0.020767</span><br><span class="line">23  12000    0.017025</span><br><span class="line">24  12500    0.020460</span><br><span class="line">25  13000    0.016357</span><br><span class="line">26  13500    0.013486</span><br><span class="line">27  14000    0.013836</span><br><span class="line">28  14500    0.011874</span><br><span class="line">29  15000    0.019069</span><br><span class="line">30  15500    0.011665</span><br><span class="line">31  16000    0.010154</span><br><span class="line">32  16500    0.011716</span><br><span class="line">33  17000    0.009304</span><br><span class="line">34  17500    0.007975</span><br><span class="line">35  18000    0.007628</span><br><span class="line">36  18500    0.006882</span><br><span class="line">37  19000    0.993199</span><br><span class="line">38  19500    0.006250</span><br><span class="line">39  20000    0.076224</span><br><span class="line">40  20500    0.005728</span><br><span class="line">41  21000    0.005862</span><br><span class="line">42  21500    0.005021</span><br><span class="line">43  22000    0.005911</span><br><span class="line">44  22500    0.005376</span><br><span class="line">45  23000    0.004734</span><br><span class="line">46  23500    0.004461</span><br><span class="line">47  24000    0.004778</span><br><span class="line">48  24500    0.004454</span><br><span class="line">49  25000    0.004859</span><br><span class="line">50  25500    0.004430</span><br><span class="line">51  26000    0.004365</span><br><span class="line">52  26500    0.004022</span><br><span class="line">53  27000    0.044836</span><br><span class="line">54  27500    0.003724</span><br><span class="line">55  28000    0.003986</span><br><span class="line">56  28500    0.003676</span><br><span class="line">57  29000    0.003535</span><br><span class="line">58  29500    0.003660</span><br><span class="line">59  30000    0.003258</span><br><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第30000次， 损失是0.00325777824036777</span><br><span class="line">模型预测的数值是： tensor([28.0241], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
+<p><img src="Input_convex_neural_network复现及对比验证/image-20210302162929557.png" alt="image-20210302162929557" style="zoom:50%;" /></p>
+<p>可以看出，在使用相同adam优化器参数的条件下，DNN相比ICNN，优化的速度更快。</p>
+<p>而当将adam优化器的参数从<span class="math inline">\(1e-3\)</span>改变为<span class="math inline">\(1e-2\)</span>后，仿真结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第500次， 损失是4.0928754806518555</span><br><span class="line">模型预测的数值是： tensor([26.7256], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
+<p>对于上面所仿真的普通的DNN，若将其adam优化器同时改变之后，仿真结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第500次， 损失是0.12059637159109116</span><br><span class="line">模型预测的数值是： tensor([28.0837], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
+<p>Adam优化器的参数对于网络的训练有着很大的影响，经过实验仿真可得：传统的DNN和ICNN都能找到一组Adam优化器参数，使得其训练效果较好。</p>
+<h2 id="原始论文中的仿真验证的复现">原始论文中的仿真验证的复现</h2>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>If you like my blog, please donate for me.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipayQR.jpg" alt="Oliver xu 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag"># 神经网络</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/02/28/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%90%84%E6%AE%B5%E8%90%BD%E8%A1%A8%E8%BE%BE%E6%95%B4%E7%90%86%E8%83%8C%E8%AF%B5/" rel="prev" title="科研论文各段落表达整理背诵">
+      <i class="fa fa-chevron-left"></i> 科研论文各段落表达整理背诵
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#icnn原理及证明"><span class="nav-number">1.</span> <span class="nav-text">ICNN原理及证明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#icnn网络结构"><span class="nav-number">1.1.</span> <span class="nav-text">ICNN网络结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#icnn输入凸的证明"><span class="nav-number">1.2.</span> <span class="nav-text">ICNN输入凸的证明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#icnn基本结构pytorch复现"><span class="nav-number">2.</span> <span class="nav-text">ICNN基本结构Pytorch复现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#y3x_124x_22仿真算例"><span class="nav-number">3.</span> <span class="nav-text">\(y&#x3D;3x_1^2+4x_2^2\)仿真算例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#训练数据生成"><span class="nav-number">3.1.</span> <span class="nav-text">训练数据生成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对比其拟合能力"><span class="nav-number">3.2.</span> <span class="nav-text">对比其拟合能力：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#普通神经网络的拟合能力"><span class="nav-number">3.2.1.</span> <span class="nav-text">普通神经网络的拟合能力</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#icnn的拟合能力"><span class="nav-number">3.2.2.</span> <span class="nav-text">ICNN的拟合能力</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原始论文中的仿真验证的复现"><span class="nav-number">4.</span> <span class="nav-text">原始论文中的仿真验证的复现</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Oliver xu</p>
+  <div class="site-description" itemprop="description">愿中国青年都摆脱冷气，只是向上走</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">69</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29saXh1" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;olixu"><i class="github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnh1amlhaHVpQG9saXZlcnh1LmNu" title="E-Mail → mailto:xujiahui@oliverxu.cn"><i class="envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">苏ICP备17055396号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Oliver xu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">234k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:33</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'e11777414ce827fd8ec2',
+      clientSecret: 'c572c4ca1c0dfdfaf2b4f2195aa903185e2dfeea',
+      repo        : 'blog-comment',
+      owner       : 'olixu',
+      admin       : ['olixu'],
+      id          : 'eda8aa4002f7399c18e9e671da66c764',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>

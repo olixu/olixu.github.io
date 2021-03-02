@@ -6,7 +6,7 @@
   <link href="/rss.xml" rel="self"/>
   
   <link href="https://blog.oliverxu.cn/"/>
-  <updated>2021-03-02T04:41:11.613Z</updated>
+  <updated>2021-03-02T08:40:36.136Z</updated>
   <id>https://blog.oliverxu.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Input Convex Neural Network复现及仿真验证</title>
+    <link href="https://blog.oliverxu.cn/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/"/>
+    <id>https://blog.oliverxu.cn/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/</id>
+    <published>2021-03-02T14:34:00.000Z</published>
+    <updated>2021-03-02T08:40:36.136Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;《Input Convex Neural Networks》&lt;/p&gt;
+&lt;p&gt;《Optimal Control Via Neural Networks: A Convex Approach》&lt;/p&gt;
+&lt;p&gt;对于复杂系统的控制往往分为两步，对系统的辨识和控制器的设计。 深度神经网络被证明在辨识任务中取得了重大成功，但是，由于这些辨识出来的系统往往是非线性和非凸的，其控制器很难设计，所以，实际系统往往还是用线性模型去逼近，尽管这些线性模型的拟合能力很弱，因此，往往设计出来的控制器的性能都不行。&lt;/p&gt;
+&lt;p&gt;这两篇文章，主要提出了ICNN及其改进网络结构，ICNN的特点就是对于输入是凸的，第一篇文章主要提出了ICNN这一网络结构，通过将神经网络的前向通道中的权重设置为非负值，这一简单的改变，就可以将神经网络变为输入凸的，且该网络的拟合能力并为受到较大的影响。&lt;/p&gt;
+&lt;p&gt;这篇文章主要完成3点：&lt;/p&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;复现ICNN，原版的ICNN是用tensorflow写的，代码不全，且使用了较老的库版本，运行不了，在此采用pytorch进行复现出一个通用程序。&lt;/li&gt;
+&lt;li&gt;对于一个给定的函数：&lt;span class=&quot;math inline&quot;&gt;\(y=3x_1^2+4x_2^2\)&lt;/span&gt;，利用普通的DNN，和ICNN进行对比，验证ICNN的拟合能力（验证的过程使用相同的网络层数，每层的节点数，学习率等参数）。&lt;/li&gt;
+&lt;li&gt;对于《Input Convex Neural Networks》中的simulation中的synthetic 2D example和《Optimal Control Via Neural Networks: A Convex Approach》中的APPENDIX中的Toy Example分别进行复现及仿真验证。&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+      <category term="神经网络" scheme="https://blog.oliverxu.cn/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="神经网络" scheme="https://blog.oliverxu.cn/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>科研论文各段落表达整理背诵</title>
@@ -468,37 +498,6 @@
     
     
       <category term="Linux" scheme="https://blog.oliverxu.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PGADP数据驱动的优化控制</title>
-    <link href="https://blog.oliverxu.cn/2020/08/02/PGADP%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8%E7%9A%84%E4%BC%98%E5%8C%96%E6%8E%A7%E5%88%B6/"/>
-    <id>https://blog.oliverxu.cn/2020/08/02/PGADP%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8%E7%9A%84%E4%BC%98%E5%8C%96%E6%8E%A7%E5%88%B6/</id>
-    <published>2020-08-02T10:43:54.000Z</published>
-    <updated>2020-09-14T07:41:31.657Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文是对&lt;strong&gt;《Policy Gradient Adaptive Dynamic Programming for Data-Based Optimal Control》&lt;/strong&gt;文章的整理归纳&lt;/p&gt;
-&lt;p&gt;期刊：&lt;strong&gt;《IEEE TRANSACTIONS ON CYBERNETICS》&lt;/strong&gt;2019影响因子：&lt;strong&gt;11.079&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;这篇文章考虑了离散时间非线性系统的无模型的最优控制问题，提出了一个基于数据的策略梯度自适应动态规划算法（PGADP），使用离线和在线的数据而不是数学模型，使用梯度下降方法来改进策略，这篇文章还证明了PGADP算法的收敛性。&lt;/p&gt;
-&lt;h2 id=&quot;简介&quot;&gt;简介&lt;/h2&gt;
-&lt;p&gt;最优控制问题一般需要求解一个复杂的Hamilton-Jacobi-Bellman equation，对于非线性系统，很难求出解析解，用ADP求解该方程在近年来取得了较大的成果。&lt;/p&gt;
-&lt;p&gt;主要分为三大类：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;model based：用ADP来近似求解HJBE&lt;/li&gt;
-&lt;li&gt;partially model based：既用模型也用数据&lt;/li&gt;
-&lt;li&gt;model free：模型未知，完全从数据中学习控制策略&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/categories/Reinforcement-Learning/"/>
-    
-    
-      <category term="Reinforcement Learning" scheme="https://blog.oliverxu.cn/tags/Reinforcement-Learning/"/>
     
   </entry>
   
