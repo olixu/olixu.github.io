@@ -87,21 +87,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux系统TIPS</title>
-    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
-    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
-<a id="more"></a>
-<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
-<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Manjaro下解决Matplotlib中文显示出错</title>
     <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
     <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
@@ -116,6 +101,21 @@
       </categories>
       <tags>
         <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux系统TIPS</title>
+    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
+    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
+<a id="more"></a>
+<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
+<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -225,6 +225,17 @@
       </tags>
   </entry>
   <entry>
+    <title>Monte Carlo Methods</title>
+    <url>/2019/10/21/Monte-Carlo-Methods/</url>
+    <content><![CDATA[<p>Unlike Dynamic Programming Methods, Monte Carlo Methods do not assume complete knowledge of the environment. MC only requires experience--sample sequences of states, actions, and rewards from actual or simulated interaction with an environment.</p>
+<h2 id="monte-carlo-prediction">Monte Carlo Prediction</h2>
+<p>The idea underlies all Monte Carlo methods is that as more returns are observed the average should converge to the expected value. So we begin by considerng Monte Carlo methods for learning the state-value function for a given policy. A way to estimate the value of a state from experience is simply to average the returns observed after visits to that state. <a id="more"></a> ## Play with Blackjack ENV <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">env = BlackjackEnv()</span><br><span class="line"><span class="comment"># The observation is a 3-tuple of: the players current sum,</span></span><br><span class="line"><span class="comment"># the dealer's one showing card (1-10 where 1 is ace),</span></span><br><span class="line"><span class="comment"># and whether or not the player holds a usable ace (0 or 1).</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_observation</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    print(<span class="string">"Player Score: &#123;&#125; (Usable Ace: &#123;&#125;), Dealer Score: &#123;&#125;"</span>.format(</span><br><span class="line">          score, usable_ace, dealer_score))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    <span class="comment"># Stick (action 0) if the score is &gt; 20, hit (action 1) otherwise</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> score &gt;= <span class="number">20</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    observation = env.reset()</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        print_observation(observation)</span><br><span class="line">        action = strategy(observation)</span><br><span class="line">        print(<span class="string">"Taking action: &#123;&#125;"</span>.format( [<span class="string">"Stick"</span>, <span class="string">"Hit"</span>][action]))</span><br><span class="line">        observation, reward, done, _ = env.step(action)</span><br><span class="line">        <span class="keyword">if</span> done:</span><br><span class="line">            print_observation(observation)</span><br><span class="line">            print(<span class="string">"Game end. Reward: &#123;&#125;\n"</span>.format(float(reward)))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="first-visit-mc-prediction-algorithm">First-visit MC prediction algorithm</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mc_prediction</span><span class="params">(policy, env, num_episodes, discount_factor=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Monte Carlo prediction algorithm. Calculates the value function</span></span><br><span class="line"><span class="string">    for a given policy using sampling.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        policy: A function that maps an observation to action probabilities.</span></span><br><span class="line"><span class="string">        env: OpenAI gym environment.</span></span><br><span class="line"><span class="string">        num_episodes: Number of episodes to sample.</span></span><br><span class="line"><span class="string">        discount_factor: Gamma discount factor.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        A dictionary that maps from state -&gt; value.</span></span><br><span class="line"><span class="string">        The state is a tuple and the value is a float.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Keeps track of sum and count of returns for each state</span></span><br><span class="line">    <span class="comment"># to calculate an average. We could use an array to save all</span></span><br><span class="line">    <span class="comment"># returns (like in the book) but that's memory inefficient.</span></span><br><span class="line">    returns_sum = defaultdict(float)</span><br><span class="line">    returns_count = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># The final value function</span></span><br><span class="line">    V = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Implement this!</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        episode = []</span><br><span class="line">        state = env.reset()</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            action = policy(state)</span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            state = next_state</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Find all states the we've visited in this episode</span></span><br><span class="line">        <span class="comment"># We convert each state to a tuple so that we can use it as a dict key</span></span><br><span class="line">        states_in_episode = set([tuple(x[<span class="number">0</span>]) <span class="keyword">for</span> x <span class="keyword">in</span> episode])</span><br><span class="line">        <span class="keyword">for</span> state <span class="keyword">in</span> states_in_episode:</span><br><span class="line">            <span class="comment">#print(state)</span></span><br><span class="line">            <span class="comment">#print(10*'*')</span></span><br><span class="line">            <span class="comment"># Find the first occurance of the state in the episode</span></span><br><span class="line">            first_occurence_idx = next(i <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode) <span class="keyword">if</span> x[<span class="number">0</span>] == state)</span><br><span class="line">            <span class="comment"># Sum up all rewards since the first occurance</span></span><br><span class="line">            G = sum([x[<span class="number">2</span>]*(discount_factor**i) <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode[first_occurence_idx:])])</span><br><span class="line">            <span class="comment"># Calculate average return for this state over all sampled episodes</span></span><br><span class="line">            returns_sum[state] += G</span><br><span class="line">            returns_count[state] += <span class="number">1.0</span></span><br><span class="line">            V[state] = returns_sum[state] / returns_count[state]</span><br><span class="line">    print(len(V))</span><br><span class="line">    print(first_occurence_idx)</span><br><span class="line">    print(states_in_episode)</span><br><span class="line">    print(episode)</span><br><span class="line">    <span class="keyword">return</span> V</span><br></pre></td></tr></table></figure>
+<p><img src="10000_Steps_No_Usable_Ace.png" alt="10000_Steps_No_Usable_Ace" /> <img src="10000_Steps_Usable_Ace.png" alt="10000_Steps_Usable_Ace" /> <img src="500000_Steps_No_Usable_Ace.png" alt="500000_Steps_No_Usable_Ace" /> <img src="500000_Steps_Usable_Ace.png" alt="500000_Steps_Usable_Ace" /></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Mysql Command</title>
     <url>/2019/11/05/Mysql-Command/</url>
     <content><![CDATA[<p>This post will record all the mysql command that i used in my projects.</p>
@@ -240,17 +251,6 @@
       <tags>
         <tag>Mysql</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Monte Carlo Methods</title>
-    <url>/2019/10/21/Monte-Carlo-Methods/</url>
-    <content><![CDATA[<p>Unlike Dynamic Programming Methods, Monte Carlo Methods do not assume complete knowledge of the environment. MC only requires experience--sample sequences of states, actions, and rewards from actual or simulated interaction with an environment.</p>
-<h2 id="monte-carlo-prediction">Monte Carlo Prediction</h2>
-<p>The idea underlies all Monte Carlo methods is that as more returns are observed the average should converge to the expected value. So we begin by considerng Monte Carlo methods for learning the state-value function for a given policy. A way to estimate the value of a state from experience is simply to average the returns observed after visits to that state. <a id="more"></a> ## Play with Blackjack ENV <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">env = BlackjackEnv()</span><br><span class="line"><span class="comment"># The observation is a 3-tuple of: the players current sum,</span></span><br><span class="line"><span class="comment"># the dealer's one showing card (1-10 where 1 is ace),</span></span><br><span class="line"><span class="comment"># and whether or not the player holds a usable ace (0 or 1).</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_observation</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    print(<span class="string">"Player Score: &#123;&#125; (Usable Ace: &#123;&#125;), Dealer Score: &#123;&#125;"</span>.format(</span><br><span class="line">          score, usable_ace, dealer_score))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    <span class="comment"># Stick (action 0) if the score is &gt; 20, hit (action 1) otherwise</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> score &gt;= <span class="number">20</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    observation = env.reset()</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        print_observation(observation)</span><br><span class="line">        action = strategy(observation)</span><br><span class="line">        print(<span class="string">"Taking action: &#123;&#125;"</span>.format( [<span class="string">"Stick"</span>, <span class="string">"Hit"</span>][action]))</span><br><span class="line">        observation, reward, done, _ = env.step(action)</span><br><span class="line">        <span class="keyword">if</span> done:</span><br><span class="line">            print_observation(observation)</span><br><span class="line">            print(<span class="string">"Game end. Reward: &#123;&#125;\n"</span>.format(float(reward)))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="first-visit-mc-prediction-algorithm">First-visit MC prediction algorithm</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mc_prediction</span><span class="params">(policy, env, num_episodes, discount_factor=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Monte Carlo prediction algorithm. Calculates the value function</span></span><br><span class="line"><span class="string">    for a given policy using sampling.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        policy: A function that maps an observation to action probabilities.</span></span><br><span class="line"><span class="string">        env: OpenAI gym environment.</span></span><br><span class="line"><span class="string">        num_episodes: Number of episodes to sample.</span></span><br><span class="line"><span class="string">        discount_factor: Gamma discount factor.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        A dictionary that maps from state -&gt; value.</span></span><br><span class="line"><span class="string">        The state is a tuple and the value is a float.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Keeps track of sum and count of returns for each state</span></span><br><span class="line">    <span class="comment"># to calculate an average. We could use an array to save all</span></span><br><span class="line">    <span class="comment"># returns (like in the book) but that's memory inefficient.</span></span><br><span class="line">    returns_sum = defaultdict(float)</span><br><span class="line">    returns_count = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># The final value function</span></span><br><span class="line">    V = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Implement this!</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        episode = []</span><br><span class="line">        state = env.reset()</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            action = policy(state)</span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            state = next_state</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Find all states the we've visited in this episode</span></span><br><span class="line">        <span class="comment"># We convert each state to a tuple so that we can use it as a dict key</span></span><br><span class="line">        states_in_episode = set([tuple(x[<span class="number">0</span>]) <span class="keyword">for</span> x <span class="keyword">in</span> episode])</span><br><span class="line">        <span class="keyword">for</span> state <span class="keyword">in</span> states_in_episode:</span><br><span class="line">            <span class="comment">#print(state)</span></span><br><span class="line">            <span class="comment">#print(10*'*')</span></span><br><span class="line">            <span class="comment"># Find the first occurance of the state in the episode</span></span><br><span class="line">            first_occurence_idx = next(i <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode) <span class="keyword">if</span> x[<span class="number">0</span>] == state)</span><br><span class="line">            <span class="comment"># Sum up all rewards since the first occurance</span></span><br><span class="line">            G = sum([x[<span class="number">2</span>]*(discount_factor**i) <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode[first_occurence_idx:])])</span><br><span class="line">            <span class="comment"># Calculate average return for this state over all sampled episodes</span></span><br><span class="line">            returns_sum[state] += G</span><br><span class="line">            returns_count[state] += <span class="number">1.0</span></span><br><span class="line">            V[state] = returns_sum[state] / returns_count[state]</span><br><span class="line">    print(len(V))</span><br><span class="line">    print(first_occurence_idx)</span><br><span class="line">    print(states_in_episode)</span><br><span class="line">    print(episode)</span><br><span class="line">    <span class="keyword">return</span> V</span><br></pre></td></tr></table></figure>
-<p><img src="10000_Steps_No_Usable_Ace.png" alt="10000_Steps_No_Usable_Ace" /> <img src="10000_Steps_Usable_Ace.png" alt="10000_Steps_Usable_Ace" /> <img src="500000_Steps_No_Usable_Ace.png" alt="500000_Steps_No_Usable_Ace" /> <img src="500000_Steps_Usable_Ace.png" alt="500000_Steps_Usable_Ace" /></p>
-]]></content>
   </entry>
   <entry>
     <title>PGADP数据驱动的优化控制</title>
@@ -689,31 +689,6 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </tags>
   </entry>
   <entry>
-    <title>Word与Latex</title>
-    <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
-    <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
-<h2 id="mathpix将论文中的公式识别成latex或者mathml格式">Mathpix：将论文中的公式识别成latex或者mathml格式</h2>
-<p>有一款软件：Mathpix，能够将公式识别成latex或者mathml格式。</p>
-<p>使用该软件需要使用邮箱注册账户，免费版一个月只能识别50次，也有一个开发版，一个月能识别1000次，但是需要信用卡验证，对于国内用户来说，比较麻烦。</p>
-<p>这里给出一个解决办法：使用临时邮箱，待免费套餐使用完后，重新注册账户，测试了几个免费邮箱服务，大多被mathpix识别了，<span class="exturl" data-url="aHR0cHM6Ly90ZW1wLW1haWwub3JnL2VuLw==">https://temp-mail.org/en/<i class="fa fa-external-link-alt"></i></span> 这个我测试了一下，没有被mathpix识别，可以用于注册。 <a id="more"></a></p>
-<h2 id="word中的latex公式">Word中的latex公式</h2>
-<h3 id="简单的单行公式">简单的单行公式</h3>
-<p>简单的单行公式可以直接用latex格式。</p>
-<h3 id="复杂的多行公式">复杂的多行公式</h3>
-<p>复杂的多行公式，可以复制Mathpix中的Mathml格式，粘贴到word中。</p>
-<h3 id="插入公式编号">插入公式编号</h3>
-<p>Word中提供了一种比较方便的插入公式编号的方法：在公式末尾键入<code>#(x)</code>，然后按下<code>Enter</code>即可。</p>
-<h2 id="创作流程">创作流程</h2>
-<p>我个人比较喜欢读完文献，用Markdown（Typora）整理一下阅读笔记，这样既可以发布到博客上，又很方便的能够迁移到Word中（我一般交作业交报告都是用Word）。</p>
-]]></content>
-      <categories>
-        <category>Latex</category>
-      </categories>
-      <tags>
-        <tag>Latex</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>*args 和 **kwargs</title>
     <url>/2019/02/12/args-%E5%92%8C-kwargs/</url>
     <content><![CDATA[<p>很多Python新手都无法搞清<code>*args</code>与<code>**kwargs</code>这两个魔术变量。那么他们到底是什么呢？让我来告诉你。在实际程序中，我们没有必要非得写成<code>*args</code>与<code>**kwargs</code>这样的形式，你也可以写成<code>*var</code>与<code>**vars</code>。写成<code>*args</code>与<code>**kwargs</code>的形式只是一种惯例。 <a id="more"></a> ## *args的用法 <code>*args</code>与<code>**kwargs</code>主要用于函数的定义。<code>*args</code>与<code>**kwargs</code>允许你将可变数量的参数传递给函数。这里的<strong>可变</strong>意味着你事先是不知道用户可以向你传递多少参数。因此在这种情况下你可以使用这两个关键字。<code>*args</code>用于向函数发送没有关键字的可变长度参数列表。以下是一个例子：</p>
@@ -979,32 +954,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>使用本地服务器结合github action推送github pages</title>
-    <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
-    <content><![CDATA[<h2 id="需求">需求</h2>
-<p>网上很多人使用github action，借助github的服务器来进行博客的推送，但是，当你博客文章数量较多，且使用了国内的CDN，例如本博客使用了阿里云CDN，本站的解析是国外IP访问的是github仓库的网站，国内用户访问的是阿里云CDN的节点，在使用github action的时候，发现推送速度非常慢，原因是github的服务器在国外，<strong>往阿里云服务器推送的时候速度很慢</strong>。所以，每次更新博客，往往需要10分钟的时间才能推送好。这是不能忍受的。。。</p>
-<a id="more"></a>
-<p>我本地有一台服务器，装了Proxmox来管理虚拟机，且有公网IP，接助GitHub action来连接到我本地推送服务器进行推送</p>
-<h2 id="整个流程如图">整个流程如图：</h2>
-<p><img src="1.svg" /></p>
-<ul>
-<li>本地git pull github仓库中的文件到本地博客开发服务器，进行博客开发。</li>
-<li>博客写完后，git push到github仓库</li>
-<li>github仓库根据仓库中的yaml文件，创建github action，action的功能是连接SSH到Github推送服务器</li>
-<li>Github推送服务器上已经安装好了hexo等博客需要的环境，进行博客推送</li>
-</ul>
-<p>这样操作，全自动的，且速度非常快，整个流程在1分钟左右。</p>
-<h2 id="附上github-action的代码">附上github action的代码：</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Hexo deploy by remote ssh</span><br><span class="line">on: </span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line"></span><br><span class="line">  build:</span><br><span class="line">    name: Build</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">    - name: executing remote ssh commands using password</span><br><span class="line">      uses: appleboy/ssh-action@master</span><br><span class="line">      with:</span><br><span class="line">        host: <span class="variable">$&#123;&#123; secrets.HOST &#125;</span>&#125;</span><br><span class="line">        username: <span class="variable">$&#123;&#123; secrets.USERNAME &#125;</span>&#125;</span><br><span class="line">        password: <span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;</span><br><span class="line">        port: <span class="variable">$&#123;&#123; secrets.PORT &#125;</span>&#125;</span><br><span class="line">        script: <span class="built_in">cd</span> blog;</span><br><span class="line">                git pull https://olixu:<span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;@github.com/olixu/blog.git; </span><br><span class="line">                hexo clean;</span><br><span class="line">                hexo g;</span><br><span class="line">                hexo d;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用树莓派搭建家庭宠物监控并在B站24小时直播</title>
     <url>/2019/02/07/%E4%BD%BF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E5%AE%B6%E5%BA%AD%E5%AE%A0%E7%89%A9%E7%9B%91%E6%8E%A7%E5%B9%B6%E5%9C%A8B%E7%AB%9924%E5%B0%8F%E6%97%B6%E7%9B%B4%E6%92%AD/</url>
     <content><![CDATA[<p>我家养了一条拉布拉多，名字叫小黑，由于我常年不在家，都是我妈妈在养，每当我想要看看狗子，总是需要在我妈妈在家的时候，和我妈妈视频才能看到，因此，就想做一个本文的这个项目。</p>
@@ -1036,6 +985,32 @@ x
       </categories>
       <tags>
         <tag>raspberry</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用本地服务器结合github action推送github pages</title>
+    <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
+    <content><![CDATA[<h2 id="需求">需求</h2>
+<p>网上很多人使用github action，借助github的服务器来进行博客的推送，但是，当你博客文章数量较多，且使用了国内的CDN，例如本博客使用了阿里云CDN，本站的解析是国外IP访问的是github仓库的网站，国内用户访问的是阿里云CDN的节点，在使用github action的时候，发现推送速度非常慢，原因是github的服务器在国外，<strong>往阿里云服务器推送的时候速度很慢</strong>。所以，每次更新博客，往往需要10分钟的时间才能推送好。这是不能忍受的。。。</p>
+<a id="more"></a>
+<p>我本地有一台服务器，装了Proxmox来管理虚拟机，且有公网IP，接助GitHub action来连接到我本地推送服务器进行推送</p>
+<h2 id="整个流程如图">整个流程如图：</h2>
+<p><img src="1.svg" /></p>
+<ul>
+<li>本地git pull github仓库中的文件到本地博客开发服务器，进行博客开发。</li>
+<li>博客写完后，git push到github仓库</li>
+<li>github仓库根据仓库中的yaml文件，创建github action，action的功能是连接SSH到Github推送服务器</li>
+<li>Github推送服务器上已经安装好了hexo等博客需要的环境，进行博客推送</li>
+</ul>
+<p>这样操作，全自动的，且速度非常快，整个流程在1分钟左右。</p>
+<h2 id="附上github-action的代码">附上github action的代码：</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Hexo deploy by remote ssh</span><br><span class="line">on: </span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line"></span><br><span class="line">  build:</span><br><span class="line">    name: Build</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">    - name: executing remote ssh commands using password</span><br><span class="line">      uses: appleboy/ssh-action@master</span><br><span class="line">      with:</span><br><span class="line">        host: <span class="variable">$&#123;&#123; secrets.HOST &#125;</span>&#125;</span><br><span class="line">        username: <span class="variable">$&#123;&#123; secrets.USERNAME &#125;</span>&#125;</span><br><span class="line">        password: <span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;</span><br><span class="line">        port: <span class="variable">$&#123;&#123; secrets.PORT &#125;</span>&#125;</span><br><span class="line">        script: <span class="built_in">cd</span> blog;</span><br><span class="line">                git pull https://olixu:<span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;@github.com/olixu/blog.git; </span><br><span class="line">                hexo clean;</span><br><span class="line">                hexo g;</span><br><span class="line">                hexo d;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -1790,6 +1765,19 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>粒子群算法库-PySwarms的可视化</title>
+    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
+    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
+<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>粒子群算法的Python简单实现</title>
     <url>/2019/02/14/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E7%9A%84Python%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h2 id="需要优化的目标函数">需要优化的目标函数</h2>
@@ -1817,19 +1805,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>优化算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>粒子群算法库-PySwarms的可视化</title>
-    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
-    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
-<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -4000,275 +3975,28 @@ v_{k+1}(s) &amp; \doteq \max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{k}\left(S_{t
       </tags>
   </entry>
   <entry>
-    <title>Tensorflow tutorial</title>
-    <url>/2019/11/01/Tensorflow-tutorial/</url>
-    <content><![CDATA[<p>This tutorial will provide a brief overview of the core concepts and functionality of Tensorflow. This tutorial will cover the following:</p>
-<ol start="0" type="1">
-<li>What is Tensorflow</li>
-<li>How to input data</li>
-<li>How to perform computations</li>
-<li>How to create variables</li>
-<li>How to train a neural network for a simple regression problem</li>
-<li>Tips and tricks <a id="more"></a></li>
-</ol>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.cm <span class="keyword">as</span> cm</span><br><span class="line"><span class="keyword">import</span> matplotlib.patches <span class="keyword">as</span> mpatches</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tf_reset</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        sess.close()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    tf.reset_default_graph()</span><br><span class="line">    <span class="keyword">return</span> tf.Session()</span><br></pre></td></tr></table></figure>
-<h1 id="what-is-tensorflow">0. What is Tensorflow</h1>
-<p>Tensorflow is a framework to define a series of computations. You define inputs, what operations should be performed, and then Tensorflow will compute the outputs for you.</p>
-<p>Below is a simple high-level example:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># create the session you'll work in</span></span><br><span class="line"><span class="comment"># you can think of this as a "blank piece of paper" that you'll be writing math on</span></span><br><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># define your inputs</span></span><br><span class="line">a = tf.constant(<span class="number">1.0</span>)</span><br><span class="line">b = tf.constant(<span class="number">2.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># do some operations</span></span><br><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line"><span class="comment"># get the result</span></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'c = &#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
-<pre><code>c = 3.0</code></pre>
-<h1 id="how-to-input-data">1. How to input data</h1>
-<p>Tensorflow has multiple ways for you to input data. One way is to have the inputs be constants:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># define your inputs</span></span><br><span class="line">a = tf.constant(<span class="number">1.0</span>)</span><br><span class="line">b = tf.constant(<span class="number">2.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># do some operations</span></span><br><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line"><span class="comment"># get the result</span></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'c = &#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
-<pre><code>c = 3.0</code></pre>
-<p>However, having our inputs be constants is inflexible. We want to be able to change what data we input at runtime. We can do this using placeholders:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># define your inputs</span></span><br><span class="line">a = tf.placeholder(dtype=tf.float32, shape=[<span class="number">1</span>], name=<span class="string">'a_placeholder'</span>)</span><br><span class="line">b = tf.placeholder(dtype=tf.float32, shape=[<span class="number">1</span>], name=<span class="string">'b_placeholder'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># do some operations</span></span><br><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line"><span class="comment"># get the result</span></span><br><span class="line">c0_run = sess.run(c, feed_dict=&#123;a: [<span class="number">1.0</span>], b: [<span class="number">2.0</span>]&#125;)</span><br><span class="line">c1_run = sess.run(c, feed_dict=&#123;a: [<span class="number">2.0</span>], b: [<span class="number">4.0</span>]&#125;)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'c0 = &#123;0&#125;'</span>.format(c0_run))</span><br><span class="line">print(<span class="string">'c1 = &#123;0&#125;'</span>.format(c1_run))</span><br></pre></td></tr></table></figure>
-<pre><code>c0 = [3.]
-c1 = [6.]</code></pre>
-<p>But what if we don't know the size of our input beforehand? One dimension of a tensor is allowed to be 'None', which means it can be variable sized:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># inputs</span></span><br><span class="line">a = tf.placeholder(dtype=tf.float32, shape=[<span class="literal">None</span>], name=<span class="string">'a_placeholder'</span>)</span><br><span class="line">b = tf.placeholder(dtype=tf.float32, shape=[<span class="literal">None</span>], name=<span class="string">'b_placeholder'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># do some operations</span></span><br><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line"><span class="comment"># get outputs</span></span><br><span class="line">c0_run = sess.run(c, feed_dict=&#123;a: [<span class="number">1.0</span>], b: [<span class="number">2.0</span>]&#125;)</span><br><span class="line">c1_run = sess.run(c, feed_dict=&#123;a: [<span class="number">1.0</span>, <span class="number">2.0</span>], b: [<span class="number">2.0</span>, <span class="number">4.0</span>]&#125;)</span><br><span class="line"></span><br><span class="line">print(a)</span><br><span class="line">print(<span class="string">'a shape: &#123;0&#125;'</span>.format(a.get_shape()))</span><br><span class="line">print(b)</span><br><span class="line">print(<span class="string">'b shape: &#123;0&#125;'</span>.format(b.get_shape()))</span><br><span class="line">print(<span class="string">'c0 = &#123;0&#125;'</span>.format(c0_run))</span><br><span class="line">print(<span class="string">'c1 = &#123;0&#125;'</span>.format(c1_run))</span><br></pre></td></tr></table></figure>
-<pre><code>Tensor(&quot;a_placeholder:0&quot;, shape=(?,), dtype=float32)
-a shape: (?,)
-Tensor(&quot;b_placeholder:0&quot;, shape=(?,), dtype=float32)
-b shape: (?,)
-c0 = [3.]
-c1 = [3. 6.]</code></pre>
-<h1 id="how-to-perform-computations">2. How to perform computations</h1>
-<p>Now that we can input data, we want to perform useful computations on the data.</p>
-<p>First, let's create some data to work with:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># inputs</span></span><br><span class="line">a = tf.constant([[<span class="number">-1.</span>], [<span class="number">-2.</span>], [<span class="number">-3.</span>]], dtype=tf.float32)</span><br><span class="line">b = tf.constant([[<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>]], dtype=tf.float32)</span><br><span class="line"></span><br><span class="line">a_run, b_run = sess.run([a, b])</span><br><span class="line">print(<span class="string">'a:\n&#123;0&#125;'</span>.format(a_run))</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br></pre></td></tr></table></figure>
-<pre><code>a:
-[[-1.]
- [-2.]
- [-3.]]
-b:
-[[1. 2. 3.]]</code></pre>
-<p>We can do simple operations, such as addition:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c = b + b</span><br><span class="line"></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c:\n&#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
-<pre><code>b:
-[[1. 2. 3.]]
-c:
-[[2. 4. 6.]]</code></pre>
-<p>Be careful about the dimensions of the tensors, some operations may work even when you think they shouldn't...</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line">print(<span class="string">'a:\n&#123;0&#125;'</span>.format(a_run))</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c:\n&#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
-<pre><code>a:
-[[-1.]
- [-2.]
- [-3.]]
-b:
-[[1. 2. 3.]]
-c:
-[[ 0.  1.  2.]
- [-1.  0.  1.]
- [-2. -1.  0.]]</code></pre>
-<p>Also, some operations may be different than what you expect:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c_elementwise = a * b</span><br><span class="line">c_matmul = tf.matmul(b, a)</span><br><span class="line"></span><br><span class="line">c_elementwise_run, c_matmul_run = sess.run([c_elementwise, c_matmul])</span><br><span class="line">print(<span class="string">'a:\n&#123;0&#125;'</span>.format(a_run))</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c_elementwise:\n&#123;0&#125;'</span>.format(c_elementwise_run))</span><br><span class="line">print(<span class="string">'c_matmul: \n&#123;0&#125;'</span>.format(c_matmul_run))</span><br></pre></td></tr></table></figure>
-<pre><code>a:
-[[-1.]
- [-2.]
- [-3.]]
-b:
-[[1. 2. 3.]]
-c_elementwise:
-[[-1. -2. -3.]
- [-2. -4. -6.]
- [-3. -6. -9.]]
-c_matmul: 
-[[-14.]]</code></pre>
-<p>Operations can be chained together:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># operations can be chained together</span></span><br><span class="line">c0 = b + b</span><br><span class="line">c1 = c0 + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">c0_run, c1_run = sess.run([c0, c1])</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c0:\n&#123;0&#125;'</span>.format(c0_run))</span><br><span class="line">print(<span class="string">'c1:\n&#123;0&#125;'</span>.format(c1_run))</span><br></pre></td></tr></table></figure>
-<pre><code>b:
-[[1. 2. 3.]]
-c0:
-[[2. 4. 6.]]
-c1:
-[[3. 5. 7.]]</code></pre>
-<p>Finally, Tensorflow has many useful built-in operations:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c = tf.reduce_mean(b)</span><br><span class="line"></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c:\n&#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
-<pre><code>b:
-[[1. 2. 3.]]
-c:
-2.0</code></pre>
-<h1 id="how-to-create-variables">3. How to create variables</h1>
-<p>Now that we can input data and perform computations, we want some of these operations to involve variables that are free parameters, and can be trained using an optimizer (e.g., gradient descent).</p>
-<p>First, let's create some data to work with:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># inputs</span></span><br><span class="line">b = tf.constant([[<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>]], dtype=tf.float32)</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line"></span><br><span class="line">b_run = sess.run(b)</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br></pre></td></tr></table></figure>
-<pre><code>b:
-[[1. 2. 3.]]</code></pre>
-<p>We'll now create a variable</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">var_init_value = [[<span class="number">2.0</span>, <span class="number">4.0</span>, <span class="number">6.0</span>]]</span><br><span class="line">var = tf.get_variable(name=<span class="string">'myvar'</span>,</span><br><span class="line">                      shape=[<span class="number">1</span>, <span class="number">3</span>],</span><br><span class="line">                      dtype=tf.float32,</span><br><span class="line">                      initializer=tf.constant_initializer(var_init_value))</span><br><span class="line"></span><br><span class="line">print(var)</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;tf.Variable &#39;myvar:0&#39; shape=(1, 3) dtype=float32_ref&gt;</code></pre>
-<p>and check that it's been added to Tensorflow's variables list:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(tf.global_variables())</span><br></pre></td></tr></table></figure>
-<pre><code>[&lt;tf.Variable &#39;myvar:0&#39; shape=(1, 3) dtype=float32_ref&gt;]</code></pre>
-<p>We can do operations with the variable just like any other tensor:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># can do operations</span></span><br><span class="line">c = b + var</span><br><span class="line">print(b)</span><br><span class="line">print(var)</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
-<pre><code>Tensor(&quot;Const:0&quot;, shape=(1, 3), dtype=float32)
-&lt;tf.Variable &#39;myvar:0&#39; shape=(1, 3) dtype=float32_ref&gt;
-Tensor(&quot;add:0&quot;, shape=(1, 3), dtype=float32)</code></pre>
-<p>Before we can run any of these operations, we must first initalize the variables</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">init_op = tf.global_variables_initializer()</span><br><span class="line">sess.run(init_op)</span><br></pre></td></tr></table></figure>
-<p>and then we can run the operations just as we normally would.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c_run = sess.run(c)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'var:\n&#123;0&#125;'</span>.format(var_init_value))http://rail.eecs.berkeley.edu/deeprlcourse-fa18/static/misc/TF_lecture.ipynb</span><br><span class="line">print(<span class="string">'c:\n&#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
-<pre><code>b:
-[[1. 2. 3.]]
-var:
-[[2.0, 4.0, 6.0]]
-c:
-[[3. 6. 9.]]</code></pre>
-<p>So far we haven't said yet how to optimize these variables. We'll cover that next in the context of an example.</p>
-<h1 id="how-to-train-a-neural-network-for-a-simple-regression-problem">4. How to train a neural network for a simple regression problem</h1>
-<p>We've discussed how to input data, perform operations, and create variables. We'll now show how to combine all of these---with some minor additions---to train a neural network on a simple regression problem.</p>
-<p>First, we'll create data for a 1-dimensional regression problem:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># generate the data</span></span><br><span class="line">inputs = np.linspace(<span class="number">-2</span>*np.pi, <span class="number">2</span>*np.pi, <span class="number">10000</span>)[:, <span class="literal">None</span>]</span><br><span class="line">outputs = np.sin(inputs) + <span class="number">0.05</span> * np.random.normal(size=[len(inputs),<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.scatter(inputs[:, <span class="number">0</span>], outputs[:, <span class="number">0</span>], s=<span class="number">0.1</span>, color=<span class="string">'k'</span>, marker=<span class="string">'o'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;matplotlib.collections.PathCollection at 0x7ffa1bed23c8&gt;</code></pre>
-<figure>
-<img src="output_41_1.png" alt="png" /><figcaption>png</figcaption>
-</figure>
-<p>The below code creates the inputs, variables, neural network operations, mean-squared-error loss, gradient descent optimizer, and runs the optimizer using minibatches of the data.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_model</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># create inputs</span></span><br><span class="line">    input_ph = tf.placeholder(dtype=tf.float32, shape=[<span class="literal">None</span>, <span class="number">1</span>])</span><br><span class="line">    output_ph = tf.placeholder(dtype=tf.float32, shape=[<span class="literal">None</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># create variables</span></span><br><span class="line">    W0 = tf.get_variable(name=<span class="string">'W0'</span>, shape=[<span class="number">1</span>, <span class="number">20</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    W1 = tf.get_variable(name=<span class="string">'W1'</span>, shape=[<span class="number">20</span>, <span class="number">20</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    W2 = tf.get_variable(name=<span class="string">'W2'</span>, shape=[<span class="number">20</span>, <span class="number">1</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line"></span><br><span class="line">    b0 = tf.get_variable(name=<span class="string">'b0'</span>, shape=[<span class="number">20</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line">    b1 = tf.get_variable(name=<span class="string">'b1'</span>, shape=[<span class="number">20</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line">    b2 = tf.get_variable(name=<span class="string">'b2'</span>, shape=[<span class="number">1</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line"></span><br><span class="line">    weights = [W0, W1, W2]</span><br><span class="line">    biases = [b0, b1, b2]</span><br><span class="line">    activations = [tf.nn.relu, tf.nn.relu, <span class="literal">None</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># create computation graph</span></span><br><span class="line">    layer = input_ph</span><br><span class="line">    <span class="keyword">for</span> W, b, activation <span class="keyword">in</span> zip(weights, biases, activations):</span><br><span class="line">        layer = tf.matmul(layer, W) + b</span><br><span class="line">        <span class="keyword">if</span> activation <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            layer = activation(layer)</span><br><span class="line">    output_pred = layer</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> input_ph, output_ph, output_pred</span><br><span class="line">    </span><br><span class="line">input_ph, output_ph, output_pred = create_model()</span><br><span class="line">    </span><br><span class="line"><span class="comment"># create loss</span></span><br><span class="line">mse = tf.reduce_mean(<span class="number">0.5</span> * tf.square(output_pred - output_ph))</span><br><span class="line"></span><br><span class="line"><span class="comment"># create optimizer</span></span><br><span class="line">opt = tf.train.AdamOptimizer().minimize(mse)</span><br><span class="line"></span><br><span class="line"><span class="comment"># initialize variables</span></span><br><span class="line">sess.run(tf.global_variables_initializer())</span><br><span class="line"><span class="comment"># create saver to save model variables</span></span><br><span class="line">saver = tf.train.Saver()</span><br><span class="line"></span><br><span class="line"><span class="comment"># run training</span></span><br><span class="line">batch_size = <span class="number">32</span></span><br><span class="line"><span class="keyword">for</span> training_step <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    <span class="comment"># get a random subset of the training data</span></span><br><span class="line">    indices = np.random.randint(low=<span class="number">0</span>, high=len(inputs), size=batch_size)</span><br><span class="line">    input_batch = inputs[indices]</span><br><span class="line">    output_batch = outputs[indices]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># run the optimizer and get the mse</span></span><br><span class="line">    _, mse_run = sess.run([opt, mse], feed_dict=&#123;input_ph: input_batch, output_ph: output_batch&#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># print the mse every so often</span></span><br><span class="line">    <span class="keyword">if</span> training_step % <span class="number">1000</span> == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">'&#123;0:04d&#125; mse: &#123;1:.3f&#125;'</span>.format(training_step, mse_run))</span><br><span class="line">        saver.save(sess, <span class="string">'./tmp/model.ckpt'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>0000 mse: 0.428
-1000 mse: 0.067
-2000 mse: 0.027
-3000 mse: 0.016
-4000 mse: 0.006
-5000 mse: 0.002
-6000 mse: 0.002
-7000 mse: 0.001
-8000 mse: 0.002
-9000 mse: 0.001</code></pre>
-<p>Now that the neural network is trained, we can use it to make predictions:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># create the model</span></span><br><span class="line">input_ph, output_ph, output_pred = create_model()</span><br><span class="line"></span><br><span class="line"><span class="comment"># restore the saved model</span></span><br><span class="line">saver = tf.train.Saver()</span><br><span class="line">saver.restore(sess, <span class="string">"./tmp/model.ckpt"</span>)</span><br><span class="line"></span><br><span class="line">output_pred_run = sess.run(output_pred, feed_dict=&#123;input_ph: inputs&#125;)</span><br><span class="line"></span><br><span class="line">plt.scatter(inputs[:, <span class="number">0</span>], outputs[:, <span class="number">0</span>], c=<span class="string">'k'</span>, marker=<span class="string">'o'</span>, s=<span class="number">0.1</span>)</span><br><span class="line">plt.scatter(inputs[:, <span class="number">0</span>], output_pred_run[:, <span class="number">0</span>], c=<span class="string">'r'</span>, marker=<span class="string">'o'</span>, s=<span class="number">0.1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>INFO:tensorflow:Restoring parameters from /tmp/model.ckpt
-
-
-
-
-
-&lt;matplotlib.collections.PathCollection at 0x7ff9dc62a550&gt;</code></pre>
-<figure>
-<img src="output_45_2.png" alt="png" /><figcaption>png</figcaption>
-</figure>
-<p>Not so hard after all! There is much more functionality to Tensorflow besides what we've covered, but you now know the basics.</p>
-<h1 id="tips-and-tricks">5. Tips and tricks</h1>
-<h5 id="a-check-your-dimensions">(a) Check your dimensions</h5>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># example of "surprising" resulting dimensions due to broadcasting</span></span><br><span class="line">a = tf.constant(np.random.random((<span class="number">4</span>, <span class="number">1</span>)))</span><br><span class="line">b = tf.constant(np.random.random((<span class="number">1</span>, <span class="number">4</span>)))</span><br><span class="line">c = a * b</span><br><span class="line"><span class="keyword">assert</span> c.get_shape() == (<span class="number">4</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<h5 id="b-check-what-variables-have-been-created">(b) Check what variables have been created</h5>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line">a = tf.get_variable(<span class="string">'I_am_a_variable'</span>, shape=[<span class="number">4</span>, <span class="number">6</span>])</span><br><span class="line">b = tf.get_variable(<span class="string">'I_am_a_variable_too'</span>, shape=[<span class="number">2</span>, <span class="number">7</span>])</span><br><span class="line"><span class="keyword">for</span> var <span class="keyword">in</span> tf.global_variables():</span><br><span class="line">    print(var.name)</span><br></pre></td></tr></table></figure>
-<pre><code>I_am_a_variable:0
-I_am_a_variable_too:0</code></pre>
-<h5 id="c-look-at-the-tensorflow-api-or-open-up-a-python-terminal-and-investigate">(c) Look at the <span class="exturl" data-url="aHR0cHM6Ly93d3cudGVuc29yZmxvdy5vcmcvYXBpX2RvY3MvcHl0aG9uLw==">tensorflow API<i class="fa fa-external-link-alt"></i></span>, or open up a python terminal and investigate!</h5>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">help(tf.reduce_mean)</span><br></pre></td></tr></table></figure>
-<pre><code>Help on function reduce_mean in module tensorflow.python.ops.math_ops:
-
-reduce_mean(input_tensor, axis=None, keepdims=None, name=None, reduction_indices=None, keep_dims=None)
-    Computes the mean of elements across dimensions of a tensor. (deprecated arguments)
-    
-    SOME ARGUMENTS ARE DEPRECATED. They will be removed in a future version.
-    Instructions for updating:
-    keep_dims is deprecated, use keepdims instead
-    
-    Reduces `input_tensor` along the dimensions given in `axis`.
-    Unless `keepdims` is true, the rank of the tensor is reduced by 1 for each
-    entry in `axis`. If `keepdims` is true, the reduced dimensions
-    are retained with length 1.
-    
-    If `axis` is None, all dimensions are reduced, and a
-    tensor with a single element is returned.
-    
-    For example:
-    
-    <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = tf.constant([[<span class="number">1.</span>, <span class="number">1.</span>], [<span class="number">2.</span>, <span class="number">2.</span>]])</span><br><span class="line">tf.reduce_mean(x)  <span class="comment"># 1.5</span></span><br><span class="line">tf.reduce_mean(x, <span class="number">0</span>)  <span class="comment"># [1.5, 1.5]</span></span><br><span class="line">tf.reduce_mean(x, <span class="number">1</span>)  <span class="comment"># [1.,  2.]</span></span><br></pre></td></tr></table></figure>
-    
-    Args:
-      input_tensor: The tensor to reduce. Should have numeric type.
-      axis: The dimensions to reduce. If `None` (the default),
-        reduces all dimensions. Must be in the range
-        `[-rank(input_tensor), rank(input_tensor))`.
-      keepdims: If true, retains reduced dimensions with length 1.
-      name: A name for the operation (optional).
-      reduction_indices: The old (deprecated) name for axis.
-      keep_dims: Deprecated alias for `keepdims`.
-    
-    Returns:
-      The reduced tensor.
-    
-    @compatibility(numpy)
-    Equivalent to np.mean
-    
-    Please note that `np.mean` has a `dtype` parameter that could be used to
-    specify the output type. By default this is `dtype=float64`. On the other
-    hand, `tf.reduce_mean` has an aggressive type inference from `input_tensor`,
-    for example:
-    
-    <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = tf.constant([<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">tf.reduce_mean(x)  <span class="comment"># 0</span></span><br><span class="line">y = tf.constant([<span class="number">1.</span>, <span class="number">0.</span>, <span class="number">1.</span>, <span class="number">0.</span>])</span><br><span class="line">tf.reduce_mean(y)  <span class="comment"># 0.5</span></span><br></pre></td></tr></table></figure>
-    
-    @end_compatibility</code></pre>
-<h5 id="d-tensorflow-has-some-built-in-layers-to-simplify-your-code.">(d) Tensorflow has some built-in layers to simplify your code.</h5>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">help(tf.contrib.layers.fully_connected)</span><br></pre></td></tr></table></figure>
-<pre><code>Help on function fully_connected in module tensorflow.contrib.layers.python.layers.layers:
-
-fully_connected(inputs, num_outputs, activation_fn=&lt;function relu at 0x7ffa20054c80&gt;, normalizer_fn=None, normalizer_params=None, weights_initializer=&lt;function variance_scaling_initializer.&lt;locals&gt;._initializer at 0x7ff9f2ecd158&gt;, weights_regularizer=None, biases_initializer=&lt;tensorflow.python.ops.init_ops.Zeros object at 0x7ff9f2ecc780&gt;, biases_regularizer=None, reuse=None, variables_collections=None, outputs_collections=None, trainable=True, scope=None)
-    Adds a fully connected layer.
-    
-    `fully_connected` creates a variable called `weights`, representing a fully
-    connected weight matrix, which is multiplied by the `inputs` to produce a
-    `Tensor` of hidden units. If a `normalizer_fn` is provided (such as
-    `batch_norm`), it is then applied. Otherwise, if `normalizer_fn` is
-    None and a `biases_initializer` is provided then a `biases` variable would be
-    created and added the hidden units. Finally, if `activation_fn` is not `None`,
-    it is applied to the hidden units as well.
-    
-    Note: that if `inputs` have a rank greater than 2, then `inputs` is flattened
-    prior to the initial matrix multiply by `weights`.
-    
-    Args:
-      inputs: A tensor of at least rank 2 and static value for the last dimension;
-        i.e. `[batch_size, depth]`, `[None, None, None, channels]`.
-      num_outputs: Integer or long, the number of output units in the layer.
-      activation_fn: Activation function. The default value is a ReLU function.
-        Explicitly set it to None to skip it and maintain a linear activation.
-      normalizer_fn: Normalization function to use instead of `biases`. If
-        `normalizer_fn` is provided then `biases_initializer` and
-        `biases_regularizer` are ignored and `biases` are not created nor added.
-        default set to None for no normalizer function
-      normalizer_params: Normalization function parameters.
-      weights_initializer: An initializer for the weights.
-      weights_regularizer: Optional regularizer for the weights.
-      biases_initializer: An initializer for the biases. If None skip biases.
-      biases_regularizer: Optional regularizer for the biases.
-      reuse: Whether or not the layer and its variables should be reused. To be
-        able to reuse the layer scope must be given.
-      variables_collections: Optional list of collections for all the variables or
-        a dictionary containing a different list of collections per variable.
-      outputs_collections: Collection to add the outputs.
-      trainable: If `True` also add variables to the graph collection
-        `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
-      scope: Optional scope for variable_scope.
-    
-    Returns:
-       The tensor variable representing the result of the series of operations.
-    
-    Raises:
-      ValueError: If x has rank less than 2 or if its last dimension is not set.</code></pre>
-<h5 id="e-use-variable-scope-to-keep-your-variables-organized.">(e) Use <span class="exturl" data-url="aHR0cHM6Ly93d3cudGVuc29yZmxvdy5vcmcvZ3VpZGUvdmFyaWFibGVzI3NoYXJpbmdfdmFyaWFibGVz">variable scope<i class="fa fa-external-link-alt"></i></span> to keep your variables organized.</h5>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># create variables</span></span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">'layer_0'</span>):</span><br><span class="line">    W0 = tf.get_variable(name=<span class="string">'W0'</span>, shape=[<span class="number">1</span>, <span class="number">20</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    b0 = tf.get_variable(name=<span class="string">'b0'</span>, shape=[<span class="number">20</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">'layer_1'</span>):</span><br><span class="line">    W1 = tf.get_variable(name=<span class="string">'W1'</span>, shape=[<span class="number">20</span>, <span class="number">20</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    b1 = tf.get_variable(name=<span class="string">'b1'</span>, shape=[<span class="number">20</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line">    </span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">'layer_2'</span>):</span><br><span class="line">    W2 = tf.get_variable(name=<span class="string">'W2'</span>, shape=[<span class="number">20</span>, <span class="number">1</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    b2 = tf.get_variable(name=<span class="string">'b2'</span>, shape=[<span class="number">1</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># print the variables</span></span><br><span class="line">var_names = sorted([v.name <span class="keyword">for</span> v <span class="keyword">in</span> tf.global_variables()])</span><br><span class="line">print(<span class="string">'\n'</span>.join(var_names))</span><br></pre></td></tr></table></figure>
-<pre><code>layer_0/W0:0
-layer_0/b0:0
-layer_1/W1:0
-layer_1/b1:0
-layer_2/W2:0
-layer_2/b2:0</code></pre>
-<h5 id="f-you-can-specify-which-gpu-you-want-to-use-and-how-much-memory-you-want-to-use">(f) You can specify which GPU you want to use and how much memory you want to use</h5>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gpu_device = <span class="number">0</span></span><br><span class="line">gpu_frac = <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># make only one of the GPUs visible</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">"CUDA_VISIBLE_DEVICES"</span>] = str(gpu_device)</span><br><span class="line"></span><br><span class="line"><span class="comment"># only use part of the GPU memory</span></span><br><span class="line">gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=gpu_frac)</span><br><span class="line">config = tf.ConfigProto(gpu_options=gpu_options)</span><br><span class="line"></span><br><span class="line"><span class="comment"># create the session</span></span><br><span class="line">tf_sess = tf.Session(graph=tf.Graph(), config=config)</span><br></pre></td></tr></table></figure>
-<h5 id="g-you-can-use-tensorboard-to-visualize-and-monitor-the-training-process.">(g) You can use <span class="exturl" data-url="aHR0cHM6Ly93d3cudGVuc29yZmxvdy5vcmcvZ3VpZGUvc3VtbWFyaWVzX2FuZF90ZW5zb3Jib2FyZA==">tensorboard<i class="fa fa-external-link-alt"></i></span> to visualize and monitor the training process.</h5>
+    <title>Word与Latex</title>
+    <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
+    <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
+<h2 id="mathpix将论文中的公式识别成latex或者mathml格式">Mathpix：将论文中的公式识别成latex或者mathml格式</h2>
+<p>有一款软件：Mathpix，能够将公式识别成latex或者mathml格式。</p>
+<p>使用该软件需要使用邮箱注册账户，免费版一个月只能识别50次，也有一个开发版，一个月能识别1000次，但是需要信用卡验证，对于国内用户来说，比较麻烦。</p>
+<p>这里给出一个解决办法：使用临时邮箱，待免费套餐使用完后，重新注册账户，测试了几个免费邮箱服务，大多被mathpix识别了，<span class="exturl" data-url="aHR0cHM6Ly90ZW1wLW1haWwub3JnL2VuLw==">https://temp-mail.org/en/<i class="fa fa-external-link-alt"></i></span> 这个我测试了一下，没有被mathpix识别，可以用于注册。 <a id="more"></a></p>
+<h2 id="word中的latex公式">Word中的latex公式</h2>
+<h3 id="简单的单行公式">简单的单行公式</h3>
+<p>简单的单行公式可以直接用latex格式。</p>
+<h3 id="复杂的多行公式">复杂的多行公式</h3>
+<p>复杂的多行公式，可以复制Mathpix中的Mathml格式，粘贴到word中。</p>
+<h3 id="插入公式编号">插入公式编号</h3>
+<p>Word中提供了一种比较方便的插入公式编号的方法：在公式末尾键入<code>#(x)</code>，然后按下<code>Enter</code>即可。</p>
+<h2 id="创作流程">创作流程</h2>
+<p>我个人比较喜欢读完文献，用Markdown（Typora）整理一下阅读笔记，这样既可以发布到博客上，又很方便的能够迁移到Word中（我一般交作业交报告都是用Word）。</p>
 ]]></content>
       <categories>
-        <category>Tensorflow</category>
+        <category>Latex</category>
       </categories>
       <tags>
-        <tag>Tensorflow</tag>
+        <tag>Latex</tag>
       </tags>
   </entry>
   <entry>
@@ -7259,6 +6987,278 @@ Domaine Schoffit
       </categories>
       <tags>
         <tag>Pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tensorflow tutorial</title>
+    <url>/2019/11/01/Tensorflow-tutorial/</url>
+    <content><![CDATA[<p>This tutorial will provide a brief overview of the core concepts and functionality of Tensorflow. This tutorial will cover the following:</p>
+<ol start="0" type="1">
+<li>What is Tensorflow</li>
+<li>How to input data</li>
+<li>How to perform computations</li>
+<li>How to create variables</li>
+<li>How to train a neural network for a simple regression problem</li>
+<li>Tips and tricks <a id="more"></a></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.cm <span class="keyword">as</span> cm</span><br><span class="line"><span class="keyword">import</span> matplotlib.patches <span class="keyword">as</span> mpatches</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tf_reset</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        sess.close()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    tf.reset_default_graph()</span><br><span class="line">    <span class="keyword">return</span> tf.Session()</span><br></pre></td></tr></table></figure>
+<h1 id="what-is-tensorflow">0. What is Tensorflow</h1>
+<p>Tensorflow is a framework to define a series of computations. You define inputs, what operations should be performed, and then Tensorflow will compute the outputs for you.</p>
+<p>Below is a simple high-level example:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># create the session you'll work in</span></span><br><span class="line"><span class="comment"># you can think of this as a "blank piece of paper" that you'll be writing math on</span></span><br><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># define your inputs</span></span><br><span class="line">a = tf.constant(<span class="number">1.0</span>)</span><br><span class="line">b = tf.constant(<span class="number">2.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># do some operations</span></span><br><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line"><span class="comment"># get the result</span></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'c = &#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
+<pre><code>c = 3.0</code></pre>
+<h1 id="how-to-input-data">1. How to input data</h1>
+<p>Tensorflow has multiple ways for you to input data. One way is to have the inputs be constants:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># define your inputs</span></span><br><span class="line">a = tf.constant(<span class="number">1.0</span>)</span><br><span class="line">b = tf.constant(<span class="number">2.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># do some operations</span></span><br><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line"><span class="comment"># get the result</span></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'c = &#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
+<pre><code>c = 3.0</code></pre>
+<p>However, having our inputs be constants is inflexible. We want to be able to change what data we input at runtime. We can do this using placeholders:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># define your inputs</span></span><br><span class="line">a = tf.placeholder(dtype=tf.float32, shape=[<span class="number">1</span>], name=<span class="string">'a_placeholder'</span>)</span><br><span class="line">b = tf.placeholder(dtype=tf.float32, shape=[<span class="number">1</span>], name=<span class="string">'b_placeholder'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># do some operations</span></span><br><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line"><span class="comment"># get the result</span></span><br><span class="line">c0_run = sess.run(c, feed_dict=&#123;a: [<span class="number">1.0</span>], b: [<span class="number">2.0</span>]&#125;)</span><br><span class="line">c1_run = sess.run(c, feed_dict=&#123;a: [<span class="number">2.0</span>], b: [<span class="number">4.0</span>]&#125;)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'c0 = &#123;0&#125;'</span>.format(c0_run))</span><br><span class="line">print(<span class="string">'c1 = &#123;0&#125;'</span>.format(c1_run))</span><br></pre></td></tr></table></figure>
+<pre><code>c0 = [3.]
+c1 = [6.]</code></pre>
+<p>But what if we don't know the size of our input beforehand? One dimension of a tensor is allowed to be 'None', which means it can be variable sized:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># inputs</span></span><br><span class="line">a = tf.placeholder(dtype=tf.float32, shape=[<span class="literal">None</span>], name=<span class="string">'a_placeholder'</span>)</span><br><span class="line">b = tf.placeholder(dtype=tf.float32, shape=[<span class="literal">None</span>], name=<span class="string">'b_placeholder'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># do some operations</span></span><br><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line"><span class="comment"># get outputs</span></span><br><span class="line">c0_run = sess.run(c, feed_dict=&#123;a: [<span class="number">1.0</span>], b: [<span class="number">2.0</span>]&#125;)</span><br><span class="line">c1_run = sess.run(c, feed_dict=&#123;a: [<span class="number">1.0</span>, <span class="number">2.0</span>], b: [<span class="number">2.0</span>, <span class="number">4.0</span>]&#125;)</span><br><span class="line"></span><br><span class="line">print(a)</span><br><span class="line">print(<span class="string">'a shape: &#123;0&#125;'</span>.format(a.get_shape()))</span><br><span class="line">print(b)</span><br><span class="line">print(<span class="string">'b shape: &#123;0&#125;'</span>.format(b.get_shape()))</span><br><span class="line">print(<span class="string">'c0 = &#123;0&#125;'</span>.format(c0_run))</span><br><span class="line">print(<span class="string">'c1 = &#123;0&#125;'</span>.format(c1_run))</span><br></pre></td></tr></table></figure>
+<pre><code>Tensor(&quot;a_placeholder:0&quot;, shape=(?,), dtype=float32)
+a shape: (?,)
+Tensor(&quot;b_placeholder:0&quot;, shape=(?,), dtype=float32)
+b shape: (?,)
+c0 = [3.]
+c1 = [3. 6.]</code></pre>
+<h1 id="how-to-perform-computations">2. How to perform computations</h1>
+<p>Now that we can input data, we want to perform useful computations on the data.</p>
+<p>First, let's create some data to work with:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># inputs</span></span><br><span class="line">a = tf.constant([[<span class="number">-1.</span>], [<span class="number">-2.</span>], [<span class="number">-3.</span>]], dtype=tf.float32)</span><br><span class="line">b = tf.constant([[<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>]], dtype=tf.float32)</span><br><span class="line"></span><br><span class="line">a_run, b_run = sess.run([a, b])</span><br><span class="line">print(<span class="string">'a:\n&#123;0&#125;'</span>.format(a_run))</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br></pre></td></tr></table></figure>
+<pre><code>a:
+[[-1.]
+ [-2.]
+ [-3.]]
+b:
+[[1. 2. 3.]]</code></pre>
+<p>We can do simple operations, such as addition:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c = b + b</span><br><span class="line"></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c:\n&#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
+<pre><code>b:
+[[1. 2. 3.]]
+c:
+[[2. 4. 6.]]</code></pre>
+<p>Be careful about the dimensions of the tensors, some operations may work even when you think they shouldn't...</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line">print(<span class="string">'a:\n&#123;0&#125;'</span>.format(a_run))</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c:\n&#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
+<pre><code>a:
+[[-1.]
+ [-2.]
+ [-3.]]
+b:
+[[1. 2. 3.]]
+c:
+[[ 0.  1.  2.]
+ [-1.  0.  1.]
+ [-2. -1.  0.]]</code></pre>
+<p>Also, some operations may be different than what you expect:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c_elementwise = a * b</span><br><span class="line">c_matmul = tf.matmul(b, a)</span><br><span class="line"></span><br><span class="line">c_elementwise_run, c_matmul_run = sess.run([c_elementwise, c_matmul])</span><br><span class="line">print(<span class="string">'a:\n&#123;0&#125;'</span>.format(a_run))</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c_elementwise:\n&#123;0&#125;'</span>.format(c_elementwise_run))</span><br><span class="line">print(<span class="string">'c_matmul: \n&#123;0&#125;'</span>.format(c_matmul_run))</span><br></pre></td></tr></table></figure>
+<pre><code>a:
+[[-1.]
+ [-2.]
+ [-3.]]
+b:
+[[1. 2. 3.]]
+c_elementwise:
+[[-1. -2. -3.]
+ [-2. -4. -6.]
+ [-3. -6. -9.]]
+c_matmul: 
+[[-14.]]</code></pre>
+<p>Operations can be chained together:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># operations can be chained together</span></span><br><span class="line">c0 = b + b</span><br><span class="line">c1 = c0 + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">c0_run, c1_run = sess.run([c0, c1])</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c0:\n&#123;0&#125;'</span>.format(c0_run))</span><br><span class="line">print(<span class="string">'c1:\n&#123;0&#125;'</span>.format(c1_run))</span><br></pre></td></tr></table></figure>
+<pre><code>b:
+[[1. 2. 3.]]
+c0:
+[[2. 4. 6.]]
+c1:
+[[3. 5. 7.]]</code></pre>
+<p>Finally, Tensorflow has many useful built-in operations:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c = tf.reduce_mean(b)</span><br><span class="line"></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c:\n&#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
+<pre><code>b:
+[[1. 2. 3.]]
+c:
+2.0</code></pre>
+<h1 id="how-to-create-variables">3. How to create variables</h1>
+<p>Now that we can input data and perform computations, we want some of these operations to involve variables that are free parameters, and can be trained using an optimizer (e.g., gradient descent).</p>
+<p>First, let's create some data to work with:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># inputs</span></span><br><span class="line">b = tf.constant([[<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>]], dtype=tf.float32)</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line"></span><br><span class="line">b_run = sess.run(b)</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br></pre></td></tr></table></figure>
+<pre><code>b:
+[[1. 2. 3.]]</code></pre>
+<p>We'll now create a variable</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">var_init_value = [[<span class="number">2.0</span>, <span class="number">4.0</span>, <span class="number">6.0</span>]]</span><br><span class="line">var = tf.get_variable(name=<span class="string">'myvar'</span>,</span><br><span class="line">                      shape=[<span class="number">1</span>, <span class="number">3</span>],</span><br><span class="line">                      dtype=tf.float32,</span><br><span class="line">                      initializer=tf.constant_initializer(var_init_value))</span><br><span class="line"></span><br><span class="line">print(var)</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;tf.Variable &#39;myvar:0&#39; shape=(1, 3) dtype=float32_ref&gt;</code></pre>
+<p>and check that it's been added to Tensorflow's variables list:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(tf.global_variables())</span><br></pre></td></tr></table></figure>
+<pre><code>[&lt;tf.Variable &#39;myvar:0&#39; shape=(1, 3) dtype=float32_ref&gt;]</code></pre>
+<p>We can do operations with the variable just like any other tensor:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># can do operations</span></span><br><span class="line">c = b + var</span><br><span class="line">print(b)</span><br><span class="line">print(var)</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+<pre><code>Tensor(&quot;Const:0&quot;, shape=(1, 3), dtype=float32)
+&lt;tf.Variable &#39;myvar:0&#39; shape=(1, 3) dtype=float32_ref&gt;
+Tensor(&quot;add:0&quot;, shape=(1, 3), dtype=float32)</code></pre>
+<p>Before we can run any of these operations, we must first initalize the variables</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">init_op = tf.global_variables_initializer()</span><br><span class="line">sess.run(init_op)</span><br></pre></td></tr></table></figure>
+<p>and then we can run the operations just as we normally would.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c_run = sess.run(c)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'var:\n&#123;0&#125;'</span>.format(var_init_value))http://rail.eecs.berkeley.edu/deeprlcourse-fa18/static/misc/TF_lecture.ipynb</span><br><span class="line">print(<span class="string">'c:\n&#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
+<pre><code>b:
+[[1. 2. 3.]]
+var:
+[[2.0, 4.0, 6.0]]
+c:
+[[3. 6. 9.]]</code></pre>
+<p>So far we haven't said yet how to optimize these variables. We'll cover that next in the context of an example.</p>
+<h1 id="how-to-train-a-neural-network-for-a-simple-regression-problem">4. How to train a neural network for a simple regression problem</h1>
+<p>We've discussed how to input data, perform operations, and create variables. We'll now show how to combine all of these---with some minor additions---to train a neural network on a simple regression problem.</p>
+<p>First, we'll create data for a 1-dimensional regression problem:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># generate the data</span></span><br><span class="line">inputs = np.linspace(<span class="number">-2</span>*np.pi, <span class="number">2</span>*np.pi, <span class="number">10000</span>)[:, <span class="literal">None</span>]</span><br><span class="line">outputs = np.sin(inputs) + <span class="number">0.05</span> * np.random.normal(size=[len(inputs),<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.scatter(inputs[:, <span class="number">0</span>], outputs[:, <span class="number">0</span>], s=<span class="number">0.1</span>, color=<span class="string">'k'</span>, marker=<span class="string">'o'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;matplotlib.collections.PathCollection at 0x7ffa1bed23c8&gt;</code></pre>
+<figure>
+<img src="output_41_1.png" alt="png" /><figcaption>png</figcaption>
+</figure>
+<p>The below code creates the inputs, variables, neural network operations, mean-squared-error loss, gradient descent optimizer, and runs the optimizer using minibatches of the data.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_model</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># create inputs</span></span><br><span class="line">    input_ph = tf.placeholder(dtype=tf.float32, shape=[<span class="literal">None</span>, <span class="number">1</span>])</span><br><span class="line">    output_ph = tf.placeholder(dtype=tf.float32, shape=[<span class="literal">None</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># create variables</span></span><br><span class="line">    W0 = tf.get_variable(name=<span class="string">'W0'</span>, shape=[<span class="number">1</span>, <span class="number">20</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    W1 = tf.get_variable(name=<span class="string">'W1'</span>, shape=[<span class="number">20</span>, <span class="number">20</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    W2 = tf.get_variable(name=<span class="string">'W2'</span>, shape=[<span class="number">20</span>, <span class="number">1</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line"></span><br><span class="line">    b0 = tf.get_variable(name=<span class="string">'b0'</span>, shape=[<span class="number">20</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line">    b1 = tf.get_variable(name=<span class="string">'b1'</span>, shape=[<span class="number">20</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line">    b2 = tf.get_variable(name=<span class="string">'b2'</span>, shape=[<span class="number">1</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line"></span><br><span class="line">    weights = [W0, W1, W2]</span><br><span class="line">    biases = [b0, b1, b2]</span><br><span class="line">    activations = [tf.nn.relu, tf.nn.relu, <span class="literal">None</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># create computation graph</span></span><br><span class="line">    layer = input_ph</span><br><span class="line">    <span class="keyword">for</span> W, b, activation <span class="keyword">in</span> zip(weights, biases, activations):</span><br><span class="line">        layer = tf.matmul(layer, W) + b</span><br><span class="line">        <span class="keyword">if</span> activation <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            layer = activation(layer)</span><br><span class="line">    output_pred = layer</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> input_ph, output_ph, output_pred</span><br><span class="line">    </span><br><span class="line">input_ph, output_ph, output_pred = create_model()</span><br><span class="line">    </span><br><span class="line"><span class="comment"># create loss</span></span><br><span class="line">mse = tf.reduce_mean(<span class="number">0.5</span> * tf.square(output_pred - output_ph))</span><br><span class="line"></span><br><span class="line"><span class="comment"># create optimizer</span></span><br><span class="line">opt = tf.train.AdamOptimizer().minimize(mse)</span><br><span class="line"></span><br><span class="line"><span class="comment"># initialize variables</span></span><br><span class="line">sess.run(tf.global_variables_initializer())</span><br><span class="line"><span class="comment"># create saver to save model variables</span></span><br><span class="line">saver = tf.train.Saver()</span><br><span class="line"></span><br><span class="line"><span class="comment"># run training</span></span><br><span class="line">batch_size = <span class="number">32</span></span><br><span class="line"><span class="keyword">for</span> training_step <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    <span class="comment"># get a random subset of the training data</span></span><br><span class="line">    indices = np.random.randint(low=<span class="number">0</span>, high=len(inputs), size=batch_size)</span><br><span class="line">    input_batch = inputs[indices]</span><br><span class="line">    output_batch = outputs[indices]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># run the optimizer and get the mse</span></span><br><span class="line">    _, mse_run = sess.run([opt, mse], feed_dict=&#123;input_ph: input_batch, output_ph: output_batch&#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># print the mse every so often</span></span><br><span class="line">    <span class="keyword">if</span> training_step % <span class="number">1000</span> == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">'&#123;0:04d&#125; mse: &#123;1:.3f&#125;'</span>.format(training_step, mse_run))</span><br><span class="line">        saver.save(sess, <span class="string">'./tmp/model.ckpt'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>0000 mse: 0.428
+1000 mse: 0.067
+2000 mse: 0.027
+3000 mse: 0.016
+4000 mse: 0.006
+5000 mse: 0.002
+6000 mse: 0.002
+7000 mse: 0.001
+8000 mse: 0.002
+9000 mse: 0.001</code></pre>
+<p>Now that the neural network is trained, we can use it to make predictions:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># create the model</span></span><br><span class="line">input_ph, output_ph, output_pred = create_model()</span><br><span class="line"></span><br><span class="line"><span class="comment"># restore the saved model</span></span><br><span class="line">saver = tf.train.Saver()</span><br><span class="line">saver.restore(sess, <span class="string">"./tmp/model.ckpt"</span>)</span><br><span class="line"></span><br><span class="line">output_pred_run = sess.run(output_pred, feed_dict=&#123;input_ph: inputs&#125;)</span><br><span class="line"></span><br><span class="line">plt.scatter(inputs[:, <span class="number">0</span>], outputs[:, <span class="number">0</span>], c=<span class="string">'k'</span>, marker=<span class="string">'o'</span>, s=<span class="number">0.1</span>)</span><br><span class="line">plt.scatter(inputs[:, <span class="number">0</span>], output_pred_run[:, <span class="number">0</span>], c=<span class="string">'r'</span>, marker=<span class="string">'o'</span>, s=<span class="number">0.1</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>INFO:tensorflow:Restoring parameters from /tmp/model.ckpt
+
+
+
+
+
+&lt;matplotlib.collections.PathCollection at 0x7ff9dc62a550&gt;</code></pre>
+<figure>
+<img src="output_45_2.png" alt="png" /><figcaption>png</figcaption>
+</figure>
+<p>Not so hard after all! There is much more functionality to Tensorflow besides what we've covered, but you now know the basics.</p>
+<h1 id="tips-and-tricks">5. Tips and tricks</h1>
+<h5 id="a-check-your-dimensions">(a) Check your dimensions</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># example of "surprising" resulting dimensions due to broadcasting</span></span><br><span class="line">a = tf.constant(np.random.random((<span class="number">4</span>, <span class="number">1</span>)))</span><br><span class="line">b = tf.constant(np.random.random((<span class="number">1</span>, <span class="number">4</span>)))</span><br><span class="line">c = a * b</span><br><span class="line"><span class="keyword">assert</span> c.get_shape() == (<span class="number">4</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="b-check-what-variables-have-been-created">(b) Check what variables have been created</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line">a = tf.get_variable(<span class="string">'I_am_a_variable'</span>, shape=[<span class="number">4</span>, <span class="number">6</span>])</span><br><span class="line">b = tf.get_variable(<span class="string">'I_am_a_variable_too'</span>, shape=[<span class="number">2</span>, <span class="number">7</span>])</span><br><span class="line"><span class="keyword">for</span> var <span class="keyword">in</span> tf.global_variables():</span><br><span class="line">    print(var.name)</span><br></pre></td></tr></table></figure>
+<pre><code>I_am_a_variable:0
+I_am_a_variable_too:0</code></pre>
+<h5 id="c-look-at-the-tensorflow-api-or-open-up-a-python-terminal-and-investigate">(c) Look at the <span class="exturl" data-url="aHR0cHM6Ly93d3cudGVuc29yZmxvdy5vcmcvYXBpX2RvY3MvcHl0aG9uLw==">tensorflow API<i class="fa fa-external-link-alt"></i></span>, or open up a python terminal and investigate!</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">help(tf.reduce_mean)</span><br></pre></td></tr></table></figure>
+<pre><code>Help on function reduce_mean in module tensorflow.python.ops.math_ops:
+
+reduce_mean(input_tensor, axis=None, keepdims=None, name=None, reduction_indices=None, keep_dims=None)
+    Computes the mean of elements across dimensions of a tensor. (deprecated arguments)
+    
+    SOME ARGUMENTS ARE DEPRECATED. They will be removed in a future version.
+    Instructions for updating:
+    keep_dims is deprecated, use keepdims instead
+    
+    Reduces `input_tensor` along the dimensions given in `axis`.
+    Unless `keepdims` is true, the rank of the tensor is reduced by 1 for each
+    entry in `axis`. If `keepdims` is true, the reduced dimensions
+    are retained with length 1.
+    
+    If `axis` is None, all dimensions are reduced, and a
+    tensor with a single element is returned.
+    
+    For example:
+    
+    <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = tf.constant([[<span class="number">1.</span>, <span class="number">1.</span>], [<span class="number">2.</span>, <span class="number">2.</span>]])</span><br><span class="line">tf.reduce_mean(x)  <span class="comment"># 1.5</span></span><br><span class="line">tf.reduce_mean(x, <span class="number">0</span>)  <span class="comment"># [1.5, 1.5]</span></span><br><span class="line">tf.reduce_mean(x, <span class="number">1</span>)  <span class="comment"># [1.,  2.]</span></span><br></pre></td></tr></table></figure>
+    
+    Args:
+      input_tensor: The tensor to reduce. Should have numeric type.
+      axis: The dimensions to reduce. If `None` (the default),
+        reduces all dimensions. Must be in the range
+        `[-rank(input_tensor), rank(input_tensor))`.
+      keepdims: If true, retains reduced dimensions with length 1.
+      name: A name for the operation (optional).
+      reduction_indices: The old (deprecated) name for axis.
+      keep_dims: Deprecated alias for `keepdims`.
+    
+    Returns:
+      The reduced tensor.
+    
+    @compatibility(numpy)
+    Equivalent to np.mean
+    
+    Please note that `np.mean` has a `dtype` parameter that could be used to
+    specify the output type. By default this is `dtype=float64`. On the other
+    hand, `tf.reduce_mean` has an aggressive type inference from `input_tensor`,
+    for example:
+    
+    <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = tf.constant([<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">tf.reduce_mean(x)  <span class="comment"># 0</span></span><br><span class="line">y = tf.constant([<span class="number">1.</span>, <span class="number">0.</span>, <span class="number">1.</span>, <span class="number">0.</span>])</span><br><span class="line">tf.reduce_mean(y)  <span class="comment"># 0.5</span></span><br></pre></td></tr></table></figure>
+    
+    @end_compatibility</code></pre>
+<h5 id="d-tensorflow-has-some-built-in-layers-to-simplify-your-code.">(d) Tensorflow has some built-in layers to simplify your code.</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">help(tf.contrib.layers.fully_connected)</span><br></pre></td></tr></table></figure>
+<pre><code>Help on function fully_connected in module tensorflow.contrib.layers.python.layers.layers:
+
+fully_connected(inputs, num_outputs, activation_fn=&lt;function relu at 0x7ffa20054c80&gt;, normalizer_fn=None, normalizer_params=None, weights_initializer=&lt;function variance_scaling_initializer.&lt;locals&gt;._initializer at 0x7ff9f2ecd158&gt;, weights_regularizer=None, biases_initializer=&lt;tensorflow.python.ops.init_ops.Zeros object at 0x7ff9f2ecc780&gt;, biases_regularizer=None, reuse=None, variables_collections=None, outputs_collections=None, trainable=True, scope=None)
+    Adds a fully connected layer.
+    
+    `fully_connected` creates a variable called `weights`, representing a fully
+    connected weight matrix, which is multiplied by the `inputs` to produce a
+    `Tensor` of hidden units. If a `normalizer_fn` is provided (such as
+    `batch_norm`), it is then applied. Otherwise, if `normalizer_fn` is
+    None and a `biases_initializer` is provided then a `biases` variable would be
+    created and added the hidden units. Finally, if `activation_fn` is not `None`,
+    it is applied to the hidden units as well.
+    
+    Note: that if `inputs` have a rank greater than 2, then `inputs` is flattened
+    prior to the initial matrix multiply by `weights`.
+    
+    Args:
+      inputs: A tensor of at least rank 2 and static value for the last dimension;
+        i.e. `[batch_size, depth]`, `[None, None, None, channels]`.
+      num_outputs: Integer or long, the number of output units in the layer.
+      activation_fn: Activation function. The default value is a ReLU function.
+        Explicitly set it to None to skip it and maintain a linear activation.
+      normalizer_fn: Normalization function to use instead of `biases`. If
+        `normalizer_fn` is provided then `biases_initializer` and
+        `biases_regularizer` are ignored and `biases` are not created nor added.
+        default set to None for no normalizer function
+      normalizer_params: Normalization function parameters.
+      weights_initializer: An initializer for the weights.
+      weights_regularizer: Optional regularizer for the weights.
+      biases_initializer: An initializer for the biases. If None skip biases.
+      biases_regularizer: Optional regularizer for the biases.
+      reuse: Whether or not the layer and its variables should be reused. To be
+        able to reuse the layer scope must be given.
+      variables_collections: Optional list of collections for all the variables or
+        a dictionary containing a different list of collections per variable.
+      outputs_collections: Collection to add the outputs.
+      trainable: If `True` also add variables to the graph collection
+        `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
+      scope: Optional scope for variable_scope.
+    
+    Returns:
+       The tensor variable representing the result of the series of operations.
+    
+    Raises:
+      ValueError: If x has rank less than 2 or if its last dimension is not set.</code></pre>
+<h5 id="e-use-variable-scope-to-keep-your-variables-organized.">(e) Use <span class="exturl" data-url="aHR0cHM6Ly93d3cudGVuc29yZmxvdy5vcmcvZ3VpZGUvdmFyaWFibGVzI3NoYXJpbmdfdmFyaWFibGVz">variable scope<i class="fa fa-external-link-alt"></i></span> to keep your variables organized.</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># create variables</span></span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">'layer_0'</span>):</span><br><span class="line">    W0 = tf.get_variable(name=<span class="string">'W0'</span>, shape=[<span class="number">1</span>, <span class="number">20</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    b0 = tf.get_variable(name=<span class="string">'b0'</span>, shape=[<span class="number">20</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">'layer_1'</span>):</span><br><span class="line">    W1 = tf.get_variable(name=<span class="string">'W1'</span>, shape=[<span class="number">20</span>, <span class="number">20</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    b1 = tf.get_variable(name=<span class="string">'b1'</span>, shape=[<span class="number">20</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line">    </span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">'layer_2'</span>):</span><br><span class="line">    W2 = tf.get_variable(name=<span class="string">'W2'</span>, shape=[<span class="number">20</span>, <span class="number">1</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    b2 = tf.get_variable(name=<span class="string">'b2'</span>, shape=[<span class="number">1</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># print the variables</span></span><br><span class="line">var_names = sorted([v.name <span class="keyword">for</span> v <span class="keyword">in</span> tf.global_variables()])</span><br><span class="line">print(<span class="string">'\n'</span>.join(var_names))</span><br></pre></td></tr></table></figure>
+<pre><code>layer_0/W0:0
+layer_0/b0:0
+layer_1/W1:0
+layer_1/b1:0
+layer_2/W2:0
+layer_2/b2:0</code></pre>
+<h5 id="f-you-can-specify-which-gpu-you-want-to-use-and-how-much-memory-you-want-to-use">(f) You can specify which GPU you want to use and how much memory you want to use</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gpu_device = <span class="number">0</span></span><br><span class="line">gpu_frac = <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># make only one of the GPUs visible</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">"CUDA_VISIBLE_DEVICES"</span>] = str(gpu_device)</span><br><span class="line"></span><br><span class="line"><span class="comment"># only use part of the GPU memory</span></span><br><span class="line">gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=gpu_frac)</span><br><span class="line">config = tf.ConfigProto(gpu_options=gpu_options)</span><br><span class="line"></span><br><span class="line"><span class="comment"># create the session</span></span><br><span class="line">tf_sess = tf.Session(graph=tf.Graph(), config=config)</span><br></pre></td></tr></table></figure>
+<h5 id="g-you-can-use-tensorboard-to-visualize-and-monitor-the-training-process.">(g) You can use <span class="exturl" data-url="aHR0cHM6Ly93d3cudGVuc29yZmxvdy5vcmcvZ3VpZGUvc3VtbWFyaWVzX2FuZF90ZW5zb3Jib2FyZA==">tensorboard<i class="fa fa-external-link-alt"></i></span> to visualize and monitor the training process.</h5>
+]]></content>
+      <categories>
+        <category>Tensorflow</category>
+      </categories>
+      <tags>
+        <tag>Tensorflow</tag>
       </tags>
   </entry>
 </search>
