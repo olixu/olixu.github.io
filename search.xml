@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Flask项目结构</title>
+    <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>拥有良好的项目结构对于开发与维护有着巨大的作用</strong> <a id="more"></a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects$ tree</span><br><span class="line">.</span><br><span class="line">`-- ProjectName</span><br><span class="line">    |-- app                      # 整个程序的包目录</span><br><span class="line">    |   |-- config.py                # 配置文件</span><br><span class="line">    |   |-- email.py                 # 邮件发送</span><br><span class="line">    |   |-- extensions.py            # 各种扩展</span><br><span class="line">    |   |-- forms                    # 表单文件</span><br><span class="line">    |   |-- models                   # 数据模型</span><br><span class="line">    |   |-- static                   # 静态资源文件</span><br><span class="line">    |   |   |-- css                      # 样式表</span><br><span class="line">    |   |   |-- img                      # 图片</span><br><span class="line">    |   |   `-- js                       # JS脚本</span><br><span class="line">    |   |-- templates                # 模板文件</span><br><span class="line">    |   |   |-- common                   # 通用模板</span><br><span class="line">    |   |   |-- email                    # 邮件发送</span><br><span class="line">    |   |   |-- errors                   # 错误页面</span><br><span class="line">    |   |   |-- posts                    # 帖子模板</span><br><span class="line">    |   |   `-- user                     # 用户模板</span><br><span class="line">    |   `-- views                    # 视图文件</span><br><span class="line">    |-- manage.py                    # 项目启动控制文件</span><br><span class="line">    |-- migrations                   # 数据库迁移目录</span><br><span class="line">    |-- requirements.txt             # 依赖包的列表</span><br><span class="line">    `-- tests                        # 测试单元</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CBDict文献取词翻译器</title>
     <url>/2019/03/18/CBDict%E6%96%87%E7%8C%AE%E5%8F%96%E8%AF%8D%E7%BF%BB%E8%AF%91%E5%99%A8/</url>
     <content><![CDATA[<pre><code>**CBDict：一个专门为Linux环境下的学术党设计的文献取词翻译器**</code></pre>
@@ -31,20 +45,6 @@
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Flask项目结构</title>
-    <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<blockquote>
-<p><strong>拥有良好的项目结构对于开发与维护有着巨大的作用</strong> <a id="more"></a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects$ tree</span><br><span class="line">.</span><br><span class="line">`-- ProjectName</span><br><span class="line">    |-- app                      # 整个程序的包目录</span><br><span class="line">    |   |-- config.py                # 配置文件</span><br><span class="line">    |   |-- email.py                 # 邮件发送</span><br><span class="line">    |   |-- extensions.py            # 各种扩展</span><br><span class="line">    |   |-- forms                    # 表单文件</span><br><span class="line">    |   |-- models                   # 数据模型</span><br><span class="line">    |   |-- static                   # 静态资源文件</span><br><span class="line">    |   |   |-- css                      # 样式表</span><br><span class="line">    |   |   |-- img                      # 图片</span><br><span class="line">    |   |   `-- js                       # JS脚本</span><br><span class="line">    |   |-- templates                # 模板文件</span><br><span class="line">    |   |   |-- common                   # 通用模板</span><br><span class="line">    |   |   |-- email                    # 邮件发送</span><br><span class="line">    |   |   |-- errors                   # 错误页面</span><br><span class="line">    |   |   |-- posts                    # 帖子模板</span><br><span class="line">    |   |   `-- user                     # 用户模板</span><br><span class="line">    |   `-- views                    # 视图文件</span><br><span class="line">    |-- manage.py                    # 项目启动控制文件</span><br><span class="line">    |-- migrations                   # 数据库迁移目录</span><br><span class="line">    |-- requirements.txt             # 依赖包的列表</span><br><span class="line">    `-- tests                        # 测试单元</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>flask</category>
-      </categories>
-      <tags>
-        <tag>flask</tag>
       </tags>
   </entry>
   <entry>
@@ -102,23 +102,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Manjaro下解决Matplotlib中文显示出错</title>
-    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
-    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
-<ul>
-<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
-<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
-<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Manjaro适合什么样的人</title>
     <url>/2020/06/28/Manjaro%E9%80%82%E5%90%88%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BA%BA/</url>
     <content><![CDATA[<p>2019年3月份看到了有人安利Manjaro，装电脑上用了一年，分享一下使用一年的感受。</p>
@@ -149,6 +132,23 @@
 <p>回到标题，Manjaro不适合搞算学术研究和项目开发的人，尤其是学生：研究生。本科生无聊的话可以玩玩Manjaro。</p>
 <p>操作系统还是有公司支持的比较好，像Ubuntu，真的可以，用了快6年了。</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Manjaro下解决Matplotlib中文显示出错</title>
+    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
+    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
+<ul>
+<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
+<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
+<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
   </entry>
   <entry>
     <title>Markdown语法</title>
@@ -689,28 +689,37 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </tags>
   </entry>
   <entry>
-    <title>Word与Latex</title>
-    <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
-    <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
-<h2 id="mathpix将论文中的公式识别成latex或者mathml格式">Mathpix：将论文中的公式识别成latex或者mathml格式</h2>
-<p>有一款软件：Mathpix，能够将公式识别成latex或者mathml格式。</p>
-<p>使用该软件需要使用邮箱注册账户，免费版一个月只能识别50次，也有一个开发版，一个月能识别1000次，但是需要信用卡验证，对于国内用户来说，比较麻烦。</p>
-<p>这里给出一个解决办法：使用临时邮箱，待免费套餐使用完后，重新注册账户，测试了几个免费邮箱服务，大多被mathpix识别了，<span class="exturl" data-url="aHR0cHM6Ly90ZW1wLW1haWwub3JnL2VuLw==">https://temp-mail.org/en/<i class="fa fa-external-link-alt"></i></span> 这个我测试了一下，没有被mathpix识别，可以用于注册。 <a id="more"></a></p>
-<h2 id="word中的latex公式">Word中的latex公式</h2>
-<h3 id="简单的单行公式">简单的单行公式</h3>
-<p>简单的单行公式可以直接用latex格式。</p>
-<h3 id="复杂的多行公式">复杂的多行公式</h3>
-<p>复杂的多行公式，可以复制Mathpix中的Mathml格式，粘贴到word中。</p>
-<h3 id="插入公式编号">插入公式编号</h3>
-<p>Word中提供了一种比较方便的插入公式编号的方法：在公式末尾键入<code>#(x)</code>，然后按下<code>Enter</code>即可。</p>
-<h2 id="创作流程">创作流程</h2>
-<p>我个人比较喜欢读完文献，用Markdown（Typora）整理一下阅读笔记，这样既可以发布到博客上，又很方便的能够迁移到Word中（我一般交作业交报告都是用Word）。</p>
+    <title>*args 和 **kwargs</title>
+    <url>/2019/02/12/args-%E5%92%8C-kwargs/</url>
+    <content><![CDATA[<p>很多Python新手都无法搞清<code>*args</code>与<code>**kwargs</code>这两个魔术变量。那么他们到底是什么呢？让我来告诉你。在实际程序中，我们没有必要非得写成<code>*args</code>与<code>**kwargs</code>这样的形式，你也可以写成<code>*var</code>与<code>**vars</code>。写成<code>*args</code>与<code>**kwargs</code>的形式只是一种惯例。 <a id="more"></a> ## *args的用法 <code>*args</code>与<code>**kwargs</code>主要用于函数的定义。<code>*args</code>与<code>**kwargs</code>允许你将可变数量的参数传递给函数。这里的<strong>可变</strong>意味着你事先是不知道用户可以向你传递多少参数。因此在这种情况下你可以使用这两个关键字。<code>*args</code>用于向函数发送没有关键字的可变长度参数列表。以下是一个例子：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_var_args</span><span class="params">(f_arg, *args)</span>:</span></span><br><span class="line">    print(<span class="string">"first normal arg: "</span>, f_arg)</span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> args:</span><br><span class="line">        print(<span class="string">"another arg through *args: "</span>, ar)</span><br><span class="line"></span><br><span class="line">test_var_args(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>)</span><br></pre></td></tr></table></figure>
+<p>这会产生以下结果： <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">first normal arg: a</span><br><span class="line">another arg through *args: b</span><br><span class="line">another arg through *args: c</span><br><span class="line">another arg through *args: d</span><br></pre></td></tr></table></figure></p>
+<h2 id="kwargs-kwargs允许你将键值对也就是字典形式的参数的可变长度的参数传递给函数如果要在函数中处理命名参数则应该使用kwargs下面是一个例子">**kwargs <code>kwargs</code>允许你将键值对[也就是字典形式的参数]的可变长度的参数传递给函数。如果要在函数中处理命名参数，则应该使用<code>**kwargs</code>，下面是一个例子：</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_me</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> kwargs.items():</span><br><span class="line">        print(<span class="string">"&#123;0&#125; = &#123;1&#125;"</span>.format(key, value))</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>greet_me(name=<span class="string">"oliverxu"</span>)</span><br><span class="line">name = oliverxu</span><br></pre></td></tr></table></figure>
+<h2 id="使用args和kwargs来调用函数">使用<code>*args</code>和<code>*kwargs</code>来调用函数</h2>
+<p>首先我们先定义一个函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_args_kwargs</span><span class="params">(arg1, arg2, arg3)</span>:</span></span><br><span class="line">    print(<span class="string">"arg1:"</span>, arg1)</span><br><span class="line">    print(<span class="string">"arg2:"</span>, arg2)</span><br><span class="line">    print(<span class="string">"arg3:"</span>, arg3)</span><br></pre></td></tr></table></figure>
+<p>现在，可以用<code>*args</code>和<code>**kwargs</code>来将参数传递给这个函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>args = (<span class="string">"two"</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(*args)</span><br><span class="line">arg1: arg1</span><br><span class="line">arg2: arg2</span><br><span class="line">arg3: arg3</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>kwargs = &#123;<span class="string">"arg3"</span>:<span class="number">3</span>, <span class="string">"arg2"</span>: <span class="string">"two"</span>, <span class="string">"arg1"</span>: <span class="number">5</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(**kwargs)</span><br><span class="line">arg1: <span class="number">5</span></span><br><span class="line">arg2: two</span><br><span class="line">arg3: <span class="number">3</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Latex</category>
+        <category>python</category>
       </categories>
       <tags>
-        <tag>Latex</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo-gittalk问题总结</title>
+    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
+<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>经验</tag>
       </tags>
   </entry>
   <entry>
@@ -733,6 +742,148 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </categories>
       <tags>
         <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>controllability and observability</title>
+    <url>/2019/08/13/controllability-and-observability/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<h2 id="problem-4.1">Problem 4.1</h2>
+<p>Determine whether the following continuous-time linear time-invariant system is <strong>fully controllable</strong> <a id="more"></a> <span class="math display">\[
+\dot{x} =
+\begin{bmatrix}
+0 &amp; 1 &amp; 0 \\\
+0 &amp; 0 &amp; 1 \\\
+-2 &amp; -4 &amp; -3 \\\
+\end{bmatrix}
+x+
+\begin{bmatrix}
+1 &amp; 0 \\\
+0 &amp; 1 \\\
+-1 &amp; 1 \\\
+\end{bmatrix}
+u
+\]</span></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = Matrix([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>], </span><br><span class="line">                   [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], </span><br><span class="line">                   [<span class="number">-2</span>, <span class="number">-4</span>, <span class="number">-3</span>]])</span><br><span class="line">B = Matrix([</span><br><span class="line">                   [<span class="number">1</span>, <span class="number">0</span>],</span><br><span class="line">                   [<span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">                   [<span class="number">-1</span>, <span class="number">1</span>]</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">Q = B.col_insert(<span class="number">2</span>, A*B).col_insert(<span class="number">5</span>, A**<span class="number">2</span>*B)</span><br><span class="line"><span class="keyword">if</span> Q.rank()==<span class="number">3</span>:</span><br><span class="line">    print(<span class="string">"This system is fully controllable"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"This system is not fully controllable"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>This system is fully controllable</code></pre>
+<h2 id="problem-4.2">Problem 4.2</h2>
+<p>Determine the range of values a,b,c for the following continuous-time linear time-invariant systems to be <strong>fully controllable</strong></p>
+<p><span class="math display">\[
+\dot{x} =
+\begin{bmatrix}
+-2 &amp; 0 &amp; 0 \\\
+0 &amp; -2 &amp; 0 \\\
+0 &amp; 0 &amp; -2 \\\
+\end{bmatrix}
+x+
+\begin{bmatrix}
+a &amp; 1 \\\
+2 &amp; 4 \\\
+b &amp; 1 \\\
+\end{bmatrix}
+u
+\]</span></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a, b= symbols(<span class="string">"a b"</span>)</span><br><span class="line">A = Matrix([[<span class="number">-2</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">                   [<span class="number">0</span>, <span class="number">-2</span>, <span class="number">0</span>], </span><br><span class="line">                   [<span class="number">0</span>, <span class="number">0</span>, <span class="number">-2</span>]])</span><br><span class="line">B = Matrix([</span><br><span class="line">                   [a, <span class="number">1</span>],</span><br><span class="line">                   [<span class="number">2</span>, <span class="number">4</span>],</span><br><span class="line">                   [b, <span class="number">1</span>]</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">Q = B.col_insert(<span class="number">2</span>, A*B).col_insert(<span class="number">5</span>, A**<span class="number">2</span>*B)</span><br><span class="line">Q</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\displaystyle \left[\begin{matrix}a &amp; 1 &amp; - 2 a &amp; -2 &amp; 4 a &amp; 4\\\2 &amp; 4 &amp; -4 &amp; -8 &amp; 8 &amp; 16\\\b &amp; 1 &amp; - 2 b &amp; -2 &amp; 4 b &amp; 4\end{matrix}\right]\)</span></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> Q.rank()==<span class="number">3</span>:</span><br><span class="line">    print(<span class="string">"This system is fully controllable"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"This system is not fully controllable"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>This system is not fully controllable</code></pre>
+<h2 id="problem-4.３">Problem 4.３</h2>
+<p>Determine whether the following continuous-time linear time-invariant system is <strong>fully observable</strong></p>
+<p><span class="math display">\[
+\dot{x} =
+\begin{bmatrix}
+0 &amp; 1 &amp; 0 \\\
+0 &amp; 0 &amp; 1 \\\
+-2 &amp; -4 &amp; -3
+\end{bmatrix}
+x,  
+y=
+\begin{bmatrix}
+1 &amp; 0 &amp; 4 \\\
+2 &amp; 0 &amp; 8 
+\end{bmatrix}
+x
+\]</span></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = Matrix([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>], </span><br><span class="line">                   [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], </span><br><span class="line">                   [<span class="number">-2</span>, <span class="number">-4</span>, <span class="number">-3</span>]])</span><br><span class="line">C = Matrix([</span><br><span class="line">                   [<span class="number">1</span>, <span class="number">0</span>, <span class="number">4</span>],  </span><br><span class="line">                   [<span class="number">2</span>, <span class="number">0</span>, <span class="number">8</span>]</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">Q =C.row_insert(<span class="number">3</span>, C*A).row_insert(<span class="number">6</span>, C*A**<span class="number">2</span>)</span><br><span class="line"><span class="keyword">if</span> Q.rank()==<span class="number">3</span>:</span><br><span class="line">    print(<span class="string">"This system is fully controllable"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"This system is not fully controllable"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>This system is fully controllable</code></pre>
+<h2 id="problem-4.４">Problem 4.４</h2>
+<p>Determine the range of values a,b,c for the following continuous-time linear time-invariant system to be <strong>fully observable</strong></p>
+<p><span class="math display">\[
+\dot{x} =
+\begin{bmatrix}
+-2 &amp; 0 &amp; 0 \\\
+1 &amp; -2 &amp; 0\\\
+0 &amp; 0 &amp; -2
+\end{bmatrix}
+x,  
+y=
+\begin{bmatrix}
+1 &amp; a &amp; b \\\
+4 &amp; 0 &amp; 4
+\end{bmatrix}
+x
+\]</span></p>
+<p>Condition 1: <strong>a!=0 or b!=1</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># if a!=0 and b!=1:  C.rank()=2, only when rank[C CA]'==3, the conditions are satified</span></span><br><span class="line">a, b= symbols(<span class="string">"a b"</span>)</span><br><span class="line">A = Matrix([[<span class="number">-2</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">                   [<span class="number">1</span>, <span class="number">-2</span>, <span class="number">0</span>], </span><br><span class="line">                   [<span class="number">0</span>, <span class="number">0</span>, <span class="number">-2</span>]])</span><br><span class="line">C = Matrix([</span><br><span class="line">                   [<span class="number">1</span>, a, b],</span><br><span class="line">                   [<span class="number">4</span>, <span class="number">0</span>, <span class="number">4</span>]</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">Q = C.row_insert(<span class="number">3</span>, C*A)</span><br><span class="line">Q</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\displaystyle \left[\begin{matrix}1 &amp; a &amp; b\\\4 &amp; 0 &amp; 4\\\a - 2 &amp; - 2 a &amp; - 2 b\\\\-8 &amp; 0 &amp; -8\end{matrix}\right]\)</span></p>
+<p><span class="math display">\[
+Q=\begin{bmatrix}1 &amp; a &amp; b\\\4 &amp; 0 &amp; 4\\\a - 2 &amp; - 2 a &amp; - 2 b\\\\-8 &amp; 0 &amp; -8\end{bmatrix}
+\]</span> So, when a is not equal to 0 and b is not equal to 0, this system is fully observable</p>
+<p>Condition 2: <strong>a==0 and b==1</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># only when rank[C1 C1A C1A^2]'==3, the conditions are satified</span></span><br><span class="line">a, b= symbols(<span class="string">"a b"</span>)</span><br><span class="line">A = Matrix([[<span class="number">-2</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">                   [<span class="number">1</span>, <span class="number">-2</span>, <span class="number">0</span>], </span><br><span class="line">                   [<span class="number">0</span>, <span class="number">0</span>, <span class="number">-2</span>]])</span><br><span class="line">C = Matrix([</span><br><span class="line">                   [<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">Q = C.row_insert(<span class="number">3</span>, C*A).row_insert(<span class="number">6</span>, C*A**<span class="number">2</span>)</span><br><span class="line">Q</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\displaystyle \left[\begin{matrix}1 &amp; 0 &amp; 1\\\\-2 &amp; 0 &amp; -2\\\4 &amp; 0 &amp; 4\end{matrix}\right]\)</span></p>
+<p>rank(Q) = 3, thus in this condition, this system is not fully observable</p>
+<h2 id="problem-4.５">Problem 4.５</h2>
+<p>Determine the range of values a,b,c for the following continuous-time linear time-invariant system to be <strong>fully controllable and observable</strong></p>
+<p><span class="math display">\[
+\dot{x} =
+\begin{bmatrix}
+-1 &amp; 1 &amp; a \\\
+0 &amp; -2 &amp; 1 \\\
+0 &amp; 0 &amp; -3
+\end{bmatrix}
+x+
+\begin{bmatrix}
+0 \\\
+0 \\\
+1 \\\
+\end{bmatrix}
+u,
+y=
+\begin{bmatrix}
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+x
+\]</span></p>
+<h2 id="problem-4.６">Problem 4.６</h2>
+<p>Calculate the controllability and observability index of the following continuous-time linear time-invariant system</p>
+<p><span class="math display">\[
+\dot{x} =
+\begin{bmatrix}
+0 &amp; 1 &amp; 0 \\\
+0 &amp; 0 &amp; 1 \\\
+0 &amp; 3 &amp; -1
+\end{bmatrix}
+x+
+\begin{bmatrix}
+0 &amp; 1 \\\
+1 &amp; 0 \\\
+0 &amp; 0
+\end{bmatrix}
+u,
+y=
+\begin{bmatrix}
+1 &amp; 0 &amp; 1 \\\
+0 &amp; 1 &amp; 0
+\end{bmatrix}
+x
+\]</span></p>
+]]></content>
+      <categories>
+        <category>control theory</category>
+      </categories>
+      <tags>
+        <tag>control theory</tag>
       </tags>
   </entry>
   <entry>
@@ -764,6 +915,31 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </categories>
       <tags>
         <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Word与Latex</title>
+    <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
+    <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
+<h2 id="mathpix将论文中的公式识别成latex或者mathml格式">Mathpix：将论文中的公式识别成latex或者mathml格式</h2>
+<p>有一款软件：Mathpix，能够将公式识别成latex或者mathml格式。</p>
+<p>使用该软件需要使用邮箱注册账户，免费版一个月只能识别50次，也有一个开发版，一个月能识别1000次，但是需要信用卡验证，对于国内用户来说，比较麻烦。</p>
+<p>这里给出一个解决办法：使用临时邮箱，待免费套餐使用完后，重新注册账户，测试了几个免费邮箱服务，大多被mathpix识别了，<span class="exturl" data-url="aHR0cHM6Ly90ZW1wLW1haWwub3JnL2VuLw==">https://temp-mail.org/en/<i class="fa fa-external-link-alt"></i></span> 这个我测试了一下，没有被mathpix识别，可以用于注册。 <a id="more"></a></p>
+<h2 id="word中的latex公式">Word中的latex公式</h2>
+<h3 id="简单的单行公式">简单的单行公式</h3>
+<p>简单的单行公式可以直接用latex格式。</p>
+<h3 id="复杂的多行公式">复杂的多行公式</h3>
+<p>复杂的多行公式，可以复制Mathpix中的Mathml格式，粘贴到word中。</p>
+<h3 id="插入公式编号">插入公式编号</h3>
+<p>Word中提供了一种比较方便的插入公式编号的方法：在公式末尾键入<code>#(x)</code>，然后按下<code>Enter</code>即可。</p>
+<h2 id="创作流程">创作流程</h2>
+<p>我个人比较喜欢读完文献，用Markdown（Typora）整理一下阅读笔记，这样既可以发布到博客上，又很方便的能够迁移到Word中（我一般交作业交报告都是用Word）。</p>
+]]></content>
+      <categories>
+        <category>Latex</category>
+      </categories>
+      <tags>
+        <tag>Latex</tag>
       </tags>
   </entry>
   <entry>
@@ -800,6 +976,32 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </categories>
       <tags>
         <tag>Reinforcement Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用本地服务器结合github action推送github pages</title>
+    <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
+    <content><![CDATA[<h2 id="需求">需求</h2>
+<p>网上很多人使用github action，借助github的服务器来进行博客的推送，但是，当你博客文章数量较多，且使用了国内的CDN，例如本博客使用了阿里云CDN，本站的解析是国外IP访问的是github仓库的网站，国内用户访问的是阿里云CDN的节点，在使用github action的时候，发现推送速度非常慢，原因是github的服务器在国外，<strong>往阿里云服务器推送的时候速度很慢</strong>。所以，每次更新博客，往往需要10分钟的时间才能推送好。这是不能忍受的。。。</p>
+<a id="more"></a>
+<p>我本地有一台服务器，装了Proxmox来管理虚拟机，且有公网IP，接助GitHub action来连接到我本地推送服务器进行推送</p>
+<h2 id="整个流程如图">整个流程如图：</h2>
+<p><img src="1.svg" /></p>
+<ul>
+<li>本地git pull github仓库中的文件到本地博客开发服务器，进行博客开发。</li>
+<li>博客写完后，git push到github仓库</li>
+<li>github仓库根据仓库中的yaml文件，创建github action，action的功能是连接SSH到Github推送服务器</li>
+<li>Github推送服务器上已经安装好了hexo等博客需要的环境，进行博客推送</li>
+</ul>
+<p>这样操作，全自动的，且速度非常快，整个流程在1分钟左右。</p>
+<h2 id="附上github-action的代码">附上github action的代码：</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Hexo deploy by remote ssh</span><br><span class="line">on: </span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line"></span><br><span class="line">  build:</span><br><span class="line">    name: Build</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">    - name: executing remote ssh commands using password</span><br><span class="line">      uses: appleboy/ssh-action@master</span><br><span class="line">      with:</span><br><span class="line">        host: <span class="variable">$&#123;&#123; secrets.HOST &#125;</span>&#125;</span><br><span class="line">        username: <span class="variable">$&#123;&#123; secrets.USERNAME &#125;</span>&#125;</span><br><span class="line">        password: <span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;</span><br><span class="line">        port: <span class="variable">$&#123;&#123; secrets.PORT &#125;</span>&#125;</span><br><span class="line">        script: <span class="built_in">cd</span> blog;</span><br><span class="line">                git pull https://olixu:<span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;@github.com/olixu/blog.git; </span><br><span class="line">                hexo clean;</span><br><span class="line">                hexo g;</span><br><span class="line">                hexo d;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -1103,29 +1305,30 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </tags>
   </entry>
   <entry>
-    <title>使用本地服务器结合github action推送github pages</title>
-    <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
-    <content><![CDATA[<h2 id="需求">需求</h2>
-<p>网上很多人使用github action，借助github的服务器来进行博客的推送，但是，当你博客文章数量较多，且使用了国内的CDN，例如本博客使用了阿里云CDN，本站的解析是国外IP访问的是github仓库的网站，国内用户访问的是阿里云CDN的节点，在使用github action的时候，发现推送速度非常慢，原因是github的服务器在国外，<strong>往阿里云服务器推送的时候速度很慢</strong>。所以，每次更新博客，往往需要10分钟的时间才能推送好。这是不能忍受的。。。</p>
-<a id="more"></a>
-<p>我本地有一台服务器，装了Proxmox来管理虚拟机，且有公网IP，接助GitHub action来连接到我本地推送服务器进行推送</p>
-<h2 id="整个流程如图">整个流程如图：</h2>
-<p><img src="1.svg" /></p>
-<ul>
-<li>本地git pull github仓库中的文件到本地博客开发服务器，进行博客开发。</li>
-<li>博客写完后，git push到github仓库</li>
-<li>github仓库根据仓库中的yaml文件，创建github action，action的功能是连接SSH到Github推送服务器</li>
-<li>Github推送服务器上已经安装好了hexo等博客需要的环境，进行博客推送</li>
-</ul>
-<p>这样操作，全自动的，且速度非常快，整个流程在1分钟左右。</p>
-<h2 id="附上github-action的代码">附上github action的代码：</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Hexo deploy by remote ssh</span><br><span class="line">on: </span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line"></span><br><span class="line">  build:</span><br><span class="line">    name: Build</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">    - name: executing remote ssh commands using password</span><br><span class="line">      uses: appleboy/ssh-action@master</span><br><span class="line">      with:</span><br><span class="line">        host: <span class="variable">$&#123;&#123; secrets.HOST &#125;</span>&#125;</span><br><span class="line">        username: <span class="variable">$&#123;&#123; secrets.USERNAME &#125;</span>&#125;</span><br><span class="line">        password: <span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;</span><br><span class="line">        port: <span class="variable">$&#123;&#123; secrets.PORT &#125;</span>&#125;</span><br><span class="line">        script: <span class="built_in">cd</span> blog;</span><br><span class="line">                git pull https://olixu:<span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;@github.com/olixu/blog.git; </span><br><span class="line">                hexo clean;</span><br><span class="line">                hexo g;</span><br><span class="line">                hexo d;</span><br></pre></td></tr></table></figure>
+    <title>初学数据库-sqlite3 简介</title>
+    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
+</blockquote>
+<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
+<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
+<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
+<h2 id="于是数据库出现了">于是，数据库出现了</h2>
+<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
+<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
+<h2 id="数据库种类">数据库种类</h2>
+<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
+<h3 id="非关系型数据库">2.非关系型数据库</h3>
+<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
+<h2 id="sqlite3">sqlite3</h2>
+<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
 ]]></content>
       <categories>
-        <category>博客</category>
+        <category>数据库</category>
       </categories>
       <tags>
-        <tag>博客</tag>
+        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>
@@ -1163,33 +1366,6 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </categories>
       <tags>
         <tag>爬虫 代理IP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初学数据库-sqlite3 简介</title>
-    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
-</blockquote>
-<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
-<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
-<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
-<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
-<h2 id="于是数据库出现了">于是，数据库出现了</h2>
-<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
-<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
-<h2 id="数据库种类">数据库种类</h2>
-<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
-<h3 id="非关系型数据库">2.非关系型数据库</h3>
-<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
-<h2 id="sqlite3">sqlite3</h2>
-<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>
@@ -1361,11 +1537,37 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>常用排序算法之直接插入排序</title>
+    <url>/2018/08/12/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>题目：编写一个C程序，应用直接插入排序算法将序列｛2，5，6，，3，7，8，0，9，12，1｝进行排序，要求从小到大排列，并输出排序后的数列元素。</p>
+<p>算法分析：直接运用直接插入排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertionsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>] = a[i];</span><br><span class="line">        j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; a[<span class="number">0</span>]&lt;a[j])</span><br><span class="line">        &#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j--];</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The original data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    insertsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of insertion sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构 算法 排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用排序算法之选择排序</title>
     <url>/2018/09/02/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<p>题目：编写一个C程序，运用选择排序将序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的数列元素</p>
 <p>算法分析：运用选择排序算法即可</p>
 <p>代码实现： <a id="more"></a> <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,<span class="built_in">min</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)</span><br><span class="line">    &#123; </span><br><span class="line">        <span class="built_in">min</span> = i;</span><br><span class="line">        <span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[j] &lt; a[<span class="built_in">min</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">min</span> = j;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">min</span> != i)</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="built_in">min</span>];</span><br><span class="line">                a[<span class="built_in">min</span>] = a[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    selectsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of selection sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构 算法 排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>折半查找</title>
+    <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
+    <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
+<p>算法分析：折半查找 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bin_search</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,high,low;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=(high+low)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">10</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">19</span>,<span class="number">21</span>&#125;</span><br><span class="line">    <span class="keyword">int</span> i,n,addr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The contents of the Array A[10] are\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, A[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPlease input a interger for search\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    addr = bin_search(A,<span class="number">10</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(addr != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d is at the %dth unit is array A\n "</span>,n,addr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"There is no %d in array A\n"</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
@@ -1399,28 +1601,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>强化学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>服务器被黑记录</title>
-    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
-<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
-<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
-<a id="more"></a>
-<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
-<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
-<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
-<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
-<p>可以看到一直在被爆破。</p>
-<p><img src="image-20200914140640360.png" /></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1513,6 +1693,28 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>服务器被黑记录</title>
+    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
+<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
+<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
+<a id="more"></a>
+<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
+<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
+<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
+<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
+<p>可以看到一直在被爆破。</p>
+<p><img src="image-20200914140640360.png" /></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>检查强化学习自定义环境是否符合Gym的API</title>
     <url>/2020/08/22/%E6%A3%80%E6%9F%A5%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E7%AC%A6%E5%90%88Gym%E7%9A%84API/</url>
     <content><![CDATA[<p>虽然Openai Gym给我们提供了很多有趣的环境，但是，针对实际问题，我们一般都需要建立自己的强化学习环境，也就是说，建立一个函数，输入是<code>action</code>，输出是<code>next_state, reward, done, info</code>，建立这样一个环境的时候最好按照Gym的API来设计，这样方便代码的编写与调试，很多网上实现的算法都是按照Gym的环境进行设计的，同时，Gym的API本身设计的就比较合理的。</p>
@@ -1550,16 +1752,46 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>常用排序算法之直接插入排序</title>
-    <url>/2018/08/12/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>题目：编写一个C程序，应用直接插入排序算法将序列｛2，5，6，，3，7，8，0，9，12，1｝进行排序，要求从小到大排列，并输出排序后的数列元素。</p>
-<p>算法分析：直接运用直接插入排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertionsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>] = a[i];</span><br><span class="line">        j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; a[<span class="number">0</span>]&lt;a[j])</span><br><span class="line">        &#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j--];</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The original data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    insertsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of insertion sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <title>粒子群算法库-PySwarms的可视化</title>
+    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
+    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
+<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
 ]]></content>
       <categories>
-        <category>数据结构与算法</category>
+        <category>机器学习</category>
       </categories>
       <tags>
-        <tag>数据结构 算法 排序</tag>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>粒子群算法的Python简单实现</title>
+    <url>/2019/02/14/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E7%9A%84Python%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<h2 id="需要优化的目标函数">需要优化的目标函数</h2>
+<p><span class="math display">\[target = x^2+y^2+z^2\]</span></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">target</span><span class="params">(nparray)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> nparray[<span class="number">0</span>]**<span class="number">2</span> + nparray[<span class="number">1</span>]**<span class="number">2</span> + nparray[<span class="number">2</span>]**<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="初始化条件">初始化条件</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">N = <span class="number">30</span> <span class="comment">#个体数量</span></span><br><span class="line">D = <span class="number">3</span>  <span class="comment">#目标函数的维数</span></span><br><span class="line">M = <span class="number">1000</span> <span class="comment">#迭代次数</span></span><br><span class="line">c1 = <span class="number">0.5</span> <span class="comment">#加速常数1</span></span><br><span class="line">c2 = <span class="number">0.5</span> <span class="comment">#加速常数2</span></span><br><span class="line">w = <span class="number">0.6</span> <span class="comment">#惯性因子</span></span><br></pre></td></tr></table></figure>
+<h2 id="初始化每个粒子的位置和速度">初始化每个粒子的位置和速度</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">X = np.zeros((N, D))</span><br><span class="line">V = np.zeros((N, D))</span><br><span class="line">y = np.zeros((N, D))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N): <span class="comment">#行</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(D): <span class="comment">#列</span></span><br><span class="line">        X[i][j] = random.random()</span><br><span class="line">        V[i][j] = random.random()</span><br></pre></td></tr></table></figure>
+<h2 id="计算每个粒子的适应度">计算每个粒子的适应度</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">P = np.zeros(N) <span class="comment">#P为个体历史最优解</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">    P[i] = target(X[i])</span><br><span class="line">    y[i] = X[i]</span><br><span class="line">    <span class="comment">#print(target(X[i]))</span></span><br></pre></td></tr></table></figure>
+<h2 id="初始化pgpg为全局最优解">初始化pg，pg为全局最优解</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pg = X[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,N):</span><br><span class="line">    <span class="keyword">if</span> float(target(X[i])) &lt; float(target(pg)):</span><br><span class="line">        pg = X[i]</span><br></pre></td></tr></table></figure>
+<h2 id="算法主要循环">算法主要循环</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> range(M):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        V[i] = w*V[i] + c1*random.random()*(y[i]-X[i]) + c2*random.random()*(pg-X[i])</span><br><span class="line">        X[i] = X[i] + V[i]</span><br><span class="line">        <span class="keyword">if</span> target(X[i])&lt;P[i]:</span><br><span class="line">            P[i] = target(X[i])</span><br><span class="line">            y[i] = X[i]</span><br><span class="line">        <span class="keyword">if</span> P[i]&lt;target(pg):</span><br><span class="line">            pg = y[i]</span><br><span class="line">    <span class="comment">#Pbest[t] = target(pg)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pg</span><br></pre></td></tr></table></figure>
+<pre><code>array([ 9.74182970e-163, -1.51205792e-162, -5.62277013e-163])</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">target(pg)</span><br></pre></td></tr></table></figure>
+<pre><code>0.0</code></pre>
+]]></content>
+      <categories>
+        <category>优化算法</category>
+      </categories>
+      <tags>
+        <tag>优化算法</tag>
       </tags>
   </entry>
   <entry>
@@ -1601,46 +1833,18 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>粒子群算法的Python简单实现</title>
-    <url>/2019/02/14/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E7%9A%84Python%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</url>
-    <content><![CDATA[<h2 id="需要优化的目标函数">需要优化的目标函数</h2>
-<p><span class="math display">\[target = x^2+y^2+z^2\]</span></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">target</span><span class="params">(nparray)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> nparray[<span class="number">0</span>]**<span class="number">2</span> + nparray[<span class="number">1</span>]**<span class="number">2</span> + nparray[<span class="number">2</span>]**<span class="number">2</span></span><br></pre></td></tr></table></figure>
+    <title>软路由</title>
+    <url>/2020/08/17/%E8%BD%AF%E8%B7%AF%E7%94%B1/</url>
+    <content><![CDATA[<p>今天装了用虚拟机装了一台软路由，总结两个字：真香</p>
 <a id="more"></a>
-<h2 id="初始化条件">初始化条件</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">N = <span class="number">30</span> <span class="comment">#个体数量</span></span><br><span class="line">D = <span class="number">3</span>  <span class="comment">#目标函数的维数</span></span><br><span class="line">M = <span class="number">1000</span> <span class="comment">#迭代次数</span></span><br><span class="line">c1 = <span class="number">0.5</span> <span class="comment">#加速常数1</span></span><br><span class="line">c2 = <span class="number">0.5</span> <span class="comment">#加速常数2</span></span><br><span class="line">w = <span class="number">0.6</span> <span class="comment">#惯性因子</span></span><br></pre></td></tr></table></figure>
-<h2 id="初始化每个粒子的位置和速度">初始化每个粒子的位置和速度</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">X = np.zeros((N, D))</span><br><span class="line">V = np.zeros((N, D))</span><br><span class="line">y = np.zeros((N, D))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N): <span class="comment">#行</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(D): <span class="comment">#列</span></span><br><span class="line">        X[i][j] = random.random()</span><br><span class="line">        V[i][j] = random.random()</span><br></pre></td></tr></table></figure>
-<h2 id="计算每个粒子的适应度">计算每个粒子的适应度</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">P = np.zeros(N) <span class="comment">#P为个体历史最优解</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">    P[i] = target(X[i])</span><br><span class="line">    y[i] = X[i]</span><br><span class="line">    <span class="comment">#print(target(X[i]))</span></span><br></pre></td></tr></table></figure>
-<h2 id="初始化pgpg为全局最优解">初始化pg，pg为全局最优解</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pg = X[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,N):</span><br><span class="line">    <span class="keyword">if</span> float(target(X[i])) &lt; float(target(pg)):</span><br><span class="line">        pg = X[i]</span><br></pre></td></tr></table></figure>
-<h2 id="算法主要循环">算法主要循环</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> range(M):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        V[i] = w*V[i] + c1*random.random()*(y[i]-X[i]) + c2*random.random()*(pg-X[i])</span><br><span class="line">        X[i] = X[i] + V[i]</span><br><span class="line">        <span class="keyword">if</span> target(X[i])&lt;P[i]:</span><br><span class="line">            P[i] = target(X[i])</span><br><span class="line">            y[i] = X[i]</span><br><span class="line">        <span class="keyword">if</span> P[i]&lt;target(pg):</span><br><span class="line">            pg = y[i]</span><br><span class="line">    <span class="comment">#Pbest[t] = target(pg)</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pg</span><br></pre></td></tr></table></figure>
-<pre><code>array([ 9.74182970e-163, -1.51205792e-162, -5.62277013e-163])</code></pre>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">target(pg)</span><br></pre></td></tr></table></figure>
-<pre><code>0.0</code></pre>
+<p>软路由用作旁路由，搭建socks5代理，速度比windows直接用快了将近30倍。</p>
+<p>不知道是啥原因，可能是Linux和Windows系统上的区别？</p>
 ]]></content>
       <categories>
-        <category>优化算法</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>优化算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>折半查找</title>
-    <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
-    <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
-<p>算法分析：折半查找 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bin_search</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,high,low;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=(high+low)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">10</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">19</span>,<span class="number">21</span>&#125;</span><br><span class="line">    <span class="keyword">int</span> i,n,addr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The contents of the Array A[10] are\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, A[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPlease input a interger for search\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    addr = bin_search(A,<span class="number">10</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(addr != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d is at the %dth unit is array A\n "</span>,n,addr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"There is no %d in array A\n"</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>数据结构 算法 排序</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1660,34 +1864,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>爬虫 代理IP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>粒子群算法库-PySwarms的可视化</title>
-    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
-    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
-<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>软路由</title>
-    <url>/2020/08/17/%E8%BD%AF%E8%B7%AF%E7%94%B1/</url>
-    <content><![CDATA[<p>今天装了用虚拟机装了一台软路由，总结两个字：真香</p>
-<a id="more"></a>
-<p>软路由用作旁路由，搭建socks5代理，速度比windows直接用快了将近30倍。</p>
-<p>不知道是啥原因，可能是Linux和Windows系统上的区别？</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1719,6 +1895,94 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PPO算法公式推导</title>
+    <url>/2020/09/07/PPO%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/</url>
+    <content><![CDATA[<p><strong>论文：</strong></p>
+<p>[1] Schulman, J., Levine, S., Moritz, P., Jordan, M. I. &amp; Abbeel, P. Trust Region Policy Optimization. <em>arXiv:1502.05477 [cs]</em> (2017).</p>
+<p>[2] Schulman, J., Wolski, F., Dhariwal, P., Radford, A. &amp; Klimov, O. Proximal Policy Optimization Algorithms. <em>arXiv:1707.06347 [cs]</em> (2017).</p>
+<p>[3] Heess, N. <em>et al.</em> Emergence of Locomotion Behaviours in Rich Environments. <em>arXiv:1707.02286 [cs]</em> (2017).</p>
+<p>第一、二篇是openai的，第三篇是deepmind的</p>
+<p>Trust Region Policy Optimization算法是在2015年由UCB/Openai的John Schulman提出的，基本思想就是在传统的Policy Gradient算法中对梯度的更新增加一个信赖域，来保证梯度更新前后的策略相差不超过一定的阈值，用两个概率分布的KL散度来衡量这个阈值，TRPO算法的表达形式中有一个硬约束，这给求解最优问题带来了困难，而PPO则是在2017年由UCB/Openai的John Schulman提出的，是TRPO的近似算法，将TRPO的软约束转化成目标函数中的一个惩罚项，以此来简化计算，方便实现。</p>
+<a id="more"></a>
+<h2 id="trpo算法推导">TRPO算法推导</h2>
+<h3 id="notation">Notation</h3>
+<p>令<span class="math inline">\(\eta(\pi)\)</span>表示累积折扣回报：</p>
+<p><span class="math inline">\(\eta(\pi)=\mathbb{E}_{s_{0}, a_{0}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} c\left(s_{t}\right)\right]\)</span></p>
+<p>其中，<span class="math inline">\(s_{0} \sim \rho_{0}\left(s_{0}\right), a_{t} \sim \pi\left(a_{t} \mid s_{t}\right), s_{t+1} \sim P\left(s_{t+1} \mid s_{t}, a_{t}\right)\)</span></p>
+<p>state-action值函数的定义：<span class="math inline">\(Q_{\pi}\left(s_{t}, a_{t}\right)=\mathbb{E}_{s_{t+1}, a_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
+<p>价值函数的定义：<span class="math inline">\(V_{\pi}\left(s_{t}\right)=\mathbb{E}_{a_{t}, s_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
+<p>优势函数：<span class="math inline">\(A_{\pi}(s, a)=Q_{\pi}(s, a)-V_{\pi}(s)\)</span></p>
+<p><strong>Lemma1：策略差分定理</strong>：原始策略记为<span class="math inline">\(\pi\)</span>，更新后的策略记为<span class="math inline">\(\tilde{\pi}\)</span>，则更新后的策略的期望折扣回报可以写成更新前策略的期望折扣回报加上一个<span class="math inline">\(\tilde{\pi}\)</span>对<span class="math inline">\(\pi\)</span>的优势函数：</p>
+<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span></p>
+<p>上述等式能够体现TRPO的思想：将新的策略得到的性能函数写成旧策略的性能函数加上一个新策略对旧策略的的优势函数的期望值，若能保证这个期望值是正数，则可以保证新策略的性能函数要优于旧策略的性能函数。</p>
+<p>这个定理由2002年 Kakade &amp; Langford证得：</p>
+<p>因为<span class="math inline">\(A_{\pi}(s, a)=\mathbb{E}_{s^{\prime} \sim P\left(s^{\prime} \mid s, a\right)}\left[r(s)+\gamma V_{\pi}\left(s^{\prime}\right)-V_{\pi}(s)\right]\)</span></p>
+<p><span class="math inline">\(\begin{array}{l} \mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t}\left(r\left(s_{t}\right)+\gamma V_{\pi}\left(s_{t+1}\right)-V_{\pi}\left(s_{t}\right)\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[-V_{\pi}\left(s_{0}\right)+\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\mathbb{E}_{s_{0}}\left[V_{\pi}\left(s_{0}\right)\right]+\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\eta(\pi)+\eta(\tilde{\pi}) \end{array}\)</span></p>
+<p>定义discounted visitation frequencies：<span class="math inline">\(\rho_{\pi}(s)=\left(P\left(s_{0}=s\right)+\gamma P\left(s_{1}=s\right)+\gamma^{2} P\left(s_{2}=s\right)+\ldots\right)\)</span></p>
+<p>定义这个频率的目的主要是换一个角度来表示基于累计折扣回报函数的性能函数，因为<span class="math inline">\(\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span>很难表示。</p>
+<p>当<span class="math inline">\(\gamma\)</span>等于1的时候，显然，这个频率代表着在一个trajectory中状态<span class="math inline">\(s\)</span>出现次数的期望，当reward function只和状态有关而和action无关的时候，那么在这个trajectory中由<span class="math inline">\(s\)</span>贡献的return就只和这个frequency相关了。</p>
+<p>当<span class="math inline">\(\gamma\)</span>小于1的时候，在每个timestep会对reward进行一个discount的处理，所以想使用discounted frequencies来表示return的期望的话，需要在frequency上面做一个discount。</p>
+<p>通过使用discounted visitation frequencies方法，可以将上述级数形式的期望写成如下容易处理的形式</p>
+<p><span class="math display">\[\begin{aligned}
+\eta(\tilde{\pi}) &amp;=\eta(\pi)+\sum_{t=0}^{\infty} \sum_{s} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) \gamma^{t} A_{\pi}(s, a) \\
+&amp;=\eta(\pi)+\sum_{s} \sum_{t=0}^{\infty} \gamma^{t} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a) \\
+&amp;=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)
+\end{aligned}\]</span></p>
+<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
+<p>因为<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>依赖于<span class="math inline">\(\tilde{\pi}\)</span>，而因为<span class="math inline">\(\tilde{\pi}\)</span>是更新后的策略，在<span class="math inline">\(t\)</span>时刻，我们只有更新前的策略，上述优化问题很难求解，所以需要做一个近似：</p>
+<p><span class="math inline">\(L_{\pi}(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\pi}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
+<p>其中，<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>使用的是<span class="math inline">\(\rho_{\pi}\)</span>而不是<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>，因为策略的改变会导致相应的state visitation density的变化，而上面这个式子忽略了这一点，但是，(Kakade &amp; Langford 2002)证明了<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>和<span class="math inline">\(\eta(\pi)\)</span>是一阶近似的：</p>
+<p>对于任意的参数<span class="math inline">\(\theta_0\)</span>，有：</p>
+<p><span class="math inline">\(\begin{aligned} L_{\pi_{\theta_{0}}}\left(\pi_{\theta_{0}}\right) &amp;=\eta\left(\pi_{\theta_{0}}\right) \\ \left.\nabla_{\theta} L_{\pi_{\theta_{0}}}\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} &amp;=\left.\nabla_{\theta} \eta\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} \end{aligned}\)</span></p>
+<p>因此，当对策略进行一步充分小的更新，<span class="math inline">\(\pi_{\theta_{0}} \rightarrow \tilde{\pi}\)</span>，改进<span class="math inline">\(L_{\pi_{\theta_{0}}}\)</span>的同时，也能改进<span class="math inline">\(\eta(\pi_{\theta_{0}})\)</span></p>
+<p>上述过程只说明了一个充分的改进会得到非减的性能指标序列，但是选取步长很重要，选的小了会导致收敛速度慢，选了大了会导致可能的不能得到非减的性能指标序列，因此，(Kakade &amp; Langford)提出了一个policy update的方法：conservative policy iteration(保守策略迭代)，该方法给出了一个显式策略更新的下界：</p>
+<p>令<span class="math inline">\(\pi_{old}\)</span>为当前的策略，<span class="math inline">\(\pi^{\prime}=\arg \max _{\pi^{\prime}} L_{\pi_{\mathrm{old}}}\left(\pi^{\prime}\right)\)</span>，新的策略为<span class="math inline">\(\pi_{new}\)</span>，定义为：</p>
+<p><span class="math display">\[\pi_{\mathrm{new}}(a \mid s)=(1-\alpha) \pi_{\mathrm{old}}(a \mid s)+\alpha \pi^{\prime}(a \mid s)\]</span></p>
+<p>(Kakade &amp; Langford)推导出来的期望折扣累计回报的下界是：</p>
+<p><span class="math inline">\(\begin{aligned} \eta\left(\pi_{\text {new }}\right) &amp; \geq L_{\pi_{\text {old}}}\left(\pi_{\text {new}}\right)-\frac{2 \epsilon \gamma}{(1-\gamma)^{2}} \alpha^{2} \\ &amp; \text { where } \epsilon=\max _{s}\left|\mathbb{E}_{a \sim \pi^{\prime}(a \mid s)}\left[A_{\pi}(s, a)\right]\right| \end{aligned}\)</span></p>
+<p>以上都是(Kakade &amp; Langford 2002)的结论和证明</p>
+<p>其中<span class="math inline">\(\alpha\)</span>并未给出合适的计算方法，TRPO利用两个概率分布之间的KL散度来计算这个<span class="math inline">\(\alpha\)</span></p>
+<p>用概率论中的全变差距离来衡量两个策略之间的差距，<span class="math inline">\(D_{T V}(p \| q)=\frac{1}{2} \sum_{i}\left|p_{i}-q_{i}\right|\)</span></p>
+<p>其中，<span class="math inline">\(p_i\)</span>和<span class="math inline">\(q_i\)</span>是两个策略的离散的概率分布，定义<span class="math inline">\(D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})\)</span>为：</p>
+<p><span class="math display">\[D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})=\max _{s} D_{T V}(\pi(\cdot \mid s) \| \tilde{\pi}(\cdot \mid s))\]</span></p>
+<p>因为全变差距离和KL散度具有关系：<span class="math inline">\(D_{T V}(p \| q)^{2} \leq D_{\mathrm{KL}}(p \| q)\)</span></p>
+<p>所以可以将<span class="math inline">\(\alpha^2\)</span>替换为<span class="math inline">\(D_{T V}(p \| q)^{2}\)</span>，进一步可以替换为<span class="math inline">\(D_{\mathrm{KL}}(p \| q)\)</span></p>
+<p>利用KL divergence来衡量差距，计算方法：</p>
+<p>对于离散分布：<span class="math inline">\(D_{K L}(P \mid Q)=\sum_{i} P(i) \log \frac{P(i)}{Q(i)}\)</span></p>
+<p>对于连续分布：<span class="math inline">\(D_{K L}(P \mid Q)=\int_{-\infty}^{\infty} p(x) \log \frac{p(x)}{q(x)} d x\)</span></p>
+<p><strong>TRPO算法</strong></p>
+<p><img src="image-20200913171805500.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
+<p>策略的单调改进：TRPO算法能够保证策略每次更新都是单调改进的，即值函数<span class="math inline">\(\eta\left(\pi_{0}\right) \leq \eta\left(\pi_{1}\right) \leq \eta\left(\pi_{2}\right) \leq \ldots\)</span></p>
+<p><img src="image-20200913191418918.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
+<h2 id="ppo算法">PPO算法</h2>
+<p>TRPO算法是找到原目标函数的替代函数，并最大化这个替代函数，优化问题的约束是策略参数的更新不能超过一个设定的阈值，优化过程可以写成：</p>
+<p><span class="math inline">\(\begin{array}{ll} \underset{\theta}{\operatorname{maximize}} &amp; \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right] \\ \text { subject to } &amp; \hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right] \leq \delta \end{array}\)</span></p>
+<p>PPO是TRPO的一个改进，或者可以说是一个近似算法，可以将上述的带约束优化问题转化为无约束优化问题，可以写出TRPO的另一个形式：</p>
+<p><span class="math inline">\(\underset{\theta}{\operatorname{maximize}} \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
+<p>令<span class="math inline">\(r_t(\theta)\)</span>表示概率比：<span class="math inline">\(r_{t}(\theta)=\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\mathrm{old}}}\left(a_{t} \mid s_{t}\right)}\)</span>，因此<span class="math inline">\(r(\theta){old}=1\)</span>，</p>
+<p>TRPO最大化一个替代的目标函数：</p>
+<p><span class="math inline">\(L^{C P I}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right]=\hat{\mathbb{E}}_{t}\left[r_{t}(\theta) \hat{A}_{t}\right]\)</span></p>
+<p>如果使用策略迭代进行求解，那么策略的更新的步长可能会很大，<strong>以下是PPO的一个实现：对ration直接进行限制</strong></p>
+<p><span class="math inline">\(L^{C L I P}(\theta)=\hat{\mathbb{E}}_{t}\left[\min \left(r_{t}(\theta) \hat{A}_{t}, \operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\right)\right]\)</span></p>
+<p>上述min中有两项：第一项为<span class="math inline">\(r_{t}(\theta) \hat{A}_{t}\)</span>，第二项为<span class="math inline">\(\operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\)</span></p>
+<p><strong>Clip</strong>：为目标函数限定一个范围，意思就是通过计算概率比<span class="math inline">\(r_t(\theta)\)</span>，设定一个阈值，将其限制在一定的范围内<span class="math inline">\((1-\epsilon, 1+\epsilon)\)</span>，来避免策略网络的权重更新步长过大。</p>
+<p><span class="math inline">\(L^{CLIP}\)</span>是<span class="math inline">\(L^{CPI}\)</span>的一个下界。</p>
+<p><img src="image-20200913162249801.png" alt="image-20200913162249801" style="zoom:50%;" /></p>
+<p>PPO算法的第二种形式：</p>
+<p>以目标函数加入惩罚项的形式：</p>
+<p><span class="math inline">\(L^{K L P E N}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
+<p>其中，<span class="math inline">\(\beta\)</span>不是固定的，需要进行自适应设计，设计方法如下：</p>
+<p>计算两个策略的KL散度：<span class="math inline">\(d=\hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
+<p><span class="math inline">\(\begin{array}{l} -\text { If } d&lt;d_{\operatorname{targ}} / 1.5, \beta \leftarrow \beta / 2 \\ -\text { If } d&gt;d_{\text {targ }} \times 1.5, \beta \leftarrow \beta \times 2 \end{array}\)</span></p>
+]]></content>
+      <categories>
+        <category>Reinforcement Learning</category>
+      </categories>
+      <tags>
+        <tag>Reinforcement Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -3100,94 +3364,6 @@ Alabama
       </tags>
   </entry>
   <entry>
-    <title>PPO算法公式推导</title>
-    <url>/2020/09/07/PPO%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/</url>
-    <content><![CDATA[<p><strong>论文：</strong></p>
-<p>[1] Schulman, J., Levine, S., Moritz, P., Jordan, M. I. &amp; Abbeel, P. Trust Region Policy Optimization. <em>arXiv:1502.05477 [cs]</em> (2017).</p>
-<p>[2] Schulman, J., Wolski, F., Dhariwal, P., Radford, A. &amp; Klimov, O. Proximal Policy Optimization Algorithms. <em>arXiv:1707.06347 [cs]</em> (2017).</p>
-<p>[3] Heess, N. <em>et al.</em> Emergence of Locomotion Behaviours in Rich Environments. <em>arXiv:1707.02286 [cs]</em> (2017).</p>
-<p>第一、二篇是openai的，第三篇是deepmind的</p>
-<p>Trust Region Policy Optimization算法是在2015年由UCB/Openai的John Schulman提出的，基本思想就是在传统的Policy Gradient算法中对梯度的更新增加一个信赖域，来保证梯度更新前后的策略相差不超过一定的阈值，用两个概率分布的KL散度来衡量这个阈值，TRPO算法的表达形式中有一个硬约束，这给求解最优问题带来了困难，而PPO则是在2017年由UCB/Openai的John Schulman提出的，是TRPO的近似算法，将TRPO的软约束转化成目标函数中的一个惩罚项，以此来简化计算，方便实现。</p>
-<a id="more"></a>
-<h2 id="trpo算法推导">TRPO算法推导</h2>
-<h3 id="notation">Notation</h3>
-<p>令<span class="math inline">\(\eta(\pi)\)</span>表示累积折扣回报：</p>
-<p><span class="math inline">\(\eta(\pi)=\mathbb{E}_{s_{0}, a_{0}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} c\left(s_{t}\right)\right]\)</span></p>
-<p>其中，<span class="math inline">\(s_{0} \sim \rho_{0}\left(s_{0}\right), a_{t} \sim \pi\left(a_{t} \mid s_{t}\right), s_{t+1} \sim P\left(s_{t+1} \mid s_{t}, a_{t}\right)\)</span></p>
-<p>state-action值函数的定义：<span class="math inline">\(Q_{\pi}\left(s_{t}, a_{t}\right)=\mathbb{E}_{s_{t+1}, a_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
-<p>价值函数的定义：<span class="math inline">\(V_{\pi}\left(s_{t}\right)=\mathbb{E}_{a_{t}, s_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
-<p>优势函数：<span class="math inline">\(A_{\pi}(s, a)=Q_{\pi}(s, a)-V_{\pi}(s)\)</span></p>
-<p><strong>Lemma1：策略差分定理</strong>：原始策略记为<span class="math inline">\(\pi\)</span>，更新后的策略记为<span class="math inline">\(\tilde{\pi}\)</span>，则更新后的策略的期望折扣回报可以写成更新前策略的期望折扣回报加上一个<span class="math inline">\(\tilde{\pi}\)</span>对<span class="math inline">\(\pi\)</span>的优势函数：</p>
-<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span></p>
-<p>上述等式能够体现TRPO的思想：将新的策略得到的性能函数写成旧策略的性能函数加上一个新策略对旧策略的的优势函数的期望值，若能保证这个期望值是正数，则可以保证新策略的性能函数要优于旧策略的性能函数。</p>
-<p>这个定理由2002年 Kakade &amp; Langford证得：</p>
-<p>因为<span class="math inline">\(A_{\pi}(s, a)=\mathbb{E}_{s^{\prime} \sim P\left(s^{\prime} \mid s, a\right)}\left[r(s)+\gamma V_{\pi}\left(s^{\prime}\right)-V_{\pi}(s)\right]\)</span></p>
-<p><span class="math inline">\(\begin{array}{l} \mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t}\left(r\left(s_{t}\right)+\gamma V_{\pi}\left(s_{t+1}\right)-V_{\pi}\left(s_{t}\right)\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[-V_{\pi}\left(s_{0}\right)+\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\mathbb{E}_{s_{0}}\left[V_{\pi}\left(s_{0}\right)\right]+\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\eta(\pi)+\eta(\tilde{\pi}) \end{array}\)</span></p>
-<p>定义discounted visitation frequencies：<span class="math inline">\(\rho_{\pi}(s)=\left(P\left(s_{0}=s\right)+\gamma P\left(s_{1}=s\right)+\gamma^{2} P\left(s_{2}=s\right)+\ldots\right)\)</span></p>
-<p>定义这个频率的目的主要是换一个角度来表示基于累计折扣回报函数的性能函数，因为<span class="math inline">\(\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span>很难表示。</p>
-<p>当<span class="math inline">\(\gamma\)</span>等于1的时候，显然，这个频率代表着在一个trajectory中状态<span class="math inline">\(s\)</span>出现次数的期望，当reward function只和状态有关而和action无关的时候，那么在这个trajectory中由<span class="math inline">\(s\)</span>贡献的return就只和这个frequency相关了。</p>
-<p>当<span class="math inline">\(\gamma\)</span>小于1的时候，在每个timestep会对reward进行一个discount的处理，所以想使用discounted frequencies来表示return的期望的话，需要在frequency上面做一个discount。</p>
-<p>通过使用discounted visitation frequencies方法，可以将上述级数形式的期望写成如下容易处理的形式</p>
-<p><span class="math display">\[\begin{aligned}
-\eta(\tilde{\pi}) &amp;=\eta(\pi)+\sum_{t=0}^{\infty} \sum_{s} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) \gamma^{t} A_{\pi}(s, a) \\
-&amp;=\eta(\pi)+\sum_{s} \sum_{t=0}^{\infty} \gamma^{t} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a) \\
-&amp;=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)
-\end{aligned}\]</span></p>
-<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
-<p>因为<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>依赖于<span class="math inline">\(\tilde{\pi}\)</span>，而因为<span class="math inline">\(\tilde{\pi}\)</span>是更新后的策略，在<span class="math inline">\(t\)</span>时刻，我们只有更新前的策略，上述优化问题很难求解，所以需要做一个近似：</p>
-<p><span class="math inline">\(L_{\pi}(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\pi}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
-<p>其中，<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>使用的是<span class="math inline">\(\rho_{\pi}\)</span>而不是<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>，因为策略的改变会导致相应的state visitation density的变化，而上面这个式子忽略了这一点，但是，(Kakade &amp; Langford 2002)证明了<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>和<span class="math inline">\(\eta(\pi)\)</span>是一阶近似的：</p>
-<p>对于任意的参数<span class="math inline">\(\theta_0\)</span>，有：</p>
-<p><span class="math inline">\(\begin{aligned} L_{\pi_{\theta_{0}}}\left(\pi_{\theta_{0}}\right) &amp;=\eta\left(\pi_{\theta_{0}}\right) \\ \left.\nabla_{\theta} L_{\pi_{\theta_{0}}}\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} &amp;=\left.\nabla_{\theta} \eta\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} \end{aligned}\)</span></p>
-<p>因此，当对策略进行一步充分小的更新，<span class="math inline">\(\pi_{\theta_{0}} \rightarrow \tilde{\pi}\)</span>，改进<span class="math inline">\(L_{\pi_{\theta_{0}}}\)</span>的同时，也能改进<span class="math inline">\(\eta(\pi_{\theta_{0}})\)</span></p>
-<p>上述过程只说明了一个充分的改进会得到非减的性能指标序列，但是选取步长很重要，选的小了会导致收敛速度慢，选了大了会导致可能的不能得到非减的性能指标序列，因此，(Kakade &amp; Langford)提出了一个policy update的方法：conservative policy iteration(保守策略迭代)，该方法给出了一个显式策略更新的下界：</p>
-<p>令<span class="math inline">\(\pi_{old}\)</span>为当前的策略，<span class="math inline">\(\pi^{\prime}=\arg \max _{\pi^{\prime}} L_{\pi_{\mathrm{old}}}\left(\pi^{\prime}\right)\)</span>，新的策略为<span class="math inline">\(\pi_{new}\)</span>，定义为：</p>
-<p><span class="math display">\[\pi_{\mathrm{new}}(a \mid s)=(1-\alpha) \pi_{\mathrm{old}}(a \mid s)+\alpha \pi^{\prime}(a \mid s)\]</span></p>
-<p>(Kakade &amp; Langford)推导出来的期望折扣累计回报的下界是：</p>
-<p><span class="math inline">\(\begin{aligned} \eta\left(\pi_{\text {new }}\right) &amp; \geq L_{\pi_{\text {old}}}\left(\pi_{\text {new}}\right)-\frac{2 \epsilon \gamma}{(1-\gamma)^{2}} \alpha^{2} \\ &amp; \text { where } \epsilon=\max _{s}\left|\mathbb{E}_{a \sim \pi^{\prime}(a \mid s)}\left[A_{\pi}(s, a)\right]\right| \end{aligned}\)</span></p>
-<p>以上都是(Kakade &amp; Langford 2002)的结论和证明</p>
-<p>其中<span class="math inline">\(\alpha\)</span>并未给出合适的计算方法，TRPO利用两个概率分布之间的KL散度来计算这个<span class="math inline">\(\alpha\)</span></p>
-<p>用概率论中的全变差距离来衡量两个策略之间的差距，<span class="math inline">\(D_{T V}(p \| q)=\frac{1}{2} \sum_{i}\left|p_{i}-q_{i}\right|\)</span></p>
-<p>其中，<span class="math inline">\(p_i\)</span>和<span class="math inline">\(q_i\)</span>是两个策略的离散的概率分布，定义<span class="math inline">\(D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})\)</span>为：</p>
-<p><span class="math display">\[D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})=\max _{s} D_{T V}(\pi(\cdot \mid s) \| \tilde{\pi}(\cdot \mid s))\]</span></p>
-<p>因为全变差距离和KL散度具有关系：<span class="math inline">\(D_{T V}(p \| q)^{2} \leq D_{\mathrm{KL}}(p \| q)\)</span></p>
-<p>所以可以将<span class="math inline">\(\alpha^2\)</span>替换为<span class="math inline">\(D_{T V}(p \| q)^{2}\)</span>，进一步可以替换为<span class="math inline">\(D_{\mathrm{KL}}(p \| q)\)</span></p>
-<p>利用KL divergence来衡量差距，计算方法：</p>
-<p>对于离散分布：<span class="math inline">\(D_{K L}(P \mid Q)=\sum_{i} P(i) \log \frac{P(i)}{Q(i)}\)</span></p>
-<p>对于连续分布：<span class="math inline">\(D_{K L}(P \mid Q)=\int_{-\infty}^{\infty} p(x) \log \frac{p(x)}{q(x)} d x\)</span></p>
-<p><strong>TRPO算法</strong></p>
-<p><img src="image-20200913171805500.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
-<p>策略的单调改进：TRPO算法能够保证策略每次更新都是单调改进的，即值函数<span class="math inline">\(\eta\left(\pi_{0}\right) \leq \eta\left(\pi_{1}\right) \leq \eta\left(\pi_{2}\right) \leq \ldots\)</span></p>
-<p><img src="image-20200913191418918.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
-<h2 id="ppo算法">PPO算法</h2>
-<p>TRPO算法是找到原目标函数的替代函数，并最大化这个替代函数，优化问题的约束是策略参数的更新不能超过一个设定的阈值，优化过程可以写成：</p>
-<p><span class="math inline">\(\begin{array}{ll} \underset{\theta}{\operatorname{maximize}} &amp; \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right] \\ \text { subject to } &amp; \hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right] \leq \delta \end{array}\)</span></p>
-<p>PPO是TRPO的一个改进，或者可以说是一个近似算法，可以将上述的带约束优化问题转化为无约束优化问题，可以写出TRPO的另一个形式：</p>
-<p><span class="math inline">\(\underset{\theta}{\operatorname{maximize}} \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
-<p>令<span class="math inline">\(r_t(\theta)\)</span>表示概率比：<span class="math inline">\(r_{t}(\theta)=\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\mathrm{old}}}\left(a_{t} \mid s_{t}\right)}\)</span>，因此<span class="math inline">\(r(\theta){old}=1\)</span>，</p>
-<p>TRPO最大化一个替代的目标函数：</p>
-<p><span class="math inline">\(L^{C P I}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right]=\hat{\mathbb{E}}_{t}\left[r_{t}(\theta) \hat{A}_{t}\right]\)</span></p>
-<p>如果使用策略迭代进行求解，那么策略的更新的步长可能会很大，<strong>以下是PPO的一个实现：对ration直接进行限制</strong></p>
-<p><span class="math inline">\(L^{C L I P}(\theta)=\hat{\mathbb{E}}_{t}\left[\min \left(r_{t}(\theta) \hat{A}_{t}, \operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\right)\right]\)</span></p>
-<p>上述min中有两项：第一项为<span class="math inline">\(r_{t}(\theta) \hat{A}_{t}\)</span>，第二项为<span class="math inline">\(\operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\)</span></p>
-<p><strong>Clip</strong>：为目标函数限定一个范围，意思就是通过计算概率比<span class="math inline">\(r_t(\theta)\)</span>，设定一个阈值，将其限制在一定的范围内<span class="math inline">\((1-\epsilon, 1+\epsilon)\)</span>，来避免策略网络的权重更新步长过大。</p>
-<p><span class="math inline">\(L^{CLIP}\)</span>是<span class="math inline">\(L^{CPI}\)</span>的一个下界。</p>
-<p><img src="image-20200913162249801.png" alt="image-20200913162249801" style="zoom:50%;" /></p>
-<p>PPO算法的第二种形式：</p>
-<p>以目标函数加入惩罚项的形式：</p>
-<p><span class="math inline">\(L^{K L P E N}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
-<p>其中，<span class="math inline">\(\beta\)</span>不是固定的，需要进行自适应设计，设计方法如下：</p>
-<p>计算两个策略的KL散度：<span class="math inline">\(d=\hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
-<p><span class="math inline">\(\begin{array}{l} -\text { If } d&lt;d_{\operatorname{targ}} / 1.5, \beta \leftarrow \beta / 2 \\ -\text { If } d&gt;d_{\text {targ }} \times 1.5, \beta \leftarrow \beta \times 2 \end{array}\)</span></p>
-]]></content>
-      <categories>
-        <category>Reinforcement Learning</category>
-      </categories>
-      <tags>
-        <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>初学数据库-sqlite3 创建示例数据库</title>
     <url>/2018/11/04/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E5%88%9B%E5%BB%BA%E7%A4%BA%E4%BE%8B%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
     <content><![CDATA[<blockquote>
@@ -3257,6 +3433,105 @@ Alabama
       </categories>
       <tags>
         <tag>python pypi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>强化学习之动态规划</title>
+    <url>/2020/08/19/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<p>复习了一下Sutton书中的第四章，动态规划，整理一下。</p>
+<p>动态规划算法是所有强化学习算法的基础，所有强化学习算法都可以看作是为了得到和动态规划相同的效果，同时减少计算量和对环境模型的依赖。</p>
+<p>这一章节主要分为三部分：策略评估，策略改进，策略迭代。</p>
+<p>策略评估：对于一个给定的策略下，迭代地计算策略的价值函数。</p>
+<p>策略改进：根据一个旧的策略的值函数，计算一个改进的策略。</p>
+<p><strong>将这两种方法结合起来，可以得到策略迭代算法和价值迭代算法。</strong></p>
+<a id="more"></a>
+<p>强化学习算法的关键是使用价值函数来寻找到更加好的策略，首先定义价值函数，其满足Bellman最优性方程：</p>
+<p><span class="math display">\[\begin{aligned}
+v_{*}(s) &amp;=\max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{*}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=a\right] \\
+&amp;=\max _{a} \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{*}\left(s^{\prime}\right)\right], \text { or }
+\end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+q_{*}(s, a) &amp;=\mathbb{E}\left[R_{t+1}+\gamma \max _{a^{\prime}} q_{*}\left(S_{t+1}, a^{\prime}\right) \mid S_{t}=s, A_{t}=a\right] \\
+&amp;=\sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma \max _{a^{\prime}} q_{*}\left(s^{\prime}, a^{\prime}\right)\right]
+\end{aligned}\]</span></p>
+<h2 id="策略评估">策略评估</h2>
+<p>目的：给定一个策略<span class="math inline">\(\pi\)</span>，计算它的状态价值函数，也可以被称为<strong>预测</strong>问题。</p>
+<p><span class="math display">\[\begin{aligned}
+v_{\pi}(s) &amp; \doteq \mathbb{E}_{\pi}\left[G_{t} \mid S_{t}=s\right] \\
+&amp;=\mathbb{E}_{\pi}\left[R_{t+1}+\gamma G_{t+1} \mid S_{t}=s\right] \\
+&amp;=\mathbb{E}_{\pi}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s\right] \\
+&amp;=\sum_{a} \pi(a \mid s) \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{\pi}\left(s^{\prime}\right)\right]
+\end{aligned}\]</span></p>
+<p>如果环境动态是完全已知的，那么通过上述价值函数的表达式，可以列出<span class="math inline">\(|S|\)</span>个未知数的<span class="math inline">\(|S|\)</span>个方程构成线性方程组，其中，<span class="math inline">\(|S|\)</span>代表状态<span class="math inline">\(s\)</span>的个数，但是计算过程有些繁杂，因此，采用迭代计算的方式：</p>
+<p><span class="math display">\[\begin{aligned}
+v_{k+1}(s) &amp; \doteq \mathbb{E}_{\pi}\left[R_{t+1}+\gamma v_{k}\left(S_{t+1}\right) \mid S_{t}=s\right] \\
+&amp;=\sum_{a} \pi(a \mid s) \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{k}\left(s^{\prime}\right)\right]
+\end{aligned}\]</span></p>
+<p><span class="math inline">\(v_{k}=v_{\pi}\)</span>是一个不动点（<strong>通过巴拿赫不动点定理来证明</strong>），当<span class="math inline">\(k \rightarrow \infty\)</span>时，<span class="math inline">\(\{v_k\}\)</span>能够收敛到<span class="math inline">\(v_\pi\)</span>。</p>
+<p><img src="1.png" /></p>
+<p>仿真算例：</p>
+<p><img src="2.png" /></p>
+<p>一个简单的额GridWorld的例子，通过不断迭代，即可算出所有的价值函数，代码：</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GridWorld</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.state = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.state = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">step</span><span class="params">(self, state: np.array, action: np.array)</span>:</span></span><br><span class="line">        self.state = state</span><br><span class="line">        next_state = self.state + action</span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">0</span>]&lt;<span class="number">0</span>:</span><br><span class="line">            next_state[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">0</span>]&gt;<span class="number">3</span>:</span><br><span class="line">            next_state[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">1</span>]&lt;<span class="number">0</span>:</span><br><span class="line">            next_state[<span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">1</span>]&gt;<span class="number">3</span>:</span><br><span class="line">            next_state[<span class="number">1</span>] = <span class="number">3</span></span><br><span class="line">        self.state = next_state</span><br><span class="line">        <span class="keyword">if</span> (self.state==np.array([<span class="number">0</span>, <span class="number">0</span>])).all() <span class="keyword">or</span> (self.state==np.array([<span class="number">3</span>, <span class="number">3</span>])).all():</span><br><span class="line">            reward = <span class="number">-1</span></span><br><span class="line">            done = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            reward = <span class="number">-1</span></span><br><span class="line">            done = <span class="literal">False</span></span><br><span class="line">        info = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> self.state, reward, done, info</span><br><span class="line"></span><br><span class="line">actions = [np.array([<span class="number">-1</span>, <span class="number">0</span>]), np.array([<span class="number">1</span>, <span class="number">0</span>]), np.array([<span class="number">0</span>, <span class="number">-1</span>]), np.array([<span class="number">0</span>, <span class="number">1</span>])]</span><br><span class="line"></span><br><span class="line">env = GridWorld()</span><br><span class="line"></span><br><span class="line">v_old = np.zeros(<span class="number">16</span>)</span><br><span class="line">v_new = np.zeros(<span class="number">16</span>)</span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    v_old = copy.deepcopy(v_new)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">15</span>):</span><br><span class="line">        temp = <span class="number">0.0</span></span><br><span class="line">        <span class="keyword">for</span> action <span class="keyword">in</span> actions:</span><br><span class="line">            s = np.array([i//<span class="number">4</span>, i%<span class="number">4</span>])</span><br><span class="line">            s_prime, reward, done, info = env.step(s, action)</span><br><span class="line">            temp += <span class="number">0.25</span>*(reward + v_old[s_prime[<span class="number">0</span>]*<span class="number">4</span>+s_prime[<span class="number">1</span>]])</span><br><span class="line">        v_new[i] = temp</span><br><span class="line">    print(v_new)</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<p><img src="3.png" /></p>
+<h2 id="策略改进">策略改进</h2>
+<p>计算价值函数的一个原因是为了找到更好的策略，我们可以知道如果从状态<span class="math inline">\(s\)</span>使用现有的策略，那么我们可以得到的就是<span class="math inline">\(v_\pi(s)\)</span>。那么当我们更换一个策略的时候，我们怎么知道是更好还是更坏呢。</p>
+<p>一种解决方法是在状态<span class="math inline">\(s\)</span>选择动作<span class="math inline">\(a\)</span>后，继续遵循现有的策略<span class="math inline">\(\pi\)</span>，计算<span class="math inline">\(q_\pi\)</span>(s,a)</p>
+<p>一个关键的准则就是这个值是大于还是小于<span class="math inline">\(v_\pi(s)\)</span>的，如果这个值更大，那么说明在状态<span class="math inline">\(s\)</span>选择一次动作<span class="math inline">\(a\)</span>，然后继续使用策略<span class="math inline">\(\pi\)</span>会比始终使用策略<span class="math inline">\(\pi\)</span>更优化。</p>
+<p>如果<span class="math inline">\(\pi\)</span>和<span class="math inline">\(\pi&#39;\)</span>是两个确定的策略，当：</p>
+<p><span class="math display">\[q_{\pi}\left(s, \pi^{\prime}(s)\right) \geq v_{\pi}(s)\]</span></p>
+<p>那么我们称策略<span class="math inline">\(\pi&#39;\)</span>相比于策略<span class="math inline">\(\pi\)</span>一样好或者更好。</p>
+<p>证明过程：</p>
+<p><span class="math display">\[\begin{aligned}
+v_{\pi}(s) &amp; \leq q_{\pi}\left(s, \pi^{\prime}(s)\right) \\
+&amp;=\mathbb{E}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=\pi^{\prime}(s)\right] \\
+&amp;=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s\right] \\
+&amp; \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma q_{\pi}\left(S_{t+1}, \pi^{\prime}\left(S_{t+1}\right)\right) \mid S_{t}=s\right] \\
+&amp;=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma \mathbb{E}_{\pi^{\prime}}\left[R_{t+2}+\gamma v_{\pi}\left(S_{t+2}\right) \mid S_{t+1}, A_{t+1}=\pi^{\prime}\left(S_{t+1}\right)\right] \mid S_{t}=s\right] \\
+&amp;=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^{2} v_{\pi}\left(S_{t+2}\right) \mid S_{t}=s\right] \\
+&amp; \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^{2} R_{t+3}+\gamma^{3} v_{\pi}\left(S_{t+3}\right) \mid S_{t}=s\right] \\
+&amp; \vdots \\
+&amp; \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^{2} R_{t+3}+\gamma^{3} R_{t+4}+\cdots \mid S_{t}=s\right] \\
+&amp;=v_{\pi^{\prime}}(s)
+\end{aligned}\]</span></p>
+<p>到目前为止，我们已经看到了，给定一个策略及其价值函数，我可以很容易评估一个状态中某个特定动作的改变会产生怎样的后果。我们可以很自然地延伸到所有的状态和所有可能的动作，即在每个状态下根据<span class="math inline">\(q_\pi(s, a)\)</span>选择一个最优的：</p>
+<p><span class="math display">\[\begin{aligned}
+\pi^{\prime}(s) &amp; \doteq \underset{a}{\arg \max } q_{\pi}(s, a) \\
+&amp;=\underset{a}{\arg \max } \mathbb{E}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=a\right] \\
+&amp;=\underset{a}{\arg \max } \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{\pi}\left(s^{\prime}\right)\right]
+\end{aligned}\]</span></p>
+<p>这种根据原策略的价值函数执行贪心算法，来构造一个更好策略的过程，称为<strong>策略改进</strong></p>
+<h2 id="策略迭代">策略迭代</h2>
+<p>一旦一个策略<span class="math inline">\(\pi\)</span>根据<span class="math inline">\(v_\pi\)</span>产生了一个更好的策略<span class="math inline">\(\pi&#39;\)</span>，我们就可以通过计算<span class="math inline">\(v_{\pi&#39;}\)</span>来得到一个更优的策略<span class="math inline">\(\pi&#39;&#39;\)</span>，这样一个链式的方法可以得到一个不断改进的策略和价值函数的序列：</p>
+<p><span class="math display">\[\pi_{0} \stackrel{\mathrm{E}}{\longrightarrow} v_{\pi_{0}} \stackrel{\mathrm{I}}{\longrightarrow} \pi_{1} \stackrel{\mathrm{E}}{\longrightarrow} v_{\pi_{1}} \stackrel{\mathrm{I}}{\longrightarrow} \pi_{2} \stackrel{\mathrm{E}}{\longrightarrow} \cdots \stackrel{\mathrm{I}}{\longrightarrow} \pi_{*} \stackrel{\mathrm{E}}{\longrightarrow} v_{*}\]</span></p>
+<p><img src="4.png" /></p>
+<h2 id="价值迭代">价值迭代</h2>
+<p>策略迭代算法的一个缺点是每一次迭代都涉及了策略评估，这本身就是一个需要多次遍历状态集合的迭代过程，如果策略评估是迭代进行的，那么收敛到<span class="math inline">\(v_\pi\)</span>理论上在极限处才成立。</p>
+<p>上面GridWorld的例子很明显就能说明，我们可以提前截断策略评估的过程，在这个例子中，前三轮策略评估之后的迭代对其贪心策略没有产生影响。</p>
+<p>事实上，由很多方式可以截断策略迭代中的策略评估步骤，一种重要的方法是：在每一次遍历后即刻停止策略评估（对每个状态进行一次更新）。该算法被称为<strong>价值迭代</strong>，可以将此表示为结合了策略改进与截断策略评估的简单更新公式：</p>
+<p><span class="math display">\[\begin{aligned}
+v_{k+1}(s) &amp; \doteq \max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{k}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=a\right] \\
+&amp;=\max _{a} \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{k}\left(s^{\prime}\right)\right]
+\end{aligned}\]</span></p>
+<p>价值迭代与策略评估的更新公式几乎完全相同。</p>
+<p>理论上价值迭代需要迭代无限次才能收敛，事实上，如果一次遍历中仅发生一些细微的变化，那么就可以停止。</p>
+<p><img src="5.png" /></p>
+<h2 id="广义策略迭代">广义策略迭代</h2>
+<p>策略迭代包括两个同时进行的相互作用的流程，一个使得价值函数与当前策略一致（策略评估），另一个根据当前价值函数贪心地更新策略（策略改进）。</p>
+<p>用广义策略迭代（GPI）一词来指代让策略评估和策略改进相互作用地一般思路，几乎所有的强化学习算法都可以被描述成广义策略迭代算法：</p>
+<p><img src="6.png" /></p>
+<p>价值函数只有在与当前策略一致时才稳定，并且策略只有在对当前价值函数是贪心策略时才稳定。</p>
+<p>可以将GPI的评估与改进流程看作竞争与合作。竞争是指它们朝着相反的方向前进，让策略对价值函数贪心通常会使价值函数与当前策略不再匹配，而使价值函数与策略一致通常会导致策略不再贪心。合作是指从长远看，这两个流程相互作用以找到一个联合解决方案：最优价值函数和一个最优策略。</p>
+<p><img src="7.png" /></p>
+<h2 id="动态规划的效率">动态规划的效率</h2>
+<p>DP算法有时会因为<strong>维度灾难</strong>而被认为缺乏实用性。集合太大确实会带来一些困难，但是这是问题本身的困难，而非DP作为一种解法所带来的困难。事实上，相比于直接搜索和线性规划，DP更加适合解决大规模状态空间的问题。</p>
+]]></content>
+      <categories>
+        <category>Reinforcement Learning</category>
+      </categories>
+      <tags>
+        <tag>Reinforcement Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -3387,105 +3662,6 @@ Alabama
       </categories>
       <tags>
         <tag>华为</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>强化学习之动态规划</title>
-    <url>/2020/08/19/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<p>复习了一下Sutton书中的第四章，动态规划，整理一下。</p>
-<p>动态规划算法是所有强化学习算法的基础，所有强化学习算法都可以看作是为了得到和动态规划相同的效果，同时减少计算量和对环境模型的依赖。</p>
-<p>这一章节主要分为三部分：策略评估，策略改进，策略迭代。</p>
-<p>策略评估：对于一个给定的策略下，迭代地计算策略的价值函数。</p>
-<p>策略改进：根据一个旧的策略的值函数，计算一个改进的策略。</p>
-<p><strong>将这两种方法结合起来，可以得到策略迭代算法和价值迭代算法。</strong></p>
-<a id="more"></a>
-<p>强化学习算法的关键是使用价值函数来寻找到更加好的策略，首先定义价值函数，其满足Bellman最优性方程：</p>
-<p><span class="math display">\[\begin{aligned}
-v_{*}(s) &amp;=\max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{*}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=a\right] \\
-&amp;=\max _{a} \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{*}\left(s^{\prime}\right)\right], \text { or }
-\end{aligned}\]</span></p>
-<p><span class="math display">\[\begin{aligned}
-q_{*}(s, a) &amp;=\mathbb{E}\left[R_{t+1}+\gamma \max _{a^{\prime}} q_{*}\left(S_{t+1}, a^{\prime}\right) \mid S_{t}=s, A_{t}=a\right] \\
-&amp;=\sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma \max _{a^{\prime}} q_{*}\left(s^{\prime}, a^{\prime}\right)\right]
-\end{aligned}\]</span></p>
-<h2 id="策略评估">策略评估</h2>
-<p>目的：给定一个策略<span class="math inline">\(\pi\)</span>，计算它的状态价值函数，也可以被称为<strong>预测</strong>问题。</p>
-<p><span class="math display">\[\begin{aligned}
-v_{\pi}(s) &amp; \doteq \mathbb{E}_{\pi}\left[G_{t} \mid S_{t}=s\right] \\
-&amp;=\mathbb{E}_{\pi}\left[R_{t+1}+\gamma G_{t+1} \mid S_{t}=s\right] \\
-&amp;=\mathbb{E}_{\pi}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s\right] \\
-&amp;=\sum_{a} \pi(a \mid s) \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{\pi}\left(s^{\prime}\right)\right]
-\end{aligned}\]</span></p>
-<p>如果环境动态是完全已知的，那么通过上述价值函数的表达式，可以列出<span class="math inline">\(|S|\)</span>个未知数的<span class="math inline">\(|S|\)</span>个方程构成线性方程组，其中，<span class="math inline">\(|S|\)</span>代表状态<span class="math inline">\(s\)</span>的个数，但是计算过程有些繁杂，因此，采用迭代计算的方式：</p>
-<p><span class="math display">\[\begin{aligned}
-v_{k+1}(s) &amp; \doteq \mathbb{E}_{\pi}\left[R_{t+1}+\gamma v_{k}\left(S_{t+1}\right) \mid S_{t}=s\right] \\
-&amp;=\sum_{a} \pi(a \mid s) \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{k}\left(s^{\prime}\right)\right]
-\end{aligned}\]</span></p>
-<p><span class="math inline">\(v_{k}=v_{\pi}\)</span>是一个不动点（<strong>通过巴拿赫不动点定理来证明</strong>），当<span class="math inline">\(k \rightarrow \infty\)</span>时，<span class="math inline">\(\{v_k\}\)</span>能够收敛到<span class="math inline">\(v_\pi\)</span>。</p>
-<p><img src="1.png" /></p>
-<p>仿真算例：</p>
-<p><img src="2.png" /></p>
-<p>一个简单的额GridWorld的例子，通过不断迭代，即可算出所有的价值函数，代码：</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GridWorld</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.state = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.state = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">step</span><span class="params">(self, state: np.array, action: np.array)</span>:</span></span><br><span class="line">        self.state = state</span><br><span class="line">        next_state = self.state + action</span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">0</span>]&lt;<span class="number">0</span>:</span><br><span class="line">            next_state[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">0</span>]&gt;<span class="number">3</span>:</span><br><span class="line">            next_state[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">1</span>]&lt;<span class="number">0</span>:</span><br><span class="line">            next_state[<span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">1</span>]&gt;<span class="number">3</span>:</span><br><span class="line">            next_state[<span class="number">1</span>] = <span class="number">3</span></span><br><span class="line">        self.state = next_state</span><br><span class="line">        <span class="keyword">if</span> (self.state==np.array([<span class="number">0</span>, <span class="number">0</span>])).all() <span class="keyword">or</span> (self.state==np.array([<span class="number">3</span>, <span class="number">3</span>])).all():</span><br><span class="line">            reward = <span class="number">-1</span></span><br><span class="line">            done = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            reward = <span class="number">-1</span></span><br><span class="line">            done = <span class="literal">False</span></span><br><span class="line">        info = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> self.state, reward, done, info</span><br><span class="line"></span><br><span class="line">actions = [np.array([<span class="number">-1</span>, <span class="number">0</span>]), np.array([<span class="number">1</span>, <span class="number">0</span>]), np.array([<span class="number">0</span>, <span class="number">-1</span>]), np.array([<span class="number">0</span>, <span class="number">1</span>])]</span><br><span class="line"></span><br><span class="line">env = GridWorld()</span><br><span class="line"></span><br><span class="line">v_old = np.zeros(<span class="number">16</span>)</span><br><span class="line">v_new = np.zeros(<span class="number">16</span>)</span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    v_old = copy.deepcopy(v_new)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">15</span>):</span><br><span class="line">        temp = <span class="number">0.0</span></span><br><span class="line">        <span class="keyword">for</span> action <span class="keyword">in</span> actions:</span><br><span class="line">            s = np.array([i//<span class="number">4</span>, i%<span class="number">4</span>])</span><br><span class="line">            s_prime, reward, done, info = env.step(s, action)</span><br><span class="line">            temp += <span class="number">0.25</span>*(reward + v_old[s_prime[<span class="number">0</span>]*<span class="number">4</span>+s_prime[<span class="number">1</span>]])</span><br><span class="line">        v_new[i] = temp</span><br><span class="line">    print(v_new)</span><br></pre></td></tr></table></figure>
-<p>结果：</p>
-<p><img src="3.png" /></p>
-<h2 id="策略改进">策略改进</h2>
-<p>计算价值函数的一个原因是为了找到更好的策略，我们可以知道如果从状态<span class="math inline">\(s\)</span>使用现有的策略，那么我们可以得到的就是<span class="math inline">\(v_\pi(s)\)</span>。那么当我们更换一个策略的时候，我们怎么知道是更好还是更坏呢。</p>
-<p>一种解决方法是在状态<span class="math inline">\(s\)</span>选择动作<span class="math inline">\(a\)</span>后，继续遵循现有的策略<span class="math inline">\(\pi\)</span>，计算<span class="math inline">\(q_\pi\)</span>(s,a)</p>
-<p>一个关键的准则就是这个值是大于还是小于<span class="math inline">\(v_\pi(s)\)</span>的，如果这个值更大，那么说明在状态<span class="math inline">\(s\)</span>选择一次动作<span class="math inline">\(a\)</span>，然后继续使用策略<span class="math inline">\(\pi\)</span>会比始终使用策略<span class="math inline">\(\pi\)</span>更优化。</p>
-<p>如果<span class="math inline">\(\pi\)</span>和<span class="math inline">\(\pi&#39;\)</span>是两个确定的策略，当：</p>
-<p><span class="math display">\[q_{\pi}\left(s, \pi^{\prime}(s)\right) \geq v_{\pi}(s)\]</span></p>
-<p>那么我们称策略<span class="math inline">\(\pi&#39;\)</span>相比于策略<span class="math inline">\(\pi\)</span>一样好或者更好。</p>
-<p>证明过程：</p>
-<p><span class="math display">\[\begin{aligned}
-v_{\pi}(s) &amp; \leq q_{\pi}\left(s, \pi^{\prime}(s)\right) \\
-&amp;=\mathbb{E}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=\pi^{\prime}(s)\right] \\
-&amp;=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s\right] \\
-&amp; \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma q_{\pi}\left(S_{t+1}, \pi^{\prime}\left(S_{t+1}\right)\right) \mid S_{t}=s\right] \\
-&amp;=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma \mathbb{E}_{\pi^{\prime}}\left[R_{t+2}+\gamma v_{\pi}\left(S_{t+2}\right) \mid S_{t+1}, A_{t+1}=\pi^{\prime}\left(S_{t+1}\right)\right] \mid S_{t}=s\right] \\
-&amp;=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^{2} v_{\pi}\left(S_{t+2}\right) \mid S_{t}=s\right] \\
-&amp; \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^{2} R_{t+3}+\gamma^{3} v_{\pi}\left(S_{t+3}\right) \mid S_{t}=s\right] \\
-&amp; \vdots \\
-&amp; \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^{2} R_{t+3}+\gamma^{3} R_{t+4}+\cdots \mid S_{t}=s\right] \\
-&amp;=v_{\pi^{\prime}}(s)
-\end{aligned}\]</span></p>
-<p>到目前为止，我们已经看到了，给定一个策略及其价值函数，我可以很容易评估一个状态中某个特定动作的改变会产生怎样的后果。我们可以很自然地延伸到所有的状态和所有可能的动作，即在每个状态下根据<span class="math inline">\(q_\pi(s, a)\)</span>选择一个最优的：</p>
-<p><span class="math display">\[\begin{aligned}
-\pi^{\prime}(s) &amp; \doteq \underset{a}{\arg \max } q_{\pi}(s, a) \\
-&amp;=\underset{a}{\arg \max } \mathbb{E}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=a\right] \\
-&amp;=\underset{a}{\arg \max } \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{\pi}\left(s^{\prime}\right)\right]
-\end{aligned}\]</span></p>
-<p>这种根据原策略的价值函数执行贪心算法，来构造一个更好策略的过程，称为<strong>策略改进</strong></p>
-<h2 id="策略迭代">策略迭代</h2>
-<p>一旦一个策略<span class="math inline">\(\pi\)</span>根据<span class="math inline">\(v_\pi\)</span>产生了一个更好的策略<span class="math inline">\(\pi&#39;\)</span>，我们就可以通过计算<span class="math inline">\(v_{\pi&#39;}\)</span>来得到一个更优的策略<span class="math inline">\(\pi&#39;&#39;\)</span>，这样一个链式的方法可以得到一个不断改进的策略和价值函数的序列：</p>
-<p><span class="math display">\[\pi_{0} \stackrel{\mathrm{E}}{\longrightarrow} v_{\pi_{0}} \stackrel{\mathrm{I}}{\longrightarrow} \pi_{1} \stackrel{\mathrm{E}}{\longrightarrow} v_{\pi_{1}} \stackrel{\mathrm{I}}{\longrightarrow} \pi_{2} \stackrel{\mathrm{E}}{\longrightarrow} \cdots \stackrel{\mathrm{I}}{\longrightarrow} \pi_{*} \stackrel{\mathrm{E}}{\longrightarrow} v_{*}\]</span></p>
-<p><img src="4.png" /></p>
-<h2 id="价值迭代">价值迭代</h2>
-<p>策略迭代算法的一个缺点是每一次迭代都涉及了策略评估，这本身就是一个需要多次遍历状态集合的迭代过程，如果策略评估是迭代进行的，那么收敛到<span class="math inline">\(v_\pi\)</span>理论上在极限处才成立。</p>
-<p>上面GridWorld的例子很明显就能说明，我们可以提前截断策略评估的过程，在这个例子中，前三轮策略评估之后的迭代对其贪心策略没有产生影响。</p>
-<p>事实上，由很多方式可以截断策略迭代中的策略评估步骤，一种重要的方法是：在每一次遍历后即刻停止策略评估（对每个状态进行一次更新）。该算法被称为<strong>价值迭代</strong>，可以将此表示为结合了策略改进与截断策略评估的简单更新公式：</p>
-<p><span class="math display">\[\begin{aligned}
-v_{k+1}(s) &amp; \doteq \max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{k}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=a\right] \\
-&amp;=\max _{a} \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{k}\left(s^{\prime}\right)\right]
-\end{aligned}\]</span></p>
-<p>价值迭代与策略评估的更新公式几乎完全相同。</p>
-<p>理论上价值迭代需要迭代无限次才能收敛，事实上，如果一次遍历中仅发生一些细微的变化，那么就可以停止。</p>
-<p><img src="5.png" /></p>
-<h2 id="广义策略迭代">广义策略迭代</h2>
-<p>策略迭代包括两个同时进行的相互作用的流程，一个使得价值函数与当前策略一致（策略评估），另一个根据当前价值函数贪心地更新策略（策略改进）。</p>
-<p>用广义策略迭代（GPI）一词来指代让策略评估和策略改进相互作用地一般思路，几乎所有的强化学习算法都可以被描述成广义策略迭代算法：</p>
-<p><img src="6.png" /></p>
-<p>价值函数只有在与当前策略一致时才稳定，并且策略只有在对当前价值函数是贪心策略时才稳定。</p>
-<p>可以将GPI的评估与改进流程看作竞争与合作。竞争是指它们朝着相反的方向前进，让策略对价值函数贪心通常会使价值函数与当前策略不再匹配，而使价值函数与策略一致通常会导致策略不再贪心。合作是指从长远看，这两个流程相互作用以找到一个联合解决方案：最优价值函数和一个最优策略。</p>
-<p><img src="7.png" /></p>
-<h2 id="动态规划的效率">动态规划的效率</h2>
-<p>DP算法有时会因为<strong>维度灾难</strong>而被认为缺乏实用性。集合太大确实会带来一些困难，但是这是问题本身的困难，而非DP作为一种解法所带来的困难。事实上，相比于直接搜索和线性规划，DP更加适合解决大规模状态空间的问题。</p>
-]]></content>
-      <categories>
-        <category>Reinforcement Learning</category>
-      </categories>
-      <tags>
-        <tag>Reinforcement Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -3756,182 +3932,6 @@ v_{k+1}(s) &amp; \doteq \max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{k}\left(S_{t
       </categories>
       <tags>
         <tag>Nonlinear System</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>controllability and observability</title>
-    <url>/2019/08/13/controllability-and-observability/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
-<h2 id="problem-4.1">Problem 4.1</h2>
-<p>Determine whether the following continuous-time linear time-invariant system is <strong>fully controllable</strong> <a id="more"></a> <span class="math display">\[
-\dot{x} =
-\begin{bmatrix}
-0 &amp; 1 &amp; 0 \\\
-0 &amp; 0 &amp; 1 \\\
--2 &amp; -4 &amp; -3 \\\
-\end{bmatrix}
-x+
-\begin{bmatrix}
-1 &amp; 0 \\\
-0 &amp; 1 \\\
--1 &amp; 1 \\\
-\end{bmatrix}
-u
-\]</span></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = Matrix([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>], </span><br><span class="line">                   [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], </span><br><span class="line">                   [<span class="number">-2</span>, <span class="number">-4</span>, <span class="number">-3</span>]])</span><br><span class="line">B = Matrix([</span><br><span class="line">                   [<span class="number">1</span>, <span class="number">0</span>],</span><br><span class="line">                   [<span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">                   [<span class="number">-1</span>, <span class="number">1</span>]</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">Q = B.col_insert(<span class="number">2</span>, A*B).col_insert(<span class="number">5</span>, A**<span class="number">2</span>*B)</span><br><span class="line"><span class="keyword">if</span> Q.rank()==<span class="number">3</span>:</span><br><span class="line">    print(<span class="string">"This system is fully controllable"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"This system is not fully controllable"</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>This system is fully controllable</code></pre>
-<h2 id="problem-4.2">Problem 4.2</h2>
-<p>Determine the range of values a,b,c for the following continuous-time linear time-invariant systems to be <strong>fully controllable</strong></p>
-<p><span class="math display">\[
-\dot{x} =
-\begin{bmatrix}
--2 &amp; 0 &amp; 0 \\\
-0 &amp; -2 &amp; 0 \\\
-0 &amp; 0 &amp; -2 \\\
-\end{bmatrix}
-x+
-\begin{bmatrix}
-a &amp; 1 \\\
-2 &amp; 4 \\\
-b &amp; 1 \\\
-\end{bmatrix}
-u
-\]</span></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a, b= symbols(<span class="string">"a b"</span>)</span><br><span class="line">A = Matrix([[<span class="number">-2</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">                   [<span class="number">0</span>, <span class="number">-2</span>, <span class="number">0</span>], </span><br><span class="line">                   [<span class="number">0</span>, <span class="number">0</span>, <span class="number">-2</span>]])</span><br><span class="line">B = Matrix([</span><br><span class="line">                   [a, <span class="number">1</span>],</span><br><span class="line">                   [<span class="number">2</span>, <span class="number">4</span>],</span><br><span class="line">                   [b, <span class="number">1</span>]</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">Q = B.col_insert(<span class="number">2</span>, A*B).col_insert(<span class="number">5</span>, A**<span class="number">2</span>*B)</span><br><span class="line">Q</span><br></pre></td></tr></table></figure>
-<p><span class="math inline">\(\displaystyle \left[\begin{matrix}a &amp; 1 &amp; - 2 a &amp; -2 &amp; 4 a &amp; 4\\\2 &amp; 4 &amp; -4 &amp; -8 &amp; 8 &amp; 16\\\b &amp; 1 &amp; - 2 b &amp; -2 &amp; 4 b &amp; 4\end{matrix}\right]\)</span></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> Q.rank()==<span class="number">3</span>:</span><br><span class="line">    print(<span class="string">"This system is fully controllable"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"This system is not fully controllable"</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>This system is not fully controllable</code></pre>
-<h2 id="problem-4.３">Problem 4.３</h2>
-<p>Determine whether the following continuous-time linear time-invariant system is <strong>fully observable</strong></p>
-<p><span class="math display">\[
-\dot{x} =
-\begin{bmatrix}
-0 &amp; 1 &amp; 0 \\\
-0 &amp; 0 &amp; 1 \\\
--2 &amp; -4 &amp; -3
-\end{bmatrix}
-x,  
-y=
-\begin{bmatrix}
-1 &amp; 0 &amp; 4 \\\
-2 &amp; 0 &amp; 8 
-\end{bmatrix}
-x
-\]</span></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A = Matrix([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>], </span><br><span class="line">                   [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], </span><br><span class="line">                   [<span class="number">-2</span>, <span class="number">-4</span>, <span class="number">-3</span>]])</span><br><span class="line">C = Matrix([</span><br><span class="line">                   [<span class="number">1</span>, <span class="number">0</span>, <span class="number">4</span>],  </span><br><span class="line">                   [<span class="number">2</span>, <span class="number">0</span>, <span class="number">8</span>]</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">Q =C.row_insert(<span class="number">3</span>, C*A).row_insert(<span class="number">6</span>, C*A**<span class="number">2</span>)</span><br><span class="line"><span class="keyword">if</span> Q.rank()==<span class="number">3</span>:</span><br><span class="line">    print(<span class="string">"This system is fully controllable"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"This system is not fully controllable"</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>This system is fully controllable</code></pre>
-<h2 id="problem-4.４">Problem 4.４</h2>
-<p>Determine the range of values a,b,c for the following continuous-time linear time-invariant system to be <strong>fully observable</strong></p>
-<p><span class="math display">\[
-\dot{x} =
-\begin{bmatrix}
--2 &amp; 0 &amp; 0 \\\
-1 &amp; -2 &amp; 0\\\
-0 &amp; 0 &amp; -2
-\end{bmatrix}
-x,  
-y=
-\begin{bmatrix}
-1 &amp; a &amp; b \\\
-4 &amp; 0 &amp; 4
-\end{bmatrix}
-x
-\]</span></p>
-<p>Condition 1: <strong>a!=0 or b!=1</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># if a!=0 and b!=1:  C.rank()=2, only when rank[C CA]'==3, the conditions are satified</span></span><br><span class="line">a, b= symbols(<span class="string">"a b"</span>)</span><br><span class="line">A = Matrix([[<span class="number">-2</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">                   [<span class="number">1</span>, <span class="number">-2</span>, <span class="number">0</span>], </span><br><span class="line">                   [<span class="number">0</span>, <span class="number">0</span>, <span class="number">-2</span>]])</span><br><span class="line">C = Matrix([</span><br><span class="line">                   [<span class="number">1</span>, a, b],</span><br><span class="line">                   [<span class="number">4</span>, <span class="number">0</span>, <span class="number">4</span>]</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">Q = C.row_insert(<span class="number">3</span>, C*A)</span><br><span class="line">Q</span><br></pre></td></tr></table></figure>
-<p><span class="math inline">\(\displaystyle \left[\begin{matrix}1 &amp; a &amp; b\\\4 &amp; 0 &amp; 4\\\a - 2 &amp; - 2 a &amp; - 2 b\\\\-8 &amp; 0 &amp; -8\end{matrix}\right]\)</span></p>
-<p><span class="math display">\[
-Q=\begin{bmatrix}1 &amp; a &amp; b\\\4 &amp; 0 &amp; 4\\\a - 2 &amp; - 2 a &amp; - 2 b\\\\-8 &amp; 0 &amp; -8\end{bmatrix}
-\]</span> So, when a is not equal to 0 and b is not equal to 0, this system is fully observable</p>
-<p>Condition 2: <strong>a==0 and b==1</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># only when rank[C1 C1A C1A^2]'==3, the conditions are satified</span></span><br><span class="line">a, b= symbols(<span class="string">"a b"</span>)</span><br><span class="line">A = Matrix([[<span class="number">-2</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">                   [<span class="number">1</span>, <span class="number">-2</span>, <span class="number">0</span>], </span><br><span class="line">                   [<span class="number">0</span>, <span class="number">0</span>, <span class="number">-2</span>]])</span><br><span class="line">C = Matrix([</span><br><span class="line">                   [<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">Q = C.row_insert(<span class="number">3</span>, C*A).row_insert(<span class="number">6</span>, C*A**<span class="number">2</span>)</span><br><span class="line">Q</span><br></pre></td></tr></table></figure>
-<p><span class="math inline">\(\displaystyle \left[\begin{matrix}1 &amp; 0 &amp; 1\\\\-2 &amp; 0 &amp; -2\\\4 &amp; 0 &amp; 4\end{matrix}\right]\)</span></p>
-<p>rank(Q) = 3, thus in this condition, this system is not fully observable</p>
-<h2 id="problem-4.５">Problem 4.５</h2>
-<p>Determine the range of values a,b,c for the following continuous-time linear time-invariant system to be <strong>fully controllable and observable</strong></p>
-<p><span class="math display">\[
-\dot{x} =
-\begin{bmatrix}
--1 &amp; 1 &amp; a \\\
-0 &amp; -2 &amp; 1 \\\
-0 &amp; 0 &amp; -3
-\end{bmatrix}
-x+
-\begin{bmatrix}
-0 \\\
-0 \\\
-1 \\\
-\end{bmatrix}
-u,
-y=
-\begin{bmatrix}
-0 &amp; 0 &amp; 1
-\end{bmatrix}
-x
-\]</span></p>
-<h2 id="problem-4.６">Problem 4.６</h2>
-<p>Calculate the controllability and observability index of the following continuous-time linear time-invariant system</p>
-<p><span class="math display">\[
-\dot{x} =
-\begin{bmatrix}
-0 &amp; 1 &amp; 0 \\\
-0 &amp; 0 &amp; 1 \\\
-0 &amp; 3 &amp; -1
-\end{bmatrix}
-x+
-\begin{bmatrix}
-0 &amp; 1 \\\
-1 &amp; 0 \\\
-0 &amp; 0
-\end{bmatrix}
-u,
-y=
-\begin{bmatrix}
-1 &amp; 0 &amp; 1 \\\
-0 &amp; 1 &amp; 0
-\end{bmatrix}
-x
-\]</span></p>
-]]></content>
-      <categories>
-        <category>control theory</category>
-      </categories>
-      <tags>
-        <tag>control theory</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>*args 和 **kwargs</title>
-    <url>/2019/02/12/args-%E5%92%8C-kwargs/</url>
-    <content><![CDATA[<p>很多Python新手都无法搞清<code>*args</code>与<code>**kwargs</code>这两个魔术变量。那么他们到底是什么呢？让我来告诉你。在实际程序中，我们没有必要非得写成<code>*args</code>与<code>**kwargs</code>这样的形式，你也可以写成<code>*var</code>与<code>**vars</code>。写成<code>*args</code>与<code>**kwargs</code>的形式只是一种惯例。 <a id="more"></a> ## *args的用法 <code>*args</code>与<code>**kwargs</code>主要用于函数的定义。<code>*args</code>与<code>**kwargs</code>允许你将可变数量的参数传递给函数。这里的<strong>可变</strong>意味着你事先是不知道用户可以向你传递多少参数。因此在这种情况下你可以使用这两个关键字。<code>*args</code>用于向函数发送没有关键字的可变长度参数列表。以下是一个例子：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_var_args</span><span class="params">(f_arg, *args)</span>:</span></span><br><span class="line">    print(<span class="string">"first normal arg: "</span>, f_arg)</span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> args:</span><br><span class="line">        print(<span class="string">"another arg through *args: "</span>, ar)</span><br><span class="line"></span><br><span class="line">test_var_args(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>)</span><br></pre></td></tr></table></figure>
-<p>这会产生以下结果： <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">first normal arg: a</span><br><span class="line">another arg through *args: b</span><br><span class="line">another arg through *args: c</span><br><span class="line">another arg through *args: d</span><br></pre></td></tr></table></figure></p>
-<h2 id="kwargs-kwargs允许你将键值对也就是字典形式的参数的可变长度的参数传递给函数如果要在函数中处理命名参数则应该使用kwargs下面是一个例子">**kwargs <code>kwargs</code>允许你将键值对[也就是字典形式的参数]的可变长度的参数传递给函数。如果要在函数中处理命名参数，则应该使用<code>**kwargs</code>，下面是一个例子：</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_me</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> kwargs.items():</span><br><span class="line">        print(<span class="string">"&#123;0&#125; = &#123;1&#125;"</span>.format(key, value))</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>greet_me(name=<span class="string">"oliverxu"</span>)</span><br><span class="line">name = oliverxu</span><br></pre></td></tr></table></figure>
-<h2 id="使用args和kwargs来调用函数">使用<code>*args</code>和<code>*kwargs</code>来调用函数</h2>
-<p>首先我们先定义一个函数：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_args_kwargs</span><span class="params">(arg1, arg2, arg3)</span>:</span></span><br><span class="line">    print(<span class="string">"arg1:"</span>, arg1)</span><br><span class="line">    print(<span class="string">"arg2:"</span>, arg2)</span><br><span class="line">    print(<span class="string">"arg3:"</span>, arg3)</span><br></pre></td></tr></table></figure>
-<p>现在，可以用<code>*args</code>和<code>**kwargs</code>来将参数传递给这个函数：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>args = (<span class="string">"two"</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(*args)</span><br><span class="line">arg1: arg1</span><br><span class="line">arg2: arg2</span><br><span class="line">arg3: arg3</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>kwargs = &#123;<span class="string">"arg3"</span>:<span class="number">3</span>, <span class="string">"arg2"</span>: <span class="string">"two"</span>, <span class="string">"arg1"</span>: <span class="number">5</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(**kwargs)</span><br><span class="line">arg1: <span class="number">5</span></span><br><span class="line">arg2: two</span><br><span class="line">arg3: <span class="number">3</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo-gittalk问题总结</title>
-    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
-<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>经验</tag>
       </tags>
   </entry>
   <entry>
@@ -4501,51 +4501,6 @@ L^{i+1}=&amp;-\left[R_{2}+\hat{X}_{7}^{i}-\hat{X}_{5}^{i}\left(R_{1}+\hat{X}_{3}
       </tags>
   </entry>
   <entry>
-    <title>科研论文各段落表达整理背诵</title>
-    <url>/2021/02/28/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%90%84%E6%AE%B5%E8%90%BD%E8%A1%A8%E8%BE%BE%E6%95%B4%E7%90%86%E8%83%8C%E8%AF%B5/</url>
-    <content><![CDATA[<p>上一篇博客中，<a href="https://blog.oliverxu.cn/2021/01/31/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%B8%B8%E7%94%A8%E5%8F%A5%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/#more">科研论文常用句式语法汇总整理</a>，每天将所看论文中的优秀的语句进行摘录整理，经过一个月的使用（其实也就不到一周，中间春节没有学习），感觉也还是有点不得劲，所以，这篇博客是对论文的各部分的段落进行整理，翻译成中文，最好能背诵下来（笨办法，先试试看，毕竟身边没人教我hhhh）。</p>
-<p>这篇博客将长期更新，分为5个部分，包括abstract, Introduction, method, simulation, conclusion，争取做到每天更新，每天看一篇论文，在学习其内容的同时，摘录其优秀的整段文字，并进行分类整理。</p>
-<p><strong>每天整理并背诵一段话。</strong></p>
-<a id="more"></a>
-<h2 id="abstract">Abstract</h2>
-<h3 id="evolving-reinforcement-learning-algorithms">1. Evolving reinforcement learning algorithms</h3>
-<p>We propose a method for meta-learning reinforcement learning algorithms by searching over the space of computational graphs which compute the loss function for a value-based model-free RL agent to optimize. The learned algorithms are domain-agnostic and can generalize to new environments not seen during training. Our method can both learn from scratch and bootstrap off known existing algorithms, like DQN, enabling interpretable modifications which improve performance. Learning from scratch on simple classical control and gridworld tasks, our method rediscovers the temporal-difference (TD) algorithm. Bootstrapped from DQN, we highlight two learned algorithms which obtain good generalization performance over other classical control tasks, gridworld type tasks, and Atari games. The analysis of the learned algorithm behavior shows resemblance to recently proposed RL algorithms that address overestimation in value-based methods.</p>
-<p>我们通过搜索计算图的空间来提出一种用于元学习强化学习算法的方法，该计算图可计算基于值的无模型RL智能体的损失函数以进行优化。 学习的算法与领域无关，并且可以推广到训练期间未看到的新环境。 我们的方法既可以从头开始学习，又可以引导已知的现有算法（例如DQN）进行访问，从而可以进行可解释的修改，从而提高性能。 从简单的经典控制和gridworld任务开始学习，我们的方法重新发现了时差（TD）算法。 从DQN开始，我们重点介绍了两种学习过的算法，它们在其他经典控制任务，gridworld类型任务和Atari游戏上均具有良好的泛化性能。 对学习到的算法行为的分析表明，它与最近提出的RL算法相似，后者解决了基于值的方法中的高估问题。</p>
-<h2 id="introduction">Introduction</h2>
-<h3 id="evolving-reinforcement-learning-algorithms-1">1. Evolving reinforcement learning algorithms</h3>
-<p>Our learned loss function should generalize across many different environments, instead of being specific to a particular domain. Thus, we design a search language based on genetic programming (Koza, 1993) that can express general symbolic loss functions which can be applied to any environment. Data typing and a generic interface to variables in the MDP allow the learned program to be domain agnostic. This language also supports the use of neural network modules as subcomponents of the program, so that more complex neural network architectures can be realized. Efficiently searching over the space of useful programs is generally difficult. For the outer loop optimization, we use regularized evolution (Real et al., 2019), a recent variant of classic evolutionary algorithms that employ tournament selection (Goldberg &amp; Deb, 1991). This approach can scale with the number of compute nodes and has been shown to work for designing algorithms for supervised learning (Real et al., 2020). We adapt this method to automatically design algorithms for reinforcement learning.</p>
-<p>我们的学习损失函数应该在许多不同的环境中推广，而不是特定于特定领域。因此，我们设计了一种基于遗传程序设计的搜索语言（Koza，1993），该语言可以表达可应用于任何环境的通用符号损失函数。数据类型输入和MDP中变量的通用接口使学习的程序与域无关。该语言还支持将神经网络模块用作程序的子组件，以便可以实现更复杂的神经网络体系结构。通常很难有效地搜索有用程序的空间。对于外循环优化，我们使用正则化进化（Real et al。，2019），这是采用锦标赛选择的经典进化算法的最新变体（Goldberg＆Deb，1991）。这种方法可以随着计算节点的数量而扩展，并且已经证明可用于设计监督学习的算法（Real等，2020）。我们采用这种方法来自动设计用于强化学习的算法。</p>
-<h2 id="related-work">Related Work</h2>
-<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning">1. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
-<p>RL methods are typically divided into model-free (Schulman et al., 2015a,b,2017; Williams, 1992) and model-based (Lillicrap et al., 2015; Watkins and Dayan, 1992) approaches. Model-based approaches all perform some degree of planning, from predicting the value of some state (Mnih et al., 2013; Silver et al., 2016), obtaining representations by unrolling a learned dynamics model (Racaniere ` et al., 2017), or learning a policy directly on a learned dynamics model (Agrawal et al., 2016; Chua et al., 2018; Finn and Levine, 2017; Kurutach et al., 2018; Nagabandi et al., 2018; Oh et al., 2015; Sutton, 1990). One line of work (Amos et al., 2018; Lee et al., 2018; Srinivas et al., 2018; Tamar et al., 2016) embeds a differentiable planner inside a policy, with the planner learned end-to-end with the rest of the policy. Other work (Lenz et al., 2015; Watter et al., 2015) explicitly learns a representation for use inside a standard planning algorithm. In contrast, SoRB learns to predict the distances between states, which can be viewed as a high-level inverse model. SoRB predicts a scalar (the distance) rather than actions or observations, making the prediction problem substantially easier. By planning over previously visited states, SoRB does not have to cope with infeasible states that can be predicted by forward models in state-space and latent-space.</p>
-<p>RL方法通常分为无模型（Schulman等人，2015a，b，2017; Williams，1992）和基于模型的方法（Lillicrap等人，2015; Watkins和Dayan，1992）。从预测某个状态的价值（Mnih等人，2013; Silver等人，2016），通过展开学习的动力学模型来获取表示形式（Racaniere`等人，2017），所有基于模型的方法都执行某种程度的计划。 ），或者直接在学习的动力学模型上学习策略（Agrawal等人，2016; Chua等人，2018; Finn和Levine，2017; Kurutach等人，2018; Nagabandi等人，2018; Oh等人） （2015年；萨顿，1990年）。一项工作（Amos等人，2018； Lee等人，2018； Srinivas等人，2018； Tamar等人，2016）将一个可区分的计划者嵌入到策略中，而计划者则是端到端学习的其余的政策。其他工作（Lenz等人，2015； Watter等人，2015）明确学习了在标准计划算法中使用的表示形式。相反，SoRB学习预测状态之间的距离，这可以看作是高级逆模型。 SoRB预测的是标量（距离）而不是动作或观察值，从而使预测问题大为简化。通过对先前访问的状态进行规划，SoRB不必应对状态空间和潜在空间中的前向模型可以预测的不可行状态。</p>
-<h2 id="method">Method</h2>
-<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-1">1. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
-<p>Planning algorithms must be able to (1) sample valid states, (2) estimate the distance between reachable pairs of states, and (3) use a local policy to navigate between nearby states. These requirements are difficult to satisfy in complex tasks with high dimensional observations, such as images. For example, consider a robot arm stacking blocks using image observations. Sampling states requires generating photo-realistic images, and estimating distances and choosing actions requires reasoning about dozens of interactions between blocks. Our method will obtain distance estimates and a local policy using a RL algorithm. To sample states, we will simply use a replay buffer of previously visited states as a non-parametric generative model.</p>
-<p>规划算法必须能够（1）对有效状态进行采样，（2）估计可到达的状态对之间的距离，以及（3）使用本地策略在附近的状态之间导航。 在具有高维观测的复杂任务（例如图像）中，很难满足这些要求。 例如，考虑使用图像观察的机械臂堆积块。 采样状态需要生成逼真的图像，估计距离和选择动作需要对块之间的数十种交互进行推理。 我们的方法将使用RL算法获得距离估算值和本地策略。 为了采样状态，我们将简单地使用先前访问过的状态的重播缓冲区作为非参数生成模型。</p>
-<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-2">2. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
-<p>After learning a goal-conditioned Q-function, we perform graph search to find a set of waypoints and use the goal-conditioned policy to reach each. We view the combination of graph search and the underlying goal-conditioned policy as a new SEARCHPOLICY, shown in Algorithm 1. The algorithm starts by using graph search to obtain the shortest path sw1; sw2;· · · from the current state s to the goal state sg, planning over the states in our replay buffer B. We then estimate the distance from the current state to the first waypoint, as well as the distance from the current state to the goal. In most cases, we then condition the policy on the first waypoint, sw1. However, if the goal state is closer than the next waypoint and the goal state is not too far away, then we directly condition the policy on the final goal. If the replay buffer is empty or there is not a path in G to the goal, then Algorithm 1 resorts to standard goal-conditioned RL.</p>
-<p>学习了目标条件的Q函数后，我们执行图搜索以找到一组航路点，并使用目标条件的策略来达到每个目标。 我们将图搜索和基础目标条件策略的组合视为一种新的SEARCHPOLICY，如算法1所示。SW2;···从当前状态S到目标状态SG，规划了我们的重播缓冲B.状态然后我们估计从当前状态到第一个航路点的距离，以及从当前状态的距离目标。 在大多数情况下，我们然后在第一个航路点sw1上设置策略。 但是，如果目标状态比下一个航路点更近且目标状态距离不太远，则我们直接将策略限制在最终目标上。 如果重播缓冲区为空或G中没有通往目标的路径，则算法1求助于标准的目标条件RL。</p>
-<h2 id="simulation">Simulation</h2>
-<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-3">1. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
-<p>We start by building intuition for our method by applying it to two simple 2D navigation tasks, shown in Figure 4a. The start and goal state are chosen randomly in free space, and reaching the goal often takes over 100 steps, even for the optimal policy. We used goal-conditioned RL to learn a policy for each environment, and then evaluated this policy on randomly sampled (start, goal) pairs of varying difficulty. To implement SoRB, we used exactly the same policy, both to perform graph search and then to reach each of the planned waypoints. In Figure 4b, we observe that the goal-conditioned policy can reach nearby goals, but fails to generalize to distant goals. In contrast, SoRB successfully reaches goals over 100 steps away, with little drop in success rate. Figure 4c compares rollouts from the goal-conditioned policy and our policy. Note that our policy takes actions that temporarily lead away from the goal so the agent can maneuver through a hallway to eventually reach the goal.</p>
-<p>首先，通过将其应用于两个简单的2D导航任务来建立我们所提方法的直觉，如图4a所示。 起始状态和目标状态是在自由空间中随机选择的，即使对于最佳策略，达到目标也通常要花费100多个步骤。 我们使用目标条件的RL来学习每种环境的策略，然后针对随机难度不同的采样（开始，目标）对该策略进行评估。 为了实施SoRB，我们使用了完全相同的策略，既执行图搜索，然后到达每个计划的航路点。 在图4b中，我们观察到以目标为条件的策略可以达到附近的目标，但不能推广到遥远的目标。 相比之下，SoRB成功地实现了100步之外的目标，成功率几乎没有下降。 图4c比较了目标条件政策和我们政策的推出情况。 请注意，我们的政策采取的措施会暂时偏离目标，因此智能体可以穿过走廊以最终达到目标。</p>
-<h2 id="conclusion">Conclusion</h2>
-<h3 id="evolving-reinforcement-learning-algorithms-2">1. Evolving reinforcement learning algorithms</h3>
-<p>In this work, we have presented a method for learning reinforcement learning algorithms. We design a general language for representing algorithms which compute the loss function for value-based model-free RL agents to optimize. We highlight two learned algorithms which although relatively simple, can obtain good generalization performance over a wide range of environments. Our analysis of the learned algorithms sheds insight on their benefit as regularization terms which are similar to recently proposed algorithms. Our work is limited to discrete action and value-based RL algorithms that are close to DQN, but could easily be expanded to express more general RL algorithms such as actor-critic or policy gradient methods. How actions are sampled from the policy could also be part of the search space. The set of environments we use for both training and testing could also be expanded to include a more diverse set of problem types. We leave these problems for future work.</p>
-<p>在这项工作中，我们提出了一种学习强化学习算法的方法。 我们设计了一种通用语言来表示算法，该算法可为基于价值的无模型RL代理计算损失函数以进行优化。 我们重点介绍了两种学习算法，这些算法虽然相对简单，但可以在多种环境中获得良好的泛化性能。 我们对所学算法的分析揭示了它们作为正则化术语的好处，与最近提出的算法相似。 我们的工作仅限于接近DQN的离散行动和基于价值的RL算法，但可以轻松扩展以表达更通用的RL算法，例如参与者批评法或策略梯度法。 如何从策略中采样操作也可能是搜索空间的一部分。 我们用于培训和测试的环境也可以扩展为包括更多不同类型的问题。 我们将这些问题留给以后的工作。</p>
-<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-4">2. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
-<p>We presented SoRB, a method that combines planning via graph search and goal-conditioned RL. By exploiting the structure of goal-reaching tasks, we can obtain policies that generalize substantially better than those learned directly from RL. In our experiments, we show that SoRB can solve temporally extended navigation problems, traverse environments with image observations, and generalize to new houses in the SUNCG dataset. Our method relies heavily on goal-conditioned RL, and we expect advances in this area to make our method applicable to even more difficult tasks. While we used a stage-wise procedure, first learning the goal-conditioned policy and then applying graph search, in future work we aim to explore how graph search can improve the goal-conditioned policy itself, perhaps via policy distillation or obtaining better Q-value estimates. In addition, while the planning algorithm we use is simple (namely, Dijkstra), we believe that the key idea of using distance estimates obtained from RL algorithms for planning will open doors to incorporating more sophisticated planning techniques into RL.</p>
-<p>我们介绍了SoRB，该方法结合了通过图搜索和目标条件RL进行规划的方法。通过利用达到目标的任务的结构，我们可以获得比直接从RL直接学习的策略更好地概括的策略。在我们的实验中，我们表明SoRB可以解决时间扩展的导航问题，通过图像观察遍历环境，并可以将其推广到SUNCG数据集中的新房屋。我们的方法在很大程度上取决于目标条件下的RL，并且我们期望在这一领域取得进展，以使我们的方法适用于甚至更困难的任务。当我们使用分阶段步骤时，首先学习目标条件策略，然后应用图搜索，在未来的工作中，我们旨在探索图搜索如何改善目标条件策略本身，也许可以通过策略提炼或获得更好的Q-价值估算。此外，尽管我们使用的规划算法很简单（即Dijkstra），但我们认为使用从RL算法获得的距离估算值进行规划的关键思想将为将更复杂的规划技术纳入RL敞开大门。</p>
-]]></content>
-      <categories>
-        <category>Paper</category>
-      </categories>
-      <tags>
-        <tag>Paper</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>科研论文常用句式语法汇总整理</title>
     <url>/2021/01/31/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%B8%B8%E7%94%A8%E5%8F%A5%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<p>科研论文写作和平常的写作不太一样，从我自己写下来的感觉，发现自己写的英文句式很死板，读上去没有那些native的作者的语言的感觉，因此需要进行专业训练。训练方式就是模仿那些作者的文字。</p>
@@ -4676,6 +4631,57 @@ L^{i+1}=&amp;-\left[R_{2}+\hat{X}_{7}^{i}-\hat{X}_{5}^{i}\left(R_{1}+\hat{X}_{3}
 <p>我们重点介绍了两种学习算法，这些算法虽然相对简单，但可以在广泛的环境中获得良好的泛化性能。</p>
 <p>Our analysis of the learned algorithms sheds insight on their benefit as regularization terms which are similar to recently proposed algorithms.</p>
 <p>我们对所学算法的分析揭示了它们作为正则化术语的好处，与最近提出的算法相似。</p>
+]]></content>
+      <categories>
+        <category>Paper</category>
+      </categories>
+      <tags>
+        <tag>Paper</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>科研论文各段落表达整理背诵</title>
+    <url>/2021/02/28/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%90%84%E6%AE%B5%E8%90%BD%E8%A1%A8%E8%BE%BE%E6%95%B4%E7%90%86%E8%83%8C%E8%AF%B5/</url>
+    <content><![CDATA[<p>上一篇博客中，<a href="https://blog.oliverxu.cn/2021/01/31/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%B8%B8%E7%94%A8%E5%8F%A5%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/#more">科研论文常用句式语法汇总整理</a>，每天将所看论文中的优秀的语句进行摘录整理，经过一个月的使用（其实也就不到一周，中间春节没有学习），感觉也还是有点不得劲，所以，这篇博客是对论文的各部分的段落进行整理，翻译成中文，最好能背诵下来（笨办法，先试试看，毕竟身边没人教我hhhh）。</p>
+<p>这篇博客将长期更新，分为5个部分，包括abstract, Introduction, method, simulation, conclusion，争取做到每天更新，每天看一篇论文，在学习其内容的同时，摘录其优秀的整段文字，并进行分类整理。</p>
+<p><strong>每天整理并背诵一段话。</strong></p>
+<a id="more"></a>
+<h2 id="abstract">Abstract</h2>
+<h3 id="evolving-reinforcement-learning-algorithms">1. Evolving reinforcement learning algorithms</h3>
+<p>We propose a method for meta-learning reinforcement learning algorithms by searching over the space of computational graphs which compute the loss function for a value-based model-free RL agent to optimize. The learned algorithms are domain-agnostic and can generalize to new environments not seen during training. Our method can both learn from scratch and bootstrap off known existing algorithms, like DQN, enabling interpretable modifications which improve performance. Learning from scratch on simple classical control and gridworld tasks, our method rediscovers the temporal-difference (TD) algorithm. Bootstrapped from DQN, we highlight two learned algorithms which obtain good generalization performance over other classical control tasks, gridworld type tasks, and Atari games. The analysis of the learned algorithm behavior shows resemblance to recently proposed RL algorithms that address overestimation in value-based methods.</p>
+<p>我们通过搜索计算图的空间来提出一种用于元学习强化学习算法的方法，该计算图可计算基于值的无模型RL智能体的损失函数以进行优化。 学习的算法与领域无关，并且可以推广到训练期间未看到的新环境。 我们的方法既可以从头开始学习，又可以引导已知的现有算法（例如DQN）进行访问，从而可以进行可解释的修改，从而提高性能。 从简单的经典控制和gridworld任务开始学习，我们的方法重新发现了时差（TD）算法。 从DQN开始，我们重点介绍了两种学习过的算法，它们在其他经典控制任务，gridworld类型任务和Atari游戏上均具有良好的泛化性能。 对学习到的算法行为的分析表明，它与最近提出的RL算法相似，后者解决了基于值的方法中的高估问题。</p>
+<h3 id="adaptive-optimal-control-for-a-class-of-nonlinear-systems-the-online-policy-iteration-approach">2.Adaptive Optimal control for a class of nonlinear systems: The online policy iteration approach</h3>
+<p>This paper studies the online adaptive optimal controller design for a class of nonlinear systems through a novel policy iteration (PI) algorithm. By using the technique of neural network linear differential inclusion (LDI) to linearize the nonlinear terms in each iteration, the optimal law for controller design can be solved through the relevant algebraic Riccati equation (ARE) without using the system internal parameters. Based on PI approach, the adaptive optimal control algorithm is developed with the online linearization and the two-step iteration, i.e., policy evaluation and policy improvement. The convergence of the proposed PI algorithm is also proved. Finally, two numerical examples are given to illustrate the effectiveness and applicability of the proposed method.</p>
+<p>本文通过一种新颖的策略迭代（PI）算法研究了一类非线性系统的在线自适应最优控制器设计。 通过使用神经网络线性微分包含（LDI）技术对每次迭代中的非线性项进行线性化，可以通过相关的代数Riccati方程（ARE）来求解控制器设计的最佳定律，而无需使用系统内部参数。 基于PI方法，通过在线线性化和两步迭代（即策略评估和策略改进）开发了自适应最优控制算法。 还证明了所提出的PI算法的收敛性。 最后，通过两个数值例子说明了该方法的有效性和适用性。</p>
+<h2 id="introduction">Introduction</h2>
+<h3 id="evolving-reinforcement-learning-algorithms-1">1. Evolving reinforcement learning algorithms</h3>
+<p>Our learned loss function should generalize across many different environments, instead of being specific to a particular domain. Thus, we design a search language based on genetic programming (Koza, 1993) that can express general symbolic loss functions which can be applied to any environment. Data typing and a generic interface to variables in the MDP allow the learned program to be domain agnostic. This language also supports the use of neural network modules as subcomponents of the program, so that more complex neural network architectures can be realized. Efficiently searching over the space of useful programs is generally difficult. For the outer loop optimization, we use regularized evolution (Real et al., 2019), a recent variant of classic evolutionary algorithms that employ tournament selection (Goldberg &amp; Deb, 1991). This approach can scale with the number of compute nodes and has been shown to work for designing algorithms for supervised learning (Real et al., 2020). We adapt this method to automatically design algorithms for reinforcement learning.</p>
+<p>我们的学习损失函数应该在许多不同的环境中推广，而不是特定于特定领域。因此，我们设计了一种基于遗传程序设计的搜索语言（Koza，1993），该语言可以表达可应用于任何环境的通用符号损失函数。数据类型输入和MDP中变量的通用接口使学习的程序与域无关。该语言还支持将神经网络模块用作程序的子组件，以便可以实现更复杂的神经网络体系结构。通常很难有效地搜索有用程序的空间。对于外循环优化，我们使用正则化进化（Real et al。，2019），这是采用锦标赛选择的经典进化算法的最新变体（Goldberg＆Deb，1991）。这种方法可以随着计算节点的数量而扩展，并且已经证明可用于设计监督学习的算法（Real等，2020）。我们采用这种方法来自动设计用于强化学习的算法。</p>
+<h3 id="adaptive-optimal-control-for-a-class-of-nonlinear-systems-the-online-policy-iteration-approach-1">2.Adaptive Optimal control for a class of nonlinear systems: The online policy iteration approach</h3>
+<p>To realize the online adaptive algorithm, however, we need a synchronous linearization technique to accompany with the PI solution process. As a result, we put forward a new online LDIPI (OLDIPI) algorithm, which can address the adaptive optimal control problem for a class of nonlinear systems. First, the original nonlinear system is approximated to a linear plant model based on the neural network LDI. Then inspired by the linear PI algorithm, the proposed OLDIPI algorithm can converge to the optimal solution; furthermore, the algorithm can be implemented online in least-square sense under a persistent excitation condition. The convergence of the proposed algorithm is also proved, and the corresponding simulation results are given to illustrate the feasibility and applicability.</p>
+<p>但是，要实现在线自适应算法，我们需要一种同步线性化技术来配合PI解法过程。 因此，我们提出了一种新的在线LDIPI（OLDIPI）算法，该算法可以解决一类非线性系统的自适应最优控制问题。 首先，将原始的非线性系统近似为基于神经网络LDI的线性工厂模型。 然后在线性PI算法的启发下，提出的OLDIPI算法可以收敛到最优解。 此外，该算法可以在持续激发条件下以最小二乘方式在线实现。 证明了该算法的收敛性，并给出了相应的仿真结果，说明了该算法的可行性和适用性。</p>
+<h2 id="related-work">Related Work</h2>
+<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning">1. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
+<p>RL methods are typically divided into model-free (Schulman et al., 2015a,b,2017; Williams, 1992) and model-based (Lillicrap et al., 2015; Watkins and Dayan, 1992) approaches. Model-based approaches all perform some degree of planning, from predicting the value of some state (Mnih et al., 2013; Silver et al., 2016), obtaining representations by unrolling a learned dynamics model (Racaniere ` et al., 2017), or learning a policy directly on a learned dynamics model (Agrawal et al., 2016; Chua et al., 2018; Finn and Levine, 2017; Kurutach et al., 2018; Nagabandi et al., 2018; Oh et al., 2015; Sutton, 1990). One line of work (Amos et al., 2018; Lee et al., 2018; Srinivas et al., 2018; Tamar et al., 2016) embeds a differentiable planner inside a policy, with the planner learned end-to-end with the rest of the policy. Other work (Lenz et al., 2015; Watter et al., 2015) explicitly learns a representation for use inside a standard planning algorithm. In contrast, SoRB learns to predict the distances between states, which can be viewed as a high-level inverse model. SoRB predicts a scalar (the distance) rather than actions or observations, making the prediction problem substantially easier. By planning over previously visited states, SoRB does not have to cope with infeasible states that can be predicted by forward models in state-space and latent-space.</p>
+<p>RL方法通常分为无模型（Schulman等人，2015a，b，2017; Williams，1992）和基于模型的方法（Lillicrap等人，2015; Watkins和Dayan，1992）。从预测某个状态的价值（Mnih等人，2013; Silver等人，2016），通过展开学习的动力学模型来获取表示形式（Racaniere`等人，2017），所有基于模型的方法都执行某种程度的计划。 ），或者直接在学习的动力学模型上学习策略（Agrawal等人，2016; Chua等人，2018; Finn和Levine，2017; Kurutach等人，2018; Nagabandi等人，2018; Oh等人） （2015年；萨顿，1990年）。一项工作（Amos等人，2018； Lee等人，2018； Srinivas等人，2018； Tamar等人，2016）将一个可区分的计划者嵌入到策略中，而计划者则是端到端学习的其余的政策。其他工作（Lenz等人，2015； Watter等人，2015）明确学习了在标准计划算法中使用的表示形式。相反，SoRB学习预测状态之间的距离，这可以看作是高级逆模型。 SoRB预测的是标量（距离）而不是动作或观察值，从而使预测问题大为简化。通过对先前访问的状态进行规划，SoRB不必应对状态空间和潜在空间中的前向模型可以预测的不可行状态。</p>
+<h2 id="method">Method</h2>
+<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-1">1. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
+<p>Planning algorithms must be able to (1) sample valid states, (2) estimate the distance between reachable pairs of states, and (3) use a local policy to navigate between nearby states. These requirements are difficult to satisfy in complex tasks with high dimensional observations, such as images. For example, consider a robot arm stacking blocks using image observations. Sampling states requires generating photo-realistic images, and estimating distances and choosing actions requires reasoning about dozens of interactions between blocks. Our method will obtain distance estimates and a local policy using a RL algorithm. To sample states, we will simply use a replay buffer of previously visited states as a non-parametric generative model.</p>
+<p>规划算法必须能够（1）对有效状态进行采样，（2）估计可到达的状态对之间的距离，以及（3）使用本地策略在附近的状态之间导航。 在具有高维观测的复杂任务（例如图像）中，很难满足这些要求。 例如，考虑使用图像观察的机械臂堆积块。 采样状态需要生成逼真的图像，估计距离和选择动作需要对块之间的数十种交互进行推理。 我们的方法将使用RL算法获得距离估算值和本地策略。 为了采样状态，我们将简单地使用先前访问过的状态的重播缓冲区作为非参数生成模型。</p>
+<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-2">2. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
+<p>After learning a goal-conditioned Q-function, we perform graph search to find a set of waypoints and use the goal-conditioned policy to reach each. We view the combination of graph search and the underlying goal-conditioned policy as a new SEARCHPOLICY, shown in Algorithm 1. The algorithm starts by using graph search to obtain the shortest path sw1; sw2;· · · from the current state s to the goal state sg, planning over the states in our replay buffer B. We then estimate the distance from the current state to the first waypoint, as well as the distance from the current state to the goal. In most cases, we then condition the policy on the first waypoint, sw1. However, if the goal state is closer than the next waypoint and the goal state is not too far away, then we directly condition the policy on the final goal. If the replay buffer is empty or there is not a path in G to the goal, then Algorithm 1 resorts to standard goal-conditioned RL.</p>
+<p>学习了目标条件的Q函数后，我们执行图搜索以找到一组航路点，并使用目标条件的策略来达到每个目标。 我们将图搜索和基础目标条件策略的组合视为一种新的SEARCHPOLICY，如算法1所示。SW2;···从当前状态S到目标状态SG，规划了我们的重播缓冲B.状态然后我们估计从当前状态到第一个航路点的距离，以及从当前状态的距离目标。 在大多数情况下，我们然后在第一个航路点sw1上设置策略。 但是，如果目标状态比下一个航路点更近且目标状态距离不太远，则我们直接将策略限制在最终目标上。 如果重播缓冲区为空或G中没有通往目标的路径，则算法1求助于标准的目标条件RL。</p>
+<h2 id="simulation">Simulation</h2>
+<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-3">1. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
+<p>We start by building intuition for our method by applying it to two simple 2D navigation tasks, shown in Figure 4a. The start and goal state are chosen randomly in free space, and reaching the goal often takes over 100 steps, even for the optimal policy. We used goal-conditioned RL to learn a policy for each environment, and then evaluated this policy on randomly sampled (start, goal) pairs of varying difficulty. To implement SoRB, we used exactly the same policy, both to perform graph search and then to reach each of the planned waypoints. In Figure 4b, we observe that the goal-conditioned policy can reach nearby goals, but fails to generalize to distant goals. In contrast, SoRB successfully reaches goals over 100 steps away, with little drop in success rate. Figure 4c compares rollouts from the goal-conditioned policy and our policy. Note that our policy takes actions that temporarily lead away from the goal so the agent can maneuver through a hallway to eventually reach the goal.</p>
+<p>首先，通过将其应用于两个简单的2D导航任务来建立我们所提方法的直觉，如图4a所示。 起始状态和目标状态是在自由空间中随机选择的，即使对于最佳策略，达到目标也通常要花费100多个步骤。 我们使用目标条件的RL来学习每种环境的策略，然后针对随机难度不同的采样（开始，目标）对该策略进行评估。 为了实施SoRB，我们使用了完全相同的策略，既执行图搜索，然后到达每个计划的航路点。 在图4b中，我们观察到以目标为条件的策略可以达到附近的目标，但不能推广到遥远的目标。 相比之下，SoRB成功地实现了100步之外的目标，成功率几乎没有下降。 图4c比较了目标条件政策和我们政策的推出情况。 请注意，我们的政策采取的措施会暂时偏离目标，因此智能体可以穿过走廊以最终达到目标。</p>
+<h2 id="conclusion">Conclusion</h2>
+<h3 id="evolving-reinforcement-learning-algorithms-2">1. Evolving reinforcement learning algorithms</h3>
+<p>In this work, we have presented a method for learning reinforcement learning algorithms. We design a general language for representing algorithms which compute the loss function for value-based model-free RL agents to optimize. We highlight two learned algorithms which although relatively simple, can obtain good generalization performance over a wide range of environments. Our analysis of the learned algorithms sheds insight on their benefit as regularization terms which are similar to recently proposed algorithms. Our work is limited to discrete action and value-based RL algorithms that are close to DQN, but could easily be expanded to express more general RL algorithms such as actor-critic or policy gradient methods. How actions are sampled from the policy could also be part of the search space. The set of environments we use for both training and testing could also be expanded to include a more diverse set of problem types. We leave these problems for future work.</p>
+<p>在这项工作中，我们提出了一种学习强化学习算法的方法。 我们设计了一种通用语言来表示算法，该算法可为基于价值的无模型RL代理计算损失函数以进行优化。 我们重点介绍了两种学习算法，这些算法虽然相对简单，但可以在多种环境中获得良好的泛化性能。 我们对所学算法的分析揭示了它们作为正则化术语的好处，与最近提出的算法相似。 我们的工作仅限于接近DQN的离散行动和基于价值的RL算法，但可以轻松扩展以表达更通用的RL算法，例如参与者批评法或策略梯度法。 如何从策略中采样操作也可能是搜索空间的一部分。 我们用于培训和测试的环境也可以扩展为包括更多不同类型的问题。 我们将这些问题留给以后的工作。</p>
+<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-4">2. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
+<p>We presented SoRB, a method that combines planning via graph search and goal-conditioned RL. By exploiting the structure of goal-reaching tasks, we can obtain policies that generalize substantially better than those learned directly from RL. In our experiments, we show that SoRB can solve temporally extended navigation problems, traverse environments with image observations, and generalize to new houses in the SUNCG dataset. Our method relies heavily on goal-conditioned RL, and we expect advances in this area to make our method applicable to even more difficult tasks. While we used a stage-wise procedure, first learning the goal-conditioned policy and then applying graph search, in future work we aim to explore how graph search can improve the goal-conditioned policy itself, perhaps via policy distillation or obtaining better Q-value estimates. In addition, while the planning algorithm we use is simple (namely, Dijkstra), we believe that the key idea of using distance estimates obtained from RL algorithms for planning will open doors to incorporating more sophisticated planning techniques into RL.</p>
+<p>我们介绍了SoRB，该方法结合了通过图搜索和目标条件RL进行规划的方法。通过利用达到目标的任务的结构，我们可以获得比直接从RL直接学习的策略更好地概括的策略。在我们的实验中，我们表明SoRB可以解决时间扩展的导航问题，通过图像观察遍历环境，并可以将其推广到SUNCG数据集中的新房屋。我们的方法在很大程度上取决于目标条件下的RL，并且我们期望在这一领域取得进展，以使我们的方法适用于甚至更困难的任务。当我们使用分阶段步骤时，首先学习目标条件策略，然后应用图搜索，在未来的工作中，我们旨在探索图搜索如何改善目标条件策略本身，也许可以通过策略提炼或获得更好的Q-价值估算。此外，尽管我们使用的规划算法很简单（即Dijkstra），但我们认为使用从RL算法获得的距离估算值进行规划的关键思想将为将更复杂的规划技术纳入RL敞开大门。</p>
 ]]></content>
       <categories>
         <category>Paper</category>
