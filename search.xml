@@ -34,6 +34,20 @@
       </tags>
   </entry>
   <entry>
+    <title>Flask项目结构</title>
+    <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>拥有良好的项目结构对于开发与维护有着巨大的作用</strong> <a id="more"></a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects$ tree</span><br><span class="line">.</span><br><span class="line">`-- ProjectName</span><br><span class="line">    |-- app                      # 整个程序的包目录</span><br><span class="line">    |   |-- config.py                # 配置文件</span><br><span class="line">    |   |-- email.py                 # 邮件发送</span><br><span class="line">    |   |-- extensions.py            # 各种扩展</span><br><span class="line">    |   |-- forms                    # 表单文件</span><br><span class="line">    |   |-- models                   # 数据模型</span><br><span class="line">    |   |-- static                   # 静态资源文件</span><br><span class="line">    |   |   |-- css                      # 样式表</span><br><span class="line">    |   |   |-- img                      # 图片</span><br><span class="line">    |   |   `-- js                       # JS脚本</span><br><span class="line">    |   |-- templates                # 模板文件</span><br><span class="line">    |   |   |-- common                   # 通用模板</span><br><span class="line">    |   |   |-- email                    # 邮件发送</span><br><span class="line">    |   |   |-- errors                   # 错误页面</span><br><span class="line">    |   |   |-- posts                    # 帖子模板</span><br><span class="line">    |   |   `-- user                     # 用户模板</span><br><span class="line">    |   `-- views                    # 视图文件</span><br><span class="line">    |-- manage.py                    # 项目启动控制文件</span><br><span class="line">    |-- migrations                   # 数据库迁移目录</span><br><span class="line">    |-- requirements.txt             # 依赖包的列表</span><br><span class="line">    `-- tests                        # 测试单元</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>How to reading scientific papers</title>
     <url>/2019/07/09/How-to-reading-scientific-papers/</url>
     <content><![CDATA[<h1 id="step1-choose-the-paper">STEP1: Choose the paper</h1>
@@ -73,17 +87,35 @@
       </tags>
   </entry>
   <entry>
-    <title>Flask项目结构</title>
-    <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<blockquote>
-<p><strong>拥有良好的项目结构对于开发与维护有着巨大的作用</strong> <a id="more"></a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects$ tree</span><br><span class="line">.</span><br><span class="line">`-- ProjectName</span><br><span class="line">    |-- app                      # 整个程序的包目录</span><br><span class="line">    |   |-- config.py                # 配置文件</span><br><span class="line">    |   |-- email.py                 # 邮件发送</span><br><span class="line">    |   |-- extensions.py            # 各种扩展</span><br><span class="line">    |   |-- forms                    # 表单文件</span><br><span class="line">    |   |-- models                   # 数据模型</span><br><span class="line">    |   |-- static                   # 静态资源文件</span><br><span class="line">    |   |   |-- css                      # 样式表</span><br><span class="line">    |   |   |-- img                      # 图片</span><br><span class="line">    |   |   `-- js                       # JS脚本</span><br><span class="line">    |   |-- templates                # 模板文件</span><br><span class="line">    |   |   |-- common                   # 通用模板</span><br><span class="line">    |   |   |-- email                    # 邮件发送</span><br><span class="line">    |   |   |-- errors                   # 错误页面</span><br><span class="line">    |   |   |-- posts                    # 帖子模板</span><br><span class="line">    |   |   `-- user                     # 用户模板</span><br><span class="line">    |   `-- views                    # 视图文件</span><br><span class="line">    |-- manage.py                    # 项目启动控制文件</span><br><span class="line">    |-- migrations                   # 数据库迁移目录</span><br><span class="line">    |-- requirements.txt             # 依赖包的列表</span><br><span class="line">    `-- tests                        # 测试单元</span><br></pre></td></tr></table></figure></p>
-</blockquote>
+    <title>Linux系统TIPS</title>
+    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
+    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
+<a id="more"></a>
+<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
+<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
 ]]></content>
       <categories>
-        <category>flask</category>
+        <category>linux</category>
       </categories>
       <tags>
-        <tag>flask</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Manjaro下解决Matplotlib中文显示出错</title>
+    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
+    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
+<ul>
+<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
+<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
+<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -117,21 +149,6 @@
 <p>回到标题，Manjaro不适合搞算学术研究和项目开发的人，尤其是学生：研究生。本科生无聊的话可以玩玩Manjaro。</p>
 <p>操作系统还是有公司支持的比较好，像Ubuntu，真的可以，用了快6年了。</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Linux系统TIPS</title>
-    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
-    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
-<a id="more"></a>
-<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
-<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
   </entry>
   <entry>
     <title>Markdown语法</title>
@@ -208,23 +225,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Manjaro下解决Matplotlib中文显示出错</title>
-    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
-    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
-<ul>
-<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
-<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
-<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mysql Command</title>
     <url>/2019/11/05/Mysql-Command/</url>
     <content><![CDATA[<p>This post will record all the mysql command that i used in my projects.</p>
@@ -240,6 +240,17 @@
       <tags>
         <tag>Mysql</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Monte Carlo Methods</title>
+    <url>/2019/10/21/Monte-Carlo-Methods/</url>
+    <content><![CDATA[<p>Unlike Dynamic Programming Methods, Monte Carlo Methods do not assume complete knowledge of the environment. MC only requires experience--sample sequences of states, actions, and rewards from actual or simulated interaction with an environment.</p>
+<h2 id="monte-carlo-prediction">Monte Carlo Prediction</h2>
+<p>The idea underlies all Monte Carlo methods is that as more returns are observed the average should converge to the expected value. So we begin by considerng Monte Carlo methods for learning the state-value function for a given policy. A way to estimate the value of a state from experience is simply to average the returns observed after visits to that state. <a id="more"></a> ## Play with Blackjack ENV <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">env = BlackjackEnv()</span><br><span class="line"><span class="comment"># The observation is a 3-tuple of: the players current sum,</span></span><br><span class="line"><span class="comment"># the dealer's one showing card (1-10 where 1 is ace),</span></span><br><span class="line"><span class="comment"># and whether or not the player holds a usable ace (0 or 1).</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_observation</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    print(<span class="string">"Player Score: &#123;&#125; (Usable Ace: &#123;&#125;), Dealer Score: &#123;&#125;"</span>.format(</span><br><span class="line">          score, usable_ace, dealer_score))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    <span class="comment"># Stick (action 0) if the score is &gt; 20, hit (action 1) otherwise</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> score &gt;= <span class="number">20</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    observation = env.reset()</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        print_observation(observation)</span><br><span class="line">        action = strategy(observation)</span><br><span class="line">        print(<span class="string">"Taking action: &#123;&#125;"</span>.format( [<span class="string">"Stick"</span>, <span class="string">"Hit"</span>][action]))</span><br><span class="line">        observation, reward, done, _ = env.step(action)</span><br><span class="line">        <span class="keyword">if</span> done:</span><br><span class="line">            print_observation(observation)</span><br><span class="line">            print(<span class="string">"Game end. Reward: &#123;&#125;\n"</span>.format(float(reward)))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="first-visit-mc-prediction-algorithm">First-visit MC prediction algorithm</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mc_prediction</span><span class="params">(policy, env, num_episodes, discount_factor=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Monte Carlo prediction algorithm. Calculates the value function</span></span><br><span class="line"><span class="string">    for a given policy using sampling.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        policy: A function that maps an observation to action probabilities.</span></span><br><span class="line"><span class="string">        env: OpenAI gym environment.</span></span><br><span class="line"><span class="string">        num_episodes: Number of episodes to sample.</span></span><br><span class="line"><span class="string">        discount_factor: Gamma discount factor.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        A dictionary that maps from state -&gt; value.</span></span><br><span class="line"><span class="string">        The state is a tuple and the value is a float.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Keeps track of sum and count of returns for each state</span></span><br><span class="line">    <span class="comment"># to calculate an average. We could use an array to save all</span></span><br><span class="line">    <span class="comment"># returns (like in the book) but that's memory inefficient.</span></span><br><span class="line">    returns_sum = defaultdict(float)</span><br><span class="line">    returns_count = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># The final value function</span></span><br><span class="line">    V = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Implement this!</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        episode = []</span><br><span class="line">        state = env.reset()</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            action = policy(state)</span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            state = next_state</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Find all states the we've visited in this episode</span></span><br><span class="line">        <span class="comment"># We convert each state to a tuple so that we can use it as a dict key</span></span><br><span class="line">        states_in_episode = set([tuple(x[<span class="number">0</span>]) <span class="keyword">for</span> x <span class="keyword">in</span> episode])</span><br><span class="line">        <span class="keyword">for</span> state <span class="keyword">in</span> states_in_episode:</span><br><span class="line">            <span class="comment">#print(state)</span></span><br><span class="line">            <span class="comment">#print(10*'*')</span></span><br><span class="line">            <span class="comment"># Find the first occurance of the state in the episode</span></span><br><span class="line">            first_occurence_idx = next(i <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode) <span class="keyword">if</span> x[<span class="number">0</span>] == state)</span><br><span class="line">            <span class="comment"># Sum up all rewards since the first occurance</span></span><br><span class="line">            G = sum([x[<span class="number">2</span>]*(discount_factor**i) <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode[first_occurence_idx:])])</span><br><span class="line">            <span class="comment"># Calculate average return for this state over all sampled episodes</span></span><br><span class="line">            returns_sum[state] += G</span><br><span class="line">            returns_count[state] += <span class="number">1.0</span></span><br><span class="line">            V[state] = returns_sum[state] / returns_count[state]</span><br><span class="line">    print(len(V))</span><br><span class="line">    print(first_occurence_idx)</span><br><span class="line">    print(states_in_episode)</span><br><span class="line">    print(episode)</span><br><span class="line">    <span class="keyword">return</span> V</span><br></pre></td></tr></table></figure>
+<p><img src="10000_Steps_No_Usable_Ace.png" alt="10000_Steps_No_Usable_Ace" /> <img src="10000_Steps_Usable_Ace.png" alt="10000_Steps_Usable_Ace" /> <img src="500000_Steps_No_Usable_Ace.png" alt="500000_Steps_No_Usable_Ace" /> <img src="500000_Steps_Usable_Ace.png" alt="500000_Steps_Usable_Ace" /></p>
+]]></content>
   </entry>
   <entry>
     <title>PGADP数据驱动的优化控制</title>
@@ -319,17 +330,6 @@ Q_{u}\left(x_{k}, \mu\right) &amp;=\mathcal{R}\left(x_{k}, \mu\right)+Q_{u}\left
       <tags>
         <tag>Reinforcement Learning</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Monte Carlo Methods</title>
-    <url>/2019/10/21/Monte-Carlo-Methods/</url>
-    <content><![CDATA[<p>Unlike Dynamic Programming Methods, Monte Carlo Methods do not assume complete knowledge of the environment. MC only requires experience--sample sequences of states, actions, and rewards from actual or simulated interaction with an environment.</p>
-<h2 id="monte-carlo-prediction">Monte Carlo Prediction</h2>
-<p>The idea underlies all Monte Carlo methods is that as more returns are observed the average should converge to the expected value. So we begin by considerng Monte Carlo methods for learning the state-value function for a given policy. A way to estimate the value of a state from experience is simply to average the returns observed after visits to that state. <a id="more"></a> ## Play with Blackjack ENV <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">env = BlackjackEnv()</span><br><span class="line"><span class="comment"># The observation is a 3-tuple of: the players current sum,</span></span><br><span class="line"><span class="comment"># the dealer's one showing card (1-10 where 1 is ace),</span></span><br><span class="line"><span class="comment"># and whether or not the player holds a usable ace (0 or 1).</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_observation</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    print(<span class="string">"Player Score: &#123;&#125; (Usable Ace: &#123;&#125;), Dealer Score: &#123;&#125;"</span>.format(</span><br><span class="line">          score, usable_ace, dealer_score))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    <span class="comment"># Stick (action 0) if the score is &gt; 20, hit (action 1) otherwise</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> score &gt;= <span class="number">20</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    observation = env.reset()</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        print_observation(observation)</span><br><span class="line">        action = strategy(observation)</span><br><span class="line">        print(<span class="string">"Taking action: &#123;&#125;"</span>.format( [<span class="string">"Stick"</span>, <span class="string">"Hit"</span>][action]))</span><br><span class="line">        observation, reward, done, _ = env.step(action)</span><br><span class="line">        <span class="keyword">if</span> done:</span><br><span class="line">            print_observation(observation)</span><br><span class="line">            print(<span class="string">"Game end. Reward: &#123;&#125;\n"</span>.format(float(reward)))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="first-visit-mc-prediction-algorithm">First-visit MC prediction algorithm</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mc_prediction</span><span class="params">(policy, env, num_episodes, discount_factor=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Monte Carlo prediction algorithm. Calculates the value function</span></span><br><span class="line"><span class="string">    for a given policy using sampling.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        policy: A function that maps an observation to action probabilities.</span></span><br><span class="line"><span class="string">        env: OpenAI gym environment.</span></span><br><span class="line"><span class="string">        num_episodes: Number of episodes to sample.</span></span><br><span class="line"><span class="string">        discount_factor: Gamma discount factor.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        A dictionary that maps from state -&gt; value.</span></span><br><span class="line"><span class="string">        The state is a tuple and the value is a float.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Keeps track of sum and count of returns for each state</span></span><br><span class="line">    <span class="comment"># to calculate an average. We could use an array to save all</span></span><br><span class="line">    <span class="comment"># returns (like in the book) but that's memory inefficient.</span></span><br><span class="line">    returns_sum = defaultdict(float)</span><br><span class="line">    returns_count = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># The final value function</span></span><br><span class="line">    V = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Implement this!</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        episode = []</span><br><span class="line">        state = env.reset()</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            action = policy(state)</span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            state = next_state</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Find all states the we've visited in this episode</span></span><br><span class="line">        <span class="comment"># We convert each state to a tuple so that we can use it as a dict key</span></span><br><span class="line">        states_in_episode = set([tuple(x[<span class="number">0</span>]) <span class="keyword">for</span> x <span class="keyword">in</span> episode])</span><br><span class="line">        <span class="keyword">for</span> state <span class="keyword">in</span> states_in_episode:</span><br><span class="line">            <span class="comment">#print(state)</span></span><br><span class="line">            <span class="comment">#print(10*'*')</span></span><br><span class="line">            <span class="comment"># Find the first occurance of the state in the episode</span></span><br><span class="line">            first_occurence_idx = next(i <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode) <span class="keyword">if</span> x[<span class="number">0</span>] == state)</span><br><span class="line">            <span class="comment"># Sum up all rewards since the first occurance</span></span><br><span class="line">            G = sum([x[<span class="number">2</span>]*(discount_factor**i) <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode[first_occurence_idx:])])</span><br><span class="line">            <span class="comment"># Calculate average return for this state over all sampled episodes</span></span><br><span class="line">            returns_sum[state] += G</span><br><span class="line">            returns_count[state] += <span class="number">1.0</span></span><br><span class="line">            V[state] = returns_sum[state] / returns_count[state]</span><br><span class="line">    print(len(V))</span><br><span class="line">    print(first_occurence_idx)</span><br><span class="line">    print(states_in_episode)</span><br><span class="line">    print(episode)</span><br><span class="line">    <span class="keyword">return</span> V</span><br></pre></td></tr></table></figure>
-<p><img src="10000_Steps_No_Usable_Ace.png" alt="10000_Steps_No_Usable_Ace" /> <img src="10000_Steps_Usable_Ace.png" alt="10000_Steps_Usable_Ace" /> <img src="500000_Steps_No_Usable_Ace.png" alt="500000_Steps_No_Usable_Ace" /> <img src="500000_Steps_Usable_Ace.png" alt="500000_Steps_Usable_Ace" /></p>
-]]></content>
   </entry>
   <entry>
     <title>Play with CartPole</title>
@@ -689,27 +689,6 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </tags>
   </entry>
   <entry>
-    <title>*args 和 **kwargs</title>
-    <url>/2019/02/12/args-%E5%92%8C-kwargs/</url>
-    <content><![CDATA[<p>很多Python新手都无法搞清<code>*args</code>与<code>**kwargs</code>这两个魔术变量。那么他们到底是什么呢？让我来告诉你。在实际程序中，我们没有必要非得写成<code>*args</code>与<code>**kwargs</code>这样的形式，你也可以写成<code>*var</code>与<code>**vars</code>。写成<code>*args</code>与<code>**kwargs</code>的形式只是一种惯例。 <a id="more"></a> ## *args的用法 <code>*args</code>与<code>**kwargs</code>主要用于函数的定义。<code>*args</code>与<code>**kwargs</code>允许你将可变数量的参数传递给函数。这里的<strong>可变</strong>意味着你事先是不知道用户可以向你传递多少参数。因此在这种情况下你可以使用这两个关键字。<code>*args</code>用于向函数发送没有关键字的可变长度参数列表。以下是一个例子：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_var_args</span><span class="params">(f_arg, *args)</span>:</span></span><br><span class="line">    print(<span class="string">"first normal arg: "</span>, f_arg)</span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> args:</span><br><span class="line">        print(<span class="string">"another arg through *args: "</span>, ar)</span><br><span class="line"></span><br><span class="line">test_var_args(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>)</span><br></pre></td></tr></table></figure>
-<p>这会产生以下结果： <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">first normal arg: a</span><br><span class="line">another arg through *args: b</span><br><span class="line">another arg through *args: c</span><br><span class="line">another arg through *args: d</span><br></pre></td></tr></table></figure></p>
-<h2 id="kwargs-kwargs允许你将键值对也就是字典形式的参数的可变长度的参数传递给函数如果要在函数中处理命名参数则应该使用kwargs下面是一个例子">**kwargs <code>kwargs</code>允许你将键值对[也就是字典形式的参数]的可变长度的参数传递给函数。如果要在函数中处理命名参数，则应该使用<code>**kwargs</code>，下面是一个例子：</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_me</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> kwargs.items():</span><br><span class="line">        print(<span class="string">"&#123;0&#125; = &#123;1&#125;"</span>.format(key, value))</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>greet_me(name=<span class="string">"oliverxu"</span>)</span><br><span class="line">name = oliverxu</span><br></pre></td></tr></table></figure>
-<h2 id="使用args和kwargs来调用函数">使用<code>*args</code>和<code>*kwargs</code>来调用函数</h2>
-<p>首先我们先定义一个函数：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_args_kwargs</span><span class="params">(arg1, arg2, arg3)</span>:</span></span><br><span class="line">    print(<span class="string">"arg1:"</span>, arg1)</span><br><span class="line">    print(<span class="string">"arg2:"</span>, arg2)</span><br><span class="line">    print(<span class="string">"arg3:"</span>, arg3)</span><br></pre></td></tr></table></figure>
-<p>现在，可以用<code>*args</code>和<code>**kwargs</code>来将参数传递给这个函数：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>args = (<span class="string">"two"</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(*args)</span><br><span class="line">arg1: arg1</span><br><span class="line">arg2: arg2</span><br><span class="line">arg3: arg3</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>kwargs = &#123;<span class="string">"arg3"</span>:<span class="number">3</span>, <span class="string">"arg2"</span>: <span class="string">"two"</span>, <span class="string">"arg1"</span>: <span class="number">5</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(**kwargs)</span><br><span class="line">arg1: <span class="number">5</span></span><br><span class="line">arg2: two</span><br><span class="line">arg3: <span class="number">3</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Word与Latex</title>
     <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
     <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
@@ -732,6 +711,27 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </categories>
       <tags>
         <tag>Latex</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>*args 和 **kwargs</title>
+    <url>/2019/02/12/args-%E5%92%8C-kwargs/</url>
+    <content><![CDATA[<p>很多Python新手都无法搞清<code>*args</code>与<code>**kwargs</code>这两个魔术变量。那么他们到底是什么呢？让我来告诉你。在实际程序中，我们没有必要非得写成<code>*args</code>与<code>**kwargs</code>这样的形式，你也可以写成<code>*var</code>与<code>**vars</code>。写成<code>*args</code>与<code>**kwargs</code>的形式只是一种惯例。 <a id="more"></a> ## *args的用法 <code>*args</code>与<code>**kwargs</code>主要用于函数的定义。<code>*args</code>与<code>**kwargs</code>允许你将可变数量的参数传递给函数。这里的<strong>可变</strong>意味着你事先是不知道用户可以向你传递多少参数。因此在这种情况下你可以使用这两个关键字。<code>*args</code>用于向函数发送没有关键字的可变长度参数列表。以下是一个例子：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_var_args</span><span class="params">(f_arg, *args)</span>:</span></span><br><span class="line">    print(<span class="string">"first normal arg: "</span>, f_arg)</span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> args:</span><br><span class="line">        print(<span class="string">"another arg through *args: "</span>, ar)</span><br><span class="line"></span><br><span class="line">test_var_args(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>)</span><br></pre></td></tr></table></figure>
+<p>这会产生以下结果： <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">first normal arg: a</span><br><span class="line">another arg through *args: b</span><br><span class="line">another arg through *args: c</span><br><span class="line">another arg through *args: d</span><br></pre></td></tr></table></figure></p>
+<h2 id="kwargs-kwargs允许你将键值对也就是字典形式的参数的可变长度的参数传递给函数如果要在函数中处理命名参数则应该使用kwargs下面是一个例子">**kwargs <code>kwargs</code>允许你将键值对[也就是字典形式的参数]的可变长度的参数传递给函数。如果要在函数中处理命名参数，则应该使用<code>**kwargs</code>，下面是一个例子：</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_me</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> kwargs.items():</span><br><span class="line">        print(<span class="string">"&#123;0&#125; = &#123;1&#125;"</span>.format(key, value))</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>greet_me(name=<span class="string">"oliverxu"</span>)</span><br><span class="line">name = oliverxu</span><br></pre></td></tr></table></figure>
+<h2 id="使用args和kwargs来调用函数">使用<code>*args</code>和<code>*kwargs</code>来调用函数</h2>
+<p>首先我们先定义一个函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_args_kwargs</span><span class="params">(arg1, arg2, arg3)</span>:</span></span><br><span class="line">    print(<span class="string">"arg1:"</span>, arg1)</span><br><span class="line">    print(<span class="string">"arg2:"</span>, arg2)</span><br><span class="line">    print(<span class="string">"arg3:"</span>, arg3)</span><br></pre></td></tr></table></figure>
+<p>现在，可以用<code>*args</code>和<code>**kwargs</code>来将参数传递给这个函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>args = (<span class="string">"two"</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(*args)</span><br><span class="line">arg1: arg1</span><br><span class="line">arg2: arg2</span><br><span class="line">arg3: arg3</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>kwargs = &#123;<span class="string">"arg3"</span>:<span class="number">3</span>, <span class="string">"arg2"</span>: <span class="string">"two"</span>, <span class="string">"arg1"</span>: <span class="number">5</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(**kwargs)</span><br><span class="line">arg1: <span class="number">5</span></span><br><span class="line">arg2: two</span><br><span class="line">arg3: <span class="number">3</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -979,6 +979,34 @@ x
       </tags>
   </entry>
   <entry>
+    <title>健身房计划制定与动作</title>
+    <url>/2020/08/24/%E5%81%A5%E8%BA%AB%E6%88%BF%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
+    <content><![CDATA[<p>这篇文章整理我用到的训练计划和训练动作与健身记录。</p>
+<a id="more"></a>
+<h2 id="手臂超级组">手臂超级组</h2>
+<h3 id="组1">组1</h3>
+<p>杠铃弯举</p>
+<p>窄距杠铃卧推</p>
+<h3 id="组2">组2</h3>
+<p>锤式哑铃弯举</p>
+<p>仰卧杠铃臂屈伸</p>
+<h3 id="组3">组3</h3>
+<p>二头绳索弯举</p>
+<p>三头绳索下压</p>
+<h3 id="组4">组4</h3>
+<p>背后曲臂伸</p>
+<p>哑铃交替弯举</p>
+<h3 id="做法">做法</h3>
+<p>每两个动作（二头屈，三头伸）为一个超级组，每个超级组做3组，每组的两个动作分别做8-12RM。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用本地服务器结合github action推送github pages</title>
     <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
     <content><![CDATA[<h2 id="需求">需求</h2>
@@ -1036,34 +1064,6 @@ x
       </categories>
       <tags>
         <tag>raspberry</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>健身房计划制定与动作</title>
-    <url>/2020/08/24/%E5%81%A5%E8%BA%AB%E6%88%BF%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
-    <content><![CDATA[<p>这篇文章整理我用到的训练计划和训练动作与健身记录。</p>
-<a id="more"></a>
-<h2 id="手臂超级组">手臂超级组</h2>
-<h3 id="组1">组1</h3>
-<p>杠铃弯举</p>
-<p>窄距杠铃卧推</p>
-<h3 id="组2">组2</h3>
-<p>锤式哑铃弯举</p>
-<p>仰卧杠铃臂屈伸</p>
-<h3 id="组3">组3</h3>
-<p>二头绳索弯举</p>
-<p>三头绳索下压</p>
-<h3 id="组4">组4</h3>
-<p>背后曲臂伸</p>
-<p>哑铃交替弯举</p>
-<h3 id="做法">做法</h3>
-<p>每两个动作（二头屈，三头伸）为一个超级组，每个超级组做3组，每组的两个动作分别做8-12RM。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -1305,6 +1305,33 @@ x
       </tags>
   </entry>
   <entry>
+    <title>初学数据库-sqlite3 简介</title>
+    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
+</blockquote>
+<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
+<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
+<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
+<h2 id="于是数据库出现了">于是，数据库出现了</h2>
+<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
+<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
+<h2 id="数据库种类">数据库种类</h2>
+<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
+<h3 id="非关系型数据库">2.非关系型数据库</h3>
+<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
+<h2 id="sqlite3">sqlite3</h2>
+<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>利用虚拟主机搭建一个验证爬虫代理IP是否有效的服务</title>
     <url>/2018/10/14/%E5%88%A9%E7%94%A8%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%AA%8C%E8%AF%81%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88%E7%9A%84%E6%9C%8D%E5%8A%A1/</url>
     <content><![CDATA[<blockquote>
@@ -1339,33 +1366,6 @@ x
       </categories>
       <tags>
         <tag>爬虫 代理IP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初学数据库-sqlite3 简介</title>
-    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
-</blockquote>
-<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
-<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
-<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
-<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
-<h2 id="于是数据库出现了">于是，数据库出现了</h2>
-<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
-<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
-<h2 id="数据库种类">数据库种类</h2>
-<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
-<h3 id="非关系型数据库">2.非关系型数据库</h3>
-<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
-<h2 id="sqlite3">sqlite3</h2>
-<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>
@@ -1564,19 +1564,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>折半查找</title>
-    <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
-    <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
-<p>算法分析：折半查找 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bin_search</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,high,low;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=(high+low)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">10</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">19</span>,<span class="number">21</span>&#125;</span><br><span class="line">    <span class="keyword">int</span> i,n,addr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The contents of the Array A[10] are\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, A[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPlease input a interger for search\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    addr = bin_search(A,<span class="number">10</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(addr != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d is at the %dth unit is array A\n "</span>,n,addr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"There is no %d in array A\n"</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>数据结构 算法 排序</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>强化学习：有限马尔科夫决策过程</title>
     <url>/2019/04/14/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%9A%E6%9C%89%E9%99%90%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/</url>
     <content><![CDATA[<p>本文是reinforcement learning:An introduction书第三章的翻译．</p>
@@ -1693,6 +1680,19 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>折半查找</title>
+    <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
+    <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
+<p>算法分析：折半查找 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bin_search</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,high,low;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=(high+low)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">10</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">19</span>,<span class="number">21</span>&#125;</span><br><span class="line">    <span class="keyword">int</span> i,n,addr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The contents of the Array A[10] are\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, A[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPlease input a interger for search\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    addr = bin_search(A,<span class="number">10</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(addr != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d is at the %dth unit is array A\n "</span>,n,addr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"There is no %d in array A\n"</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构 算法 排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>服务器被黑记录</title>
     <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
@@ -1752,6 +1752,19 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>粒子群算法库-PySwarms的可视化</title>
+    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
+    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
+<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>粒子群算法(PSO)的数学原理</title>
     <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95-PSO-%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h2 id="粒子群算法的起源">粒子群算法的起源</h2>
@@ -1787,34 +1800,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>粒子群算法库-PySwarms的可视化</title>
-    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
-    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
-<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>软路由</title>
-    <url>/2020/08/17/%E8%BD%AF%E8%B7%AF%E7%94%B1/</url>
-    <content><![CDATA[<p>今天装了用虚拟机装了一台软路由，总结两个字：真香</p>
-<a id="more"></a>
-<p>软路由用作旁路由，搭建socks5代理，速度比windows直接用快了将近30倍。</p>
-<p>不知道是啥原因，可能是Linux和Windows系统上的区别？</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1867,6 +1852,21 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>软路由</title>
+    <url>/2020/08/17/%E8%BD%AF%E8%B7%AF%E7%94%B1/</url>
+    <content><![CDATA[<p>今天装了用虚拟机装了一台软路由，总结两个字：真香</p>
+<a id="more"></a>
+<p>软路由用作旁路由，搭建socks5代理，速度比windows直接用快了将近30倍。</p>
+<p>不知道是啥原因，可能是Linux和Windows系统上的区别？</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Flask速成项目：Flask实现计算机资源的实时监控</title>
     <url>/2018/09/30/Flask%E9%80%9F%E6%88%90%E9%A1%B9%E7%9B%AE%EF%BC%9AFlask%E5%AE%9E%E7%8E%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%B5%84%E6%BA%90%E7%9A%84%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7/</url>
     <content><![CDATA[<blockquote>
@@ -1895,6 +1895,71 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Input Convex Neural Network复现及仿真验证</title>
+    <url>/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/</url>
+    <content><![CDATA[<p>《Input Convex Neural Networks》</p>
+<p>《Optimal Control Via Neural Networks: A Convex Approach》</p>
+<p>对于复杂系统的控制往往分为两步，对系统的辨识和控制器的设计。 深度神经网络被证明在辨识任务中取得了重大成功，但是，由于这些辨识出来的系统往往是非线性和非凸的，其控制器很难设计，所以，实际系统往往还是用线性模型去逼近，尽管这些线性模型的拟合能力很弱，因此，往往设计出来的控制器的性能都不行。</p>
+<p>这两篇文章，主要提出了ICNN及其改进网络结构，ICNN的特点就是对于输入是凸的，第一篇文章主要提出了ICNN这一网络结构，通过将神经网络的前向通道中的权重设置为非负值，这一简单的改变，就可以将神经网络变为输入凸的，且该网络的拟合能力并为受到较大的影响。</p>
+<p>这篇文章主要完成3点：</p>
+<ol type="1">
+<li>复现ICNN，原版的ICNN是用tensorflow写的，代码不全，且使用了较老的库版本，运行不了，在此采用pytorch进行复现出一个通用程序。</li>
+<li>对于一个给定的函数：<span class="math inline">\(y=3x_1^2+4x_2^2\)</span>，利用普通的DNN，和ICNN进行对比，验证ICNN的拟合能力（验证的过程使用相同的网络层数，每层的节点数，学习率等参数）。</li>
+<li>对于《Input Convex Neural Networks》中的simulation中的synthetic 2D example和《Optimal Control Via Neural Networks: A Convex Approach》中的APPENDIX中的Toy Example分别进行复现及仿真验证。</li>
+</ol>
+<a id="more"></a>
+<h2 id="icnn原理及证明">ICNN原理及证明</h2>
+<h3 id="icnn网络结构">ICNN网络结构</h3>
+<figure>
+<img src="image-20210302145927461.png" alt="image-20210302145927461" /><figcaption>image-20210302145927461</figcaption>
+</figure>
+<p><span class="math display">\[z_{i+1}=g_{i}\left(W_{i}^{(z)} z_{i}+W_{i}^{(y)} y+b_{i}\right), \quad f(y ; \theta)=z_{k}\]</span>，</p>
+<p>Figure1是全连接的凸的，k层ICNN，记为：FICNN，令输入记为：<span class="math inline">\(y\)</span>，<span class="math inline">\(z_i\)</span>记为每一个激活函数的输出，<span class="math inline">\(\theta\)</span>记为所有的参数：<span class="math inline">\(\theta=\left\{W_{0: k-1}^{(y)}, W_{1: k-1}^{(z)}, b_{0: k-1}\right\}\)</span>，<span class="math inline">\(g_i\)</span>是非线性激活函数，网络凸的性质的主要结果如下：</p>
+<p><strong><em>结论</em></strong>：<strong>函数<span class="math inline">\(f\)</span>对于<span class="math inline">\(y\)</span>是凸函数，当所有的<span class="math inline">\(W_{1: k-1}^{(z)}\)</span>是非负，且所有的<span class="math inline">\(g_i\)</span>是凸的非增函数</strong></p>
+<p><strong><em>分析：</em></strong></p>
+<ol type="1">
+<li><p>ICNN网络结构中，从输入直接传递到隐含层的叫"passthrough"，这样的连接在传统的前馈神经网络中是没有必要的，因为前面的神经网络的层的信息总是会被映射到下一个神经网络层中，但是在ICNN中，由于<span class="math inline">\(W^{(z)}\)</span>被限制为非负，所以导致拟合能力下降，且前面网络的信息无法被传递到下一个层中，因此，需要使用额外的passthrough。</p></li>
+<li><p>对于<span class="math inline">\(b_i\)</span>来说，放到前向传播中，或者passthrough中，都是等价的。</p></li>
+<li><p>passthrough中的weight和bias都是可以为负的，没有限制。</p></li>
+</ol>
+<h3 id="icnn输入凸的证明">ICNN输入凸的证明</h3>
+<h2 id="icnn基本结构pytorch复现">ICNN基本结构Pytorch复现</h2>
+<h2 id="y3x_124x_22仿真算例"><span class="math inline">\(y=3x_1^2+4x_2^2\)</span>仿真算例</h2>
+<p>仿真算例：<span class="math inline">\(y=3x_1^2+4x_2^2\)</span></p>
+<figure>
+<img src="image-20210302152548355.png" alt="image-20210302152548355" /><figcaption>image-20210302152548355</figcaption>
+</figure>
+<h3 id="训练数据生成">训练数据生成</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>在-5, 5中随机采样1000个数据点</p>
+<p>验证方法：对单个目标进行验证时，当输入是[2, 2]时，理论输出应该是[28]，同时，输出其MSE的数值并画出其图片。</p>
+<h3 id="对比其拟合能力">对比其拟合能力：</h3>
+<h4 id="普通神经网络的拟合能力">普通神经网络的拟合能力</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Model</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">  <span class="string">'''</span></span><br><span class="line"><span class="string">  定义普通全连结神经网络模型</span></span><br><span class="line"><span class="string">  '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n_feature=<span class="number">2</span>, n_hidden=<span class="number">4</span>, n_output=<span class="number">1</span>, nGdIter=<span class="number">30</span>)</span>:</span></span><br><span class="line">        super(Model, self).__init__()</span><br><span class="line">        self.input_layer = nn.Linear(n_feature, n_hidden)</span><br><span class="line">        self.hidden_layer = nn.Linear(n_hidden, n_hidden)</span><br><span class="line">        self.output_layer = nn.Linear(n_hidden, n_output)</span><br><span class="line">        self.act = nn.ReLU()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x = self.input_layer(x)</span><br><span class="line">        x = self.act(x)</span><br><span class="line">        x = self.hidden_layer(x)</span><br><span class="line">        x = self.act(x)</span><br><span class="line">        x = self.output_layer(x)</span><br><span class="line">        <span class="comment"># 输出层加上了relu激活函数后会导致很难收敛</span></span><br><span class="line">        <span class="comment">#x = self.act(x)</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_noncvx_network</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 构造虚拟数据用于训练：y=3x1^2+4x2^2</span></span><br><span class="line">    x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">    x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">    x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">    x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">    y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br><span class="line">    model = NonCvxModel(n_feature=<span class="number">2</span>, n_hidden=<span class="number">200</span>, n_output=<span class="number">1</span>)</span><br><span class="line">    criterion = torch.nn.MSELoss(reduction=<span class="string">'sum'</span>)</span><br><span class="line">    learning_rate = <span class="number">1e-3</span></span><br><span class="line">    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)</span><br><span class="line">    terminate_threshold = <span class="number">1e-5</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">        y_pred = model(x)</span><br><span class="line">        loss = criterion(y_pred, y)/y.size()[<span class="number">0</span>]</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">500</span> == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"当前正在训练第&#123;&#125;次， 损失是&#123;&#125;"</span>.format(i, loss.item()))</span><br><span class="line">            test_model(model)</span><br><span class="line">        <span class="keyword">if</span> loss.item()&lt;terminate_threshold:</span><br><span class="line">            print(<span class="string">"训练满足精度要求，训练了&#123;&#125;次。"</span>.format(i))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">0     500  29.005009</span><br><span class="line">1    1000   5.884062</span><br><span class="line">2    1500   1.050613</span><br><span class="line">3    2000   0.301482</span><br><span class="line">4    2500   0.141028</span><br><span class="line">5    3000   0.078763</span><br><span class="line">6    3500   0.048814</span><br><span class="line">7    4000   0.030913</span><br><span class="line">8    4500   0.021231</span><br><span class="line">9    5000   0.016060</span><br><span class="line">10   5500   0.012875</span><br><span class="line">11   6000   0.010986</span><br><span class="line">12   6500   0.009771</span><br><span class="line">13   7000   0.008564</span><br><span class="line">14   7500   0.007799</span><br><span class="line">15   8000   0.009830</span><br><span class="line">16   8500   0.046179</span><br><span class="line">17   9000   0.006437</span><br><span class="line">18   9500   0.013724</span><br><span class="line">19  10000   0.005822</span><br><span class="line">20  10500   0.005917</span><br><span class="line">21  11000   0.005384</span><br><span class="line">22  11500   0.005134</span><br><span class="line">23  12000   0.030397</span><br><span class="line">24  12500   0.005959</span><br><span class="line">25  13000   0.004671</span><br><span class="line">26  13500   0.004517</span><br><span class="line">27  14000   0.004421</span><br><span class="line">28  14500   0.004290</span><br><span class="line">29  15000   0.008322</span><br><span class="line">30  15500   0.019044</span><br><span class="line">31  16000   0.011500</span><br><span class="line">32  16500   0.003893</span><br><span class="line">33  17000   0.003794</span><br><span class="line">34  17500   0.003694</span><br><span class="line">35  18000   0.004458</span><br><span class="line">36  18500   0.003805</span><br><span class="line">37  19000   0.003468</span><br><span class="line">38  19500   0.008987</span><br><span class="line">39  20000   0.003343</span><br><span class="line">40  20500   0.003368</span><br><span class="line">41  21000   0.007225</span><br><span class="line">42  21500   0.003226</span><br><span class="line">43  22000   0.003124</span><br><span class="line">44  22500   0.003073</span><br><span class="line">45  23000   0.002998</span><br><span class="line">46  23500   0.025686</span><br><span class="line">47  24000   0.003000</span><br><span class="line">48  24500   0.002887</span><br><span class="line">49  25000   0.002838</span><br><span class="line">50  25500   0.002903</span><br><span class="line">51  26000   0.002845</span><br><span class="line">52  26500   0.004229</span><br><span class="line">53  27000   0.002733</span><br><span class="line">54  27500   0.008934</span><br><span class="line">55  28000   0.012964</span><br><span class="line">56  28500   0.018379</span><br><span class="line">57  29000   0.011293</span><br><span class="line">58  29500   0.007785</span><br><span class="line">59  30000   0.002500</span><br><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第30000次， 损失是0.002500230213627219</span><br><span class="line">模型预测的数值是： tensor([27.9667], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
+<p><img src="image-20210302162912494.png" alt="image-20210302162912494" style="zoom:50%;" /></p>
+<h4 id="icnn的拟合能力">ICNN的拟合能力</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CvxModel</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        输入凸神经网络结构定义</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n_feature=<span class="number">2</span>, n_hidden=<span class="number">4</span>, n_output=<span class="number">1</span>, nGdIter=<span class="number">30</span>)</span>:</span></span><br><span class="line">        super(CvxModel, self).__init__()</span><br><span class="line">        self.input_layer = nn.Linear(n_feature, n_hidden, bias=<span class="literal">False</span>)</span><br><span class="line">        self.hidden_layer = nn.Linear(n_hidden, n_hidden, bias=<span class="literal">False</span>)</span><br><span class="line">        self.output_layer = nn.Linear(n_hidden, n_output, bias=<span class="literal">False</span>)</span><br><span class="line">        self.passthrough_layer = nn.Linear(n_feature, n_hidden)</span><br><span class="line">        self.passthrough_output_layer = nn.Linear(n_feature, n_output)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        zx1 = F.relu(self.input_layer(x))</span><br><span class="line">        pass1 = self.passthrough_layer(x)</span><br><span class="line">        pass2 = self.passthrough_output_layer(x)</span><br><span class="line">        zx2 = F.relu(self.hidden_layer(zx1) + pass1)</span><br><span class="line">        zx3 = self.output_layer(zx2) + pass2</span><br><span class="line">        <span class="keyword">return</span> zx3</span><br><span class="line">      </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">weightConstraint</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        对一个特定的层的weight进行参数限制</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, module)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> hasattr(module, <span class="string">'weight'</span>):</span><br><span class="line">            w = module.weight.data</span><br><span class="line">            w = w.clamp(<span class="number">0.0</span>, <span class="number">100.0</span>)</span><br><span class="line">            module.weight.data = w</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当对权重有非负的限制时，训练神经网络</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train_with_constrains</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 先对参数进行限制到[-1, 1]进行仿真验证</span></span><br><span class="line">    <span class="comment"># 构造虚拟数据用于训练：y=3x1^2+4x2^2</span></span><br><span class="line">    x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">    x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">    x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">    x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">    y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    model = CvxModel(n_feature=<span class="number">2</span>, n_hidden=<span class="number">200</span>, n_output=<span class="number">1</span>)</span><br><span class="line">    constraints = weightConstraint()</span><br><span class="line">    criterion = torch.nn.MSELoss(reduction=<span class="string">'sum'</span>)</span><br><span class="line">    learning_rate = <span class="number">1e-3</span></span><br><span class="line">    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)</span><br><span class="line">    terminate_threshold = <span class="number">1e-5</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">        y_pred = model(x)</span><br><span class="line">        loss = criterion(y_pred, y)/y.size()[<span class="number">0</span>]</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        model._modules[<span class="string">'input_layer'</span>].apply(constraints)</span><br><span class="line">        model._modules[<span class="string">'hidden_layer'</span>].apply(constraints)</span><br><span class="line">        model._modules[<span class="string">'output_layer'</span>].apply(constraints)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">500</span> == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"当前正在训练第&#123;&#125;次， 损失是&#123;&#125;"</span>.format(i, loss.item()))</span><br><span class="line">            test_model(model)</span><br><span class="line">            weight_print(model)</span><br><span class="line">        <span class="keyword">if</span> loss.item()&lt;terminate_threshold:</span><br><span class="line">            print(<span class="string">"训练满足精度要求，训练了&#123;&#125;次。"</span>.format(i))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">0     500  250.070984</span><br><span class="line">1    1000  140.255447</span><br><span class="line">2    1500   67.511780</span><br><span class="line">3    2000   28.515696</span><br><span class="line">4    2500   13.275652</span><br><span class="line">5    3000    7.189941</span><br><span class="line">6    3500    4.197995</span><br><span class="line">7    4000    2.512518</span><br><span class="line">8    4500    1.544901</span><br><span class="line">9    5000    0.974513</span><br><span class="line">10   5500    0.637949</span><br><span class="line">11   6000    0.421706</span><br><span class="line">12   6500    0.279455</span><br><span class="line">13   7000    0.605793</span><br><span class="line">14   7500    0.140771</span><br><span class="line">15   8000    0.100952</span><br><span class="line">16   8500    0.072434</span><br><span class="line">17   9000    0.065805</span><br><span class="line">18   9500    0.046082</span><br><span class="line">19  10000    0.035448</span><br><span class="line">20  10500    0.027883</span><br><span class="line">21  11000    0.035439</span><br><span class="line">22  11500    0.020767</span><br><span class="line">23  12000    0.017025</span><br><span class="line">24  12500    0.020460</span><br><span class="line">25  13000    0.016357</span><br><span class="line">26  13500    0.013486</span><br><span class="line">27  14000    0.013836</span><br><span class="line">28  14500    0.011874</span><br><span class="line">29  15000    0.019069</span><br><span class="line">30  15500    0.011665</span><br><span class="line">31  16000    0.010154</span><br><span class="line">32  16500    0.011716</span><br><span class="line">33  17000    0.009304</span><br><span class="line">34  17500    0.007975</span><br><span class="line">35  18000    0.007628</span><br><span class="line">36  18500    0.006882</span><br><span class="line">37  19000    0.993199</span><br><span class="line">38  19500    0.006250</span><br><span class="line">39  20000    0.076224</span><br><span class="line">40  20500    0.005728</span><br><span class="line">41  21000    0.005862</span><br><span class="line">42  21500    0.005021</span><br><span class="line">43  22000    0.005911</span><br><span class="line">44  22500    0.005376</span><br><span class="line">45  23000    0.004734</span><br><span class="line">46  23500    0.004461</span><br><span class="line">47  24000    0.004778</span><br><span class="line">48  24500    0.004454</span><br><span class="line">49  25000    0.004859</span><br><span class="line">50  25500    0.004430</span><br><span class="line">51  26000    0.004365</span><br><span class="line">52  26500    0.004022</span><br><span class="line">53  27000    0.044836</span><br><span class="line">54  27500    0.003724</span><br><span class="line">55  28000    0.003986</span><br><span class="line">56  28500    0.003676</span><br><span class="line">57  29000    0.003535</span><br><span class="line">58  29500    0.003660</span><br><span class="line">59  30000    0.003258</span><br><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第30000次， 损失是0.00325777824036777</span><br><span class="line">模型预测的数值是： tensor([28.0241], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
+<p><img src="image-20210302162929557.png" alt="image-20210302162929557" style="zoom:50%;" /></p>
+<p>可以看出，在使用相同adam优化器参数的条件下，DNN相比ICNN，优化的速度更快。</p>
+<p>而当将adam优化器的参数从<span class="math inline">\(1e-3\)</span>改变为<span class="math inline">\(1e-2\)</span>后，仿真结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第500次， 损失是4.0928754806518555</span><br><span class="line">模型预测的数值是： tensor([26.7256], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
+<p>对于上面所仿真的普通的DNN，若将其adam优化器同时改变之后，仿真结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第500次， 损失是0.12059637159109116</span><br><span class="line">模型预测的数值是： tensor([28.0837], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
+<p>Adam优化器的参数对于网络的训练有着很大的影响，经过实验仿真可得：传统的DNN和ICNN都能找到一组Adam优化器参数，使得其训练效果较好。</p>
+<h2 id="原始论文中的仿真验证的复现">原始论文中的仿真验证的复现</h2>
+]]></content>
+      <categories>
+        <category>神经网络</category>
+      </categories>
+      <tags>
+        <tag>神经网络</tag>
       </tags>
   </entry>
   <entry>
@@ -3361,71 +3426,6 @@ Alabama
       </categories>
       <tags>
         <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Input Convex Neural Network复现及仿真验证</title>
-    <url>/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/</url>
-    <content><![CDATA[<p>《Input Convex Neural Networks》</p>
-<p>《Optimal Control Via Neural Networks: A Convex Approach》</p>
-<p>对于复杂系统的控制往往分为两步，对系统的辨识和控制器的设计。 深度神经网络被证明在辨识任务中取得了重大成功，但是，由于这些辨识出来的系统往往是非线性和非凸的，其控制器很难设计，所以，实际系统往往还是用线性模型去逼近，尽管这些线性模型的拟合能力很弱，因此，往往设计出来的控制器的性能都不行。</p>
-<p>这两篇文章，主要提出了ICNN及其改进网络结构，ICNN的特点就是对于输入是凸的，第一篇文章主要提出了ICNN这一网络结构，通过将神经网络的前向通道中的权重设置为非负值，这一简单的改变，就可以将神经网络变为输入凸的，且该网络的拟合能力并为受到较大的影响。</p>
-<p>这篇文章主要完成3点：</p>
-<ol type="1">
-<li>复现ICNN，原版的ICNN是用tensorflow写的，代码不全，且使用了较老的库版本，运行不了，在此采用pytorch进行复现出一个通用程序。</li>
-<li>对于一个给定的函数：<span class="math inline">\(y=3x_1^2+4x_2^2\)</span>，利用普通的DNN，和ICNN进行对比，验证ICNN的拟合能力（验证的过程使用相同的网络层数，每层的节点数，学习率等参数）。</li>
-<li>对于《Input Convex Neural Networks》中的simulation中的synthetic 2D example和《Optimal Control Via Neural Networks: A Convex Approach》中的APPENDIX中的Toy Example分别进行复现及仿真验证。</li>
-</ol>
-<a id="more"></a>
-<h2 id="icnn原理及证明">ICNN原理及证明</h2>
-<h3 id="icnn网络结构">ICNN网络结构</h3>
-<figure>
-<img src="image-20210302145927461.png" alt="image-20210302145927461" /><figcaption>image-20210302145927461</figcaption>
-</figure>
-<p><span class="math display">\[z_{i+1}=g_{i}\left(W_{i}^{(z)} z_{i}+W_{i}^{(y)} y+b_{i}\right), \quad f(y ; \theta)=z_{k}\]</span>，</p>
-<p>Figure1是全连接的凸的，k层ICNN，记为：FICNN，令输入记为：<span class="math inline">\(y\)</span>，<span class="math inline">\(z_i\)</span>记为每一个激活函数的输出，<span class="math inline">\(\theta\)</span>记为所有的参数：<span class="math inline">\(\theta=\left\{W_{0: k-1}^{(y)}, W_{1: k-1}^{(z)}, b_{0: k-1}\right\}\)</span>，<span class="math inline">\(g_i\)</span>是非线性激活函数，网络凸的性质的主要结果如下：</p>
-<p><strong><em>结论</em></strong>：<strong>函数<span class="math inline">\(f\)</span>对于<span class="math inline">\(y\)</span>是凸函数，当所有的<span class="math inline">\(W_{1: k-1}^{(z)}\)</span>是非负，且所有的<span class="math inline">\(g_i\)</span>是凸的非增函数</strong></p>
-<p><strong><em>分析：</em></strong></p>
-<ol type="1">
-<li><p>ICNN网络结构中，从输入直接传递到隐含层的叫"passthrough"，这样的连接在传统的前馈神经网络中是没有必要的，因为前面的神经网络的层的信息总是会被映射到下一个神经网络层中，但是在ICNN中，由于<span class="math inline">\(W^{(z)}\)</span>被限制为非负，所以导致拟合能力下降，且前面网络的信息无法被传递到下一个层中，因此，需要使用额外的passthrough。</p></li>
-<li><p>对于<span class="math inline">\(b_i\)</span>来说，放到前向传播中，或者passthrough中，都是等价的。</p></li>
-<li><p>passthrough中的weight和bias都是可以为负的，没有限制。</p></li>
-</ol>
-<h3 id="icnn输入凸的证明">ICNN输入凸的证明</h3>
-<h2 id="icnn基本结构pytorch复现">ICNN基本结构Pytorch复现</h2>
-<h2 id="y3x_124x_22仿真算例"><span class="math inline">\(y=3x_1^2+4x_2^2\)</span>仿真算例</h2>
-<p>仿真算例：<span class="math inline">\(y=3x_1^2+4x_2^2\)</span></p>
-<figure>
-<img src="image-20210302152548355.png" alt="image-20210302152548355" /><figcaption>image-20210302152548355</figcaption>
-</figure>
-<h3 id="训练数据生成">训练数据生成</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<p>在-5, 5中随机采样1000个数据点</p>
-<p>验证方法：对单个目标进行验证时，当输入是[2, 2]时，理论输出应该是[28]，同时，输出其MSE的数值并画出其图片。</p>
-<h3 id="对比其拟合能力">对比其拟合能力：</h3>
-<h4 id="普通神经网络的拟合能力">普通神经网络的拟合能力</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Model</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">  <span class="string">'''</span></span><br><span class="line"><span class="string">  定义普通全连结神经网络模型</span></span><br><span class="line"><span class="string">  '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n_feature=<span class="number">2</span>, n_hidden=<span class="number">4</span>, n_output=<span class="number">1</span>, nGdIter=<span class="number">30</span>)</span>:</span></span><br><span class="line">        super(Model, self).__init__()</span><br><span class="line">        self.input_layer = nn.Linear(n_feature, n_hidden)</span><br><span class="line">        self.hidden_layer = nn.Linear(n_hidden, n_hidden)</span><br><span class="line">        self.output_layer = nn.Linear(n_hidden, n_output)</span><br><span class="line">        self.act = nn.ReLU()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x = self.input_layer(x)</span><br><span class="line">        x = self.act(x)</span><br><span class="line">        x = self.hidden_layer(x)</span><br><span class="line">        x = self.act(x)</span><br><span class="line">        x = self.output_layer(x)</span><br><span class="line">        <span class="comment"># 输出层加上了relu激活函数后会导致很难收敛</span></span><br><span class="line">        <span class="comment">#x = self.act(x)</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_noncvx_network</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 构造虚拟数据用于训练：y=3x1^2+4x2^2</span></span><br><span class="line">    x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">    x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">    x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">    x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">    y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br><span class="line">    model = NonCvxModel(n_feature=<span class="number">2</span>, n_hidden=<span class="number">200</span>, n_output=<span class="number">1</span>)</span><br><span class="line">    criterion = torch.nn.MSELoss(reduction=<span class="string">'sum'</span>)</span><br><span class="line">    learning_rate = <span class="number">1e-3</span></span><br><span class="line">    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)</span><br><span class="line">    terminate_threshold = <span class="number">1e-5</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">        y_pred = model(x)</span><br><span class="line">        loss = criterion(y_pred, y)/y.size()[<span class="number">0</span>]</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">500</span> == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"当前正在训练第&#123;&#125;次， 损失是&#123;&#125;"</span>.format(i, loss.item()))</span><br><span class="line">            test_model(model)</span><br><span class="line">        <span class="keyword">if</span> loss.item()&lt;terminate_threshold:</span><br><span class="line">            print(<span class="string">"训练满足精度要求，训练了&#123;&#125;次。"</span>.format(i))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">0     500  29.005009</span><br><span class="line">1    1000   5.884062</span><br><span class="line">2    1500   1.050613</span><br><span class="line">3    2000   0.301482</span><br><span class="line">4    2500   0.141028</span><br><span class="line">5    3000   0.078763</span><br><span class="line">6    3500   0.048814</span><br><span class="line">7    4000   0.030913</span><br><span class="line">8    4500   0.021231</span><br><span class="line">9    5000   0.016060</span><br><span class="line">10   5500   0.012875</span><br><span class="line">11   6000   0.010986</span><br><span class="line">12   6500   0.009771</span><br><span class="line">13   7000   0.008564</span><br><span class="line">14   7500   0.007799</span><br><span class="line">15   8000   0.009830</span><br><span class="line">16   8500   0.046179</span><br><span class="line">17   9000   0.006437</span><br><span class="line">18   9500   0.013724</span><br><span class="line">19  10000   0.005822</span><br><span class="line">20  10500   0.005917</span><br><span class="line">21  11000   0.005384</span><br><span class="line">22  11500   0.005134</span><br><span class="line">23  12000   0.030397</span><br><span class="line">24  12500   0.005959</span><br><span class="line">25  13000   0.004671</span><br><span class="line">26  13500   0.004517</span><br><span class="line">27  14000   0.004421</span><br><span class="line">28  14500   0.004290</span><br><span class="line">29  15000   0.008322</span><br><span class="line">30  15500   0.019044</span><br><span class="line">31  16000   0.011500</span><br><span class="line">32  16500   0.003893</span><br><span class="line">33  17000   0.003794</span><br><span class="line">34  17500   0.003694</span><br><span class="line">35  18000   0.004458</span><br><span class="line">36  18500   0.003805</span><br><span class="line">37  19000   0.003468</span><br><span class="line">38  19500   0.008987</span><br><span class="line">39  20000   0.003343</span><br><span class="line">40  20500   0.003368</span><br><span class="line">41  21000   0.007225</span><br><span class="line">42  21500   0.003226</span><br><span class="line">43  22000   0.003124</span><br><span class="line">44  22500   0.003073</span><br><span class="line">45  23000   0.002998</span><br><span class="line">46  23500   0.025686</span><br><span class="line">47  24000   0.003000</span><br><span class="line">48  24500   0.002887</span><br><span class="line">49  25000   0.002838</span><br><span class="line">50  25500   0.002903</span><br><span class="line">51  26000   0.002845</span><br><span class="line">52  26500   0.004229</span><br><span class="line">53  27000   0.002733</span><br><span class="line">54  27500   0.008934</span><br><span class="line">55  28000   0.012964</span><br><span class="line">56  28500   0.018379</span><br><span class="line">57  29000   0.011293</span><br><span class="line">58  29500   0.007785</span><br><span class="line">59  30000   0.002500</span><br><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第30000次， 损失是0.002500230213627219</span><br><span class="line">模型预测的数值是： tensor([27.9667], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
-<p><img src="image-20210302162912494.png" alt="image-20210302162912494" style="zoom:50%;" /></p>
-<h4 id="icnn的拟合能力">ICNN的拟合能力</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CvxModel</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        输入凸神经网络结构定义</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n_feature=<span class="number">2</span>, n_hidden=<span class="number">4</span>, n_output=<span class="number">1</span>, nGdIter=<span class="number">30</span>)</span>:</span></span><br><span class="line">        super(CvxModel, self).__init__()</span><br><span class="line">        self.input_layer = nn.Linear(n_feature, n_hidden, bias=<span class="literal">False</span>)</span><br><span class="line">        self.hidden_layer = nn.Linear(n_hidden, n_hidden, bias=<span class="literal">False</span>)</span><br><span class="line">        self.output_layer = nn.Linear(n_hidden, n_output, bias=<span class="literal">False</span>)</span><br><span class="line">        self.passthrough_layer = nn.Linear(n_feature, n_hidden)</span><br><span class="line">        self.passthrough_output_layer = nn.Linear(n_feature, n_output)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        zx1 = F.relu(self.input_layer(x))</span><br><span class="line">        pass1 = self.passthrough_layer(x)</span><br><span class="line">        pass2 = self.passthrough_output_layer(x)</span><br><span class="line">        zx2 = F.relu(self.hidden_layer(zx1) + pass1)</span><br><span class="line">        zx3 = self.output_layer(zx2) + pass2</span><br><span class="line">        <span class="keyword">return</span> zx3</span><br><span class="line">      </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">weightConstraint</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        对一个特定的层的weight进行参数限制</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, module)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> hasattr(module, <span class="string">'weight'</span>):</span><br><span class="line">            w = module.weight.data</span><br><span class="line">            w = w.clamp(<span class="number">0.0</span>, <span class="number">100.0</span>)</span><br><span class="line">            module.weight.data = w</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当对权重有非负的限制时，训练神经网络</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train_with_constrains</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 先对参数进行限制到[-1, 1]进行仿真验证</span></span><br><span class="line">    <span class="comment"># 构造虚拟数据用于训练：y=3x1^2+4x2^2</span></span><br><span class="line">    x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">    x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">    x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">    x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">    y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    model = CvxModel(n_feature=<span class="number">2</span>, n_hidden=<span class="number">200</span>, n_output=<span class="number">1</span>)</span><br><span class="line">    constraints = weightConstraint()</span><br><span class="line">    criterion = torch.nn.MSELoss(reduction=<span class="string">'sum'</span>)</span><br><span class="line">    learning_rate = <span class="number">1e-3</span></span><br><span class="line">    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)</span><br><span class="line">    terminate_threshold = <span class="number">1e-5</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">        y_pred = model(x)</span><br><span class="line">        loss = criterion(y_pred, y)/y.size()[<span class="number">0</span>]</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        model._modules[<span class="string">'input_layer'</span>].apply(constraints)</span><br><span class="line">        model._modules[<span class="string">'hidden_layer'</span>].apply(constraints)</span><br><span class="line">        model._modules[<span class="string">'output_layer'</span>].apply(constraints)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">500</span> == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"当前正在训练第&#123;&#125;次， 损失是&#123;&#125;"</span>.format(i, loss.item()))</span><br><span class="line">            test_model(model)</span><br><span class="line">            weight_print(model)</span><br><span class="line">        <span class="keyword">if</span> loss.item()&lt;terminate_threshold:</span><br><span class="line">            print(<span class="string">"训练满足精度要求，训练了&#123;&#125;次。"</span>.format(i))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">0     500  250.070984</span><br><span class="line">1    1000  140.255447</span><br><span class="line">2    1500   67.511780</span><br><span class="line">3    2000   28.515696</span><br><span class="line">4    2500   13.275652</span><br><span class="line">5    3000    7.189941</span><br><span class="line">6    3500    4.197995</span><br><span class="line">7    4000    2.512518</span><br><span class="line">8    4500    1.544901</span><br><span class="line">9    5000    0.974513</span><br><span class="line">10   5500    0.637949</span><br><span class="line">11   6000    0.421706</span><br><span class="line">12   6500    0.279455</span><br><span class="line">13   7000    0.605793</span><br><span class="line">14   7500    0.140771</span><br><span class="line">15   8000    0.100952</span><br><span class="line">16   8500    0.072434</span><br><span class="line">17   9000    0.065805</span><br><span class="line">18   9500    0.046082</span><br><span class="line">19  10000    0.035448</span><br><span class="line">20  10500    0.027883</span><br><span class="line">21  11000    0.035439</span><br><span class="line">22  11500    0.020767</span><br><span class="line">23  12000    0.017025</span><br><span class="line">24  12500    0.020460</span><br><span class="line">25  13000    0.016357</span><br><span class="line">26  13500    0.013486</span><br><span class="line">27  14000    0.013836</span><br><span class="line">28  14500    0.011874</span><br><span class="line">29  15000    0.019069</span><br><span class="line">30  15500    0.011665</span><br><span class="line">31  16000    0.010154</span><br><span class="line">32  16500    0.011716</span><br><span class="line">33  17000    0.009304</span><br><span class="line">34  17500    0.007975</span><br><span class="line">35  18000    0.007628</span><br><span class="line">36  18500    0.006882</span><br><span class="line">37  19000    0.993199</span><br><span class="line">38  19500    0.006250</span><br><span class="line">39  20000    0.076224</span><br><span class="line">40  20500    0.005728</span><br><span class="line">41  21000    0.005862</span><br><span class="line">42  21500    0.005021</span><br><span class="line">43  22000    0.005911</span><br><span class="line">44  22500    0.005376</span><br><span class="line">45  23000    0.004734</span><br><span class="line">46  23500    0.004461</span><br><span class="line">47  24000    0.004778</span><br><span class="line">48  24500    0.004454</span><br><span class="line">49  25000    0.004859</span><br><span class="line">50  25500    0.004430</span><br><span class="line">51  26000    0.004365</span><br><span class="line">52  26500    0.004022</span><br><span class="line">53  27000    0.044836</span><br><span class="line">54  27500    0.003724</span><br><span class="line">55  28000    0.003986</span><br><span class="line">56  28500    0.003676</span><br><span class="line">57  29000    0.003535</span><br><span class="line">58  29500    0.003660</span><br><span class="line">59  30000    0.003258</span><br><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第30000次， 损失是0.00325777824036777</span><br><span class="line">模型预测的数值是： tensor([28.0241], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
-<p><img src="image-20210302162929557.png" alt="image-20210302162929557" style="zoom:50%;" /></p>
-<p>可以看出，在使用相同adam优化器参数的条件下，DNN相比ICNN，优化的速度更快。</p>
-<p>而当将adam优化器的参数从<span class="math inline">\(1e-3\)</span>改变为<span class="math inline">\(1e-2\)</span>后，仿真结果如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第500次， 损失是4.0928754806518555</span><br><span class="line">模型预测的数值是： tensor([26.7256], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
-<p>对于上面所仿真的普通的DNN，若将其adam优化器同时改变之后，仿真结果如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第500次， 损失是0.12059637159109116</span><br><span class="line">模型预测的数值是： tensor([28.0837], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
-<p>Adam优化器的参数对于网络的训练有着很大的影响，经过实验仿真可得：传统的DNN和ICNN都能找到一组Adam优化器参数，使得其训练效果较好。</p>
-<h2 id="原始论文中的仿真验证的复现">原始论文中的仿真验证的复现</h2>
-]]></content>
-      <categories>
-        <category>神经网络</category>
-      </categories>
-      <tags>
-        <tag>神经网络</tag>
       </tags>
   </entry>
   <entry>
