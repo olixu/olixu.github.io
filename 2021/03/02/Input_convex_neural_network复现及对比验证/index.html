@@ -31,11 +31,13 @@
 <meta property="og:description" content="《Input Convex Neural Networks》 《Optimal Control Via Neural Networks: A Convex Approach》 对于复杂系统的控制往往分为两步，对系统的辨识和控制器的设计。 深度神经网络被证明在辨识任务中取得了重大成功，但是，由于这些辨识出来的系统往往是非线性和非凸的，其控制器很难设计，所以，实际系统往往还是用线性模型去逼近，尽管这些">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.oliverxu.cn/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/image-20210302145927461.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/image-20210305145917956.png">
 <meta property="og:image" content="https://blog.oliverxu.cn/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/image-20210302152548355.png">
 <meta property="og:image" content="https://blog.oliverxu.cn/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/image-20210302162912494.png">
 <meta property="og:image" content="https://blog.oliverxu.cn/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/image-20210302162929557.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/image-20210305151555930.png">
 <meta property="article:published_time" content="2021-03-02T14:34:00.000Z">
-<meta property="article:modified_time" content="2021-03-02T08:46:35.472Z">
+<meta property="article:modified_time" content="2021-03-05T07:31:52.505Z">
 <meta property="article:author" content="Oliver xu">
 <meta property="article:tag" content="神经网络">
 <meta name="twitter:card" content="summary">
@@ -240,10 +242,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-03-02 14:34:00 / 修改时间：08:46:35" itemprop="dateCreated datePublished" datetime="2021-03-02T14:34:00+00:00">2021-03-02</time>
+              <time title="创建时间：2021-03-02 14:34:00" itemprop="dateCreated datePublished" datetime="2021-03-02T14:34:00+00:00">2021-03-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-05 07:31:52" itemprop="dateModified" datetime="2021-03-05T07:31:52+00:00">2021-03-05</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -260,14 +268,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>8.1k</span>
+              <span>12k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>7 分钟</span>
+              <span>11 分钟</span>
             </span>
 
         </div>
@@ -305,6 +313,62 @@
 <li><p>passthrough中的weight和bias都是可以为负的，没有限制。</p></li>
 </ol>
 <h3 id="icnn输入凸的证明">ICNN输入凸的证明</h3>
+<p>定义：给定函数<span class="math inline">\(f: \mathbb{R}^{d} \rightarrow \mathbb{R}\)</span>，当<span class="math inline">\(x\)</span>在整个定义域中，都满足<span class="math inline">\(|f(\mathbf{x})-\hat{f}(\mathbf{x})| \leq \varepsilon\)</span>，那么，就说函数<span class="math inline">\(\hat{f}\)</span>可以以精度<span class="math inline">\(\varepsilon\)</span>逼近函数<span class="math inline">\(f\)</span>。</p>
+<p>定理：对于任何在某个紧集上的Lipshchitz凸的连续函数，存在一个神经网络，其权重是非负的，且激活函数使用的是Relu函数，来满足定义1中的定义。</p>
+<p>引理：给定一个连续的Lipschitz函数<span class="math inline">\(f: \mathbb{R}^{d} \rightarrow \mathbb{R}\)</span>，它可以被一系列仿射函数的最大值所表示，即，存在<span class="math inline">\(\hat{f}(\mathbf{x})=\max _{i=1, \ldots, N}\left\{\mu_{\mathbf{i}}^{T} \mathbf{x}+b_{i}\right\}\)</span>，使得对于所有的<span class="math inline">\(x\)</span>，满足<span class="math inline">\(|f(\mathbf{x})-\hat{f}(\mathbf{x})| \leq \varepsilon\)</span></p>
+<p>证明过程：</p>
+<p>主要采用了两个凸优化中基本的定理：</p>
+<ol type="1">
+<li>凸函数的非负先行组合还是凸函数</li>
+<li>凸函数和凸的非减的函数还是凸函数</li>
+</ol>
+<p>证明是通过构造性的证明，我们先构建一个神经网络，使用Relu函数，其权重有正有负，然后通过构造负的输入，可以将该神经网络不同层之间的权重可以限制为非负。</p>
+<p>证明的思路是首先证明一个凸函数可以使用一系列仿射函数的最大值表示（凸优化中的结论），然后将该最大值用神经网络的形式进行表示（这两篇文章的工作），换句话说，这两篇文章就是证明了这样的神经网络可以转换为一系列仿射函数的最大值。</p>
+<p><strong>证明：</strong></p>
+<p>首先考虑两个仿射函数的最大值：</p>
+<p><span class="math display">\[f_{C P L}(\mathbf{x})=\max \left\{\mathbf{a}_{1}^{T} \mathbf{x}+b_{1}, \mathbf{a}_{2}^{T} \mathbf{x}+b_{2}\right\}\]</span></p>
+<p>我们的目标是将这个最大值，用神经网络来表示，将其重写为：</p>
+<p><span class="math display">\[f_{C P L}(x)=\left(\mathbf{a}_{2}^{T} \mathbf{x}+b_{2}\right)+\max \left(\left(\mathbf{a}_{1}-\mathbf{a}_{2}\right)^{T} \mathbf{x}+\left(b_{1}-b_{2}\right), 0\right)\]</span></p>
+<p>现在定义一个2层的神经网络：</p>
+<figure>
+<img src="/image-20210305145917956.png" alt="image-20210305145917956" /><figcaption>image-20210305145917956</figcaption>
+</figure>
+<p>其中，<span class="math inline">\(W_1\)</span>表示第一层的权重<span class="math inline">\(\mathbf{a}_{1}-\mathbf{a}_{2}\)</span>以及bias<span class="math inline">\(b_{1}-b_{2}\)</span>，<span class="math inline">\(W_2\)</span>表示为第二层，<span class="math inline">\(D_2\)</span>表示passthrough，其权重为<span class="math inline">\(a_2\)</span>，bias为<span class="math inline">\(b_2\)</span>。</p>
+<p>上面的定义可以直接扩展到<span class="math inline">\(K\)</span>个线性函数的情形：</p>
+<p><span class="math display">\[f_{C P L}(\mathbf{x})=\max \left\{\mathbf{a}_{1}^{T} \mathbf{x}+b_{1}, \ldots, \mathbf{a}_{K}^{T} \mathbf{x}+b_{K}\right\}\]</span></p>
+<p>将<span class="math inline">\(f_{C P L}(\mathbf{x})\)</span>写成一个嵌套的最大值的仿射函数的最大值，为了简化表示，将<span class="math inline">\(L_{i}=\mathbf{a}_{i}^{T} \mathbf{x}+b_{i}, L_{i}^{\prime}=L_{i}-L_{i+1}\)</span>，然后： <span class="math display">\[
+\begin{aligned}
+f_{C P L} &amp;=\max \left\{L_{1}, L_{2}, \ldots, L_{K}\right\} \\
+&amp;=\max \left\{\max \left\{L_{1}, L_{2}, \ldots, L_{K-1}\right\}, L_{K}\right\} \\
+&amp;=L_{K}+\sigma\left(\max \left\{L_{1}, L_{2}, \ldots, L_{K-1}\right\}-L_{K}\right) \\
+&amp;=L_{K}+\sigma\left(\max \left\{\max \left\{L_{1}, L_{2}, \ldots, L_{K-2}\right\}, L_{K-1}\right\}-L_{K}, 0\right) \\
+&amp;=L_{K}+\sigma\left(L_{K-1}-L_{K}+\sigma\left(\max \left\{L_{1}, L_{2}, \ldots, L_{K-2}\right\}-L_{K-1}, 0\right), 0\right) \\
+&amp;=\ldots \\
+&amp;=L_{K}+\sigma\left(L_{K-1}^{\prime}+\sigma\left(L_{K-2}^{\prime}+\sigma\left(\ldots \sigma\left(L_{2}^{\prime}+\sigma\left(L_{1}-L_{2}, 0\right), 0\right), \ldots, 0\right), 0\right), 0\right) .
+\end{aligned}
+\]</span> 最后一行表示的其实是一个<span class="math inline">\(K\)</span>层的神经网络，其每一层分别是： <span class="math display">\[
+\begin{aligned}
+&amp;z_{1}=\sigma\left(L_{1}-L_{2}, 0\right)=\sigma\left(\left(\mathbf{a}_{1}-\mathbf{a}_{2}\right)^{T} \mathbf{x}+\left(b_{1}-b_{2}\right)\right)\\
+&amp;z_{2}=\sigma\left(L_{2}^{\prime}+z_{1}, 0\right)=\sigma\left(z_{1}+\left(\mathbf{a}_{2}-\mathbf{a}_{3}\right)^{T} \mathbf{x}+\left(b_{2}-b_{3}\right)\right)\\
+&amp;\ldots \ldots\\
+&amp;z_{i}=\sigma\left(L_{i}^{\prime}+z_{i-1}, 0\right)=\sigma\left(z_{i-1}+\left(\mathbf{a}_{i}-\mathbf{a}_{i+1}\right)^{T} \mathbf{x}+\left(b_{i}-b_{i+1}\right)\right)\\
+&amp;\ldots \ldots\\
+&amp;z_{K}=z_{K-1}+L_{K}=h_{K}\left(z_{K-1}+L_{K}\right)=\left(z_{K-1}+\mathbf{a}_{K}^{T} \mathbf{x}+b_{K}\right)
+\end{aligned}
+\]</span> 尽管该神经网络可以用来表示仿射函数的最大值，但是它不是凸的，因为其系数可正可负，而且，每一层都包含了一个权重和输入的内积 <span class="math inline">\(\left(\mathbf{a}_{i}-\mathbf{a}_{i+1}\right)^{T} \mathbf{x}\)</span>，系数未必是非负的，为了解决这个问题，将输入<span class="math inline">\(x\)</span>扩展为<span class="math inline">\([x, -x]\)</span>，即： <span class="math display">\[
+\hat{\mathbf{x}}=\left[\begin{array}{c}
+\mathbf{x} \\
+-\mathbf{x}
+\end{array}\right]
+\]</span> <span class="math inline">\(\mathbf{h}^{T} \mathbf{x}\)</span>的内积可以表示为： <span class="math display">\[
+\begin{aligned}
+\mathbf{h}^{T} \mathbf{x} &amp;=\sum_{j=1}^{d} h_{i} x_{i} \\
+&amp;=\sum_{i: h_{i} \geq 0} h_{i} x_{i}+\sum_{i: h_{i}&lt;0} h_{i} x_{i} \\
+&amp;=\sum_{i: h_{i} \geq 0} h_{i} x_{i}+\sum_{i: h_{i}&lt;0}\left(-h_{i}\right)\left(-x_{i}\right) \\
+&amp;=\sum_{i: h_{i} \geq 0} h_{i} \hat{x}_{i}+\sum_{i: h_{i}&lt;0}\left(-h_{i}\right)\left(\hat{x}_{i+d}\right)
+\end{aligned}
+\]</span> 其所有的系数都是非负的。</p>
+<p>因此任何系数矩阵和输入向量的内积都可以写成一个非负系数矩阵和扩展输入<span class="math inline">\(\hat{\mathbf{x}}\)</span>的内积，因此，为了不失去一般性，可以限制每一层的权重都是非负的，这样的神经网络则是输入凸的。</p>
 <h2 id="icnn基本结构pytorch复现">ICNN基本结构Pytorch复现</h2>
 <h2 id="y3x_124x_22仿真算例"><span class="math inline">\(y=3x_1^2+4x_2^2\)</span>仿真算例</h2>
 <p>仿真算例：<span class="math inline">\(y=3x_1^2+4x_2^2\)</span></p>
@@ -333,6 +397,12 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第500次， 损失是0.12059637159109116</span><br><span class="line">模型预测的数值是： tensor([28.0837], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
 <p>Adam优化器的参数对于网络的训练有着很大的影响，经过实验仿真可得：传统的DNN和ICNN都能找到一组Adam优化器参数，使得其训练效果较好。</p>
 <h2 id="原始论文中的仿真验证的复现">原始论文中的仿真验证的复现</h2>
+<p>第二篇论文中给出了一个二分类问题的仿真，二维输入变量，每一个维度的范围是<span class="math inline">\([-1, 1]\)</span>，输出是<span class="math inline">\(\{0, 1\}\)</span>两个类别，随机生成的内外两个圆的坐标数据。内层的圆的标签是<span class="math inline">\(0\)</span>，外层圆的标签是<span class="math inline">\(1\)</span>，假设我们的控制器的目标是想找到一个控制输入<span class="math inline">\(u\)</span>，使得输出<span class="math inline">\(y\)</span>为<span class="math inline">\(0\)</span>的可能性最大，优化问题可以分两步解决，首先，学习出一个从<span class="math inline">\(u\)</span>到<span class="math inline">\(y\)</span>神经网络分类器，然后找到控制输入<span class="math inline">\(u\)</span>使得神经网络的输出最小。</p>
+<figure>
+<img src="image-20210305151555930.png" alt="image-20210305151555930" /><figcaption>image-20210305151555930</figcaption>
+</figure>
+<p>上图显示了普通NN和ICNN的决策边界，网络包含两层隐藏层，每一层有200个神经元，左边的图显示出了传统的神经网络，会有许多的之字形的的边界，也就是意味着决策是非凸的，所以优化的时候会存在许多局部最优值，而右边的图显示了ICNN的决策边界，可以看出，优化决策是一个凸优化问题，可以找到全局最优解。</p>
+<p>由于原始论文中未给出原始的代码，所以本文使用PyTorch进行了复现仿真对比。</p>
 
     </div>
 
@@ -502,12 +572,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">234k</span>
+    <span title="站点总字数">238k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:33</span>
+    <span title="站点阅读时长">3:36</span>
 </div>
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
   </div>
