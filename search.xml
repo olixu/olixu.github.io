@@ -87,21 +87,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux系统TIPS</title>
-    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
-    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
-<a id="more"></a>
-<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
-<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Manjaro下解决Matplotlib中文显示出错</title>
     <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
     <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
@@ -116,6 +101,21 @@
       </categories>
       <tags>
         <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux系统TIPS</title>
+    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
+    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
+<a id="more"></a>
+<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
+<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -332,36 +332,6 @@ Q_{u}\left(x_{k}, \mu\right) &amp;=\mathcal{R}\left(x_{k}, \mu\right)+Q_{u}\left
       </tags>
   </entry>
   <entry>
-    <title>Play with MountainCar</title>
-    <url>/2019/11/15/Play-with-MountainCar/</url>
-    <content><![CDATA[<p>MountainCar is a task of driving an underpowered car up a steep mountain road. The difficulty is that gravity is stronger than the car's engine, and even at full throttle the car cannot accelerate up the steep slope. The only solution is to first move away from the goal and up the opposite slope on the left. Then, by applying full throttle the car can build up enough inertia to carry it up the steep slope even though it is slowing down the whole way.</p>
-<h2 id="state">State</h2>
-<p>Its state space has only two entries. The first is the position of the car. The second is the speed of the car. They are limited in:</p>
-<p><span class="math display">\[position \in [-1.2, 0.6]\]</span> <span class="math display">\[speed \in [-0.07, 0.07]\]</span></p>
-<p>The negative speed means that the direction of the movement of the car is opposite to the right, which is left in this environement. <a id="more"></a> ## Action <code>0:</code> full throttle backword</p>
-<p><code>1:</code> zero throttle</p>
-<p><code>2:</code> full throttle forward</p>
-<h2 id="reward">Reward</h2>
-<p>The reward of this environment is always -1 on all time steps until it moves past its goal position at the top of the mountain, which ends the spisode.</p>
-<h2 id="physical-model">Physical Model</h2>
-<h2 id="play-with-mountaincar-by-yourself">Play with MountainCar by yourself</h2>
-<p>This section I would not use a reinforcement learning algorithm, instead following a very simple principle.</p>
-<p>When the car is at right of the zero positon and the speed comes close to zero, I choose full throttle backword action to move away from the goal direction to build more inertia.</p>
-<p>When the car is at left of the zero positon and the speed comes close to zero, which means the car cannot get more inertia in this period, so i choose full throttle forward action to move towards the goal.</p>
-<p>In this period, Gravitational potential energy transforms to kinetic energy first and then kinetic energy transforms to gravitational potential energy.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">import</span> gym.spaces</span><br><span class="line">gym.logger.set_level(<span class="number">40</span>)</span><br><span class="line">gym.__version__</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line">env = gym.make(<span class="string">'MountainCar-v0'</span>)</span><br><span class="line">env = gym.wrappers.Monitor(env, <span class="string">"recording"</span>)</span><br><span class="line">print(env.observation_space.high)</span><br><span class="line">state = env.reset()</span><br><span class="line">env.render()</span><br><span class="line">state, reward, done, _ = env.step(<span class="number">2</span>)</span><br><span class="line">print(state)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">    print(state)</span><br><span class="line">    <span class="keyword">if</span> state[<span class="number">0</span>] &gt; <span class="number">0.599</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&gt;<span class="number">-0.5</span>:</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            state, reward, done, _ = env.step(<span class="number">0</span>)</span><br><span class="line">            print(<span class="string">"Full throttle backword"</span>)</span><br><span class="line">            print(state)</span><br><span class="line">            time.sleep(<span class="number">0.1</span>)</span><br><span class="line">            env.render()</span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&lt;<span class="number">-0.5</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">0</span>] &gt; <span class="number">0.599</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&lt;<span class="number">-0.5</span>:</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            state, reward, done, _ = env.step(<span class="number">2</span>)</span><br><span class="line">            print(<span class="string">"Ful throttle forward"</span>)</span><br><span class="line">            print(state)</span><br><span class="line">            time.sleep(<span class="number">0.1</span>)</span><br><span class="line">            env.render()</span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&gt;<span class="number">-0.5</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">0</span>] &gt; <span class="number">0.599</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">env.close()</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="mountaincar.gif" alt="MountainCar" /><figcaption>MountainCar</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Reinforcement Learning</category>
-      </categories>
-      <tags>
-        <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Play with CartPole</title>
     <url>/2019/10/25/Play-with-CartPole/</url>
     <content><![CDATA[<p>Gym is a toolkit for developing and comparing reinforcement learning algorithms. The Gym library is a collection of test problems - environments - that you can use to work out your reinforcement learning algorithms. These environments have a shared interface, allowing you to write general algorithms.</p>
@@ -408,6 +378,36 @@ Box(4,)</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>Play with MountainCar</title>
+    <url>/2019/11/15/Play-with-MountainCar/</url>
+    <content><![CDATA[<p>MountainCar is a task of driving an underpowered car up a steep mountain road. The difficulty is that gravity is stronger than the car's engine, and even at full throttle the car cannot accelerate up the steep slope. The only solution is to first move away from the goal and up the opposite slope on the left. Then, by applying full throttle the car can build up enough inertia to carry it up the steep slope even though it is slowing down the whole way.</p>
+<h2 id="state">State</h2>
+<p>Its state space has only two entries. The first is the position of the car. The second is the speed of the car. They are limited in:</p>
+<p><span class="math display">\[position \in [-1.2, 0.6]\]</span> <span class="math display">\[speed \in [-0.07, 0.07]\]</span></p>
+<p>The negative speed means that the direction of the movement of the car is opposite to the right, which is left in this environement. <a id="more"></a> ## Action <code>0:</code> full throttle backword</p>
+<p><code>1:</code> zero throttle</p>
+<p><code>2:</code> full throttle forward</p>
+<h2 id="reward">Reward</h2>
+<p>The reward of this environment is always -1 on all time steps until it moves past its goal position at the top of the mountain, which ends the spisode.</p>
+<h2 id="physical-model">Physical Model</h2>
+<h2 id="play-with-mountaincar-by-yourself">Play with MountainCar by yourself</h2>
+<p>This section I would not use a reinforcement learning algorithm, instead following a very simple principle.</p>
+<p>When the car is at right of the zero positon and the speed comes close to zero, I choose full throttle backword action to move away from the goal direction to build more inertia.</p>
+<p>When the car is at left of the zero positon and the speed comes close to zero, which means the car cannot get more inertia in this period, so i choose full throttle forward action to move towards the goal.</p>
+<p>In this period, Gravitational potential energy transforms to kinetic energy first and then kinetic energy transforms to gravitational potential energy.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">import</span> gym.spaces</span><br><span class="line">gym.logger.set_level(<span class="number">40</span>)</span><br><span class="line">gym.__version__</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line">env = gym.make(<span class="string">'MountainCar-v0'</span>)</span><br><span class="line">env = gym.wrappers.Monitor(env, <span class="string">"recording"</span>)</span><br><span class="line">print(env.observation_space.high)</span><br><span class="line">state = env.reset()</span><br><span class="line">env.render()</span><br><span class="line">state, reward, done, _ = env.step(<span class="number">2</span>)</span><br><span class="line">print(state)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">    print(state)</span><br><span class="line">    <span class="keyword">if</span> state[<span class="number">0</span>] &gt; <span class="number">0.599</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&gt;<span class="number">-0.5</span>:</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            state, reward, done, _ = env.step(<span class="number">0</span>)</span><br><span class="line">            print(<span class="string">"Full throttle backword"</span>)</span><br><span class="line">            print(state)</span><br><span class="line">            time.sleep(<span class="number">0.1</span>)</span><br><span class="line">            env.render()</span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&lt;<span class="number">-0.5</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">0</span>] &gt; <span class="number">0.599</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&lt;<span class="number">-0.5</span>:</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            state, reward, done, _ = env.step(<span class="number">2</span>)</span><br><span class="line">            print(<span class="string">"Ful throttle forward"</span>)</span><br><span class="line">            print(state)</span><br><span class="line">            time.sleep(<span class="number">0.1</span>)</span><br><span class="line">            env.render()</span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">1</span>]&gt;<span class="number">-0.005</span> <span class="keyword">and</span> state[<span class="number">1</span>]&lt;<span class="number">0.005</span> <span class="keyword">and</span> state[<span class="number">0</span>]&gt;<span class="number">-0.5</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> state[<span class="number">0</span>] &gt; <span class="number">0.599</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">env.close()</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="mountaincar.gif" alt="MountainCar" /><figcaption>MountainCar</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Reinforcement Learning</category>
+      </categories>
+      <tags>
+        <tag>Reinforcement Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python的Anoymous Functions</title>
     <url>/2019/02/15/Python%E7%9A%84Anoymous-Functions/</url>
     <content><![CDATA[<h2 id="什么是python的匿名函数">什么是Python的匿名函数</h2>
@@ -426,6 +426,14 @@ Box(4,)</code></pre>
       <tags>
         <tag>Python</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Python装饰器</title>
+    <url>/2019/02/10/Python%E8%A3%85%E9%A5%B0%E5%99%A8/</url>
+    <content><![CDATA[<p>装饰器是Python的重要组成部分。简单来说：它们是修改其它函数的函数。他们有助于使我们的代码更短，更Pythonic。大多数初学者不知道在哪里使用它们，所以本文将介绍一些常见需要使用装饰器的情况。 <a id="more"></a> ## Python中一些都是对象</p>
+<p>首先让我们理解Python中的函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hi</span><span class="params">(name=<span class="string">"oliverxu"</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hi"</span> + name</span><br><span class="line"></span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果：'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们可以将一个函数赋值给一个变量</span></span><br><span class="line">greet = hi</span><br><span class="line"><span class="comment"># 我们并不是调用hi()，而是将函数赋值给greet</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 让我们看看如果将hi这个函数删除会出现什么情况</span></span><br><span class="line"><span class="keyword">del</span> hi</span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果： NameError</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br></pre></td></tr></table></figure>
+]]></content>
   </entry>
   <entry>
     <title>实验室服务器安装Proxmox</title>
@@ -473,14 +481,6 @@ Box(4,)</code></pre>
       <tags>
         <tag>Linux</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Python装饰器</title>
-    <url>/2019/02/10/Python%E8%A3%85%E9%A5%B0%E5%99%A8/</url>
-    <content><![CDATA[<p>装饰器是Python的重要组成部分。简单来说：它们是修改其它函数的函数。他们有助于使我们的代码更短，更Pythonic。大多数初学者不知道在哪里使用它们，所以本文将介绍一些常见需要使用装饰器的情况。 <a id="more"></a> ## Python中一些都是对象</p>
-<p>首先让我们理解Python中的函数：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hi</span><span class="params">(name=<span class="string">"oliverxu"</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hi"</span> + name</span><br><span class="line"></span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果：'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们可以将一个函数赋值给一个变量</span></span><br><span class="line">greet = hi</span><br><span class="line"><span class="comment"># 我们并不是调用hi()，而是将函数赋值给greet</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 让我们看看如果将hi这个函数删除会出现什么情况</span></span><br><span class="line"><span class="keyword">del</span> hi</span><br><span class="line">print(hi())</span><br><span class="line"><span class="comment"># 输出结果： NameError</span></span><br><span class="line"></span><br><span class="line">print(greet())</span><br><span class="line"><span class="comment"># 输出结果： 'hi oliverxu'</span></span><br></pre></td></tr></table></figure>
-]]></content>
   </entry>
   <entry>
     <title>Python配置虚拟环境</title>
@@ -714,28 +714,6 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </tags>
   </entry>
   <entry>
-    <title>vs code remote ssh 使用x11转发显示远程图像</title>
-    <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
-    <content><![CDATA[<h2 id="需求">需求</h2>
-<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
-<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
-<a id="more"></a>
-<h2 id="参考链接">参考链接</h2>
-<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-<h2 id="问题">问题</h2>
-<ul>
-<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
-<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>*args 和 **kwargs</title>
     <url>/2019/02/12/args-%E5%92%8C-kwargs/</url>
     <content><![CDATA[<p>很多Python新手都无法搞清<code>*args</code>与<code>**kwargs</code>这两个魔术变量。那么他们到底是什么呢？让我来告诉你。在实际程序中，我们没有必要非得写成<code>*args</code>与<code>**kwargs</code>这样的形式，你也可以写成<code>*var</code>与<code>**vars</code>。写成<code>*args</code>与<code>**kwargs</code>的形式只是一种惯例。 <a id="more"></a> ## *args的用法 <code>*args</code>与<code>**kwargs</code>主要用于函数的定义。<code>*args</code>与<code>**kwargs</code>允许你将可变数量的参数传递给函数。这里的<strong>可变</strong>意味着你事先是不知道用户可以向你传递多少参数。因此在这种情况下你可以使用这两个关键字。<code>*args</code>用于向函数发送没有关键字的可变长度参数列表。以下是一个例子：</p>
@@ -754,19 +732,6 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo-gittalk问题总结</title>
-    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
-<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>经验</tag>
       </tags>
   </entry>
   <entry>
@@ -912,34 +877,16 @@ x
       </tags>
   </entry>
   <entry>
-    <title>中国学术圈的未来在哪里？</title>
-    <url>/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/</url>
-    <content><![CDATA[<p>最近遇到了很多烦心事，主要是学术生活上的问题，教授没有学术上的指导，且总是push我们做项目，自动化系的教授都只知道赚钱啊，不，都只知道“骗钱”。今天感觉状态还不错，稍有感想，想在这篇文章中简短地谈论一下，权当我乱说的吧，哈哈哈哈。</p>
-<a id="more"></a>
-<p>中国科研圈的问题我个人认为主要来源于以下几点：</p>
-<ul>
-<li>当前50岁以上的老教授，都是出身在1970年以前，他们从小没有接受过完整、科学的教育，所以，一方面，他们中很多人的学术水平其实很垃圾的，工程技术水平也有限啊，而且从小没有接受过爱国主义教育，现在很多的美国的舔狗，也基本都是这个年龄段吧，他们中的某些人入党了，这些人都是对国家有风险的，因为他们只不过是为了入党而入党，而不是真正的爱国家爱党。</li>
-<li>贫富差距过大导致了很多教授老师都拼命想着赚钱，例如江浙沪，其实很多人的收入都很高，每年也都能赚很多钱，但是教授的工资却没有跟上时代的步伐，这就导致老师们只想着去赚钱，骗钱。</li>
-<li>教授老师的权力太大了，国家也没有出台相应的解决办法，所谓的发布的几个文件，都只是象征性的，没有实际意义。</li>
-</ul>
-<p>解决办法：</p>
-<ul>
-<li>学术圈需要降低平均年龄，让那些不给力的老教师抓紧退休，让有能力有抱负的年轻老师赶紧上位。</li>
-<li>国内大学的思政老师要请专业的老师，不能是学生辅导员，要选择真正有理想，有抱负的共产党员来做思政老师，同时赋予他们保护学生的权力。</li>
-<li>需要大量的学生集体出来反抗，这是最无奈，也是最有效的一种解决办法，再来一次文化大革命，什么都解决了。</li>
-</ul>
-<p>写这篇文章的时候主要是感叹现在老师的权力真的太大了，完全不应该这么大啊，而且我现在的科研生活也和我理想中的科研生活完全不一样。我理想中的科研生活应该是自由，纯粹的科研生活，像deepmind，openai，UCB那种真正干科研的生活。而现在的科研生活，一个个教授们美其名曰要结合工程项目，但实际上只是为了赚钱一级一级骗钱，骗国企，骗国家，最终受伤害的还是纳税人。</p>
-<p>但是再往上说，那就要说到共产党了，共产党是先进生产力的代表，怎么不能解决这么明显的问题？</p>
-<p><strong>虽然对中国的科研圈子很失望，但是若不是为了心中那一份崇高的科研理想，我又怎会继续坚持？</strong></p>
-<p>最后，用鲁迅先生的经典《热风》结尾：</p>
-<p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声，有一分热，发一分光，就令萤火虫一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。 倘若有了炬火，出了太阳，我们自然心悦诚服地消失，不但毫无不平，而且还要随喜赞美这炬火或太阳，因为他照亮了人类，连我都在内。</p>
-<p><strong>与君共勉。</strong></p>
+    <title>hexo-gittalk问题总结</title>
+    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
+<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>经验</category>
       </categories>
       <tags>
-        <tag>生活</tag>
+        <tag>经验</tag>
       </tags>
   </entry>
   <entry>
@@ -979,63 +926,56 @@ x
       </tags>
   </entry>
   <entry>
-    <title>使用本地服务器结合github action推送github pages</title>
-    <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
-    <content><![CDATA[<h2 id="需求">需求</h2>
-<p>网上很多人使用github action，借助github的服务器来进行博客的推送，但是，当你博客文章数量较多，且使用了国内的CDN，例如本博客使用了阿里云CDN，本站的解析是国外IP访问的是github仓库的网站，国内用户访问的是阿里云CDN的节点，在使用github action的时候，发现推送速度非常慢，原因是github的服务器在国外，<strong>往阿里云服务器推送的时候速度很慢</strong>。所以，每次更新博客，往往需要10分钟的时间才能推送好。这是不能忍受的。。。</p>
+    <title>中国学术圈的未来在哪里？</title>
+    <url>/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/</url>
+    <content><![CDATA[<p>最近遇到了很多烦心事，主要是学术生活上的问题，教授没有学术上的指导，且总是push我们做项目，自动化系的教授都只知道赚钱啊，不，都只知道“骗钱”。今天感觉状态还不错，稍有感想，想在这篇文章中简短地谈论一下，权当我乱说的吧，哈哈哈哈。</p>
 <a id="more"></a>
-<p>我本地有一台服务器，装了Proxmox来管理虚拟机，且有公网IP，接助GitHub action来连接到我本地推送服务器进行推送</p>
-<h2 id="整个流程如图">整个流程如图：</h2>
-<p><img src="1.svg" /></p>
+<p>中国科研圈的问题我个人认为主要来源于以下几点：</p>
 <ul>
-<li>本地git pull github仓库中的文件到本地博客开发服务器，进行博客开发。</li>
-<li>博客写完后，git push到github仓库</li>
-<li>github仓库根据仓库中的yaml文件，创建github action，action的功能是连接SSH到Github推送服务器</li>
-<li>Github推送服务器上已经安装好了hexo等博客需要的环境，进行博客推送</li>
+<li>当前50岁以上的老教授，都是出身在1970年以前，他们从小没有接受过完整、科学的教育，所以，一方面，他们中很多人的学术水平其实很垃圾的，工程技术水平也有限啊，而且从小没有接受过爱国主义教育，现在很多的美国的舔狗，也基本都是这个年龄段吧，他们中的某些人入党了，这些人都是对国家有风险的，因为他们只不过是为了入党而入党，而不是真正的爱国家爱党。</li>
+<li>贫富差距过大导致了很多教授老师都拼命想着赚钱，例如江浙沪，其实很多人的收入都很高，每年也都能赚很多钱，但是教授的工资却没有跟上时代的步伐，这就导致老师们只想着去赚钱，骗钱。</li>
+<li>教授老师的权力太大了，国家也没有出台相应的解决办法，所谓的发布的几个文件，都只是象征性的，没有实际意义。</li>
 </ul>
-<p>这样操作，全自动的，且速度非常快，整个流程在1分钟左右。</p>
-<h2 id="附上github-action的代码">附上github action的代码：</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Hexo deploy by remote ssh</span><br><span class="line">on: </span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line"></span><br><span class="line">  build:</span><br><span class="line">    name: Build</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">    - name: executing remote ssh commands using password</span><br><span class="line">      uses: appleboy/ssh-action@master</span><br><span class="line">      with:</span><br><span class="line">        host: <span class="variable">$&#123;&#123; secrets.HOST &#125;</span>&#125;</span><br><span class="line">        username: <span class="variable">$&#123;&#123; secrets.USERNAME &#125;</span>&#125;</span><br><span class="line">        password: <span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;</span><br><span class="line">        port: <span class="variable">$&#123;&#123; secrets.PORT &#125;</span>&#125;</span><br><span class="line">        script: <span class="built_in">cd</span> blog;</span><br><span class="line">                git pull https://olixu:<span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;@github.com/olixu/blog.git; </span><br><span class="line">                hexo clean;</span><br><span class="line">                hexo g;</span><br><span class="line">                hexo d;</span><br></pre></td></tr></table></figure>
+<p>解决办法：</p>
+<ul>
+<li>学术圈需要降低平均年龄，让那些不给力的老教师抓紧退休，让有能力有抱负的年轻老师赶紧上位。</li>
+<li>国内大学的思政老师要请专业的老师，不能是学生辅导员，要选择真正有理想，有抱负的共产党员来做思政老师，同时赋予他们保护学生的权力。</li>
+<li>需要大量的学生集体出来反抗，这是最无奈，也是最有效的一种解决办法，再来一次文化大革命，什么都解决了。</li>
+</ul>
+<p>写这篇文章的时候主要是感叹现在老师的权力真的太大了，完全不应该这么大啊，而且我现在的科研生活也和我理想中的科研生活完全不一样。我理想中的科研生活应该是自由，纯粹的科研生活，像deepmind，openai，UCB那种真正干科研的生活。而现在的科研生活，一个个教授们美其名曰要结合工程项目，但实际上只是为了赚钱一级一级骗钱，骗国企，骗国家，最终受伤害的还是纳税人。</p>
+<p>但是再往上说，那就要说到共产党了，共产党是先进生产力的代表，怎么不能解决这么明显的问题？</p>
+<p><strong>虽然对中国的科研圈子很失望，但是若不是为了心中那一份崇高的科研理想，我又怎会继续坚持？</strong></p>
+<p>最后，用鲁迅先生的经典《热风》结尾：</p>
+<p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声，有一分热，发一分光，就令萤火虫一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。 倘若有了炬火，出了太阳，我们自然心悦诚服地消失，不但毫无不平，而且还要随喜赞美这炬火或太阳，因为他照亮了人类，连我都在内。</p>
+<p><strong>与君共勉。</strong></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vs code remote ssh 使用x11转发显示远程图像</title>
+    <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
+    <content><![CDATA[<h2 id="需求">需求</h2>
+<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
+<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
+<a id="more"></a>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+<h2 id="问题">问题</h2>
+<ul>
+<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
+<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
+</ul>
 ]]></content>
       <categories>
         <category>博客</category>
       </categories>
       <tags>
         <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用树莓派搭建家庭宠物监控并在B站24小时直播</title>
-    <url>/2019/02/07/%E4%BD%BF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E5%AE%B6%E5%BA%AD%E5%AE%A0%E7%89%A9%E7%9B%91%E6%8E%A7%E5%B9%B6%E5%9C%A8B%E7%AB%9924%E5%B0%8F%E6%97%B6%E7%9B%B4%E6%92%AD/</url>
-    <content><![CDATA[<p>我家养了一条拉布拉多，名字叫小黑，由于我常年不在家，都是我妈妈在养，每当我想要看看狗子，总是需要在我妈妈在家的时候，和我妈妈视频才能看到，因此，就想做一个本文的这个项目。</p>
-<p>首先，给大家看下效果，B站直播房间号： <span class="exturl" data-url="aHR0cHM6Ly9saXZlLmJpbGliaWxpLmNvbS8yMTE3MjU3Mg==">https://live.bilibili.com/21172572<i class="fa fa-external-link-alt"></i></span></p>
-<figure>
-<img src="1.png" alt="截图" /><figcaption>截图</figcaption>
-</figure>
-<a id="more"></a>
-<h2 id="项目所需配件">项目所需配件</h2>
-<p>树莓派</p>
-<p>树莓派摄像头（选用那种带<strong>CSI接口</strong>的摄像头，淘宝上最便宜的<strong>15RMB</strong>, 如果你想晚上也想看到狗子，那么就买个带夜视的，100元不到。<strong><em>千万别买USB摄像头</em></strong>，以树莓派的性能只能达到1080P 10多帧， 画质还惨不忍睹，大多数便宜的USB摄像头(我也买了一个，销量第一的，100多，在树莓派上用简直是垃圾，电脑上用到还可以)都写的1千多万像素，都是软件插值出来的，硬件基本上300万像素。）</p>
-<h2 id="系统配置及软件环境">系统配置及软件环境</h2>
-<ul>
-<li>系统： <code>raspbian</code></li>
-</ul>
-<p>用树莓派的应该都会装</p>
-<ul>
-<li>软件： <code>ffmpeg</code></li>
-</ul>
-<p>执行<code>sudo apt install ffmpeg</code>，在9102年的现在，仍然能够看到有的教程说要编译安装，以前ffmpeg这个软件因为没在官方的ppa中，所以需要编译安装，但那都是多年前的事情了。建议大家直接apt安装。</p>
-<h2 id="命令">命令</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">raspivid -o - -t 0 -vf -hf -fps 30 -b 6000000 | ffmpeg -re -stream_loop -1 -i "/home/pi/music/human_fall_flat.mp3" -f h264 -i - -vcodec copy -acodec aac -b:a 192k -f flv "你的rtmp地址/你的直播码"</span><br></pre></td></tr></table></figure>
-<p><code>raspivid -o - -t 0 -vf -hf -fps 30 -b 6000000</code>这个命令是用raspivid从摄像头流中以每秒30帧读取数据，然后通过管道符将视频数据传送给ffmpeg， ffmpeg将视频和音频编码后发送到rtmp服务器。这里需要注意的是rtmp的地址需要加上<code>"</code></p>
-<p><strong>同时推摄像头和麦克风</strong> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">raspivid -o - -t 0 -vf -hf -fps 25 -b 10000000 | ffmpeg -f alsa -ac 2 -i plughw:1,0 -f h264 -i - -vcodec copy -g 50 -strict experimental -f flv "你的rtmp地址/你的直播码"</span><br></pre></td></tr></table></figure> ## 夜视摄像头模式自动切换</p>
-<p>由于我家的狗是养在院子里面的，晚上是没有灯光的，所以我在某宝上买了一个夜视摄像头，白天切换到日视模式，晚上切换到夜视模式，这样，白天晚上自动切换，很舒服。</p>
-]]></content>
-      <categories>
-        <category>raspberry</category>
-      </categories>
-      <tags>
-        <tag>raspberry</tag>
       </tags>
   </entry>
   <entry>
@@ -1083,6 +1023,40 @@ x
       </categories>
       <tags>
         <tag>flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用树莓派搭建家庭宠物监控并在B站24小时直播</title>
+    <url>/2019/02/07/%E4%BD%BF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E5%AE%B6%E5%BA%AD%E5%AE%A0%E7%89%A9%E7%9B%91%E6%8E%A7%E5%B9%B6%E5%9C%A8B%E7%AB%9924%E5%B0%8F%E6%97%B6%E7%9B%B4%E6%92%AD/</url>
+    <content><![CDATA[<p>我家养了一条拉布拉多，名字叫小黑，由于我常年不在家，都是我妈妈在养，每当我想要看看狗子，总是需要在我妈妈在家的时候，和我妈妈视频才能看到，因此，就想做一个本文的这个项目。</p>
+<p>首先，给大家看下效果，B站直播房间号： <span class="exturl" data-url="aHR0cHM6Ly9saXZlLmJpbGliaWxpLmNvbS8yMTE3MjU3Mg==">https://live.bilibili.com/21172572<i class="fa fa-external-link-alt"></i></span></p>
+<figure>
+<img src="1.png" alt="截图" /><figcaption>截图</figcaption>
+</figure>
+<a id="more"></a>
+<h2 id="项目所需配件">项目所需配件</h2>
+<p>树莓派</p>
+<p>树莓派摄像头（选用那种带<strong>CSI接口</strong>的摄像头，淘宝上最便宜的<strong>15RMB</strong>, 如果你想晚上也想看到狗子，那么就买个带夜视的，100元不到。<strong><em>千万别买USB摄像头</em></strong>，以树莓派的性能只能达到1080P 10多帧， 画质还惨不忍睹，大多数便宜的USB摄像头(我也买了一个，销量第一的，100多，在树莓派上用简直是垃圾，电脑上用到还可以)都写的1千多万像素，都是软件插值出来的，硬件基本上300万像素。）</p>
+<h2 id="系统配置及软件环境">系统配置及软件环境</h2>
+<ul>
+<li>系统： <code>raspbian</code></li>
+</ul>
+<p>用树莓派的应该都会装</p>
+<ul>
+<li>软件： <code>ffmpeg</code></li>
+</ul>
+<p>执行<code>sudo apt install ffmpeg</code>，在9102年的现在，仍然能够看到有的教程说要编译安装，以前ffmpeg这个软件因为没在官方的ppa中，所以需要编译安装，但那都是多年前的事情了。建议大家直接apt安装。</p>
+<h2 id="命令">命令</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">raspivid -o - -t 0 -vf -hf -fps 30 -b 6000000 | ffmpeg -re -stream_loop -1 -i "/home/pi/music/human_fall_flat.mp3" -f h264 -i - -vcodec copy -acodec aac -b:a 192k -f flv "你的rtmp地址/你的直播码"</span><br></pre></td></tr></table></figure>
+<p><code>raspivid -o - -t 0 -vf -hf -fps 30 -b 6000000</code>这个命令是用raspivid从摄像头流中以每秒30帧读取数据，然后通过管道符将视频数据传送给ffmpeg， ffmpeg将视频和音频编码后发送到rtmp服务器。这里需要注意的是rtmp的地址需要加上<code>"</code></p>
+<p><strong>同时推摄像头和麦克风</strong> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">raspivid -o - -t 0 -vf -hf -fps 25 -b 10000000 | ffmpeg -f alsa -ac 2 -i plughw:1,0 -f h264 -i - -vcodec copy -g 50 -strict experimental -f flv "你的rtmp地址/你的直播码"</span><br></pre></td></tr></table></figure> ## 夜视摄像头模式自动切换</p>
+<p>由于我家的狗是养在院子里面的，晚上是没有灯光的，所以我在某宝上买了一个夜视摄像头，白天切换到日视模式，晚上切换到夜视模式，这样，白天晚上自动切换，很舒服。</p>
+]]></content>
+      <categories>
+        <category>raspberry</category>
+      </categories>
+      <tags>
+        <tag>raspberry</tag>
       </tags>
   </entry>
   <entry>
@@ -1524,10 +1498,10 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>常用排序算法之冒泡排序</title>
-    <url>/2018/08/19/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>题目：编写一个C程序，应用冒泡排序法对序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的序列元素</p>
-<p>算法分析：直接运用冒泡排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubblesort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span> &amp;&amp; flag==<span class="number">1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n-i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j+<span class="number">1</span>]&lt;a[j])</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j+<span class="number">1</span>];</span><br><span class="line">                a[j+<span class="number">1</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="number">0</span>];</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    bubblesort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of bubble sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <title>常用排序算法之直接插入排序</title>
+    <url>/2018/08/12/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>题目：编写一个C程序，应用直接插入排序算法将序列｛2，5，6，，3，7，8，0，9，12，1｝进行排序，要求从小到大排列，并输出排序后的数列元素。</p>
+<p>算法分析：直接运用直接插入排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertionsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>] = a[i];</span><br><span class="line">        j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; a[<span class="number">0</span>]&lt;a[j])</span><br><span class="line">        &#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j--];</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The original data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    insertsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of insertion sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
@@ -1537,10 +1511,10 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>常用排序算法之直接插入排序</title>
-    <url>/2018/08/12/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>题目：编写一个C程序，应用直接插入排序算法将序列｛2，5，6，，3，7，8，0，9，12，1｝进行排序，要求从小到大排列，并输出排序后的数列元素。</p>
-<p>算法分析：直接运用直接插入排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertionsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>] = a[i];</span><br><span class="line">        j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; a[<span class="number">0</span>]&lt;a[j])</span><br><span class="line">        &#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j--];</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The original data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    insertsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of insertion sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <title>常用排序算法之冒泡排序</title>
+    <url>/2018/08/19/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>题目：编写一个C程序，应用冒泡排序法对序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的序列元素</p>
+<p>算法分析：直接运用冒泡排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubblesort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span> &amp;&amp; flag==<span class="number">1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n-i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j+<span class="number">1</span>]&lt;a[j])</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j+<span class="number">1</span>];</span><br><span class="line">                a[j+<span class="number">1</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="number">0</span>];</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    bubblesort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of bubble sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
@@ -1555,19 +1529,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
     <content><![CDATA[<p>题目：编写一个C程序，运用选择排序将序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的数列元素</p>
 <p>算法分析：运用选择排序算法即可</p>
 <p>代码实现： <a id="more"></a> <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,<span class="built_in">min</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)</span><br><span class="line">    &#123; </span><br><span class="line">        <span class="built_in">min</span> = i;</span><br><span class="line">        <span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[j] &lt; a[<span class="built_in">min</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">min</span> = j;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">min</span> != i)</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="built_in">min</span>];</span><br><span class="line">                a[<span class="built_in">min</span>] = a[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    selectsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of selection sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>数据结构 算法 排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>折半查找</title>
-    <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
-    <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
-<p>算法分析：折半查找 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bin_search</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,high,low;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=(high+low)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">10</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">19</span>,<span class="number">21</span>&#125;</span><br><span class="line">    <span class="keyword">int</span> i,n,addr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The contents of the Array A[10] are\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, A[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPlease input a interger for search\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    addr = bin_search(A,<span class="number">10</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(addr != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d is at the %dth unit is array A\n "</span>,n,addr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"There is no %d in array A\n"</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
@@ -1604,25 +1565,16 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>服务器被黑记录</title>
-    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
-<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
-<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
-<a id="more"></a>
-<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
-<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
-<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
-<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
-<p>可以看到一直在被爆破。</p>
-<p><img src="image-20200914140640360.png" /></p>
+    <title>折半查找</title>
+    <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
+    <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
+<p>算法分析：折半查找 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bin_search</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,high,low;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=(high+low)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">10</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">19</span>,<span class="number">21</span>&#125;</span><br><span class="line">    <span class="keyword">int</span> i,n,addr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The contents of the Array A[10] are\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, A[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPlease input a interger for search\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    addr = bin_search(A,<span class="number">10</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(addr != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d is at the %dth unit is array A\n "</span>,n,addr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"There is no %d in array A\n"</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
-        <category>Linux</category>
+        <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>数据结构 算法 排序</tag>
       </tags>
   </entry>
   <entry>
@@ -1715,6 +1667,28 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>服务器被黑记录</title>
+    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
+<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
+<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
+<a id="more"></a>
+<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
+<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
+<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
+<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
+<p>可以看到一直在被爆破。</p>
+<p><img src="image-20200914140640360.png" /></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>检查强化学习自定义环境是否符合Gym的API</title>
     <url>/2020/08/22/%E6%A3%80%E6%9F%A5%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E7%AC%A6%E5%90%88Gym%E7%9A%84API/</url>
     <content><![CDATA[<p>虽然Openai Gym给我们提供了很多有趣的环境，但是，针对实际问题，我们一般都需要建立自己的强化学习环境，也就是说，建立一个函数，输入是<code>action</code>，输出是<code>next_state, reward, done, info</code>，建立这样一个环境的时候最好按照Gym的API来设计，这样方便代码的编写与调试，很多网上实现的算法都是按照Gym的环境进行设计的，同时，Gym的API本身设计的就比较合理的。</p>
@@ -1749,19 +1723,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>粒子群算法库-PySwarms的可视化</title>
-    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
-    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
-<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1830,6 +1791,19 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>优化算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>粒子群算法库-PySwarms的可视化</title>
+    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
+    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
+<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -3935,6 +3909,32 @@ v_{k+1}(s) &amp; \doteq \max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{k}\left(S_{t
       </tags>
   </entry>
   <entry>
+    <title>使用本地服务器结合github action推送github pages</title>
+    <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
+    <content><![CDATA[<h2 id="需求">需求</h2>
+<p>网上很多人使用github action，借助github的服务器来进行博客的推送，但是，当你博客文章数量较多，且使用了国内的CDN，例如本博客使用了阿里云CDN，本站的解析是国外IP访问的是github仓库的网站，国内用户访问的是阿里云CDN的节点，在使用github action的时候，发现推送速度非常慢，原因是github的服务器在国外，<strong>往阿里云服务器推送的时候速度很慢</strong>。所以，每次更新博客，往往需要10分钟的时间才能推送好。这是不能忍受的。。。</p>
+<a id="more"></a>
+<p>我本地有一台服务器，装了Proxmox来管理虚拟机，且有公网IP，接助GitHub action来连接到我本地推送服务器进行推送</p>
+<h2 id="整个流程如图">整个流程如图：</h2>
+<p><img src="1.svg" /></p>
+<ul>
+<li>本地git pull github仓库中的文件到本地博客开发服务器，进行博客开发。</li>
+<li>博客写完后，git push到github仓库</li>
+<li>github仓库根据仓库中的yaml文件，创建github action，action的功能是连接SSH到Github推送服务器</li>
+<li>Github推送服务器上已经安装好了hexo等博客需要的环境，进行博客推送</li>
+</ul>
+<p>这样操作，全自动的，且速度非常快，整个流程在1分钟左右。</p>
+<h2 id="附上github-action的代码">附上github action的代码：</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Hexo deploy by remote ssh</span><br><span class="line">on: </span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line"></span><br><span class="line">  build:</span><br><span class="line">    name: Build</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">    - name: executing remote ssh commands using password</span><br><span class="line">      uses: appleboy/ssh-action@master</span><br><span class="line">      with:</span><br><span class="line">        host: <span class="variable">$&#123;&#123; secrets.HOST &#125;</span>&#125;</span><br><span class="line">        username: <span class="variable">$&#123;&#123; secrets.USERNAME &#125;</span>&#125;</span><br><span class="line">        password: <span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;</span><br><span class="line">        port: <span class="variable">$&#123;&#123; secrets.PORT &#125;</span>&#125;</span><br><span class="line">        script: <span class="built_in">cd</span> blog;</span><br><span class="line">                git pull https://olixu:<span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;@github.com/olixu/blog.git; </span><br><span class="line">                hexo clean;</span><br><span class="line">                hexo g;</span><br><span class="line">                hexo d;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Input Convex Neural Network复现及仿真验证</title>
     <url>/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/</url>
     <content><![CDATA[<p>《Input Convex Neural Networks》</p>
@@ -4057,278 +4057,6 @@ f_{C P L} &amp;=\max \left\{L_{1}, L_{2}, \ldots, L_{K}\right\} \\
       </categories>
       <tags>
         <tag>神经网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tensorflow tutorial</title>
-    <url>/2019/11/01/Tensorflow-tutorial/</url>
-    <content><![CDATA[<p>This tutorial will provide a brief overview of the core concepts and functionality of Tensorflow. This tutorial will cover the following:</p>
-<ol start="0" type="1">
-<li>What is Tensorflow</li>
-<li>How to input data</li>
-<li>How to perform computations</li>
-<li>How to create variables</li>
-<li>How to train a neural network for a simple regression problem</li>
-<li>Tips and tricks <a id="more"></a></li>
-</ol>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.cm <span class="keyword">as</span> cm</span><br><span class="line"><span class="keyword">import</span> matplotlib.patches <span class="keyword">as</span> mpatches</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tf_reset</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        sess.close()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    tf.reset_default_graph()</span><br><span class="line">    <span class="keyword">return</span> tf.Session()</span><br></pre></td></tr></table></figure>
-<h1 id="what-is-tensorflow">0. What is Tensorflow</h1>
-<p>Tensorflow is a framework to define a series of computations. You define inputs, what operations should be performed, and then Tensorflow will compute the outputs for you.</p>
-<p>Below is a simple high-level example:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># create the session you'll work in</span></span><br><span class="line"><span class="comment"># you can think of this as a "blank piece of paper" that you'll be writing math on</span></span><br><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># define your inputs</span></span><br><span class="line">a = tf.constant(<span class="number">1.0</span>)</span><br><span class="line">b = tf.constant(<span class="number">2.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># do some operations</span></span><br><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line"><span class="comment"># get the result</span></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'c = &#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
-<pre><code>c = 3.0</code></pre>
-<h1 id="how-to-input-data">1. How to input data</h1>
-<p>Tensorflow has multiple ways for you to input data. One way is to have the inputs be constants:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># define your inputs</span></span><br><span class="line">a = tf.constant(<span class="number">1.0</span>)</span><br><span class="line">b = tf.constant(<span class="number">2.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># do some operations</span></span><br><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line"><span class="comment"># get the result</span></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'c = &#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
-<pre><code>c = 3.0</code></pre>
-<p>However, having our inputs be constants is inflexible. We want to be able to change what data we input at runtime. We can do this using placeholders:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># define your inputs</span></span><br><span class="line">a = tf.placeholder(dtype=tf.float32, shape=[<span class="number">1</span>], name=<span class="string">'a_placeholder'</span>)</span><br><span class="line">b = tf.placeholder(dtype=tf.float32, shape=[<span class="number">1</span>], name=<span class="string">'b_placeholder'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># do some operations</span></span><br><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line"><span class="comment"># get the result</span></span><br><span class="line">c0_run = sess.run(c, feed_dict=&#123;a: [<span class="number">1.0</span>], b: [<span class="number">2.0</span>]&#125;)</span><br><span class="line">c1_run = sess.run(c, feed_dict=&#123;a: [<span class="number">2.0</span>], b: [<span class="number">4.0</span>]&#125;)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'c0 = &#123;0&#125;'</span>.format(c0_run))</span><br><span class="line">print(<span class="string">'c1 = &#123;0&#125;'</span>.format(c1_run))</span><br></pre></td></tr></table></figure>
-<pre><code>c0 = [3.]
-c1 = [6.]</code></pre>
-<p>But what if we don't know the size of our input beforehand? One dimension of a tensor is allowed to be 'None', which means it can be variable sized:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># inputs</span></span><br><span class="line">a = tf.placeholder(dtype=tf.float32, shape=[<span class="literal">None</span>], name=<span class="string">'a_placeholder'</span>)</span><br><span class="line">b = tf.placeholder(dtype=tf.float32, shape=[<span class="literal">None</span>], name=<span class="string">'b_placeholder'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># do some operations</span></span><br><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line"><span class="comment"># get outputs</span></span><br><span class="line">c0_run = sess.run(c, feed_dict=&#123;a: [<span class="number">1.0</span>], b: [<span class="number">2.0</span>]&#125;)</span><br><span class="line">c1_run = sess.run(c, feed_dict=&#123;a: [<span class="number">1.0</span>, <span class="number">2.0</span>], b: [<span class="number">2.0</span>, <span class="number">4.0</span>]&#125;)</span><br><span class="line"></span><br><span class="line">print(a)</span><br><span class="line">print(<span class="string">'a shape: &#123;0&#125;'</span>.format(a.get_shape()))</span><br><span class="line">print(b)</span><br><span class="line">print(<span class="string">'b shape: &#123;0&#125;'</span>.format(b.get_shape()))</span><br><span class="line">print(<span class="string">'c0 = &#123;0&#125;'</span>.format(c0_run))</span><br><span class="line">print(<span class="string">'c1 = &#123;0&#125;'</span>.format(c1_run))</span><br></pre></td></tr></table></figure>
-<pre><code>Tensor(&quot;a_placeholder:0&quot;, shape=(?,), dtype=float32)
-a shape: (?,)
-Tensor(&quot;b_placeholder:0&quot;, shape=(?,), dtype=float32)
-b shape: (?,)
-c0 = [3.]
-c1 = [3. 6.]</code></pre>
-<h1 id="how-to-perform-computations">2. How to perform computations</h1>
-<p>Now that we can input data, we want to perform useful computations on the data.</p>
-<p>First, let's create some data to work with:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># inputs</span></span><br><span class="line">a = tf.constant([[<span class="number">-1.</span>], [<span class="number">-2.</span>], [<span class="number">-3.</span>]], dtype=tf.float32)</span><br><span class="line">b = tf.constant([[<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>]], dtype=tf.float32)</span><br><span class="line"></span><br><span class="line">a_run, b_run = sess.run([a, b])</span><br><span class="line">print(<span class="string">'a:\n&#123;0&#125;'</span>.format(a_run))</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br></pre></td></tr></table></figure>
-<pre><code>a:
-[[-1.]
- [-2.]
- [-3.]]
-b:
-[[1. 2. 3.]]</code></pre>
-<p>We can do simple operations, such as addition:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c = b + b</span><br><span class="line"></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c:\n&#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
-<pre><code>b:
-[[1. 2. 3.]]
-c:
-[[2. 4. 6.]]</code></pre>
-<p>Be careful about the dimensions of the tensors, some operations may work even when you think they shouldn't...</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line">print(<span class="string">'a:\n&#123;0&#125;'</span>.format(a_run))</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c:\n&#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
-<pre><code>a:
-[[-1.]
- [-2.]
- [-3.]]
-b:
-[[1. 2. 3.]]
-c:
-[[ 0.  1.  2.]
- [-1.  0.  1.]
- [-2. -1.  0.]]</code></pre>
-<p>Also, some operations may be different than what you expect:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c_elementwise = a * b</span><br><span class="line">c_matmul = tf.matmul(b, a)</span><br><span class="line"></span><br><span class="line">c_elementwise_run, c_matmul_run = sess.run([c_elementwise, c_matmul])</span><br><span class="line">print(<span class="string">'a:\n&#123;0&#125;'</span>.format(a_run))</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c_elementwise:\n&#123;0&#125;'</span>.format(c_elementwise_run))</span><br><span class="line">print(<span class="string">'c_matmul: \n&#123;0&#125;'</span>.format(c_matmul_run))</span><br></pre></td></tr></table></figure>
-<pre><code>a:
-[[-1.]
- [-2.]
- [-3.]]
-b:
-[[1. 2. 3.]]
-c_elementwise:
-[[-1. -2. -3.]
- [-2. -4. -6.]
- [-3. -6. -9.]]
-c_matmul: 
-[[-14.]]</code></pre>
-<p>Operations can be chained together:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># operations can be chained together</span></span><br><span class="line">c0 = b + b</span><br><span class="line">c1 = c0 + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">c0_run, c1_run = sess.run([c0, c1])</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c0:\n&#123;0&#125;'</span>.format(c0_run))</span><br><span class="line">print(<span class="string">'c1:\n&#123;0&#125;'</span>.format(c1_run))</span><br></pre></td></tr></table></figure>
-<pre><code>b:
-[[1. 2. 3.]]
-c0:
-[[2. 4. 6.]]
-c1:
-[[3. 5. 7.]]</code></pre>
-<p>Finally, Tensorflow has many useful built-in operations:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c = tf.reduce_mean(b)</span><br><span class="line"></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c:\n&#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
-<pre><code>b:
-[[1. 2. 3.]]
-c:
-2.0</code></pre>
-<h1 id="how-to-create-variables">3. How to create variables</h1>
-<p>Now that we can input data and perform computations, we want some of these operations to involve variables that are free parameters, and can be trained using an optimizer (e.g., gradient descent).</p>
-<p>First, let's create some data to work with:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># inputs</span></span><br><span class="line">b = tf.constant([[<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>]], dtype=tf.float32)</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line"></span><br><span class="line">b_run = sess.run(b)</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br></pre></td></tr></table></figure>
-<pre><code>b:
-[[1. 2. 3.]]</code></pre>
-<p>We'll now create a variable</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">var_init_value = [[<span class="number">2.0</span>, <span class="number">4.0</span>, <span class="number">6.0</span>]]</span><br><span class="line">var = tf.get_variable(name=<span class="string">'myvar'</span>,</span><br><span class="line">                      shape=[<span class="number">1</span>, <span class="number">3</span>],</span><br><span class="line">                      dtype=tf.float32,</span><br><span class="line">                      initializer=tf.constant_initializer(var_init_value))</span><br><span class="line"></span><br><span class="line">print(var)</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;tf.Variable &#39;myvar:0&#39; shape=(1, 3) dtype=float32_ref&gt;</code></pre>
-<p>and check that it's been added to Tensorflow's variables list:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(tf.global_variables())</span><br></pre></td></tr></table></figure>
-<pre><code>[&lt;tf.Variable &#39;myvar:0&#39; shape=(1, 3) dtype=float32_ref&gt;]</code></pre>
-<p>We can do operations with the variable just like any other tensor:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># can do operations</span></span><br><span class="line">c = b + var</span><br><span class="line">print(b)</span><br><span class="line">print(var)</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
-<pre><code>Tensor(&quot;Const:0&quot;, shape=(1, 3), dtype=float32)
-&lt;tf.Variable &#39;myvar:0&#39; shape=(1, 3) dtype=float32_ref&gt;
-Tensor(&quot;add:0&quot;, shape=(1, 3), dtype=float32)</code></pre>
-<p>Before we can run any of these operations, we must first initalize the variables</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">init_op = tf.global_variables_initializer()</span><br><span class="line">sess.run(init_op)</span><br></pre></td></tr></table></figure>
-<p>and then we can run the operations just as we normally would.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c_run = sess.run(c)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'var:\n&#123;0&#125;'</span>.format(var_init_value))http://rail.eecs.berkeley.edu/deeprlcourse-fa18/static/misc/TF_lecture.ipynb</span><br><span class="line">print(<span class="string">'c:\n&#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
-<pre><code>b:
-[[1. 2. 3.]]
-var:
-[[2.0, 4.0, 6.0]]
-c:
-[[3. 6. 9.]]</code></pre>
-<p>So far we haven't said yet how to optimize these variables. We'll cover that next in the context of an example.</p>
-<h1 id="how-to-train-a-neural-network-for-a-simple-regression-problem">4. How to train a neural network for a simple regression problem</h1>
-<p>We've discussed how to input data, perform operations, and create variables. We'll now show how to combine all of these---with some minor additions---to train a neural network on a simple regression problem.</p>
-<p>First, we'll create data for a 1-dimensional regression problem:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># generate the data</span></span><br><span class="line">inputs = np.linspace(<span class="number">-2</span>*np.pi, <span class="number">2</span>*np.pi, <span class="number">10000</span>)[:, <span class="literal">None</span>]</span><br><span class="line">outputs = np.sin(inputs) + <span class="number">0.05</span> * np.random.normal(size=[len(inputs),<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.scatter(inputs[:, <span class="number">0</span>], outputs[:, <span class="number">0</span>], s=<span class="number">0.1</span>, color=<span class="string">'k'</span>, marker=<span class="string">'o'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;matplotlib.collections.PathCollection at 0x7ffa1bed23c8&gt;</code></pre>
-<figure>
-<img src="output_41_1.png" alt="png" /><figcaption>png</figcaption>
-</figure>
-<p>The below code creates the inputs, variables, neural network operations, mean-squared-error loss, gradient descent optimizer, and runs the optimizer using minibatches of the data.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_model</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># create inputs</span></span><br><span class="line">    input_ph = tf.placeholder(dtype=tf.float32, shape=[<span class="literal">None</span>, <span class="number">1</span>])</span><br><span class="line">    output_ph = tf.placeholder(dtype=tf.float32, shape=[<span class="literal">None</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># create variables</span></span><br><span class="line">    W0 = tf.get_variable(name=<span class="string">'W0'</span>, shape=[<span class="number">1</span>, <span class="number">20</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    W1 = tf.get_variable(name=<span class="string">'W1'</span>, shape=[<span class="number">20</span>, <span class="number">20</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    W2 = tf.get_variable(name=<span class="string">'W2'</span>, shape=[<span class="number">20</span>, <span class="number">1</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line"></span><br><span class="line">    b0 = tf.get_variable(name=<span class="string">'b0'</span>, shape=[<span class="number">20</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line">    b1 = tf.get_variable(name=<span class="string">'b1'</span>, shape=[<span class="number">20</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line">    b2 = tf.get_variable(name=<span class="string">'b2'</span>, shape=[<span class="number">1</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line"></span><br><span class="line">    weights = [W0, W1, W2]</span><br><span class="line">    biases = [b0, b1, b2]</span><br><span class="line">    activations = [tf.nn.relu, tf.nn.relu, <span class="literal">None</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># create computation graph</span></span><br><span class="line">    layer = input_ph</span><br><span class="line">    <span class="keyword">for</span> W, b, activation <span class="keyword">in</span> zip(weights, biases, activations):</span><br><span class="line">        layer = tf.matmul(layer, W) + b</span><br><span class="line">        <span class="keyword">if</span> activation <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            layer = activation(layer)</span><br><span class="line">    output_pred = layer</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> input_ph, output_ph, output_pred</span><br><span class="line">    </span><br><span class="line">input_ph, output_ph, output_pred = create_model()</span><br><span class="line">    </span><br><span class="line"><span class="comment"># create loss</span></span><br><span class="line">mse = tf.reduce_mean(<span class="number">0.5</span> * tf.square(output_pred - output_ph))</span><br><span class="line"></span><br><span class="line"><span class="comment"># create optimizer</span></span><br><span class="line">opt = tf.train.AdamOptimizer().minimize(mse)</span><br><span class="line"></span><br><span class="line"><span class="comment"># initialize variables</span></span><br><span class="line">sess.run(tf.global_variables_initializer())</span><br><span class="line"><span class="comment"># create saver to save model variables</span></span><br><span class="line">saver = tf.train.Saver()</span><br><span class="line"></span><br><span class="line"><span class="comment"># run training</span></span><br><span class="line">batch_size = <span class="number">32</span></span><br><span class="line"><span class="keyword">for</span> training_step <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    <span class="comment"># get a random subset of the training data</span></span><br><span class="line">    indices = np.random.randint(low=<span class="number">0</span>, high=len(inputs), size=batch_size)</span><br><span class="line">    input_batch = inputs[indices]</span><br><span class="line">    output_batch = outputs[indices]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># run the optimizer and get the mse</span></span><br><span class="line">    _, mse_run = sess.run([opt, mse], feed_dict=&#123;input_ph: input_batch, output_ph: output_batch&#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># print the mse every so often</span></span><br><span class="line">    <span class="keyword">if</span> training_step % <span class="number">1000</span> == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">'&#123;0:04d&#125; mse: &#123;1:.3f&#125;'</span>.format(training_step, mse_run))</span><br><span class="line">        saver.save(sess, <span class="string">'./tmp/model.ckpt'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>0000 mse: 0.428
-1000 mse: 0.067
-2000 mse: 0.027
-3000 mse: 0.016
-4000 mse: 0.006
-5000 mse: 0.002
-6000 mse: 0.002
-7000 mse: 0.001
-8000 mse: 0.002
-9000 mse: 0.001</code></pre>
-<p>Now that the neural network is trained, we can use it to make predictions:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># create the model</span></span><br><span class="line">input_ph, output_ph, output_pred = create_model()</span><br><span class="line"></span><br><span class="line"><span class="comment"># restore the saved model</span></span><br><span class="line">saver = tf.train.Saver()</span><br><span class="line">saver.restore(sess, <span class="string">"./tmp/model.ckpt"</span>)</span><br><span class="line"></span><br><span class="line">output_pred_run = sess.run(output_pred, feed_dict=&#123;input_ph: inputs&#125;)</span><br><span class="line"></span><br><span class="line">plt.scatter(inputs[:, <span class="number">0</span>], outputs[:, <span class="number">0</span>], c=<span class="string">'k'</span>, marker=<span class="string">'o'</span>, s=<span class="number">0.1</span>)</span><br><span class="line">plt.scatter(inputs[:, <span class="number">0</span>], output_pred_run[:, <span class="number">0</span>], c=<span class="string">'r'</span>, marker=<span class="string">'o'</span>, s=<span class="number">0.1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>INFO:tensorflow:Restoring parameters from /tmp/model.ckpt
-
-
-
-
-
-&lt;matplotlib.collections.PathCollection at 0x7ff9dc62a550&gt;</code></pre>
-<figure>
-<img src="output_45_2.png" alt="png" /><figcaption>png</figcaption>
-</figure>
-<p>Not so hard after all! There is much more functionality to Tensorflow besides what we've covered, but you now know the basics.</p>
-<h1 id="tips-and-tricks">5. Tips and tricks</h1>
-<h5 id="a-check-your-dimensions">(a) Check your dimensions</h5>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># example of "surprising" resulting dimensions due to broadcasting</span></span><br><span class="line">a = tf.constant(np.random.random((<span class="number">4</span>, <span class="number">1</span>)))</span><br><span class="line">b = tf.constant(np.random.random((<span class="number">1</span>, <span class="number">4</span>)))</span><br><span class="line">c = a * b</span><br><span class="line"><span class="keyword">assert</span> c.get_shape() == (<span class="number">4</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<h5 id="b-check-what-variables-have-been-created">(b) Check what variables have been created</h5>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line">a = tf.get_variable(<span class="string">'I_am_a_variable'</span>, shape=[<span class="number">4</span>, <span class="number">6</span>])</span><br><span class="line">b = tf.get_variable(<span class="string">'I_am_a_variable_too'</span>, shape=[<span class="number">2</span>, <span class="number">7</span>])</span><br><span class="line"><span class="keyword">for</span> var <span class="keyword">in</span> tf.global_variables():</span><br><span class="line">    print(var.name)</span><br></pre></td></tr></table></figure>
-<pre><code>I_am_a_variable:0
-I_am_a_variable_too:0</code></pre>
-<h5 id="c-look-at-the-tensorflow-api-or-open-up-a-python-terminal-and-investigate">(c) Look at the <span class="exturl" data-url="aHR0cHM6Ly93d3cudGVuc29yZmxvdy5vcmcvYXBpX2RvY3MvcHl0aG9uLw==">tensorflow API<i class="fa fa-external-link-alt"></i></span>, or open up a python terminal and investigate!</h5>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">help(tf.reduce_mean)</span><br></pre></td></tr></table></figure>
-<pre><code>Help on function reduce_mean in module tensorflow.python.ops.math_ops:
-
-reduce_mean(input_tensor, axis=None, keepdims=None, name=None, reduction_indices=None, keep_dims=None)
-    Computes the mean of elements across dimensions of a tensor. (deprecated arguments)
-    
-    SOME ARGUMENTS ARE DEPRECATED. They will be removed in a future version.
-    Instructions for updating:
-    keep_dims is deprecated, use keepdims instead
-    
-    Reduces `input_tensor` along the dimensions given in `axis`.
-    Unless `keepdims` is true, the rank of the tensor is reduced by 1 for each
-    entry in `axis`. If `keepdims` is true, the reduced dimensions
-    are retained with length 1.
-    
-    If `axis` is None, all dimensions are reduced, and a
-    tensor with a single element is returned.
-    
-    For example:
-    
-    <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = tf.constant([[<span class="number">1.</span>, <span class="number">1.</span>], [<span class="number">2.</span>, <span class="number">2.</span>]])</span><br><span class="line">tf.reduce_mean(x)  <span class="comment"># 1.5</span></span><br><span class="line">tf.reduce_mean(x, <span class="number">0</span>)  <span class="comment"># [1.5, 1.5]</span></span><br><span class="line">tf.reduce_mean(x, <span class="number">1</span>)  <span class="comment"># [1.,  2.]</span></span><br></pre></td></tr></table></figure>
-    
-    Args:
-      input_tensor: The tensor to reduce. Should have numeric type.
-      axis: The dimensions to reduce. If `None` (the default),
-        reduces all dimensions. Must be in the range
-        `[-rank(input_tensor), rank(input_tensor))`.
-      keepdims: If true, retains reduced dimensions with length 1.
-      name: A name for the operation (optional).
-      reduction_indices: The old (deprecated) name for axis.
-      keep_dims: Deprecated alias for `keepdims`.
-    
-    Returns:
-      The reduced tensor.
-    
-    @compatibility(numpy)
-    Equivalent to np.mean
-    
-    Please note that `np.mean` has a `dtype` parameter that could be used to
-    specify the output type. By default this is `dtype=float64`. On the other
-    hand, `tf.reduce_mean` has an aggressive type inference from `input_tensor`,
-    for example:
-    
-    <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = tf.constant([<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">tf.reduce_mean(x)  <span class="comment"># 0</span></span><br><span class="line">y = tf.constant([<span class="number">1.</span>, <span class="number">0.</span>, <span class="number">1.</span>, <span class="number">0.</span>])</span><br><span class="line">tf.reduce_mean(y)  <span class="comment"># 0.5</span></span><br></pre></td></tr></table></figure>
-    
-    @end_compatibility</code></pre>
-<h5 id="d-tensorflow-has-some-built-in-layers-to-simplify-your-code.">(d) Tensorflow has some built-in layers to simplify your code.</h5>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">help(tf.contrib.layers.fully_connected)</span><br></pre></td></tr></table></figure>
-<pre><code>Help on function fully_connected in module tensorflow.contrib.layers.python.layers.layers:
-
-fully_connected(inputs, num_outputs, activation_fn=&lt;function relu at 0x7ffa20054c80&gt;, normalizer_fn=None, normalizer_params=None, weights_initializer=&lt;function variance_scaling_initializer.&lt;locals&gt;._initializer at 0x7ff9f2ecd158&gt;, weights_regularizer=None, biases_initializer=&lt;tensorflow.python.ops.init_ops.Zeros object at 0x7ff9f2ecc780&gt;, biases_regularizer=None, reuse=None, variables_collections=None, outputs_collections=None, trainable=True, scope=None)
-    Adds a fully connected layer.
-    
-    `fully_connected` creates a variable called `weights`, representing a fully
-    connected weight matrix, which is multiplied by the `inputs` to produce a
-    `Tensor` of hidden units. If a `normalizer_fn` is provided (such as
-    `batch_norm`), it is then applied. Otherwise, if `normalizer_fn` is
-    None and a `biases_initializer` is provided then a `biases` variable would be
-    created and added the hidden units. Finally, if `activation_fn` is not `None`,
-    it is applied to the hidden units as well.
-    
-    Note: that if `inputs` have a rank greater than 2, then `inputs` is flattened
-    prior to the initial matrix multiply by `weights`.
-    
-    Args:
-      inputs: A tensor of at least rank 2 and static value for the last dimension;
-        i.e. `[batch_size, depth]`, `[None, None, None, channels]`.
-      num_outputs: Integer or long, the number of output units in the layer.
-      activation_fn: Activation function. The default value is a ReLU function.
-        Explicitly set it to None to skip it and maintain a linear activation.
-      normalizer_fn: Normalization function to use instead of `biases`. If
-        `normalizer_fn` is provided then `biases_initializer` and
-        `biases_regularizer` are ignored and `biases` are not created nor added.
-        default set to None for no normalizer function
-      normalizer_params: Normalization function parameters.
-      weights_initializer: An initializer for the weights.
-      weights_regularizer: Optional regularizer for the weights.
-      biases_initializer: An initializer for the biases. If None skip biases.
-      biases_regularizer: Optional regularizer for the biases.
-      reuse: Whether or not the layer and its variables should be reused. To be
-        able to reuse the layer scope must be given.
-      variables_collections: Optional list of collections for all the variables or
-        a dictionary containing a different list of collections per variable.
-      outputs_collections: Collection to add the outputs.
-      trainable: If `True` also add variables to the graph collection
-        `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
-      scope: Optional scope for variable_scope.
-    
-    Returns:
-       The tensor variable representing the result of the series of operations.
-    
-    Raises:
-      ValueError: If x has rank less than 2 or if its last dimension is not set.</code></pre>
-<h5 id="e-use-variable-scope-to-keep-your-variables-organized.">(e) Use <span class="exturl" data-url="aHR0cHM6Ly93d3cudGVuc29yZmxvdy5vcmcvZ3VpZGUvdmFyaWFibGVzI3NoYXJpbmdfdmFyaWFibGVz">variable scope<i class="fa fa-external-link-alt"></i></span> to keep your variables organized.</h5>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># create variables</span></span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">'layer_0'</span>):</span><br><span class="line">    W0 = tf.get_variable(name=<span class="string">'W0'</span>, shape=[<span class="number">1</span>, <span class="number">20</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    b0 = tf.get_variable(name=<span class="string">'b0'</span>, shape=[<span class="number">20</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">'layer_1'</span>):</span><br><span class="line">    W1 = tf.get_variable(name=<span class="string">'W1'</span>, shape=[<span class="number">20</span>, <span class="number">20</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    b1 = tf.get_variable(name=<span class="string">'b1'</span>, shape=[<span class="number">20</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line">    </span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">'layer_2'</span>):</span><br><span class="line">    W2 = tf.get_variable(name=<span class="string">'W2'</span>, shape=[<span class="number">20</span>, <span class="number">1</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    b2 = tf.get_variable(name=<span class="string">'b2'</span>, shape=[<span class="number">1</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># print the variables</span></span><br><span class="line">var_names = sorted([v.name <span class="keyword">for</span> v <span class="keyword">in</span> tf.global_variables()])</span><br><span class="line">print(<span class="string">'\n'</span>.join(var_names))</span><br></pre></td></tr></table></figure>
-<pre><code>layer_0/W0:0
-layer_0/b0:0
-layer_1/W1:0
-layer_1/b1:0
-layer_2/W2:0
-layer_2/b2:0</code></pre>
-<h5 id="f-you-can-specify-which-gpu-you-want-to-use-and-how-much-memory-you-want-to-use">(f) You can specify which GPU you want to use and how much memory you want to use</h5>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gpu_device = <span class="number">0</span></span><br><span class="line">gpu_frac = <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># make only one of the GPUs visible</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">"CUDA_VISIBLE_DEVICES"</span>] = str(gpu_device)</span><br><span class="line"></span><br><span class="line"><span class="comment"># only use part of the GPU memory</span></span><br><span class="line">gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=gpu_frac)</span><br><span class="line">config = tf.ConfigProto(gpu_options=gpu_options)</span><br><span class="line"></span><br><span class="line"><span class="comment"># create the session</span></span><br><span class="line">tf_sess = tf.Session(graph=tf.Graph(), config=config)</span><br></pre></td></tr></table></figure>
-<h5 id="g-you-can-use-tensorboard-to-visualize-and-monitor-the-training-process.">(g) You can use <span class="exturl" data-url="aHR0cHM6Ly93d3cudGVuc29yZmxvdy5vcmcvZ3VpZGUvc3VtbWFyaWVzX2FuZF90ZW5zb3Jib2FyZA==">tensorboard<i class="fa fa-external-link-alt"></i></span> to visualize and monitor the training process.</h5>
-]]></content>
-      <categories>
-        <category>Tensorflow</category>
-      </categories>
-      <tags>
-        <tag>Tensorflow</tag>
       </tags>
   </entry>
   <entry>
@@ -4626,6 +4354,329 @@ L^{i+1}=&amp;-\left[R_{2}+\hat{X}_{7}^{i}-\hat{X}_{5}^{i}\left(R_{1}+\hat{X}_{3}
       </tags>
   </entry>
   <entry>
+    <title>Tensorflow tutorial</title>
+    <url>/2019/11/01/Tensorflow-tutorial/</url>
+    <content><![CDATA[<p>This tutorial will provide a brief overview of the core concepts and functionality of Tensorflow. This tutorial will cover the following:</p>
+<ol start="0" type="1">
+<li>What is Tensorflow</li>
+<li>How to input data</li>
+<li>How to perform computations</li>
+<li>How to create variables</li>
+<li>How to train a neural network for a simple regression problem</li>
+<li>Tips and tricks <a id="more"></a></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.cm <span class="keyword">as</span> cm</span><br><span class="line"><span class="keyword">import</span> matplotlib.patches <span class="keyword">as</span> mpatches</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tf_reset</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        sess.close()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    tf.reset_default_graph()</span><br><span class="line">    <span class="keyword">return</span> tf.Session()</span><br></pre></td></tr></table></figure>
+<h1 id="what-is-tensorflow">0. What is Tensorflow</h1>
+<p>Tensorflow is a framework to define a series of computations. You define inputs, what operations should be performed, and then Tensorflow will compute the outputs for you.</p>
+<p>Below is a simple high-level example:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># create the session you'll work in</span></span><br><span class="line"><span class="comment"># you can think of this as a "blank piece of paper" that you'll be writing math on</span></span><br><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># define your inputs</span></span><br><span class="line">a = tf.constant(<span class="number">1.0</span>)</span><br><span class="line">b = tf.constant(<span class="number">2.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># do some operations</span></span><br><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line"><span class="comment"># get the result</span></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'c = &#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
+<pre><code>c = 3.0</code></pre>
+<h1 id="how-to-input-data">1. How to input data</h1>
+<p>Tensorflow has multiple ways for you to input data. One way is to have the inputs be constants:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># define your inputs</span></span><br><span class="line">a = tf.constant(<span class="number">1.0</span>)</span><br><span class="line">b = tf.constant(<span class="number">2.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># do some operations</span></span><br><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line"><span class="comment"># get the result</span></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'c = &#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
+<pre><code>c = 3.0</code></pre>
+<p>However, having our inputs be constants is inflexible. We want to be able to change what data we input at runtime. We can do this using placeholders:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># define your inputs</span></span><br><span class="line">a = tf.placeholder(dtype=tf.float32, shape=[<span class="number">1</span>], name=<span class="string">'a_placeholder'</span>)</span><br><span class="line">b = tf.placeholder(dtype=tf.float32, shape=[<span class="number">1</span>], name=<span class="string">'b_placeholder'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># do some operations</span></span><br><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line"><span class="comment"># get the result</span></span><br><span class="line">c0_run = sess.run(c, feed_dict=&#123;a: [<span class="number">1.0</span>], b: [<span class="number">2.0</span>]&#125;)</span><br><span class="line">c1_run = sess.run(c, feed_dict=&#123;a: [<span class="number">2.0</span>], b: [<span class="number">4.0</span>]&#125;)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'c0 = &#123;0&#125;'</span>.format(c0_run))</span><br><span class="line">print(<span class="string">'c1 = &#123;0&#125;'</span>.format(c1_run))</span><br></pre></td></tr></table></figure>
+<pre><code>c0 = [3.]
+c1 = [6.]</code></pre>
+<p>But what if we don't know the size of our input beforehand? One dimension of a tensor is allowed to be 'None', which means it can be variable sized:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># inputs</span></span><br><span class="line">a = tf.placeholder(dtype=tf.float32, shape=[<span class="literal">None</span>], name=<span class="string">'a_placeholder'</span>)</span><br><span class="line">b = tf.placeholder(dtype=tf.float32, shape=[<span class="literal">None</span>], name=<span class="string">'b_placeholder'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># do some operations</span></span><br><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line"><span class="comment"># get outputs</span></span><br><span class="line">c0_run = sess.run(c, feed_dict=&#123;a: [<span class="number">1.0</span>], b: [<span class="number">2.0</span>]&#125;)</span><br><span class="line">c1_run = sess.run(c, feed_dict=&#123;a: [<span class="number">1.0</span>, <span class="number">2.0</span>], b: [<span class="number">2.0</span>, <span class="number">4.0</span>]&#125;)</span><br><span class="line"></span><br><span class="line">print(a)</span><br><span class="line">print(<span class="string">'a shape: &#123;0&#125;'</span>.format(a.get_shape()))</span><br><span class="line">print(b)</span><br><span class="line">print(<span class="string">'b shape: &#123;0&#125;'</span>.format(b.get_shape()))</span><br><span class="line">print(<span class="string">'c0 = &#123;0&#125;'</span>.format(c0_run))</span><br><span class="line">print(<span class="string">'c1 = &#123;0&#125;'</span>.format(c1_run))</span><br></pre></td></tr></table></figure>
+<pre><code>Tensor(&quot;a_placeholder:0&quot;, shape=(?,), dtype=float32)
+a shape: (?,)
+Tensor(&quot;b_placeholder:0&quot;, shape=(?,), dtype=float32)
+b shape: (?,)
+c0 = [3.]
+c1 = [3. 6.]</code></pre>
+<h1 id="how-to-perform-computations">2. How to perform computations</h1>
+<p>Now that we can input data, we want to perform useful computations on the data.</p>
+<p>First, let's create some data to work with:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># inputs</span></span><br><span class="line">a = tf.constant([[<span class="number">-1.</span>], [<span class="number">-2.</span>], [<span class="number">-3.</span>]], dtype=tf.float32)</span><br><span class="line">b = tf.constant([[<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>]], dtype=tf.float32)</span><br><span class="line"></span><br><span class="line">a_run, b_run = sess.run([a, b])</span><br><span class="line">print(<span class="string">'a:\n&#123;0&#125;'</span>.format(a_run))</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br></pre></td></tr></table></figure>
+<pre><code>a:
+[[-1.]
+ [-2.]
+ [-3.]]
+b:
+[[1. 2. 3.]]</code></pre>
+<p>We can do simple operations, such as addition:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c = b + b</span><br><span class="line"></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c:\n&#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
+<pre><code>b:
+[[1. 2. 3.]]
+c:
+[[2. 4. 6.]]</code></pre>
+<p>Be careful about the dimensions of the tensors, some operations may work even when you think they shouldn't...</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c = a + b</span><br><span class="line"></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line">print(<span class="string">'a:\n&#123;0&#125;'</span>.format(a_run))</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c:\n&#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
+<pre><code>a:
+[[-1.]
+ [-2.]
+ [-3.]]
+b:
+[[1. 2. 3.]]
+c:
+[[ 0.  1.  2.]
+ [-1.  0.  1.]
+ [-2. -1.  0.]]</code></pre>
+<p>Also, some operations may be different than what you expect:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c_elementwise = a * b</span><br><span class="line">c_matmul = tf.matmul(b, a)</span><br><span class="line"></span><br><span class="line">c_elementwise_run, c_matmul_run = sess.run([c_elementwise, c_matmul])</span><br><span class="line">print(<span class="string">'a:\n&#123;0&#125;'</span>.format(a_run))</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c_elementwise:\n&#123;0&#125;'</span>.format(c_elementwise_run))</span><br><span class="line">print(<span class="string">'c_matmul: \n&#123;0&#125;'</span>.format(c_matmul_run))</span><br></pre></td></tr></table></figure>
+<pre><code>a:
+[[-1.]
+ [-2.]
+ [-3.]]
+b:
+[[1. 2. 3.]]
+c_elementwise:
+[[-1. -2. -3.]
+ [-2. -4. -6.]
+ [-3. -6. -9.]]
+c_matmul: 
+[[-14.]]</code></pre>
+<p>Operations can be chained together:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># operations can be chained together</span></span><br><span class="line">c0 = b + b</span><br><span class="line">c1 = c0 + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">c0_run, c1_run = sess.run([c0, c1])</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c0:\n&#123;0&#125;'</span>.format(c0_run))</span><br><span class="line">print(<span class="string">'c1:\n&#123;0&#125;'</span>.format(c1_run))</span><br></pre></td></tr></table></figure>
+<pre><code>b:
+[[1. 2. 3.]]
+c0:
+[[2. 4. 6.]]
+c1:
+[[3. 5. 7.]]</code></pre>
+<p>Finally, Tensorflow has many useful built-in operations:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c = tf.reduce_mean(b)</span><br><span class="line"></span><br><span class="line">c_run = sess.run(c)</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'c:\n&#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
+<pre><code>b:
+[[1. 2. 3.]]
+c:
+2.0</code></pre>
+<h1 id="how-to-create-variables">3. How to create variables</h1>
+<p>Now that we can input data and perform computations, we want some of these operations to involve variables that are free parameters, and can be trained using an optimizer (e.g., gradient descent).</p>
+<p>First, let's create some data to work with:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># inputs</span></span><br><span class="line">b = tf.constant([[<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>]], dtype=tf.float32)</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line"></span><br><span class="line">b_run = sess.run(b)</span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br></pre></td></tr></table></figure>
+<pre><code>b:
+[[1. 2. 3.]]</code></pre>
+<p>We'll now create a variable</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">var_init_value = [[<span class="number">2.0</span>, <span class="number">4.0</span>, <span class="number">6.0</span>]]</span><br><span class="line">var = tf.get_variable(name=<span class="string">'myvar'</span>,</span><br><span class="line">                      shape=[<span class="number">1</span>, <span class="number">3</span>],</span><br><span class="line">                      dtype=tf.float32,</span><br><span class="line">                      initializer=tf.constant_initializer(var_init_value))</span><br><span class="line"></span><br><span class="line">print(var)</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;tf.Variable &#39;myvar:0&#39; shape=(1, 3) dtype=float32_ref&gt;</code></pre>
+<p>and check that it's been added to Tensorflow's variables list:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(tf.global_variables())</span><br></pre></td></tr></table></figure>
+<pre><code>[&lt;tf.Variable &#39;myvar:0&#39; shape=(1, 3) dtype=float32_ref&gt;]</code></pre>
+<p>We can do operations with the variable just like any other tensor:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># can do operations</span></span><br><span class="line">c = b + var</span><br><span class="line">print(b)</span><br><span class="line">print(var)</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+<pre><code>Tensor(&quot;Const:0&quot;, shape=(1, 3), dtype=float32)
+&lt;tf.Variable &#39;myvar:0&#39; shape=(1, 3) dtype=float32_ref&gt;
+Tensor(&quot;add:0&quot;, shape=(1, 3), dtype=float32)</code></pre>
+<p>Before we can run any of these operations, we must first initalize the variables</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">init_op = tf.global_variables_initializer()</span><br><span class="line">sess.run(init_op)</span><br></pre></td></tr></table></figure>
+<p>and then we can run the operations just as we normally would.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c_run = sess.run(c)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'b:\n&#123;0&#125;'</span>.format(b_run))</span><br><span class="line">print(<span class="string">'var:\n&#123;0&#125;'</span>.format(var_init_value))http://rail.eecs.berkeley.edu/deeprlcourse-fa18/static/misc/TF_lecture.ipynb</span><br><span class="line">print(<span class="string">'c:\n&#123;0&#125;'</span>.format(c_run))</span><br></pre></td></tr></table></figure>
+<pre><code>b:
+[[1. 2. 3.]]
+var:
+[[2.0, 4.0, 6.0]]
+c:
+[[3. 6. 9.]]</code></pre>
+<p>So far we haven't said yet how to optimize these variables. We'll cover that next in the context of an example.</p>
+<h1 id="how-to-train-a-neural-network-for-a-simple-regression-problem">4. How to train a neural network for a simple regression problem</h1>
+<p>We've discussed how to input data, perform operations, and create variables. We'll now show how to combine all of these---with some minor additions---to train a neural network on a simple regression problem.</p>
+<p>First, we'll create data for a 1-dimensional regression problem:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># generate the data</span></span><br><span class="line">inputs = np.linspace(<span class="number">-2</span>*np.pi, <span class="number">2</span>*np.pi, <span class="number">10000</span>)[:, <span class="literal">None</span>]</span><br><span class="line">outputs = np.sin(inputs) + <span class="number">0.05</span> * np.random.normal(size=[len(inputs),<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.scatter(inputs[:, <span class="number">0</span>], outputs[:, <span class="number">0</span>], s=<span class="number">0.1</span>, color=<span class="string">'k'</span>, marker=<span class="string">'o'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;matplotlib.collections.PathCollection at 0x7ffa1bed23c8&gt;</code></pre>
+<figure>
+<img src="output_41_1.png" alt="png" /><figcaption>png</figcaption>
+</figure>
+<p>The below code creates the inputs, variables, neural network operations, mean-squared-error loss, gradient descent optimizer, and runs the optimizer using minibatches of the data.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_model</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># create inputs</span></span><br><span class="line">    input_ph = tf.placeholder(dtype=tf.float32, shape=[<span class="literal">None</span>, <span class="number">1</span>])</span><br><span class="line">    output_ph = tf.placeholder(dtype=tf.float32, shape=[<span class="literal">None</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># create variables</span></span><br><span class="line">    W0 = tf.get_variable(name=<span class="string">'W0'</span>, shape=[<span class="number">1</span>, <span class="number">20</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    W1 = tf.get_variable(name=<span class="string">'W1'</span>, shape=[<span class="number">20</span>, <span class="number">20</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    W2 = tf.get_variable(name=<span class="string">'W2'</span>, shape=[<span class="number">20</span>, <span class="number">1</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line"></span><br><span class="line">    b0 = tf.get_variable(name=<span class="string">'b0'</span>, shape=[<span class="number">20</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line">    b1 = tf.get_variable(name=<span class="string">'b1'</span>, shape=[<span class="number">20</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line">    b2 = tf.get_variable(name=<span class="string">'b2'</span>, shape=[<span class="number">1</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line"></span><br><span class="line">    weights = [W0, W1, W2]</span><br><span class="line">    biases = [b0, b1, b2]</span><br><span class="line">    activations = [tf.nn.relu, tf.nn.relu, <span class="literal">None</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># create computation graph</span></span><br><span class="line">    layer = input_ph</span><br><span class="line">    <span class="keyword">for</span> W, b, activation <span class="keyword">in</span> zip(weights, biases, activations):</span><br><span class="line">        layer = tf.matmul(layer, W) + b</span><br><span class="line">        <span class="keyword">if</span> activation <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            layer = activation(layer)</span><br><span class="line">    output_pred = layer</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> input_ph, output_ph, output_pred</span><br><span class="line">    </span><br><span class="line">input_ph, output_ph, output_pred = create_model()</span><br><span class="line">    </span><br><span class="line"><span class="comment"># create loss</span></span><br><span class="line">mse = tf.reduce_mean(<span class="number">0.5</span> * tf.square(output_pred - output_ph))</span><br><span class="line"></span><br><span class="line"><span class="comment"># create optimizer</span></span><br><span class="line">opt = tf.train.AdamOptimizer().minimize(mse)</span><br><span class="line"></span><br><span class="line"><span class="comment"># initialize variables</span></span><br><span class="line">sess.run(tf.global_variables_initializer())</span><br><span class="line"><span class="comment"># create saver to save model variables</span></span><br><span class="line">saver = tf.train.Saver()</span><br><span class="line"></span><br><span class="line"><span class="comment"># run training</span></span><br><span class="line">batch_size = <span class="number">32</span></span><br><span class="line"><span class="keyword">for</span> training_step <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    <span class="comment"># get a random subset of the training data</span></span><br><span class="line">    indices = np.random.randint(low=<span class="number">0</span>, high=len(inputs), size=batch_size)</span><br><span class="line">    input_batch = inputs[indices]</span><br><span class="line">    output_batch = outputs[indices]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># run the optimizer and get the mse</span></span><br><span class="line">    _, mse_run = sess.run([opt, mse], feed_dict=&#123;input_ph: input_batch, output_ph: output_batch&#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># print the mse every so often</span></span><br><span class="line">    <span class="keyword">if</span> training_step % <span class="number">1000</span> == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">'&#123;0:04d&#125; mse: &#123;1:.3f&#125;'</span>.format(training_step, mse_run))</span><br><span class="line">        saver.save(sess, <span class="string">'./tmp/model.ckpt'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>0000 mse: 0.428
+1000 mse: 0.067
+2000 mse: 0.027
+3000 mse: 0.016
+4000 mse: 0.006
+5000 mse: 0.002
+6000 mse: 0.002
+7000 mse: 0.001
+8000 mse: 0.002
+9000 mse: 0.001</code></pre>
+<p>Now that the neural network is trained, we can use it to make predictions:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># create the model</span></span><br><span class="line">input_ph, output_ph, output_pred = create_model()</span><br><span class="line"></span><br><span class="line"><span class="comment"># restore the saved model</span></span><br><span class="line">saver = tf.train.Saver()</span><br><span class="line">saver.restore(sess, <span class="string">"./tmp/model.ckpt"</span>)</span><br><span class="line"></span><br><span class="line">output_pred_run = sess.run(output_pred, feed_dict=&#123;input_ph: inputs&#125;)</span><br><span class="line"></span><br><span class="line">plt.scatter(inputs[:, <span class="number">0</span>], outputs[:, <span class="number">0</span>], c=<span class="string">'k'</span>, marker=<span class="string">'o'</span>, s=<span class="number">0.1</span>)</span><br><span class="line">plt.scatter(inputs[:, <span class="number">0</span>], output_pred_run[:, <span class="number">0</span>], c=<span class="string">'r'</span>, marker=<span class="string">'o'</span>, s=<span class="number">0.1</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>INFO:tensorflow:Restoring parameters from /tmp/model.ckpt
+
+
+
+
+
+&lt;matplotlib.collections.PathCollection at 0x7ff9dc62a550&gt;</code></pre>
+<figure>
+<img src="output_45_2.png" alt="png" /><figcaption>png</figcaption>
+</figure>
+<p>Not so hard after all! There is much more functionality to Tensorflow besides what we've covered, but you now know the basics.</p>
+<h1 id="tips-and-tricks">5. Tips and tricks</h1>
+<h5 id="a-check-your-dimensions">(a) Check your dimensions</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># example of "surprising" resulting dimensions due to broadcasting</span></span><br><span class="line">a = tf.constant(np.random.random((<span class="number">4</span>, <span class="number">1</span>)))</span><br><span class="line">b = tf.constant(np.random.random((<span class="number">1</span>, <span class="number">4</span>)))</span><br><span class="line">c = a * b</span><br><span class="line"><span class="keyword">assert</span> c.get_shape() == (<span class="number">4</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="b-check-what-variables-have-been-created">(b) Check what variables have been created</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line">a = tf.get_variable(<span class="string">'I_am_a_variable'</span>, shape=[<span class="number">4</span>, <span class="number">6</span>])</span><br><span class="line">b = tf.get_variable(<span class="string">'I_am_a_variable_too'</span>, shape=[<span class="number">2</span>, <span class="number">7</span>])</span><br><span class="line"><span class="keyword">for</span> var <span class="keyword">in</span> tf.global_variables():</span><br><span class="line">    print(var.name)</span><br></pre></td></tr></table></figure>
+<pre><code>I_am_a_variable:0
+I_am_a_variable_too:0</code></pre>
+<h5 id="c-look-at-the-tensorflow-api-or-open-up-a-python-terminal-and-investigate">(c) Look at the <span class="exturl" data-url="aHR0cHM6Ly93d3cudGVuc29yZmxvdy5vcmcvYXBpX2RvY3MvcHl0aG9uLw==">tensorflow API<i class="fa fa-external-link-alt"></i></span>, or open up a python terminal and investigate!</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">help(tf.reduce_mean)</span><br></pre></td></tr></table></figure>
+<pre><code>Help on function reduce_mean in module tensorflow.python.ops.math_ops:
+
+reduce_mean(input_tensor, axis=None, keepdims=None, name=None, reduction_indices=None, keep_dims=None)
+    Computes the mean of elements across dimensions of a tensor. (deprecated arguments)
+    
+    SOME ARGUMENTS ARE DEPRECATED. They will be removed in a future version.
+    Instructions for updating:
+    keep_dims is deprecated, use keepdims instead
+    
+    Reduces `input_tensor` along the dimensions given in `axis`.
+    Unless `keepdims` is true, the rank of the tensor is reduced by 1 for each
+    entry in `axis`. If `keepdims` is true, the reduced dimensions
+    are retained with length 1.
+    
+    If `axis` is None, all dimensions are reduced, and a
+    tensor with a single element is returned.
+    
+    For example:
+    
+    <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = tf.constant([[<span class="number">1.</span>, <span class="number">1.</span>], [<span class="number">2.</span>, <span class="number">2.</span>]])</span><br><span class="line">tf.reduce_mean(x)  <span class="comment"># 1.5</span></span><br><span class="line">tf.reduce_mean(x, <span class="number">0</span>)  <span class="comment"># [1.5, 1.5]</span></span><br><span class="line">tf.reduce_mean(x, <span class="number">1</span>)  <span class="comment"># [1.,  2.]</span></span><br></pre></td></tr></table></figure>
+    
+    Args:
+      input_tensor: The tensor to reduce. Should have numeric type.
+      axis: The dimensions to reduce. If `None` (the default),
+        reduces all dimensions. Must be in the range
+        `[-rank(input_tensor), rank(input_tensor))`.
+      keepdims: If true, retains reduced dimensions with length 1.
+      name: A name for the operation (optional).
+      reduction_indices: The old (deprecated) name for axis.
+      keep_dims: Deprecated alias for `keepdims`.
+    
+    Returns:
+      The reduced tensor.
+    
+    @compatibility(numpy)
+    Equivalent to np.mean
+    
+    Please note that `np.mean` has a `dtype` parameter that could be used to
+    specify the output type. By default this is `dtype=float64`. On the other
+    hand, `tf.reduce_mean` has an aggressive type inference from `input_tensor`,
+    for example:
+    
+    <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = tf.constant([<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">tf.reduce_mean(x)  <span class="comment"># 0</span></span><br><span class="line">y = tf.constant([<span class="number">1.</span>, <span class="number">0.</span>, <span class="number">1.</span>, <span class="number">0.</span>])</span><br><span class="line">tf.reduce_mean(y)  <span class="comment"># 0.5</span></span><br></pre></td></tr></table></figure>
+    
+    @end_compatibility</code></pre>
+<h5 id="d-tensorflow-has-some-built-in-layers-to-simplify-your-code.">(d) Tensorflow has some built-in layers to simplify your code.</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">help(tf.contrib.layers.fully_connected)</span><br></pre></td></tr></table></figure>
+<pre><code>Help on function fully_connected in module tensorflow.contrib.layers.python.layers.layers:
+
+fully_connected(inputs, num_outputs, activation_fn=&lt;function relu at 0x7ffa20054c80&gt;, normalizer_fn=None, normalizer_params=None, weights_initializer=&lt;function variance_scaling_initializer.&lt;locals&gt;._initializer at 0x7ff9f2ecd158&gt;, weights_regularizer=None, biases_initializer=&lt;tensorflow.python.ops.init_ops.Zeros object at 0x7ff9f2ecc780&gt;, biases_regularizer=None, reuse=None, variables_collections=None, outputs_collections=None, trainable=True, scope=None)
+    Adds a fully connected layer.
+    
+    `fully_connected` creates a variable called `weights`, representing a fully
+    connected weight matrix, which is multiplied by the `inputs` to produce a
+    `Tensor` of hidden units. If a `normalizer_fn` is provided (such as
+    `batch_norm`), it is then applied. Otherwise, if `normalizer_fn` is
+    None and a `biases_initializer` is provided then a `biases` variable would be
+    created and added the hidden units. Finally, if `activation_fn` is not `None`,
+    it is applied to the hidden units as well.
+    
+    Note: that if `inputs` have a rank greater than 2, then `inputs` is flattened
+    prior to the initial matrix multiply by `weights`.
+    
+    Args:
+      inputs: A tensor of at least rank 2 and static value for the last dimension;
+        i.e. `[batch_size, depth]`, `[None, None, None, channels]`.
+      num_outputs: Integer or long, the number of output units in the layer.
+      activation_fn: Activation function. The default value is a ReLU function.
+        Explicitly set it to None to skip it and maintain a linear activation.
+      normalizer_fn: Normalization function to use instead of `biases`. If
+        `normalizer_fn` is provided then `biases_initializer` and
+        `biases_regularizer` are ignored and `biases` are not created nor added.
+        default set to None for no normalizer function
+      normalizer_params: Normalization function parameters.
+      weights_initializer: An initializer for the weights.
+      weights_regularizer: Optional regularizer for the weights.
+      biases_initializer: An initializer for the biases. If None skip biases.
+      biases_regularizer: Optional regularizer for the biases.
+      reuse: Whether or not the layer and its variables should be reused. To be
+        able to reuse the layer scope must be given.
+      variables_collections: Optional list of collections for all the variables or
+        a dictionary containing a different list of collections per variable.
+      outputs_collections: Collection to add the outputs.
+      trainable: If `True` also add variables to the graph collection
+        `GraphKeys.TRAINABLE_VARIABLES` (see tf.Variable).
+      scope: Optional scope for variable_scope.
+    
+    Returns:
+       The tensor variable representing the result of the series of operations.
+    
+    Raises:
+      ValueError: If x has rank less than 2 or if its last dimension is not set.</code></pre>
+<h5 id="e-use-variable-scope-to-keep-your-variables-organized.">(e) Use <span class="exturl" data-url="aHR0cHM6Ly93d3cudGVuc29yZmxvdy5vcmcvZ3VpZGUvdmFyaWFibGVzI3NoYXJpbmdfdmFyaWFibGVz">variable scope<i class="fa fa-external-link-alt"></i></span> to keep your variables organized.</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf_reset()</span><br><span class="line"></span><br><span class="line"><span class="comment"># create variables</span></span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">'layer_0'</span>):</span><br><span class="line">    W0 = tf.get_variable(name=<span class="string">'W0'</span>, shape=[<span class="number">1</span>, <span class="number">20</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    b0 = tf.get_variable(name=<span class="string">'b0'</span>, shape=[<span class="number">20</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">'layer_1'</span>):</span><br><span class="line">    W1 = tf.get_variable(name=<span class="string">'W1'</span>, shape=[<span class="number">20</span>, <span class="number">20</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    b1 = tf.get_variable(name=<span class="string">'b1'</span>, shape=[<span class="number">20</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line">    </span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">'layer_2'</span>):</span><br><span class="line">    W2 = tf.get_variable(name=<span class="string">'W2'</span>, shape=[<span class="number">20</span>, <span class="number">1</span>], initializer=tf.contrib.layers.xavier_initializer())</span><br><span class="line">    b2 = tf.get_variable(name=<span class="string">'b2'</span>, shape=[<span class="number">1</span>], initializer=tf.constant_initializer(<span class="number">0.</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># print the variables</span></span><br><span class="line">var_names = sorted([v.name <span class="keyword">for</span> v <span class="keyword">in</span> tf.global_variables()])</span><br><span class="line">print(<span class="string">'\n'</span>.join(var_names))</span><br></pre></td></tr></table></figure>
+<pre><code>layer_0/W0:0
+layer_0/b0:0
+layer_1/W1:0
+layer_1/b1:0
+layer_2/W2:0
+layer_2/b2:0</code></pre>
+<h5 id="f-you-can-specify-which-gpu-you-want-to-use-and-how-much-memory-you-want-to-use">(f) You can specify which GPU you want to use and how much memory you want to use</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gpu_device = <span class="number">0</span></span><br><span class="line">gpu_frac = <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># make only one of the GPUs visible</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">"CUDA_VISIBLE_DEVICES"</span>] = str(gpu_device)</span><br><span class="line"></span><br><span class="line"><span class="comment"># only use part of the GPU memory</span></span><br><span class="line">gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=gpu_frac)</span><br><span class="line">config = tf.ConfigProto(gpu_options=gpu_options)</span><br><span class="line"></span><br><span class="line"><span class="comment"># create the session</span></span><br><span class="line">tf_sess = tf.Session(graph=tf.Graph(), config=config)</span><br></pre></td></tr></table></figure>
+<h5 id="g-you-can-use-tensorboard-to-visualize-and-monitor-the-training-process.">(g) You can use <span class="exturl" data-url="aHR0cHM6Ly93d3cudGVuc29yZmxvdy5vcmcvZ3VpZGUvc3VtbWFyaWVzX2FuZF90ZW5zb3Jib2FyZA==">tensorboard<i class="fa fa-external-link-alt"></i></span> to visualize and monitor the training process.</h5>
+]]></content>
+      <categories>
+        <category>Tensorflow</category>
+      </categories>
+      <tags>
+        <tag>Tensorflow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>科研论文各段落表达整理背诵</title>
+    <url>/2021/02/28/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%90%84%E6%AE%B5%E8%90%BD%E8%A1%A8%E8%BE%BE%E6%95%B4%E7%90%86%E8%83%8C%E8%AF%B5/</url>
+    <content><![CDATA[<p>上一篇博客中，<a href="https://blog.oliverxu.cn/2021/01/31/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%B8%B8%E7%94%A8%E5%8F%A5%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/#more">科研论文常用句式语法汇总整理</a>，每天将所看论文中的优秀的语句进行摘录整理，经过一个月的使用（其实也就不到一周，中间春节没有学习），感觉也还是有点不得劲，所以，这篇博客是对论文的各部分的段落进行整理，翻译成中文，最好能背诵下来（笨办法，先试试看，毕竟身边没人教我hhhh）。</p>
+<p>这篇博客将长期更新，分为5个部分，包括abstract, Introduction, method, simulation, conclusion，争取做到每天更新，每天看一篇论文，在学习其内容的同时，摘录其优秀的整段文字，并进行分类整理。</p>
+<p><strong>每天整理并背诵一段话。</strong></p>
+<a id="more"></a>
+<h2 id="abstract">Abstract</h2>
+<h3 id="evolving-reinforcement-learning-algorithms">1. Evolving reinforcement learning algorithms</h3>
+<p>We propose a method for meta-learning reinforcement learning algorithms by searching over the space of computational graphs which compute the loss function for a value-based model-free RL agent to optimize. The learned algorithms are domain-agnostic and can generalize to new environments not seen during training. Our method can both learn from scratch and bootstrap off known existing algorithms, like DQN, enabling interpretable modifications which improve performance. Learning from scratch on simple classical control and gridworld tasks, our method rediscovers the temporal-difference (TD) algorithm. Bootstrapped from DQN, we highlight two learned algorithms which obtain good generalization performance over other classical control tasks, gridworld type tasks, and Atari games. The analysis of the learned algorithm behavior shows resemblance to recently proposed RL algorithms that address overestimation in value-based methods.</p>
+<p>我们通过搜索计算图的空间来提出一种用于元学习强化学习算法的方法，该计算图可计算基于值的无模型RL智能体的损失函数以进行优化。 学习的算法与领域无关，并且可以推广到训练期间未看到的新环境。 我们的方法既可以从头开始学习，又可以引导已知的现有算法（例如DQN）进行访问，从而可以进行可解释的修改，从而提高性能。 从简单的经典控制和gridworld任务开始学习，我们的方法重新发现了时差（TD）算法。 从DQN开始，我们重点介绍了两种学习过的算法，它们在其他经典控制任务，gridworld类型任务和Atari游戏上均具有良好的泛化性能。 对学习到的算法行为的分析表明，它与最近提出的RL算法相似，后者解决了基于值的方法中的高估问题。</p>
+<h3 id="adaptive-optimal-control-for-a-class-of-nonlinear-systems-the-online-policy-iteration-approach">2.Adaptive Optimal control for a class of nonlinear systems: The online policy iteration approach</h3>
+<p>This paper studies the online adaptive optimal controller design for a class of nonlinear systems through a novel policy iteration (PI) algorithm. By using the technique of neural network linear differential inclusion (LDI) to linearize the nonlinear terms in each iteration, the optimal law for controller design can be solved through the relevant algebraic Riccati equation (ARE) without using the system internal parameters. Based on PI approach, the adaptive optimal control algorithm is developed with the online linearization and the two-step iteration, i.e., policy evaluation and policy improvement. The convergence of the proposed PI algorithm is also proved. Finally, two numerical examples are given to illustrate the effectiveness and applicability of the proposed method.</p>
+<p>本文通过一种新颖的策略迭代（PI）算法研究了一类非线性系统的在线自适应最优控制器设计。 通过使用神经网络线性微分包含（LDI）技术对每次迭代中的非线性项进行线性化，可以通过相关的代数Riccati方程（ARE）来求解控制器设计的最佳定律，而无需使用系统内部参数。 基于PI方法，通过在线线性化和两步迭代（即策略评估和策略改进）开发了自适应最优控制算法。 还证明了所提出的PI算法的收敛性。 最后，通过两个数值例子说明了该方法的有效性和适用性。</p>
+<h2 id="introduction">Introduction</h2>
+<h3 id="evolving-reinforcement-learning-algorithms-1">1. Evolving reinforcement learning algorithms</h3>
+<p>Our learned loss function should generalize across many different environments, instead of being specific to a particular domain. Thus, we design a search language based on genetic programming (Koza, 1993) that can express general symbolic loss functions which can be applied to any environment. Data typing and a generic interface to variables in the MDP allow the learned program to be domain agnostic. This language also supports the use of neural network modules as subcomponents of the program, so that more complex neural network architectures can be realized. Efficiently searching over the space of useful programs is generally difficult. For the outer loop optimization, we use regularized evolution (Real et al., 2019), a recent variant of classic evolutionary algorithms that employ tournament selection (Goldberg &amp; Deb, 1991). This approach can scale with the number of compute nodes and has been shown to work for designing algorithms for supervised learning (Real et al., 2020). We adapt this method to automatically design algorithms for reinforcement learning.</p>
+<p>我们的学习损失函数应该在许多不同的环境中推广，而不是特定于特定领域。因此，我们设计了一种基于遗传程序设计的搜索语言（Koza，1993），该语言可以表达可应用于任何环境的通用符号损失函数。数据类型输入和MDP中变量的通用接口使学习的程序与域无关。该语言还支持将神经网络模块用作程序的子组件，以便可以实现更复杂的神经网络体系结构。通常很难有效地搜索有用程序的空间。对于外循环优化，我们使用正则化进化（Real et al。，2019），这是采用锦标赛选择的经典进化算法的最新变体（Goldberg＆Deb，1991）。这种方法可以随着计算节点的数量而扩展，并且已经证明可用于设计监督学习的算法（Real等，2020）。我们采用这种方法来自动设计用于强化学习的算法。</p>
+<h3 id="adaptive-optimal-control-for-a-class-of-nonlinear-systems-the-online-policy-iteration-approach-1">2.Adaptive Optimal control for a class of nonlinear systems: The online policy iteration approach</h3>
+<p>To realize the online adaptive algorithm, however, we need a synchronous linearization technique to accompany with the PI solution process. As a result, we put forward a new online LDIPI (OLDIPI) algorithm, which can address the adaptive optimal control problem for a class of nonlinear systems. First, the original nonlinear system is approximated to a linear plant model based on the neural network LDI. Then inspired by the linear PI algorithm, the proposed OLDIPI algorithm can converge to the optimal solution; furthermore, the algorithm can be implemented online in least-square sense under a persistent excitation condition. The convergence of the proposed algorithm is also proved, and the corresponding simulation results are given to illustrate the feasibility and applicability.</p>
+<p>但是，要实现在线自适应算法，我们需要一种同步线性化技术来配合PI解法过程。 因此，我们提出了一种新的在线LDIPI（OLDIPI）算法，该算法可以解决一类非线性系统的自适应最优控制问题。 首先，将原始的非线性系统近似为基于神经网络LDI的线性工厂模型。 然后在线性PI算法的启发下，提出的OLDIPI算法可以收敛到最优解。 此外，该算法可以在持续激发条件下以最小二乘方式在线实现。 证明了该算法的收敛性，并给出了相应的仿真结果，说明了该算法的可行性和适用性。</p>
+<h2 id="related-work">Related Work</h2>
+<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning">1. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
+<p>RL methods are typically divided into model-free (Schulman et al., 2015a,b,2017; Williams, 1992) and model-based (Lillicrap et al., 2015; Watkins and Dayan, 1992) approaches. Model-based approaches all perform some degree of planning, from predicting the value of some state (Mnih et al., 2013; Silver et al., 2016), obtaining representations by unrolling a learned dynamics model (Racaniere ` et al., 2017), or learning a policy directly on a learned dynamics model (Agrawal et al., 2016; Chua et al., 2018; Finn and Levine, 2017; Kurutach et al., 2018; Nagabandi et al., 2018; Oh et al., 2015; Sutton, 1990). One line of work (Amos et al., 2018; Lee et al., 2018; Srinivas et al., 2018; Tamar et al., 2016) embeds a differentiable planner inside a policy, with the planner learned end-to-end with the rest of the policy. Other work (Lenz et al., 2015; Watter et al., 2015) explicitly learns a representation for use inside a standard planning algorithm. In contrast, SoRB learns to predict the distances between states, which can be viewed as a high-level inverse model. SoRB predicts a scalar (the distance) rather than actions or observations, making the prediction problem substantially easier. By planning over previously visited states, SoRB does not have to cope with infeasible states that can be predicted by forward models in state-space and latent-space.</p>
+<p>RL方法通常分为无模型（Schulman等人，2015a，b，2017; Williams，1992）和基于模型的方法（Lillicrap等人，2015; Watkins和Dayan，1992）。从预测某个状态的价值（Mnih等人，2013; Silver等人，2016），通过展开学习的动力学模型来获取表示形式（Racaniere`等人，2017），所有基于模型的方法都执行某种程度的计划。 ），或者直接在学习的动力学模型上学习策略（Agrawal等人，2016; Chua等人，2018; Finn和Levine，2017; Kurutach等人，2018; Nagabandi等人，2018; Oh等人） （2015年；萨顿，1990年）。一项工作（Amos等人，2018； Lee等人，2018； Srinivas等人，2018； Tamar等人，2016）将一个可区分的计划者嵌入到策略中，而计划者则是端到端学习的其余的政策。其他工作（Lenz等人，2015； Watter等人，2015）明确学习了在标准计划算法中使用的表示形式。相反，SoRB学习预测状态之间的距离，这可以看作是高级逆模型。 SoRB预测的是标量（距离）而不是动作或观察值，从而使预测问题大为简化。通过对先前访问的状态进行规划，SoRB不必应对状态空间和潜在空间中的前向模型可以预测的不可行状态。</p>
+<h2 id="method">Method</h2>
+<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-1">1. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
+<p>Planning algorithms must be able to (1) sample valid states, (2) estimate the distance between reachable pairs of states, and (3) use a local policy to navigate between nearby states. These requirements are difficult to satisfy in complex tasks with high dimensional observations, such as images. For example, consider a robot arm stacking blocks using image observations. Sampling states requires generating photo-realistic images, and estimating distances and choosing actions requires reasoning about dozens of interactions between blocks. Our method will obtain distance estimates and a local policy using a RL algorithm. To sample states, we will simply use a replay buffer of previously visited states as a non-parametric generative model.</p>
+<p>规划算法必须能够（1）对有效状态进行采样，（2）估计可到达的状态对之间的距离，以及（3）使用本地策略在附近的状态之间导航。 在具有高维观测的复杂任务（例如图像）中，很难满足这些要求。 例如，考虑使用图像观察的机械臂堆积块。 采样状态需要生成逼真的图像，估计距离和选择动作需要对块之间的数十种交互进行推理。 我们的方法将使用RL算法获得距离估算值和本地策略。 为了采样状态，我们将简单地使用先前访问过的状态的重播缓冲区作为非参数生成模型。</p>
+<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-2">2. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
+<p>After learning a goal-conditioned Q-function, we perform graph search to find a set of waypoints and use the goal-conditioned policy to reach each. We view the combination of graph search and the underlying goal-conditioned policy as a new SEARCHPOLICY, shown in Algorithm 1. The algorithm starts by using graph search to obtain the shortest path sw1; sw2;· · · from the current state s to the goal state sg, planning over the states in our replay buffer B. We then estimate the distance from the current state to the first waypoint, as well as the distance from the current state to the goal. In most cases, we then condition the policy on the first waypoint, sw1. However, if the goal state is closer than the next waypoint and the goal state is not too far away, then we directly condition the policy on the final goal. If the replay buffer is empty or there is not a path in G to the goal, then Algorithm 1 resorts to standard goal-conditioned RL.</p>
+<p>学习了目标条件的Q函数后，我们执行图搜索以找到一组航路点，并使用目标条件的策略来达到每个目标。 我们将图搜索和基础目标条件策略的组合视为一种新的SEARCHPOLICY，如算法1所示。SW2;···从当前状态S到目标状态SG，规划了我们的重播缓冲B.状态然后我们估计从当前状态到第一个航路点的距离，以及从当前状态的距离目标。 在大多数情况下，我们然后在第一个航路点sw1上设置策略。 但是，如果目标状态比下一个航路点更近且目标状态距离不太远，则我们直接将策略限制在最终目标上。 如果重播缓冲区为空或G中没有通往目标的路径，则算法1求助于标准的目标条件RL。</p>
+<h2 id="simulation">Simulation</h2>
+<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-3">1. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
+<p>We start by building intuition for our method by applying it to two simple 2D navigation tasks, shown in Figure 4a. The start and goal state are chosen randomly in free space, and reaching the goal often takes over 100 steps, even for the optimal policy. We used goal-conditioned RL to learn a policy for each environment, and then evaluated this policy on randomly sampled (start, goal) pairs of varying difficulty. To implement SoRB, we used exactly the same policy, both to perform graph search and then to reach each of the planned waypoints. In Figure 4b, we observe that the goal-conditioned policy can reach nearby goals, but fails to generalize to distant goals. In contrast, SoRB successfully reaches goals over 100 steps away, with little drop in success rate. Figure 4c compares rollouts from the goal-conditioned policy and our policy. Note that our policy takes actions that temporarily lead away from the goal so the agent can maneuver through a hallway to eventually reach the goal.</p>
+<p>首先，通过将其应用于两个简单的2D导航任务来建立我们所提方法的直觉，如图4a所示。 起始状态和目标状态是在自由空间中随机选择的，即使对于最佳策略，达到目标也通常要花费100多个步骤。 我们使用目标条件的RL来学习每种环境的策略，然后针对随机难度不同的采样（开始，目标）对该策略进行评估。 为了实施SoRB，我们使用了完全相同的策略，既执行图搜索，然后到达每个计划的航路点。 在图4b中，我们观察到以目标为条件的策略可以达到附近的目标，但不能推广到遥远的目标。 相比之下，SoRB成功地实现了100步之外的目标，成功率几乎没有下降。 图4c比较了目标条件政策和我们政策的推出情况。 请注意，我们的政策采取的措施会暂时偏离目标，因此智能体可以穿过走廊以最终达到目标。</p>
+<h2 id="conclusion">Conclusion</h2>
+<h3 id="evolving-reinforcement-learning-algorithms-2">1. Evolving reinforcement learning algorithms</h3>
+<p>In this work, we have presented a method for learning reinforcement learning algorithms. We design a general language for representing algorithms which compute the loss function for value-based model-free RL agents to optimize. We highlight two learned algorithms which although relatively simple, can obtain good generalization performance over a wide range of environments. Our analysis of the learned algorithms sheds insight on their benefit as regularization terms which are similar to recently proposed algorithms. Our work is limited to discrete action and value-based RL algorithms that are close to DQN, but could easily be expanded to express more general RL algorithms such as actor-critic or policy gradient methods. How actions are sampled from the policy could also be part of the search space. The set of environments we use for both training and testing could also be expanded to include a more diverse set of problem types. We leave these problems for future work.</p>
+<p>在这项工作中，我们提出了一种学习强化学习算法的方法。 我们设计了一种通用语言来表示算法，该算法可为基于价值的无模型RL代理计算损失函数以进行优化。 我们重点介绍了两种学习算法，这些算法虽然相对简单，但可以在多种环境中获得良好的泛化性能。 我们对所学算法的分析揭示了它们作为正则化术语的好处，与最近提出的算法相似。 我们的工作仅限于接近DQN的离散行动和基于价值的RL算法，但可以轻松扩展以表达更通用的RL算法，例如参与者批评法或策略梯度法。 如何从策略中采样操作也可能是搜索空间的一部分。 我们用于培训和测试的环境也可以扩展为包括更多不同类型的问题。 我们将这些问题留给以后的工作。</p>
+<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-4">2. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
+<p>We presented SoRB, a method that combines planning via graph search and goal-conditioned RL. By exploiting the structure of goal-reaching tasks, we can obtain policies that generalize substantially better than those learned directly from RL. In our experiments, we show that SoRB can solve temporally extended navigation problems, traverse environments with image observations, and generalize to new houses in the SUNCG dataset. Our method relies heavily on goal-conditioned RL, and we expect advances in this area to make our method applicable to even more difficult tasks. While we used a stage-wise procedure, first learning the goal-conditioned policy and then applying graph search, in future work we aim to explore how graph search can improve the goal-conditioned policy itself, perhaps via policy distillation or obtaining better Q-value estimates. In addition, while the planning algorithm we use is simple (namely, Dijkstra), we believe that the key idea of using distance estimates obtained from RL algorithms for planning will open doors to incorporating more sophisticated planning techniques into RL.</p>
+<p>我们介绍了SoRB，该方法结合了通过图搜索和目标条件RL进行规划的方法。通过利用达到目标的任务的结构，我们可以获得比直接从RL直接学习的策略更好地概括的策略。在我们的实验中，我们表明SoRB可以解决时间扩展的导航问题，通过图像观察遍历环境，并可以将其推广到SUNCG数据集中的新房屋。我们的方法在很大程度上取决于目标条件下的RL，并且我们期望在这一领域取得进展，以使我们的方法适用于甚至更困难的任务。当我们使用分阶段步骤时，首先学习目标条件策略，然后应用图搜索，在未来的工作中，我们旨在探索图搜索如何改善目标条件策略本身，也许可以通过策略提炼或获得更好的Q-价值估算。此外，尽管我们使用的规划算法很简单（即Dijkstra），但我们认为使用从RL算法获得的距离估算值进行规划的关键思想将为将更复杂的规划技术纳入RL敞开大门。</p>
+]]></content>
+      <categories>
+        <category>Paper</category>
+      </categories>
+      <tags>
+        <tag>Paper</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>科研论文常用句式语法汇总整理</title>
     <url>/2021/01/31/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%B8%B8%E7%94%A8%E5%8F%A5%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<p>科研论文写作和平常的写作不太一样，从我自己写下来的感觉，发现自己写的英文句式很死板，读上去没有那些native的作者的语言的感觉，因此需要进行专业训练。训练方式就是模仿那些作者的文字。</p>
@@ -4756,57 +4807,6 @@ L^{i+1}=&amp;-\left[R_{2}+\hat{X}_{7}^{i}-\hat{X}_{5}^{i}\left(R_{1}+\hat{X}_{3}
 <p>我们重点介绍了两种学习算法，这些算法虽然相对简单，但可以在广泛的环境中获得良好的泛化性能。</p>
 <p>Our analysis of the learned algorithms sheds insight on their benefit as regularization terms which are similar to recently proposed algorithms.</p>
 <p>我们对所学算法的分析揭示了它们作为正则化术语的好处，与最近提出的算法相似。</p>
-]]></content>
-      <categories>
-        <category>Paper</category>
-      </categories>
-      <tags>
-        <tag>Paper</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>科研论文各段落表达整理背诵</title>
-    <url>/2021/02/28/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%90%84%E6%AE%B5%E8%90%BD%E8%A1%A8%E8%BE%BE%E6%95%B4%E7%90%86%E8%83%8C%E8%AF%B5/</url>
-    <content><![CDATA[<p>上一篇博客中，<a href="https://blog.oliverxu.cn/2021/01/31/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%B8%B8%E7%94%A8%E5%8F%A5%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/#more">科研论文常用句式语法汇总整理</a>，每天将所看论文中的优秀的语句进行摘录整理，经过一个月的使用（其实也就不到一周，中间春节没有学习），感觉也还是有点不得劲，所以，这篇博客是对论文的各部分的段落进行整理，翻译成中文，最好能背诵下来（笨办法，先试试看，毕竟身边没人教我hhhh）。</p>
-<p>这篇博客将长期更新，分为5个部分，包括abstract, Introduction, method, simulation, conclusion，争取做到每天更新，每天看一篇论文，在学习其内容的同时，摘录其优秀的整段文字，并进行分类整理。</p>
-<p><strong>每天整理并背诵一段话。</strong></p>
-<a id="more"></a>
-<h2 id="abstract">Abstract</h2>
-<h3 id="evolving-reinforcement-learning-algorithms">1. Evolving reinforcement learning algorithms</h3>
-<p>We propose a method for meta-learning reinforcement learning algorithms by searching over the space of computational graphs which compute the loss function for a value-based model-free RL agent to optimize. The learned algorithms are domain-agnostic and can generalize to new environments not seen during training. Our method can both learn from scratch and bootstrap off known existing algorithms, like DQN, enabling interpretable modifications which improve performance. Learning from scratch on simple classical control and gridworld tasks, our method rediscovers the temporal-difference (TD) algorithm. Bootstrapped from DQN, we highlight two learned algorithms which obtain good generalization performance over other classical control tasks, gridworld type tasks, and Atari games. The analysis of the learned algorithm behavior shows resemblance to recently proposed RL algorithms that address overestimation in value-based methods.</p>
-<p>我们通过搜索计算图的空间来提出一种用于元学习强化学习算法的方法，该计算图可计算基于值的无模型RL智能体的损失函数以进行优化。 学习的算法与领域无关，并且可以推广到训练期间未看到的新环境。 我们的方法既可以从头开始学习，又可以引导已知的现有算法（例如DQN）进行访问，从而可以进行可解释的修改，从而提高性能。 从简单的经典控制和gridworld任务开始学习，我们的方法重新发现了时差（TD）算法。 从DQN开始，我们重点介绍了两种学习过的算法，它们在其他经典控制任务，gridworld类型任务和Atari游戏上均具有良好的泛化性能。 对学习到的算法行为的分析表明，它与最近提出的RL算法相似，后者解决了基于值的方法中的高估问题。</p>
-<h3 id="adaptive-optimal-control-for-a-class-of-nonlinear-systems-the-online-policy-iteration-approach">2.Adaptive Optimal control for a class of nonlinear systems: The online policy iteration approach</h3>
-<p>This paper studies the online adaptive optimal controller design for a class of nonlinear systems through a novel policy iteration (PI) algorithm. By using the technique of neural network linear differential inclusion (LDI) to linearize the nonlinear terms in each iteration, the optimal law for controller design can be solved through the relevant algebraic Riccati equation (ARE) without using the system internal parameters. Based on PI approach, the adaptive optimal control algorithm is developed with the online linearization and the two-step iteration, i.e., policy evaluation and policy improvement. The convergence of the proposed PI algorithm is also proved. Finally, two numerical examples are given to illustrate the effectiveness and applicability of the proposed method.</p>
-<p>本文通过一种新颖的策略迭代（PI）算法研究了一类非线性系统的在线自适应最优控制器设计。 通过使用神经网络线性微分包含（LDI）技术对每次迭代中的非线性项进行线性化，可以通过相关的代数Riccati方程（ARE）来求解控制器设计的最佳定律，而无需使用系统内部参数。 基于PI方法，通过在线线性化和两步迭代（即策略评估和策略改进）开发了自适应最优控制算法。 还证明了所提出的PI算法的收敛性。 最后，通过两个数值例子说明了该方法的有效性和适用性。</p>
-<h2 id="introduction">Introduction</h2>
-<h3 id="evolving-reinforcement-learning-algorithms-1">1. Evolving reinforcement learning algorithms</h3>
-<p>Our learned loss function should generalize across many different environments, instead of being specific to a particular domain. Thus, we design a search language based on genetic programming (Koza, 1993) that can express general symbolic loss functions which can be applied to any environment. Data typing and a generic interface to variables in the MDP allow the learned program to be domain agnostic. This language also supports the use of neural network modules as subcomponents of the program, so that more complex neural network architectures can be realized. Efficiently searching over the space of useful programs is generally difficult. For the outer loop optimization, we use regularized evolution (Real et al., 2019), a recent variant of classic evolutionary algorithms that employ tournament selection (Goldberg &amp; Deb, 1991). This approach can scale with the number of compute nodes and has been shown to work for designing algorithms for supervised learning (Real et al., 2020). We adapt this method to automatically design algorithms for reinforcement learning.</p>
-<p>我们的学习损失函数应该在许多不同的环境中推广，而不是特定于特定领域。因此，我们设计了一种基于遗传程序设计的搜索语言（Koza，1993），该语言可以表达可应用于任何环境的通用符号损失函数。数据类型输入和MDP中变量的通用接口使学习的程序与域无关。该语言还支持将神经网络模块用作程序的子组件，以便可以实现更复杂的神经网络体系结构。通常很难有效地搜索有用程序的空间。对于外循环优化，我们使用正则化进化（Real et al。，2019），这是采用锦标赛选择的经典进化算法的最新变体（Goldberg＆Deb，1991）。这种方法可以随着计算节点的数量而扩展，并且已经证明可用于设计监督学习的算法（Real等，2020）。我们采用这种方法来自动设计用于强化学习的算法。</p>
-<h3 id="adaptive-optimal-control-for-a-class-of-nonlinear-systems-the-online-policy-iteration-approach-1">2.Adaptive Optimal control for a class of nonlinear systems: The online policy iteration approach</h3>
-<p>To realize the online adaptive algorithm, however, we need a synchronous linearization technique to accompany with the PI solution process. As a result, we put forward a new online LDIPI (OLDIPI) algorithm, which can address the adaptive optimal control problem for a class of nonlinear systems. First, the original nonlinear system is approximated to a linear plant model based on the neural network LDI. Then inspired by the linear PI algorithm, the proposed OLDIPI algorithm can converge to the optimal solution; furthermore, the algorithm can be implemented online in least-square sense under a persistent excitation condition. The convergence of the proposed algorithm is also proved, and the corresponding simulation results are given to illustrate the feasibility and applicability.</p>
-<p>但是，要实现在线自适应算法，我们需要一种同步线性化技术来配合PI解法过程。 因此，我们提出了一种新的在线LDIPI（OLDIPI）算法，该算法可以解决一类非线性系统的自适应最优控制问题。 首先，将原始的非线性系统近似为基于神经网络LDI的线性工厂模型。 然后在线性PI算法的启发下，提出的OLDIPI算法可以收敛到最优解。 此外，该算法可以在持续激发条件下以最小二乘方式在线实现。 证明了该算法的收敛性，并给出了相应的仿真结果，说明了该算法的可行性和适用性。</p>
-<h2 id="related-work">Related Work</h2>
-<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning">1. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
-<p>RL methods are typically divided into model-free (Schulman et al., 2015a,b,2017; Williams, 1992) and model-based (Lillicrap et al., 2015; Watkins and Dayan, 1992) approaches. Model-based approaches all perform some degree of planning, from predicting the value of some state (Mnih et al., 2013; Silver et al., 2016), obtaining representations by unrolling a learned dynamics model (Racaniere ` et al., 2017), or learning a policy directly on a learned dynamics model (Agrawal et al., 2016; Chua et al., 2018; Finn and Levine, 2017; Kurutach et al., 2018; Nagabandi et al., 2018; Oh et al., 2015; Sutton, 1990). One line of work (Amos et al., 2018; Lee et al., 2018; Srinivas et al., 2018; Tamar et al., 2016) embeds a differentiable planner inside a policy, with the planner learned end-to-end with the rest of the policy. Other work (Lenz et al., 2015; Watter et al., 2015) explicitly learns a representation for use inside a standard planning algorithm. In contrast, SoRB learns to predict the distances between states, which can be viewed as a high-level inverse model. SoRB predicts a scalar (the distance) rather than actions or observations, making the prediction problem substantially easier. By planning over previously visited states, SoRB does not have to cope with infeasible states that can be predicted by forward models in state-space and latent-space.</p>
-<p>RL方法通常分为无模型（Schulman等人，2015a，b，2017; Williams，1992）和基于模型的方法（Lillicrap等人，2015; Watkins和Dayan，1992）。从预测某个状态的价值（Mnih等人，2013; Silver等人，2016），通过展开学习的动力学模型来获取表示形式（Racaniere`等人，2017），所有基于模型的方法都执行某种程度的计划。 ），或者直接在学习的动力学模型上学习策略（Agrawal等人，2016; Chua等人，2018; Finn和Levine，2017; Kurutach等人，2018; Nagabandi等人，2018; Oh等人） （2015年；萨顿，1990年）。一项工作（Amos等人，2018； Lee等人，2018； Srinivas等人，2018； Tamar等人，2016）将一个可区分的计划者嵌入到策略中，而计划者则是端到端学习的其余的政策。其他工作（Lenz等人，2015； Watter等人，2015）明确学习了在标准计划算法中使用的表示形式。相反，SoRB学习预测状态之间的距离，这可以看作是高级逆模型。 SoRB预测的是标量（距离）而不是动作或观察值，从而使预测问题大为简化。通过对先前访问的状态进行规划，SoRB不必应对状态空间和潜在空间中的前向模型可以预测的不可行状态。</p>
-<h2 id="method">Method</h2>
-<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-1">1. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
-<p>Planning algorithms must be able to (1) sample valid states, (2) estimate the distance between reachable pairs of states, and (3) use a local policy to navigate between nearby states. These requirements are difficult to satisfy in complex tasks with high dimensional observations, such as images. For example, consider a robot arm stacking blocks using image observations. Sampling states requires generating photo-realistic images, and estimating distances and choosing actions requires reasoning about dozens of interactions between blocks. Our method will obtain distance estimates and a local policy using a RL algorithm. To sample states, we will simply use a replay buffer of previously visited states as a non-parametric generative model.</p>
-<p>规划算法必须能够（1）对有效状态进行采样，（2）估计可到达的状态对之间的距离，以及（3）使用本地策略在附近的状态之间导航。 在具有高维观测的复杂任务（例如图像）中，很难满足这些要求。 例如，考虑使用图像观察的机械臂堆积块。 采样状态需要生成逼真的图像，估计距离和选择动作需要对块之间的数十种交互进行推理。 我们的方法将使用RL算法获得距离估算值和本地策略。 为了采样状态，我们将简单地使用先前访问过的状态的重播缓冲区作为非参数生成模型。</p>
-<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-2">2. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
-<p>After learning a goal-conditioned Q-function, we perform graph search to find a set of waypoints and use the goal-conditioned policy to reach each. We view the combination of graph search and the underlying goal-conditioned policy as a new SEARCHPOLICY, shown in Algorithm 1. The algorithm starts by using graph search to obtain the shortest path sw1; sw2;· · · from the current state s to the goal state sg, planning over the states in our replay buffer B. We then estimate the distance from the current state to the first waypoint, as well as the distance from the current state to the goal. In most cases, we then condition the policy on the first waypoint, sw1. However, if the goal state is closer than the next waypoint and the goal state is not too far away, then we directly condition the policy on the final goal. If the replay buffer is empty or there is not a path in G to the goal, then Algorithm 1 resorts to standard goal-conditioned RL.</p>
-<p>学习了目标条件的Q函数后，我们执行图搜索以找到一组航路点，并使用目标条件的策略来达到每个目标。 我们将图搜索和基础目标条件策略的组合视为一种新的SEARCHPOLICY，如算法1所示。SW2;···从当前状态S到目标状态SG，规划了我们的重播缓冲B.状态然后我们估计从当前状态到第一个航路点的距离，以及从当前状态的距离目标。 在大多数情况下，我们然后在第一个航路点sw1上设置策略。 但是，如果目标状态比下一个航路点更近且目标状态距离不太远，则我们直接将策略限制在最终目标上。 如果重播缓冲区为空或G中没有通往目标的路径，则算法1求助于标准的目标条件RL。</p>
-<h2 id="simulation">Simulation</h2>
-<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-3">1. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
-<p>We start by building intuition for our method by applying it to two simple 2D navigation tasks, shown in Figure 4a. The start and goal state are chosen randomly in free space, and reaching the goal often takes over 100 steps, even for the optimal policy. We used goal-conditioned RL to learn a policy for each environment, and then evaluated this policy on randomly sampled (start, goal) pairs of varying difficulty. To implement SoRB, we used exactly the same policy, both to perform graph search and then to reach each of the planned waypoints. In Figure 4b, we observe that the goal-conditioned policy can reach nearby goals, but fails to generalize to distant goals. In contrast, SoRB successfully reaches goals over 100 steps away, with little drop in success rate. Figure 4c compares rollouts from the goal-conditioned policy and our policy. Note that our policy takes actions that temporarily lead away from the goal so the agent can maneuver through a hallway to eventually reach the goal.</p>
-<p>首先，通过将其应用于两个简单的2D导航任务来建立我们所提方法的直觉，如图4a所示。 起始状态和目标状态是在自由空间中随机选择的，即使对于最佳策略，达到目标也通常要花费100多个步骤。 我们使用目标条件的RL来学习每种环境的策略，然后针对随机难度不同的采样（开始，目标）对该策略进行评估。 为了实施SoRB，我们使用了完全相同的策略，既执行图搜索，然后到达每个计划的航路点。 在图4b中，我们观察到以目标为条件的策略可以达到附近的目标，但不能推广到遥远的目标。 相比之下，SoRB成功地实现了100步之外的目标，成功率几乎没有下降。 图4c比较了目标条件政策和我们政策的推出情况。 请注意，我们的政策采取的措施会暂时偏离目标，因此智能体可以穿过走廊以最终达到目标。</p>
-<h2 id="conclusion">Conclusion</h2>
-<h3 id="evolving-reinforcement-learning-algorithms-2">1. Evolving reinforcement learning algorithms</h3>
-<p>In this work, we have presented a method for learning reinforcement learning algorithms. We design a general language for representing algorithms which compute the loss function for value-based model-free RL agents to optimize. We highlight two learned algorithms which although relatively simple, can obtain good generalization performance over a wide range of environments. Our analysis of the learned algorithms sheds insight on their benefit as regularization terms which are similar to recently proposed algorithms. Our work is limited to discrete action and value-based RL algorithms that are close to DQN, but could easily be expanded to express more general RL algorithms such as actor-critic or policy gradient methods. How actions are sampled from the policy could also be part of the search space. The set of environments we use for both training and testing could also be expanded to include a more diverse set of problem types. We leave these problems for future work.</p>
-<p>在这项工作中，我们提出了一种学习强化学习算法的方法。 我们设计了一种通用语言来表示算法，该算法可为基于价值的无模型RL代理计算损失函数以进行优化。 我们重点介绍了两种学习算法，这些算法虽然相对简单，但可以在多种环境中获得良好的泛化性能。 我们对所学算法的分析揭示了它们作为正则化术语的好处，与最近提出的算法相似。 我们的工作仅限于接近DQN的离散行动和基于价值的RL算法，但可以轻松扩展以表达更通用的RL算法，例如参与者批评法或策略梯度法。 如何从策略中采样操作也可能是搜索空间的一部分。 我们用于培训和测试的环境也可以扩展为包括更多不同类型的问题。 我们将这些问题留给以后的工作。</p>
-<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-4">2. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
-<p>We presented SoRB, a method that combines planning via graph search and goal-conditioned RL. By exploiting the structure of goal-reaching tasks, we can obtain policies that generalize substantially better than those learned directly from RL. In our experiments, we show that SoRB can solve temporally extended navigation problems, traverse environments with image observations, and generalize to new houses in the SUNCG dataset. Our method relies heavily on goal-conditioned RL, and we expect advances in this area to make our method applicable to even more difficult tasks. While we used a stage-wise procedure, first learning the goal-conditioned policy and then applying graph search, in future work we aim to explore how graph search can improve the goal-conditioned policy itself, perhaps via policy distillation or obtaining better Q-value estimates. In addition, while the planning algorithm we use is simple (namely, Dijkstra), we believe that the key idea of using distance estimates obtained from RL algorithms for planning will open doors to incorporating more sophisticated planning techniques into RL.</p>
-<p>我们介绍了SoRB，该方法结合了通过图搜索和目标条件RL进行规划的方法。通过利用达到目标的任务的结构，我们可以获得比直接从RL直接学习的策略更好地概括的策略。在我们的实验中，我们表明SoRB可以解决时间扩展的导航问题，通过图像观察遍历环境，并可以将其推广到SUNCG数据集中的新房屋。我们的方法在很大程度上取决于目标条件下的RL，并且我们期望在这一领域取得进展，以使我们的方法适用于甚至更困难的任务。当我们使用分阶段步骤时，首先学习目标条件策略，然后应用图搜索，在未来的工作中，我们旨在探索图搜索如何改善目标条件策略本身，也许可以通过策略提炼或获得更好的Q-价值估算。此外，尽管我们使用的规划算法很简单（即Dijkstra），但我们认为使用从RL算法获得的距离估算值进行规划的关键思想将为将更复杂的规划技术纳入RL敞开大门。</p>
 ]]></content>
       <categories>
         <category>Paper</category>
