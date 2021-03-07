@@ -34,20 +34,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Flask项目结构</title>
-    <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<blockquote>
-<p><strong>拥有良好的项目结构对于开发与维护有着巨大的作用</strong> <a id="more"></a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects$ tree</span><br><span class="line">.</span><br><span class="line">`-- ProjectName</span><br><span class="line">    |-- app                      # 整个程序的包目录</span><br><span class="line">    |   |-- config.py                # 配置文件</span><br><span class="line">    |   |-- email.py                 # 邮件发送</span><br><span class="line">    |   |-- extensions.py            # 各种扩展</span><br><span class="line">    |   |-- forms                    # 表单文件</span><br><span class="line">    |   |-- models                   # 数据模型</span><br><span class="line">    |   |-- static                   # 静态资源文件</span><br><span class="line">    |   |   |-- css                      # 样式表</span><br><span class="line">    |   |   |-- img                      # 图片</span><br><span class="line">    |   |   `-- js                       # JS脚本</span><br><span class="line">    |   |-- templates                # 模板文件</span><br><span class="line">    |   |   |-- common                   # 通用模板</span><br><span class="line">    |   |   |-- email                    # 邮件发送</span><br><span class="line">    |   |   |-- errors                   # 错误页面</span><br><span class="line">    |   |   |-- posts                    # 帖子模板</span><br><span class="line">    |   |   `-- user                     # 用户模板</span><br><span class="line">    |   `-- views                    # 视图文件</span><br><span class="line">    |-- manage.py                    # 项目启动控制文件</span><br><span class="line">    |-- migrations                   # 数据库迁移目录</span><br><span class="line">    |-- requirements.txt             # 依赖包的列表</span><br><span class="line">    `-- tests                        # 测试单元</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>flask</category>
-      </categories>
-      <tags>
-        <tag>flask</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>How to reading scientific papers</title>
     <url>/2019/07/09/How-to-reading-scientific-papers/</url>
     <content><![CDATA[<h1 id="step1-choose-the-paper">STEP1: Choose the paper</h1>
@@ -87,35 +73,17 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux系统TIPS</title>
-    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
-    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
-<a id="more"></a>
-<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
-<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
+    <title>Flask项目结构</title>
+    <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>拥有良好的项目结构对于开发与维护有着巨大的作用</strong> <a id="more"></a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects$ tree</span><br><span class="line">.</span><br><span class="line">`-- ProjectName</span><br><span class="line">    |-- app                      # 整个程序的包目录</span><br><span class="line">    |   |-- config.py                # 配置文件</span><br><span class="line">    |   |-- email.py                 # 邮件发送</span><br><span class="line">    |   |-- extensions.py            # 各种扩展</span><br><span class="line">    |   |-- forms                    # 表单文件</span><br><span class="line">    |   |-- models                   # 数据模型</span><br><span class="line">    |   |-- static                   # 静态资源文件</span><br><span class="line">    |   |   |-- css                      # 样式表</span><br><span class="line">    |   |   |-- img                      # 图片</span><br><span class="line">    |   |   `-- js                       # JS脚本</span><br><span class="line">    |   |-- templates                # 模板文件</span><br><span class="line">    |   |   |-- common                   # 通用模板</span><br><span class="line">    |   |   |-- email                    # 邮件发送</span><br><span class="line">    |   |   |-- errors                   # 错误页面</span><br><span class="line">    |   |   |-- posts                    # 帖子模板</span><br><span class="line">    |   |   `-- user                     # 用户模板</span><br><span class="line">    |   `-- views                    # 视图文件</span><br><span class="line">    |-- manage.py                    # 项目启动控制文件</span><br><span class="line">    |-- migrations                   # 数据库迁移目录</span><br><span class="line">    |-- requirements.txt             # 依赖包的列表</span><br><span class="line">    `-- tests                        # 测试单元</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>flask</category>
       </categories>
       <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Manjaro下解决Matplotlib中文显示出错</title>
-    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
-    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
-<ul>
-<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
-<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
-<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
+        <tag>flask</tag>
       </tags>
   </entry>
   <entry>
@@ -149,6 +117,38 @@
 <p>回到标题，Manjaro不适合搞算学术研究和项目开发的人，尤其是学生：研究生。本科生无聊的话可以玩玩Manjaro。</p>
 <p>操作系统还是有公司支持的比较好，像Ubuntu，真的可以，用了快6年了。</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Manjaro下解决Matplotlib中文显示出错</title>
+    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
+    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
+<ul>
+<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
+<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
+<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux系统TIPS</title>
+    <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
+    <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
+<a id="more"></a>
+<h2 id="ubuntu18.04输入法不能选择备选汉字">1. ubuntu18.04输入法不能选择备选汉字</h2>
+<p>在使用ubuntu18.04的过程中，遇到了每次打中文，只能按空格，不能按数字，例如我想要选择第二个被选词，结果却得到了数字2. 解决方法：<code>rm -rf ~/.cache/ibus/libpinyin</code></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
   </entry>
   <entry>
     <title>Markdown语法</title>
@@ -416,53 +416,6 @@ Box(4,)</code></pre>
 ]]></content>
   </entry>
   <entry>
-    <title>实验室服务器安装Proxmox</title>
-    <url>/2020/08/08/Proxmox%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>实验室有一台I7-3770，32GB内存的服务器，虽然没有显卡，但是用来作为编译机器还是可以的，所以装了一个Proxmox系统来进行管理，可以很方便的开虚拟机，实验室的小伙伴能一起使用了。</p>
-<a id="more"></a>
-<h3 id="proxmox安装">Proxmox安装</h3>
-<p>下载官网的ISO安装即可。</p>
-<h3 id="ubuntu设置root用户密码">Ubuntu设置Root用户密码</h3>
-<p>ubuntu默认是没有开启root账户登录选项的，需要先进行密码设置。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo passwd root</span><br></pre></td></tr></table></figure>
-<h3 id="ubuntu设置root-ssh登录">Ubuntu设置Root SSH登录</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line"><span class="comment"># 将#PermitRootLogin prohibit-password修改为：PermitRootLogin yes</span></span><br></pre></td></tr></table></figure>
-<h3 id="debianubuntu解决ssh连接一段时间后无操作连接自动断开问题">Debian/Ubuntu解决SSH连接一段时间后无操作连接自动断开问题</h3>
-<p>修改<code>/etc/ssh/sshd_config</code>文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#ClientAliveInterval 0</span></span><br><span class="line"><span class="comment">#ClientAliveCountMax 3</span></span><br></pre></td></tr></table></figure>
-<p>改为：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ClientAliveInterval 60</span><br><span class="line">ClientAliveCountMax 60</span><br></pre></td></tr></table></figure>
-<p><code>ClientAliveInterval</code>指定了服务器端向客户端请求消息的时间间隔, 默认是0, 不发送.</p>
-<p><code>ClientAliveInterval</code>60表示每分钟发送一次, 然后客户端响应, 这样就保持长连接了</p>
-<p><code>ClientAliveCountMax</code>表示服务器发出请求后客户端没有响应的次数达到一定值, 就自动断开 。</p>
-<p><code>service sshd restart</code>重启后生效。</p>
-<h3 id="debianubuntu更新软件源">Debian/Ubuntu更新软件源</h3>
-<p>将<code>etc/apt/sources.list</code>文件钟Debian默认的源地址http://deb.debian.org/替换为：https://ftp.sjtu.edu.cn即可。</p>
-<h3 id="proxmox添加网桥">Proxmox添加网桥</h3>
-<p>Proxmox系统装好后默认会生成一个网桥，用于连接虚拟机和物理网卡，如果仅仅在局域网内使用的话，直接用这个就行了。</p>
-<p><strong>操作方法</strong>：</p>
-<ul>
-<li><p>可以在WEB中进行添加</p></li>
-<li><p>Proxmox主机的<code>/etc/network/interfaces</code>文件当中</p></li>
-</ul>
-<p>配置更改后，需要重启网络接口：<code>/etc/init.d/networking restart</code></p>
-<p>最后需要重启，不然配置不生效。</p>
-<h3 id="proxmox创建ubuntu镜像">Proxmox创建Ubuntu镜像</h3>
-<p>待补充</p>
-<h3 id="proxmox创建windows10镜像">Proxmox创建Windows10镜像</h3>
-<p>待补充</p>
-<h3 id="bash每隔一段时间执行某个命令">Bash每隔一段时间执行某个命令</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">watch -n 1 &lt;<span class="built_in">command</span>&gt;</span><br></pre></td></tr></table></figure>
-<p>1代表1秒。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python的Anoymous Functions</title>
     <url>/2019/02/15/Python%E7%9A%84Anoymous-Functions/</url>
     <content><![CDATA[<h2 id="什么是python的匿名函数">什么是Python的匿名函数</h2>
@@ -518,6 +471,53 @@ Box(4,)</code></pre>
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实验室服务器安装Proxmox</title>
+    <url>/2020/08/08/Proxmox%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>实验室有一台I7-3770，32GB内存的服务器，虽然没有显卡，但是用来作为编译机器还是可以的，所以装了一个Proxmox系统来进行管理，可以很方便的开虚拟机，实验室的小伙伴能一起使用了。</p>
+<a id="more"></a>
+<h3 id="proxmox安装">Proxmox安装</h3>
+<p>下载官网的ISO安装即可。</p>
+<h3 id="ubuntu设置root用户密码">Ubuntu设置Root用户密码</h3>
+<p>ubuntu默认是没有开启root账户登录选项的，需要先进行密码设置。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo passwd root</span><br></pre></td></tr></table></figure>
+<h3 id="ubuntu设置root-ssh登录">Ubuntu设置Root SSH登录</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line"><span class="comment"># 将#PermitRootLogin prohibit-password修改为：PermitRootLogin yes</span></span><br></pre></td></tr></table></figure>
+<h3 id="debianubuntu解决ssh连接一段时间后无操作连接自动断开问题">Debian/Ubuntu解决SSH连接一段时间后无操作连接自动断开问题</h3>
+<p>修改<code>/etc/ssh/sshd_config</code>文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#ClientAliveInterval 0</span></span><br><span class="line"><span class="comment">#ClientAliveCountMax 3</span></span><br></pre></td></tr></table></figure>
+<p>改为：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ClientAliveInterval 60</span><br><span class="line">ClientAliveCountMax 60</span><br></pre></td></tr></table></figure>
+<p><code>ClientAliveInterval</code>指定了服务器端向客户端请求消息的时间间隔, 默认是0, 不发送.</p>
+<p><code>ClientAliveInterval</code>60表示每分钟发送一次, 然后客户端响应, 这样就保持长连接了</p>
+<p><code>ClientAliveCountMax</code>表示服务器发出请求后客户端没有响应的次数达到一定值, 就自动断开 。</p>
+<p><code>service sshd restart</code>重启后生效。</p>
+<h3 id="debianubuntu更新软件源">Debian/Ubuntu更新软件源</h3>
+<p>将<code>etc/apt/sources.list</code>文件钟Debian默认的源地址http://deb.debian.org/替换为：https://ftp.sjtu.edu.cn即可。</p>
+<h3 id="proxmox添加网桥">Proxmox添加网桥</h3>
+<p>Proxmox系统装好后默认会生成一个网桥，用于连接虚拟机和物理网卡，如果仅仅在局域网内使用的话，直接用这个就行了。</p>
+<p><strong>操作方法</strong>：</p>
+<ul>
+<li><p>可以在WEB中进行添加</p></li>
+<li><p>Proxmox主机的<code>/etc/network/interfaces</code>文件当中</p></li>
+</ul>
+<p>配置更改后，需要重启网络接口：<code>/etc/init.d/networking restart</code></p>
+<p>最后需要重启，不然配置不生效。</p>
+<h3 id="proxmox创建ubuntu镜像">Proxmox创建Ubuntu镜像</h3>
+<p>待补充</p>
+<h3 id="proxmox创建windows10镜像">Proxmox创建Windows10镜像</h3>
+<p>待补充</p>
+<h3 id="bash每隔一段时间执行某个命令">Bash每隔一段时间执行某个命令</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">watch -n 1 &lt;<span class="built_in">command</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>1代表1秒。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -651,31 +651,6 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </tags>
   </entry>
   <entry>
-    <title>Word与Latex</title>
-    <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
-    <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
-<h2 id="mathpix将论文中的公式识别成latex或者mathml格式">Mathpix：将论文中的公式识别成latex或者mathml格式</h2>
-<p>有一款软件：Mathpix，能够将公式识别成latex或者mathml格式。</p>
-<p>使用该软件需要使用邮箱注册账户，免费版一个月只能识别50次，也有一个开发版，一个月能识别1000次，但是需要信用卡验证，对于国内用户来说，比较麻烦。</p>
-<p>这里给出一个解决办法：使用临时邮箱，待免费套餐使用完后，重新注册账户，测试了几个免费邮箱服务，大多被mathpix识别了，<span class="exturl" data-url="aHR0cHM6Ly90ZW1wLW1haWwub3JnL2VuLw==">https://temp-mail.org/en/<i class="fa fa-external-link-alt"></i></span> 这个我测试了一下，没有被mathpix识别，可以用于注册。 <a id="more"></a></p>
-<h2 id="word中的latex公式">Word中的latex公式</h2>
-<h3 id="简单的单行公式">简单的单行公式</h3>
-<p>简单的单行公式可以直接用latex格式。</p>
-<h3 id="复杂的多行公式">复杂的多行公式</h3>
-<p>复杂的多行公式，可以复制Mathpix中的Mathml格式，粘贴到word中。</p>
-<h3 id="插入公式编号">插入公式编号</h3>
-<p>Word中提供了一种比较方便的插入公式编号的方法：在公式末尾键入<code>#(x)</code>，然后按下<code>Enter</code>即可。</p>
-<h2 id="创作流程">创作流程</h2>
-<p>我个人比较喜欢读完文献，用Markdown（Typora）整理一下阅读笔记，这样既可以发布到博客上，又很方便的能够迁移到Word中（我一般交作业交报告都是用Word）。</p>
-]]></content>
-      <categories>
-        <category>Latex</category>
-      </categories>
-      <tags>
-        <tag>Latex</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tensorboard中的图放到论文中</title>
     <url>/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/</url>
     <content><![CDATA[<p>最近写了一篇强化学习用于供水管网的论文，算法的训练过程中用到了Tensorboard(stable-baselines提供了tansorboard的接口)来可视化训练数据，但是，tensorboard的图直接放入到论文中会显得很难看，包括xlabel和ylabel需要重新定义，图片的风格需要修改等等操作直接在tensorboard中很难操作，需要将这些数据导出来，然后使用matplotlib和seaboarn来进行plot，这篇博客记录一下如何将tensorboard中的数据进行导出并画图。</p>
@@ -714,37 +689,28 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </tags>
   </entry>
   <entry>
-    <title>*args 和 **kwargs</title>
-    <url>/2019/02/12/args-%E5%92%8C-kwargs/</url>
-    <content><![CDATA[<p>很多Python新手都无法搞清<code>*args</code>与<code>**kwargs</code>这两个魔术变量。那么他们到底是什么呢？让我来告诉你。在实际程序中，我们没有必要非得写成<code>*args</code>与<code>**kwargs</code>这样的形式，你也可以写成<code>*var</code>与<code>**vars</code>。写成<code>*args</code>与<code>**kwargs</code>的形式只是一种惯例。 <a id="more"></a> ## *args的用法 <code>*args</code>与<code>**kwargs</code>主要用于函数的定义。<code>*args</code>与<code>**kwargs</code>允许你将可变数量的参数传递给函数。这里的<strong>可变</strong>意味着你事先是不知道用户可以向你传递多少参数。因此在这种情况下你可以使用这两个关键字。<code>*args</code>用于向函数发送没有关键字的可变长度参数列表。以下是一个例子：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_var_args</span><span class="params">(f_arg, *args)</span>:</span></span><br><span class="line">    print(<span class="string">"first normal arg: "</span>, f_arg)</span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> args:</span><br><span class="line">        print(<span class="string">"another arg through *args: "</span>, ar)</span><br><span class="line"></span><br><span class="line">test_var_args(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>)</span><br></pre></td></tr></table></figure>
-<p>这会产生以下结果： <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">first normal arg: a</span><br><span class="line">another arg through *args: b</span><br><span class="line">another arg through *args: c</span><br><span class="line">another arg through *args: d</span><br></pre></td></tr></table></figure></p>
-<h2 id="kwargs-kwargs允许你将键值对也就是字典形式的参数的可变长度的参数传递给函数如果要在函数中处理命名参数则应该使用kwargs下面是一个例子">**kwargs <code>kwargs</code>允许你将键值对[也就是字典形式的参数]的可变长度的参数传递给函数。如果要在函数中处理命名参数，则应该使用<code>**kwargs</code>，下面是一个例子：</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_me</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> kwargs.items():</span><br><span class="line">        print(<span class="string">"&#123;0&#125; = &#123;1&#125;"</span>.format(key, value))</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>greet_me(name=<span class="string">"oliverxu"</span>)</span><br><span class="line">name = oliverxu</span><br></pre></td></tr></table></figure>
-<h2 id="使用args和kwargs来调用函数">使用<code>*args</code>和<code>*kwargs</code>来调用函数</h2>
-<p>首先我们先定义一个函数：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_args_kwargs</span><span class="params">(arg1, arg2, arg3)</span>:</span></span><br><span class="line">    print(<span class="string">"arg1:"</span>, arg1)</span><br><span class="line">    print(<span class="string">"arg2:"</span>, arg2)</span><br><span class="line">    print(<span class="string">"arg3:"</span>, arg3)</span><br></pre></td></tr></table></figure>
-<p>现在，可以用<code>*args</code>和<code>**kwargs</code>来将参数传递给这个函数：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>args = (<span class="string">"two"</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(*args)</span><br><span class="line">arg1: arg1</span><br><span class="line">arg2: arg2</span><br><span class="line">arg3: arg3</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>kwargs = &#123;<span class="string">"arg3"</span>:<span class="number">3</span>, <span class="string">"arg2"</span>: <span class="string">"two"</span>, <span class="string">"arg1"</span>: <span class="number">5</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(**kwargs)</span><br><span class="line">arg1: <span class="number">5</span></span><br><span class="line">arg2: two</span><br><span class="line">arg3: <span class="number">3</span></span><br></pre></td></tr></table></figure>
+    <title>Word与Latex</title>
+    <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
+    <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
+<h2 id="mathpix将论文中的公式识别成latex或者mathml格式">Mathpix：将论文中的公式识别成latex或者mathml格式</h2>
+<p>有一款软件：Mathpix，能够将公式识别成latex或者mathml格式。</p>
+<p>使用该软件需要使用邮箱注册账户，免费版一个月只能识别50次，也有一个开发版，一个月能识别1000次，但是需要信用卡验证，对于国内用户来说，比较麻烦。</p>
+<p>这里给出一个解决办法：使用临时邮箱，待免费套餐使用完后，重新注册账户，测试了几个免费邮箱服务，大多被mathpix识别了，<span class="exturl" data-url="aHR0cHM6Ly90ZW1wLW1haWwub3JnL2VuLw==">https://temp-mail.org/en/<i class="fa fa-external-link-alt"></i></span> 这个我测试了一下，没有被mathpix识别，可以用于注册。 <a id="more"></a></p>
+<h2 id="word中的latex公式">Word中的latex公式</h2>
+<h3 id="简单的单行公式">简单的单行公式</h3>
+<p>简单的单行公式可以直接用latex格式。</p>
+<h3 id="复杂的多行公式">复杂的多行公式</h3>
+<p>复杂的多行公式，可以复制Mathpix中的Mathml格式，粘贴到word中。</p>
+<h3 id="插入公式编号">插入公式编号</h3>
+<p>Word中提供了一种比较方便的插入公式编号的方法：在公式末尾键入<code>#(x)</code>，然后按下<code>Enter</code>即可。</p>
+<h2 id="创作流程">创作流程</h2>
+<p>我个人比较喜欢读完文献，用Markdown（Typora）整理一下阅读笔记，这样既可以发布到博客上，又很方便的能够迁移到Word中（我一般交作业交报告都是用Word）。</p>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>Latex</category>
       </categories>
       <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo-gittalk问题总结</title>
-    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
-<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>经验</tag>
+        <tag>Latex</tag>
       </tags>
   </entry>
   <entry>
@@ -890,6 +856,27 @@ x
       </tags>
   </entry>
   <entry>
+    <title>*args 和 **kwargs</title>
+    <url>/2019/02/12/args-%E5%92%8C-kwargs/</url>
+    <content><![CDATA[<p>很多Python新手都无法搞清<code>*args</code>与<code>**kwargs</code>这两个魔术变量。那么他们到底是什么呢？让我来告诉你。在实际程序中，我们没有必要非得写成<code>*args</code>与<code>**kwargs</code>这样的形式，你也可以写成<code>*var</code>与<code>**vars</code>。写成<code>*args</code>与<code>**kwargs</code>的形式只是一种惯例。 <a id="more"></a> ## *args的用法 <code>*args</code>与<code>**kwargs</code>主要用于函数的定义。<code>*args</code>与<code>**kwargs</code>允许你将可变数量的参数传递给函数。这里的<strong>可变</strong>意味着你事先是不知道用户可以向你传递多少参数。因此在这种情况下你可以使用这两个关键字。<code>*args</code>用于向函数发送没有关键字的可变长度参数列表。以下是一个例子：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_var_args</span><span class="params">(f_arg, *args)</span>:</span></span><br><span class="line">    print(<span class="string">"first normal arg: "</span>, f_arg)</span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> args:</span><br><span class="line">        print(<span class="string">"another arg through *args: "</span>, ar)</span><br><span class="line"></span><br><span class="line">test_var_args(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>)</span><br></pre></td></tr></table></figure>
+<p>这会产生以下结果： <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">first normal arg: a</span><br><span class="line">another arg through *args: b</span><br><span class="line">another arg through *args: c</span><br><span class="line">another arg through *args: d</span><br></pre></td></tr></table></figure></p>
+<h2 id="kwargs-kwargs允许你将键值对也就是字典形式的参数的可变长度的参数传递给函数如果要在函数中处理命名参数则应该使用kwargs下面是一个例子">**kwargs <code>kwargs</code>允许你将键值对[也就是字典形式的参数]的可变长度的参数传递给函数。如果要在函数中处理命名参数，则应该使用<code>**kwargs</code>，下面是一个例子：</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_me</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> kwargs.items():</span><br><span class="line">        print(<span class="string">"&#123;0&#125; = &#123;1&#125;"</span>.format(key, value))</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>greet_me(name=<span class="string">"oliverxu"</span>)</span><br><span class="line">name = oliverxu</span><br></pre></td></tr></table></figure>
+<h2 id="使用args和kwargs来调用函数">使用<code>*args</code>和<code>*kwargs</code>来调用函数</h2>
+<p>首先我们先定义一个函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_args_kwargs</span><span class="params">(arg1, arg2, arg3)</span>:</span></span><br><span class="line">    print(<span class="string">"arg1:"</span>, arg1)</span><br><span class="line">    print(<span class="string">"arg2:"</span>, arg2)</span><br><span class="line">    print(<span class="string">"arg3:"</span>, arg3)</span><br></pre></td></tr></table></figure>
+<p>现在，可以用<code>*args</code>和<code>**kwargs</code>来将参数传递给这个函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>args = (<span class="string">"two"</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(*args)</span><br><span class="line">arg1: arg1</span><br><span class="line">arg2: arg2</span><br><span class="line">arg3: arg3</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>kwargs = &#123;<span class="string">"arg3"</span>:<span class="number">3</span>, <span class="string">"arg2"</span>: <span class="string">"two"</span>, <span class="string">"arg1"</span>: <span class="number">5</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(**kwargs)</span><br><span class="line">arg1: <span class="number">5</span></span><br><span class="line">arg2: two</span><br><span class="line">arg3: <span class="number">3</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vs code remote ssh 使用x11转发显示远程图像</title>
     <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
     <content><![CDATA[<h2 id="需求">需求</h2>
@@ -909,6 +896,19 @@ x
       </categories>
       <tags>
         <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo-gittalk问题总结</title>
+    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
+<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>经验</tag>
       </tags>
   </entry>
   <entry>
@@ -1039,25 +1039,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>光纤测温WEB系统</title>
-    <url>/2019/02/01/%E5%85%89%E7%BA%A4%E6%B5%8B%E6%B8%A9WEB%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h2 id="本项目解决的问题">本项目解决的问题：</h2>
-<p>工业上光纤测温仪配有自带的桌面上位机，此上位机是用C++语言编写，在测温的过程中，温度数据会每隔一秒记录一次，写入TXT文件。本项目将此TXT文件中的数据通过Python发送到服务器，并且在服务器上建立WEB接口，使用户可以通过WEB访问。 <a id="more"></a> 访问效果如图所示：</p>
-<figure>
-<img src="web.png" alt="WEB" /><figcaption>WEB</figcaption>
-</figure>
-<h2 id="项目结构">项目结构：</h2>
-<p><strong>client:</strong> 此文件夹中是测温仪的数据文件夹，将打包好的client.exe文件放入DTS系统的数据文件夹，当此文件夹中产生新的数据文件时候，程序将会自动把数据发送到服务器。</p>
-<p><strong>server:</strong> 此文件夹是WEB端的文件，采用Flask进行设计，使用websocket技术。</p>
-]]></content>
-      <categories>
-        <category>flask</category>
-      </categories>
-      <tags>
-        <tag>flask</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>健身房计划制定与动作</title>
     <url>/2020/08/24/%E5%81%A5%E8%BA%AB%E6%88%BF%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
     <content><![CDATA[<p>这篇文章整理我用到的训练计划和训练动作与健身记录。</p>
@@ -1083,6 +1064,25 @@ x
       </categories>
       <tags>
         <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>光纤测温WEB系统</title>
+    <url>/2019/02/01/%E5%85%89%E7%BA%A4%E6%B5%8B%E6%B8%A9WEB%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h2 id="本项目解决的问题">本项目解决的问题：</h2>
+<p>工业上光纤测温仪配有自带的桌面上位机，此上位机是用C++语言编写，在测温的过程中，温度数据会每隔一秒记录一次，写入TXT文件。本项目将此TXT文件中的数据通过Python发送到服务器，并且在服务器上建立WEB接口，使用户可以通过WEB访问。 <a id="more"></a> 访问效果如图所示：</p>
+<figure>
+<img src="web.png" alt="WEB" /><figcaption>WEB</figcaption>
+</figure>
+<h2 id="项目结构">项目结构：</h2>
+<p><strong>client:</strong> 此文件夹中是测温仪的数据文件夹，将打包好的client.exe文件放入DTS系统的数据文件夹，当此文件夹中产生新的数据文件时候，程序将会自动把数据发送到服务器。</p>
+<p><strong>server:</strong> 此文件夹是WEB端的文件，采用Flask进行设计，使用websocket技术。</p>
+]]></content>
+      <categories>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
       </tags>
   </entry>
   <entry>
@@ -1369,58 +1369,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>华为研发岗位面试经验(已拿offer)</title>
-    <url>/2018/09/30/%E5%8D%8E%E4%B8%BA%E7%A0%94%E5%8F%91%E5%B2%97%E4%BD%8D%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C-%E5%B7%B2%E6%8B%BFoffer/</url>
-    <content><![CDATA[<h2 id="专业面试">专业面试：</h2>
-<ul>
-<li>** 自我介绍：3-5分钟把自己的校园经历简单介绍一下**</li>
-</ul>
-<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第1，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。 <a id="more"></a> - ** 项目经历：在项目里做了哪些工作，算法有没有优化的空间**</p>
-<p><strong>1. 基于四旋翼的自动控制与跟随</strong> 本系统基于STM32F407控制器，通过对超声波模块和摄像头数据的采集分析，实时调整飞行器的飞行姿态，从而达到在无遥控的条件下，满足定高、定点悬停等要求。超声波传感器为飞行器的定高飞行提供了高度反馈，摄像头通过识别地面特征点的坐标为飞行器的定点飞行提供了位置反馈，采用python+树莓派+opencv的方式实现，提高了飞行器定点悬停的速度与精度。 a、程序功能描述 根据题目要求软件部分主要实现四旋翼飞行器姿态的获取与控制，实现飞行器的定高和定点飞行。 1）定高部分实现功能：飞行器高度的获取与控制、目标高度的自动切换。 2）定点部分实现功能：飞行器飞行速度的获取、移动距离的转换与控制。 b、程序设计思路 程序分为初始化部分、起飞油门值设置部分、定高PID调节部分、定点PID调节部分。初始化部分完成时钟、定时器、串行口等片上外设的设置，以及飞行模式的检测与设置；起飞油门设置部分完成片上ADC设置、电压采集数据获取与处理、起飞油门值的映射；定高PID调节部分完成高度误差的计算以及飞行高度的调节；定点PID调节部分完成位置误差的计算以及飞行位置的调节。</p>
-<p><strong>2. 机械加工过程中零件位置的自动识别</strong> 此项目研究自动化生产线加工过程中零件的位置识别问题，设计了一种具有普适性的自动化加工生产线上的零件识别系统，能够识别传感器采集到的图像中出现单个，或多个零件的位置，并且对于识别不同的零件，只需要修改极其少量的代码便可以使用。</p>
-<p><strong>3. 高电压增益变换器</strong> 此项目在基于H桥的Buck-Boost DC-DC变换器的基础上，用多个电容与二极管串联输出 实现了高增益，设计了双电感双开关同步控制Boost变换器，并用数字电路实现了闭环稳压的控制。</p>
-<p><strong>3. 无线充电之共享充电</strong> 此项目研究智能无线充电装置的控制方法，采用服务器-客户端的方式，服务器端可以对每个充电节点实施实时监控，用户能够通过手机直接查看无线充电装置的充电状态并对其进行一定的控制操作，此项目正在准备发表论文和申请实用新型专利，预计今年9月份发表之后可以申请结题</p>
-<p><strong>4. 基于Arduino的微型激光雕刻机</strong> 此项目主要采用Arduino UNO型单片机构成中央处理系统模块，并采用开源的控制系统框架Grbl设计和实现了一个可直接进行雕刻的微型激光雕刻机系统。本系统能在非金属物体表面烧刻出由计算机传输的图案的功能。</p>
-<p><strong>5. 海洋输液柔性管设备用的不间断真空控制系统</strong> 海洋输液用柔性管在塑料包覆的过程中，必须提供一个不间断的、稳定的真空度。当真空泵出现故障或其他方面出现故障导致真空度变化时，该装置必须自动调节，确保真空度变化量&lt;10%,响应时间不大于1秒 海洋输液用柔性管在正常情况下单根长度在1km以上，根据不同的用途，包覆层最多达到20多层，如果在包覆的过程中由于真空突然缺失就会导致当前包覆层报废，由于所用的原材料价格昂贵，所以重新返工会导致大量的浪费（国内有生产商因为真空泵出现问题而出现返工，损失50万元以上），在这种情况下，类似UPS的不间断真空就显得非常重要。当前在国内生产普通塑料管材行业由于单根的长度仅为4-12米，所以没有不间断真空这个装置。此项目正在申请实用新型专利。</p>
-<p><strong>6. 聚苯醚大口径管材挤出设备的温度自动控制装置</strong> 聚苯醚材料对加工温度极其敏感，加工温度窗口很窄，温度过高，严重过塑化，粘度急剧降低，温度过低会造成粘度急剧增大，所以温度的不稳定会严重影响产品的质量，该项目实现了温度控制装置的控制精度为0.5℃以内。此项目正在申请实用新型专利。</p>
-<p><strong>7. Python爬虫</strong> 采集网上的内容并将其自动发布到wordpress上</p>
-<p><strong>8. 远程设备状态监测机器人</strong> 针对目前邮件和短信的成本较高，利用成熟的微信机器人框架：Wxbot，实现了实时监测远程设备的状态，并通过微信传送到我的微信</p>
-<ul>
-<li>** 对华为的了解**</li>
-</ul>
-<p>众所周知华为是一个非常大的平台，经营范围非常广，并且在业内处于领先的地位，主要经营电信网络设备，已经成为行业的老大，并且近些年手机品牌和芯片研究有做的非常厉害，也是业界数一数二的。 华为的氛围相对比较而言更像大学，非常单纯，同事之间相处比较简单，并且公司具有良好的人才培养体系，在华为，员工可以快速成长，有很多学习和锻炼的机会，有机会接触到业界的核心技术和最前沿的技术理论，总之，华为是我向往的公司，希望自己能有机会到那里工作。</p>
-<h2 id="综合面试">综合面试：</h2>
-<ul>
-<li>** 自我介绍：**</li>
-</ul>
-<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第6，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。</p>
-<ul>
-<li>** 想不想加入华为**</li>
-</ul>
-<p>想</p>
-<ul>
-<li>** 成绩怎么样参加过什么级别的比赛**</li>
-</ul>
-<p>国家级</p>
-<ul>
-<li>** 以后想从事哪个方面的工作**</li>
-</ul>
-<p>嵌入式，因为我本科期间做的项目都是基于arm平台的，并且对操作系统非常感兴趣，从高中的时候在同学的介绍下就对linux产生了兴趣，所以将来想从事这方面的工作</p>
-<h1 id="华为面试小结">华为面试小结</h1>
-<p>总的来说，华为面试还是挺简单的，专业面试的时候我分到的那个面试官先生好像什么都不会，很难受。不过最终还是拿到了华为的offer，岗位是操作系统工程师，月薪15k以上，简简单单。 <strong>注意：我拿到华为offer时还是个本科生</strong></p>
-<h1 id="最后附上一张华为的offer">最后附上一张华为的offer</h1>
-<figure>
-<img src="huaweioffer.png" alt="华为offer" /><figcaption>华为offer</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>华为</category>
-      </categories>
-      <tags>
-        <tag>华为 面试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>单变量线性回归--Pytorch实现</title>
     <url>/2018/11/14/%E5%8D%95%E5%8F%98%E9%87%8F%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92-Pytorch%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h1 id="单变量线性回归pytorch实现">单变量线性回归——Pytorch实现</h1>
@@ -1484,6 +1432,84 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>华为研发岗位面试经验(已拿offer)</title>
+    <url>/2018/09/30/%E5%8D%8E%E4%B8%BA%E7%A0%94%E5%8F%91%E5%B2%97%E4%BD%8D%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C-%E5%B7%B2%E6%8B%BFoffer/</url>
+    <content><![CDATA[<h2 id="专业面试">专业面试：</h2>
+<ul>
+<li>** 自我介绍：3-5分钟把自己的校园经历简单介绍一下**</li>
+</ul>
+<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第1，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。 <a id="more"></a> - ** 项目经历：在项目里做了哪些工作，算法有没有优化的空间**</p>
+<p><strong>1. 基于四旋翼的自动控制与跟随</strong> 本系统基于STM32F407控制器，通过对超声波模块和摄像头数据的采集分析，实时调整飞行器的飞行姿态，从而达到在无遥控的条件下，满足定高、定点悬停等要求。超声波传感器为飞行器的定高飞行提供了高度反馈，摄像头通过识别地面特征点的坐标为飞行器的定点飞行提供了位置反馈，采用python+树莓派+opencv的方式实现，提高了飞行器定点悬停的速度与精度。 a、程序功能描述 根据题目要求软件部分主要实现四旋翼飞行器姿态的获取与控制，实现飞行器的定高和定点飞行。 1）定高部分实现功能：飞行器高度的获取与控制、目标高度的自动切换。 2）定点部分实现功能：飞行器飞行速度的获取、移动距离的转换与控制。 b、程序设计思路 程序分为初始化部分、起飞油门值设置部分、定高PID调节部分、定点PID调节部分。初始化部分完成时钟、定时器、串行口等片上外设的设置，以及飞行模式的检测与设置；起飞油门设置部分完成片上ADC设置、电压采集数据获取与处理、起飞油门值的映射；定高PID调节部分完成高度误差的计算以及飞行高度的调节；定点PID调节部分完成位置误差的计算以及飞行位置的调节。</p>
+<p><strong>2. 机械加工过程中零件位置的自动识别</strong> 此项目研究自动化生产线加工过程中零件的位置识别问题，设计了一种具有普适性的自动化加工生产线上的零件识别系统，能够识别传感器采集到的图像中出现单个，或多个零件的位置，并且对于识别不同的零件，只需要修改极其少量的代码便可以使用。</p>
+<p><strong>3. 高电压增益变换器</strong> 此项目在基于H桥的Buck-Boost DC-DC变换器的基础上，用多个电容与二极管串联输出 实现了高增益，设计了双电感双开关同步控制Boost变换器，并用数字电路实现了闭环稳压的控制。</p>
+<p><strong>3. 无线充电之共享充电</strong> 此项目研究智能无线充电装置的控制方法，采用服务器-客户端的方式，服务器端可以对每个充电节点实施实时监控，用户能够通过手机直接查看无线充电装置的充电状态并对其进行一定的控制操作，此项目正在准备发表论文和申请实用新型专利，预计今年9月份发表之后可以申请结题</p>
+<p><strong>4. 基于Arduino的微型激光雕刻机</strong> 此项目主要采用Arduino UNO型单片机构成中央处理系统模块，并采用开源的控制系统框架Grbl设计和实现了一个可直接进行雕刻的微型激光雕刻机系统。本系统能在非金属物体表面烧刻出由计算机传输的图案的功能。</p>
+<p><strong>5. 海洋输液柔性管设备用的不间断真空控制系统</strong> 海洋输液用柔性管在塑料包覆的过程中，必须提供一个不间断的、稳定的真空度。当真空泵出现故障或其他方面出现故障导致真空度变化时，该装置必须自动调节，确保真空度变化量&lt;10%,响应时间不大于1秒 海洋输液用柔性管在正常情况下单根长度在1km以上，根据不同的用途，包覆层最多达到20多层，如果在包覆的过程中由于真空突然缺失就会导致当前包覆层报废，由于所用的原材料价格昂贵，所以重新返工会导致大量的浪费（国内有生产商因为真空泵出现问题而出现返工，损失50万元以上），在这种情况下，类似UPS的不间断真空就显得非常重要。当前在国内生产普通塑料管材行业由于单根的长度仅为4-12米，所以没有不间断真空这个装置。此项目正在申请实用新型专利。</p>
+<p><strong>6. 聚苯醚大口径管材挤出设备的温度自动控制装置</strong> 聚苯醚材料对加工温度极其敏感，加工温度窗口很窄，温度过高，严重过塑化，粘度急剧降低，温度过低会造成粘度急剧增大，所以温度的不稳定会严重影响产品的质量，该项目实现了温度控制装置的控制精度为0.5℃以内。此项目正在申请实用新型专利。</p>
+<p><strong>7. Python爬虫</strong> 采集网上的内容并将其自动发布到wordpress上</p>
+<p><strong>8. 远程设备状态监测机器人</strong> 针对目前邮件和短信的成本较高，利用成熟的微信机器人框架：Wxbot，实现了实时监测远程设备的状态，并通过微信传送到我的微信</p>
+<ul>
+<li>** 对华为的了解**</li>
+</ul>
+<p>众所周知华为是一个非常大的平台，经营范围非常广，并且在业内处于领先的地位，主要经营电信网络设备，已经成为行业的老大，并且近些年手机品牌和芯片研究有做的非常厉害，也是业界数一数二的。 华为的氛围相对比较而言更像大学，非常单纯，同事之间相处比较简单，并且公司具有良好的人才培养体系，在华为，员工可以快速成长，有很多学习和锻炼的机会，有机会接触到业界的核心技术和最前沿的技术理论，总之，华为是我向往的公司，希望自己能有机会到那里工作。</p>
+<h2 id="综合面试">综合面试：</h2>
+<ul>
+<li>** 自我介绍：**</li>
+</ul>
+<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第6，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。</p>
+<ul>
+<li>** 想不想加入华为**</li>
+</ul>
+<p>想</p>
+<ul>
+<li>** 成绩怎么样参加过什么级别的比赛**</li>
+</ul>
+<p>国家级</p>
+<ul>
+<li>** 以后想从事哪个方面的工作**</li>
+</ul>
+<p>嵌入式，因为我本科期间做的项目都是基于arm平台的，并且对操作系统非常感兴趣，从高中的时候在同学的介绍下就对linux产生了兴趣，所以将来想从事这方面的工作</p>
+<h1 id="华为面试小结">华为面试小结</h1>
+<p>总的来说，华为面试还是挺简单的，专业面试的时候我分到的那个面试官先生好像什么都不会，很难受。不过最终还是拿到了华为的offer，岗位是操作系统工程师，月薪15k以上，简简单单。 <strong>注意：我拿到华为offer时还是个本科生</strong></p>
+<h1 id="最后附上一张华为的offer">最后附上一张华为的offer</h1>
+<figure>
+<img src="huaweioffer.png" alt="华为offer" /><figcaption>华为offer</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>华为</category>
+      </categories>
+      <tags>
+        <tag>华为 面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用排序算法之冒泡排序</title>
+    <url>/2018/08/19/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>题目：编写一个C程序，应用冒泡排序法对序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的序列元素</p>
+<p>算法分析：直接运用冒泡排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubblesort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span> &amp;&amp; flag==<span class="number">1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n-i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j+<span class="number">1</span>]&lt;a[j])</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j+<span class="number">1</span>];</span><br><span class="line">                a[j+<span class="number">1</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="number">0</span>];</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    bubblesort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of bubble sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构 算法 排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用排序算法之直接插入排序</title>
+    <url>/2018/08/12/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>题目：编写一个C程序，应用直接插入排序算法将序列｛2，5，6，，3，7，8，0，9，12，1｝进行排序，要求从小到大排列，并输出排序后的数列元素。</p>
+<p>算法分析：直接运用直接插入排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertionsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>] = a[i];</span><br><span class="line">        j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; a[<span class="number">0</span>]&lt;a[j])</span><br><span class="line">        &#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j--];</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The original data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    insertsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of insertion sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构 算法 排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>基金投资管理系统</title>
     <url>/2020/06/29/%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<p>基金推荐与投资记录系统：如何成为一名合格的韭菜！</p>
@@ -1524,50 +1550,11 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>常用排序算法之冒泡排序</title>
-    <url>/2018/08/19/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>题目：编写一个C程序，应用冒泡排序法对序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的序列元素</p>
-<p>算法分析：直接运用冒泡排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubblesort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span> &amp;&amp; flag==<span class="number">1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n-i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j+<span class="number">1</span>]&lt;a[j])</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j+<span class="number">1</span>];</span><br><span class="line">                a[j+<span class="number">1</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="number">0</span>];</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    bubblesort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of bubble sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>数据结构 算法 排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用排序算法之直接插入排序</title>
-    <url>/2018/08/12/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>题目：编写一个C程序，应用直接插入排序算法将序列｛2，5，6，，3，7，8，0，9，12，1｝进行排序，要求从小到大排列，并输出排序后的数列元素。</p>
-<p>算法分析：直接运用直接插入排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertionsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>] = a[i];</span><br><span class="line">        j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; a[<span class="number">0</span>]&lt;a[j])</span><br><span class="line">        &#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j--];</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The original data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    insertsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of insertion sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>数据结构 算法 排序</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>常用排序算法之选择排序</title>
     <url>/2018/09/02/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<p>题目：编写一个C程序，运用选择排序将序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的数列元素</p>
 <p>算法分析：运用选择排序算法即可</p>
 <p>代码实现： <a id="more"></a> <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,<span class="built_in">min</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)</span><br><span class="line">    &#123; </span><br><span class="line">        <span class="built_in">min</span> = i;</span><br><span class="line">        <span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[j] &lt; a[<span class="built_in">min</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">min</span> = j;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">min</span> != i)</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="built_in">min</span>];</span><br><span class="line">                a[<span class="built_in">min</span>] = a[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    selectsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of selection sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>数据结构 算法 排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>折半查找</title>
-    <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
-    <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
-<p>算法分析：折半查找 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bin_search</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,high,low;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=(high+low)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">10</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">19</span>,<span class="number">21</span>&#125;</span><br><span class="line">    <span class="keyword">int</span> i,n,addr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The contents of the Array A[10] are\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, A[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPlease input a interger for search\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    addr = bin_search(A,<span class="number">10</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(addr != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d is at the %dth unit is array A\n "</span>,n,addr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"There is no %d in array A\n"</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
@@ -1601,6 +1588,19 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>强化学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>折半查找</title>
+    <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
+    <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
+<p>算法分析：折半查找 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bin_search</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,high,low;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=(high+low)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">10</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">19</span>,<span class="number">21</span>&#125;</span><br><span class="line">    <span class="keyword">int</span> i,n,addr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The contents of the Array A[10] are\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, A[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPlease input a interger for search\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    addr = bin_search(A,<span class="number">10</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(addr != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d is at the %dth unit is array A\n "</span>,n,addr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"There is no %d in array A\n"</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构 算法 排序</tag>
       </tags>
   </entry>
   <entry>
@@ -1752,19 +1752,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>粒子群算法库-PySwarms的可视化</title>
-    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
-    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
-<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>粒子群算法(PSO)的数学原理</title>
     <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95-PSO-%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h2 id="粒子群算法的起源">粒子群算法的起源</h2>
@@ -1794,6 +1781,19 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
 <p><span class="math display">\[v_{id}=w\times v_{id}+c_1r_1(P_{id}-x_{id})+c_2r_2(P_{gd}-x_{id})\]</span></p>
 <p><span class="math display">\[x_{id}=x_{id}+v_{id}\]</span></p>
 <p>其中：c1和c2为学习因子，也称为加速常数<code>acceleration constant</code>，r1和r2为<code>[0,1]</code>范围内的均匀随机数。速度更新公式由三部分组成，第一部分为<code>惯性</code>，代表粒子有维持自己先前速度的趋势，第二部分为<code>认知</code>部分，反映了对自身历史经验的记忆，代表粒子有向自身历史最佳位置逼近的趋势，第三部分为<code>社会</code>部分，反映了粒子之间协同合作与知识共享的群体历史经验。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>粒子群算法库-PySwarms的可视化</title>
+    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
+    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
+<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -4050,6 +4050,8 @@ f_{C P L} &amp;=\max \left\{L_{1}, L_{2}, \ldots, L_{K}\right\} \\
 <p>第一幅图是使用ICNN进行的仿真所画的等高线，等高线的数值从内到外分别是<span class="math inline">\([0.150, 0.300, 0.450, 0.600, 0.750]\)</span>，可以看出其凸的性质很强，对于inference来说，需要求解的是一个凸优化问题。</p>
 <p>第二幅图是使用NN进行的仿真所画出的等高线，等高线的数值从内到外分别是<span class="math inline">\([0.150, 0.300, 0.450, 0.600, 0.750]\)</span>，可以看出其非凸的性质很明显，若对于复杂问题，非凸优化容易陷入局部最优，且没有全局最优解的保证，而ICNN，使用gradient descent即有全局最优解的保证和证明。</p>
 <h2 id="未来展望">未来展望</h2>
+<p>ICNN是一种2016年提出来的新型的神经网络结构，用于解决传统的神经网络难以inference的问题，同时，经过仿真验证，ICNN的拟合能力损失不大。不过经过检索，使用ICNN结构的发表在期刊上只有几篇文章，有很多篇都是发表在了会议上(ICML)，主要都是将ICML结合到特定的应用场景中。</p>
+<p>《Data-Driven Solution for Optimal Pumping Units Scheduling of Smart Water Conservancy， 2020》这篇文章中作者在最后的展望中提到了”Additional effort is also needed to develop data-driven or learning-based models with convex characteristics of input–output dynamic relation, e.g., the input convex neural network that is able to model the convex optimization problem and obtain the optimal control solutions.“</p>
 ]]></content>
       <categories>
         <category>神经网络</category>
@@ -4622,57 +4624,6 @@ L^{i+1}=&amp;-\left[R_{2}+\hat{X}_{7}^{i}-\hat{X}_{5}^{i}\left(R_{1}+\hat{X}_{3}
       </categories>
       <tags>
         <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>科研论文各段落表达整理背诵</title>
-    <url>/2021/02/28/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%90%84%E6%AE%B5%E8%90%BD%E8%A1%A8%E8%BE%BE%E6%95%B4%E7%90%86%E8%83%8C%E8%AF%B5/</url>
-    <content><![CDATA[<p>上一篇博客中，<a href="https://blog.oliverxu.cn/2021/01/31/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%B8%B8%E7%94%A8%E5%8F%A5%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/#more">科研论文常用句式语法汇总整理</a>，每天将所看论文中的优秀的语句进行摘录整理，经过一个月的使用（其实也就不到一周，中间春节没有学习），感觉也还是有点不得劲，所以，这篇博客是对论文的各部分的段落进行整理，翻译成中文，最好能背诵下来（笨办法，先试试看，毕竟身边没人教我hhhh）。</p>
-<p>这篇博客将长期更新，分为5个部分，包括abstract, Introduction, method, simulation, conclusion，争取做到每天更新，每天看一篇论文，在学习其内容的同时，摘录其优秀的整段文字，并进行分类整理。</p>
-<p><strong>每天整理并背诵一段话。</strong></p>
-<a id="more"></a>
-<h2 id="abstract">Abstract</h2>
-<h3 id="evolving-reinforcement-learning-algorithms">1. Evolving reinforcement learning algorithms</h3>
-<p>We propose a method for meta-learning reinforcement learning algorithms by searching over the space of computational graphs which compute the loss function for a value-based model-free RL agent to optimize. The learned algorithms are domain-agnostic and can generalize to new environments not seen during training. Our method can both learn from scratch and bootstrap off known existing algorithms, like DQN, enabling interpretable modifications which improve performance. Learning from scratch on simple classical control and gridworld tasks, our method rediscovers the temporal-difference (TD) algorithm. Bootstrapped from DQN, we highlight two learned algorithms which obtain good generalization performance over other classical control tasks, gridworld type tasks, and Atari games. The analysis of the learned algorithm behavior shows resemblance to recently proposed RL algorithms that address overestimation in value-based methods.</p>
-<p>我们通过搜索计算图的空间来提出一种用于元学习强化学习算法的方法，该计算图可计算基于值的无模型RL智能体的损失函数以进行优化。 学习的算法与领域无关，并且可以推广到训练期间未看到的新环境。 我们的方法既可以从头开始学习，又可以引导已知的现有算法（例如DQN）进行访问，从而可以进行可解释的修改，从而提高性能。 从简单的经典控制和gridworld任务开始学习，我们的方法重新发现了时差（TD）算法。 从DQN开始，我们重点介绍了两种学习过的算法，它们在其他经典控制任务，gridworld类型任务和Atari游戏上均具有良好的泛化性能。 对学习到的算法行为的分析表明，它与最近提出的RL算法相似，后者解决了基于值的方法中的高估问题。</p>
-<h3 id="adaptive-optimal-control-for-a-class-of-nonlinear-systems-the-online-policy-iteration-approach">2.Adaptive Optimal control for a class of nonlinear systems: The online policy iteration approach</h3>
-<p>This paper studies the online adaptive optimal controller design for a class of nonlinear systems through a novel policy iteration (PI) algorithm. By using the technique of neural network linear differential inclusion (LDI) to linearize the nonlinear terms in each iteration, the optimal law for controller design can be solved through the relevant algebraic Riccati equation (ARE) without using the system internal parameters. Based on PI approach, the adaptive optimal control algorithm is developed with the online linearization and the two-step iteration, i.e., policy evaluation and policy improvement. The convergence of the proposed PI algorithm is also proved. Finally, two numerical examples are given to illustrate the effectiveness and applicability of the proposed method.</p>
-<p>本文通过一种新颖的策略迭代（PI）算法研究了一类非线性系统的在线自适应最优控制器设计。 通过使用神经网络线性微分包含（LDI）技术对每次迭代中的非线性项进行线性化，可以通过相关的代数Riccati方程（ARE）来求解控制器设计的最佳定律，而无需使用系统内部参数。 基于PI方法，通过在线线性化和两步迭代（即策略评估和策略改进）开发了自适应最优控制算法。 还证明了所提出的PI算法的收敛性。 最后，通过两个数值例子说明了该方法的有效性和适用性。</p>
-<h2 id="introduction">Introduction</h2>
-<h3 id="evolving-reinforcement-learning-algorithms-1">1. Evolving reinforcement learning algorithms</h3>
-<p>Our learned loss function should generalize across many different environments, instead of being specific to a particular domain. Thus, we design a search language based on genetic programming (Koza, 1993) that can express general symbolic loss functions which can be applied to any environment. Data typing and a generic interface to variables in the MDP allow the learned program to be domain agnostic. This language also supports the use of neural network modules as subcomponents of the program, so that more complex neural network architectures can be realized. Efficiently searching over the space of useful programs is generally difficult. For the outer loop optimization, we use regularized evolution (Real et al., 2019), a recent variant of classic evolutionary algorithms that employ tournament selection (Goldberg &amp; Deb, 1991). This approach can scale with the number of compute nodes and has been shown to work for designing algorithms for supervised learning (Real et al., 2020). We adapt this method to automatically design algorithms for reinforcement learning.</p>
-<p>我们的学习损失函数应该在许多不同的环境中推广，而不是特定于特定领域。因此，我们设计了一种基于遗传程序设计的搜索语言（Koza，1993），该语言可以表达可应用于任何环境的通用符号损失函数。数据类型输入和MDP中变量的通用接口使学习的程序与域无关。该语言还支持将神经网络模块用作程序的子组件，以便可以实现更复杂的神经网络体系结构。通常很难有效地搜索有用程序的空间。对于外循环优化，我们使用正则化进化（Real et al。，2019），这是采用锦标赛选择的经典进化算法的最新变体（Goldberg＆Deb，1991）。这种方法可以随着计算节点的数量而扩展，并且已经证明可用于设计监督学习的算法（Real等，2020）。我们采用这种方法来自动设计用于强化学习的算法。</p>
-<h3 id="adaptive-optimal-control-for-a-class-of-nonlinear-systems-the-online-policy-iteration-approach-1">2.Adaptive Optimal control for a class of nonlinear systems: The online policy iteration approach</h3>
-<p>To realize the online adaptive algorithm, however, we need a synchronous linearization technique to accompany with the PI solution process. As a result, we put forward a new online LDIPI (OLDIPI) algorithm, which can address the adaptive optimal control problem for a class of nonlinear systems. First, the original nonlinear system is approximated to a linear plant model based on the neural network LDI. Then inspired by the linear PI algorithm, the proposed OLDIPI algorithm can converge to the optimal solution; furthermore, the algorithm can be implemented online in least-square sense under a persistent excitation condition. The convergence of the proposed algorithm is also proved, and the corresponding simulation results are given to illustrate the feasibility and applicability.</p>
-<p>但是，要实现在线自适应算法，我们需要一种同步线性化技术来配合PI解法过程。 因此，我们提出了一种新的在线LDIPI（OLDIPI）算法，该算法可以解决一类非线性系统的自适应最优控制问题。 首先，将原始的非线性系统近似为基于神经网络LDI的线性工厂模型。 然后在线性PI算法的启发下，提出的OLDIPI算法可以收敛到最优解。 此外，该算法可以在持续激发条件下以最小二乘方式在线实现。 证明了该算法的收敛性，并给出了相应的仿真结果，说明了该算法的可行性和适用性。</p>
-<h2 id="related-work">Related Work</h2>
-<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning">1. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
-<p>RL methods are typically divided into model-free (Schulman et al., 2015a,b,2017; Williams, 1992) and model-based (Lillicrap et al., 2015; Watkins and Dayan, 1992) approaches. Model-based approaches all perform some degree of planning, from predicting the value of some state (Mnih et al., 2013; Silver et al., 2016), obtaining representations by unrolling a learned dynamics model (Racaniere ` et al., 2017), or learning a policy directly on a learned dynamics model (Agrawal et al., 2016; Chua et al., 2018; Finn and Levine, 2017; Kurutach et al., 2018; Nagabandi et al., 2018; Oh et al., 2015; Sutton, 1990). One line of work (Amos et al., 2018; Lee et al., 2018; Srinivas et al., 2018; Tamar et al., 2016) embeds a differentiable planner inside a policy, with the planner learned end-to-end with the rest of the policy. Other work (Lenz et al., 2015; Watter et al., 2015) explicitly learns a representation for use inside a standard planning algorithm. In contrast, SoRB learns to predict the distances between states, which can be viewed as a high-level inverse model. SoRB predicts a scalar (the distance) rather than actions or observations, making the prediction problem substantially easier. By planning over previously visited states, SoRB does not have to cope with infeasible states that can be predicted by forward models in state-space and latent-space.</p>
-<p>RL方法通常分为无模型（Schulman等人，2015a，b，2017; Williams，1992）和基于模型的方法（Lillicrap等人，2015; Watkins和Dayan，1992）。从预测某个状态的价值（Mnih等人，2013; Silver等人，2016），通过展开学习的动力学模型来获取表示形式（Racaniere`等人，2017），所有基于模型的方法都执行某种程度的计划。 ），或者直接在学习的动力学模型上学习策略（Agrawal等人，2016; Chua等人，2018; Finn和Levine，2017; Kurutach等人，2018; Nagabandi等人，2018; Oh等人） （2015年；萨顿，1990年）。一项工作（Amos等人，2018； Lee等人，2018； Srinivas等人，2018； Tamar等人，2016）将一个可区分的计划者嵌入到策略中，而计划者则是端到端学习的其余的政策。其他工作（Lenz等人，2015； Watter等人，2015）明确学习了在标准计划算法中使用的表示形式。相反，SoRB学习预测状态之间的距离，这可以看作是高级逆模型。 SoRB预测的是标量（距离）而不是动作或观察值，从而使预测问题大为简化。通过对先前访问的状态进行规划，SoRB不必应对状态空间和潜在空间中的前向模型可以预测的不可行状态。</p>
-<h2 id="method">Method</h2>
-<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-1">1. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
-<p>Planning algorithms must be able to (1) sample valid states, (2) estimate the distance between reachable pairs of states, and (3) use a local policy to navigate between nearby states. These requirements are difficult to satisfy in complex tasks with high dimensional observations, such as images. For example, consider a robot arm stacking blocks using image observations. Sampling states requires generating photo-realistic images, and estimating distances and choosing actions requires reasoning about dozens of interactions between blocks. Our method will obtain distance estimates and a local policy using a RL algorithm. To sample states, we will simply use a replay buffer of previously visited states as a non-parametric generative model.</p>
-<p>规划算法必须能够（1）对有效状态进行采样，（2）估计可到达的状态对之间的距离，以及（3）使用本地策略在附近的状态之间导航。 在具有高维观测的复杂任务（例如图像）中，很难满足这些要求。 例如，考虑使用图像观察的机械臂堆积块。 采样状态需要生成逼真的图像，估计距离和选择动作需要对块之间的数十种交互进行推理。 我们的方法将使用RL算法获得距离估算值和本地策略。 为了采样状态，我们将简单地使用先前访问过的状态的重播缓冲区作为非参数生成模型。</p>
-<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-2">2. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
-<p>After learning a goal-conditioned Q-function, we perform graph search to find a set of waypoints and use the goal-conditioned policy to reach each. We view the combination of graph search and the underlying goal-conditioned policy as a new SEARCHPOLICY, shown in Algorithm 1. The algorithm starts by using graph search to obtain the shortest path sw1; sw2;· · · from the current state s to the goal state sg, planning over the states in our replay buffer B. We then estimate the distance from the current state to the first waypoint, as well as the distance from the current state to the goal. In most cases, we then condition the policy on the first waypoint, sw1. However, if the goal state is closer than the next waypoint and the goal state is not too far away, then we directly condition the policy on the final goal. If the replay buffer is empty or there is not a path in G to the goal, then Algorithm 1 resorts to standard goal-conditioned RL.</p>
-<p>学习了目标条件的Q函数后，我们执行图搜索以找到一组航路点，并使用目标条件的策略来达到每个目标。 我们将图搜索和基础目标条件策略的组合视为一种新的SEARCHPOLICY，如算法1所示。SW2;···从当前状态S到目标状态SG，规划了我们的重播缓冲B.状态然后我们估计从当前状态到第一个航路点的距离，以及从当前状态的距离目标。 在大多数情况下，我们然后在第一个航路点sw1上设置策略。 但是，如果目标状态比下一个航路点更近且目标状态距离不太远，则我们直接将策略限制在最终目标上。 如果重播缓冲区为空或G中没有通往目标的路径，则算法1求助于标准的目标条件RL。</p>
-<h2 id="simulation">Simulation</h2>
-<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-3">1. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
-<p>We start by building intuition for our method by applying it to two simple 2D navigation tasks, shown in Figure 4a. The start and goal state are chosen randomly in free space, and reaching the goal often takes over 100 steps, even for the optimal policy. We used goal-conditioned RL to learn a policy for each environment, and then evaluated this policy on randomly sampled (start, goal) pairs of varying difficulty. To implement SoRB, we used exactly the same policy, both to perform graph search and then to reach each of the planned waypoints. In Figure 4b, we observe that the goal-conditioned policy can reach nearby goals, but fails to generalize to distant goals. In contrast, SoRB successfully reaches goals over 100 steps away, with little drop in success rate. Figure 4c compares rollouts from the goal-conditioned policy and our policy. Note that our policy takes actions that temporarily lead away from the goal so the agent can maneuver through a hallway to eventually reach the goal.</p>
-<p>首先，通过将其应用于两个简单的2D导航任务来建立我们所提方法的直觉，如图4a所示。 起始状态和目标状态是在自由空间中随机选择的，即使对于最佳策略，达到目标也通常要花费100多个步骤。 我们使用目标条件的RL来学习每种环境的策略，然后针对随机难度不同的采样（开始，目标）对该策略进行评估。 为了实施SoRB，我们使用了完全相同的策略，既执行图搜索，然后到达每个计划的航路点。 在图4b中，我们观察到以目标为条件的策略可以达到附近的目标，但不能推广到遥远的目标。 相比之下，SoRB成功地实现了100步之外的目标，成功率几乎没有下降。 图4c比较了目标条件政策和我们政策的推出情况。 请注意，我们的政策采取的措施会暂时偏离目标，因此智能体可以穿过走廊以最终达到目标。</p>
-<h2 id="conclusion">Conclusion</h2>
-<h3 id="evolving-reinforcement-learning-algorithms-2">1. Evolving reinforcement learning algorithms</h3>
-<p>In this work, we have presented a method for learning reinforcement learning algorithms. We design a general language for representing algorithms which compute the loss function for value-based model-free RL agents to optimize. We highlight two learned algorithms which although relatively simple, can obtain good generalization performance over a wide range of environments. Our analysis of the learned algorithms sheds insight on their benefit as regularization terms which are similar to recently proposed algorithms. Our work is limited to discrete action and value-based RL algorithms that are close to DQN, but could easily be expanded to express more general RL algorithms such as actor-critic or policy gradient methods. How actions are sampled from the policy could also be part of the search space. The set of environments we use for both training and testing could also be expanded to include a more diverse set of problem types. We leave these problems for future work.</p>
-<p>在这项工作中，我们提出了一种学习强化学习算法的方法。 我们设计了一种通用语言来表示算法，该算法可为基于价值的无模型RL代理计算损失函数以进行优化。 我们重点介绍了两种学习算法，这些算法虽然相对简单，但可以在多种环境中获得良好的泛化性能。 我们对所学算法的分析揭示了它们作为正则化术语的好处，与最近提出的算法相似。 我们的工作仅限于接近DQN的离散行动和基于价值的RL算法，但可以轻松扩展以表达更通用的RL算法，例如参与者批评法或策略梯度法。 如何从策略中采样操作也可能是搜索空间的一部分。 我们用于培训和测试的环境也可以扩展为包括更多不同类型的问题。 我们将这些问题留给以后的工作。</p>
-<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-4">2. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
-<p>We presented SoRB, a method that combines planning via graph search and goal-conditioned RL. By exploiting the structure of goal-reaching tasks, we can obtain policies that generalize substantially better than those learned directly from RL. In our experiments, we show that SoRB can solve temporally extended navigation problems, traverse environments with image observations, and generalize to new houses in the SUNCG dataset. Our method relies heavily on goal-conditioned RL, and we expect advances in this area to make our method applicable to even more difficult tasks. While we used a stage-wise procedure, first learning the goal-conditioned policy and then applying graph search, in future work we aim to explore how graph search can improve the goal-conditioned policy itself, perhaps via policy distillation or obtaining better Q-value estimates. In addition, while the planning algorithm we use is simple (namely, Dijkstra), we believe that the key idea of using distance estimates obtained from RL algorithms for planning will open doors to incorporating more sophisticated planning techniques into RL.</p>
-<p>我们介绍了SoRB，该方法结合了通过图搜索和目标条件RL进行规划的方法。通过利用达到目标的任务的结构，我们可以获得比直接从RL直接学习的策略更好地概括的策略。在我们的实验中，我们表明SoRB可以解决时间扩展的导航问题，通过图像观察遍历环境，并可以将其推广到SUNCG数据集中的新房屋。我们的方法在很大程度上取决于目标条件下的RL，并且我们期望在这一领域取得进展，以使我们的方法适用于甚至更困难的任务。当我们使用分阶段步骤时，首先学习目标条件策略，然后应用图搜索，在未来的工作中，我们旨在探索图搜索如何改善目标条件策略本身，也许可以通过策略提炼或获得更好的Q-价值估算。此外，尽管我们使用的规划算法很简单（即Dijkstra），但我们认为使用从RL算法获得的距离估算值进行规划的关键思想将为将更复杂的规划技术纳入RL敞开大门。</p>
-]]></content>
-      <categories>
-        <category>Paper</category>
-      </categories>
-      <tags>
-        <tag>Paper</tag>
       </tags>
   </entry>
   <entry>
@@ -7318,6 +7269,69 @@ Domaine Schoffit
       </categories>
       <tags>
         <tag>Pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>科研论文各段落表达整理背诵</title>
+    <url>/2021/02/28/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%90%84%E6%AE%B5%E8%90%BD%E8%A1%A8%E8%BE%BE%E6%95%B4%E7%90%86%E8%83%8C%E8%AF%B5/</url>
+    <content><![CDATA[<p>上一篇博客中，<a href="https://blog.oliverxu.cn/2021/01/31/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E5%B8%B8%E7%94%A8%E5%8F%A5%E5%BC%8F%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%E6%95%B4%E7%90%86/#more">科研论文常用句式语法汇总整理</a>，每天将所看论文中的优秀的语句进行摘录整理，经过一个月的使用（其实也就不到一周，中间春节没有学习），感觉也还是有点不得劲，所以，这篇博客是对论文的各部分的段落进行整理，翻译成中文，最好能背诵下来（笨办法，先试试看，毕竟身边没人教我hhhh）。</p>
+<p>这篇博客将长期更新，分为5个部分，包括abstract, Introduction, method, simulation, conclusion，争取做到每天更新，每天看一篇论文，在学习其内容的同时，摘录其优秀的整段文字，并进行分类整理。</p>
+<p><strong>每天整理并背诵一段话。</strong></p>
+<a id="more"></a>
+<h2 id="abstract">Abstract</h2>
+<h3 id="evolving-reinforcement-learning-algorithms">1. Evolving reinforcement learning algorithms</h3>
+<p>We propose a method for meta-learning reinforcement learning algorithms by searching over the space of computational graphs which compute the loss function for a value-based model-free RL agent to optimize. The learned algorithms are domain-agnostic and can generalize to new environments not seen during training. Our method can both learn from scratch and bootstrap off known existing algorithms, like DQN, enabling interpretable modifications which improve performance. Learning from scratch on simple classical control and gridworld tasks, our method rediscovers the temporal-difference (TD) algorithm. Bootstrapped from DQN, we highlight two learned algorithms which obtain good generalization performance over other classical control tasks, gridworld type tasks, and Atari games. The analysis of the learned algorithm behavior shows resemblance to recently proposed RL algorithms that address overestimation in value-based methods.</p>
+<p>我们通过搜索计算图的空间来提出一种用于元学习强化学习算法的方法，该计算图可计算基于值的无模型RL智能体的损失函数以进行优化。 学习的算法与领域无关，并且可以推广到训练期间未看到的新环境。 我们的方法既可以从头开始学习，又可以引导已知的现有算法（例如DQN）进行访问，从而可以进行可解释的修改，从而提高性能。 从简单的经典控制和gridworld任务开始学习，我们的方法重新发现了时差（TD）算法。 从DQN开始，我们重点介绍了两种学习过的算法，它们在其他经典控制任务，gridworld类型任务和Atari游戏上均具有良好的泛化性能。 对学习到的算法行为的分析表明，它与最近提出的RL算法相似，后者解决了基于值的方法中的高估问题。</p>
+<h3 id="adaptive-optimal-control-for-a-class-of-nonlinear-systems-the-online-policy-iteration-approach">2.Adaptive Optimal control for a class of nonlinear systems: The online policy iteration approach</h3>
+<p>This paper studies the online adaptive optimal controller design for a class of nonlinear systems through a novel policy iteration (PI) algorithm. By using the technique of neural network linear differential inclusion (LDI) to linearize the nonlinear terms in each iteration, the optimal law for controller design can be solved through the relevant algebraic Riccati equation (ARE) without using the system internal parameters. Based on PI approach, the adaptive optimal control algorithm is developed with the online linearization and the two-step iteration, i.e., policy evaluation and policy improvement. The convergence of the proposed PI algorithm is also proved. Finally, two numerical examples are given to illustrate the effectiveness and applicability of the proposed method.</p>
+<p>本文通过一种新颖的策略迭代（PI）算法研究了一类非线性系统的在线自适应最优控制器设计。 通过使用神经网络线性微分包含（LDI）技术对每次迭代中的非线性项进行线性化，可以通过相关的代数Riccati方程（ARE）来求解控制器设计的最佳定律，而无需使用系统内部参数。 基于PI方法，通过在线线性化和两步迭代（即策略评估和策略改进）开发了自适应最优控制算法。 还证明了所提出的PI算法的收敛性。 最后，通过两个数值例子说明了该方法的有效性和适用性。</p>
+<h3 id="safe-optimal-control-under-parametric-uncertainties">3.Safe Optimal Control Under Parametric Uncertainties</h3>
+<p>We address the issue of safe optimal path planning under parametric uncertainties using a novel regularizer that allows trading off optimality with safety. The proposed regularizer leverages the notion that collisions may be modeled as constraint violations in an optimal control setting in order to produce open-loop trajectories with reduced risk of collisions. The risk of constraint violation is evaluated using a state-dependent relevance function and first-order variations in the constraint function with respect to parametric variations. The approach is generic and can be adapted to any optimal control formulation that deals with constraints under parametric uncertainty. Simulations using a holonomic robot avoiding multiple dynamic obstacles with uncertain velocities are used to demonstrate the effectiveness of the proposed approach. Finally, we introduce the car vs. train problem to emphasize the dependence of the resultant risk aversion behavior on the form of the constraint function used to derive the regularizer.</p>
+<p>我们使用新颖的正则化器解决了在参数不确定性下安全最优路径规划的问题，该正则化器允许在安全性与最优性之间进行权衡。提出的正则化器利用了这样的概念，即可以将冲突建模为最佳控制设置中的约束违规，以便产生具有降低的碰撞风险的开环轨迹。使用状态相关性函数和约束函数中相对于参数变化的一阶变化来评估约束违规的风险。该方法是通用的，可以适用于任何在参数不确定性下处理约束的最佳控制公式。使用完整的机器人进行的仿真避免了具有不确定速度的多个动态障碍，从而证明了该方法的有效性。最后，我们介绍了汽车与火车的问题，以强调所得风险规避行为对用于导出正则化函数的约束函数形式的依赖性。</p>
+<h2 id="introduction">Introduction</h2>
+<h3 id="evolving-reinforcement-learning-algorithms-1">1. Evolving reinforcement learning algorithms</h3>
+<p>Our learned loss function should generalize across many different environments, instead of being specific to a particular domain. Thus, we design a search language based on genetic programming (Koza, 1993) that can express general symbolic loss functions which can be applied to any environment. Data typing and a generic interface to variables in the MDP allow the learned program to be domain agnostic. This language also supports the use of neural network modules as subcomponents of the program, so that more complex neural network architectures can be realized. Efficiently searching over the space of useful programs is generally difficult. For the outer loop optimization, we use regularized evolution (Real et al., 2019), a recent variant of classic evolutionary algorithms that employ tournament selection (Goldberg &amp; Deb, 1991). This approach can scale with the number of compute nodes and has been shown to work for designing algorithms for supervised learning (Real et al., 2020). We adapt this method to automatically design algorithms for reinforcement learning.</p>
+<p>我们的学习损失函数应该在许多不同的环境中推广，而不是特定于特定领域。因此，我们设计了一种基于遗传程序设计的搜索语言（Koza，1993），该语言可以表达可应用于任何环境的通用符号损失函数。数据类型输入和MDP中变量的通用接口使学习的程序与域无关。该语言还支持将神经网络模块用作程序的子组件，以便可以实现更复杂的神经网络体系结构。通常很难有效地搜索有用程序的空间。对于外循环优化，我们使用正则化进化（Real et al。，2019），这是采用锦标赛选择的经典进化算法的最新变体（Goldberg＆Deb，1991）。这种方法可以随着计算节点的数量而扩展，并且已经证明可用于设计监督学习的算法（Real等，2020）。我们采用这种方法来自动设计用于强化学习的算法。</p>
+<h3 id="adaptive-optimal-control-for-a-class-of-nonlinear-systems-the-online-policy-iteration-approach-1">2.Adaptive Optimal control for a class of nonlinear systems: The online policy iteration approach</h3>
+<p>To realize the online adaptive algorithm, however, we need a synchronous linearization technique to accompany with the PI solution process. As a result, we put forward a new online LDIPI (OLDIPI) algorithm, which can address the adaptive optimal control problem for a class of nonlinear systems. First, the original nonlinear system is approximated to a linear plant model based on the neural network LDI. Then inspired by the linear PI algorithm, the proposed OLDIPI algorithm can converge to the optimal solution; furthermore, the algorithm can be implemented online in least-square sense under a persistent excitation condition. The convergence of the proposed algorithm is also proved, and the corresponding simulation results are given to illustrate the feasibility and applicability.</p>
+<p>但是，要实现在线自适应算法，我们需要一种同步线性化技术来配合PI解法过程。 因此，我们提出了一种新的在线LDIPI（OLDIPI）算法，该算法可以解决一类非线性系统的自适应最优控制问题。 首先，将原始的非线性系统近似为基于神经网络LDI的线性工厂模型。 然后在线性PI算法的启发下，提出的OLDIPI算法可以收敛到最优解。 此外，该算法可以在持续激发条件下以最小二乘方式在线实现。 证明了该算法的收敛性，并给出了相应的仿真结果，说明了该算法的可行性和适用性。</p>
+<h3 id="safe-optimal-control-under-parametric-uncertainties-1">3.Safe Optimal Control Under Parametric Uncertainties</h3>
+<p>The rest of the letter is organized as follows. Section II introduces sensitivity functions and the framework of DOC. Section III presents the main idea of the letter, involving the construction of an appropriate regularizer that provides open-loop trajectories with lower chance of constraint violation under parametric uncertainties. In Section IV, we first analyze the proposed approach by applying it on simple path planning problems with one dynamic obstacle, and then present the results obtained from experiments on environments with multiple uncertain dynamic obstacles. Section V concludes the letter.</p>
+<p>这封信的其余部分安排如下。 第二部分介绍了敏感性功能和DOC的框架。 第三节介绍了这封信的主要思想，涉及构造一个适当的正则化器，该正则化器在参数不确定性下提供开环轨迹的约束违规几率较低。 在第四部分中，我们首先分析提出的方法，将其应用于具有一个动态障碍物的简单路径规划问题，然后介绍在具有多个不确定动态障碍物的环境中进行实验所获得的结果。 第五节总结这封信。</p>
+<h2 id="related-work">Related Work</h2>
+<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning">1. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
+<p>RL methods are typically divided into model-free (Schulman et al., 2015a,b,2017; Williams, 1992) and model-based (Lillicrap et al., 2015; Watkins and Dayan, 1992) approaches. Model-based approaches all perform some degree of planning, from predicting the value of some state (Mnih et al., 2013; Silver et al., 2016), obtaining representations by unrolling a learned dynamics model (Racaniere ` et al., 2017), or learning a policy directly on a learned dynamics model (Agrawal et al., 2016; Chua et al., 2018; Finn and Levine, 2017; Kurutach et al., 2018; Nagabandi et al., 2018; Oh et al., 2015; Sutton, 1990). One line of work (Amos et al., 2018; Lee et al., 2018; Srinivas et al., 2018; Tamar et al., 2016) embeds a differentiable planner inside a policy, with the planner learned end-to-end with the rest of the policy. Other work (Lenz et al., 2015; Watter et al., 2015) explicitly learns a representation for use inside a standard planning algorithm. In contrast, SoRB learns to predict the distances between states, which can be viewed as a high-level inverse model. SoRB predicts a scalar (the distance) rather than actions or observations, making the prediction problem substantially easier. By planning over previously visited states, SoRB does not have to cope with infeasible states that can be predicted by forward models in state-space and latent-space.</p>
+<p>RL方法通常分为无模型（Schulman等人，2015a，b，2017; Williams，1992）和基于模型的方法（Lillicrap等人，2015; Watkins和Dayan，1992）。从预测某个状态的价值（Mnih等人，2013; Silver等人，2016），通过展开学习的动力学模型来获取表示形式（Racaniere`等人，2017），所有基于模型的方法都执行某种程度的计划。 ），或者直接在学习的动力学模型上学习策略（Agrawal等人，2016; Chua等人，2018; Finn和Levine，2017; Kurutach等人，2018; Nagabandi等人，2018; Oh等人） （2015年；萨顿，1990年）。一项工作（Amos等人，2018； Lee等人，2018； Srinivas等人，2018； Tamar等人，2016）将一个可区分的计划者嵌入到策略中，而计划者则是端到端学习的其余的政策。其他工作（Lenz等人，2015； Watter等人，2015）明确学习了在标准计划算法中使用的表示形式。相反，SoRB学习预测状态之间的距离，这可以看作是高级逆模型。 SoRB预测的是标量（距离）而不是动作或观察值，从而使预测问题大为简化。通过对先前访问的状态进行规划，SoRB不必应对状态空间和潜在空间中的前向模型可以预测的不可行状态。</p>
+<h2 id="method">Method</h2>
+<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-1">1. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
+<p>Planning algorithms must be able to (1) sample valid states, (2) estimate the distance between reachable pairs of states, and (3) use a local policy to navigate between nearby states. These requirements are difficult to satisfy in complex tasks with high dimensional observations, such as images. For example, consider a robot arm stacking blocks using image observations. Sampling states requires generating photo-realistic images, and estimating distances and choosing actions requires reasoning about dozens of interactions between blocks. Our method will obtain distance estimates and a local policy using a RL algorithm. To sample states, we will simply use a replay buffer of previously visited states as a non-parametric generative model.</p>
+<p>规划算法必须能够（1）对有效状态进行采样，（2）估计可到达的状态对之间的距离，以及（3）使用本地策略在附近的状态之间导航。 在具有高维观测的复杂任务（例如图像）中，很难满足这些要求。 例如，考虑使用图像观察的机械臂堆积块。 采样状态需要生成逼真的图像，估计距离和选择动作需要对块之间的数十种交互进行推理。 我们的方法将使用RL算法获得距离估算值和本地策略。 为了采样状态，我们将简单地使用先前访问过的状态的重播缓冲区作为非参数生成模型。</p>
+<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-2">2. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
+<p>After learning a goal-conditioned Q-function, we perform graph search to find a set of waypoints and use the goal-conditioned policy to reach each. We view the combination of graph search and the underlying goal-conditioned policy as a new SEARCHPOLICY, shown in Algorithm 1. The algorithm starts by using graph search to obtain the shortest path sw1; sw2;· · · from the current state s to the goal state sg, planning over the states in our replay buffer B. We then estimate the distance from the current state to the first waypoint, as well as the distance from the current state to the goal. In most cases, we then condition the policy on the first waypoint, sw1. However, if the goal state is closer than the next waypoint and the goal state is not too far away, then we directly condition the policy on the final goal. If the replay buffer is empty or there is not a path in G to the goal, then Algorithm 1 resorts to standard goal-conditioned RL.</p>
+<p>学习了目标条件的Q函数后，我们执行图搜索以找到一组航路点，并使用目标条件的策略来达到每个目标。 我们将图搜索和基础目标条件策略的组合视为一种新的SEARCHPOLICY，如算法1所示。SW2;···从当前状态S到目标状态SG，规划了我们的重播缓冲B.状态然后我们估计从当前状态到第一个航路点的距离，以及从当前状态的距离目标。 在大多数情况下，我们然后在第一个航路点sw1上设置策略。 但是，如果目标状态比下一个航路点更近且目标状态距离不太远，则我们直接将策略限制在最终目标上。 如果重播缓冲区为空或G中没有通往目标的路径，则算法1求助于标准的目标条件RL。</p>
+<h2 id="simulation">Simulation</h2>
+<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-3">1. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
+<p>We start by building intuition for our method by applying it to two simple 2D navigation tasks, shown in Figure 4a. The start and goal state are chosen randomly in free space, and reaching the goal often takes over 100 steps, even for the optimal policy. We used goal-conditioned RL to learn a policy for each environment, and then evaluated this policy on randomly sampled (start, goal) pairs of varying difficulty. To implement SoRB, we used exactly the same policy, both to perform graph search and then to reach each of the planned waypoints. In Figure 4b, we observe that the goal-conditioned policy can reach nearby goals, but fails to generalize to distant goals. In contrast, SoRB successfully reaches goals over 100 steps away, with little drop in success rate. Figure 4c compares rollouts from the goal-conditioned policy and our policy. Note that our policy takes actions that temporarily lead away from the goal so the agent can maneuver through a hallway to eventually reach the goal.</p>
+<p>首先，通过将其应用于两个简单的2D导航任务来建立我们所提方法的直觉，如图4a所示。 起始状态和目标状态是在自由空间中随机选择的，即使对于最佳策略，达到目标也通常要花费100多个步骤。 我们使用目标条件的RL来学习每种环境的策略，然后针对随机难度不同的采样（开始，目标）对该策略进行评估。 为了实施SoRB，我们使用了完全相同的策略，既执行图搜索，然后到达每个计划的航路点。 在图4b中，我们观察到以目标为条件的策略可以达到附近的目标，但不能推广到遥远的目标。 相比之下，SoRB成功地实现了100步之外的目标，成功率几乎没有下降。 图4c比较了目标条件政策和我们政策的推出情况。 请注意，我们的政策采取的措施会暂时偏离目标，因此智能体可以穿过走廊以最终达到目标。</p>
+<h3 id="safe-optimal-control-under-parametric-uncertainties-2">2.Safe Optimal Control Under Parametric Uncertainties</h3>
+<p>In this section, we apply the proposed approach on simple test examples to analyze the optimal trajectories obtained by penalizing RCS. First, we analyze the claim of penalizing RCS over constraint sensitivity using a 2D path planning problem involving a dynamic obstacle with uncertainty in its speed. Subsequently, the effect of various constraint forms that represent the collision avoidance condition, chosen from a set of valid ones, is studied. We then stress upon the need to select an appropriate constraint function to construct RCS using the car vs. train problem, and finally, the trade-off studies with multiple obstacles are presented. The videos demonstrating the optimal trajectories for the example problems discussed in this section can be found in the supplementary material.</p>
+<p>在本节中，我们将提出的方法应用于简单的测试示例，以分析通过惩罚RCS获得的最佳轨迹。 首先，我们分析了使用涉及动态障碍物且速度不确定的2D路径规划问题对RCS进行约束敏感度惩罚的说法。 随后，研究了代表一组避免碰撞条件的各种约束形式的效果，这些约束形式是从一组有效的约束形式中选择的。 然后，我们强调需要选择适当的约束函数以使用汽车与火车的问题构造RCS，最后，提出了具有多个障碍的权衡研究。 补充材料中提供了视频，这些视频演示了本节中讨论的示例问题的最佳轨迹。</p>
+<h2 id="conclusion">Conclusion</h2>
+<h3 id="evolving-reinforcement-learning-algorithms-2">1. Evolving reinforcement learning algorithms</h3>
+<p>In this work, we have presented a method for learning reinforcement learning algorithms. We design a general language for representing algorithms which compute the loss function for value-based model-free RL agents to optimize. We highlight two learned algorithms which although relatively simple, can obtain good generalization performance over a wide range of environments. Our analysis of the learned algorithms sheds insight on their benefit as regularization terms which are similar to recently proposed algorithms. Our work is limited to discrete action and value-based RL algorithms that are close to DQN, but could easily be expanded to express more general RL algorithms such as actor-critic or policy gradient methods. How actions are sampled from the policy could also be part of the search space. The set of environments we use for both training and testing could also be expanded to include a more diverse set of problem types. We leave these problems for future work.</p>
+<p>在这项工作中，我们提出了一种学习强化学习算法的方法。 我们设计了一种通用语言来表示算法，该算法可为基于价值的无模型RL代理计算损失函数以进行优化。 我们重点介绍了两种学习算法，这些算法虽然相对简单，但可以在多种环境中获得良好的泛化性能。 我们对所学算法的分析揭示了它们作为正则化术语的好处，与最近提出的算法相似。 我们的工作仅限于接近DQN的离散行动和基于价值的RL算法，但可以轻松扩展以表达更通用的RL算法，例如参与者批评法或策略梯度法。 如何从策略中采样操作也可能是搜索空间的一部分。 我们用于培训和测试的环境也可以扩展为包括更多不同类型的问题。 我们将这些问题留给以后的工作。</p>
+<h3 id="search-on-the-replay-buffer-bridging-planning-and-reinforcement-learning-4">2. Search on the Replay Buffer: Bridging Planning and Reinforcement Learning</h3>
+<p>We presented SoRB, a method that combines planning via graph search and goal-conditioned RL. By exploiting the structure of goal-reaching tasks, we can obtain policies that generalize substantially better than those learned directly from RL. In our experiments, we show that SoRB can solve temporally extended navigation problems, traverse environments with image observations, and generalize to new houses in the SUNCG dataset. Our method relies heavily on goal-conditioned RL, and we expect advances in this area to make our method applicable to even more difficult tasks. While we used a stage-wise procedure, first learning the goal-conditioned policy and then applying graph search, in future work we aim to explore how graph search can improve the goal-conditioned policy itself, perhaps via policy distillation or obtaining better Q-value estimates. In addition, while the planning algorithm we use is simple (namely, Dijkstra), we believe that the key idea of using distance estimates obtained from RL algorithms for planning will open doors to incorporating more sophisticated planning techniques into RL.</p>
+<p>我们介绍了SoRB，该方法结合了通过图搜索和目标条件RL进行规划的方法。通过利用达到目标的任务的结构，我们可以获得比直接从RL直接学习的策略更好地概括的策略。在我们的实验中，我们表明SoRB可以解决时间扩展的导航问题，通过图像观察遍历环境，并可以将其推广到SUNCG数据集中的新房屋。我们的方法在很大程度上取决于目标条件下的RL，并且我们期望在这一领域取得进展，以使我们的方法适用于甚至更困难的任务。当我们使用分阶段步骤时，首先学习目标条件策略，然后应用图搜索，在未来的工作中，我们旨在探索图搜索如何改善目标条件策略本身，也许可以通过策略提炼或获得更好的Q-价值估算。此外，尽管我们使用的规划算法很简单（即Dijkstra），但我们认为使用从RL算法获得的距离估算值进行规划的关键思想将为将更复杂的规划技术纳入RL敞开大门。</p>
+<h3 id="safe-optimal-control-under-parametric-uncertainties-3">3.Safe Optimal Control Under Parametric Uncertainties</h3>
+<p>A sensitivity function-based regularizer is introduced to obtain conservative solutions that avoid constraint violation under parametric uncertainties in optimal control problems. Using the fact that collision avoidance can be expressed as a state constraint, the approach is applied for path planning problems involving dynamic uncertain obstacles. The proposed regularizer is first analyzed on simple problems to study its characteristics and to identify its limitations. It is observed that the form of the constraint function used to construct the regularizer affects the behavior of the trajectories. The results on environments with as many as ten dynamic obstacles indicate that safety can be enhanced with an acceptable trade-off in optimality.</p>
+<p>引入基于灵敏度函数的正则化器以获得保守的解决方案，以避免最优控制问题中参数不确定性下的约束违规。 利用避免冲突可以表示为状态约束这一事实，该方法可用于涉及动态不确定障碍物的路径规划问题。 首先对提出的正则器进行简单问题分析，以研究其特征并确定其局限性。 可以看出，用于构造正则化器的约束函数的形式会影响轨迹的行为。 在具有多达十个动态障碍的环境中的结果表明，可以通过在最佳性上进行可接受的折衷来提高安全性。</p>
+]]></content>
+      <categories>
+        <category>Paper</category>
+      </categories>
+      <tags>
+        <tag>Paper</tag>
       </tags>
   </entry>
 </search>
