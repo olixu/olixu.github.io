@@ -34,20 +34,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Flask项目结构</title>
-    <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<blockquote>
-<p><strong>拥有良好的项目结构对于开发与维护有着巨大的作用</strong> <a id="more"></a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects$ tree</span><br><span class="line">.</span><br><span class="line">`-- ProjectName</span><br><span class="line">    |-- app                      # 整个程序的包目录</span><br><span class="line">    |   |-- config.py                # 配置文件</span><br><span class="line">    |   |-- email.py                 # 邮件发送</span><br><span class="line">    |   |-- extensions.py            # 各种扩展</span><br><span class="line">    |   |-- forms                    # 表单文件</span><br><span class="line">    |   |-- models                   # 数据模型</span><br><span class="line">    |   |-- static                   # 静态资源文件</span><br><span class="line">    |   |   |-- css                      # 样式表</span><br><span class="line">    |   |   |-- img                      # 图片</span><br><span class="line">    |   |   `-- js                       # JS脚本</span><br><span class="line">    |   |-- templates                # 模板文件</span><br><span class="line">    |   |   |-- common                   # 通用模板</span><br><span class="line">    |   |   |-- email                    # 邮件发送</span><br><span class="line">    |   |   |-- errors                   # 错误页面</span><br><span class="line">    |   |   |-- posts                    # 帖子模板</span><br><span class="line">    |   |   `-- user                     # 用户模板</span><br><span class="line">    |   `-- views                    # 视图文件</span><br><span class="line">    |-- manage.py                    # 项目启动控制文件</span><br><span class="line">    |-- migrations                   # 数据库迁移目录</span><br><span class="line">    |-- requirements.txt             # 依赖包的列表</span><br><span class="line">    `-- tests                        # 测试单元</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>flask</category>
-      </categories>
-      <tags>
-        <tag>flask</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>How to reading scientific papers</title>
     <url>/2019/07/09/How-to-reading-scientific-papers/</url>
     <content><![CDATA[<h1 id="step1-choose-the-paper">STEP1: Choose the paper</h1>
@@ -87,36 +73,18 @@
       </tags>
   </entry>
   <entry>
-    <title>Manjaro适合什么样的人</title>
-    <url>/2020/06/28/Manjaro%E9%80%82%E5%90%88%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BA%BA/</url>
-    <content><![CDATA[<p>2019年3月份看到了有人安利Manjaro，装电脑上用了一年，分享一下使用一年的感受。</p>
-<p>先说结论，我上个月换回了Ubuntu。</p>
-<h2 id="manjaro的优点">Manjaro的优点</h2>
-<ol type="1">
-<li>装软件非常方便，基本上各种软件在软件源中都能找到，并直接安装，而且安装的都是新版本。</li>
-<li>包括CUDA，显卡管理软件（忘记叫什么了，可以设置使用集显或独显或只用cuda）。</li>
-<li>WIKI资料很丰富，出了问题可以直接查。</li>
-</ol>
-<a id="more"></a>
-<h2 id="manjaro缺点">Manjaro缺点</h2>
-<p>上述的某些优点恰好对于某些人来说就是缺点。</p>
-<ol type="1">
-<li>软件更新非常激进，每天打开电脑的第一件事就是<code>yay -Syu</code>。</li>
-<li>如果你在更新前不看官方发布的更新公告，可能会被坑，也就是更挂。</li>
-<li>更新失败后，进不去系统，花点时间，查查官方公告，说不定能解决，但是耗费的时间对于某些人来说不可忍受。</li>
-<li>字体，画面看的不舒服，需要花些时间进行配置。</li>
-<li>还是Ubuntu真香。</li>
-</ol>
-<p>所以，对于大多数开发者来说，完全没有必要使用Manjaro，以下两个场景我亲身经历过：</p>
-<ol type="a">
-<li><p>前一时刻还在码代码，然后你重启了一下电脑，发现不能启动了，黑屏了，花时间查官方发布的更新公告，哦，原来是更新更挂了，这时，你是不是很崩溃？时间就是金钱啊，干嘛和自己过不去。</p></li>
-<li><p>放了一个长假了，好好的出去玩耍了一波，放假结束后，打开电脑，执行<code>yay -Syu</code>，然后写了一会儿代码，进入termianl运行python，咦，又挂了？哦，原来是python升级到了3.8版本，查资料，看怎么回退版本，哦，原来安装3.7版本那么麻烦。</p></li>
-</ol>
-<p>再见了，您。</p>
-<h2 id="manjaro适合">Manjaro适合？</h2>
-<p>回到标题，Manjaro不适合搞算学术研究和项目开发的人，尤其是学生：研究生。本科生无聊的话可以玩玩Manjaro。</p>
-<p>操作系统还是有公司支持的比较好，像Ubuntu，真的可以，用了快6年了。</p>
+    <title>Flask项目结构</title>
+    <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>拥有良好的项目结构对于开发与维护有着巨大的作用</strong> <a id="more"></a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects$ tree</span><br><span class="line">.</span><br><span class="line">`-- ProjectName</span><br><span class="line">    |-- app                      # 整个程序的包目录</span><br><span class="line">    |   |-- config.py                # 配置文件</span><br><span class="line">    |   |-- email.py                 # 邮件发送</span><br><span class="line">    |   |-- extensions.py            # 各种扩展</span><br><span class="line">    |   |-- forms                    # 表单文件</span><br><span class="line">    |   |-- models                   # 数据模型</span><br><span class="line">    |   |-- static                   # 静态资源文件</span><br><span class="line">    |   |   |-- css                      # 样式表</span><br><span class="line">    |   |   |-- img                      # 图片</span><br><span class="line">    |   |   `-- js                       # JS脚本</span><br><span class="line">    |   |-- templates                # 模板文件</span><br><span class="line">    |   |   |-- common                   # 通用模板</span><br><span class="line">    |   |   |-- email                    # 邮件发送</span><br><span class="line">    |   |   |-- errors                   # 错误页面</span><br><span class="line">    |   |   |-- posts                    # 帖子模板</span><br><span class="line">    |   |   `-- user                     # 用户模板</span><br><span class="line">    |   `-- views                    # 视图文件</span><br><span class="line">    |-- manage.py                    # 项目启动控制文件</span><br><span class="line">    |-- migrations                   # 数据库迁移目录</span><br><span class="line">    |-- requirements.txt             # 依赖包的列表</span><br><span class="line">    `-- tests                        # 测试单元</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 ]]></content>
+      <categories>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
+      </tags>
   </entry>
   <entry>
     <title>Linux系统TIPS</title>
@@ -149,6 +117,38 @@
       <tags>
         <tag>机器学习</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Manjaro适合什么样的人</title>
+    <url>/2020/06/28/Manjaro%E9%80%82%E5%90%88%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BA%BA/</url>
+    <content><![CDATA[<p>2019年3月份看到了有人安利Manjaro，装电脑上用了一年，分享一下使用一年的感受。</p>
+<p>先说结论，我上个月换回了Ubuntu。</p>
+<h2 id="manjaro的优点">Manjaro的优点</h2>
+<ol type="1">
+<li>装软件非常方便，基本上各种软件在软件源中都能找到，并直接安装，而且安装的都是新版本。</li>
+<li>包括CUDA，显卡管理软件（忘记叫什么了，可以设置使用集显或独显或只用cuda）。</li>
+<li>WIKI资料很丰富，出了问题可以直接查。</li>
+</ol>
+<a id="more"></a>
+<h2 id="manjaro缺点">Manjaro缺点</h2>
+<p>上述的某些优点恰好对于某些人来说就是缺点。</p>
+<ol type="1">
+<li>软件更新非常激进，每天打开电脑的第一件事就是<code>yay -Syu</code>。</li>
+<li>如果你在更新前不看官方发布的更新公告，可能会被坑，也就是更挂。</li>
+<li>更新失败后，进不去系统，花点时间，查查官方公告，说不定能解决，但是耗费的时间对于某些人来说不可忍受。</li>
+<li>字体，画面看的不舒服，需要花些时间进行配置。</li>
+<li>还是Ubuntu真香。</li>
+</ol>
+<p>所以，对于大多数开发者来说，完全没有必要使用Manjaro，以下两个场景我亲身经历过：</p>
+<ol type="a">
+<li><p>前一时刻还在码代码，然后你重启了一下电脑，发现不能启动了，黑屏了，花时间查官方发布的更新公告，哦，原来是更新更挂了，这时，你是不是很崩溃？时间就是金钱啊，干嘛和自己过不去。</p></li>
+<li><p>放了一个长假了，好好的出去玩耍了一波，放假结束后，打开电脑，执行<code>yay -Syu</code>，然后写了一会儿代码，进入termianl运行python，咦，又挂了？哦，原来是python升级到了3.8版本，查资料，看怎么回退版本，哦，原来安装3.7版本那么麻烦。</p></li>
+</ol>
+<p>再见了，您。</p>
+<h2 id="manjaro适合">Manjaro适合？</h2>
+<p>回到标题，Manjaro不适合搞算学术研究和项目开发的人，尤其是学生：研究生。本科生无聊的话可以玩玩Manjaro。</p>
+<p>操作系统还是有公司支持的比较好，像Ubuntu，真的可以，用了快6年了。</p>
+]]></content>
   </entry>
   <entry>
     <title>Markdown语法</title>
@@ -651,31 +651,6 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </tags>
   </entry>
   <entry>
-    <title>Word与Latex</title>
-    <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
-    <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
-<h2 id="mathpix将论文中的公式识别成latex或者mathml格式">Mathpix：将论文中的公式识别成latex或者mathml格式</h2>
-<p>有一款软件：Mathpix，能够将公式识别成latex或者mathml格式。</p>
-<p>使用该软件需要使用邮箱注册账户，免费版一个月只能识别50次，也有一个开发版，一个月能识别1000次，但是需要信用卡验证，对于国内用户来说，比较麻烦。</p>
-<p>这里给出一个解决办法：使用临时邮箱，待免费套餐使用完后，重新注册账户，测试了几个免费邮箱服务，大多被mathpix识别了，<span class="exturl" data-url="aHR0cHM6Ly90ZW1wLW1haWwub3JnL2VuLw==">https://temp-mail.org/en/<i class="fa fa-external-link-alt"></i></span> 这个我测试了一下，没有被mathpix识别，可以用于注册。 <a id="more"></a></p>
-<h2 id="word中的latex公式">Word中的latex公式</h2>
-<h3 id="简单的单行公式">简单的单行公式</h3>
-<p>简单的单行公式可以直接用latex格式。</p>
-<h3 id="复杂的多行公式">复杂的多行公式</h3>
-<p>复杂的多行公式，可以复制Mathpix中的Mathml格式，粘贴到word中。</p>
-<h3 id="插入公式编号">插入公式编号</h3>
-<p>Word中提供了一种比较方便的插入公式编号的方法：在公式末尾键入<code>#(x)</code>，然后按下<code>Enter</code>即可。</p>
-<h2 id="创作流程">创作流程</h2>
-<p>我个人比较喜欢读完文献，用Markdown（Typora）整理一下阅读笔记，这样既可以发布到博客上，又很方便的能够迁移到Word中（我一般交作业交报告都是用Word）。</p>
-]]></content>
-      <categories>
-        <category>Latex</category>
-      </categories>
-      <tags>
-        <tag>Latex</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tensorboard中的图放到论文中</title>
     <url>/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/</url>
     <content><![CDATA[<p>最近写了一篇强化学习用于供水管网的论文，算法的训练过程中用到了Tensorboard(stable-baselines提供了tansorboard的接口)来可视化训练数据，但是，tensorboard的图直接放入到论文中会显得很难看，包括xlabel和ylabel需要重新定义，图片的风格需要修改等等操作直接在tensorboard中很难操作，需要将这些数据导出来，然后使用matplotlib和seaboarn来进行plot，这篇博客记录一下如何将tensorboard中的数据进行导出并画图。</p>
@@ -732,6 +707,31 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Word与Latex</title>
+    <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
+    <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
+<h2 id="mathpix将论文中的公式识别成latex或者mathml格式">Mathpix：将论文中的公式识别成latex或者mathml格式</h2>
+<p>有一款软件：Mathpix，能够将公式识别成latex或者mathml格式。</p>
+<p>使用该软件需要使用邮箱注册账户，免费版一个月只能识别50次，也有一个开发版，一个月能识别1000次，但是需要信用卡验证，对于国内用户来说，比较麻烦。</p>
+<p>这里给出一个解决办法：使用临时邮箱，待免费套餐使用完后，重新注册账户，测试了几个免费邮箱服务，大多被mathpix识别了，<span class="exturl" data-url="aHR0cHM6Ly90ZW1wLW1haWwub3JnL2VuLw==">https://temp-mail.org/en/<i class="fa fa-external-link-alt"></i></span> 这个我测试了一下，没有被mathpix识别，可以用于注册。 <a id="more"></a></p>
+<h2 id="word中的latex公式">Word中的latex公式</h2>
+<h3 id="简单的单行公式">简单的单行公式</h3>
+<p>简单的单行公式可以直接用latex格式。</p>
+<h3 id="复杂的多行公式">复杂的多行公式</h3>
+<p>复杂的多行公式，可以复制Mathpix中的Mathml格式，粘贴到word中。</p>
+<h3 id="插入公式编号">插入公式编号</h3>
+<p>Word中提供了一种比较方便的插入公式编号的方法：在公式末尾键入<code>#(x)</code>，然后按下<code>Enter</code>即可。</p>
+<h2 id="创作流程">创作流程</h2>
+<p>我个人比较喜欢读完文献，用Markdown（Typora）整理一下阅读笔记，这样既可以发布到博客上，又很方便的能够迁移到Word中（我一般交作业交报告都是用Word）。</p>
+]]></content>
+      <categories>
+        <category>Latex</category>
+      </categories>
+      <tags>
+        <tag>Latex</tag>
       </tags>
   </entry>
   <entry>
@@ -890,34 +890,26 @@ x
       </tags>
   </entry>
   <entry>
-    <title>中国学术圈的未来在哪里？</title>
-    <url>/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/</url>
-    <content><![CDATA[<p>最近遇到了很多烦心事，主要是学术生活上的问题，教授没有学术上的指导，且总是push我们做项目，自动化系的教授都只知道赚钱啊，不，都只知道“骗钱”。今天感觉状态还不错，稍有感想，想在这篇文章中简短地谈论一下，权当我乱说的吧，哈哈哈哈。</p>
+    <title>vs code remote ssh 使用x11转发显示远程图像</title>
+    <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
+    <content><![CDATA[<h2 id="需求">需求</h2>
+<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
+<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
 <a id="more"></a>
-<p>中国科研圈的问题我个人认为主要来源于以下几点：</p>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+<h2 id="问题">问题</h2>
 <ul>
-<li>当前50岁以上的老教授，都是出身在1970年以前，他们从小没有接受过完整、科学的教育，所以，一方面，他们中很多人的学术水平其实很垃圾的，工程技术水平也有限啊，而且从小没有接受过爱国主义教育，现在很多的美国的舔狗，也基本都是这个年龄段吧，他们中的某些人入党了，这些人都是对国家有风险的，因为他们只不过是为了入党而入党，而不是真正的爱国家爱党。</li>
-<li>贫富差距过大导致了很多教授老师都拼命想着赚钱，例如江浙沪，其实很多人的收入都很高，每年也都能赚很多钱，但是教授的工资却没有跟上时代的步伐，这就导致老师们只想着去赚钱，骗钱。</li>
-<li>教授老师的权力太大了，国家也没有出台相应的解决办法，所谓的发布的几个文件，都只是象征性的，没有实际意义。</li>
+<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
+<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
+<li>上面第二点问题，经过测试，发现，需要在远程虚拟机中设置export DISPLAY=192.168.1.100:0.0，才可以，其中，192.168.1.100是本地开发机器。</li>
 </ul>
-<p>解决办法：</p>
-<ul>
-<li>学术圈需要降低平均年龄，让那些不给力的老教师抓紧退休，让有能力有抱负的年轻老师赶紧上位。</li>
-<li>国内大学的思政老师要请专业的老师，不能是学生辅导员，要选择真正有理想，有抱负的共产党员来做思政老师，同时赋予他们保护学生的权力。</li>
-<li>需要大量的学生集体出来反抗，这是最无奈，也是最有效的一种解决办法，再来一次文化大革命，什么都解决了。</li>
-</ul>
-<p>写这篇文章的时候主要是感叹现在老师的权力真的太大了，完全不应该这么大啊，而且我现在的科研生活也和我理想中的科研生活完全不一样。我理想中的科研生活应该是自由，纯粹的科研生活，像deepmind，openai，UCB那种真正干科研的生活。而现在的科研生活，一个个教授们美其名曰要结合工程项目，但实际上只是为了赚钱一级一级骗钱，骗国企，骗国家，最终受伤害的还是纳税人。</p>
-<p>但是再往上说，那就要说到共产党了，共产党是先进生产力的代表，怎么不能解决这么明显的问题？</p>
-<p><strong>虽然对中国的科研圈子很失望，但是若不是为了心中那一份崇高的科研理想，我又怎会继续坚持？</strong></p>
-<p>最后，用鲁迅先生的经典《热风》结尾：</p>
-<p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声，有一分热，发一分光，就令萤火虫一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。 倘若有了炬火，出了太阳，我们自然心悦诚服地消失，不但毫无不平，而且还要随喜赞美这炬火或太阳，因为他照亮了人类，连我都在内。</p>
-<p><strong>与君共勉。</strong></p>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>博客</category>
       </categories>
       <tags>
-        <tag>生活</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -954,29 +946,6 @@ x
       </categories>
       <tags>
         <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vs code remote ssh 使用x11转发显示远程图像</title>
-    <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
-    <content><![CDATA[<h2 id="需求">需求</h2>
-<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
-<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
-<a id="more"></a>
-<h2 id="参考链接">参考链接</h2>
-<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-<h2 id="问题">问题</h2>
-<ul>
-<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
-<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
-<li>上面第二点问题，经过测试，发现，需要在远程虚拟机中设置export DISPLAY=192.168.1.100:0.0，才可以，其中，192.168.1.100是本地开发机器。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -1040,6 +1009,25 @@ x
       </tags>
   </entry>
   <entry>
+    <title>光纤测温WEB系统</title>
+    <url>/2019/02/01/%E5%85%89%E7%BA%A4%E6%B5%8B%E6%B8%A9WEB%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h2 id="本项目解决的问题">本项目解决的问题：</h2>
+<p>工业上光纤测温仪配有自带的桌面上位机，此上位机是用C++语言编写，在测温的过程中，温度数据会每隔一秒记录一次，写入TXT文件。本项目将此TXT文件中的数据通过Python发送到服务器，并且在服务器上建立WEB接口，使用户可以通过WEB访问。 <a id="more"></a> 访问效果如图所示：</p>
+<figure>
+<img src="web.png" alt="WEB" /><figcaption>WEB</figcaption>
+</figure>
+<h2 id="项目结构">项目结构：</h2>
+<p><strong>client:</strong> 此文件夹中是测温仪的数据文件夹，将打包好的client.exe文件放入DTS系统的数据文件夹，当此文件夹中产生新的数据文件时候，程序将会自动把数据发送到服务器。</p>
+<p><strong>server:</strong> 此文件夹是WEB端的文件，采用Flask进行设计，使用websocket技术。</p>
+]]></content>
+      <categories>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>健身房计划制定与动作</title>
     <url>/2020/08/24/%E5%81%A5%E8%BA%AB%E6%88%BF%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
     <content><![CDATA[<p>这篇文章整理我用到的训练计划和训练动作与健身记录。</p>
@@ -1065,25 +1053,6 @@ x
       </categories>
       <tags>
         <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>光纤测温WEB系统</title>
-    <url>/2019/02/01/%E5%85%89%E7%BA%A4%E6%B5%8B%E6%B8%A9WEB%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h2 id="本项目解决的问题">本项目解决的问题：</h2>
-<p>工业上光纤测温仪配有自带的桌面上位机，此上位机是用C++语言编写，在测温的过程中，温度数据会每隔一秒记录一次，写入TXT文件。本项目将此TXT文件中的数据通过Python发送到服务器，并且在服务器上建立WEB接口，使用户可以通过WEB访问。 <a id="more"></a> 访问效果如图所示：</p>
-<figure>
-<img src="web.png" alt="WEB" /><figcaption>WEB</figcaption>
-</figure>
-<h2 id="项目结构">项目结构：</h2>
-<p><strong>client:</strong> 此文件夹中是测温仪的数据文件夹，将打包好的client.exe文件放入DTS系统的数据文件夹，当此文件夹中产生新的数据文件时候，程序将会自动把数据发送到服务器。</p>
-<p><strong>server:</strong> 此文件夹是WEB端的文件，采用Flask进行设计，使用websocket技术。</p>
-]]></content>
-      <categories>
-        <category>flask</category>
-      </categories>
-      <tags>
-        <tag>flask</tag>
       </tags>
   </entry>
   <entry>
@@ -1306,6 +1275,33 @@ x
       </tags>
   </entry>
   <entry>
+    <title>初学数据库-sqlite3 简介</title>
+    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
+</blockquote>
+<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
+<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
+<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
+<h2 id="于是数据库出现了">于是，数据库出现了</h2>
+<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
+<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
+<h2 id="数据库种类">数据库种类</h2>
+<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
+<h3 id="非关系型数据库">2.非关系型数据库</h3>
+<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
+<h2 id="sqlite3">sqlite3</h2>
+<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>利用虚拟主机搭建一个验证爬虫代理IP是否有效的服务</title>
     <url>/2018/10/14/%E5%88%A9%E7%94%A8%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%AA%8C%E8%AF%81%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88%E7%9A%84%E6%9C%8D%E5%8A%A1/</url>
     <content><![CDATA[<blockquote>
@@ -1340,33 +1336,6 @@ x
       </categories>
       <tags>
         <tag>爬虫 代理IP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初学数据库-sqlite3 简介</title>
-    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
-</blockquote>
-<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
-<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
-<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
-<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
-<h2 id="于是数据库出现了">于是，数据库出现了</h2>
-<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
-<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
-<h2 id="数据库种类">数据库种类</h2>
-<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
-<h3 id="非关系型数据库">2.非关系型数据库</h3>
-<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
-<h2 id="sqlite3">sqlite3</h2>
-<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>
@@ -1525,10 +1494,10 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>常用排序算法之冒泡排序</title>
-    <url>/2018/08/19/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>题目：编写一个C程序，应用冒泡排序法对序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的序列元素</p>
-<p>算法分析：直接运用冒泡排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubblesort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span> &amp;&amp; flag==<span class="number">1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n-i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j+<span class="number">1</span>]&lt;a[j])</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j+<span class="number">1</span>];</span><br><span class="line">                a[j+<span class="number">1</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="number">0</span>];</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    bubblesort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of bubble sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <title>常用排序算法之直接插入排序</title>
+    <url>/2018/08/12/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>题目：编写一个C程序，应用直接插入排序算法将序列｛2，5，6，，3，7，8，0，9，12，1｝进行排序，要求从小到大排列，并输出排序后的数列元素。</p>
+<p>算法分析：直接运用直接插入排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertionsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>] = a[i];</span><br><span class="line">        j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; a[<span class="number">0</span>]&lt;a[j])</span><br><span class="line">        &#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j--];</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The original data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    insertsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of insertion sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
@@ -1538,10 +1507,10 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>常用排序算法之直接插入排序</title>
-    <url>/2018/08/12/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>题目：编写一个C程序，应用直接插入排序算法将序列｛2，5，6，，3，7，8，0，9，12，1｝进行排序，要求从小到大排列，并输出排序后的数列元素。</p>
-<p>算法分析：直接运用直接插入排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertionsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>] = a[i];</span><br><span class="line">        j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; a[<span class="number">0</span>]&lt;a[j])</span><br><span class="line">        &#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j--];</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The original data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    insertsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of insertion sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <title>常用排序算法之冒泡排序</title>
+    <url>/2018/08/19/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>题目：编写一个C程序，应用冒泡排序法对序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的序列元素</p>
+<p>算法分析：直接运用冒泡排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubblesort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span> &amp;&amp; flag==<span class="number">1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n-i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j+<span class="number">1</span>]&lt;a[j])</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j+<span class="number">1</span>];</span><br><span class="line">                a[j+<span class="number">1</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="number">0</span>];</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    bubblesort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of bubble sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
@@ -1753,6 +1722,37 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>中国学术圈的未来在哪里？</title>
+    <url>/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/</url>
+    <content><![CDATA[<p>最近遇到了很多烦心事，主要是学术生活上的问题，教授没有学术上的指导，且总是push我们做项目，自动化系的教授都只知道赚钱啊，不，都只知道“骗钱”。今天感觉状态还不错，稍有感想，想在这篇文章中简短地谈论一下，权当我乱说的吧，哈哈哈哈。</p>
+<a id="more"></a>
+<p>中国科研圈的问题我个人认为主要来源于以下几点：</p>
+<ul>
+<li>当前50岁以上的老教授，都是出身在1970年以前，他们从小没有接受过完整、科学的教育，所以，一方面，他们中很多人的学术水平其实很垃圾的，工程技术水平也有限啊，而且从小没有接受过爱国主义教育，现在很多的美国的舔狗，也基本都是这个年龄段吧，他们中的某些人入党了，这些人都是对国家有风险的，因为他们只不过是为了入党而入党，而不是真正的爱国家爱党。</li>
+<li>贫富差距过大导致了很多教授老师都拼命想着赚钱，例如江浙沪，其实很多人的收入都很高，每年也都能赚很多钱，但是教授的工资却没有跟上时代的步伐，这就导致老师们只想着去赚钱，骗钱。</li>
+<li>教授老师的权力太大了，国家也没有出台相应的解决办法，所谓的发布的几个文件，都只是象征性的，没有实际意义。</li>
+</ul>
+<p>解决办法：</p>
+<ul>
+<li>学术圈需要降低平均年龄，让那些不给力的老教师抓紧退休，让有能力有抱负的年轻老师赶紧上位。</li>
+<li>国内大学的思政老师要请专业的老师，不能是学生辅导员，要选择真正有理想，有抱负的共产党员来做思政老师，同时赋予他们保护学生的权力。</li>
+<li>需要大量的学生集体出来反抗，这是最无奈，也是最有效的一种解决办法，再来一次文化大革命，什么都解决了。</li>
+</ul>
+<p>写这篇文章的时候主要是感叹现在老师的权力真的太大了，完全不应该这么大啊，而且我现在的科研生活也和我理想中的科研生活完全不一样。我理想中的科研生活应该是自由，纯粹的科研生活，像deepmind，openai，UCB那种真正干科研的生活。而现在的科研生活，一个个教授们美其名曰要结合工程项目，但实际上只是为了赚钱一级一级骗钱，骗国企，骗国家，最终受伤害的还是纳税人。</p>
+<p>但是再往上说，那就要说到共产党了，共产党是先进生产力的代表，怎么不能解决这么明显的问题？</p>
+<p><strong>虽然对中国的科研圈子很失望，但是若不是为了心中那一份崇高的科研理想，我又怎会继续坚持？</strong></p>
+<p>最后，用鲁迅先生的经典《热风》结尾：</p>
+<p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声，有一分热，发一分光，就令萤火虫一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。 倘若有了炬火，出了太阳，我们自然心悦诚服地消失，不但毫无不平，而且还要随喜赞美这炬火或太阳，因为他照亮了人类，连我都在内。</p>
+<p><strong>与君共勉。</strong></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>粒子群算法(PSO)的数学原理</title>
     <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95-PSO-%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h2 id="粒子群算法的起源">粒子群算法的起源</h2>
@@ -1804,6 +1804,25 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>维护爬虫代理IP池--采集并验证</title>
+    <url>/2018/10/21/%E7%BB%B4%E6%8A%A4%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%B1%A0-%E9%87%87%E9%9B%86%E5%B9%B6%E9%AA%8C%E8%AF%81/</url>
+    <content><![CDATA[<blockquote>
+<p>本文是<strong>维护爬虫代理IP池</strong>系列文章的第一篇文章，系列教程将会一步步教你搭建你自己的代理IP池。本文介绍了如何采集互联网上的免费的代理IP，并验证IP是否有效。</p>
+</blockquote>
+<h3 id="任务分析">任务分析</h3>
+<p>我们爬的免费代理来自于<code>https://www.kuaidaili.com</code>这个网站。</p>
+<p>用<code>requests</code>将ip地址与端口采集过来，将<code>IP</code>与<code>PORT</code>组合成<code>requests</code>需要的代理格式，用<code>requests</code>访问<code>ipcheck.chinahosting.tk</code>，并判断返回的字符串是否是代理IP，若是，则代理IP有效，若不是，则代理IP无效。</p>
+<p>数据采集现在已经成为了基本操作了，所以大家直接看代码就可以了，注释应该写的很清楚了。如果是个新手，那么可以看这篇文章：<span class="exturl" data-url="aHR0cHM6Ly94dWpoLnRvcC9pbmRleC5waHAvMjAxOC8xMC8xNy81NS5odG1s">采集wordpress并自动发布文章<i class="fa fa-external-link-alt"></i></span>，这篇文章看懂了，基本上全世界大部分的网站你就都能爬了。</p>
+<p>这个站点<span class="exturl" data-url="aHR0cDovL2lwY2hlY2suY2hpbmFob3N0aW5nLnRrLw==">http://ipcheck.chinahosting.tk/<i class="fa fa-external-link-alt"></i></span>是我个人搭建的用来验证IP的，详情见文章：<span class="exturl" data-url="aHR0cHM6Ly94dWpoLnRvcC9pbmRleC5waHAvMjAxOC8xMC8xOS82MC5odG1s">利用虚拟主机搭建一个验证爬虫代理IP是否有效的服务<i class="fa fa-external-link-alt"></i></span>，大家如果自己用的话最好搭建一个，基本上10多分钟就能搭建完，并且只要点点鼠标。 <a id="more"></a> ### 代码实现 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#首先，导入必要的包</span></span><br><span class="line"><span class="keyword">import</span> gevent.monkey</span><br><span class="line">gevent.monkey.patch_socket()</span><br><span class="line"><span class="keyword">import</span> gevent</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> fake_useragent <span class="keyword">import</span> UserAgent </span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(<span class="string">'utf8'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义GetProxy类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GetProxy</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="comment">#初始化一些参数</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">		self.ua = UserAgent()</span><br><span class="line">		self.check_url = <span class="string">'http://ipcheck.chinahosting.tk/'</span></span><br><span class="line">		self.threads = []</span><br><span class="line">		self.count = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">#定义download_page函数，用来请求一个url并且返回返回值</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">download_page</span><span class="params">(self, url)</span>:</span></span><br><span class="line">		headers = &#123;<span class="string">"User-Agent"</span>:self.ua.random&#125;</span><br><span class="line">		response = requests.get(url)</span><br><span class="line">		<span class="keyword">print</span> response.status_code</span><br><span class="line">		<span class="keyword">return</span> response.content</span><br><span class="line">     </span><br><span class="line">        <span class="comment">#对页面进行数据清理</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">crawl_kuaidaili</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="keyword">for</span> page <span class="keyword">in</span> xrange(<span class="number">1</span>,<span class="number">50</span>):</span><br><span class="line">			url = <span class="string">'https://www.kuaidaili.com/free/inha/'</span> + str(page)</span><br><span class="line">			response = self.download_page(url)</span><br><span class="line">			soup = BeautifulSoup(response, <span class="string">"html.parser"</span>)</span><br><span class="line">			all_tr = soup.find_all(<span class="string">'tr'</span>)</span><br><span class="line">			<span class="keyword">for</span> tr <span class="keyword">in</span> all_tr:</span><br><span class="line">				ip = tr.find(<span class="string">'td'</span>,attrs=&#123;<span class="string">"data-title"</span>:<span class="string">"IP"</span>&#125;)</span><br><span class="line">				port = tr.find(<span class="string">'td'</span>,attrs=&#123;<span class="string">"data-title"</span>:<span class="string">"PORT"</span>&#125;)</span><br><span class="line">				<span class="keyword">if</span> ip==<span class="literal">None</span> <span class="keyword">or</span> port==<span class="literal">None</span>:</span><br><span class="line">					<span class="keyword">pass</span></span><br><span class="line">				<span class="keyword">else</span>:</span><br><span class="line">					<span class="comment">#print "http://"+ip.get_text()+":"+port.get_text()</span></span><br><span class="line">					self.threads.append(gevent.spawn(self.valid_check, [ip.get_text(), port.get_text()]))</span><br><span class="line">					<span class="comment">#print "add a task"</span></span><br><span class="line">			time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#验证爬虫的有效性</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">valid_check</span><span class="params">(self, *arg)</span>:</span></span><br><span class="line">		ip = arg[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">		port = arg[<span class="number">0</span>][<span class="number">5</span>]</span><br><span class="line">		proxyip = <span class="string">"http://"</span>+ip+<span class="string">":"</span>+port</span><br><span class="line">		proxy=&#123;<span class="string">"http"</span>:proxyip&#125;</span><br><span class="line">		<span class="keyword">try</span>:</span><br><span class="line">			response = requests.get(self.check_url, proxies=proxy, timeout=<span class="number">5</span>)</span><br><span class="line">			<span class="comment">#print response.content</span></span><br><span class="line">			<span class="keyword">if</span> str(response.content) == ip:</span><br><span class="line">				<span class="keyword">print</span> ip</span><br><span class="line">				self.count = self.count + <span class="number">1</span></span><br><span class="line">			<span class="keyword">else</span>:</span><br><span class="line">				<span class="keyword">pass</span></span><br><span class="line">		<span class="keyword">except</span>:</span><br><span class="line">			<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#启动爬虫</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">start</span><span class="params">(self)</span>:</span></span><br><span class="line">		self.crawl_kuaidaili()</span><br><span class="line">		gevent.joinall(self.threads)</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>爬虫 代理IP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>粒子群算法的Python简单实现</title>
     <url>/2019/02/14/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E7%9A%84Python%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h2 id="需要优化的目标函数">需要优化的目标函数</h2>
@@ -1846,25 +1865,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>维护爬虫代理IP池--采集并验证</title>
-    <url>/2018/10/21/%E7%BB%B4%E6%8A%A4%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%B1%A0-%E9%87%87%E9%9B%86%E5%B9%B6%E9%AA%8C%E8%AF%81/</url>
-    <content><![CDATA[<blockquote>
-<p>本文是<strong>维护爬虫代理IP池</strong>系列文章的第一篇文章，系列教程将会一步步教你搭建你自己的代理IP池。本文介绍了如何采集互联网上的免费的代理IP，并验证IP是否有效。</p>
-</blockquote>
-<h3 id="任务分析">任务分析</h3>
-<p>我们爬的免费代理来自于<code>https://www.kuaidaili.com</code>这个网站。</p>
-<p>用<code>requests</code>将ip地址与端口采集过来，将<code>IP</code>与<code>PORT</code>组合成<code>requests</code>需要的代理格式，用<code>requests</code>访问<code>ipcheck.chinahosting.tk</code>，并判断返回的字符串是否是代理IP，若是，则代理IP有效，若不是，则代理IP无效。</p>
-<p>数据采集现在已经成为了基本操作了，所以大家直接看代码就可以了，注释应该写的很清楚了。如果是个新手，那么可以看这篇文章：<span class="exturl" data-url="aHR0cHM6Ly94dWpoLnRvcC9pbmRleC5waHAvMjAxOC8xMC8xNy81NS5odG1s">采集wordpress并自动发布文章<i class="fa fa-external-link-alt"></i></span>，这篇文章看懂了，基本上全世界大部分的网站你就都能爬了。</p>
-<p>这个站点<span class="exturl" data-url="aHR0cDovL2lwY2hlY2suY2hpbmFob3N0aW5nLnRrLw==">http://ipcheck.chinahosting.tk/<i class="fa fa-external-link-alt"></i></span>是我个人搭建的用来验证IP的，详情见文章：<span class="exturl" data-url="aHR0cHM6Ly94dWpoLnRvcC9pbmRleC5waHAvMjAxOC8xMC8xOS82MC5odG1s">利用虚拟主机搭建一个验证爬虫代理IP是否有效的服务<i class="fa fa-external-link-alt"></i></span>，大家如果自己用的话最好搭建一个，基本上10多分钟就能搭建完，并且只要点点鼠标。 <a id="more"></a> ### 代码实现 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#首先，导入必要的包</span></span><br><span class="line"><span class="keyword">import</span> gevent.monkey</span><br><span class="line">gevent.monkey.patch_socket()</span><br><span class="line"><span class="keyword">import</span> gevent</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> fake_useragent <span class="keyword">import</span> UserAgent </span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(<span class="string">'utf8'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义GetProxy类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GetProxy</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="comment">#初始化一些参数</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">		self.ua = UserAgent()</span><br><span class="line">		self.check_url = <span class="string">'http://ipcheck.chinahosting.tk/'</span></span><br><span class="line">		self.threads = []</span><br><span class="line">		self.count = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">#定义download_page函数，用来请求一个url并且返回返回值</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">download_page</span><span class="params">(self, url)</span>:</span></span><br><span class="line">		headers = &#123;<span class="string">"User-Agent"</span>:self.ua.random&#125;</span><br><span class="line">		response = requests.get(url)</span><br><span class="line">		<span class="keyword">print</span> response.status_code</span><br><span class="line">		<span class="keyword">return</span> response.content</span><br><span class="line">     </span><br><span class="line">        <span class="comment">#对页面进行数据清理</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">crawl_kuaidaili</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="keyword">for</span> page <span class="keyword">in</span> xrange(<span class="number">1</span>,<span class="number">50</span>):</span><br><span class="line">			url = <span class="string">'https://www.kuaidaili.com/free/inha/'</span> + str(page)</span><br><span class="line">			response = self.download_page(url)</span><br><span class="line">			soup = BeautifulSoup(response, <span class="string">"html.parser"</span>)</span><br><span class="line">			all_tr = soup.find_all(<span class="string">'tr'</span>)</span><br><span class="line">			<span class="keyword">for</span> tr <span class="keyword">in</span> all_tr:</span><br><span class="line">				ip = tr.find(<span class="string">'td'</span>,attrs=&#123;<span class="string">"data-title"</span>:<span class="string">"IP"</span>&#125;)</span><br><span class="line">				port = tr.find(<span class="string">'td'</span>,attrs=&#123;<span class="string">"data-title"</span>:<span class="string">"PORT"</span>&#125;)</span><br><span class="line">				<span class="keyword">if</span> ip==<span class="literal">None</span> <span class="keyword">or</span> port==<span class="literal">None</span>:</span><br><span class="line">					<span class="keyword">pass</span></span><br><span class="line">				<span class="keyword">else</span>:</span><br><span class="line">					<span class="comment">#print "http://"+ip.get_text()+":"+port.get_text()</span></span><br><span class="line">					self.threads.append(gevent.spawn(self.valid_check, [ip.get_text(), port.get_text()]))</span><br><span class="line">					<span class="comment">#print "add a task"</span></span><br><span class="line">			time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#验证爬虫的有效性</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">valid_check</span><span class="params">(self, *arg)</span>:</span></span><br><span class="line">		ip = arg[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">		port = arg[<span class="number">0</span>][<span class="number">5</span>]</span><br><span class="line">		proxyip = <span class="string">"http://"</span>+ip+<span class="string">":"</span>+port</span><br><span class="line">		proxy=&#123;<span class="string">"http"</span>:proxyip&#125;</span><br><span class="line">		<span class="keyword">try</span>:</span><br><span class="line">			response = requests.get(self.check_url, proxies=proxy, timeout=<span class="number">5</span>)</span><br><span class="line">			<span class="comment">#print response.content</span></span><br><span class="line">			<span class="keyword">if</span> str(response.content) == ip:</span><br><span class="line">				<span class="keyword">print</span> ip</span><br><span class="line">				self.count = self.count + <span class="number">1</span></span><br><span class="line">			<span class="keyword">else</span>:</span><br><span class="line">				<span class="keyword">pass</span></span><br><span class="line">		<span class="keyword">except</span>:</span><br><span class="line">			<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#启动爬虫</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">start</span><span class="params">(self)</span>:</span></span><br><span class="line">		self.crawl_kuaidaili()</span><br><span class="line">		gevent.joinall(self.threads)</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>爬虫</category>
-      </categories>
-      <tags>
-        <tag>爬虫 代理IP</tag>
       </tags>
   </entry>
   <entry>
@@ -3437,105 +3437,6 @@ Alabama
       </tags>
   </entry>
   <entry>
-    <title>强化学习之动态规划</title>
-    <url>/2020/08/19/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<p>复习了一下Sutton书中的第四章，动态规划，整理一下。</p>
-<p>动态规划算法是所有强化学习算法的基础，所有强化学习算法都可以看作是为了得到和动态规划相同的效果，同时减少计算量和对环境模型的依赖。</p>
-<p>这一章节主要分为三部分：策略评估，策略改进，策略迭代。</p>
-<p>策略评估：对于一个给定的策略下，迭代地计算策略的价值函数。</p>
-<p>策略改进：根据一个旧的策略的值函数，计算一个改进的策略。</p>
-<p><strong>将这两种方法结合起来，可以得到策略迭代算法和价值迭代算法。</strong></p>
-<a id="more"></a>
-<p>强化学习算法的关键是使用价值函数来寻找到更加好的策略，首先定义价值函数，其满足Bellman最优性方程：</p>
-<p><span class="math display">\[\begin{aligned}
-v_{*}(s) &amp;=\max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{*}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=a\right] \\
-&amp;=\max _{a} \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{*}\left(s^{\prime}\right)\right], \text { or }
-\end{aligned}\]</span></p>
-<p><span class="math display">\[\begin{aligned}
-q_{*}(s, a) &amp;=\mathbb{E}\left[R_{t+1}+\gamma \max _{a^{\prime}} q_{*}\left(S_{t+1}, a^{\prime}\right) \mid S_{t}=s, A_{t}=a\right] \\
-&amp;=\sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma \max _{a^{\prime}} q_{*}\left(s^{\prime}, a^{\prime}\right)\right]
-\end{aligned}\]</span></p>
-<h2 id="策略评估">策略评估</h2>
-<p>目的：给定一个策略<span class="math inline">\(\pi\)</span>，计算它的状态价值函数，也可以被称为<strong>预测</strong>问题。</p>
-<p><span class="math display">\[\begin{aligned}
-v_{\pi}(s) &amp; \doteq \mathbb{E}_{\pi}\left[G_{t} \mid S_{t}=s\right] \\
-&amp;=\mathbb{E}_{\pi}\left[R_{t+1}+\gamma G_{t+1} \mid S_{t}=s\right] \\
-&amp;=\mathbb{E}_{\pi}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s\right] \\
-&amp;=\sum_{a} \pi(a \mid s) \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{\pi}\left(s^{\prime}\right)\right]
-\end{aligned}\]</span></p>
-<p>如果环境动态是完全已知的，那么通过上述价值函数的表达式，可以列出<span class="math inline">\(|S|\)</span>个未知数的<span class="math inline">\(|S|\)</span>个方程构成线性方程组，其中，<span class="math inline">\(|S|\)</span>代表状态<span class="math inline">\(s\)</span>的个数，但是计算过程有些繁杂，因此，采用迭代计算的方式：</p>
-<p><span class="math display">\[\begin{aligned}
-v_{k+1}(s) &amp; \doteq \mathbb{E}_{\pi}\left[R_{t+1}+\gamma v_{k}\left(S_{t+1}\right) \mid S_{t}=s\right] \\
-&amp;=\sum_{a} \pi(a \mid s) \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{k}\left(s^{\prime}\right)\right]
-\end{aligned}\]</span></p>
-<p><span class="math inline">\(v_{k}=v_{\pi}\)</span>是一个不动点（<strong>通过巴拿赫不动点定理来证明</strong>），当<span class="math inline">\(k \rightarrow \infty\)</span>时，<span class="math inline">\(\{v_k\}\)</span>能够收敛到<span class="math inline">\(v_\pi\)</span>。</p>
-<p><img src="1.png" /></p>
-<p>仿真算例：</p>
-<p><img src="2.png" /></p>
-<p>一个简单的额GridWorld的例子，通过不断迭代，即可算出所有的价值函数，代码：</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GridWorld</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.state = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.state = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">step</span><span class="params">(self, state: np.array, action: np.array)</span>:</span></span><br><span class="line">        self.state = state</span><br><span class="line">        next_state = self.state + action</span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">0</span>]&lt;<span class="number">0</span>:</span><br><span class="line">            next_state[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">0</span>]&gt;<span class="number">3</span>:</span><br><span class="line">            next_state[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">1</span>]&lt;<span class="number">0</span>:</span><br><span class="line">            next_state[<span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">1</span>]&gt;<span class="number">3</span>:</span><br><span class="line">            next_state[<span class="number">1</span>] = <span class="number">3</span></span><br><span class="line">        self.state = next_state</span><br><span class="line">        <span class="keyword">if</span> (self.state==np.array([<span class="number">0</span>, <span class="number">0</span>])).all() <span class="keyword">or</span> (self.state==np.array([<span class="number">3</span>, <span class="number">3</span>])).all():</span><br><span class="line">            reward = <span class="number">-1</span></span><br><span class="line">            done = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            reward = <span class="number">-1</span></span><br><span class="line">            done = <span class="literal">False</span></span><br><span class="line">        info = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> self.state, reward, done, info</span><br><span class="line"></span><br><span class="line">actions = [np.array([<span class="number">-1</span>, <span class="number">0</span>]), np.array([<span class="number">1</span>, <span class="number">0</span>]), np.array([<span class="number">0</span>, <span class="number">-1</span>]), np.array([<span class="number">0</span>, <span class="number">1</span>])]</span><br><span class="line"></span><br><span class="line">env = GridWorld()</span><br><span class="line"></span><br><span class="line">v_old = np.zeros(<span class="number">16</span>)</span><br><span class="line">v_new = np.zeros(<span class="number">16</span>)</span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    v_old = copy.deepcopy(v_new)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">15</span>):</span><br><span class="line">        temp = <span class="number">0.0</span></span><br><span class="line">        <span class="keyword">for</span> action <span class="keyword">in</span> actions:</span><br><span class="line">            s = np.array([i//<span class="number">4</span>, i%<span class="number">4</span>])</span><br><span class="line">            s_prime, reward, done, info = env.step(s, action)</span><br><span class="line">            temp += <span class="number">0.25</span>*(reward + v_old[s_prime[<span class="number">0</span>]*<span class="number">4</span>+s_prime[<span class="number">1</span>]])</span><br><span class="line">        v_new[i] = temp</span><br><span class="line">    print(v_new)</span><br></pre></td></tr></table></figure>
-<p>结果：</p>
-<p><img src="3.png" /></p>
-<h2 id="策略改进">策略改进</h2>
-<p>计算价值函数的一个原因是为了找到更好的策略，我们可以知道如果从状态<span class="math inline">\(s\)</span>使用现有的策略，那么我们可以得到的就是<span class="math inline">\(v_\pi(s)\)</span>。那么当我们更换一个策略的时候，我们怎么知道是更好还是更坏呢。</p>
-<p>一种解决方法是在状态<span class="math inline">\(s\)</span>选择动作<span class="math inline">\(a\)</span>后，继续遵循现有的策略<span class="math inline">\(\pi\)</span>，计算<span class="math inline">\(q_\pi\)</span>(s,a)</p>
-<p>一个关键的准则就是这个值是大于还是小于<span class="math inline">\(v_\pi(s)\)</span>的，如果这个值更大，那么说明在状态<span class="math inline">\(s\)</span>选择一次动作<span class="math inline">\(a\)</span>，然后继续使用策略<span class="math inline">\(\pi\)</span>会比始终使用策略<span class="math inline">\(\pi\)</span>更优化。</p>
-<p>如果<span class="math inline">\(\pi\)</span>和<span class="math inline">\(\pi&#39;\)</span>是两个确定的策略，当：</p>
-<p><span class="math display">\[q_{\pi}\left(s, \pi^{\prime}(s)\right) \geq v_{\pi}(s)\]</span></p>
-<p>那么我们称策略<span class="math inline">\(\pi&#39;\)</span>相比于策略<span class="math inline">\(\pi\)</span>一样好或者更好。</p>
-<p>证明过程：</p>
-<p><span class="math display">\[\begin{aligned}
-v_{\pi}(s) &amp; \leq q_{\pi}\left(s, \pi^{\prime}(s)\right) \\
-&amp;=\mathbb{E}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=\pi^{\prime}(s)\right] \\
-&amp;=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s\right] \\
-&amp; \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma q_{\pi}\left(S_{t+1}, \pi^{\prime}\left(S_{t+1}\right)\right) \mid S_{t}=s\right] \\
-&amp;=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma \mathbb{E}_{\pi^{\prime}}\left[R_{t+2}+\gamma v_{\pi}\left(S_{t+2}\right) \mid S_{t+1}, A_{t+1}=\pi^{\prime}\left(S_{t+1}\right)\right] \mid S_{t}=s\right] \\
-&amp;=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^{2} v_{\pi}\left(S_{t+2}\right) \mid S_{t}=s\right] \\
-&amp; \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^{2} R_{t+3}+\gamma^{3} v_{\pi}\left(S_{t+3}\right) \mid S_{t}=s\right] \\
-&amp; \vdots \\
-&amp; \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^{2} R_{t+3}+\gamma^{3} R_{t+4}+\cdots \mid S_{t}=s\right] \\
-&amp;=v_{\pi^{\prime}}(s)
-\end{aligned}\]</span></p>
-<p>到目前为止，我们已经看到了，给定一个策略及其价值函数，我可以很容易评估一个状态中某个特定动作的改变会产生怎样的后果。我们可以很自然地延伸到所有的状态和所有可能的动作，即在每个状态下根据<span class="math inline">\(q_\pi(s, a)\)</span>选择一个最优的：</p>
-<p><span class="math display">\[\begin{aligned}
-\pi^{\prime}(s) &amp; \doteq \underset{a}{\arg \max } q_{\pi}(s, a) \\
-&amp;=\underset{a}{\arg \max } \mathbb{E}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=a\right] \\
-&amp;=\underset{a}{\arg \max } \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{\pi}\left(s^{\prime}\right)\right]
-\end{aligned}\]</span></p>
-<p>这种根据原策略的价值函数执行贪心算法，来构造一个更好策略的过程，称为<strong>策略改进</strong></p>
-<h2 id="策略迭代">策略迭代</h2>
-<p>一旦一个策略<span class="math inline">\(\pi\)</span>根据<span class="math inline">\(v_\pi\)</span>产生了一个更好的策略<span class="math inline">\(\pi&#39;\)</span>，我们就可以通过计算<span class="math inline">\(v_{\pi&#39;}\)</span>来得到一个更优的策略<span class="math inline">\(\pi&#39;&#39;\)</span>，这样一个链式的方法可以得到一个不断改进的策略和价值函数的序列：</p>
-<p><span class="math display">\[\pi_{0} \stackrel{\mathrm{E}}{\longrightarrow} v_{\pi_{0}} \stackrel{\mathrm{I}}{\longrightarrow} \pi_{1} \stackrel{\mathrm{E}}{\longrightarrow} v_{\pi_{1}} \stackrel{\mathrm{I}}{\longrightarrow} \pi_{2} \stackrel{\mathrm{E}}{\longrightarrow} \cdots \stackrel{\mathrm{I}}{\longrightarrow} \pi_{*} \stackrel{\mathrm{E}}{\longrightarrow} v_{*}\]</span></p>
-<p><img src="4.png" /></p>
-<h2 id="价值迭代">价值迭代</h2>
-<p>策略迭代算法的一个缺点是每一次迭代都涉及了策略评估，这本身就是一个需要多次遍历状态集合的迭代过程，如果策略评估是迭代进行的，那么收敛到<span class="math inline">\(v_\pi\)</span>理论上在极限处才成立。</p>
-<p>上面GridWorld的例子很明显就能说明，我们可以提前截断策略评估的过程，在这个例子中，前三轮策略评估之后的迭代对其贪心策略没有产生影响。</p>
-<p>事实上，由很多方式可以截断策略迭代中的策略评估步骤，一种重要的方法是：在每一次遍历后即刻停止策略评估（对每个状态进行一次更新）。该算法被称为<strong>价值迭代</strong>，可以将此表示为结合了策略改进与截断策略评估的简单更新公式：</p>
-<p><span class="math display">\[\begin{aligned}
-v_{k+1}(s) &amp; \doteq \max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{k}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=a\right] \\
-&amp;=\max _{a} \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{k}\left(s^{\prime}\right)\right]
-\end{aligned}\]</span></p>
-<p>价值迭代与策略评估的更新公式几乎完全相同。</p>
-<p>理论上价值迭代需要迭代无限次才能收敛，事实上，如果一次遍历中仅发生一些细微的变化，那么就可以停止。</p>
-<p><img src="5.png" /></p>
-<h2 id="广义策略迭代">广义策略迭代</h2>
-<p>策略迭代包括两个同时进行的相互作用的流程，一个使得价值函数与当前策略一致（策略评估），另一个根据当前价值函数贪心地更新策略（策略改进）。</p>
-<p>用广义策略迭代（GPI）一词来指代让策略评估和策略改进相互作用地一般思路，几乎所有的强化学习算法都可以被描述成广义策略迭代算法：</p>
-<p><img src="6.png" /></p>
-<p>价值函数只有在与当前策略一致时才稳定，并且策略只有在对当前价值函数是贪心策略时才稳定。</p>
-<p>可以将GPI的评估与改进流程看作竞争与合作。竞争是指它们朝着相反的方向前进，让策略对价值函数贪心通常会使价值函数与当前策略不再匹配，而使价值函数与策略一致通常会导致策略不再贪心。合作是指从长远看，这两个流程相互作用以找到一个联合解决方案：最优价值函数和一个最优策略。</p>
-<p><img src="7.png" /></p>
-<h2 id="动态规划的效率">动态规划的效率</h2>
-<p>DP算法有时会因为<strong>维度灾难</strong>而被认为缺乏实用性。集合太大确实会带来一些困难，但是这是问题本身的困难，而非DP作为一种解法所带来的困难。事实上，相比于直接搜索和线性规划，DP更加适合解决大规模状态空间的问题。</p>
-]]></content>
-      <categories>
-        <category>Reinforcement Learning</category>
-      </categories>
-      <tags>
-        <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>嵌入式操作系统软件工程师常见面试题</title>
     <url>/2018/08/01/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
     <content><![CDATA[<blockquote>
@@ -3663,6 +3564,105 @@ v_{k+1}(s) &amp; \doteq \max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{k}\left(S_{t
       </categories>
       <tags>
         <tag>华为</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>强化学习之动态规划</title>
+    <url>/2020/08/19/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<p>复习了一下Sutton书中的第四章，动态规划，整理一下。</p>
+<p>动态规划算法是所有强化学习算法的基础，所有强化学习算法都可以看作是为了得到和动态规划相同的效果，同时减少计算量和对环境模型的依赖。</p>
+<p>这一章节主要分为三部分：策略评估，策略改进，策略迭代。</p>
+<p>策略评估：对于一个给定的策略下，迭代地计算策略的价值函数。</p>
+<p>策略改进：根据一个旧的策略的值函数，计算一个改进的策略。</p>
+<p><strong>将这两种方法结合起来，可以得到策略迭代算法和价值迭代算法。</strong></p>
+<a id="more"></a>
+<p>强化学习算法的关键是使用价值函数来寻找到更加好的策略，首先定义价值函数，其满足Bellman最优性方程：</p>
+<p><span class="math display">\[\begin{aligned}
+v_{*}(s) &amp;=\max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{*}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=a\right] \\
+&amp;=\max _{a} \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{*}\left(s^{\prime}\right)\right], \text { or }
+\end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+q_{*}(s, a) &amp;=\mathbb{E}\left[R_{t+1}+\gamma \max _{a^{\prime}} q_{*}\left(S_{t+1}, a^{\prime}\right) \mid S_{t}=s, A_{t}=a\right] \\
+&amp;=\sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma \max _{a^{\prime}} q_{*}\left(s^{\prime}, a^{\prime}\right)\right]
+\end{aligned}\]</span></p>
+<h2 id="策略评估">策略评估</h2>
+<p>目的：给定一个策略<span class="math inline">\(\pi\)</span>，计算它的状态价值函数，也可以被称为<strong>预测</strong>问题。</p>
+<p><span class="math display">\[\begin{aligned}
+v_{\pi}(s) &amp; \doteq \mathbb{E}_{\pi}\left[G_{t} \mid S_{t}=s\right] \\
+&amp;=\mathbb{E}_{\pi}\left[R_{t+1}+\gamma G_{t+1} \mid S_{t}=s\right] \\
+&amp;=\mathbb{E}_{\pi}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s\right] \\
+&amp;=\sum_{a} \pi(a \mid s) \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{\pi}\left(s^{\prime}\right)\right]
+\end{aligned}\]</span></p>
+<p>如果环境动态是完全已知的，那么通过上述价值函数的表达式，可以列出<span class="math inline">\(|S|\)</span>个未知数的<span class="math inline">\(|S|\)</span>个方程构成线性方程组，其中，<span class="math inline">\(|S|\)</span>代表状态<span class="math inline">\(s\)</span>的个数，但是计算过程有些繁杂，因此，采用迭代计算的方式：</p>
+<p><span class="math display">\[\begin{aligned}
+v_{k+1}(s) &amp; \doteq \mathbb{E}_{\pi}\left[R_{t+1}+\gamma v_{k}\left(S_{t+1}\right) \mid S_{t}=s\right] \\
+&amp;=\sum_{a} \pi(a \mid s) \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{k}\left(s^{\prime}\right)\right]
+\end{aligned}\]</span></p>
+<p><span class="math inline">\(v_{k}=v_{\pi}\)</span>是一个不动点（<strong>通过巴拿赫不动点定理来证明</strong>），当<span class="math inline">\(k \rightarrow \infty\)</span>时，<span class="math inline">\(\{v_k\}\)</span>能够收敛到<span class="math inline">\(v_\pi\)</span>。</p>
+<p><img src="1.png" /></p>
+<p>仿真算例：</p>
+<p><img src="2.png" /></p>
+<p>一个简单的额GridWorld的例子，通过不断迭代，即可算出所有的价值函数，代码：</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GridWorld</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.state = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.state = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">step</span><span class="params">(self, state: np.array, action: np.array)</span>:</span></span><br><span class="line">        self.state = state</span><br><span class="line">        next_state = self.state + action</span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">0</span>]&lt;<span class="number">0</span>:</span><br><span class="line">            next_state[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">0</span>]&gt;<span class="number">3</span>:</span><br><span class="line">            next_state[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">1</span>]&lt;<span class="number">0</span>:</span><br><span class="line">            next_state[<span class="number">1</span>] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> next_state[<span class="number">1</span>]&gt;<span class="number">3</span>:</span><br><span class="line">            next_state[<span class="number">1</span>] = <span class="number">3</span></span><br><span class="line">        self.state = next_state</span><br><span class="line">        <span class="keyword">if</span> (self.state==np.array([<span class="number">0</span>, <span class="number">0</span>])).all() <span class="keyword">or</span> (self.state==np.array([<span class="number">3</span>, <span class="number">3</span>])).all():</span><br><span class="line">            reward = <span class="number">-1</span></span><br><span class="line">            done = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            reward = <span class="number">-1</span></span><br><span class="line">            done = <span class="literal">False</span></span><br><span class="line">        info = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> self.state, reward, done, info</span><br><span class="line"></span><br><span class="line">actions = [np.array([<span class="number">-1</span>, <span class="number">0</span>]), np.array([<span class="number">1</span>, <span class="number">0</span>]), np.array([<span class="number">0</span>, <span class="number">-1</span>]), np.array([<span class="number">0</span>, <span class="number">1</span>])]</span><br><span class="line"></span><br><span class="line">env = GridWorld()</span><br><span class="line"></span><br><span class="line">v_old = np.zeros(<span class="number">16</span>)</span><br><span class="line">v_new = np.zeros(<span class="number">16</span>)</span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    v_old = copy.deepcopy(v_new)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">15</span>):</span><br><span class="line">        temp = <span class="number">0.0</span></span><br><span class="line">        <span class="keyword">for</span> action <span class="keyword">in</span> actions:</span><br><span class="line">            s = np.array([i//<span class="number">4</span>, i%<span class="number">4</span>])</span><br><span class="line">            s_prime, reward, done, info = env.step(s, action)</span><br><span class="line">            temp += <span class="number">0.25</span>*(reward + v_old[s_prime[<span class="number">0</span>]*<span class="number">4</span>+s_prime[<span class="number">1</span>]])</span><br><span class="line">        v_new[i] = temp</span><br><span class="line">    print(v_new)</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<p><img src="3.png" /></p>
+<h2 id="策略改进">策略改进</h2>
+<p>计算价值函数的一个原因是为了找到更好的策略，我们可以知道如果从状态<span class="math inline">\(s\)</span>使用现有的策略，那么我们可以得到的就是<span class="math inline">\(v_\pi(s)\)</span>。那么当我们更换一个策略的时候，我们怎么知道是更好还是更坏呢。</p>
+<p>一种解决方法是在状态<span class="math inline">\(s\)</span>选择动作<span class="math inline">\(a\)</span>后，继续遵循现有的策略<span class="math inline">\(\pi\)</span>，计算<span class="math inline">\(q_\pi\)</span>(s,a)</p>
+<p>一个关键的准则就是这个值是大于还是小于<span class="math inline">\(v_\pi(s)\)</span>的，如果这个值更大，那么说明在状态<span class="math inline">\(s\)</span>选择一次动作<span class="math inline">\(a\)</span>，然后继续使用策略<span class="math inline">\(\pi\)</span>会比始终使用策略<span class="math inline">\(\pi\)</span>更优化。</p>
+<p>如果<span class="math inline">\(\pi\)</span>和<span class="math inline">\(\pi&#39;\)</span>是两个确定的策略，当：</p>
+<p><span class="math display">\[q_{\pi}\left(s, \pi^{\prime}(s)\right) \geq v_{\pi}(s)\]</span></p>
+<p>那么我们称策略<span class="math inline">\(\pi&#39;\)</span>相比于策略<span class="math inline">\(\pi\)</span>一样好或者更好。</p>
+<p>证明过程：</p>
+<p><span class="math display">\[\begin{aligned}
+v_{\pi}(s) &amp; \leq q_{\pi}\left(s, \pi^{\prime}(s)\right) \\
+&amp;=\mathbb{E}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=\pi^{\prime}(s)\right] \\
+&amp;=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s\right] \\
+&amp; \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma q_{\pi}\left(S_{t+1}, \pi^{\prime}\left(S_{t+1}\right)\right) \mid S_{t}=s\right] \\
+&amp;=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma \mathbb{E}_{\pi^{\prime}}\left[R_{t+2}+\gamma v_{\pi}\left(S_{t+2}\right) \mid S_{t+1}, A_{t+1}=\pi^{\prime}\left(S_{t+1}\right)\right] \mid S_{t}=s\right] \\
+&amp;=\mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^{2} v_{\pi}\left(S_{t+2}\right) \mid S_{t}=s\right] \\
+&amp; \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^{2} R_{t+3}+\gamma^{3} v_{\pi}\left(S_{t+3}\right) \mid S_{t}=s\right] \\
+&amp; \vdots \\
+&amp; \leq \mathbb{E}_{\pi^{\prime}}\left[R_{t+1}+\gamma R_{t+2}+\gamma^{2} R_{t+3}+\gamma^{3} R_{t+4}+\cdots \mid S_{t}=s\right] \\
+&amp;=v_{\pi^{\prime}}(s)
+\end{aligned}\]</span></p>
+<p>到目前为止，我们已经看到了，给定一个策略及其价值函数，我可以很容易评估一个状态中某个特定动作的改变会产生怎样的后果。我们可以很自然地延伸到所有的状态和所有可能的动作，即在每个状态下根据<span class="math inline">\(q_\pi(s, a)\)</span>选择一个最优的：</p>
+<p><span class="math display">\[\begin{aligned}
+\pi^{\prime}(s) &amp; \doteq \underset{a}{\arg \max } q_{\pi}(s, a) \\
+&amp;=\underset{a}{\arg \max } \mathbb{E}\left[R_{t+1}+\gamma v_{\pi}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=a\right] \\
+&amp;=\underset{a}{\arg \max } \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{\pi}\left(s^{\prime}\right)\right]
+\end{aligned}\]</span></p>
+<p>这种根据原策略的价值函数执行贪心算法，来构造一个更好策略的过程，称为<strong>策略改进</strong></p>
+<h2 id="策略迭代">策略迭代</h2>
+<p>一旦一个策略<span class="math inline">\(\pi\)</span>根据<span class="math inline">\(v_\pi\)</span>产生了一个更好的策略<span class="math inline">\(\pi&#39;\)</span>，我们就可以通过计算<span class="math inline">\(v_{\pi&#39;}\)</span>来得到一个更优的策略<span class="math inline">\(\pi&#39;&#39;\)</span>，这样一个链式的方法可以得到一个不断改进的策略和价值函数的序列：</p>
+<p><span class="math display">\[\pi_{0} \stackrel{\mathrm{E}}{\longrightarrow} v_{\pi_{0}} \stackrel{\mathrm{I}}{\longrightarrow} \pi_{1} \stackrel{\mathrm{E}}{\longrightarrow} v_{\pi_{1}} \stackrel{\mathrm{I}}{\longrightarrow} \pi_{2} \stackrel{\mathrm{E}}{\longrightarrow} \cdots \stackrel{\mathrm{I}}{\longrightarrow} \pi_{*} \stackrel{\mathrm{E}}{\longrightarrow} v_{*}\]</span></p>
+<p><img src="4.png" /></p>
+<h2 id="价值迭代">价值迭代</h2>
+<p>策略迭代算法的一个缺点是每一次迭代都涉及了策略评估，这本身就是一个需要多次遍历状态集合的迭代过程，如果策略评估是迭代进行的，那么收敛到<span class="math inline">\(v_\pi\)</span>理论上在极限处才成立。</p>
+<p>上面GridWorld的例子很明显就能说明，我们可以提前截断策略评估的过程，在这个例子中，前三轮策略评估之后的迭代对其贪心策略没有产生影响。</p>
+<p>事实上，由很多方式可以截断策略迭代中的策略评估步骤，一种重要的方法是：在每一次遍历后即刻停止策略评估（对每个状态进行一次更新）。该算法被称为<strong>价值迭代</strong>，可以将此表示为结合了策略改进与截断策略评估的简单更新公式：</p>
+<p><span class="math display">\[\begin{aligned}
+v_{k+1}(s) &amp; \doteq \max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{k}\left(S_{t+1}\right) \mid S_{t}=s, A_{t}=a\right] \\
+&amp;=\max _{a} \sum_{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma v_{k}\left(s^{\prime}\right)\right]
+\end{aligned}\]</span></p>
+<p>价值迭代与策略评估的更新公式几乎完全相同。</p>
+<p>理论上价值迭代需要迭代无限次才能收敛，事实上，如果一次遍历中仅发生一些细微的变化，那么就可以停止。</p>
+<p><img src="5.png" /></p>
+<h2 id="广义策略迭代">广义策略迭代</h2>
+<p>策略迭代包括两个同时进行的相互作用的流程，一个使得价值函数与当前策略一致（策略评估），另一个根据当前价值函数贪心地更新策略（策略改进）。</p>
+<p>用广义策略迭代（GPI）一词来指代让策略评估和策略改进相互作用地一般思路，几乎所有的强化学习算法都可以被描述成广义策略迭代算法：</p>
+<p><img src="6.png" /></p>
+<p>价值函数只有在与当前策略一致时才稳定，并且策略只有在对当前价值函数是贪心策略时才稳定。</p>
+<p>可以将GPI的评估与改进流程看作竞争与合作。竞争是指它们朝着相反的方向前进，让策略对价值函数贪心通常会使价值函数与当前策略不再匹配，而使价值函数与策略一致通常会导致策略不再贪心。合作是指从长远看，这两个流程相互作用以找到一个联合解决方案：最优价值函数和一个最优策略。</p>
+<p><img src="7.png" /></p>
+<h2 id="动态规划的效率">动态规划的效率</h2>
+<p>DP算法有时会因为<strong>维度灾难</strong>而被认为缺乏实用性。集合太大确实会带来一些困难，但是这是问题本身的困难，而非DP作为一种解法所带来的困难。事实上，相比于直接搜索和线性规划，DP更加适合解决大规模状态空间的问题。</p>
+]]></content>
+      <categories>
+        <category>Reinforcement Learning</category>
+      </categories>
+      <tags>
+        <tag>Reinforcement Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -3936,132 +3936,6 @@ v_{k+1}(s) &amp; \doteq \max _{a} \mathbb{E}\left[R_{t+1}+\gamma v_{k}\left(S_{t
       </tags>
   </entry>
   <entry>
-    <title>Input Convex Neural Network复现及仿真验证</title>
-    <url>/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/</url>
-    <content><![CDATA[<p>《Input Convex Neural Networks》</p>
-<p>《Optimal Control Via Neural Networks: A Convex Approach》</p>
-<p>对于复杂系统的控制往往分为两步，对系统的辨识和控制器的设计。 深度神经网络被证明在辨识任务中取得了重大成功，但是，由于这些辨识出来的系统往往是非线性和非凸的，其控制器很难设计，所以，实际系统往往还是用线性模型去逼近，尽管这些线性模型的拟合能力很弱，因此，往往设计出来的控制器的性能都不行。</p>
-<p>这两篇文章，主要提出了ICNN及其改进网络结构，ICNN的特点就是对于输入是凸的，第一篇文章主要提出了ICNN这一网络结构，通过将神经网络的前向通道中的权重设置为非负值，这一简单的改变，就可以将神经网络变为输入凸的，且该网络的拟合能力并为受到较大的影响。</p>
-<p>这篇文章主要完成3点：</p>
-<ol type="1">
-<li>复现ICNN，原版的ICNN是用tensorflow写的，代码不全，且使用了较老的库版本，运行不了，在此采用pytorch进行复现出一个通用程序。</li>
-<li>对于一个给定的函数：<span class="math inline">\(y=3x_1^2+4x_2^2\)</span>，利用普通的DNN，和ICNN进行对比，验证ICNN的拟合能力（验证的过程使用相同的网络层数，每层的节点数，学习率等参数）。</li>
-<li>对于《Input Convex Neural Networks》中的simulation中的synthetic 2D example和《Optimal Control Via Neural Networks: A Convex Approach》中的APPENDIX中的Toy Example分别进行复现及仿真验证。</li>
-</ol>
-<a id="more"></a>
-<h2 id="icnn原理及证明">ICNN原理及证明</h2>
-<h3 id="icnn网络结构">ICNN网络结构</h3>
-<p><img src="image-20210302145927461.png" /></p>
-<p><span class="math display">\[z_{i+1}=g_{i}\left(W_{i}^{(z)} z_{i}+W_{i}^{(y)} y+b_{i}\right), \quad f(y ; \theta)=z_{k}\]</span>，</p>
-<p>Figure1是全连接的凸的，k层ICNN，记为：FICNN，令输入记为：<span class="math inline">\(y\)</span>，<span class="math inline">\(z_i\)</span>记为每一个激活函数的输出，<span class="math inline">\(\theta\)</span>记为所有的参数：<span class="math inline">\(\theta=\left\{W_{0: k-1}^{(y)}, W_{1: k-1}^{(z)}, b_{0: k-1}\right\}\)</span>，<span class="math inline">\(g_i\)</span>是非线性激活函数，网络凸的性质的主要结果如下：</p>
-<p><strong><em>结论</em></strong>：<strong>函数<span class="math inline">\(f\)</span>对于<span class="math inline">\(y\)</span>是凸函数，当所有的<span class="math inline">\(W_{1: k-1}^{(z)}\)</span>是非负，且所有的<span class="math inline">\(g_i\)</span>是凸的非增函数</strong></p>
-<p><strong><em>分析：</em></strong></p>
-<ol type="1">
-<li><p>ICNN网络结构中，从输入直接传递到隐含层的叫"passthrough"，这样的连接在传统的前馈神经网络中是没有必要的，因为前面的神经网络的层的信息总是会被映射到下一个神经网络层中，但是在ICNN中，由于<span class="math inline">\(W^{(z)}\)</span>被限制为非负，所以导致拟合能力下降，且前面网络的信息无法被传递到下一个层中，因此，需要使用额外的passthrough。</p></li>
-<li><p>对于<span class="math inline">\(b_i\)</span>来说，放到前向传播中，或者passthrough中，都是等价的。</p></li>
-<li><p>passthrough中的weight和bias都是可以为负的，没有限制。</p></li>
-</ol>
-<h3 id="icnn输入凸的证明">ICNN输入凸的证明</h3>
-<p>定义：给定函数<span class="math inline">\(f: \mathbb{R}^{d} \rightarrow \mathbb{R}\)</span>，当<span class="math inline">\(x\)</span>在整个定义域中，都满足<span class="math inline">\(|f(\mathbf{x})-\hat{f}(\mathbf{x})| \leq \varepsilon\)</span>，那么，就说函数<span class="math inline">\(\hat{f}\)</span>可以以精度<span class="math inline">\(\varepsilon\)</span>逼近函数<span class="math inline">\(f\)</span>。</p>
-<p>定理：对于任何在某个紧集上的Lipshchitz凸的连续函数，存在一个神经网络，其权重是非负的，且激活函数使用的是Relu函数，来满足定义1中的定义。</p>
-<p>引理：给定一个连续的Lipschitz函数<span class="math inline">\(f: \mathbb{R}^{d} \rightarrow \mathbb{R}\)</span>，它可以被一系列仿射函数的最大值所表示，即，存在<span class="math inline">\(\hat{f}(\mathbf{x})=\max _{i=1, \ldots, N}\left\{\mu_{\mathbf{i}}^{T} \mathbf{x}+b_{i}\right\}\)</span>，使得对于所有的<span class="math inline">\(x\)</span>，满足<span class="math inline">\(|f(\mathbf{x})-\hat{f}(\mathbf{x})| \leq \varepsilon\)</span></p>
-<p>证明过程：</p>
-<p>主要采用了两个凸优化中基本的定理：</p>
-<ol type="1">
-<li>凸函数的非负先行组合还是凸函数</li>
-<li>凸函数和凸的非减的函数还是凸函数</li>
-</ol>
-<p>证明是通过构造性的证明，我们先构建一个神经网络，使用Relu函数，其权重有正有负，然后通过构造负的输入，可以将该神经网络不同层之间的权重可以限制为非负。</p>
-<p>证明的思路是首先证明一个凸函数可以使用一系列仿射函数的最大值表示（凸优化中的结论），然后将该最大值用神经网络的形式进行表示（这两篇文章的工作），换句话说，这两篇文章就是证明了这样的神经网络可以转换为一系列仿射函数的最大值。</p>
-<p><strong>证明：</strong></p>
-<p>首先考虑两个仿射函数的最大值：</p>
-<p><span class="math display">\[f_{C P L}(\mathbf{x})=\max \left\{\mathbf{a}_{1}^{T} \mathbf{x}+b_{1}, \mathbf{a}_{2}^{T} \mathbf{x}+b_{2}\right\}\]</span></p>
-<p>我们的目标是将这个最大值，用神经网络来表示，将其重写为：</p>
-<p><span class="math display">\[f_{C P L}(x)=\left(\mathbf{a}_{2}^{T} \mathbf{x}+b_{2}\right)+\max \left(\left(\mathbf{a}_{1}-\mathbf{a}_{2}\right)^{T} \mathbf{x}+\left(b_{1}-b_{2}\right), 0\right)\]</span></p>
-<p>现在定义一个2层的神经网络：</p>
-<p><img src="image-20210305145917956.png" /></p>
-<p>其中，<span class="math inline">\(W_1\)</span>表示第一层的权重<span class="math inline">\(\mathbf{a}_{1}-\mathbf{a}_{2}\)</span>以及bias<span class="math inline">\(b_{1}-b_{2}\)</span>，<span class="math inline">\(W_2\)</span>表示为第二层，<span class="math inline">\(D_2\)</span>表示passthrough，其权重为<span class="math inline">\(a_2\)</span>，bias为<span class="math inline">\(b_2\)</span>。</p>
-<p>上面的定义可以直接扩展到<span class="math inline">\(K\)</span>个线性函数的情形：</p>
-<p><span class="math display">\[f_{C P L}(\mathbf{x})=\max \left\{\mathbf{a}_{1}^{T} \mathbf{x}+b_{1}, \ldots, \mathbf{a}_{K}^{T} \mathbf{x}+b_{K}\right\}\]</span></p>
-<p>将<span class="math inline">\(f_{C P L}(\mathbf{x})\)</span>写成一个嵌套的最大值的仿射函数的最大值，为了简化表示，将<span class="math inline">\(L_{i}=\mathbf{a}_{i}^{T} \mathbf{x}+b_{i}, L_{i}^{\prime}=L_{i}-L_{i+1}\)</span>，然后： <span class="math display">\[
-\begin{aligned}
-f_{C P L} &amp;=\max \left\{L_{1}, L_{2}, \ldots, L_{K}\right\} \\
-&amp;=\max \left\{\max \left\{L_{1}, L_{2}, \ldots, L_{K-1}\right\}, L_{K}\right\} \\
-&amp;=L_{K}+\sigma\left(\max \left\{L_{1}, L_{2}, \ldots, L_{K-1}\right\}-L_{K}\right) \\
-&amp;=L_{K}+\sigma\left(\max \left\{\max \left\{L_{1}, L_{2}, \ldots, L_{K-2}\right\}, L_{K-1}\right\}-L_{K}, 0\right) \\
-&amp;=L_{K}+\sigma\left(L_{K-1}-L_{K}+\sigma\left(\max \left\{L_{1}, L_{2}, \ldots, L_{K-2}\right\}-L_{K-1}, 0\right), 0\right) \\
-&amp;=\ldots \\
-&amp;=L_{K}+\sigma\left(L_{K-1}^{\prime}+\sigma\left(L_{K-2}^{\prime}+\sigma\left(\ldots \sigma\left(L_{2}^{\prime}+\sigma\left(L_{1}-L_{2}, 0\right), 0\right), \ldots, 0\right), 0\right), 0\right) .
-\end{aligned}
-\]</span> 最后一行表示的其实是一个<span class="math inline">\(K\)</span>层的神经网络，其每一层分别是： <span class="math display">\[
-\begin{aligned}
-&amp;z_{1}=\sigma\left(L_{1}-L_{2}, 0\right)=\sigma\left(\left(\mathbf{a}_{1}-\mathbf{a}_{2}\right)^{T} \mathbf{x}+\left(b_{1}-b_{2}\right)\right)\\
-&amp;z_{2}=\sigma\left(L_{2}^{\prime}+z_{1}, 0\right)=\sigma\left(z_{1}+\left(\mathbf{a}_{2}-\mathbf{a}_{3}\right)^{T} \mathbf{x}+\left(b_{2}-b_{3}\right)\right)\\
-&amp;\ldots \ldots\\
-&amp;z_{i}=\sigma\left(L_{i}^{\prime}+z_{i-1}, 0\right)=\sigma\left(z_{i-1}+\left(\mathbf{a}_{i}-\mathbf{a}_{i+1}\right)^{T} \mathbf{x}+\left(b_{i}-b_{i+1}\right)\right)\\
-&amp;\ldots \ldots\\
-&amp;z_{K}=z_{K-1}+L_{K}=h_{K}\left(z_{K-1}+L_{K}\right)=\left(z_{K-1}+\mathbf{a}_{K}^{T} \mathbf{x}+b_{K}\right)
-\end{aligned}
-\]</span> 尽管该神经网络可以用来表示仿射函数的最大值，但是它不是凸的，因为其系数可正可负，而且，每一层都包含了一个权重和输入的内积 <span class="math inline">\(\left(\mathbf{a}_{i}-\mathbf{a}_{i+1}\right)^{T} \mathbf{x}\)</span>，系数未必是非负的，为了解决这个问题，将输入<span class="math inline">\(x\)</span>扩展为<span class="math inline">\([x, -x]\)</span>，即： <span class="math display">\[
-\hat{\mathbf{x}}=\left[\begin{array}{c}
-\mathbf{x} \\
--\mathbf{x}
-\end{array}\right]
-\]</span> <span class="math inline">\(\mathbf{h}^{T} \mathbf{x}\)</span>的内积可以表示为： <span class="math display">\[
-\begin{aligned}
-\mathbf{h}^{T} \mathbf{x} &amp;=\sum_{j=1}^{d} h_{i} x_{i} \\
-&amp;=\sum_{i: h_{i} \geq 0} h_{i} x_{i}+\sum_{i: h_{i}&lt;0} h_{i} x_{i} \\
-&amp;=\sum_{i: h_{i} \geq 0} h_{i} x_{i}+\sum_{i: h_{i}&lt;0}\left(-h_{i}\right)\left(-x_{i}\right) \\
-&amp;=\sum_{i: h_{i} \geq 0} h_{i} \hat{x}_{i}+\sum_{i: h_{i}&lt;0}\left(-h_{i}\right)\left(\hat{x}_{i+d}\right)
-\end{aligned}
-\]</span> 其所有的系数都是非负的。</p>
-<p>因此任何系数矩阵和输入向量的内积都可以写成一个非负系数矩阵和扩展输入<span class="math inline">\(\hat{\mathbf{x}}\)</span>的内积，因此，为了不失去一般性，可以限制每一层的权重都是非负的，这样的神经网络则是输入凸的。</p>
-<h2 id="icnn基本结构pytorch复现">ICNN基本结构Pytorch复现</h2>
-<h2 id="y3x_124x_22仿真算例"><span class="math inline">\(y=3x_1^2+4x_2^2\)</span>仿真算例</h2>
-<p>仿真算例：<span class="math inline">\(y=3x_1^2+4x_2^2\)</span></p>
-<p><img src="image-20210302152548355.png" /></p>
-<h3 id="训练数据生成">训练数据生成</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<p>在-5, 5中随机采样1000个数据点</p>
-<p>验证方法：对单个目标进行验证时，当输入是[2, 2]时，理论输出应该是[28]，同时，输出其MSE的数值并画出其图片。</p>
-<h3 id="对比其拟合能力">对比其拟合能力：</h3>
-<h4 id="普通神经网络的拟合能力">普通神经网络的拟合能力</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Model</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">  <span class="string">'''</span></span><br><span class="line"><span class="string">  定义普通全连结神经网络模型</span></span><br><span class="line"><span class="string">  '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n_feature=<span class="number">2</span>, n_hidden=<span class="number">4</span>, n_output=<span class="number">1</span>, nGdIter=<span class="number">30</span>)</span>:</span></span><br><span class="line">        super(Model, self).__init__()</span><br><span class="line">        self.input_layer = nn.Linear(n_feature, n_hidden)</span><br><span class="line">        self.hidden_layer = nn.Linear(n_hidden, n_hidden)</span><br><span class="line">        self.output_layer = nn.Linear(n_hidden, n_output)</span><br><span class="line">        self.act = nn.ReLU()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x = self.input_layer(x)</span><br><span class="line">        x = self.act(x)</span><br><span class="line">        x = self.hidden_layer(x)</span><br><span class="line">        x = self.act(x)</span><br><span class="line">        x = self.output_layer(x)</span><br><span class="line">        <span class="comment"># 输出层加上了relu激活函数后会导致很难收敛</span></span><br><span class="line">        <span class="comment">#x = self.act(x)</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_noncvx_network</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 构造虚拟数据用于训练：y=3x1^2+4x2^2</span></span><br><span class="line">    x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">    x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">    x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">    x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">    y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br><span class="line">    model = NonCvxModel(n_feature=<span class="number">2</span>, n_hidden=<span class="number">200</span>, n_output=<span class="number">1</span>)</span><br><span class="line">    criterion = torch.nn.MSELoss(reduction=<span class="string">'sum'</span>)</span><br><span class="line">    learning_rate = <span class="number">1e-3</span></span><br><span class="line">    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)</span><br><span class="line">    terminate_threshold = <span class="number">1e-5</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">        y_pred = model(x)</span><br><span class="line">        loss = criterion(y_pred, y)/y.size()[<span class="number">0</span>]</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">500</span> == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"当前正在训练第&#123;&#125;次， 损失是&#123;&#125;"</span>.format(i, loss.item()))</span><br><span class="line">            test_model(model)</span><br><span class="line">        <span class="keyword">if</span> loss.item()&lt;terminate_threshold:</span><br><span class="line">            print(<span class="string">"训练满足精度要求，训练了&#123;&#125;次。"</span>.format(i))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">0     500  29.005009</span><br><span class="line">1    1000   5.884062</span><br><span class="line">2    1500   1.050613</span><br><span class="line">3    2000   0.301482</span><br><span class="line">4    2500   0.141028</span><br><span class="line">5    3000   0.078763</span><br><span class="line">6    3500   0.048814</span><br><span class="line">7    4000   0.030913</span><br><span class="line">8    4500   0.021231</span><br><span class="line">9    5000   0.016060</span><br><span class="line">10   5500   0.012875</span><br><span class="line">11   6000   0.010986</span><br><span class="line">12   6500   0.009771</span><br><span class="line">13   7000   0.008564</span><br><span class="line">14   7500   0.007799</span><br><span class="line">15   8000   0.009830</span><br><span class="line">16   8500   0.046179</span><br><span class="line">17   9000   0.006437</span><br><span class="line">18   9500   0.013724</span><br><span class="line">19  10000   0.005822</span><br><span class="line">20  10500   0.005917</span><br><span class="line">21  11000   0.005384</span><br><span class="line">22  11500   0.005134</span><br><span class="line">23  12000   0.030397</span><br><span class="line">24  12500   0.005959</span><br><span class="line">25  13000   0.004671</span><br><span class="line">26  13500   0.004517</span><br><span class="line">27  14000   0.004421</span><br><span class="line">28  14500   0.004290</span><br><span class="line">29  15000   0.008322</span><br><span class="line">30  15500   0.019044</span><br><span class="line">31  16000   0.011500</span><br><span class="line">32  16500   0.003893</span><br><span class="line">33  17000   0.003794</span><br><span class="line">34  17500   0.003694</span><br><span class="line">35  18000   0.004458</span><br><span class="line">36  18500   0.003805</span><br><span class="line">37  19000   0.003468</span><br><span class="line">38  19500   0.008987</span><br><span class="line">39  20000   0.003343</span><br><span class="line">40  20500   0.003368</span><br><span class="line">41  21000   0.007225</span><br><span class="line">42  21500   0.003226</span><br><span class="line">43  22000   0.003124</span><br><span class="line">44  22500   0.003073</span><br><span class="line">45  23000   0.002998</span><br><span class="line">46  23500   0.025686</span><br><span class="line">47  24000   0.003000</span><br><span class="line">48  24500   0.002887</span><br><span class="line">49  25000   0.002838</span><br><span class="line">50  25500   0.002903</span><br><span class="line">51  26000   0.002845</span><br><span class="line">52  26500   0.004229</span><br><span class="line">53  27000   0.002733</span><br><span class="line">54  27500   0.008934</span><br><span class="line">55  28000   0.012964</span><br><span class="line">56  28500   0.018379</span><br><span class="line">57  29000   0.011293</span><br><span class="line">58  29500   0.007785</span><br><span class="line">59  30000   0.002500</span><br><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第30000次， 损失是0.002500230213627219</span><br><span class="line">模型预测的数值是： tensor([27.9667], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
-<p><img src="image-20210302162912494.png" alt="image-20210302162912494" style="zoom:50%;" /></p>
-<h4 id="icnn的拟合能力">ICNN的拟合能力</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CvxModel</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        输入凸神经网络结构定义</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n_feature=<span class="number">2</span>, n_hidden=<span class="number">4</span>, n_output=<span class="number">1</span>, nGdIter=<span class="number">30</span>)</span>:</span></span><br><span class="line">        super(CvxModel, self).__init__()</span><br><span class="line">        self.input_layer = nn.Linear(n_feature, n_hidden, bias=<span class="literal">False</span>)</span><br><span class="line">        self.hidden_layer = nn.Linear(n_hidden, n_hidden, bias=<span class="literal">False</span>)</span><br><span class="line">        self.output_layer = nn.Linear(n_hidden, n_output, bias=<span class="literal">False</span>)</span><br><span class="line">        self.passthrough_layer = nn.Linear(n_feature, n_hidden)</span><br><span class="line">        self.passthrough_output_layer = nn.Linear(n_feature, n_output)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        zx1 = F.relu(self.input_layer(x))</span><br><span class="line">        pass1 = self.passthrough_layer(x)</span><br><span class="line">        pass2 = self.passthrough_output_layer(x)</span><br><span class="line">        zx2 = F.relu(self.hidden_layer(zx1) + pass1)</span><br><span class="line">        zx3 = self.output_layer(zx2) + pass2</span><br><span class="line">        <span class="keyword">return</span> zx3</span><br><span class="line">      </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">weightConstraint</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        对一个特定的层的weight进行参数限制</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, module)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> hasattr(module, <span class="string">'weight'</span>):</span><br><span class="line">            w = module.weight.data</span><br><span class="line">            w = w.clamp(<span class="number">0.0</span>, <span class="number">100.0</span>)</span><br><span class="line">            module.weight.data = w</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当对权重有非负的限制时，训练神经网络</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train_with_constrains</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 先对参数进行限制到[-1, 1]进行仿真验证</span></span><br><span class="line">    <span class="comment"># 构造虚拟数据用于训练：y=3x1^2+4x2^2</span></span><br><span class="line">    x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">    x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">    x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">    x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">    y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    model = CvxModel(n_feature=<span class="number">2</span>, n_hidden=<span class="number">200</span>, n_output=<span class="number">1</span>)</span><br><span class="line">    constraints = weightConstraint()</span><br><span class="line">    criterion = torch.nn.MSELoss(reduction=<span class="string">'sum'</span>)</span><br><span class="line">    learning_rate = <span class="number">1e-3</span></span><br><span class="line">    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)</span><br><span class="line">    terminate_threshold = <span class="number">1e-5</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">        y_pred = model(x)</span><br><span class="line">        loss = criterion(y_pred, y)/y.size()[<span class="number">0</span>]</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        model._modules[<span class="string">'input_layer'</span>].apply(constraints)</span><br><span class="line">        model._modules[<span class="string">'hidden_layer'</span>].apply(constraints)</span><br><span class="line">        model._modules[<span class="string">'output_layer'</span>].apply(constraints)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">500</span> == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"当前正在训练第&#123;&#125;次， 损失是&#123;&#125;"</span>.format(i, loss.item()))</span><br><span class="line">            test_model(model)</span><br><span class="line">            weight_print(model)</span><br><span class="line">        <span class="keyword">if</span> loss.item()&lt;terminate_threshold:</span><br><span class="line">            print(<span class="string">"训练满足精度要求，训练了&#123;&#125;次。"</span>.format(i))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">0     500  250.070984</span><br><span class="line">1    1000  140.255447</span><br><span class="line">2    1500   67.511780</span><br><span class="line">3    2000   28.515696</span><br><span class="line">4    2500   13.275652</span><br><span class="line">5    3000    7.189941</span><br><span class="line">6    3500    4.197995</span><br><span class="line">7    4000    2.512518</span><br><span class="line">8    4500    1.544901</span><br><span class="line">9    5000    0.974513</span><br><span class="line">10   5500    0.637949</span><br><span class="line">11   6000    0.421706</span><br><span class="line">12   6500    0.279455</span><br><span class="line">13   7000    0.605793</span><br><span class="line">14   7500    0.140771</span><br><span class="line">15   8000    0.100952</span><br><span class="line">16   8500    0.072434</span><br><span class="line">17   9000    0.065805</span><br><span class="line">18   9500    0.046082</span><br><span class="line">19  10000    0.035448</span><br><span class="line">20  10500    0.027883</span><br><span class="line">21  11000    0.035439</span><br><span class="line">22  11500    0.020767</span><br><span class="line">23  12000    0.017025</span><br><span class="line">24  12500    0.020460</span><br><span class="line">25  13000    0.016357</span><br><span class="line">26  13500    0.013486</span><br><span class="line">27  14000    0.013836</span><br><span class="line">28  14500    0.011874</span><br><span class="line">29  15000    0.019069</span><br><span class="line">30  15500    0.011665</span><br><span class="line">31  16000    0.010154</span><br><span class="line">32  16500    0.011716</span><br><span class="line">33  17000    0.009304</span><br><span class="line">34  17500    0.007975</span><br><span class="line">35  18000    0.007628</span><br><span class="line">36  18500    0.006882</span><br><span class="line">37  19000    0.993199</span><br><span class="line">38  19500    0.006250</span><br><span class="line">39  20000    0.076224</span><br><span class="line">40  20500    0.005728</span><br><span class="line">41  21000    0.005862</span><br><span class="line">42  21500    0.005021</span><br><span class="line">43  22000    0.005911</span><br><span class="line">44  22500    0.005376</span><br><span class="line">45  23000    0.004734</span><br><span class="line">46  23500    0.004461</span><br><span class="line">47  24000    0.004778</span><br><span class="line">48  24500    0.004454</span><br><span class="line">49  25000    0.004859</span><br><span class="line">50  25500    0.004430</span><br><span class="line">51  26000    0.004365</span><br><span class="line">52  26500    0.004022</span><br><span class="line">53  27000    0.044836</span><br><span class="line">54  27500    0.003724</span><br><span class="line">55  28000    0.003986</span><br><span class="line">56  28500    0.003676</span><br><span class="line">57  29000    0.003535</span><br><span class="line">58  29500    0.003660</span><br><span class="line">59  30000    0.003258</span><br><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第30000次， 损失是0.00325777824036777</span><br><span class="line">模型预测的数值是： tensor([28.0241], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
-<p><img src="image-20210302162929557.png" alt="image-20210302162929557" style="zoom:50%;" /></p>
-<p>可以看出，在使用相同adam优化器参数的条件下，DNN相比ICNN，优化的速度更快。</p>
-<p>而当将adam优化器的参数从<span class="math inline">\(1e-3\)</span>改变为<span class="math inline">\(1e-2\)</span>后，仿真结果如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第500次， 损失是4.0928754806518555</span><br><span class="line">模型预测的数值是： tensor([26.7256], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
-<p>对于上面所仿真的普通的DNN，若将其adam优化器同时改变之后，仿真结果如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第500次， 损失是0.12059637159109116</span><br><span class="line">模型预测的数值是： tensor([28.0837], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
-<p>Adam优化器的参数对于网络的训练有着很大的影响，经过实验仿真可得：传统的DNN和ICNN都能找到一组Adam优化器参数，使得其训练效果较好。</p>
-<h2 id="原始论文中的仿真验证的复现">原始论文中的仿真验证的复现</h2>
-<p>第二篇论文中给出了一个二分类问题的仿真，二维输入变量，每一个维度的范围是<span class="math inline">\([-1, 1]\)</span>，输出是<span class="math inline">\(\{0, 1\}\)</span>两个类别，随机生成的内外两个圆的坐标数据。内层的圆的标签是<span class="math inline">\(0\)</span>，外层圆的标签是<span class="math inline">\(1\)</span>，假设我们的控制器的目标是想找到一个控制输入<span class="math inline">\(u\)</span>，使得输出<span class="math inline">\(y\)</span>为<span class="math inline">\(0\)</span>的可能性最大，优化问题可以分两步解决，首先，学习出一个从<span class="math inline">\(u\)</span>到<span class="math inline">\(y\)</span>神经网络分类器，然后找到控制输入<span class="math inline">\(u\)</span>使得神经网络的输出最小。</p>
-<p><img src="image-20210305151555930.png" /></p>
-<p>上图显示了普通NN和ICNN的决策边界，网络包含两层隐藏层，每一层有200个神经元，左边的图显示出了传统的神经网络，会有许多的之字形的的边界，也就是意味着决策是非凸的，所以优化的时候会存在许多局部最优值，而右边的图显示了ICNN的决策边界，可以看出，优化决策是一个凸优化问题，可以找到全局最优解。</p>
-<p>由于原始论文中未给出原始的代码，所以本文使用PyTorch进行了复现仿真对比。</p>
-<p><img src="image-20210305192857644.png" alt="image-20210305192857644" style="zoom:50%;" /></p>
-<p><img src="image-20210305193104826.png" alt="image-20210305193104826" style="zoom:50%;" /></p>
-<p>第一幅图是使用ICNN进行的仿真所画的等高线，等高线的数值从内到外分别是<span class="math inline">\([0.150, 0.300, 0.450, 0.600, 0.750]\)</span>，可以看出其凸的性质很强，对于inference来说，需要求解的是一个凸优化问题。</p>
-<p>第二幅图是使用NN进行的仿真所画出的等高线，等高线的数值从内到外分别是<span class="math inline">\([0.150, 0.300, 0.450, 0.600, 0.750]\)</span>，可以看出其非凸的性质很明显，若对于复杂问题，非凸优化容易陷入局部最优，且没有全局最优解的保证，而ICNN，使用gradient descent即有全局最优解的保证和证明。</p>
-<h2 id="未来展望">未来展望</h2>
-<p>ICNN是一种2016年提出来的新型的神经网络结构，用于解决传统的神经网络难以inference的问题，同时，经过仿真验证，ICNN的拟合能力损失不大。不过经过检索，使用ICNN结构的发表在期刊上只有几篇文章，有很多篇都是发表在了会议上(ICML)，主要都是将ICML结合到特定的应用场景中。</p>
-<p>《Data-Driven Solution for Optimal Pumping Units Scheduling of Smart Water Conservancy， 2020》这篇文章中作者在最后的展望中提到了”Additional effort is also needed to develop data-driven or learning-based models with convex characteristics of input–output dynamic relation, e.g., the input convex neural network that is able to model the convex optimization problem and obtain the optimal control solutions.“</p>
-]]></content>
-      <categories>
-        <category>神经网络</category>
-      </categories>
-      <tags>
-        <tag>神经网络</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tensorflow tutorial</title>
     <url>/2019/11/01/Tensorflow-tutorial/</url>
     <content><![CDATA[<p>This tutorial will provide a brief overview of the core concepts and functionality of Tensorflow. This tutorial will cover the following:</p>
@@ -4331,6 +4205,132 @@ layer_2/b2:0</code></pre>
       </categories>
       <tags>
         <tag>Tensorflow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Input Convex Neural Network复现及仿真验证</title>
+    <url>/2021/03/02/Input_convex_neural_network%E5%A4%8D%E7%8E%B0%E5%8F%8A%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/</url>
+    <content><![CDATA[<p>《Input Convex Neural Networks》</p>
+<p>《Optimal Control Via Neural Networks: A Convex Approach》</p>
+<p>对于复杂系统的控制往往分为两步，对系统的辨识和控制器的设计。 深度神经网络被证明在辨识任务中取得了重大成功，但是，由于这些辨识出来的系统往往是非线性和非凸的，其控制器很难设计，所以，实际系统往往还是用线性模型去逼近，尽管这些线性模型的拟合能力很弱，因此，往往设计出来的控制器的性能都不行。</p>
+<p>这两篇文章，主要提出了ICNN及其改进网络结构，ICNN的特点就是对于输入是凸的，第一篇文章主要提出了ICNN这一网络结构，通过将神经网络的前向通道中的权重设置为非负值，这一简单的改变，就可以将神经网络变为输入凸的，且该网络的拟合能力并为受到较大的影响。</p>
+<p>这篇文章主要完成3点：</p>
+<ol type="1">
+<li>复现ICNN，原版的ICNN是用tensorflow写的，代码不全，且使用了较老的库版本，运行不了，在此采用pytorch进行复现出一个通用程序。</li>
+<li>对于一个给定的函数：<span class="math inline">\(y=3x_1^2+4x_2^2\)</span>，利用普通的DNN，和ICNN进行对比，验证ICNN的拟合能力（验证的过程使用相同的网络层数，每层的节点数，学习率等参数）。</li>
+<li>对于《Input Convex Neural Networks》中的simulation中的synthetic 2D example和《Optimal Control Via Neural Networks: A Convex Approach》中的APPENDIX中的Toy Example分别进行复现及仿真验证。</li>
+</ol>
+<a id="more"></a>
+<h2 id="icnn原理及证明">ICNN原理及证明</h2>
+<h3 id="icnn网络结构">ICNN网络结构</h3>
+<p><img src="image-20210302145927461.png" /></p>
+<p><span class="math display">\[z_{i+1}=g_{i}\left(W_{i}^{(z)} z_{i}+W_{i}^{(y)} y+b_{i}\right), \quad f(y ; \theta)=z_{k}\]</span>，</p>
+<p>Figure1是全连接的凸的，k层ICNN，记为：FICNN，令输入记为：<span class="math inline">\(y\)</span>，<span class="math inline">\(z_i\)</span>记为每一个激活函数的输出，<span class="math inline">\(\theta\)</span>记为所有的参数：<span class="math inline">\(\theta=\left\{W_{0: k-1}^{(y)}, W_{1: k-1}^{(z)}, b_{0: k-1}\right\}\)</span>，<span class="math inline">\(g_i\)</span>是非线性激活函数，网络凸的性质的主要结果如下：</p>
+<p><strong><em>结论</em></strong>：<strong>函数<span class="math inline">\(f\)</span>对于<span class="math inline">\(y\)</span>是凸函数，当所有的<span class="math inline">\(W_{1: k-1}^{(z)}\)</span>是非负，且所有的<span class="math inline">\(g_i\)</span>是凸的非增函数</strong></p>
+<p><strong><em>分析：</em></strong></p>
+<ol type="1">
+<li><p>ICNN网络结构中，从输入直接传递到隐含层的叫"passthrough"，这样的连接在传统的前馈神经网络中是没有必要的，因为前面的神经网络的层的信息总是会被映射到下一个神经网络层中，但是在ICNN中，由于<span class="math inline">\(W^{(z)}\)</span>被限制为非负，所以导致拟合能力下降，且前面网络的信息无法被传递到下一个层中，因此，需要使用额外的passthrough。</p></li>
+<li><p>对于<span class="math inline">\(b_i\)</span>来说，放到前向传播中，或者passthrough中，都是等价的。</p></li>
+<li><p>passthrough中的weight和bias都是可以为负的，没有限制。</p></li>
+</ol>
+<h3 id="icnn输入凸的证明">ICNN输入凸的证明</h3>
+<p>定义：给定函数<span class="math inline">\(f: \mathbb{R}^{d} \rightarrow \mathbb{R}\)</span>，当<span class="math inline">\(x\)</span>在整个定义域中，都满足<span class="math inline">\(|f(\mathbf{x})-\hat{f}(\mathbf{x})| \leq \varepsilon\)</span>，那么，就说函数<span class="math inline">\(\hat{f}\)</span>可以以精度<span class="math inline">\(\varepsilon\)</span>逼近函数<span class="math inline">\(f\)</span>。</p>
+<p>定理：对于任何在某个紧集上的Lipshchitz凸的连续函数，存在一个神经网络，其权重是非负的，且激活函数使用的是Relu函数，来满足定义1中的定义。</p>
+<p>引理：给定一个连续的Lipschitz函数<span class="math inline">\(f: \mathbb{R}^{d} \rightarrow \mathbb{R}\)</span>，它可以被一系列仿射函数的最大值所表示，即，存在<span class="math inline">\(\hat{f}(\mathbf{x})=\max _{i=1, \ldots, N}\left\{\mu_{\mathbf{i}}^{T} \mathbf{x}+b_{i}\right\}\)</span>，使得对于所有的<span class="math inline">\(x\)</span>，满足<span class="math inline">\(|f(\mathbf{x})-\hat{f}(\mathbf{x})| \leq \varepsilon\)</span></p>
+<p>证明过程：</p>
+<p>主要采用了两个凸优化中基本的定理：</p>
+<ol type="1">
+<li>凸函数的非负先行组合还是凸函数</li>
+<li>凸函数和凸的非减的函数还是凸函数</li>
+</ol>
+<p>证明是通过构造性的证明，我们先构建一个神经网络，使用Relu函数，其权重有正有负，然后通过构造负的输入，可以将该神经网络不同层之间的权重可以限制为非负。</p>
+<p>证明的思路是首先证明一个凸函数可以使用一系列仿射函数的最大值表示（凸优化中的结论），然后将该最大值用神经网络的形式进行表示（这两篇文章的工作），换句话说，这两篇文章就是证明了这样的神经网络可以转换为一系列仿射函数的最大值。</p>
+<p><strong>证明：</strong></p>
+<p>首先考虑两个仿射函数的最大值：</p>
+<p><span class="math display">\[f_{C P L}(\mathbf{x})=\max \left\{\mathbf{a}_{1}^{T} \mathbf{x}+b_{1}, \mathbf{a}_{2}^{T} \mathbf{x}+b_{2}\right\}\]</span></p>
+<p>我们的目标是将这个最大值，用神经网络来表示，将其重写为：</p>
+<p><span class="math display">\[f_{C P L}(x)=\left(\mathbf{a}_{2}^{T} \mathbf{x}+b_{2}\right)+\max \left(\left(\mathbf{a}_{1}-\mathbf{a}_{2}\right)^{T} \mathbf{x}+\left(b_{1}-b_{2}\right), 0\right)\]</span></p>
+<p>现在定义一个2层的神经网络：</p>
+<p><img src="image-20210305145917956.png" /></p>
+<p>其中，<span class="math inline">\(W_1\)</span>表示第一层的权重<span class="math inline">\(\mathbf{a}_{1}-\mathbf{a}_{2}\)</span>以及bias<span class="math inline">\(b_{1}-b_{2}\)</span>，<span class="math inline">\(W_2\)</span>表示为第二层，<span class="math inline">\(D_2\)</span>表示passthrough，其权重为<span class="math inline">\(a_2\)</span>，bias为<span class="math inline">\(b_2\)</span>。</p>
+<p>上面的定义可以直接扩展到<span class="math inline">\(K\)</span>个线性函数的情形：</p>
+<p><span class="math display">\[f_{C P L}(\mathbf{x})=\max \left\{\mathbf{a}_{1}^{T} \mathbf{x}+b_{1}, \ldots, \mathbf{a}_{K}^{T} \mathbf{x}+b_{K}\right\}\]</span></p>
+<p>将<span class="math inline">\(f_{C P L}(\mathbf{x})\)</span>写成一个嵌套的最大值的仿射函数的最大值，为了简化表示，将<span class="math inline">\(L_{i}=\mathbf{a}_{i}^{T} \mathbf{x}+b_{i}, L_{i}^{\prime}=L_{i}-L_{i+1}\)</span>，然后： <span class="math display">\[
+\begin{aligned}
+f_{C P L} &amp;=\max \left\{L_{1}, L_{2}, \ldots, L_{K}\right\} \\
+&amp;=\max \left\{\max \left\{L_{1}, L_{2}, \ldots, L_{K-1}\right\}, L_{K}\right\} \\
+&amp;=L_{K}+\sigma\left(\max \left\{L_{1}, L_{2}, \ldots, L_{K-1}\right\}-L_{K}\right) \\
+&amp;=L_{K}+\sigma\left(\max \left\{\max \left\{L_{1}, L_{2}, \ldots, L_{K-2}\right\}, L_{K-1}\right\}-L_{K}, 0\right) \\
+&amp;=L_{K}+\sigma\left(L_{K-1}-L_{K}+\sigma\left(\max \left\{L_{1}, L_{2}, \ldots, L_{K-2}\right\}-L_{K-1}, 0\right), 0\right) \\
+&amp;=\ldots \\
+&amp;=L_{K}+\sigma\left(L_{K-1}^{\prime}+\sigma\left(L_{K-2}^{\prime}+\sigma\left(\ldots \sigma\left(L_{2}^{\prime}+\sigma\left(L_{1}-L_{2}, 0\right), 0\right), \ldots, 0\right), 0\right), 0\right) .
+\end{aligned}
+\]</span> 最后一行表示的其实是一个<span class="math inline">\(K\)</span>层的神经网络，其每一层分别是： <span class="math display">\[
+\begin{aligned}
+&amp;z_{1}=\sigma\left(L_{1}-L_{2}, 0\right)=\sigma\left(\left(\mathbf{a}_{1}-\mathbf{a}_{2}\right)^{T} \mathbf{x}+\left(b_{1}-b_{2}\right)\right)\\
+&amp;z_{2}=\sigma\left(L_{2}^{\prime}+z_{1}, 0\right)=\sigma\left(z_{1}+\left(\mathbf{a}_{2}-\mathbf{a}_{3}\right)^{T} \mathbf{x}+\left(b_{2}-b_{3}\right)\right)\\
+&amp;\ldots \ldots\\
+&amp;z_{i}=\sigma\left(L_{i}^{\prime}+z_{i-1}, 0\right)=\sigma\left(z_{i-1}+\left(\mathbf{a}_{i}-\mathbf{a}_{i+1}\right)^{T} \mathbf{x}+\left(b_{i}-b_{i+1}\right)\right)\\
+&amp;\ldots \ldots\\
+&amp;z_{K}=z_{K-1}+L_{K}=h_{K}\left(z_{K-1}+L_{K}\right)=\left(z_{K-1}+\mathbf{a}_{K}^{T} \mathbf{x}+b_{K}\right)
+\end{aligned}
+\]</span> 尽管该神经网络可以用来表示仿射函数的最大值，但是它不是凸的，因为其系数可正可负，而且，每一层都包含了一个权重和输入的内积 <span class="math inline">\(\left(\mathbf{a}_{i}-\mathbf{a}_{i+1}\right)^{T} \mathbf{x}\)</span>，系数未必是非负的，为了解决这个问题，将输入<span class="math inline">\(x\)</span>扩展为<span class="math inline">\([x, -x]\)</span>，即： <span class="math display">\[
+\hat{\mathbf{x}}=\left[\begin{array}{c}
+\mathbf{x} \\
+-\mathbf{x}
+\end{array}\right]
+\]</span> <span class="math inline">\(\mathbf{h}^{T} \mathbf{x}\)</span>的内积可以表示为： <span class="math display">\[
+\begin{aligned}
+\mathbf{h}^{T} \mathbf{x} &amp;=\sum_{j=1}^{d} h_{i} x_{i} \\
+&amp;=\sum_{i: h_{i} \geq 0} h_{i} x_{i}+\sum_{i: h_{i}&lt;0} h_{i} x_{i} \\
+&amp;=\sum_{i: h_{i} \geq 0} h_{i} x_{i}+\sum_{i: h_{i}&lt;0}\left(-h_{i}\right)\left(-x_{i}\right) \\
+&amp;=\sum_{i: h_{i} \geq 0} h_{i} \hat{x}_{i}+\sum_{i: h_{i}&lt;0}\left(-h_{i}\right)\left(\hat{x}_{i+d}\right)
+\end{aligned}
+\]</span> 其所有的系数都是非负的。</p>
+<p>因此任何系数矩阵和输入向量的内积都可以写成一个非负系数矩阵和扩展输入<span class="math inline">\(\hat{\mathbf{x}}\)</span>的内积，因此，为了不失去一般性，可以限制每一层的权重都是非负的，这样的神经网络则是输入凸的。</p>
+<h2 id="icnn基本结构pytorch复现">ICNN基本结构Pytorch复现</h2>
+<h2 id="y3x_124x_22仿真算例"><span class="math inline">\(y=3x_1^2+4x_2^2\)</span>仿真算例</h2>
+<p>仿真算例：<span class="math inline">\(y=3x_1^2+4x_2^2\)</span></p>
+<p><img src="image-20210302152548355.png" /></p>
+<h3 id="训练数据生成">训练数据生成</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>在-5, 5中随机采样1000个数据点</p>
+<p>验证方法：对单个目标进行验证时，当输入是[2, 2]时，理论输出应该是[28]，同时，输出其MSE的数值并画出其图片。</p>
+<h3 id="对比其拟合能力">对比其拟合能力：</h3>
+<h4 id="普通神经网络的拟合能力">普通神经网络的拟合能力</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Model</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">  <span class="string">'''</span></span><br><span class="line"><span class="string">  定义普通全连结神经网络模型</span></span><br><span class="line"><span class="string">  '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n_feature=<span class="number">2</span>, n_hidden=<span class="number">4</span>, n_output=<span class="number">1</span>, nGdIter=<span class="number">30</span>)</span>:</span></span><br><span class="line">        super(Model, self).__init__()</span><br><span class="line">        self.input_layer = nn.Linear(n_feature, n_hidden)</span><br><span class="line">        self.hidden_layer = nn.Linear(n_hidden, n_hidden)</span><br><span class="line">        self.output_layer = nn.Linear(n_hidden, n_output)</span><br><span class="line">        self.act = nn.ReLU()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x = self.input_layer(x)</span><br><span class="line">        x = self.act(x)</span><br><span class="line">        x = self.hidden_layer(x)</span><br><span class="line">        x = self.act(x)</span><br><span class="line">        x = self.output_layer(x)</span><br><span class="line">        <span class="comment"># 输出层加上了relu激活函数后会导致很难收敛</span></span><br><span class="line">        <span class="comment">#x = self.act(x)</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_noncvx_network</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 构造虚拟数据用于训练：y=3x1^2+4x2^2</span></span><br><span class="line">    x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">    x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">    x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">    x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">    y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br><span class="line">    model = NonCvxModel(n_feature=<span class="number">2</span>, n_hidden=<span class="number">200</span>, n_output=<span class="number">1</span>)</span><br><span class="line">    criterion = torch.nn.MSELoss(reduction=<span class="string">'sum'</span>)</span><br><span class="line">    learning_rate = <span class="number">1e-3</span></span><br><span class="line">    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)</span><br><span class="line">    terminate_threshold = <span class="number">1e-5</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">        y_pred = model(x)</span><br><span class="line">        loss = criterion(y_pred, y)/y.size()[<span class="number">0</span>]</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">500</span> == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"当前正在训练第&#123;&#125;次， 损失是&#123;&#125;"</span>.format(i, loss.item()))</span><br><span class="line">            test_model(model)</span><br><span class="line">        <span class="keyword">if</span> loss.item()&lt;terminate_threshold:</span><br><span class="line">            print(<span class="string">"训练满足精度要求，训练了&#123;&#125;次。"</span>.format(i))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">0     500  29.005009</span><br><span class="line">1    1000   5.884062</span><br><span class="line">2    1500   1.050613</span><br><span class="line">3    2000   0.301482</span><br><span class="line">4    2500   0.141028</span><br><span class="line">5    3000   0.078763</span><br><span class="line">6    3500   0.048814</span><br><span class="line">7    4000   0.030913</span><br><span class="line">8    4500   0.021231</span><br><span class="line">9    5000   0.016060</span><br><span class="line">10   5500   0.012875</span><br><span class="line">11   6000   0.010986</span><br><span class="line">12   6500   0.009771</span><br><span class="line">13   7000   0.008564</span><br><span class="line">14   7500   0.007799</span><br><span class="line">15   8000   0.009830</span><br><span class="line">16   8500   0.046179</span><br><span class="line">17   9000   0.006437</span><br><span class="line">18   9500   0.013724</span><br><span class="line">19  10000   0.005822</span><br><span class="line">20  10500   0.005917</span><br><span class="line">21  11000   0.005384</span><br><span class="line">22  11500   0.005134</span><br><span class="line">23  12000   0.030397</span><br><span class="line">24  12500   0.005959</span><br><span class="line">25  13000   0.004671</span><br><span class="line">26  13500   0.004517</span><br><span class="line">27  14000   0.004421</span><br><span class="line">28  14500   0.004290</span><br><span class="line">29  15000   0.008322</span><br><span class="line">30  15500   0.019044</span><br><span class="line">31  16000   0.011500</span><br><span class="line">32  16500   0.003893</span><br><span class="line">33  17000   0.003794</span><br><span class="line">34  17500   0.003694</span><br><span class="line">35  18000   0.004458</span><br><span class="line">36  18500   0.003805</span><br><span class="line">37  19000   0.003468</span><br><span class="line">38  19500   0.008987</span><br><span class="line">39  20000   0.003343</span><br><span class="line">40  20500   0.003368</span><br><span class="line">41  21000   0.007225</span><br><span class="line">42  21500   0.003226</span><br><span class="line">43  22000   0.003124</span><br><span class="line">44  22500   0.003073</span><br><span class="line">45  23000   0.002998</span><br><span class="line">46  23500   0.025686</span><br><span class="line">47  24000   0.003000</span><br><span class="line">48  24500   0.002887</span><br><span class="line">49  25000   0.002838</span><br><span class="line">50  25500   0.002903</span><br><span class="line">51  26000   0.002845</span><br><span class="line">52  26500   0.004229</span><br><span class="line">53  27000   0.002733</span><br><span class="line">54  27500   0.008934</span><br><span class="line">55  28000   0.012964</span><br><span class="line">56  28500   0.018379</span><br><span class="line">57  29000   0.011293</span><br><span class="line">58  29500   0.007785</span><br><span class="line">59  30000   0.002500</span><br><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第30000次， 损失是0.002500230213627219</span><br><span class="line">模型预测的数值是： tensor([27.9667], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
+<p><img src="image-20210302162912494.png" alt="image-20210302162912494" style="zoom:50%;" /></p>
+<h4 id="icnn的拟合能力">ICNN的拟合能力</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CvxModel</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        输入凸神经网络结构定义</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n_feature=<span class="number">2</span>, n_hidden=<span class="number">4</span>, n_output=<span class="number">1</span>, nGdIter=<span class="number">30</span>)</span>:</span></span><br><span class="line">        super(CvxModel, self).__init__()</span><br><span class="line">        self.input_layer = nn.Linear(n_feature, n_hidden, bias=<span class="literal">False</span>)</span><br><span class="line">        self.hidden_layer = nn.Linear(n_hidden, n_hidden, bias=<span class="literal">False</span>)</span><br><span class="line">        self.output_layer = nn.Linear(n_hidden, n_output, bias=<span class="literal">False</span>)</span><br><span class="line">        self.passthrough_layer = nn.Linear(n_feature, n_hidden)</span><br><span class="line">        self.passthrough_output_layer = nn.Linear(n_feature, n_output)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        zx1 = F.relu(self.input_layer(x))</span><br><span class="line">        pass1 = self.passthrough_layer(x)</span><br><span class="line">        pass2 = self.passthrough_output_layer(x)</span><br><span class="line">        zx2 = F.relu(self.hidden_layer(zx1) + pass1)</span><br><span class="line">        zx3 = self.output_layer(zx2) + pass2</span><br><span class="line">        <span class="keyword">return</span> zx3</span><br><span class="line">      </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">weightConstraint</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        对一个特定的层的weight进行参数限制</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, module)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> hasattr(module, <span class="string">'weight'</span>):</span><br><span class="line">            w = module.weight.data</span><br><span class="line">            w = w.clamp(<span class="number">0.0</span>, <span class="number">100.0</span>)</span><br><span class="line">            module.weight.data = w</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当对权重有非负的限制时，训练神经网络</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train_with_constrains</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 先对参数进行限制到[-1, 1]进行仿真验证</span></span><br><span class="line">    <span class="comment"># 构造虚拟数据用于训练：y=3x1^2+4x2^2</span></span><br><span class="line">    x1 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)+torch.rand(<span class="number">1</span>)</span><br><span class="line">    x2 = torch.linspace(<span class="number">-5</span>, <span class="number">5</span>, steps=<span class="number">300</span>)-torch.rand(<span class="number">1</span>)</span><br><span class="line">    x = [torch.tensor([np.random.choice(x1), np.random.choice(x2)]).unsqueeze(<span class="number">0</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">    x = torch.cat(x, dim=<span class="number">0</span>)</span><br><span class="line">    y = (<span class="number">3</span>*x[:, <span class="number">0</span>]**<span class="number">2</span> + <span class="number">4</span>*x[:, <span class="number">1</span>]**<span class="number">2</span>).unsqueeze(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    model = CvxModel(n_feature=<span class="number">2</span>, n_hidden=<span class="number">200</span>, n_output=<span class="number">1</span>)</span><br><span class="line">    constraints = weightConstraint()</span><br><span class="line">    criterion = torch.nn.MSELoss(reduction=<span class="string">'sum'</span>)</span><br><span class="line">    learning_rate = <span class="number">1e-3</span></span><br><span class="line">    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)</span><br><span class="line">    terminate_threshold = <span class="number">1e-5</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">        y_pred = model(x)</span><br><span class="line">        loss = criterion(y_pred, y)/y.size()[<span class="number">0</span>]</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        model._modules[<span class="string">'input_layer'</span>].apply(constraints)</span><br><span class="line">        model._modules[<span class="string">'hidden_layer'</span>].apply(constraints)</span><br><span class="line">        model._modules[<span class="string">'output_layer'</span>].apply(constraints)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">500</span> == <span class="number">0</span>:</span><br><span class="line">            print(<span class="string">"当前正在训练第&#123;&#125;次， 损失是&#123;&#125;"</span>.format(i, loss.item()))</span><br><span class="line">            test_model(model)</span><br><span class="line">            weight_print(model)</span><br><span class="line">        <span class="keyword">if</span> loss.item()&lt;terminate_threshold:</span><br><span class="line">            print(<span class="string">"训练满足精度要求，训练了&#123;&#125;次。"</span>.format(i))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">0     500  250.070984</span><br><span class="line">1    1000  140.255447</span><br><span class="line">2    1500   67.511780</span><br><span class="line">3    2000   28.515696</span><br><span class="line">4    2500   13.275652</span><br><span class="line">5    3000    7.189941</span><br><span class="line">6    3500    4.197995</span><br><span class="line">7    4000    2.512518</span><br><span class="line">8    4500    1.544901</span><br><span class="line">9    5000    0.974513</span><br><span class="line">10   5500    0.637949</span><br><span class="line">11   6000    0.421706</span><br><span class="line">12   6500    0.279455</span><br><span class="line">13   7000    0.605793</span><br><span class="line">14   7500    0.140771</span><br><span class="line">15   8000    0.100952</span><br><span class="line">16   8500    0.072434</span><br><span class="line">17   9000    0.065805</span><br><span class="line">18   9500    0.046082</span><br><span class="line">19  10000    0.035448</span><br><span class="line">20  10500    0.027883</span><br><span class="line">21  11000    0.035439</span><br><span class="line">22  11500    0.020767</span><br><span class="line">23  12000    0.017025</span><br><span class="line">24  12500    0.020460</span><br><span class="line">25  13000    0.016357</span><br><span class="line">26  13500    0.013486</span><br><span class="line">27  14000    0.013836</span><br><span class="line">28  14500    0.011874</span><br><span class="line">29  15000    0.019069</span><br><span class="line">30  15500    0.011665</span><br><span class="line">31  16000    0.010154</span><br><span class="line">32  16500    0.011716</span><br><span class="line">33  17000    0.009304</span><br><span class="line">34  17500    0.007975</span><br><span class="line">35  18000    0.007628</span><br><span class="line">36  18500    0.006882</span><br><span class="line">37  19000    0.993199</span><br><span class="line">38  19500    0.006250</span><br><span class="line">39  20000    0.076224</span><br><span class="line">40  20500    0.005728</span><br><span class="line">41  21000    0.005862</span><br><span class="line">42  21500    0.005021</span><br><span class="line">43  22000    0.005911</span><br><span class="line">44  22500    0.005376</span><br><span class="line">45  23000    0.004734</span><br><span class="line">46  23500    0.004461</span><br><span class="line">47  24000    0.004778</span><br><span class="line">48  24500    0.004454</span><br><span class="line">49  25000    0.004859</span><br><span class="line">50  25500    0.004430</span><br><span class="line">51  26000    0.004365</span><br><span class="line">52  26500    0.004022</span><br><span class="line">53  27000    0.044836</span><br><span class="line">54  27500    0.003724</span><br><span class="line">55  28000    0.003986</span><br><span class="line">56  28500    0.003676</span><br><span class="line">57  29000    0.003535</span><br><span class="line">58  29500    0.003660</span><br><span class="line">59  30000    0.003258</span><br><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第30000次， 损失是0.00325777824036777</span><br><span class="line">模型预测的数值是： tensor([28.0241], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
+<p><img src="image-20210302162929557.png" alt="image-20210302162929557" style="zoom:50%;" /></p>
+<p>可以看出，在使用相同adam优化器参数的条件下，DNN相比ICNN，优化的速度更快。</p>
+<p>而当将adam优化器的参数从<span class="math inline">\(1e-3\)</span>改变为<span class="math inline">\(1e-2\)</span>后，仿真结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第500次， 损失是4.0928754806518555</span><br><span class="line">模型预测的数值是： tensor([26.7256], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
+<p>对于上面所仿真的普通的DNN，若将其adam优化器同时改变之后，仿真结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">##################################################</span></span><br><span class="line">当前正在训练第500次， 损失是0.12059637159109116</span><br><span class="line">模型预测的数值是： tensor([28.0837], grad_fn=&lt;AddBackward0&gt;)</span><br><span class="line">实际的真实数值是： tensor([28.])</span><br><span class="line"><span class="comment">##################################################</span></span><br></pre></td></tr></table></figure>
+<p>Adam优化器的参数对于网络的训练有着很大的影响，经过实验仿真可得：传统的DNN和ICNN都能找到一组Adam优化器参数，使得其训练效果较好。</p>
+<h2 id="原始论文中的仿真验证的复现">原始论文中的仿真验证的复现</h2>
+<p>第二篇论文中给出了一个二分类问题的仿真，二维输入变量，每一个维度的范围是<span class="math inline">\([-1, 1]\)</span>，输出是<span class="math inline">\(\{0, 1\}\)</span>两个类别，随机生成的内外两个圆的坐标数据。内层的圆的标签是<span class="math inline">\(0\)</span>，外层圆的标签是<span class="math inline">\(1\)</span>，假设我们的控制器的目标是想找到一个控制输入<span class="math inline">\(u\)</span>，使得输出<span class="math inline">\(y\)</span>为<span class="math inline">\(0\)</span>的可能性最大，优化问题可以分两步解决，首先，学习出一个从<span class="math inline">\(u\)</span>到<span class="math inline">\(y\)</span>神经网络分类器，然后找到控制输入<span class="math inline">\(u\)</span>使得神经网络的输出最小。</p>
+<p><img src="image-20210305151555930.png" /></p>
+<p>上图显示了普通NN和ICNN的决策边界，网络包含两层隐藏层，每一层有200个神经元，左边的图显示出了传统的神经网络，会有许多的之字形的的边界，也就是意味着决策是非凸的，所以优化的时候会存在许多局部最优值，而右边的图显示了ICNN的决策边界，可以看出，优化决策是一个凸优化问题，可以找到全局最优解。</p>
+<p>由于原始论文中未给出原始的代码，所以本文使用PyTorch进行了复现仿真对比。</p>
+<p><img src="image-20210305192857644.png" alt="image-20210305192857644" style="zoom:50%;" /></p>
+<p><img src="image-20210305193104826.png" alt="image-20210305193104826" style="zoom:50%;" /></p>
+<p>第一幅图是使用ICNN进行的仿真所画的等高线，等高线的数值从内到外分别是<span class="math inline">\([0.150, 0.300, 0.450, 0.600, 0.750]\)</span>，可以看出其凸的性质很强，对于inference来说，需要求解的是一个凸优化问题。</p>
+<p>第二幅图是使用NN进行的仿真所画出的等高线，等高线的数值从内到外分别是<span class="math inline">\([0.150, 0.300, 0.450, 0.600, 0.750]\)</span>，可以看出其非凸的性质很明显，若对于复杂问题，非凸优化容易陷入局部最优，且没有全局最优解的保证，而ICNN，使用gradient descent即有全局最优解的保证和证明。</p>
+<h2 id="未来展望">未来展望</h2>
+<p>ICNN是一种2016年提出来的新型的神经网络结构，用于解决传统的神经网络难以inference的问题，同时，经过仿真验证，ICNN的拟合能力损失不大。不过经过检索，使用ICNN结构的发表在期刊上只有几篇文章，有很多篇都是发表在了会议上(ICML)，主要都是将ICML结合到特定的应用场景中。</p>
+<p>《Data-Driven Solution for Optimal Pumping Units Scheduling of Smart Water Conservancy， 2020》这篇文章中作者在最后的展望中提到了”Additional effort is also needed to develop data-driven or learning-based models with convex characteristics of input–output dynamic relation, e.g., the input convex neural network that is able to model the convex optimization problem and obtain the optimal control solutions.“</p>
+]]></content>
+      <categories>
+        <category>神经网络</category>
+      </categories>
+      <tags>
+        <tag>神经网络</tag>
       </tags>
   </entry>
   <entry>
