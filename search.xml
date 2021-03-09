@@ -34,6 +34,20 @@
       </tags>
   </entry>
   <entry>
+    <title>Flask项目结构</title>
+    <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>拥有良好的项目结构对于开发与维护有着巨大的作用</strong> <a id="more"></a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects$ tree</span><br><span class="line">.</span><br><span class="line">`-- ProjectName</span><br><span class="line">    |-- app                      # 整个程序的包目录</span><br><span class="line">    |   |-- config.py                # 配置文件</span><br><span class="line">    |   |-- email.py                 # 邮件发送</span><br><span class="line">    |   |-- extensions.py            # 各种扩展</span><br><span class="line">    |   |-- forms                    # 表单文件</span><br><span class="line">    |   |-- models                   # 数据模型</span><br><span class="line">    |   |-- static                   # 静态资源文件</span><br><span class="line">    |   |   |-- css                      # 样式表</span><br><span class="line">    |   |   |-- img                      # 图片</span><br><span class="line">    |   |   `-- js                       # JS脚本</span><br><span class="line">    |   |-- templates                # 模板文件</span><br><span class="line">    |   |   |-- common                   # 通用模板</span><br><span class="line">    |   |   |-- email                    # 邮件发送</span><br><span class="line">    |   |   |-- errors                   # 错误页面</span><br><span class="line">    |   |   |-- posts                    # 帖子模板</span><br><span class="line">    |   |   `-- user                     # 用户模板</span><br><span class="line">    |   `-- views                    # 视图文件</span><br><span class="line">    |-- manage.py                    # 项目启动控制文件</span><br><span class="line">    |-- migrations                   # 数据库迁移目录</span><br><span class="line">    |-- requirements.txt             # 依赖包的列表</span><br><span class="line">    `-- tests                        # 测试单元</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>How to reading scientific papers</title>
     <url>/2019/07/09/How-to-reading-scientific-papers/</url>
     <content><![CDATA[<h1 id="step1-choose-the-paper">STEP1: Choose the paper</h1>
@@ -70,20 +84,6 @@
       </categories>
       <tags>
         <tag>scientific papers</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Flask项目结构</title>
-    <url>/2018/09/23/Flask%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<blockquote>
-<p><strong>拥有良好的项目结构对于开发与维护有着巨大的作用</strong> <a id="more"></a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">boss@boss-N501JW:~/Desktop/projects$ tree</span><br><span class="line">.</span><br><span class="line">`-- ProjectName</span><br><span class="line">    |-- app                      # 整个程序的包目录</span><br><span class="line">    |   |-- config.py                # 配置文件</span><br><span class="line">    |   |-- email.py                 # 邮件发送</span><br><span class="line">    |   |-- extensions.py            # 各种扩展</span><br><span class="line">    |   |-- forms                    # 表单文件</span><br><span class="line">    |   |-- models                   # 数据模型</span><br><span class="line">    |   |-- static                   # 静态资源文件</span><br><span class="line">    |   |   |-- css                      # 样式表</span><br><span class="line">    |   |   |-- img                      # 图片</span><br><span class="line">    |   |   `-- js                       # JS脚本</span><br><span class="line">    |   |-- templates                # 模板文件</span><br><span class="line">    |   |   |-- common                   # 通用模板</span><br><span class="line">    |   |   |-- email                    # 邮件发送</span><br><span class="line">    |   |   |-- errors                   # 错误页面</span><br><span class="line">    |   |   |-- posts                    # 帖子模板</span><br><span class="line">    |   |   `-- user                     # 用户模板</span><br><span class="line">    |   `-- views                    # 视图文件</span><br><span class="line">    |-- manage.py                    # 项目启动控制文件</span><br><span class="line">    |-- migrations                   # 数据库迁移目录</span><br><span class="line">    |-- requirements.txt             # 依赖包的列表</span><br><span class="line">    `-- tests                        # 测试单元</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>flask</category>
-      </categories>
-      <tags>
-        <tag>flask</tag>
       </tags>
   </entry>
   <entry>
@@ -483,6 +483,44 @@ Box(4,)</code></pre>
 ]]></content>
   </entry>
   <entry>
+    <title>Python配置虚拟环境</title>
+    <url>/2018/09/16/Python%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<blockquote>
+<p>Python的开发过程中往往会遇到<strong>不同库</strong>存在<strong>不同版本</strong>的问题，例如我使用flask框架开发一个网站，A网站可能会使用<strong>flask 1.0</strong>，B网站可能会使用<strong>flask 2.0</strong>， 那么如何在电脑上进行配置，可以很方便的对开发环境进行<strong><em>隔离</em></strong>呢？这就要用到本文介绍的工具了</p>
+</blockquote>
+<blockquote>
+<p>VirtualEnv可以搭建虚拟且独立的python运行环境,使得单个项目的运行环境与其它项目独立起来。同时也可以用于在一台机器上创建多个独立的python运行环境，<strong><em>VirtualEnvWrapper为前者提供了一些便利的命令行上的封装</em></strong>。</p>
+</blockquote>
+<blockquote>
+<p>Virtualenv是一个非常好的virtual python environment builder，他最大的好处是，可以让每一个python项目单独使用一个环境，而不会影响python系统环境，也不会影响其他项目的环境。</p>
+</blockquote>
+<blockquote>
+<p>Virtualenv可用于创建独立的Python环境，在这些环境里面可以选择不同的Python版本或者不同的Packages，并且可以在没有root权限的情况下在环境里安装新套件，互相不会产生任何的影响。 <a id="more"></a> # virtualenv virtualenv是个采用python开发的包，可以使用pip安装： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure> 在工作目录下创建虚拟环境，注意需要自定义虚拟环境的名字 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">~$virtualenv TestEnv</span><br><span class="line">New python executable in ~/TestEnv/bin/python</span><br><span class="line">Installing setuptools, pip, wheel...done.</span><br></pre></td></tr></table></figure> 默认情况下，虚拟环境中不包括系统的site-packages, 若要使用请添加参数: <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">语法：virtualenv --system-site-packages TestEnv</span><br></pre></td></tr></table></figure> 使用virtualenv默认python版本创建虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">语法：virtualenv --no-site-packages ubuntu_env</span><br></pre></td></tr></table></figure> 该命令在当前目录创建一个env目录(虚拟环境名称，这个文件夹就是保存 Python 虚拟环境)，你会注意到，virtualenv会把python，setuptools和pip给你安装上。</p>
+</blockquote>
+<p><strong><em>这里virtualenv 有些不便，因为virtual的启动、停止脚本都在特定文件夹，可能一段时间后，你可能会有很多个虚拟环境散落在系统各处，你可能忘记它们的名字或者位置。</em></strong></p>
+<h1 id="virtualenvwrapper">virtualenvwrapper</h1>
+<p>鉴于virtualenv不便于对虚拟环境集中管理，所以推荐直接使用virtualenvwrapper。 virtualenvwrapper提供了一系列命令使得和虚拟环境工作变得便利。它把你所有的虚拟环境都放在一个地方。</p>
+<h3 id="安装virtualenvwrapper确保virtualenv已安装">安装virtualenvwrapper(确保virtualenv已安装)</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install virtualenvwrapper</span><br><span class="line">pip install virtualenvwrapper-win　　#Windows使用该命令</span><br></pre></td></tr></table></figure>
+<h3 id="安装完成后在.bashrc写入以下内容">安装完成后，在~/.bashrc写入以下内容</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export WORKON_HOME=~/Envs</span><br><span class="line">source /usr/local/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
+<ol type="1">
+<li>第一行：virtualenvwrapper存放虚拟环境目录</li>
+<li>第二行：virtrualenvwrapper会安装到python的bin目录下，所以该路径是python安装目录下(注意，ubuntu18.04的安装路径为<strong><code>~/.local/bin/</code></strong>目录下，因此，第二行改为<strong><code>source ~/.local/bin/virtualenvwrapper.sh</code></strong>，其他系统如果不一样清自行查找，否则下一条命令在执行时候会报错！)</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc　　　　#读入配置文件，立即生效</span><br></pre></td></tr></table></figure>
+<h3 id="virtualenvwrapper基本使用">virtualenvwrapper基本使用</h3>
+<p>1 创建虚拟环境 <code>mkvirtualenv</code> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkvirtualenv venv</span><br></pre></td></tr></table></figure> 这样会在WORKON_HOME变量指定的目录下新建名为venv的虚拟环境。 若想指定python版本，可通过"--python"指定python解释器 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkvirtualenv --python=/usr/local/python3.5.3/bin/python venv</span><br></pre></td></tr></table></figure> 2 查看当前的虚拟环境目录 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# workon</span><br><span class="line">py2</span><br><span class="line">py3</span><br></pre></td></tr></table></figure> 3 切换到虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# workon py3</span><br><span class="line">(py3) [root@localhost ~]#</span><br></pre></td></tr></table></figure></p>
+<p>4 退出虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(py3) [root@localhost ~]# deactivate</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure> 5 删除虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rmvirtualenv venv</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Pytorch使用笔记</title>
     <url>/2020/08/14/Pytorch%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<blockquote>
@@ -586,44 +624,6 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </tags>
   </entry>
   <entry>
-    <title>Python配置虚拟环境</title>
-    <url>/2018/09/16/Python%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<blockquote>
-<p>Python的开发过程中往往会遇到<strong>不同库</strong>存在<strong>不同版本</strong>的问题，例如我使用flask框架开发一个网站，A网站可能会使用<strong>flask 1.0</strong>，B网站可能会使用<strong>flask 2.0</strong>， 那么如何在电脑上进行配置，可以很方便的对开发环境进行<strong><em>隔离</em></strong>呢？这就要用到本文介绍的工具了</p>
-</blockquote>
-<blockquote>
-<p>VirtualEnv可以搭建虚拟且独立的python运行环境,使得单个项目的运行环境与其它项目独立起来。同时也可以用于在一台机器上创建多个独立的python运行环境，<strong><em>VirtualEnvWrapper为前者提供了一些便利的命令行上的封装</em></strong>。</p>
-</blockquote>
-<blockquote>
-<p>Virtualenv是一个非常好的virtual python environment builder，他最大的好处是，可以让每一个python项目单独使用一个环境，而不会影响python系统环境，也不会影响其他项目的环境。</p>
-</blockquote>
-<blockquote>
-<p>Virtualenv可用于创建独立的Python环境，在这些环境里面可以选择不同的Python版本或者不同的Packages，并且可以在没有root权限的情况下在环境里安装新套件，互相不会产生任何的影响。 <a id="more"></a> # virtualenv virtualenv是个采用python开发的包，可以使用pip安装： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure> 在工作目录下创建虚拟环境，注意需要自定义虚拟环境的名字 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">~$virtualenv TestEnv</span><br><span class="line">New python executable in ~/TestEnv/bin/python</span><br><span class="line">Installing setuptools, pip, wheel...done.</span><br></pre></td></tr></table></figure> 默认情况下，虚拟环境中不包括系统的site-packages, 若要使用请添加参数: <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">语法：virtualenv --system-site-packages TestEnv</span><br></pre></td></tr></table></figure> 使用virtualenv默认python版本创建虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">语法：virtualenv --no-site-packages ubuntu_env</span><br></pre></td></tr></table></figure> 该命令在当前目录创建一个env目录(虚拟环境名称，这个文件夹就是保存 Python 虚拟环境)，你会注意到，virtualenv会把python，setuptools和pip给你安装上。</p>
-</blockquote>
-<p><strong><em>这里virtualenv 有些不便，因为virtual的启动、停止脚本都在特定文件夹，可能一段时间后，你可能会有很多个虚拟环境散落在系统各处，你可能忘记它们的名字或者位置。</em></strong></p>
-<h1 id="virtualenvwrapper">virtualenvwrapper</h1>
-<p>鉴于virtualenv不便于对虚拟环境集中管理，所以推荐直接使用virtualenvwrapper。 virtualenvwrapper提供了一系列命令使得和虚拟环境工作变得便利。它把你所有的虚拟环境都放在一个地方。</p>
-<h3 id="安装virtualenvwrapper确保virtualenv已安装">安装virtualenvwrapper(确保virtualenv已安装)</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install virtualenvwrapper</span><br><span class="line">pip install virtualenvwrapper-win　　#Windows使用该命令</span><br></pre></td></tr></table></figure>
-<h3 id="安装完成后在.bashrc写入以下内容">安装完成后，在~/.bashrc写入以下内容</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export WORKON_HOME=~/Envs</span><br><span class="line">source /usr/local/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
-<ol type="1">
-<li>第一行：virtualenvwrapper存放虚拟环境目录</li>
-<li>第二行：virtrualenvwrapper会安装到python的bin目录下，所以该路径是python安装目录下(注意，ubuntu18.04的安装路径为<strong><code>~/.local/bin/</code></strong>目录下，因此，第二行改为<strong><code>source ~/.local/bin/virtualenvwrapper.sh</code></strong>，其他系统如果不一样清自行查找，否则下一条命令在执行时候会报错！)</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc　　　　#读入配置文件，立即生效</span><br></pre></td></tr></table></figure>
-<h3 id="virtualenvwrapper基本使用">virtualenvwrapper基本使用</h3>
-<p>1 创建虚拟环境 <code>mkvirtualenv</code> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkvirtualenv venv</span><br></pre></td></tr></table></figure> 这样会在WORKON_HOME变量指定的目录下新建名为venv的虚拟环境。 若想指定python版本，可通过"--python"指定python解释器 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkvirtualenv --python=/usr/local/python3.5.3/bin/python venv</span><br></pre></td></tr></table></figure> 2 查看当前的虚拟环境目录 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# workon</span><br><span class="line">py2</span><br><span class="line">py3</span><br></pre></td></tr></table></figure> 3 切换到虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# workon py3</span><br><span class="line">(py3) [root@localhost ~]#</span><br></pre></td></tr></table></figure></p>
-<p>4 退出虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(py3) [root@localhost ~]# deactivate</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure> 5 删除虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rmvirtualenv venv</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Simplify: Python VS Matlab</title>
     <url>/2019/10/20/Simplify-Python-VS-Matlab/</url>
     <content><![CDATA[<h2 id="background">Background</h2>
@@ -648,6 +648,44 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tensorboard中的图放到论文中</title>
+    <url>/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/</url>
+    <content><![CDATA[<p>最近写了一篇强化学习用于供水管网的论文，算法的训练过程中用到了Tensorboard(stable-baselines提供了tansorboard的接口)来可视化训练数据，但是，tensorboard的图直接放入到论文中会显得很难看，包括xlabel和ylabel需要重新定义，图片的风格需要修改等等操作直接在tensorboard中很难操作，需要将这些数据导出来，然后使用matplotlib和seaboarn来进行plot，这篇博客记录一下如何将tensorboard中的数据进行导出并画图。</p>
+<a id="more"></a>
+<h2 id="利用tensorboard中的导出数据功能">利用tensorboard中的导出数据功能</h2>
+<figure>
+<img src="image-20210109132225126.png" alt="image-20210109132225126" /><figcaption>image-20210109132225126</figcaption>
+</figure>
+<p>选中左上角的<code>Show data download links</code></p>
+<p>在每张图的右下角选择<code>run to download</code>，然后可以选择<code>csv</code>或者<code>json</code>格式的文件。</p>
+<p>导出CSV文件，经过测试发现，当修改左边平滑之类的参数，导出的数据都是一样的，都是原始的数据。</p>
+<figure>
+<img src="image-20210109161242435.png" alt="image-20210109161242435" /><figcaption>image-20210109161242435</figcaption>
+</figure>
+<h2 id="tensorboard可视化界面中的功能键介绍">Tensorboard可视化界面中的功能键介绍</h2>
+<figure>
+<img src="image-20210109132627928.png" alt="image-20210109132627928" /><figcaption>image-20210109132627928</figcaption>
+</figure>
+<p>第二个：Toggle y-axis log scale：将y轴对数化</p>
+<p>第三个：Fit domain to data：如果拖动了图片等，再重新回到原始位置</p>
+<p>第四个：Download Current Chart as SVG</p>
+<p>Stable-baselines3的tensorboard integration的文档：Stable-baselines3已经集成了tensorboard的记录，默认记录三大块部分：rollout，time，train(这三个文件体现在代码的哪里)。当然，也可以记录更多的数据，包括图片视频，可以在训练一段时间后评估一下agent的效果和状态。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9zdGFibGUtYmFzZWxpbmVzMy5yZWFkdGhlZG9jcy5pby9lbi9tYXN0ZXIvZ3VpZGUvdGVuc29yYm9hcmQuaHRtbD9oaWdobGlnaHQ9dGVuc29yYm9hcmQ=">https://stable-baselines3.readthedocs.io/en/master/guide/tensorboard.html?highlight=tensorboard<i class="fa fa-external-link-alt"></i></span></p>
+<p>stable-baselines3中关于tensorboard的核心文件在：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RMUi1STS9zdGFibGUtYmFzZWxpbmVzMy9ibG9iLzU5OTMwMzNjNzNkNTZlOGFjMTNmNTk2NDdkNDczNzQ3NjZkMGI2M2Qvc3RhYmxlX2Jhc2VsaW5lczMvY29tbW9uL2xvZ2dlci5weQ==">https://github.com/DLR-RM/stable-baselines3/blob/5993033c73d56e8ac13f59647d47374766d0b63d/stable_baselines3/common/logger.py<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="利用matplotlib画图">利用Matplotlib画图</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 第一幅图片：训练的平均长度</span></span><br><span class="line">fig, ax1 = plt.subplots(<span class="number">1</span>, <span class="number">1</span>)    <span class="comment"># a figure with a 2x1 grid of Axes</span></span><br><span class="line">len_mean = pd.read_csv(<span class="string">"run-PPO_2-tag-rollout_ep_len_mean.csv"</span>)</span><br><span class="line">ax1.plot(len_mean[<span class="string">'Step'</span>], tensorboard_smoothing(len_mean[<span class="string">'Value'</span>], smooth=<span class="number">0.6</span>), color=<span class="string">"#3399FF"</span>)</span><br><span class="line"><span class="comment">#ax1.set_xticks(np.arange(0, 24, step=2))</span></span><br><span class="line">ax1.set_xlabel(<span class="string">"timesteps"</span>)</span><br><span class="line">ax1.set_ylabel(<span class="string">"Average Episode Length(steps)"</span>, color=<span class="string">"#3399FF"</span>)</span><br><span class="line">ax1.set_title(<span class="string">"Average Episode Length"</span>)</span><br><span class="line">plt.show()</span><br><span class="line">fig.savefig(fname=<span class="string">'./figures/ep_len_mean'</span>+<span class="string">'.pdf'</span>, format=<span class="string">'pdf'</span>)</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="image-20210109161033044.png" alt="image-20210109161033044" /><figcaption>image-20210109161033044</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>Tensorboard</category>
+      </categories>
+      <tags>
+        <tag>Tensorboard</tag>
       </tags>
   </entry>
   <entry>
@@ -707,6 +745,96 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </categories>
       <tags>
         <tag>经验</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vs code remote ssh 使用x11转发显示远程图像</title>
+    <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
+    <content><![CDATA[<h2 id="需求">需求</h2>
+<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
+<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
+<a id="more"></a>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+<h2 id="问题">问题</h2>
+<ul>
+<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
+<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
+<li>上面第二点问题，经过测试，发现，需要在远程虚拟机中设置export DISPLAY=192.168.1.100:0.0，才可以，其中，192.168.1.100是本地开发机器。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>中国学术圈的未来在哪里？</title>
+    <url>/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/</url>
+    <content><![CDATA[<p>最近遇到了很多烦心事，主要是学术生活上的问题，教授没有学术上的指导，且总是push我们做项目，自动化系的教授都只知道赚钱啊，不，都只知道“骗钱”。今天感觉状态还不错，稍有感想，想在这篇文章中简短地谈论一下，权当我乱说的吧，哈哈哈哈。</p>
+<a id="more"></a>
+<p>中国科研圈的问题我个人认为主要来源于以下几点：</p>
+<ul>
+<li>当前50岁以上的老教授，都是出身在1970年以前，他们从小没有接受过完整、科学的教育，所以，一方面，他们中很多人的学术水平其实很垃圾的，工程技术水平也有限啊，而且从小没有接受过爱国主义教育，现在很多的美国的舔狗，也基本都是这个年龄段吧，他们中的某些人入党了，这些人都是对国家有风险的，因为他们只不过是为了入党而入党，而不是真正的爱国家爱党。</li>
+<li>贫富差距过大导致了很多教授老师都拼命想着赚钱，例如江浙沪，其实很多人的收入都很高，每年也都能赚很多钱，但是教授的工资却没有跟上时代的步伐，这就导致老师们只想着去赚钱，骗钱。</li>
+<li>教授老师的权力太大了，国家也没有出台相应的解决办法，所谓的发布的几个文件，都只是象征性的，没有实际意义。</li>
+</ul>
+<p>解决办法：</p>
+<ul>
+<li>学术圈需要降低平均年龄，让那些不给力的老教师抓紧退休，让有能力有抱负的年轻老师赶紧上位。</li>
+<li>国内大学的思政老师要请专业的老师，不能是学生辅导员，要选择真正有理想，有抱负的共产党员来做思政老师，同时赋予他们保护学生的权力。</li>
+<li>需要大量的学生集体出来反抗，这是最无奈，也是最有效的一种解决办法，再来一次文化大革命，什么都解决了。</li>
+</ul>
+<p>写这篇文章的时候主要是感叹现在老师的权力真的太大了，完全不应该这么大啊，而且我现在的科研生活也和我理想中的科研生活完全不一样。我理想中的科研生活应该是自由，纯粹的科研生活，像deepmind，openai，UCB那种真正干科研的生活。而现在的科研生活，一个个教授们美其名曰要结合工程项目，但实际上只是为了赚钱一级一级骗钱，骗国企，骗国家，最终受伤害的还是纳税人。</p>
+<p>但是再往上说，那就要说到共产党了，共产党是先进生产力的代表，怎么不能解决这么明显的问题？</p>
+<p><strong>虽然对中国的科研圈子很失望，但是若不是为了心中那一份崇高的科研理想，我又怎会继续坚持？</strong></p>
+<p>最后，用鲁迅先生的经典《热风》结尾：</p>
+<p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声，有一分热，发一分光，就令萤火虫一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。 倘若有了炬火，出了太阳，我们自然心悦诚服地消失，不但毫无不平，而且还要随喜赞美这炬火或太阳，因为他照亮了人类，连我都在内。</p>
+<p><strong>与君共勉。</strong></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用PPO设计线性系统控制器</title>
+    <url>/2020/08/27/%E4%BD%BF%E7%94%A8PPO%E8%AE%BE%E8%AE%A1%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%99%A8/</url>
+    <content><![CDATA[<p>论文《Policy Iteration Adaptive Dynamic Programming Algorithm for Discrete-Time Nonlinear Systems》</p>
+<p>这几天读了ADP相关的几篇论文，早期08年-14年都是用Policy Iteration方法进行求解，14-18年，Policy Gradient方法多了起来。</p>
+<a id="more"></a>
+<h2 id="仿真实例">仿真实例</h2>
+<h3 id="线性系统">1.线性系统</h3>
+<p>对于给定的线性系统：<span class="math display">\[x_{k+1}=A x_{k}+B u_{k}\]</span></p>
+<p>其中，<span class="math inline">\(x_{k}=\left[x_{1 k}, x_{2 k}\right]^{T}\)</span>， <span class="math inline">\(u_{k} \in \mathbb{R}^{1}\)</span></p>
+<p><span class="math inline">\(A=\left[\begin{array}{cc} 0 &amp; 0.1 \\ 0.3 &amp; -1 \end{array}\right]\)</span>， <span class="math inline">\(B=\left[\begin{array}{c} 0 \\ 0.5 \end{array}\right]\)</span></p>
+<p>初始状态<span class="math inline">\(x_{0}=[1,-1]^{T}\)</span></p>
+<h4 id="设计ppo控制器">设计PPO控制器：</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">from</span> stable_baselines3 <span class="keyword">import</span> PPO</span><br><span class="line"><span class="keyword">from</span> stable_baselines3.ppo <span class="keyword">import</span> MlpPolicy</span><br><span class="line"><span class="keyword">from</span> stable_baselines3.common.cmd_util <span class="keyword">import</span> make_vec_env</span><br><span class="line"><span class="keyword">from</span> LinearEnv <span class="keyword">import</span> LinearEnv</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">from</span> utils <span class="keyword">import</span> compute_loss, plotloss, plotstate, plotaction</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置环境</span></span><br><span class="line">env = make_vec_env(LinearEnv, env_kwargs=&#123;<span class="string">'termination'</span>: <span class="number">20</span>, <span class="string">'initstate'</span>: [<span class="number">1.0</span>, <span class="number">-1.0</span>]&#125;, n_envs=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 训练模型</span></span><br><span class="line"><span class="comment">#model = PPO(MlpPolicy, env, verbose=1)</span></span><br><span class="line"><span class="comment">#model.learn(total_timesteps=1000000)</span></span><br><span class="line"><span class="comment"># 保存模型</span></span><br><span class="line"><span class="comment">#model.save("Linear")</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 使用训练好的模型</span></span><br><span class="line"><span class="comment"># 导入模型</span></span><br><span class="line">model = PPO.load(<span class="string">"Linear"</span>)</span><br><span class="line"><span class="comment"># reset环境</span></span><br><span class="line">obs = env.reset()</span><br><span class="line"><span class="comment"># 保存结果</span></span><br><span class="line">state_lst = []</span><br><span class="line">state_lst.append(obs.tolist()[<span class="number">0</span>])</span><br><span class="line">reward_lst = []</span><br><span class="line">performance_index = []</span><br><span class="line">action_lst = []</span><br><span class="line"><span class="comment"># 使用训练好的模型来控制环境</span></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">    action, _states = model.predict(obs)</span><br><span class="line">    obs, rewards, dones, info = env.step(action)</span><br><span class="line">    <span class="keyword">if</span> dones[<span class="number">0</span>]:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    state_lst.append(obs.tolist()[<span class="number">0</span>])</span><br><span class="line">    action_lst.append(action.tolist()[<span class="number">0</span>][<span class="number">0</span>])</span><br><span class="line">    reward_lst.append(rewards.tolist()[<span class="number">0</span>])</span><br><span class="line">    performance_index.append(compute_loss(reward_lst))</span><br><span class="line">    <span class="comment">#print("Performance Index", compute_loss(reward_lst), "Next state: ", obs, "rewards: ", rewards, dones, info)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot性能指标</span></span><br><span class="line">plotloss(performance_index)</span><br><span class="line"><span class="comment"># Plot当前状态</span></span><br><span class="line">plotstate(state_lst)</span><br><span class="line"><span class="comment"># Plot动作</span></span><br><span class="line">plotaction(action_lst)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><strong>控制效果：</strong></p>
+<p><img src="1.svg" /></p>
+<p><img src="2.svg" /></p>
+<p><img src="3.svg" /></p>
+<p>性能指标在控制到3个timestep后基本收敛，但是控制器输入和状态有一定的波动，查看数据可以发现，不能完全收敛到0.0，而是一直在-0.001-0.001内波动。</p>
+<h4 id="训练过程中的经验">训练过程中的经验</h4>
+<ol type="1">
+<li>要让它能学到最优值，训练过程中时刻关注<code>ep_rew_mean</code>之类的参数，看它是不是在一直变小，如果不是，那么环境可能有问题。</li>
+<li>训练效果和<code>total_timesteps</code>有很大的关系，在训练效果不好的情况下且<code>ep_rew_mean</code>不断变小的情况下可以考虑增加<code>total_timesteps</code>的大小。</li>
+<li>对于控制问题来说，设置终止条件很重要，比如一个Episode训练多少步才将<code>done</code>设置为<code>True</code>，像在这个问题中，对于简单的，无时滞的系统来说，比如我想要在10个timesteps内达到控制要求，那么在环境中设置<code>termination</code>为10。</li>
+<li>改变PPO的参数会对控制系统的效果有一定的影响，具体的影响需要进一步测试。</li>
+<li>如何增加控制器输入变化的限制？控制器输入的限制可以直接通过训练的时候设置<code>action_space</code>的大小来限制，但是控制器输入变化<span class="math inline">\(\Delta u\)</span>如何来进行限制？</li>
+<li>对于线性系统来说，初始状态的选取，对于控制器的控制效果没有影响，例如我用初始状态为<span class="math inline">\(x_{0}=[1,-1]^{T}\)</span>的环境进行训练后得到的模型，当使用训练好后的模型进行控制的时候，即使你改变初始状态，不影响控制效果。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Reinforcement Learning</category>
+      </categories>
+      <tags>
+        <tag>Reinforcement Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -852,134 +980,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>中国学术圈的未来在哪里？</title>
-    <url>/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/</url>
-    <content><![CDATA[<p>最近遇到了很多烦心事，主要是学术生活上的问题，教授没有学术上的指导，且总是push我们做项目，自动化系的教授都只知道赚钱啊，不，都只知道“骗钱”。今天感觉状态还不错，稍有感想，想在这篇文章中简短地谈论一下，权当我乱说的吧，哈哈哈哈。</p>
-<a id="more"></a>
-<p>中国科研圈的问题我个人认为主要来源于以下几点：</p>
-<ul>
-<li>当前50岁以上的老教授，都是出身在1970年以前，他们从小没有接受过完整、科学的教育，所以，一方面，他们中很多人的学术水平其实很垃圾的，工程技术水平也有限啊，而且从小没有接受过爱国主义教育，现在很多的美国的舔狗，也基本都是这个年龄段吧，他们中的某些人入党了，这些人都是对国家有风险的，因为他们只不过是为了入党而入党，而不是真正的爱国家爱党。</li>
-<li>贫富差距过大导致了很多教授老师都拼命想着赚钱，例如江浙沪，其实很多人的收入都很高，每年也都能赚很多钱，但是教授的工资却没有跟上时代的步伐，这就导致老师们只想着去赚钱，骗钱。</li>
-<li>教授老师的权力太大了，国家也没有出台相应的解决办法，所谓的发布的几个文件，都只是象征性的，没有实际意义。</li>
-</ul>
-<p>解决办法：</p>
-<ul>
-<li>学术圈需要降低平均年龄，让那些不给力的老教师抓紧退休，让有能力有抱负的年轻老师赶紧上位。</li>
-<li>国内大学的思政老师要请专业的老师，不能是学生辅导员，要选择真正有理想，有抱负的共产党员来做思政老师，同时赋予他们保护学生的权力。</li>
-<li>需要大量的学生集体出来反抗，这是最无奈，也是最有效的一种解决办法，再来一次文化大革命，什么都解决了。</li>
-</ul>
-<p>写这篇文章的时候主要是感叹现在老师的权力真的太大了，完全不应该这么大啊，而且我现在的科研生活也和我理想中的科研生活完全不一样。我理想中的科研生活应该是自由，纯粹的科研生活，像deepmind，openai，UCB那种真正干科研的生活。而现在的科研生活，一个个教授们美其名曰要结合工程项目，但实际上只是为了赚钱一级一级骗钱，骗国企，骗国家，最终受伤害的还是纳税人。</p>
-<p>但是再往上说，那就要说到共产党了，共产党是先进生产力的代表，怎么不能解决这么明显的问题？</p>
-<p><strong>虽然对中国的科研圈子很失望，但是若不是为了心中那一份崇高的科研理想，我又怎会继续坚持？</strong></p>
-<p>最后，用鲁迅先生的经典《热风》结尾：</p>
-<p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声，有一分热，发一分光，就令萤火虫一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。 倘若有了炬火，出了太阳，我们自然心悦诚服地消失，不但毫无不平，而且还要随喜赞美这炬火或太阳，因为他照亮了人类，连我都在内。</p>
-<p><strong>与君共勉。</strong></p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vs code remote ssh 使用x11转发显示远程图像</title>
-    <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
-    <content><![CDATA[<h2 id="需求">需求</h2>
-<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
-<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
-<a id="more"></a>
-<h2 id="参考链接">参考链接</h2>
-<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-<h2 id="问题">问题</h2>
-<ul>
-<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
-<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
-<li>上面第二点问题，经过测试，发现，需要在远程虚拟机中设置export DISPLAY=192.168.1.100:0.0，才可以，其中，192.168.1.100是本地开发机器。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tensorboard中的图放到论文中</title>
-    <url>/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/</url>
-    <content><![CDATA[<p>最近写了一篇强化学习用于供水管网的论文，算法的训练过程中用到了Tensorboard(stable-baselines提供了tansorboard的接口)来可视化训练数据，但是，tensorboard的图直接放入到论文中会显得很难看，包括xlabel和ylabel需要重新定义，图片的风格需要修改等等操作直接在tensorboard中很难操作，需要将这些数据导出来，然后使用matplotlib和seaboarn来进行plot，这篇博客记录一下如何将tensorboard中的数据进行导出并画图。</p>
-<a id="more"></a>
-<h2 id="利用tensorboard中的导出数据功能">利用tensorboard中的导出数据功能</h2>
-<figure>
-<img src="image-20210109132225126.png" alt="image-20210109132225126" /><figcaption>image-20210109132225126</figcaption>
-</figure>
-<p>选中左上角的<code>Show data download links</code></p>
-<p>在每张图的右下角选择<code>run to download</code>，然后可以选择<code>csv</code>或者<code>json</code>格式的文件。</p>
-<p>导出CSV文件，经过测试发现，当修改左边平滑之类的参数，导出的数据都是一样的，都是原始的数据。</p>
-<figure>
-<img src="image-20210109161242435.png" alt="image-20210109161242435" /><figcaption>image-20210109161242435</figcaption>
-</figure>
-<h2 id="tensorboard可视化界面中的功能键介绍">Tensorboard可视化界面中的功能键介绍</h2>
-<figure>
-<img src="image-20210109132627928.png" alt="image-20210109132627928" /><figcaption>image-20210109132627928</figcaption>
-</figure>
-<p>第二个：Toggle y-axis log scale：将y轴对数化</p>
-<p>第三个：Fit domain to data：如果拖动了图片等，再重新回到原始位置</p>
-<p>第四个：Download Current Chart as SVG</p>
-<p>Stable-baselines3的tensorboard integration的文档：Stable-baselines3已经集成了tensorboard的记录，默认记录三大块部分：rollout，time，train(这三个文件体现在代码的哪里)。当然，也可以记录更多的数据，包括图片视频，可以在训练一段时间后评估一下agent的效果和状态。</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9zdGFibGUtYmFzZWxpbmVzMy5yZWFkdGhlZG9jcy5pby9lbi9tYXN0ZXIvZ3VpZGUvdGVuc29yYm9hcmQuaHRtbD9oaWdobGlnaHQ9dGVuc29yYm9hcmQ=">https://stable-baselines3.readthedocs.io/en/master/guide/tensorboard.html?highlight=tensorboard<i class="fa fa-external-link-alt"></i></span></p>
-<p>stable-baselines3中关于tensorboard的核心文件在：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RMUi1STS9zdGFibGUtYmFzZWxpbmVzMy9ibG9iLzU5OTMwMzNjNzNkNTZlOGFjMTNmNTk2NDdkNDczNzQ3NjZkMGI2M2Qvc3RhYmxlX2Jhc2VsaW5lczMvY29tbW9uL2xvZ2dlci5weQ==">https://github.com/DLR-RM/stable-baselines3/blob/5993033c73d56e8ac13f59647d47374766d0b63d/stable_baselines3/common/logger.py<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="利用matplotlib画图">利用Matplotlib画图</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 第一幅图片：训练的平均长度</span></span><br><span class="line">fig, ax1 = plt.subplots(<span class="number">1</span>, <span class="number">1</span>)    <span class="comment"># a figure with a 2x1 grid of Axes</span></span><br><span class="line">len_mean = pd.read_csv(<span class="string">"run-PPO_2-tag-rollout_ep_len_mean.csv"</span>)</span><br><span class="line">ax1.plot(len_mean[<span class="string">'Step'</span>], tensorboard_smoothing(len_mean[<span class="string">'Value'</span>], smooth=<span class="number">0.6</span>), color=<span class="string">"#3399FF"</span>)</span><br><span class="line"><span class="comment">#ax1.set_xticks(np.arange(0, 24, step=2))</span></span><br><span class="line">ax1.set_xlabel(<span class="string">"timesteps"</span>)</span><br><span class="line">ax1.set_ylabel(<span class="string">"Average Episode Length(steps)"</span>, color=<span class="string">"#3399FF"</span>)</span><br><span class="line">ax1.set_title(<span class="string">"Average Episode Length"</span>)</span><br><span class="line">plt.show()</span><br><span class="line">fig.savefig(fname=<span class="string">'./figures/ep_len_mean'</span>+<span class="string">'.pdf'</span>, format=<span class="string">'pdf'</span>)</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="image-20210109161033044.png" alt="image-20210109161033044" /><figcaption>image-20210109161033044</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>Tensorboard</category>
-      </categories>
-      <tags>
-        <tag>Tensorboard</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用PPO设计线性系统控制器</title>
-    <url>/2020/08/27/%E4%BD%BF%E7%94%A8PPO%E8%AE%BE%E8%AE%A1%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%99%A8/</url>
-    <content><![CDATA[<p>论文《Policy Iteration Adaptive Dynamic Programming Algorithm for Discrete-Time Nonlinear Systems》</p>
-<p>这几天读了ADP相关的几篇论文，早期08年-14年都是用Policy Iteration方法进行求解，14-18年，Policy Gradient方法多了起来。</p>
-<a id="more"></a>
-<h2 id="仿真实例">仿真实例</h2>
-<h3 id="线性系统">1.线性系统</h3>
-<p>对于给定的线性系统：<span class="math display">\[x_{k+1}=A x_{k}+B u_{k}\]</span></p>
-<p>其中，<span class="math inline">\(x_{k}=\left[x_{1 k}, x_{2 k}\right]^{T}\)</span>， <span class="math inline">\(u_{k} \in \mathbb{R}^{1}\)</span></p>
-<p><span class="math inline">\(A=\left[\begin{array}{cc} 0 &amp; 0.1 \\ 0.3 &amp; -1 \end{array}\right]\)</span>， <span class="math inline">\(B=\left[\begin{array}{c} 0 \\ 0.5 \end{array}\right]\)</span></p>
-<p>初始状态<span class="math inline">\(x_{0}=[1,-1]^{T}\)</span></p>
-<h4 id="设计ppo控制器">设计PPO控制器：</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">from</span> stable_baselines3 <span class="keyword">import</span> PPO</span><br><span class="line"><span class="keyword">from</span> stable_baselines3.ppo <span class="keyword">import</span> MlpPolicy</span><br><span class="line"><span class="keyword">from</span> stable_baselines3.common.cmd_util <span class="keyword">import</span> make_vec_env</span><br><span class="line"><span class="keyword">from</span> LinearEnv <span class="keyword">import</span> LinearEnv</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">from</span> utils <span class="keyword">import</span> compute_loss, plotloss, plotstate, plotaction</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置环境</span></span><br><span class="line">env = make_vec_env(LinearEnv, env_kwargs=&#123;<span class="string">'termination'</span>: <span class="number">20</span>, <span class="string">'initstate'</span>: [<span class="number">1.0</span>, <span class="number">-1.0</span>]&#125;, n_envs=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 训练模型</span></span><br><span class="line"><span class="comment">#model = PPO(MlpPolicy, env, verbose=1)</span></span><br><span class="line"><span class="comment">#model.learn(total_timesteps=1000000)</span></span><br><span class="line"><span class="comment"># 保存模型</span></span><br><span class="line"><span class="comment">#model.save("Linear")</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 使用训练好的模型</span></span><br><span class="line"><span class="comment"># 导入模型</span></span><br><span class="line">model = PPO.load(<span class="string">"Linear"</span>)</span><br><span class="line"><span class="comment"># reset环境</span></span><br><span class="line">obs = env.reset()</span><br><span class="line"><span class="comment"># 保存结果</span></span><br><span class="line">state_lst = []</span><br><span class="line">state_lst.append(obs.tolist()[<span class="number">0</span>])</span><br><span class="line">reward_lst = []</span><br><span class="line">performance_index = []</span><br><span class="line">action_lst = []</span><br><span class="line"><span class="comment"># 使用训练好的模型来控制环境</span></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">    action, _states = model.predict(obs)</span><br><span class="line">    obs, rewards, dones, info = env.step(action)</span><br><span class="line">    <span class="keyword">if</span> dones[<span class="number">0</span>]:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    state_lst.append(obs.tolist()[<span class="number">0</span>])</span><br><span class="line">    action_lst.append(action.tolist()[<span class="number">0</span>][<span class="number">0</span>])</span><br><span class="line">    reward_lst.append(rewards.tolist()[<span class="number">0</span>])</span><br><span class="line">    performance_index.append(compute_loss(reward_lst))</span><br><span class="line">    <span class="comment">#print("Performance Index", compute_loss(reward_lst), "Next state: ", obs, "rewards: ", rewards, dones, info)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot性能指标</span></span><br><span class="line">plotloss(performance_index)</span><br><span class="line"><span class="comment"># Plot当前状态</span></span><br><span class="line">plotstate(state_lst)</span><br><span class="line"><span class="comment"># Plot动作</span></span><br><span class="line">plotaction(action_lst)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><strong>控制效果：</strong></p>
-<p><img src="1.svg" /></p>
-<p><img src="2.svg" /></p>
-<p><img src="3.svg" /></p>
-<p>性能指标在控制到3个timestep后基本收敛，但是控制器输入和状态有一定的波动，查看数据可以发现，不能完全收敛到0.0，而是一直在-0.001-0.001内波动。</p>
-<h4 id="训练过程中的经验">训练过程中的经验</h4>
-<ol type="1">
-<li>要让它能学到最优值，训练过程中时刻关注<code>ep_rew_mean</code>之类的参数，看它是不是在一直变小，如果不是，那么环境可能有问题。</li>
-<li>训练效果和<code>total_timesteps</code>有很大的关系，在训练效果不好的情况下且<code>ep_rew_mean</code>不断变小的情况下可以考虑增加<code>total_timesteps</code>的大小。</li>
-<li>对于控制问题来说，设置终止条件很重要，比如一个Episode训练多少步才将<code>done</code>设置为<code>True</code>，像在这个问题中，对于简单的，无时滞的系统来说，比如我想要在10个timesteps内达到控制要求，那么在环境中设置<code>termination</code>为10。</li>
-<li>改变PPO的参数会对控制系统的效果有一定的影响，具体的影响需要进一步测试。</li>
-<li>如何增加控制器输入变化的限制？控制器输入的限制可以直接通过训练的时候设置<code>action_space</code>的大小来限制，但是控制器输入变化<span class="math inline">\(\Delta u\)</span>如何来进行限制？</li>
-<li>对于线性系统来说，初始状态的选取，对于控制器的控制效果没有影响，例如我用初始状态为<span class="math inline">\(x_{0}=[1,-1]^{T}\)</span>的环境进行训练后得到的模型，当使用训练好后的模型进行控制的时候，即使你改变初始状态，不影响控制效果。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Reinforcement Learning</category>
-      </categories>
-      <tags>
-        <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用树莓派搭建家庭宠物监控并在B站24小时直播</title>
     <url>/2019/02/07/%E4%BD%BF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E5%AE%B6%E5%BA%AD%E5%AE%A0%E7%89%A9%E7%9B%91%E6%8E%A7%E5%B9%B6%E5%9C%A8B%E7%AB%9924%E5%B0%8F%E6%97%B6%E7%9B%B4%E6%92%AD/</url>
     <content><![CDATA[<p>我家养了一条拉布拉多，名字叫小黑，由于我常年不在家，都是我妈妈在养，每当我想要看看狗子，总是需要在我妈妈在家的时候，和我妈妈视频才能看到，因此，就想做一个本文的这个项目。</p>
@@ -1011,6 +1011,34 @@ x
       </categories>
       <tags>
         <tag>raspberry</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>健身房计划制定与动作</title>
+    <url>/2020/08/24/%E5%81%A5%E8%BA%AB%E6%88%BF%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
+    <content><![CDATA[<p>这篇文章整理我用到的训练计划和训练动作与健身记录。</p>
+<a id="more"></a>
+<h2 id="手臂超级组">手臂超级组</h2>
+<h3 id="组1">组1</h3>
+<p>杠铃弯举</p>
+<p>窄距杠铃卧推</p>
+<h3 id="组2">组2</h3>
+<p>锤式哑铃弯举</p>
+<p>仰卧杠铃臂屈伸</p>
+<h3 id="组3">组3</h3>
+<p>二头绳索弯举</p>
+<p>三头绳索下压</p>
+<h3 id="组4">组4</h3>
+<p>背后曲臂伸</p>
+<p>哑铃交替弯举</p>
+<h3 id="做法">做法</h3>
+<p>每两个动作（二头屈，三头伸）为一个超级组，每个超级组做3组，每组的两个动作分别做8-12RM。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -1056,34 +1084,6 @@ x
       </categories>
       <tags>
         <tag>flask</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>健身房计划制定与动作</title>
-    <url>/2020/08/24/%E5%81%A5%E8%BA%AB%E6%88%BF%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
-    <content><![CDATA[<p>这篇文章整理我用到的训练计划和训练动作与健身记录。</p>
-<a id="more"></a>
-<h2 id="手臂超级组">手臂超级组</h2>
-<h3 id="组1">组1</h3>
-<p>杠铃弯举</p>
-<p>窄距杠铃卧推</p>
-<h3 id="组2">组2</h3>
-<p>锤式哑铃弯举</p>
-<p>仰卧杠铃臂屈伸</p>
-<h3 id="组3">组3</h3>
-<p>二头绳索弯举</p>
-<p>三头绳索下压</p>
-<h3 id="组4">组4</h3>
-<p>背后曲臂伸</p>
-<p>哑铃交替弯举</p>
-<h3 id="做法">做法</h3>
-<p>每两个动作（二头屈，三头伸）为一个超级组，每个超级组做3组，每组的两个动作分别做8-12RM。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -1285,43 +1285,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>利用虚拟主机搭建一个验证爬虫代理IP是否有效的服务</title>
-    <url>/2018/10/14/%E5%88%A9%E7%94%A8%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%AA%8C%E8%AF%81%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88%E7%9A%84%E6%9C%8D%E5%8A%A1/</url>
-    <content><![CDATA[<blockquote>
-<p>经常写爬虫的小伙伴们肯定有自己的代理IP池，我们在验证代理IP是否有效时，往往是利用<code>response=requests.get(ipcheck_url,proxies=proxy)</code>这样的方法去验证，通过访问<code>ipcheck_url</code>，<code>response</code>能返回当前访客的ip地址，通过和代理ip对比一下，若一样，则代理ip有效，若response中的ip和你的电脑ip相同，则代理无效。ipcheck_url我们常常是选择的例如站长工具等之类的工具，这类工具往往访问量大，随时可能会出问题，这篇文章教你自己搭建一个验证有效性的这样一个平台，永不掉线，成本为一年20RMB，具体搭建耗时约在15分钟内。</p>
-</blockquote>
-<h3 id="先放一张效果图">先放一张效果图：</h3>
-<p>当我访问这个网址时，返回了我电脑的ip地址。 <a id="more"></a> <img src="1.png" alt="效果图" /></p>
-<p>我个人搭建的服务在<span class="exturl" data-url="aHR0cDovL2lwY2hlY2suY2hpbmFob3N0aW5nLnRr">http://ipcheck.chinahosting.tk<i class="fa fa-external-link-alt"></i></span>，我搭建的这个仅供大家测试使用，不一定什么时候会关掉呢，大家想要用的还是自己搭建一个吧。</p>
-<h3 id="购买主机">购买主机</h3>
-<p>进入<span class="exturl" data-url="aHR0cHM6Ly9uYmhvc3QuY24=">https://nbhost.cn<i class="fa fa-external-link-alt"></i></span></p>
-<p>选择这个套餐： <img src="2.png" alt="请输入图片描述" /></p>
-<p>然后就是一套购买流程了。 <strong>介绍一下，这个主机我已经用了一年多了，便宜实惠！</strong></p>
-<h3 id="进入cpanel面板">进入Cpanel面板</h3>
-<figure>
-<img src="3.png" alt="请输入图片描述" /><figcaption>请输入图片描述</figcaption>
-</figure>
-<h3 id="进入文件管理器">进入文件管理器</h3>
-<figure>
-<img src="4.png" alt="请输入图片描述" /><figcaption>请输入图片描述</figcaption>
-</figure>
-<h3 id="新建一个文件命名为index.php">新建一个文件,命名为index.php</h3>
-<figure>
-<img src="5.png" alt="请输入图片描述" /><figcaption>请输入图片描述</figcaption>
-</figure>
-<h3 id="写入代码">写入代码</h3>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>                                                                                                                               </span><br><span class="line">$ip = $_SERVER[<span class="string">"REMOTE_ADDR"</span>];</span><br><span class="line"><span class="keyword">echo</span> $ip;</span><br></pre></td></tr></table></figure>
-<h3 id="访问你的域名即可">访问你的域名即可</h3>
-<p><strong><em>搭建出来的服务并发行极强，大家可以自行测试，可以用我搭建的测试下，个人用应该完全没问题的。</em></strong></p>
-]]></content>
-      <categories>
-        <category>爬虫</category>
-      </categories>
-      <tags>
-        <tag>爬虫 代理IP</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>减肥的科学原理</title>
     <url>/2019/02/20/%E5%87%8F%E8%82%A5%E7%9A%84%E7%A7%91%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h2 id="减肥中的热量单位">减肥中的热量单位</h2>
@@ -1367,6 +1330,43 @@ x
       </categories>
       <tags>
         <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用虚拟主机搭建一个验证爬虫代理IP是否有效的服务</title>
+    <url>/2018/10/14/%E5%88%A9%E7%94%A8%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%AA%8C%E8%AF%81%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88%E7%9A%84%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<blockquote>
+<p>经常写爬虫的小伙伴们肯定有自己的代理IP池，我们在验证代理IP是否有效时，往往是利用<code>response=requests.get(ipcheck_url,proxies=proxy)</code>这样的方法去验证，通过访问<code>ipcheck_url</code>，<code>response</code>能返回当前访客的ip地址，通过和代理ip对比一下，若一样，则代理ip有效，若response中的ip和你的电脑ip相同，则代理无效。ipcheck_url我们常常是选择的例如站长工具等之类的工具，这类工具往往访问量大，随时可能会出问题，这篇文章教你自己搭建一个验证有效性的这样一个平台，永不掉线，成本为一年20RMB，具体搭建耗时约在15分钟内。</p>
+</blockquote>
+<h3 id="先放一张效果图">先放一张效果图：</h3>
+<p>当我访问这个网址时，返回了我电脑的ip地址。 <a id="more"></a> <img src="1.png" alt="效果图" /></p>
+<p>我个人搭建的服务在<span class="exturl" data-url="aHR0cDovL2lwY2hlY2suY2hpbmFob3N0aW5nLnRr">http://ipcheck.chinahosting.tk<i class="fa fa-external-link-alt"></i></span>，我搭建的这个仅供大家测试使用，不一定什么时候会关掉呢，大家想要用的还是自己搭建一个吧。</p>
+<h3 id="购买主机">购买主机</h3>
+<p>进入<span class="exturl" data-url="aHR0cHM6Ly9uYmhvc3QuY24=">https://nbhost.cn<i class="fa fa-external-link-alt"></i></span></p>
+<p>选择这个套餐： <img src="2.png" alt="请输入图片描述" /></p>
+<p>然后就是一套购买流程了。 <strong>介绍一下，这个主机我已经用了一年多了，便宜实惠！</strong></p>
+<h3 id="进入cpanel面板">进入Cpanel面板</h3>
+<figure>
+<img src="3.png" alt="请输入图片描述" /><figcaption>请输入图片描述</figcaption>
+</figure>
+<h3 id="进入文件管理器">进入文件管理器</h3>
+<figure>
+<img src="4.png" alt="请输入图片描述" /><figcaption>请输入图片描述</figcaption>
+</figure>
+<h3 id="新建一个文件命名为index.php">新建一个文件,命名为index.php</h3>
+<figure>
+<img src="5.png" alt="请输入图片描述" /><figcaption>请输入图片描述</figcaption>
+</figure>
+<h3 id="写入代码">写入代码</h3>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>                                                                                                                               </span><br><span class="line">$ip = $_SERVER[<span class="string">"REMOTE_ADDR"</span>];</span><br><span class="line"><span class="keyword">echo</span> $ip;</span><br></pre></td></tr></table></figure>
+<h3 id="访问你的域名即可">访问你的域名即可</h3>
+<p><strong><em>搭建出来的服务并发行极强，大家可以自行测试，可以用我搭建的测试下，个人用应该完全没问题的。</em></strong></p>
+]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>爬虫 代理IP</tag>
       </tags>
   </entry>
   <entry>
@@ -1485,19 +1485,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>常用排序算法之冒泡排序</title>
-    <url>/2018/08/19/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>题目：编写一个C程序，应用冒泡排序法对序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的序列元素</p>
-<p>算法分析：直接运用冒泡排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubblesort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span> &amp;&amp; flag==<span class="number">1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n-i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j+<span class="number">1</span>]&lt;a[j])</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j+<span class="number">1</span>];</span><br><span class="line">                a[j+<span class="number">1</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="number">0</span>];</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    bubblesort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of bubble sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>数据结构 算法 排序</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>基金投资管理系统</title>
     <url>/2020/06/29/%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<p>基金推荐与投资记录系统：如何成为一名合格的韭菜！</p>
@@ -1538,10 +1525,37 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>常用排序算法之冒泡排序</title>
+    <url>/2018/08/19/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>题目：编写一个C程序，应用冒泡排序法对序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的序列元素</p>
+<p>算法分析：直接运用冒泡排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubblesort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span> &amp;&amp; flag==<span class="number">1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n-i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j+<span class="number">1</span>]&lt;a[j])</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j+<span class="number">1</span>];</span><br><span class="line">                a[j+<span class="number">1</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="number">0</span>];</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    bubblesort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of bubble sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构 算法 排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用排序算法之直接插入排序</title>
     <url>/2018/08/12/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<p>题目：编写一个C程序，应用直接插入排序算法将序列｛2，5，6，，3，7，8，0，9，12，1｝进行排序，要求从小到大排列，并输出排序后的数列元素。</p>
 <p>算法分析：直接运用直接插入排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertionsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>] = a[i];</span><br><span class="line">        j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; a[<span class="number">0</span>]&lt;a[j])</span><br><span class="line">        &#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j--];</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The original data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    insertsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of insertion sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构 算法 排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用排序算法之选择排序</title>
+    <url>/2018/09/02/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>题目：编写一个C程序，运用选择排序将序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的数列元素</p>
+<p>算法分析：运用选择排序算法即可</p>
+<p>代码实现： <a id="more"></a> <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,<span class="built_in">min</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)</span><br><span class="line">    &#123; </span><br><span class="line">        <span class="built_in">min</span> = i;</span><br><span class="line">        <span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[j] &lt; a[<span class="built_in">min</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">min</span> = j;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">min</span> != i)</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="built_in">min</span>];</span><br><span class="line">                a[<span class="built_in">min</span>] = a[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    selectsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of selection sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
@@ -1575,55 +1589,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>强化学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用排序算法之选择排序</title>
-    <url>/2018/09/02/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>题目：编写一个C程序，运用选择排序将序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的数列元素</p>
-<p>算法分析：运用选择排序算法即可</p>
-<p>代码实现： <a id="more"></a> <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,<span class="built_in">min</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)</span><br><span class="line">    &#123; </span><br><span class="line">        <span class="built_in">min</span> = i;</span><br><span class="line">        <span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[j] &lt; a[<span class="built_in">min</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">min</span> = j;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">min</span> != i)</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="built_in">min</span>];</span><br><span class="line">                a[<span class="built_in">min</span>] = a[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    selectsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of selection sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>数据结构 算法 排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>折半查找</title>
-    <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
-    <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
-<p>算法分析：折半查找 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bin_search</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,high,low;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=(high+low)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">10</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">19</span>,<span class="number">21</span>&#125;</span><br><span class="line">    <span class="keyword">int</span> i,n,addr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The contents of the Array A[10] are\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, A[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPlease input a interger for search\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    addr = bin_search(A,<span class="number">10</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(addr != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d is at the %dth unit is array A\n "</span>,n,addr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"There is no %d in array A\n"</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>数据结构 算法 排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>服务器被黑记录</title>
-    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
-<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
-<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
-<a id="more"></a>
-<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
-<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
-<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
-<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
-<p>可以看到一直在被爆破。</p>
-<p><img src="image-20200914140640360.png" /></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1716,6 +1681,41 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>折半查找</title>
+    <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
+    <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
+<p>算法分析：折半查找 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bin_search</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,high,low;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=(high+low)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">10</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">19</span>,<span class="number">21</span>&#125;</span><br><span class="line">    <span class="keyword">int</span> i,n,addr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The contents of the Array A[10] are\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, A[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPlease input a interger for search\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    addr = bin_search(A,<span class="number">10</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(addr != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d is at the %dth unit is array A\n "</span>,n,addr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"There is no %d in array A\n"</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构 算法 排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>服务器被黑记录</title>
+    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
+<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
+<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
+<a id="more"></a>
+<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
+<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
+<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
+<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
+<p>可以看到一直在被爆破。</p>
+<p><img src="image-20200914140640360.png" /></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>检查强化学习自定义环境是否符合Gym的API</title>
     <url>/2020/08/22/%E6%A3%80%E6%9F%A5%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E7%AC%A6%E5%90%88Gym%E7%9A%84API/</url>
     <content><![CDATA[<p>虽然Openai Gym给我们提供了很多有趣的环境，但是，针对实际问题，我们一般都需要建立自己的强化学习环境，也就是说，建立一个函数，输入是<code>action</code>，输出是<code>next_state, reward, done, info</code>，建立这样一个环境的时候最好按照Gym的API来设计，这样方便代码的编写与调试，很多网上实现的算法都是按照Gym的环境进行设计的，同时，Gym的API本身设计的就比较合理的。</p>
@@ -1804,21 +1804,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>软路由</title>
-    <url>/2020/08/17/%E8%BD%AF%E8%B7%AF%E7%94%B1/</url>
-    <content><![CDATA[<p>今天装了用虚拟机装了一台软路由，总结两个字：真香</p>
-<a id="more"></a>
-<p>软路由用作旁路由，搭建socks5代理，速度比windows直接用快了将近30倍。</p>
-<p>不知道是啥原因，可能是Linux和Windows系统上的区别？</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>粒子群算法的Python简单实现</title>
     <url>/2019/02/14/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E7%9A%84Python%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h2 id="需要优化的目标函数">需要优化的目标函数</h2>
@@ -1846,6 +1831,21 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>优化算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>软路由</title>
+    <url>/2020/08/17/%E8%BD%AF%E8%B7%AF%E7%94%B1/</url>
+    <content><![CDATA[<p>今天装了用虚拟机装了一台软路由，总结两个字：真香</p>
+<a id="more"></a>
+<p>软路由用作旁路由，搭建socks5代理，速度比windows直接用快了将近30倍。</p>
+<p>不知道是啥原因，可能是Linux和Windows系统上的区别？</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
