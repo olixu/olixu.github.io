@@ -1214,7 +1214,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff86d2;
+  background: #fc1f01;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2788,7 +2788,7 @@ body {
   opacity: 0.8;
 }
 .sidebar {
-  opacity: 0.95;
+  opacity: 1;
 }
 .header-inner {
   background: rgba(255,255,255,0.95);
