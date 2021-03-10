@@ -87,6 +87,23 @@
       </tags>
   </entry>
   <entry>
+    <title>Manjaro下解决Matplotlib中文显示出错</title>
+    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
+    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
+<ul>
+<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
+<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
+<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux系统TIPS</title>
     <url>/2018/11/18/Linux%E7%B3%BB%E7%BB%9FTIPS/</url>
     <content><![CDATA[<h1 id="这篇文章用来记录使用linux时遇到的各种bug与解决方案"><strong>这篇文章用来记录使用linux时遇到的各种BUG与解决方案</strong></h1>
@@ -132,23 +149,6 @@
 <p>回到标题，Manjaro不适合搞算学术研究和项目开发的人，尤其是学生：研究生。本科生无聊的话可以玩玩Manjaro。</p>
 <p>操作系统还是有公司支持的比较好，像Ubuntu，真的可以，用了快6年了。</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Manjaro下解决Matplotlib中文显示出错</title>
-    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
-    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
-<ul>
-<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
-<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
-<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
   </entry>
   <entry>
     <title>Markdown语法</title>
@@ -651,6 +651,52 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </tags>
   </entry>
   <entry>
+    <title>Word与Latex</title>
+    <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
+    <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
+<h2 id="mathpix将论文中的公式识别成latex或者mathml格式">Mathpix：将论文中的公式识别成latex或者mathml格式</h2>
+<p>有一款软件：Mathpix，能够将公式识别成latex或者mathml格式。</p>
+<p>使用该软件需要使用邮箱注册账户，免费版一个月只能识别50次，也有一个开发版，一个月能识别1000次，但是需要信用卡验证，对于国内用户来说，比较麻烦。</p>
+<p>这里给出一个解决办法：使用临时邮箱，待免费套餐使用完后，重新注册账户，测试了几个免费邮箱服务，大多被mathpix识别了，<span class="exturl" data-url="aHR0cHM6Ly90ZW1wLW1haWwub3JnL2VuLw==">https://temp-mail.org/en/<i class="fa fa-external-link-alt"></i></span> 这个我测试了一下，没有被mathpix识别，可以用于注册。 <a id="more"></a></p>
+<h2 id="word中的latex公式">Word中的latex公式</h2>
+<h3 id="简单的单行公式">简单的单行公式</h3>
+<p>简单的单行公式可以直接用latex格式。</p>
+<h3 id="复杂的多行公式">复杂的多行公式</h3>
+<p>复杂的多行公式，可以复制Mathpix中的Mathml格式，粘贴到word中。</p>
+<h3 id="插入公式编号">插入公式编号</h3>
+<p>Word中提供了一种比较方便的插入公式编号的方法：在公式末尾键入<code>#(x)</code>，然后按下<code>Enter</code>即可。</p>
+<h2 id="创作流程">创作流程</h2>
+<p>我个人比较喜欢读完文献，用Markdown（Typora）整理一下阅读笔记，这样既可以发布到博客上，又很方便的能够迁移到Word中（我一般交作业交报告都是用Word）。</p>
+]]></content>
+      <categories>
+        <category>Latex</category>
+      </categories>
+      <tags>
+        <tag>Latex</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>*args 和 **kwargs</title>
+    <url>/2019/02/12/args-%E5%92%8C-kwargs/</url>
+    <content><![CDATA[<p>很多Python新手都无法搞清<code>*args</code>与<code>**kwargs</code>这两个魔术变量。那么他们到底是什么呢？让我来告诉你。在实际程序中，我们没有必要非得写成<code>*args</code>与<code>**kwargs</code>这样的形式，你也可以写成<code>*var</code>与<code>**vars</code>。写成<code>*args</code>与<code>**kwargs</code>的形式只是一种惯例。 <a id="more"></a> ## *args的用法 <code>*args</code>与<code>**kwargs</code>主要用于函数的定义。<code>*args</code>与<code>**kwargs</code>允许你将可变数量的参数传递给函数。这里的<strong>可变</strong>意味着你事先是不知道用户可以向你传递多少参数。因此在这种情况下你可以使用这两个关键字。<code>*args</code>用于向函数发送没有关键字的可变长度参数列表。以下是一个例子：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_var_args</span><span class="params">(f_arg, *args)</span>:</span></span><br><span class="line">    print(<span class="string">"first normal arg: "</span>, f_arg)</span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> args:</span><br><span class="line">        print(<span class="string">"another arg through *args: "</span>, ar)</span><br><span class="line"></span><br><span class="line">test_var_args(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>)</span><br></pre></td></tr></table></figure>
+<p>这会产生以下结果： <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">first normal arg: a</span><br><span class="line">another arg through *args: b</span><br><span class="line">another arg through *args: c</span><br><span class="line">another arg through *args: d</span><br></pre></td></tr></table></figure></p>
+<h2 id="kwargs-kwargs允许你将键值对也就是字典形式的参数的可变长度的参数传递给函数如果要在函数中处理命名参数则应该使用kwargs下面是一个例子">**kwargs <code>kwargs</code>允许你将键值对[也就是字典形式的参数]的可变长度的参数传递给函数。如果要在函数中处理命名参数，则应该使用<code>**kwargs</code>，下面是一个例子：</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_me</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> kwargs.items():</span><br><span class="line">        print(<span class="string">"&#123;0&#125; = &#123;1&#125;"</span>.format(key, value))</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>greet_me(name=<span class="string">"oliverxu"</span>)</span><br><span class="line">name = oliverxu</span><br></pre></td></tr></table></figure>
+<h2 id="使用args和kwargs来调用函数">使用<code>*args</code>和<code>*kwargs</code>来调用函数</h2>
+<p>首先我们先定义一个函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_args_kwargs</span><span class="params">(arg1, arg2, arg3)</span>:</span></span><br><span class="line">    print(<span class="string">"arg1:"</span>, arg1)</span><br><span class="line">    print(<span class="string">"arg2:"</span>, arg2)</span><br><span class="line">    print(<span class="string">"arg3:"</span>, arg3)</span><br></pre></td></tr></table></figure>
+<p>现在，可以用<code>*args</code>和<code>**kwargs</code>来将参数传递给这个函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>args = (<span class="string">"two"</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(*args)</span><br><span class="line">arg1: arg1</span><br><span class="line">arg2: arg2</span><br><span class="line">arg3: arg3</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>kwargs = &#123;<span class="string">"arg3"</span>:<span class="number">3</span>, <span class="string">"arg2"</span>: <span class="string">"two"</span>, <span class="string">"arg1"</span>: <span class="number">5</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(**kwargs)</span><br><span class="line">arg1: <span class="number">5</span></span><br><span class="line">arg2: two</span><br><span class="line">arg3: <span class="number">3</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tensorboard中的图放到论文中</title>
     <url>/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/</url>
     <content><![CDATA[<p>最近写了一篇强化学习用于供水管网的论文，算法的训练过程中用到了Tensorboard(stable-baselines提供了tansorboard的接口)来可视化训练数据，但是，tensorboard的图直接放入到论文中会显得很难看，包括xlabel和ylabel需要重新定义，图片的风格需要修改等等操作直接在tensorboard中很难操作，需要将这些数据导出来，然后使用matplotlib和seaboarn来进行plot，这篇博客记录一下如何将tensorboard中的数据进行导出并画图。</p>
@@ -683,65 +729,6 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </tags>
   </entry>
   <entry>
-    <title>*args 和 **kwargs</title>
-    <url>/2019/02/12/args-%E5%92%8C-kwargs/</url>
-    <content><![CDATA[<p>很多Python新手都无法搞清<code>*args</code>与<code>**kwargs</code>这两个魔术变量。那么他们到底是什么呢？让我来告诉你。在实际程序中，我们没有必要非得写成<code>*args</code>与<code>**kwargs</code>这样的形式，你也可以写成<code>*var</code>与<code>**vars</code>。写成<code>*args</code>与<code>**kwargs</code>的形式只是一种惯例。 <a id="more"></a> ## *args的用法 <code>*args</code>与<code>**kwargs</code>主要用于函数的定义。<code>*args</code>与<code>**kwargs</code>允许你将可变数量的参数传递给函数。这里的<strong>可变</strong>意味着你事先是不知道用户可以向你传递多少参数。因此在这种情况下你可以使用这两个关键字。<code>*args</code>用于向函数发送没有关键字的可变长度参数列表。以下是一个例子：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_var_args</span><span class="params">(f_arg, *args)</span>:</span></span><br><span class="line">    print(<span class="string">"first normal arg: "</span>, f_arg)</span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> args:</span><br><span class="line">        print(<span class="string">"another arg through *args: "</span>, ar)</span><br><span class="line"></span><br><span class="line">test_var_args(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>)</span><br></pre></td></tr></table></figure>
-<p>这会产生以下结果： <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">first normal arg: a</span><br><span class="line">another arg through *args: b</span><br><span class="line">another arg through *args: c</span><br><span class="line">another arg through *args: d</span><br></pre></td></tr></table></figure></p>
-<h2 id="kwargs-kwargs允许你将键值对也就是字典形式的参数的可变长度的参数传递给函数如果要在函数中处理命名参数则应该使用kwargs下面是一个例子">**kwargs <code>kwargs</code>允许你将键值对[也就是字典形式的参数]的可变长度的参数传递给函数。如果要在函数中处理命名参数，则应该使用<code>**kwargs</code>，下面是一个例子：</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_me</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> kwargs.items():</span><br><span class="line">        print(<span class="string">"&#123;0&#125; = &#123;1&#125;"</span>.format(key, value))</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>greet_me(name=<span class="string">"oliverxu"</span>)</span><br><span class="line">name = oliverxu</span><br></pre></td></tr></table></figure>
-<h2 id="使用args和kwargs来调用函数">使用<code>*args</code>和<code>*kwargs</code>来调用函数</h2>
-<p>首先我们先定义一个函数：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_args_kwargs</span><span class="params">(arg1, arg2, arg3)</span>:</span></span><br><span class="line">    print(<span class="string">"arg1:"</span>, arg1)</span><br><span class="line">    print(<span class="string">"arg2:"</span>, arg2)</span><br><span class="line">    print(<span class="string">"arg3:"</span>, arg3)</span><br></pre></td></tr></table></figure>
-<p>现在，可以用<code>*args</code>和<code>**kwargs</code>来将参数传递给这个函数：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>args = (<span class="string">"two"</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(*args)</span><br><span class="line">arg1: arg1</span><br><span class="line">arg2: arg2</span><br><span class="line">arg3: arg3</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>kwargs = &#123;<span class="string">"arg3"</span>:<span class="number">3</span>, <span class="string">"arg2"</span>: <span class="string">"two"</span>, <span class="string">"arg1"</span>: <span class="number">5</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>test_args_kwargs(**kwargs)</span><br><span class="line">arg1: <span class="number">5</span></span><br><span class="line">arg2: two</span><br><span class="line">arg3: <span class="number">3</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Word与Latex</title>
-    <url>/2020/06/27/Word%E4%B8%8ELatex/</url>
-    <content><![CDATA[<p>当阅读完一篇论文后，可能会对论文做一些整理，论文中的公式有时候非常多且复杂，本篇博客记录一些提高生产力的工具</p>
-<h2 id="mathpix将论文中的公式识别成latex或者mathml格式">Mathpix：将论文中的公式识别成latex或者mathml格式</h2>
-<p>有一款软件：Mathpix，能够将公式识别成latex或者mathml格式。</p>
-<p>使用该软件需要使用邮箱注册账户，免费版一个月只能识别50次，也有一个开发版，一个月能识别1000次，但是需要信用卡验证，对于国内用户来说，比较麻烦。</p>
-<p>这里给出一个解决办法：使用临时邮箱，待免费套餐使用完后，重新注册账户，测试了几个免费邮箱服务，大多被mathpix识别了，<span class="exturl" data-url="aHR0cHM6Ly90ZW1wLW1haWwub3JnL2VuLw==">https://temp-mail.org/en/<i class="fa fa-external-link-alt"></i></span> 这个我测试了一下，没有被mathpix识别，可以用于注册。 <a id="more"></a></p>
-<h2 id="word中的latex公式">Word中的latex公式</h2>
-<h3 id="简单的单行公式">简单的单行公式</h3>
-<p>简单的单行公式可以直接用latex格式。</p>
-<h3 id="复杂的多行公式">复杂的多行公式</h3>
-<p>复杂的多行公式，可以复制Mathpix中的Mathml格式，粘贴到word中。</p>
-<h3 id="插入公式编号">插入公式编号</h3>
-<p>Word中提供了一种比较方便的插入公式编号的方法：在公式末尾键入<code>#(x)</code>，然后按下<code>Enter</code>即可。</p>
-<h2 id="创作流程">创作流程</h2>
-<p>我个人比较喜欢读完文献，用Markdown（Typora）整理一下阅读笔记，这样既可以发布到博客上，又很方便的能够迁移到Word中（我一般交作业交报告都是用Word）。</p>
-]]></content>
-      <categories>
-        <category>Latex</category>
-      </categories>
-      <tags>
-        <tag>Latex</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo-gittalk问题总结</title>
-    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
-<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>经验</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>vs code remote ssh 使用x11转发显示远程图像</title>
     <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
     <content><![CDATA[<h2 id="需求">需求</h2>
@@ -762,6 +749,19 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </categories>
       <tags>
         <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo-gittalk问题总结</title>
+    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
+<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>经验</tag>
       </tags>
   </entry>
   <entry>
@@ -1034,6 +1034,25 @@ x
       </tags>
   </entry>
   <entry>
+    <title>光纤测温WEB系统</title>
+    <url>/2019/02/01/%E5%85%89%E7%BA%A4%E6%B5%8B%E6%B8%A9WEB%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h2 id="本项目解决的问题">本项目解决的问题：</h2>
+<p>工业上光纤测温仪配有自带的桌面上位机，此上位机是用C++语言编写，在测温的过程中，温度数据会每隔一秒记录一次，写入TXT文件。本项目将此TXT文件中的数据通过Python发送到服务器，并且在服务器上建立WEB接口，使用户可以通过WEB访问。 <a id="more"></a> 访问效果如图所示：</p>
+<figure>
+<img src="web.png" alt="WEB" /><figcaption>WEB</figcaption>
+</figure>
+<h2 id="项目结构">项目结构：</h2>
+<p><strong>client:</strong> 此文件夹中是测温仪的数据文件夹，将打包好的client.exe文件放入DTS系统的数据文件夹，当此文件夹中产生新的数据文件时候，程序将会自动把数据发送到服务器。</p>
+<p><strong>server:</strong> 此文件夹是WEB端的文件，采用Flask进行设计，使用websocket技术。</p>
+]]></content>
+      <categories>
+        <category>flask</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>健身房计划制定与动作</title>
     <url>/2020/08/24/%E5%81%A5%E8%BA%AB%E6%88%BF%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
     <content><![CDATA[<p>这篇文章整理我用到的训练计划和训练动作与健身记录。</p>
@@ -1059,25 +1078,6 @@ x
       </categories>
       <tags>
         <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>光纤测温WEB系统</title>
-    <url>/2019/02/01/%E5%85%89%E7%BA%A4%E6%B5%8B%E6%B8%A9WEB%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h2 id="本项目解决的问题">本项目解决的问题：</h2>
-<p>工业上光纤测温仪配有自带的桌面上位机，此上位机是用C++语言编写，在测温的过程中，温度数据会每隔一秒记录一次，写入TXT文件。本项目将此TXT文件中的数据通过Python发送到服务器，并且在服务器上建立WEB接口，使用户可以通过WEB访问。 <a id="more"></a> 访问效果如图所示：</p>
-<figure>
-<img src="web.png" alt="WEB" /><figcaption>WEB</figcaption>
-</figure>
-<h2 id="项目结构">项目结构：</h2>
-<p><strong>client:</strong> 此文件夹中是测温仪的数据文件夹，将打包好的client.exe文件放入DTS系统的数据文件夹，当此文件夹中产生新的数据文件时候，程序将会自动把数据发送到服务器。</p>
-<p><strong>server:</strong> 此文件夹是WEB端的文件，采用Flask进行设计，使用websocket技术。</p>
-]]></content>
-      <categories>
-        <category>flask</category>
-      </categories>
-      <tags>
-        <tag>flask</tag>
       </tags>
   </entry>
   <entry>
@@ -1252,33 +1252,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>初学数据库-sqlite3 简介</title>
-    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
-</blockquote>
-<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
-<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
-<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
-<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
-<h2 id="于是数据库出现了">于是，数据库出现了</h2>
-<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
-<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
-<h2 id="数据库种类">数据库种类</h2>
-<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
-<h3 id="非关系型数据库">2.非关系型数据库</h3>
-<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
-<h2 id="sqlite3">sqlite3</h2>
-<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>减肥的科学原理</title>
     <url>/2019/02/20/%E5%87%8F%E8%82%A5%E7%9A%84%E7%A7%91%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h2 id="减肥中的热量单位">减肥中的热量单位</h2>
@@ -1324,6 +1297,33 @@ x
       </categories>
       <tags>
         <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初学数据库-sqlite3 简介</title>
+    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
+</blockquote>
+<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
+<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
+<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
+<h2 id="于是数据库出现了">于是，数据库出现了</h2>
+<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
+<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
+<h2 id="数据库种类">数据库种类</h2>
+<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
+<h3 id="非关系型数据库">2.非关系型数据库</h3>
+<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
+<h2 id="sqlite3">sqlite3</h2>
+<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>
@@ -1559,6 +1559,19 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>折半查找</title>
+    <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
+    <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
+<p>算法分析：折半查找 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bin_search</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,high,low;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=(high+low)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">10</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">19</span>,<span class="number">21</span>&#125;</span><br><span class="line">    <span class="keyword">int</span> i,n,addr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The contents of the Array A[10] are\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, A[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPlease input a interger for search\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    addr = bin_search(A,<span class="number">10</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(addr != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d is at the %dth unit is array A\n "</span>,n,addr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"There is no %d in array A\n"</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构 算法 排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>强化学习：有限马尔科夫决策过程</title>
     <url>/2019/04/14/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%9A%E6%9C%89%E9%99%90%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/</url>
     <content><![CDATA[<p>本文是reinforcement learning:An introduction书第三章的翻译．</p>
@@ -1586,16 +1599,25 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>折半查找</title>
-    <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
-    <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
-<p>算法分析：折半查找 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bin_search</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,high,low;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid=(high+low)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&lt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">10</span>] = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">12</span>,<span class="number">15</span>,<span class="number">19</span>,<span class="number">21</span>&#125;</span><br><span class="line">    <span class="keyword">int</span> i,n,addr;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The contents of the Array A[10] are\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, A[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nPlease input a interger for search\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    addr = bin_search(A,<span class="number">10</span>,n);</span><br><span class="line">    <span class="keyword">if</span>(addr != <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d is at the %dth unit is array A\n "</span>,n,addr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"There is no %d in array A\n"</span>,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <title>服务器被黑记录</title>
+    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
+<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
+<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
+<a id="more"></a>
+<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
+<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
+<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
+<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
+<p>可以看到一直在被爆破。</p>
+<p><img src="image-20200914140640360.png" /></p>
 ]]></content>
       <categories>
-        <category>数据结构与算法</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>数据结构 算法 排序</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1688,28 +1710,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>服务器被黑记录</title>
-    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
-<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
-<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
-<a id="more"></a>
-<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
-<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
-<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
-<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
-<p>可以看到一直在被爆破。</p>
-<p><img src="image-20200914140640360.png" /></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>检查强化学习自定义环境是否符合Gym的API</title>
     <url>/2020/08/22/%E6%A3%80%E6%9F%A5%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E7%AC%A6%E5%90%88Gym%E7%9A%84API/</url>
     <content><![CDATA[<p>虽然Openai Gym给我们提供了很多有趣的环境，但是，针对实际问题，我们一般都需要建立自己的强化学习环境，也就是说，建立一个函数，输入是<code>action</code>，输出是<code>next_state, reward, done, info</code>，建立这样一个环境的时候最好按照Gym的API来设计，这样方便代码的编写与调试，很多网上实现的算法都是按照Gym的环境进行设计的，同时，Gym的API本身设计的就比较合理的。</p>
@@ -1744,6 +1744,44 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>Reinforcement Learning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>粒子群算法(PSO)的数学原理</title>
+    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95-PSO-%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h2 id="粒子群算法的起源">粒子群算法的起源</h2>
+<p>粒子群优化算法(Particle Swarm Optimization[PSO])是一种基于群体智能的启发式全局搜索算法，因为我的毕业设计需要用到，学习整理一下。</p>
+<p>求函数最优值的问题，即求函数的最大或者最小值。粒子群算法通过粒子间的竞争和协作以实现在复杂搜索空间中寻找全局最优点。它具有易理解，易实现，全局搜索能力强等特点，倍受科学与工程的领域的广泛关注，已经成为发展最快的智能优化算法之一。 <a id="more"></a> 粒子群算法由Kennedy和Eberhart于1995年提出，它的基本思想源于对鸟群捕食行为的研究。具体来说，已知：</p>
+<ul>
+<li>在这块区域里面只有一块食物</li>
+<li>所有的鸟都不知道食物在哪里</li>
+<li>但是他们能感受到当前的位置距离食物还有多远</li>
+</ul>
+<p>那么，找到食物的最优策略是什么呢？</p>
+<p>通过与上述情景类比，研究人员发现了粒子群算法： - 目标函数只有一个极值 - 函数的一组随机自变量的函数值不确定是极值 - 但是N组函数的一组随机自变量对应的函数值通过比较大小，可以出最值</p>
+<p>PS:我在学习的时候，看了半小时，都没有想出<code>但是他们能感受到当前的位置距离食物还有多远</code>这句话的具体含义。既然不知道食物的位置，又何来知道距离食物还有多远？后来想想，这句话还是稍微有些问题的，两者的类比还是有一些区别。</p>
+<p>我现在对第三句话的理解是，目标函数是多元函数，我们可以初始化若干组自变量，于是可以得到函数值，找出这些函数值中的最值，再进行接下去的操作即可。</p>
+<h2 id="粒子群算法的数学描述">粒子群算法的数学描述</h2>
+<p>PSO从上述模型中得到启示并用于解决优化问题。PSO中，每个优化问题的潜在解都是搜索空间中的一只鸟，称之为粒子。所有的粒子都有一个由被优化的函数决定的适值<strong>(fitness value)[也就是每组自变量所对应的函数值]</strong>，每个粒子还有一个速度决定他们飞翔的方向和距离。然后粒子们就追随当前的最优粒子在解空间中搜索。</p>
+<p>PSO初始化为一组随机粒子<strong>[随机的一组自变量]</strong>，然后通过迭代找到最优解。在每一次的迭代中，粒子通过跟踪两个极值来更新自己，第一个就是粒子本身所找到的最优解，这个解称为个体极值；另外一个极值是整个种群目前所找到的最优解，这个极值是全局极值。</p>
+<p>假设在一个D维的目标搜索空间中<strong>([也就是D元函数])</strong>，有N个粒子组成一个群落，其中第i个粒子表示为一个D维的向量：</p>
+<p><span class="math display">\[X_i=(x_{i1},x_{i2},...,x_{iD}), i=1,2,...,N\]</span></p>
+<p>第i个粒子的飞行速度也是一个D维的向量，记为：</p>
+<p><span class="math display">\[V_i=(v_{i1},v_{i2},...,v_{iD}), i=1,2,...,N\]</span></p>
+<p>第i个粒子迄今为止搜索到的最优位置称为个体极值，记为：</p>
+<p><span class="math display">\[P_{best}=(P_{i1},P_{i2},...,P_{iD}), i=1,2,...,N\]</span></p>
+<p>整个粒子群迄今为止搜索到的最优位置为全局极值，记为：</p>
+<p><span class="math display">\[g_{best}=(P_{g1},P_{g2},...,P_{gD})\]</span></p>
+<p>在找到这两个最优值时，粒子需要根据如下公式来更新自己的速度和位置：</p>
+<p><span class="math display">\[v_{id}=w\times v_{id}+c_1r_1(P_{id}-x_{id})+c_2r_2(P_{gd}-x_{id})\]</span></p>
+<p><span class="math display">\[x_{id}=x_{id}+v_{id}\]</span></p>
+<p>其中：c1和c2为学习因子，也称为加速常数<code>acceleration constant</code>，r1和r2为<code>[0,1]</code>范围内的均匀随机数。速度更新公式由三部分组成，第一部分为<code>惯性</code>，代表粒子有维持自己先前速度的趋势，第二部分为<code>认知</code>部分，反映了对自身历史经验的记忆，代表粒子有向自身历史最佳位置逼近的趋势，第三部分为<code>社会</code>部分，反映了粒子之间协同合作与知识共享的群体历史经验。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1790,41 +1828,18 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>粒子群算法(PSO)的数学原理</title>
-    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95-PSO-%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
-    <content><![CDATA[<h2 id="粒子群算法的起源">粒子群算法的起源</h2>
-<p>粒子群优化算法(Particle Swarm Optimization[PSO])是一种基于群体智能的启发式全局搜索算法，因为我的毕业设计需要用到，学习整理一下。</p>
-<p>求函数最优值的问题，即求函数的最大或者最小值。粒子群算法通过粒子间的竞争和协作以实现在复杂搜索空间中寻找全局最优点。它具有易理解，易实现，全局搜索能力强等特点，倍受科学与工程的领域的广泛关注，已经成为发展最快的智能优化算法之一。 <a id="more"></a> 粒子群算法由Kennedy和Eberhart于1995年提出，它的基本思想源于对鸟群捕食行为的研究。具体来说，已知：</p>
-<ul>
-<li>在这块区域里面只有一块食物</li>
-<li>所有的鸟都不知道食物在哪里</li>
-<li>但是他们能感受到当前的位置距离食物还有多远</li>
-</ul>
-<p>那么，找到食物的最优策略是什么呢？</p>
-<p>通过与上述情景类比，研究人员发现了粒子群算法： - 目标函数只有一个极值 - 函数的一组随机自变量的函数值不确定是极值 - 但是N组函数的一组随机自变量对应的函数值通过比较大小，可以出最值</p>
-<p>PS:我在学习的时候，看了半小时，都没有想出<code>但是他们能感受到当前的位置距离食物还有多远</code>这句话的具体含义。既然不知道食物的位置，又何来知道距离食物还有多远？后来想想，这句话还是稍微有些问题的，两者的类比还是有一些区别。</p>
-<p>我现在对第三句话的理解是，目标函数是多元函数，我们可以初始化若干组自变量，于是可以得到函数值，找出这些函数值中的最值，再进行接下去的操作即可。</p>
-<h2 id="粒子群算法的数学描述">粒子群算法的数学描述</h2>
-<p>PSO从上述模型中得到启示并用于解决优化问题。PSO中，每个优化问题的潜在解都是搜索空间中的一只鸟，称之为粒子。所有的粒子都有一个由被优化的函数决定的适值<strong>(fitness value)[也就是每组自变量所对应的函数值]</strong>，每个粒子还有一个速度决定他们飞翔的方向和距离。然后粒子们就追随当前的最优粒子在解空间中搜索。</p>
-<p>PSO初始化为一组随机粒子<strong>[随机的一组自变量]</strong>，然后通过迭代找到最优解。在每一次的迭代中，粒子通过跟踪两个极值来更新自己，第一个就是粒子本身所找到的最优解，这个解称为个体极值；另外一个极值是整个种群目前所找到的最优解，这个极值是全局极值。</p>
-<p>假设在一个D维的目标搜索空间中<strong>([也就是D元函数])</strong>，有N个粒子组成一个群落，其中第i个粒子表示为一个D维的向量：</p>
-<p><span class="math display">\[X_i=(x_{i1},x_{i2},...,x_{iD}), i=1,2,...,N\]</span></p>
-<p>第i个粒子的飞行速度也是一个D维的向量，记为：</p>
-<p><span class="math display">\[V_i=(v_{i1},v_{i2},...,v_{iD}), i=1,2,...,N\]</span></p>
-<p>第i个粒子迄今为止搜索到的最优位置称为个体极值，记为：</p>
-<p><span class="math display">\[P_{best}=(P_{i1},P_{i2},...,P_{iD}), i=1,2,...,N\]</span></p>
-<p>整个粒子群迄今为止搜索到的最优位置为全局极值，记为：</p>
-<p><span class="math display">\[g_{best}=(P_{g1},P_{g2},...,P_{gD})\]</span></p>
-<p>在找到这两个最优值时，粒子需要根据如下公式来更新自己的速度和位置：</p>
-<p><span class="math display">\[v_{id}=w\times v_{id}+c_1r_1(P_{id}-x_{id})+c_2r_2(P_{gd}-x_{id})\]</span></p>
-<p><span class="math display">\[x_{id}=x_{id}+v_{id}\]</span></p>
-<p>其中：c1和c2为学习因子，也称为加速常数<code>acceleration constant</code>，r1和r2为<code>[0,1]</code>范围内的均匀随机数。速度更新公式由三部分组成，第一部分为<code>惯性</code>，代表粒子有维持自己先前速度的趋势，第二部分为<code>认知</code>部分，反映了对自身历史经验的记忆，代表粒子有向自身历史最佳位置逼近的趋势，第三部分为<code>社会</code>部分，反映了粒子之间协同合作与知识共享的群体历史经验。</p>
+    <title>软路由</title>
+    <url>/2020/08/17/%E8%BD%AF%E8%B7%AF%E7%94%B1/</url>
+    <content><![CDATA[<p>今天装了用虚拟机装了一台软路由，总结两个字：真香</p>
+<a id="more"></a>
+<p>软路由用作旁路由，搭建socks5代理，速度比windows直接用快了将近30倍。</p>
+<p>不知道是啥原因，可能是Linux和Windows系统上的区别？</p>
 ]]></content>
       <categories>
-        <category>机器学习</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>机器学习</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1844,21 +1859,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>爬虫 代理IP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>软路由</title>
-    <url>/2020/08/17/%E8%BD%AF%E8%B7%AF%E7%94%B1/</url>
-    <content><![CDATA[<p>今天装了用虚拟机装了一台软路由，总结两个字：真香</p>
-<a id="more"></a>
-<p>软路由用作旁路由，搭建socks5代理，速度比windows直接用快了将近30倍。</p>
-<p>不知道是啥原因，可能是Linux和Windows系统上的区别？</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1972,54 +1972,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
 <p>其中，<span class="math inline">\(\beta\)</span>不是固定的，需要进行自适应设计，设计方法如下：</p>
 <p>计算两个策略的KL散度：<span class="math inline">\(d=\hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
 <p><span class="math inline">\(\begin{array}{l} -\text { If } d&lt;d_{\operatorname{targ}} / 1.5, \beta \leftarrow \beta / 2 \\ -\text { If } d&gt;d_{\text {targ }} \times 1.5, \beta \leftarrow \beta \times 2 \end{array}\)</span></p>
-]]></content>
-      <categories>
-        <category>Reinforcement Learning</category>
-      </categories>
-      <tags>
-        <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Playing Cartpole with natural deep reinforcement learning</title>
-    <url>/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/</url>
-    <content><![CDATA[<h2 id="introduction">Introduction</h2>
-<p>There are two kinds of methods in reinforcement learning, <strong>tabular methods</strong> and <strong>approximate methods</strong>. The purpose of RL is to get an <strong>optimal policy</strong>, which tells you to choose what action <em>A</em> when you at state <em>S</em>. If the state and aciton spaces are small enough, value fucntion can be represented as arrays, or tables. The problem with large state space is not just the memory needed for large tables, but the time and data needed to fill them accurately. If the state and aciton spaces are too large, due to the limitions of time and data, value functions need to be approximated with limited computational resources. In this case, out goal instead is to find a good enough approximate solution compared to optimal solution. <a id="more"></a> This post is some reading notes for <em>Playing Atari with Deep Reinforcement learning</em> which published by DeepMind(2013). Instead playing Atari games, I play CartPole games whose simulation environment is provided by Openai Gym. I implement the algorithm proposed by the DeepMind which known as DQN to solve CartPole. Besides, a discrete-q-learing method is discussed compared to DQN.</p>
-<p>CartPole is a classic control task which has infinite state space and finite action space. It is difficult to solve the problem use tabular methods. A neural network can solve this problem to learn successful control polcies. The network is trained with a variant of the Q-learning algorithm, with stochastic gradient descent to update the weights. To alleviate the problems of correlated data and non-stationary distributions, we use an experience replay mechanism which randomly samples previous transitions, and thereby smooths the training distribution over many past behaviors.</p>
-<h2 id="background">Background</h2>
-<p>We consider tasks in which an agent interacts with an environment <span class="math inline">\(\epsilon\)</span>, in this case the openai gym emulator, in a sequence of actions, observations and rewards. At each time-step the agent selects an action <span class="math inline">\(a_t\)</span> from the set of legal game actions, <span class="math inline">\(A=\)</span>{0, 1}. The action is passed to the emulator and it returns a list of next_state, reward, done.</p>
-<p>We consider sequences of actions and observations, <span class="math inline">\(s_t=x_1, a_1, x_2,..., a_{t-1},x_t\)</span> and learn game strategies that depend opon these sequences. All sequences in the emulator are assumed to terminate in a finite number of time-steps. This formalism gives rise to a large but finite Markov decision process(MDP) in which each sequence is a distinct state. As a result, we can apply standard reinforcement learning methods for MDPs, simply by using the complete sequence <span class="math inline">\(s_t\)</span> as the state representation at time t.</p>
-<p>The goal of the agent is to interact with the agent by selecting actions in a way that maximize future rewards. We some following definitons:</p>
-<ul>
-<li>We make the standard assumption that future rewards are discounted by a factor of <span class="math inline">\(\gamma\)</span> per time-step.</li>
-<li>The future discounted return at time <span class="math inline">\(t\)</span> as <span class="math inline">\(R_t=\Sigma_{t&#39;=t}^{T}\gamma^{t&#39;-t}r_{t&#39;}\)</span>, where <span class="math inline">\(T\)</span> is the time step at which the game terminates.</li>
-<li>Optimal action-value function <span class="math inline">\(Q^*(s, a)\)</span> as the maximum expected return achievable by following any strategy, after seeing some sequence <span class="math inline">\(s\)</span> and then taking some action <span class="math inline">\(a\)</span>, <span class="math inline">\(Q^*(s, a)=max_\pi E[R _ t|s _ t=s,a _ t=a,\pi]\)</span>, where <span class="math inline">\(\pi\)</span> is a policy mapping sequences to actions (or distributions over actions).</li>
-</ul>
-<p>The optimal action-value function obeys an important identity known as the <em>Bellman equation</em>. This is based on the following intuition: if the optimal value <span class="math inline">\(Q^*(s&#39;, a&#39;)\)</span> of the sequence <span class="math inline">\(s&#39;\)</span> at the next time-step was known for all possible actions <span class="math inline">\(a&#39;\)</span>, then the optimal strategy is to select the action <span class="math inline">\(a&#39;\)</span> maximizing the expected value of <span class="math inline">\(r+\gamma Q^*(s&#39;, a&#39;)\)</span></p>
-<p><span class="math display">\[Q^*(s, a)=E_{s&#39; \in \epsilon}[r+\gamma max_{a&#39;}Q^*(s&#39;, a&#39;|s, a)]\]</span></p>
-<p>Such value iteration algorithms converge to the optimal action value function, <span class="math inline">\(Q_i \rightarrow Q^*(s, a)\)</span> as <span class="math inline">\(i \rightarrow \infty\)</span></p>
-<p>In practice, this basic approach is totally impractical, because the action-value function is estimated separately for each sequence, without any generalisation. Instead, it is common to use a function approximator to estimate the action-value function, <span class="math inline">\(Q(s, a; \theta)=Q^*(s, a)\)</span>. In the reinforcement learning community this is typically a linear function approximator, but sometimes a non-linear function aproximator is used instead, such as a neural network. We refer to a neural network function approximator with weights <span class="math inline">\(\theta\)</span> as a Q-network. A Q-network can be trained by minimizing a sequence of loss functions <span class="math inline">\(L_i(\theta_i)\)</span> that changes at each iteration i.</p>
-<p><span class="math display">\[L_i(\theta_i)=E_{s,a \in \rho(\cdot)}[(y _ i-Q(s,a;\theta _ i))^2]\]</span></p>
-<p>where <span class="math inline">\(y_i=E_{s&#39; \in \epsilon}[r+\gamma max_{a&#39;}Q(s&#39;, a&#39;;\theta_{i-1}|s, a)]\)</span> is the target for iteration <span class="math inline">\(i\)</span> and <span class="math inline">\(\rho(s, a)\)</span> is a probability distribution over sequences <span class="math inline">\(s\)</span> and aciton <span class="math inline">\(a\)</span> that we refer to as the behaviour distribution.</p>
-<h2 id="deep-reinforcement-learning">Deep Reinforcement Learning</h2>
-<h3 id="dqn-pseudocode">DQN pseudocode</h3>
-<figure>
-<img src="dqn_algorithm.png" alt="dqn_algorithm" /><figcaption>dqn_algorithm</figcaption>
-</figure>
-<h2 id="code">Code</h2>
-<h3 id="dqn.py"><code>dqn.py</code></h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> math, random</span><br><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">import</span> torch.autograd <span class="keyword">as</span> autograd </span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"><span class="keyword">import</span> GPUtil</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">action_space = <span class="number">2</span></span><br><span class="line">state_space = <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Replay buffer </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReplayBuffer</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, capacity)</span>:</span></span><br><span class="line">        self.buffer = deque(maxlen=capacity)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, state, action, reward, next_state, done)</span>:</span></span><br><span class="line">        state = np.expand_dims(state, <span class="number">0</span>)</span><br><span class="line">        next_state = np.expand_dims(next_state, <span class="number">0</span>)</span><br><span class="line">            </span><br><span class="line">        self.buffer.append((state, action, reward, next_state, done))</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sample</span><span class="params">(self, batch_size)</span>:</span></span><br><span class="line">        state, action, reward, next_state, done = zip(*random.sample(self.buffer, batch_size))</span><br><span class="line">        <span class="keyword">return</span> np.concatenate(state), action, reward, np.concatenate(next_state), done</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.buffer)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deep Q Network</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DQN</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, num_inputs, num_actions, device)</span>:</span></span><br><span class="line">        super(DQN, self).__init__()</span><br><span class="line">        self.device = device</span><br><span class="line">        self.layers = nn.Sequential(</span><br><span class="line">            nn.Linear(state_space, <span class="number">256</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">256</span>, <span class="number">256</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">256</span>, action_space)</span><br><span class="line">        ).to(self.device)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.layers(x)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">act</span><span class="params">(self, state, epsilon)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> random.random() &gt; epsilon:</span><br><span class="line">            state = torch.FloatTensor(state).to(self.device)</span><br><span class="line">            q_value = self.forward(state)</span><br><span class="line">            action = q_value.max(<span class="number">0</span>)[<span class="number">1</span>].item()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            action = random.randrange(action_space)</span><br><span class="line">        <span class="keyword">return</span> action</span><br><span class="line"></span><br><span class="line"><span class="comment"># Computing TD difference</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_td_loss</span><span class="params">(model, batch_size, gamma, replay_buffer, optimizer, device)</span>:</span></span><br><span class="line">    state, action, reward, next_state, done = replay_buffer.sample(batch_size)</span><br><span class="line"></span><br><span class="line">    state = torch.FloatTensor(state).to(device)</span><br><span class="line">    next_state = torch.FloatTensor(next_state).to(device)</span><br><span class="line">    action = torch.LongTensor(action).to(device)</span><br><span class="line">    reward = torch.FloatTensor(reward).to(device)</span><br><span class="line">    done = torch.FloatTensor(done).to(device)</span><br><span class="line">    q_values = model.forward(state).to(device)</span><br><span class="line">    next_q_values = model.forward(next_state).to(device)</span><br><span class="line">    <span class="comment"># the value corresponding to the (s, a)</span></span><br><span class="line">    q_value = q_values.gather(<span class="number">1</span>, action.unsqueeze(<span class="number">1</span>)).squeeze(<span class="number">1</span>)</span><br><span class="line">    next_q_value = next_q_values.max(<span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">    expected_q_value = reward + gamma * next_q_value * (<span class="number">1</span> - done)</span><br><span class="line">    loss = (q_value - expected_q_value.data).pow(<span class="number">2</span>).mean()</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">50</span>)</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">return</span> loss</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print the size of the model</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_model_size</span><span class="params">()</span>:</span></span><br><span class="line">    para = sum([np.prod(list(p.size())) <span class="keyword">for</span> p <span class="keyword">in</span> model.parameters()])</span><br><span class="line">    print(<span class="string">'Model &#123;&#125; : params: &#123;:4f&#125;M'</span>.format(model._get_name(), para * <span class="number">4</span> / <span class="number">1000</span> / <span class="number">1000</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print GPU usage</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Monitor</span><span class="params">(Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, delay)</span>:</span></span><br><span class="line">        super(Monitor, self).__init__()</span><br><span class="line">        self.stopped = <span class="literal">False</span></span><br><span class="line">        self.delay = delay <span class="comment"># Time between calls to GPUtil</span></span><br><span class="line">        self.start()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> self.stopped:</span><br><span class="line">            GPUtil.showUtilization()</span><br><span class="line">            time.sleep(self.delay)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">stop</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.stopped = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Get the training time cost</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timeit</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></span><br><span class="line">        start_time = time.time()</span><br><span class="line">        func()</span><br><span class="line">        end_time = time.time()</span><br><span class="line">        print(<span class="string">"The Training is finished. Cost "</span>, end_time-start_time, <span class="string">" S"</span>)</span><br><span class="line">    <span class="keyword">return</span> inner</span><br></pre></td></tr></table></figure>
-<h3 id="traindqn.py"><code>traindqn.py</code></h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> dqn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> torch.utils.tensorboard <span class="keyword">import</span> SummaryWriter</span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line">writer = SummaryWriter()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Gym CartPole environment</span></span><br><span class="line">env = gym.make(<span class="string">"CartPole-v0"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a DQN model using CUDA</span></span><br><span class="line">device = torch.device(<span class="string">"cuda"</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">"cpu"</span>)</span><br><span class="line">model = DQN(env.observation_space.shape[<span class="number">0</span>], env.action_space.n, device)</span><br><span class="line"><span class="keyword">if</span> device == <span class="string">"cuda"</span>:</span><br><span class="line">    print(<span class="string">"Using GPU"</span>)</span><br><span class="line">    model.to(device)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Parameters</span></span><br><span class="line"><span class="comment">## Epsilon greedy exploration</span></span><br><span class="line">epsilon_start = <span class="number">0.9</span></span><br><span class="line">epsilon_final = <span class="number">0.05</span></span><br><span class="line">epsilon_decay = <span class="number">200</span></span><br><span class="line">epsilon_by_episode = <span class="keyword">lambda</span> frame_idx: epsilon_final + (epsilon_start - epsilon_final) * math.exp(<span class="number">-1.</span> * frame_idx / epsilon_decay)</span><br><span class="line"><span class="comment">## gamma</span></span><br><span class="line">gamma = <span class="number">0.99</span></span><br><span class="line"><span class="comment">## Training parameters</span></span><br><span class="line">episodes = <span class="number">1000</span></span><br><span class="line">batch_size = <span class="number">4</span></span><br><span class="line">losses = []</span><br><span class="line">all_rewards = []</span><br><span class="line">episode_reward = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Computing Temporal Difference Loss</span></span><br><span class="line">replay_buffer = ReplayBuffer(<span class="number">5000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a optimizer</span></span><br><span class="line">optimizer = optim.Adam(model.parameters(), lr=<span class="number">0.0001</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Trainning</span></span><br><span class="line"><span class="meta">@timeit</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> gamma, num_frames, batch_size, losses, all_rewards, episode_reward</span><br><span class="line">    state = env.reset()</span><br><span class="line">    <span class="keyword">for</span> episode_idx <span class="keyword">in</span> range(<span class="number">1</span>, episodes + <span class="number">1</span>):</span><br><span class="line">        epsilon = epsilon_by_episode(episode_idx)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> itertools.count():</span><br><span class="line">            action = model.act(state, epsilon)</span><br><span class="line">            <span class="comment">#print(action)</span></span><br><span class="line">            </span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            replay_buffer.push(state, action, reward, next_state, done)</span><br><span class="line">            </span><br><span class="line">            state = next_state</span><br><span class="line">            episode_reward += reward</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                state = env.reset()</span><br><span class="line">                all_rewards.append(episode_reward)</span><br><span class="line">                print(episode_reward)</span><br><span class="line">                episode_reward = <span class="number">0</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">                </span><br><span class="line">            <span class="keyword">if</span> len(replay_buffer) &gt; batch_size:</span><br><span class="line">                loss = compute_td_loss(model, batch_size, gamma, replay_buffer, optimizer, device)</span><br><span class="line">                losses.append(loss.item())</span><br><span class="line">    <span class="comment">#plot(all_rewards, losses)</span></span><br><span class="line">            </span><br><span class="line">        <span class="comment">#if frame_idx % 200 == 0:</span></span><br><span class="line">            <span class="comment">#plot(frame_idx, all_rewards, losses)</span></span><br><span class="line">    plt.plot(all_rewards)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_policy</span><span class="params">()</span>:</span></span><br><span class="line">    pole_angle = np.random.uniform(-env.observation_space.high[<span class="number">2</span>], env.observation_space.high[<span class="number">2</span>], <span class="number">10000</span>)</span><br><span class="line">    pole_velocity = np.random.uniform(-math.radians(<span class="number">50</span>), math.radians(<span class="number">50</span>), <span class="number">10000</span>)</span><br><span class="line">    action_list = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(pole_angle)):</span><br><span class="line">        state = env.reset()</span><br><span class="line">        state[<span class="number">2</span>] = pole_angle[i]</span><br><span class="line">        state[<span class="number">3</span>] = pole_velocity[i]</span><br><span class="line">        <span class="comment">#print(state, model.act(state, 0))</span></span><br><span class="line">        action = model.act(state, <span class="number">0</span>)</span><br><span class="line">        action_list.append(action)</span><br><span class="line">    colors = &#123;<span class="number">0</span>:<span class="string">'blue'</span>,<span class="number">1</span>:<span class="string">'red'</span>&#125;</span><br><span class="line">    colors = [<span class="string">'blue'</span> <span class="keyword">if</span> i==<span class="number">0</span> <span class="keyword">else</span> <span class="string">'red'</span> <span class="keyword">for</span> i <span class="keyword">in</span> action_list]</span><br><span class="line">    labels = [<span class="string">'Left'</span>,<span class="string">'Right'</span>]</span><br><span class="line">    print(colors)</span><br><span class="line">    <span class="keyword">import</span> matplotlib.patches <span class="keyword">as</span> mpatches</span><br><span class="line">    <span class="keyword">from</span> matplotlib.colors <span class="keyword">import</span> ListedColormap</span><br><span class="line">    fig = plt.figure(<span class="number">5</span>, figsize=[<span class="number">7</span>,<span class="number">7</span>])</span><br><span class="line">    ax = fig.gca()</span><br><span class="line">    plt.set_cmap(<span class="string">'brg'</span>)</span><br><span class="line">    surf = ax.scatter(pole_angle,pole_velocity, c=colors)</span><br><span class="line">    ax.set_xlabel(<span class="string">'pole_angle'</span>)</span><br><span class="line">    ax.set_ylabel(<span class="string">'pole_velocity'</span>)</span><br><span class="line">    ax.set_title(<span class="string">'Policy'</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Instantiate monitor with a 10-second delay between updates</span></span><br><span class="line">monitor = Monitor(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#writer.add_graph(model, torch.Tensor([1.0, 1.0, 1.0, 1.0]).to(device))</span></span><br><span class="line"><span class="comment"># Train here</span></span><br><span class="line">train()</span><br><span class="line">plot_policy()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Close monitor</span></span><br><span class="line">monitor.stop()</span><br></pre></td></tr></table></figure>
-<h2 id="result">Result</h2>
-<p>After training for 1000 episodes, we get the following policy:</p>
-<p><img src="dqn_policy.png" alt="policy" /> ## Code Comments ### How to compute TD Loss <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_td_loss</span><span class="params">(model, batch_size, gamma, replay_buffer, optimizer, device)</span>:</span></span><br><span class="line">    state, action, reward, next_state, done = replay_buffer.sample(batch_size)</span><br><span class="line"></span><br><span class="line">    state = torch.FloatTensor(state).to(device)</span><br><span class="line">    next_state = torch.FloatTensor(next_state).to(device)</span><br><span class="line">    action = torch.LongTensor(action).to(device)</span><br><span class="line">    reward = torch.FloatTensor(reward).to(device)</span><br><span class="line">    done = torch.FloatTensor(done).to(device)</span><br><span class="line"></span><br><span class="line">    q_values = model.forward(state).to(device)</span><br><span class="line">    next_q_values = model.forward(next_state).to(device)</span><br><span class="line">    <span class="comment"># the value corresponding to the (s, a)</span></span><br><span class="line">    q_value = q_values.gather(<span class="number">1</span>, action.unsqueeze(<span class="number">1</span>)).squeeze(<span class="number">1</span>)</span><br><span class="line">    next_q_value = next_q_values.max(<span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">    expected_q_value = reward + gamma * next_q_value * (<span class="number">1</span> - done)</span><br><span class="line">    loss = (q_value - expected_q_value.data).pow(<span class="number">2</span>).mean()</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">50</span>)</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">return</span> loss</span><br></pre></td></tr></table></figure> In contrast to TD-Gammon and similar online approaches, we utilize a technique known as <em>experience replay</em> where we store the agent's experiences at each time-step, <span class="math inline">\(e_t=(s_t, a_t, r_t, _{t+1})\)</span> in a data-set <span class="math inline">\(D=e_1, e_2, ... ,e_N\)</span>, pooled over many episodes into a replay memory.</p>
-<p>Since we have known the pair <span class="math inline">\((s_t, a_t)\)</span>, we can get the <code>q_value = q_values.gather(1, action.unsqueeze(1)).squeeze(1)</code>. Then, we know next_state, compute next_q_value. Choose <span class="math inline">\(a&#39;\)</span> which maximize the next_q_value.</p>
-<h2 id="reference">Reference</h2>
-<p>[1] Mnih, Volodymyr, et al. "Playing atari with deep reinforcement learning." arXiv preprint arXiv:1312.5602 (2013).</p>
-<p>[2] https://stackoverflow.com/questions/50999977/what-does-the-gather-function-do-in-pytorch-in-layman-terms</p>
-<p>[3] https://stackoverflow.com/questions/57237352/what-does-unsqueeze-do-in-pytorch</p>
-<p>[4] https://gist.github.com/ts1829/62b9ae7687d79279b9381bb6808bf6ab#file-mountain-car-v0-q-learning-modified-reward-ipynb</p>
 ]]></content>
       <categories>
         <category>Reinforcement Learning</category>
@@ -3232,6 +3184,54 @@ Alabama
       </tags>
   </entry>
   <entry>
+    <title>Playing Cartpole with natural deep reinforcement learning</title>
+    <url>/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/</url>
+    <content><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>There are two kinds of methods in reinforcement learning, <strong>tabular methods</strong> and <strong>approximate methods</strong>. The purpose of RL is to get an <strong>optimal policy</strong>, which tells you to choose what action <em>A</em> when you at state <em>S</em>. If the state and aciton spaces are small enough, value fucntion can be represented as arrays, or tables. The problem with large state space is not just the memory needed for large tables, but the time and data needed to fill them accurately. If the state and aciton spaces are too large, due to the limitions of time and data, value functions need to be approximated with limited computational resources. In this case, out goal instead is to find a good enough approximate solution compared to optimal solution. <a id="more"></a> This post is some reading notes for <em>Playing Atari with Deep Reinforcement learning</em> which published by DeepMind(2013). Instead playing Atari games, I play CartPole games whose simulation environment is provided by Openai Gym. I implement the algorithm proposed by the DeepMind which known as DQN to solve CartPole. Besides, a discrete-q-learing method is discussed compared to DQN.</p>
+<p>CartPole is a classic control task which has infinite state space and finite action space. It is difficult to solve the problem use tabular methods. A neural network can solve this problem to learn successful control polcies. The network is trained with a variant of the Q-learning algorithm, with stochastic gradient descent to update the weights. To alleviate the problems of correlated data and non-stationary distributions, we use an experience replay mechanism which randomly samples previous transitions, and thereby smooths the training distribution over many past behaviors.</p>
+<h2 id="background">Background</h2>
+<p>We consider tasks in which an agent interacts with an environment <span class="math inline">\(\epsilon\)</span>, in this case the openai gym emulator, in a sequence of actions, observations and rewards. At each time-step the agent selects an action <span class="math inline">\(a_t\)</span> from the set of legal game actions, <span class="math inline">\(A=\)</span>{0, 1}. The action is passed to the emulator and it returns a list of next_state, reward, done.</p>
+<p>We consider sequences of actions and observations, <span class="math inline">\(s_t=x_1, a_1, x_2,..., a_{t-1},x_t\)</span> and learn game strategies that depend opon these sequences. All sequences in the emulator are assumed to terminate in a finite number of time-steps. This formalism gives rise to a large but finite Markov decision process(MDP) in which each sequence is a distinct state. As a result, we can apply standard reinforcement learning methods for MDPs, simply by using the complete sequence <span class="math inline">\(s_t\)</span> as the state representation at time t.</p>
+<p>The goal of the agent is to interact with the agent by selecting actions in a way that maximize future rewards. We some following definitons:</p>
+<ul>
+<li>We make the standard assumption that future rewards are discounted by a factor of <span class="math inline">\(\gamma\)</span> per time-step.</li>
+<li>The future discounted return at time <span class="math inline">\(t\)</span> as <span class="math inline">\(R_t=\Sigma_{t&#39;=t}^{T}\gamma^{t&#39;-t}r_{t&#39;}\)</span>, where <span class="math inline">\(T\)</span> is the time step at which the game terminates.</li>
+<li>Optimal action-value function <span class="math inline">\(Q^*(s, a)\)</span> as the maximum expected return achievable by following any strategy, after seeing some sequence <span class="math inline">\(s\)</span> and then taking some action <span class="math inline">\(a\)</span>, <span class="math inline">\(Q^*(s, a)=max_\pi E[R _ t|s _ t=s,a _ t=a,\pi]\)</span>, where <span class="math inline">\(\pi\)</span> is a policy mapping sequences to actions (or distributions over actions).</li>
+</ul>
+<p>The optimal action-value function obeys an important identity known as the <em>Bellman equation</em>. This is based on the following intuition: if the optimal value <span class="math inline">\(Q^*(s&#39;, a&#39;)\)</span> of the sequence <span class="math inline">\(s&#39;\)</span> at the next time-step was known for all possible actions <span class="math inline">\(a&#39;\)</span>, then the optimal strategy is to select the action <span class="math inline">\(a&#39;\)</span> maximizing the expected value of <span class="math inline">\(r+\gamma Q^*(s&#39;, a&#39;)\)</span></p>
+<p><span class="math display">\[Q^*(s, a)=E_{s&#39; \in \epsilon}[r+\gamma max_{a&#39;}Q^*(s&#39;, a&#39;|s, a)]\]</span></p>
+<p>Such value iteration algorithms converge to the optimal action value function, <span class="math inline">\(Q_i \rightarrow Q^*(s, a)\)</span> as <span class="math inline">\(i \rightarrow \infty\)</span></p>
+<p>In practice, this basic approach is totally impractical, because the action-value function is estimated separately for each sequence, without any generalisation. Instead, it is common to use a function approximator to estimate the action-value function, <span class="math inline">\(Q(s, a; \theta)=Q^*(s, a)\)</span>. In the reinforcement learning community this is typically a linear function approximator, but sometimes a non-linear function aproximator is used instead, such as a neural network. We refer to a neural network function approximator with weights <span class="math inline">\(\theta\)</span> as a Q-network. A Q-network can be trained by minimizing a sequence of loss functions <span class="math inline">\(L_i(\theta_i)\)</span> that changes at each iteration i.</p>
+<p><span class="math display">\[L_i(\theta_i)=E_{s,a \in \rho(\cdot)}[(y _ i-Q(s,a;\theta _ i))^2]\]</span></p>
+<p>where <span class="math inline">\(y_i=E_{s&#39; \in \epsilon}[r+\gamma max_{a&#39;}Q(s&#39;, a&#39;;\theta_{i-1}|s, a)]\)</span> is the target for iteration <span class="math inline">\(i\)</span> and <span class="math inline">\(\rho(s, a)\)</span> is a probability distribution over sequences <span class="math inline">\(s\)</span> and aciton <span class="math inline">\(a\)</span> that we refer to as the behaviour distribution.</p>
+<h2 id="deep-reinforcement-learning">Deep Reinforcement Learning</h2>
+<h3 id="dqn-pseudocode">DQN pseudocode</h3>
+<figure>
+<img src="dqn_algorithm.png" alt="dqn_algorithm" /><figcaption>dqn_algorithm</figcaption>
+</figure>
+<h2 id="code">Code</h2>
+<h3 id="dqn.py"><code>dqn.py</code></h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> math, random</span><br><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">import</span> torch.autograd <span class="keyword">as</span> autograd </span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"><span class="keyword">import</span> GPUtil</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">action_space = <span class="number">2</span></span><br><span class="line">state_space = <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Replay buffer </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReplayBuffer</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, capacity)</span>:</span></span><br><span class="line">        self.buffer = deque(maxlen=capacity)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, state, action, reward, next_state, done)</span>:</span></span><br><span class="line">        state = np.expand_dims(state, <span class="number">0</span>)</span><br><span class="line">        next_state = np.expand_dims(next_state, <span class="number">0</span>)</span><br><span class="line">            </span><br><span class="line">        self.buffer.append((state, action, reward, next_state, done))</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sample</span><span class="params">(self, batch_size)</span>:</span></span><br><span class="line">        state, action, reward, next_state, done = zip(*random.sample(self.buffer, batch_size))</span><br><span class="line">        <span class="keyword">return</span> np.concatenate(state), action, reward, np.concatenate(next_state), done</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.buffer)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deep Q Network</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DQN</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, num_inputs, num_actions, device)</span>:</span></span><br><span class="line">        super(DQN, self).__init__()</span><br><span class="line">        self.device = device</span><br><span class="line">        self.layers = nn.Sequential(</span><br><span class="line">            nn.Linear(state_space, <span class="number">256</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">256</span>, <span class="number">256</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">256</span>, action_space)</span><br><span class="line">        ).to(self.device)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.layers(x)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">act</span><span class="params">(self, state, epsilon)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> random.random() &gt; epsilon:</span><br><span class="line">            state = torch.FloatTensor(state).to(self.device)</span><br><span class="line">            q_value = self.forward(state)</span><br><span class="line">            action = q_value.max(<span class="number">0</span>)[<span class="number">1</span>].item()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            action = random.randrange(action_space)</span><br><span class="line">        <span class="keyword">return</span> action</span><br><span class="line"></span><br><span class="line"><span class="comment"># Computing TD difference</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_td_loss</span><span class="params">(model, batch_size, gamma, replay_buffer, optimizer, device)</span>:</span></span><br><span class="line">    state, action, reward, next_state, done = replay_buffer.sample(batch_size)</span><br><span class="line"></span><br><span class="line">    state = torch.FloatTensor(state).to(device)</span><br><span class="line">    next_state = torch.FloatTensor(next_state).to(device)</span><br><span class="line">    action = torch.LongTensor(action).to(device)</span><br><span class="line">    reward = torch.FloatTensor(reward).to(device)</span><br><span class="line">    done = torch.FloatTensor(done).to(device)</span><br><span class="line">    q_values = model.forward(state).to(device)</span><br><span class="line">    next_q_values = model.forward(next_state).to(device)</span><br><span class="line">    <span class="comment"># the value corresponding to the (s, a)</span></span><br><span class="line">    q_value = q_values.gather(<span class="number">1</span>, action.unsqueeze(<span class="number">1</span>)).squeeze(<span class="number">1</span>)</span><br><span class="line">    next_q_value = next_q_values.max(<span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">    expected_q_value = reward + gamma * next_q_value * (<span class="number">1</span> - done)</span><br><span class="line">    loss = (q_value - expected_q_value.data).pow(<span class="number">2</span>).mean()</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">50</span>)</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">return</span> loss</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print the size of the model</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_model_size</span><span class="params">()</span>:</span></span><br><span class="line">    para = sum([np.prod(list(p.size())) <span class="keyword">for</span> p <span class="keyword">in</span> model.parameters()])</span><br><span class="line">    print(<span class="string">'Model &#123;&#125; : params: &#123;:4f&#125;M'</span>.format(model._get_name(), para * <span class="number">4</span> / <span class="number">1000</span> / <span class="number">1000</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print GPU usage</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Monitor</span><span class="params">(Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, delay)</span>:</span></span><br><span class="line">        super(Monitor, self).__init__()</span><br><span class="line">        self.stopped = <span class="literal">False</span></span><br><span class="line">        self.delay = delay <span class="comment"># Time between calls to GPUtil</span></span><br><span class="line">        self.start()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> self.stopped:</span><br><span class="line">            GPUtil.showUtilization()</span><br><span class="line">            time.sleep(self.delay)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">stop</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.stopped = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Get the training time cost</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timeit</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></span><br><span class="line">        start_time = time.time()</span><br><span class="line">        func()</span><br><span class="line">        end_time = time.time()</span><br><span class="line">        print(<span class="string">"The Training is finished. Cost "</span>, end_time-start_time, <span class="string">" S"</span>)</span><br><span class="line">    <span class="keyword">return</span> inner</span><br></pre></td></tr></table></figure>
+<h3 id="traindqn.py"><code>traindqn.py</code></h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> dqn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> torch.utils.tensorboard <span class="keyword">import</span> SummaryWriter</span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line">writer = SummaryWriter()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Gym CartPole environment</span></span><br><span class="line">env = gym.make(<span class="string">"CartPole-v0"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a DQN model using CUDA</span></span><br><span class="line">device = torch.device(<span class="string">"cuda"</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">"cpu"</span>)</span><br><span class="line">model = DQN(env.observation_space.shape[<span class="number">0</span>], env.action_space.n, device)</span><br><span class="line"><span class="keyword">if</span> device == <span class="string">"cuda"</span>:</span><br><span class="line">    print(<span class="string">"Using GPU"</span>)</span><br><span class="line">    model.to(device)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Parameters</span></span><br><span class="line"><span class="comment">## Epsilon greedy exploration</span></span><br><span class="line">epsilon_start = <span class="number">0.9</span></span><br><span class="line">epsilon_final = <span class="number">0.05</span></span><br><span class="line">epsilon_decay = <span class="number">200</span></span><br><span class="line">epsilon_by_episode = <span class="keyword">lambda</span> frame_idx: epsilon_final + (epsilon_start - epsilon_final) * math.exp(<span class="number">-1.</span> * frame_idx / epsilon_decay)</span><br><span class="line"><span class="comment">## gamma</span></span><br><span class="line">gamma = <span class="number">0.99</span></span><br><span class="line"><span class="comment">## Training parameters</span></span><br><span class="line">episodes = <span class="number">1000</span></span><br><span class="line">batch_size = <span class="number">4</span></span><br><span class="line">losses = []</span><br><span class="line">all_rewards = []</span><br><span class="line">episode_reward = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Computing Temporal Difference Loss</span></span><br><span class="line">replay_buffer = ReplayBuffer(<span class="number">5000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a optimizer</span></span><br><span class="line">optimizer = optim.Adam(model.parameters(), lr=<span class="number">0.0001</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Trainning</span></span><br><span class="line"><span class="meta">@timeit</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> gamma, num_frames, batch_size, losses, all_rewards, episode_reward</span><br><span class="line">    state = env.reset()</span><br><span class="line">    <span class="keyword">for</span> episode_idx <span class="keyword">in</span> range(<span class="number">1</span>, episodes + <span class="number">1</span>):</span><br><span class="line">        epsilon = epsilon_by_episode(episode_idx)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> itertools.count():</span><br><span class="line">            action = model.act(state, epsilon)</span><br><span class="line">            <span class="comment">#print(action)</span></span><br><span class="line">            </span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            replay_buffer.push(state, action, reward, next_state, done)</span><br><span class="line">            </span><br><span class="line">            state = next_state</span><br><span class="line">            episode_reward += reward</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                state = env.reset()</span><br><span class="line">                all_rewards.append(episode_reward)</span><br><span class="line">                print(episode_reward)</span><br><span class="line">                episode_reward = <span class="number">0</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">                </span><br><span class="line">            <span class="keyword">if</span> len(replay_buffer) &gt; batch_size:</span><br><span class="line">                loss = compute_td_loss(model, batch_size, gamma, replay_buffer, optimizer, device)</span><br><span class="line">                losses.append(loss.item())</span><br><span class="line">    <span class="comment">#plot(all_rewards, losses)</span></span><br><span class="line">            </span><br><span class="line">        <span class="comment">#if frame_idx % 200 == 0:</span></span><br><span class="line">            <span class="comment">#plot(frame_idx, all_rewards, losses)</span></span><br><span class="line">    plt.plot(all_rewards)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_policy</span><span class="params">()</span>:</span></span><br><span class="line">    pole_angle = np.random.uniform(-env.observation_space.high[<span class="number">2</span>], env.observation_space.high[<span class="number">2</span>], <span class="number">10000</span>)</span><br><span class="line">    pole_velocity = np.random.uniform(-math.radians(<span class="number">50</span>), math.radians(<span class="number">50</span>), <span class="number">10000</span>)</span><br><span class="line">    action_list = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(pole_angle)):</span><br><span class="line">        state = env.reset()</span><br><span class="line">        state[<span class="number">2</span>] = pole_angle[i]</span><br><span class="line">        state[<span class="number">3</span>] = pole_velocity[i]</span><br><span class="line">        <span class="comment">#print(state, model.act(state, 0))</span></span><br><span class="line">        action = model.act(state, <span class="number">0</span>)</span><br><span class="line">        action_list.append(action)</span><br><span class="line">    colors = &#123;<span class="number">0</span>:<span class="string">'blue'</span>,<span class="number">1</span>:<span class="string">'red'</span>&#125;</span><br><span class="line">    colors = [<span class="string">'blue'</span> <span class="keyword">if</span> i==<span class="number">0</span> <span class="keyword">else</span> <span class="string">'red'</span> <span class="keyword">for</span> i <span class="keyword">in</span> action_list]</span><br><span class="line">    labels = [<span class="string">'Left'</span>,<span class="string">'Right'</span>]</span><br><span class="line">    print(colors)</span><br><span class="line">    <span class="keyword">import</span> matplotlib.patches <span class="keyword">as</span> mpatches</span><br><span class="line">    <span class="keyword">from</span> matplotlib.colors <span class="keyword">import</span> ListedColormap</span><br><span class="line">    fig = plt.figure(<span class="number">5</span>, figsize=[<span class="number">7</span>,<span class="number">7</span>])</span><br><span class="line">    ax = fig.gca()</span><br><span class="line">    plt.set_cmap(<span class="string">'brg'</span>)</span><br><span class="line">    surf = ax.scatter(pole_angle,pole_velocity, c=colors)</span><br><span class="line">    ax.set_xlabel(<span class="string">'pole_angle'</span>)</span><br><span class="line">    ax.set_ylabel(<span class="string">'pole_velocity'</span>)</span><br><span class="line">    ax.set_title(<span class="string">'Policy'</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Instantiate monitor with a 10-second delay between updates</span></span><br><span class="line">monitor = Monitor(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#writer.add_graph(model, torch.Tensor([1.0, 1.0, 1.0, 1.0]).to(device))</span></span><br><span class="line"><span class="comment"># Train here</span></span><br><span class="line">train()</span><br><span class="line">plot_policy()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Close monitor</span></span><br><span class="line">monitor.stop()</span><br></pre></td></tr></table></figure>
+<h2 id="result">Result</h2>
+<p>After training for 1000 episodes, we get the following policy:</p>
+<p><img src="dqn_policy.png" alt="policy" /> ## Code Comments ### How to compute TD Loss <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_td_loss</span><span class="params">(model, batch_size, gamma, replay_buffer, optimizer, device)</span>:</span></span><br><span class="line">    state, action, reward, next_state, done = replay_buffer.sample(batch_size)</span><br><span class="line"></span><br><span class="line">    state = torch.FloatTensor(state).to(device)</span><br><span class="line">    next_state = torch.FloatTensor(next_state).to(device)</span><br><span class="line">    action = torch.LongTensor(action).to(device)</span><br><span class="line">    reward = torch.FloatTensor(reward).to(device)</span><br><span class="line">    done = torch.FloatTensor(done).to(device)</span><br><span class="line"></span><br><span class="line">    q_values = model.forward(state).to(device)</span><br><span class="line">    next_q_values = model.forward(next_state).to(device)</span><br><span class="line">    <span class="comment"># the value corresponding to the (s, a)</span></span><br><span class="line">    q_value = q_values.gather(<span class="number">1</span>, action.unsqueeze(<span class="number">1</span>)).squeeze(<span class="number">1</span>)</span><br><span class="line">    next_q_value = next_q_values.max(<span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">    expected_q_value = reward + gamma * next_q_value * (<span class="number">1</span> - done)</span><br><span class="line">    loss = (q_value - expected_q_value.data).pow(<span class="number">2</span>).mean()</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">50</span>)</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">return</span> loss</span><br></pre></td></tr></table></figure> In contrast to TD-Gammon and similar online approaches, we utilize a technique known as <em>experience replay</em> where we store the agent's experiences at each time-step, <span class="math inline">\(e_t=(s_t, a_t, r_t, _{t+1})\)</span> in a data-set <span class="math inline">\(D=e_1, e_2, ... ,e_N\)</span>, pooled over many episodes into a replay memory.</p>
+<p>Since we have known the pair <span class="math inline">\((s_t, a_t)\)</span>, we can get the <code>q_value = q_values.gather(1, action.unsqueeze(1)).squeeze(1)</code>. Then, we know next_state, compute next_q_value. Choose <span class="math inline">\(a&#39;\)</span> which maximize the next_q_value.</p>
+<h2 id="reference">Reference</h2>
+<p>[1] Mnih, Volodymyr, et al. "Playing atari with deep reinforcement learning." arXiv preprint arXiv:1312.5602 (2013).</p>
+<p>[2] https://stackoverflow.com/questions/50999977/what-does-the-gather-function-do-in-pytorch-in-layman-terms</p>
+<p>[3] https://stackoverflow.com/questions/57237352/what-does-unsqueeze-do-in-pytorch</p>
+<p>[4] https://gist.github.com/ts1829/62b9ae7687d79279b9381bb6808bf6ab#file-mountain-car-v0-q-learning-modified-reward-ipynb</p>
+]]></content>
+      <categories>
+        <category>Reinforcement Learning</category>
+      </categories>
+      <tags>
+        <tag>Reinforcement Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PolicyGradient公式推导</title>
     <url>/2020/08/01/PolicyGradient%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/</url>
     <content><![CDATA[<p>本文是对Sutton的《Reinforcement learning An introduction》书中第13章Policy Gradient Methods部分的总结，主要包括<strong>Policy Gradient方法的离散时间情形下的公式推导</strong>，<strong>REINFORCE算法</strong>，<strong>REINFORCE with Baseline算法</strong>，<strong>Short Corridor with switched actions环境下的仿真</strong>。</p>
@@ -3378,6 +3378,59 @@ Alabama
       </tags>
   </entry>
   <entry>
+    <title>发布自己的Python包到pypi</title>
+    <url>/2018/10/07/%E5%8F%91%E5%B8%83%E8%87%AA%E5%B7%B1%E7%9A%84Python%E5%8C%85%E5%88%B0pypi/</url>
+    <content><![CDATA[<blockquote>
+<p>大佬们写的包，我们只需要<strong><code>pip install</code></strong>就能安装了，但是，其实人人都能发布包到pypi。 本教程将指导您如何打包一个简单的Python项目。它将向您展示如何添加必要的文件和结构来创建包，如何构建包以及如何将其上载到Python包索引。</p>
+</blockquote>
+<h2 id="一个简单的项目">一个简单的项目</h2>
+<p>本教程使用名为<strong><code>example_pkg_xujhtop</code></strong>的简单项目。</p>
+<p>要在本地创建此项目，请创建以下文件结构： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/example_pkg_xujhtop</span><br><span class="line">  /example_pkg_xujhtop</span><br><span class="line">    __init__.py</span><br></pre></td></tr></table></figure> <a id="more"></a> 创建此结构后，您将需要在顶级文件夹中运行本教程中的所有命令 - 因此请务必使用<strong><code>cd example_pkg_xujhtop</code></strong> 。</p>
+<p>您还应该编辑<strong><code>example_pkg_xujhtop/__init__.py</code></strong>并将以下代码放在其中： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">name = "example_pkg_xujhtop"</span><br></pre></td></tr></table></figure> 这只是为了您可以在本教程后面验证它是否正确安装。</p>
+<h2 id="创建包文件">创建包文件</h2>
+<p>现在，您将创建一些文件来打包此项目并准备分发。 创建下面列出的新文件 - 您将在以下步骤中向其添加内容。 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/example_pkg_xujhtop</span><br><span class="line">  /example_pkg_xujhtop</span><br><span class="line">    __init__.py</span><br><span class="line">  setup.py</span><br><span class="line">  LICENSE</span><br><span class="line">  README.md</span><br></pre></td></tr></table></figure></p>
+<h2 id="创建setup.py">创建setup.py¶</h2>
+<p><strong><code>setup.py</code></strong>是<strong><code>setuptools</code></strong>的构建脚本。 它告诉<strong><code>setuptools</code></strong>你的包（例如名称和版本）以及要包含的代码文件。</p>
+<p>打开<strong><code>setup.py</code></strong>并输入以下内容，您可以根据需要个性化值： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">import setuptools</span><br><span class="line"></span><br><span class="line">with open ( "README.md" , "r" ) as fh :</span><br><span class="line">    long_description = fh . read ()</span><br><span class="line"></span><br><span class="line">setuptools . setup (</span><br><span class="line">    name = "example_pkg_xujhtop" ,</span><br><span class="line">    version = "0.0.1" ,</span><br><span class="line">    author = "Example Author" ,</span><br><span class="line">    author_email = "author@example.com" ,</span><br><span class="line">    description = "A small example package" ,</span><br><span class="line">    long_description = long_description ,</span><br><span class="line">    long_description_content_type = "text/markdown" ,</span><br><span class="line">    url = "https://github.com/pypa/sampleproject" ,</span><br><span class="line">    packages = setuptools . find_packages (),</span><br><span class="line">    classifiers = [</span><br><span class="line">        "Programming Language :: Python :: 3" ,</span><br><span class="line">        "License :: OSI Approved :: MIT License" ,</span><br><span class="line">        "Operating System :: OS Independent" ,</span><br><span class="line">    ],</span><br><span class="line">)</span><br></pre></td></tr></table></figure> setup()有几个参数。 此示例包使用相对最小的集：</p>
+<ul>
+<li>name是包的名称。 只要包含字母，数字， _和- ， _可以是任何名称。 它也不能在pypi.org上使用。</li>
+<li>version是包版本见 PEP 440有关版本的更多详细信息。</li>
+<li>author和author_email用于标识包的作者。</li>
+<li>description是包的简短的一句话摘要。</li>
+<li>long_description是包的详细描述。 这显示在Python Package Index的包详细信息包中。 在这种情况下，从README.md加载长描述，这是一种常见模式。</li>
+<li>long_description_content_type告诉索引用于长描述的标记类型。 在这种情况下，它是Markdown。</li>
+<li>url是项目主页的URL。 对于许多项目，这只是一个指向GitHub，GitLab，Bitbucket或类似代码托管服务的链接。</li>
+<li>packages是应包含在分发包中的所有Python 导入包的列表。 我们可以使用find_packages()自动发现所有包和子包，而不是手动列出每个包。 在这种情况下，包列表将是example_pkg_xujhtop，因为它是唯一存在的包。</li>
+<li>classifiers告诉索引并提供有关包的其他元数据。 在这种情况下，该软件包仅与Python 3兼容，根据MIT许可证进行许可，并且与操作系统无关。 您应始终至少包含您的软件包所使用的Python版本，软件包可用的许可证以及您的软件包将使用的操作系统。 有关分类器的完整列表，请参阅https://pypi.org/classifiers/ 。</li>
+</ul>
+<h2 id="创建readme.md">创建README.md¶</h2>
+<p>打开README.md并输入以下内容。 如果您愿意，可以自定义此项。 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"> # Example Package</span><br><span class="line"></span><br><span class="line">This is a simple example package. You can use</span><br><span class="line">[<span class="string"> Github-flavored Markdown </span>](<span class="link"> https://guides.github.com/features/mastering-markdown/ </span>)</span><br><span class="line">to write your content.</span><br></pre></td></tr></table></figure> ## 创建许可证</p>
+<p>上传到Python Package Index的每个包都包含许可证，这一点很重要。 这告诉用户安装您的软件包可以使用您的软件包的条款。 有关选择许可证的帮助，请参阅https://choosealicense.com/ 。 选择许可证后，打开LICENSE并输入许可证文本。 例如，如果您选择了MIT许可证： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Copyright (c) 2018 The Python Packaging Authority</span><br><span class="line"></span><br><span class="line">Permission is hereby granted, free of charge, to any person obtaining a copy</span><br><span class="line">of this software and associated documentation files (the &quot;Software&quot;), to deal</span><br><span class="line">in the Software without restriction, including without limitation the rights</span><br><span class="line">to use, copy, modify, merge, publish, distribute, sublicense, and&#x2F;or sell</span><br><span class="line">copies of the Software, and to permit persons to whom the Software is</span><br><span class="line">furnished to do so, subject to the following conditions:</span><br><span class="line"></span><br><span class="line">The above copyright notice and this permission notice shall be included in all</span><br><span class="line">copies or substantial portions of the Software.</span><br><span class="line"></span><br><span class="line">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span><br><span class="line">IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span><br><span class="line">FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span><br><span class="line">AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span><br><span class="line">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span><br><span class="line">OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span><br><span class="line">SOFTWARE.</span><br></pre></td></tr></table></figure></p>
+<h2 id="生成分发档案">生成分发档案</h2>
+<p>下一步是为包生成分发包 。 这些是上传到包索引的档案，可以通过pip安装。</p>
+<p>确保安装了最新版本的setuptools和wheel ： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --user --upgrade setuptools wheel</span><br></pre></td></tr></table></figure></p>
+<p>现在从setup.py所在的同一目录运行此命令： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 setup.py sdist bdist_wheel</span><br></pre></td></tr></table></figure> 此命令应输出大量文本，一旦完成，应在dist目录中生成两个文件： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">dist/</span><br><span class="line">  example_pkg_xujhtop-0.0.1-py2-none-any.whl</span><br><span class="line">  example_pkg_xujhtop-0.0.1.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>tar.gz文件是源存档，而.whl文件是构建的分发 。 较新的pip版本优先安装构建的发行版，但如果需要，将回退到源代码存档。 您应该始终上传源存档并为项目兼容的平台提供构建的存档。 在这种情况下，我们的示例包在任何平台上都与Python兼容，因此只需要一个构建的发行版。</p>
+<h2 id="上传分发档案">上传分发档案</h2>
+<p>最后，是时候将您的包上传到Python Package Index了！</p>
+<p>您需要做的第一件事是在Test PyPI上注册一个帐户。 Test PyPI是用于测试和实验的包索引的单独实例。 这对于像我们不一定想要上传到真实索引的本教程那样很棒。 要注册帐户，请访问https://test.pypi.org/account/register/并完成该页面上的步骤。 在您上传任何软件包之前，您还需要验证您的电子邮件地址。 有关Test PyPI的更多详细信息，请参阅使用TestPyPI 。</p>
+<p>现在您已注册，您可以使用twine上传分发包。 你需要安装Twine： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --user --upgrade twine</span><br></pre></td></tr></table></figure> 安装完成后，运行Twine上传dist下的所有档案： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">twine upload --repository-url https://test.pypi.org/legacy/ dist/*</span><br></pre></td></tr></table></figure> 系统将提示您输入使用Test PyPI注册的用户名和密码。 命令完成后，您应该看到与此类似的输出： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Uploading distributions to https://test.pypi.org/legacy/</span><br><span class="line">Enter your username: [ your username ]</span><br><span class="line">Enter your password:</span><br><span class="line">Uploading example_pkg_xujhtop-0.0.1-py3-none-any.whl</span><br><span class="line">100 % | █████████████████████ | 4 .65k/4.65k [ 00 :01&lt; 00 :00, 2 .88kB/s ]</span><br><span class="line">Uploading example_pkg_xujhtop-0.0.1.tar.gz</span><br><span class="line">100 % | █████████████████████ | 4 .25k/4.25k [ 00 :01&lt; 00 :00, 3 .05kB/s ]</span><br></pre></td></tr></table></figure> 注意:如果您收到错误消息<strong><code>The user '[your username]' isn't allowed to upload to project 'example-pkg'</code></strong> ，则需要为您的包选择一个唯一的名称。 一个不错的选择是<strong><code>example_pkg_xujhtop</code></strong> 。 更新<strong><code>setup.py</code></strong>的<strong><code>name</code></strong>参数，删除<strong><code>dist</code></strong>文件夹，然后重新生成存档 。</p>
+<p>上传后，您的包应该可以在TestPyPI上查看，例如， <strong><code>https：//test.pypi.org/project/example-pkg</code></strong></p>
+<h2 id="安装新上传的软件包">安装新上传的软件包</h2>
+<p>您可以使用pip来安装包并验证它是否有效。 创建一个新的virtualenv （请参阅安装包以获取详细说明）并从TestPyPI安装包： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --index-url https://test.pypi.org/simple/ example_pkg_xujhtop</span><br></pre></td></tr></table></figure> 注意:如果在预览步骤中使用了不同的包名称，请将上面命令中的example_pkg_xujhtop替换example_pkg_xujhtop包名称。</p>
+<p>pip应该从Test PyPI安装包，输出应该如下所示： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Collecting example_pkg_xujhtop</span><br><span class="line">  Downloading https://test-files.pythonhosted.org/packages/.../example_pkg_xujhtop-0.0.1-py3-none-any.whl</span><br><span class="line">Installing collected packages: example-pkg</span><br><span class="line">Successfully installed example-pkg-0.0.1</span><br></pre></td></tr></table></figure> 您可以通过导入模块并引用之前放在<strong><code>__init__.py</code></strong>的<strong><code>name</code></strong>属性来测试它是否已正确安装。</p>
+<p>运行Python解释器（确保你仍然在你的virtualenv中）： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python</span><br></pre></td></tr></table></figure> 然后导入模块并打印出<strong><code>name</code></strong>属性。 无论您在<strong><code>setup.py</code></strong>给出的分发包名称是什么，这都应该是相同的，因为您的导入包是<strong><code>example_pkg_xujhtop</code></strong> 。 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span> <span class="keyword">import</span> example_pkg_xujhtop</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span> example_pkg_xujhtop . name</span><br><span class="line"><span class="string">'example_pkg_xujhtop'</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="后续步骤">后续步骤</h2>
+<p>恭喜，您已经打包并分发了一个Python项目！ ✨</p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python pypi</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>嵌入式操作系统软件工程师常见面试题</title>
     <url>/2018/08/01/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
     <content><![CDATA[<blockquote>
@@ -3505,59 +3558,6 @@ Alabama
       </categories>
       <tags>
         <tag>华为</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>发布自己的Python包到pypi</title>
-    <url>/2018/10/07/%E5%8F%91%E5%B8%83%E8%87%AA%E5%B7%B1%E7%9A%84Python%E5%8C%85%E5%88%B0pypi/</url>
-    <content><![CDATA[<blockquote>
-<p>大佬们写的包，我们只需要<strong><code>pip install</code></strong>就能安装了，但是，其实人人都能发布包到pypi。 本教程将指导您如何打包一个简单的Python项目。它将向您展示如何添加必要的文件和结构来创建包，如何构建包以及如何将其上载到Python包索引。</p>
-</blockquote>
-<h2 id="一个简单的项目">一个简单的项目</h2>
-<p>本教程使用名为<strong><code>example_pkg_xujhtop</code></strong>的简单项目。</p>
-<p>要在本地创建此项目，请创建以下文件结构： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/example_pkg_xujhtop</span><br><span class="line">  /example_pkg_xujhtop</span><br><span class="line">    __init__.py</span><br></pre></td></tr></table></figure> <a id="more"></a> 创建此结构后，您将需要在顶级文件夹中运行本教程中的所有命令 - 因此请务必使用<strong><code>cd example_pkg_xujhtop</code></strong> 。</p>
-<p>您还应该编辑<strong><code>example_pkg_xujhtop/__init__.py</code></strong>并将以下代码放在其中： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">name = "example_pkg_xujhtop"</span><br></pre></td></tr></table></figure> 这只是为了您可以在本教程后面验证它是否正确安装。</p>
-<h2 id="创建包文件">创建包文件</h2>
-<p>现在，您将创建一些文件来打包此项目并准备分发。 创建下面列出的新文件 - 您将在以下步骤中向其添加内容。 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/example_pkg_xujhtop</span><br><span class="line">  /example_pkg_xujhtop</span><br><span class="line">    __init__.py</span><br><span class="line">  setup.py</span><br><span class="line">  LICENSE</span><br><span class="line">  README.md</span><br></pre></td></tr></table></figure></p>
-<h2 id="创建setup.py">创建setup.py¶</h2>
-<p><strong><code>setup.py</code></strong>是<strong><code>setuptools</code></strong>的构建脚本。 它告诉<strong><code>setuptools</code></strong>你的包（例如名称和版本）以及要包含的代码文件。</p>
-<p>打开<strong><code>setup.py</code></strong>并输入以下内容，您可以根据需要个性化值： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">import setuptools</span><br><span class="line"></span><br><span class="line">with open ( "README.md" , "r" ) as fh :</span><br><span class="line">    long_description = fh . read ()</span><br><span class="line"></span><br><span class="line">setuptools . setup (</span><br><span class="line">    name = "example_pkg_xujhtop" ,</span><br><span class="line">    version = "0.0.1" ,</span><br><span class="line">    author = "Example Author" ,</span><br><span class="line">    author_email = "author@example.com" ,</span><br><span class="line">    description = "A small example package" ,</span><br><span class="line">    long_description = long_description ,</span><br><span class="line">    long_description_content_type = "text/markdown" ,</span><br><span class="line">    url = "https://github.com/pypa/sampleproject" ,</span><br><span class="line">    packages = setuptools . find_packages (),</span><br><span class="line">    classifiers = [</span><br><span class="line">        "Programming Language :: Python :: 3" ,</span><br><span class="line">        "License :: OSI Approved :: MIT License" ,</span><br><span class="line">        "Operating System :: OS Independent" ,</span><br><span class="line">    ],</span><br><span class="line">)</span><br></pre></td></tr></table></figure> setup()有几个参数。 此示例包使用相对最小的集：</p>
-<ul>
-<li>name是包的名称。 只要包含字母，数字， _和- ， _可以是任何名称。 它也不能在pypi.org上使用。</li>
-<li>version是包版本见 PEP 440有关版本的更多详细信息。</li>
-<li>author和author_email用于标识包的作者。</li>
-<li>description是包的简短的一句话摘要。</li>
-<li>long_description是包的详细描述。 这显示在Python Package Index的包详细信息包中。 在这种情况下，从README.md加载长描述，这是一种常见模式。</li>
-<li>long_description_content_type告诉索引用于长描述的标记类型。 在这种情况下，它是Markdown。</li>
-<li>url是项目主页的URL。 对于许多项目，这只是一个指向GitHub，GitLab，Bitbucket或类似代码托管服务的链接。</li>
-<li>packages是应包含在分发包中的所有Python 导入包的列表。 我们可以使用find_packages()自动发现所有包和子包，而不是手动列出每个包。 在这种情况下，包列表将是example_pkg_xujhtop，因为它是唯一存在的包。</li>
-<li>classifiers告诉索引并提供有关包的其他元数据。 在这种情况下，该软件包仅与Python 3兼容，根据MIT许可证进行许可，并且与操作系统无关。 您应始终至少包含您的软件包所使用的Python版本，软件包可用的许可证以及您的软件包将使用的操作系统。 有关分类器的完整列表，请参阅https://pypi.org/classifiers/ 。</li>
-</ul>
-<h2 id="创建readme.md">创建README.md¶</h2>
-<p>打开README.md并输入以下内容。 如果您愿意，可以自定义此项。 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"> # Example Package</span><br><span class="line"></span><br><span class="line">This is a simple example package. You can use</span><br><span class="line">[<span class="string"> Github-flavored Markdown </span>](<span class="link"> https://guides.github.com/features/mastering-markdown/ </span>)</span><br><span class="line">to write your content.</span><br></pre></td></tr></table></figure> ## 创建许可证</p>
-<p>上传到Python Package Index的每个包都包含许可证，这一点很重要。 这告诉用户安装您的软件包可以使用您的软件包的条款。 有关选择许可证的帮助，请参阅https://choosealicense.com/ 。 选择许可证后，打开LICENSE并输入许可证文本。 例如，如果您选择了MIT许可证： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Copyright (c) 2018 The Python Packaging Authority</span><br><span class="line"></span><br><span class="line">Permission is hereby granted, free of charge, to any person obtaining a copy</span><br><span class="line">of this software and associated documentation files (the &quot;Software&quot;), to deal</span><br><span class="line">in the Software without restriction, including without limitation the rights</span><br><span class="line">to use, copy, modify, merge, publish, distribute, sublicense, and&#x2F;or sell</span><br><span class="line">copies of the Software, and to permit persons to whom the Software is</span><br><span class="line">furnished to do so, subject to the following conditions:</span><br><span class="line"></span><br><span class="line">The above copyright notice and this permission notice shall be included in all</span><br><span class="line">copies or substantial portions of the Software.</span><br><span class="line"></span><br><span class="line">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span><br><span class="line">IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span><br><span class="line">FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span><br><span class="line">AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span><br><span class="line">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span><br><span class="line">OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span><br><span class="line">SOFTWARE.</span><br></pre></td></tr></table></figure></p>
-<h2 id="生成分发档案">生成分发档案</h2>
-<p>下一步是为包生成分发包 。 这些是上传到包索引的档案，可以通过pip安装。</p>
-<p>确保安装了最新版本的setuptools和wheel ： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --user --upgrade setuptools wheel</span><br></pre></td></tr></table></figure></p>
-<p>现在从setup.py所在的同一目录运行此命令： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 setup.py sdist bdist_wheel</span><br></pre></td></tr></table></figure> 此命令应输出大量文本，一旦完成，应在dist目录中生成两个文件： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">dist/</span><br><span class="line">  example_pkg_xujhtop-0.0.1-py2-none-any.whl</span><br><span class="line">  example_pkg_xujhtop-0.0.1.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>tar.gz文件是源存档，而.whl文件是构建的分发 。 较新的pip版本优先安装构建的发行版，但如果需要，将回退到源代码存档。 您应该始终上传源存档并为项目兼容的平台提供构建的存档。 在这种情况下，我们的示例包在任何平台上都与Python兼容，因此只需要一个构建的发行版。</p>
-<h2 id="上传分发档案">上传分发档案</h2>
-<p>最后，是时候将您的包上传到Python Package Index了！</p>
-<p>您需要做的第一件事是在Test PyPI上注册一个帐户。 Test PyPI是用于测试和实验的包索引的单独实例。 这对于像我们不一定想要上传到真实索引的本教程那样很棒。 要注册帐户，请访问https://test.pypi.org/account/register/并完成该页面上的步骤。 在您上传任何软件包之前，您还需要验证您的电子邮件地址。 有关Test PyPI的更多详细信息，请参阅使用TestPyPI 。</p>
-<p>现在您已注册，您可以使用twine上传分发包。 你需要安装Twine： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --user --upgrade twine</span><br></pre></td></tr></table></figure> 安装完成后，运行Twine上传dist下的所有档案： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">twine upload --repository-url https://test.pypi.org/legacy/ dist/*</span><br></pre></td></tr></table></figure> 系统将提示您输入使用Test PyPI注册的用户名和密码。 命令完成后，您应该看到与此类似的输出： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Uploading distributions to https://test.pypi.org/legacy/</span><br><span class="line">Enter your username: [ your username ]</span><br><span class="line">Enter your password:</span><br><span class="line">Uploading example_pkg_xujhtop-0.0.1-py3-none-any.whl</span><br><span class="line">100 % | █████████████████████ | 4 .65k/4.65k [ 00 :01&lt; 00 :00, 2 .88kB/s ]</span><br><span class="line">Uploading example_pkg_xujhtop-0.0.1.tar.gz</span><br><span class="line">100 % | █████████████████████ | 4 .25k/4.25k [ 00 :01&lt; 00 :00, 3 .05kB/s ]</span><br></pre></td></tr></table></figure> 注意:如果您收到错误消息<strong><code>The user '[your username]' isn't allowed to upload to project 'example-pkg'</code></strong> ，则需要为您的包选择一个唯一的名称。 一个不错的选择是<strong><code>example_pkg_xujhtop</code></strong> 。 更新<strong><code>setup.py</code></strong>的<strong><code>name</code></strong>参数，删除<strong><code>dist</code></strong>文件夹，然后重新生成存档 。</p>
-<p>上传后，您的包应该可以在TestPyPI上查看，例如， <strong><code>https：//test.pypi.org/project/example-pkg</code></strong></p>
-<h2 id="安装新上传的软件包">安装新上传的软件包</h2>
-<p>您可以使用pip来安装包并验证它是否有效。 创建一个新的virtualenv （请参阅安装包以获取详细说明）并从TestPyPI安装包： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 -m pip install --index-url https://test.pypi.org/simple/ example_pkg_xujhtop</span><br></pre></td></tr></table></figure> 注意:如果在预览步骤中使用了不同的包名称，请将上面命令中的example_pkg_xujhtop替换example_pkg_xujhtop包名称。</p>
-<p>pip应该从Test PyPI安装包，输出应该如下所示： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Collecting example_pkg_xujhtop</span><br><span class="line">  Downloading https://test-files.pythonhosted.org/packages/.../example_pkg_xujhtop-0.0.1-py3-none-any.whl</span><br><span class="line">Installing collected packages: example-pkg</span><br><span class="line">Successfully installed example-pkg-0.0.1</span><br></pre></td></tr></table></figure> 您可以通过导入模块并引用之前放在<strong><code>__init__.py</code></strong>的<strong><code>name</code></strong>属性来测试它是否已正确安装。</p>
-<p>运行Python解释器（确保你仍然在你的virtualenv中）： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python</span><br></pre></td></tr></table></figure> 然后导入模块并打印出<strong><code>name</code></strong>属性。 无论您在<strong><code>setup.py</code></strong>给出的分发包名称是什么，这都应该是相同的，因为您的导入包是<strong><code>example_pkg_xujhtop</code></strong> 。 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span> <span class="keyword">import</span> example_pkg_xujhtop</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span> example_pkg_xujhtop . name</span><br><span class="line"><span class="string">'example_pkg_xujhtop'</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="后续步骤">后续步骤</h2>
-<p>恭喜，您已经打包并分发了一个Python项目！ ✨</p>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python pypi</tag>
       </tags>
   </entry>
   <entry>
