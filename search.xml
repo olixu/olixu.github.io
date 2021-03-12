@@ -102,6 +102,23 @@
       </tags>
   </entry>
   <entry>
+    <title>Manjaro下解决Matplotlib中文显示出错</title>
+    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
+    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
+<ul>
+<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
+<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
+<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Manjaro适合什么样的人</title>
     <url>/2020/06/28/Manjaro%E9%80%82%E5%90%88%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BA%BA/</url>
     <content><![CDATA[<p>2019年3月份看到了有人安利Manjaro，装电脑上用了一年，分享一下使用一年的感受。</p>
@@ -132,23 +149,6 @@
 <p>回到标题，Manjaro不适合搞算学术研究和项目开发的人，尤其是学生：研究生。本科生无聊的话可以玩玩Manjaro。</p>
 <p>操作系统还是有公司支持的比较好，像Ubuntu，真的可以，用了快6年了。</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Manjaro下解决Matplotlib中文显示出错</title>
-    <url>/2019/02/18/Manjaro%E4%B8%8B%E8%A7%A3%E5%86%B3Matplotlib%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%87%BA%E9%94%99/</url>
-    <content><![CDATA[<p>当我在Manjaro中使用Matplotlib作图时候，会发现中文的图例变成了小方块，现在记录一下解决方法。</p>
-<ul>
-<li><p>将windwos中fonts目录下的<strong>simhei.ttf</strong>拷贝到/.../lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf(文件路径根据实际情况修改)目录中，</p></li>
-<li><p>删除~/.cache/matplotlib的缓冲目录</p></li>
-<li><p>在代码中动态设置参数： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8  </span></span><br><span class="line"><span class="keyword">import</span> matplotlib  </span><br><span class="line">matplotlib.use(<span class="string">'qt4agg'</span>)  </span><br><span class="line"><span class="comment">#指定默认字体  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]   </span><br><span class="line">matplotlib.rcParams[<span class="string">'font.family'</span>]=<span class="string">'sans-serif'</span>  </span><br><span class="line"><span class="comment">#解决负号'-'显示为方块的问题  </span></span><br><span class="line">matplotlib.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span>   </span><br><span class="line">plt.plot([<span class="number">-1</span>,<span class="number">2</span>,<span class="number">-5</span>,<span class="number">3</span>])  </span><br><span class="line">plt.title(<span class="string">u'中文'</span>,fontproperties=myfont)  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
   </entry>
   <entry>
     <title>Markdown语法</title>
@@ -225,17 +225,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Monte Carlo Methods</title>
-    <url>/2019/10/21/Monte-Carlo-Methods/</url>
-    <content><![CDATA[<p>Unlike Dynamic Programming Methods, Monte Carlo Methods do not assume complete knowledge of the environment. MC only requires experience--sample sequences of states, actions, and rewards from actual or simulated interaction with an environment.</p>
-<h2 id="monte-carlo-prediction">Monte Carlo Prediction</h2>
-<p>The idea underlies all Monte Carlo methods is that as more returns are observed the average should converge to the expected value. So we begin by considerng Monte Carlo methods for learning the state-value function for a given policy. A way to estimate the value of a state from experience is simply to average the returns observed after visits to that state. <a id="more"></a> ## Play with Blackjack ENV <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">env = BlackjackEnv()</span><br><span class="line"><span class="comment"># The observation is a 3-tuple of: the players current sum,</span></span><br><span class="line"><span class="comment"># the dealer's one showing card (1-10 where 1 is ace),</span></span><br><span class="line"><span class="comment"># and whether or not the player holds a usable ace (0 or 1).</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_observation</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    print(<span class="string">"Player Score: &#123;&#125; (Usable Ace: &#123;&#125;), Dealer Score: &#123;&#125;"</span>.format(</span><br><span class="line">          score, usable_ace, dealer_score))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    <span class="comment"># Stick (action 0) if the score is &gt; 20, hit (action 1) otherwise</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> score &gt;= <span class="number">20</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    observation = env.reset()</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        print_observation(observation)</span><br><span class="line">        action = strategy(observation)</span><br><span class="line">        print(<span class="string">"Taking action: &#123;&#125;"</span>.format( [<span class="string">"Stick"</span>, <span class="string">"Hit"</span>][action]))</span><br><span class="line">        observation, reward, done, _ = env.step(action)</span><br><span class="line">        <span class="keyword">if</span> done:</span><br><span class="line">            print_observation(observation)</span><br><span class="line">            print(<span class="string">"Game end. Reward: &#123;&#125;\n"</span>.format(float(reward)))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="first-visit-mc-prediction-algorithm">First-visit MC prediction algorithm</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mc_prediction</span><span class="params">(policy, env, num_episodes, discount_factor=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Monte Carlo prediction algorithm. Calculates the value function</span></span><br><span class="line"><span class="string">    for a given policy using sampling.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        policy: A function that maps an observation to action probabilities.</span></span><br><span class="line"><span class="string">        env: OpenAI gym environment.</span></span><br><span class="line"><span class="string">        num_episodes: Number of episodes to sample.</span></span><br><span class="line"><span class="string">        discount_factor: Gamma discount factor.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        A dictionary that maps from state -&gt; value.</span></span><br><span class="line"><span class="string">        The state is a tuple and the value is a float.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Keeps track of sum and count of returns for each state</span></span><br><span class="line">    <span class="comment"># to calculate an average. We could use an array to save all</span></span><br><span class="line">    <span class="comment"># returns (like in the book) but that's memory inefficient.</span></span><br><span class="line">    returns_sum = defaultdict(float)</span><br><span class="line">    returns_count = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># The final value function</span></span><br><span class="line">    V = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Implement this!</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        episode = []</span><br><span class="line">        state = env.reset()</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            action = policy(state)</span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            state = next_state</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Find all states the we've visited in this episode</span></span><br><span class="line">        <span class="comment"># We convert each state to a tuple so that we can use it as a dict key</span></span><br><span class="line">        states_in_episode = set([tuple(x[<span class="number">0</span>]) <span class="keyword">for</span> x <span class="keyword">in</span> episode])</span><br><span class="line">        <span class="keyword">for</span> state <span class="keyword">in</span> states_in_episode:</span><br><span class="line">            <span class="comment">#print(state)</span></span><br><span class="line">            <span class="comment">#print(10*'*')</span></span><br><span class="line">            <span class="comment"># Find the first occurance of the state in the episode</span></span><br><span class="line">            first_occurence_idx = next(i <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode) <span class="keyword">if</span> x[<span class="number">0</span>] == state)</span><br><span class="line">            <span class="comment"># Sum up all rewards since the first occurance</span></span><br><span class="line">            G = sum([x[<span class="number">2</span>]*(discount_factor**i) <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode[first_occurence_idx:])])</span><br><span class="line">            <span class="comment"># Calculate average return for this state over all sampled episodes</span></span><br><span class="line">            returns_sum[state] += G</span><br><span class="line">            returns_count[state] += <span class="number">1.0</span></span><br><span class="line">            V[state] = returns_sum[state] / returns_count[state]</span><br><span class="line">    print(len(V))</span><br><span class="line">    print(first_occurence_idx)</span><br><span class="line">    print(states_in_episode)</span><br><span class="line">    print(episode)</span><br><span class="line">    <span class="keyword">return</span> V</span><br></pre></td></tr></table></figure>
-<p><img src="10000_Steps_No_Usable_Ace.png" alt="10000_Steps_No_Usable_Ace" /> <img src="10000_Steps_Usable_Ace.png" alt="10000_Steps_Usable_Ace" /> <img src="500000_Steps_No_Usable_Ace.png" alt="500000_Steps_No_Usable_Ace" /> <img src="500000_Steps_Usable_Ace.png" alt="500000_Steps_Usable_Ace" /></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Mysql Command</title>
     <url>/2019/11/05/Mysql-Command/</url>
     <content><![CDATA[<p>This post will record all the mysql command that i used in my projects.</p>
@@ -251,6 +240,17 @@
       <tags>
         <tag>Mysql</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Monte Carlo Methods</title>
+    <url>/2019/10/21/Monte-Carlo-Methods/</url>
+    <content><![CDATA[<p>Unlike Dynamic Programming Methods, Monte Carlo Methods do not assume complete knowledge of the environment. MC only requires experience--sample sequences of states, actions, and rewards from actual or simulated interaction with an environment.</p>
+<h2 id="monte-carlo-prediction">Monte Carlo Prediction</h2>
+<p>The idea underlies all Monte Carlo methods is that as more returns are observed the average should converge to the expected value. So we begin by considerng Monte Carlo methods for learning the state-value function for a given policy. A way to estimate the value of a state from experience is simply to average the returns observed after visits to that state. <a id="more"></a> ## Play with Blackjack ENV <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">env = BlackjackEnv()</span><br><span class="line"><span class="comment"># The observation is a 3-tuple of: the players current sum,</span></span><br><span class="line"><span class="comment"># the dealer's one showing card (1-10 where 1 is ace),</span></span><br><span class="line"><span class="comment"># and whether or not the player holds a usable ace (0 or 1).</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_observation</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    print(<span class="string">"Player Score: &#123;&#125; (Usable Ace: &#123;&#125;), Dealer Score: &#123;&#125;"</span>.format(</span><br><span class="line">          score, usable_ace, dealer_score))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(observation)</span>:</span></span><br><span class="line">    score, dealer_score, usable_ace = observation</span><br><span class="line">    <span class="comment"># Stick (action 0) if the score is &gt; 20, hit (action 1) otherwise</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> score &gt;= <span class="number">20</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    observation = env.reset()</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">        print_observation(observation)</span><br><span class="line">        action = strategy(observation)</span><br><span class="line">        print(<span class="string">"Taking action: &#123;&#125;"</span>.format( [<span class="string">"Stick"</span>, <span class="string">"Hit"</span>][action]))</span><br><span class="line">        observation, reward, done, _ = env.step(action)</span><br><span class="line">        <span class="keyword">if</span> done:</span><br><span class="line">            print_observation(observation)</span><br><span class="line">            print(<span class="string">"Game end. Reward: &#123;&#125;\n"</span>.format(float(reward)))</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="first-visit-mc-prediction-algorithm">First-visit MC prediction algorithm</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mc_prediction</span><span class="params">(policy, env, num_episodes, discount_factor=<span class="number">1.0</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Monte Carlo prediction algorithm. Calculates the value function</span></span><br><span class="line"><span class="string">    for a given policy using sampling.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        policy: A function that maps an observation to action probabilities.</span></span><br><span class="line"><span class="string">        env: OpenAI gym environment.</span></span><br><span class="line"><span class="string">        num_episodes: Number of episodes to sample.</span></span><br><span class="line"><span class="string">        discount_factor: Gamma discount factor.</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        A dictionary that maps from state -&gt; value.</span></span><br><span class="line"><span class="string">        The state is a tuple and the value is a float.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Keeps track of sum and count of returns for each state</span></span><br><span class="line">    <span class="comment"># to calculate an average. We could use an array to save all</span></span><br><span class="line">    <span class="comment"># returns (like in the book) but that's memory inefficient.</span></span><br><span class="line">    returns_sum = defaultdict(float)</span><br><span class="line">    returns_count = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># The final value function</span></span><br><span class="line">    V = defaultdict(float)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Implement this!</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_episodes):</span><br><span class="line">        episode = []</span><br><span class="line">        state = env.reset()</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">            action = policy(state)</span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            state = next_state</span><br><span class="line">            </span><br><span class="line">        <span class="comment"># Find all states the we've visited in this episode</span></span><br><span class="line">        <span class="comment"># We convert each state to a tuple so that we can use it as a dict key</span></span><br><span class="line">        states_in_episode = set([tuple(x[<span class="number">0</span>]) <span class="keyword">for</span> x <span class="keyword">in</span> episode])</span><br><span class="line">        <span class="keyword">for</span> state <span class="keyword">in</span> states_in_episode:</span><br><span class="line">            <span class="comment">#print(state)</span></span><br><span class="line">            <span class="comment">#print(10*'*')</span></span><br><span class="line">            <span class="comment"># Find the first occurance of the state in the episode</span></span><br><span class="line">            first_occurence_idx = next(i <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode) <span class="keyword">if</span> x[<span class="number">0</span>] == state)</span><br><span class="line">            <span class="comment"># Sum up all rewards since the first occurance</span></span><br><span class="line">            G = sum([x[<span class="number">2</span>]*(discount_factor**i) <span class="keyword">for</span> i,x <span class="keyword">in</span> enumerate(episode[first_occurence_idx:])])</span><br><span class="line">            <span class="comment"># Calculate average return for this state over all sampled episodes</span></span><br><span class="line">            returns_sum[state] += G</span><br><span class="line">            returns_count[state] += <span class="number">1.0</span></span><br><span class="line">            V[state] = returns_sum[state] / returns_count[state]</span><br><span class="line">    print(len(V))</span><br><span class="line">    print(first_occurence_idx)</span><br><span class="line">    print(states_in_episode)</span><br><span class="line">    print(episode)</span><br><span class="line">    <span class="keyword">return</span> V</span><br></pre></td></tr></table></figure>
+<p><img src="10000_Steps_No_Usable_Ace.png" alt="10000_Steps_No_Usable_Ace" /> <img src="10000_Steps_Usable_Ace.png" alt="10000_Steps_Usable_Ace" /> <img src="500000_Steps_No_Usable_Ace.png" alt="500000_Steps_No_Usable_Ace" /> <img src="500000_Steps_Usable_Ace.png" alt="500000_Steps_Usable_Ace" /></p>
+]]></content>
   </entry>
   <entry>
     <title>PGADP数据驱动的优化控制</title>
@@ -483,44 +483,6 @@ Box(4,)</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Python配置虚拟环境</title>
-    <url>/2018/09/16/Python%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<blockquote>
-<p>Python的开发过程中往往会遇到<strong>不同库</strong>存在<strong>不同版本</strong>的问题，例如我使用flask框架开发一个网站，A网站可能会使用<strong>flask 1.0</strong>，B网站可能会使用<strong>flask 2.0</strong>， 那么如何在电脑上进行配置，可以很方便的对开发环境进行<strong><em>隔离</em></strong>呢？这就要用到本文介绍的工具了</p>
-</blockquote>
-<blockquote>
-<p>VirtualEnv可以搭建虚拟且独立的python运行环境,使得单个项目的运行环境与其它项目独立起来。同时也可以用于在一台机器上创建多个独立的python运行环境，<strong><em>VirtualEnvWrapper为前者提供了一些便利的命令行上的封装</em></strong>。</p>
-</blockquote>
-<blockquote>
-<p>Virtualenv是一个非常好的virtual python environment builder，他最大的好处是，可以让每一个python项目单独使用一个环境，而不会影响python系统环境，也不会影响其他项目的环境。</p>
-</blockquote>
-<blockquote>
-<p>Virtualenv可用于创建独立的Python环境，在这些环境里面可以选择不同的Python版本或者不同的Packages，并且可以在没有root权限的情况下在环境里安装新套件，互相不会产生任何的影响。 <a id="more"></a> # virtualenv virtualenv是个采用python开发的包，可以使用pip安装： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure> 在工作目录下创建虚拟环境，注意需要自定义虚拟环境的名字 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">~$virtualenv TestEnv</span><br><span class="line">New python executable in ~/TestEnv/bin/python</span><br><span class="line">Installing setuptools, pip, wheel...done.</span><br></pre></td></tr></table></figure> 默认情况下，虚拟环境中不包括系统的site-packages, 若要使用请添加参数: <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">语法：virtualenv --system-site-packages TestEnv</span><br></pre></td></tr></table></figure> 使用virtualenv默认python版本创建虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">语法：virtualenv --no-site-packages ubuntu_env</span><br></pre></td></tr></table></figure> 该命令在当前目录创建一个env目录(虚拟环境名称，这个文件夹就是保存 Python 虚拟环境)，你会注意到，virtualenv会把python，setuptools和pip给你安装上。</p>
-</blockquote>
-<p><strong><em>这里virtualenv 有些不便，因为virtual的启动、停止脚本都在特定文件夹，可能一段时间后，你可能会有很多个虚拟环境散落在系统各处，你可能忘记它们的名字或者位置。</em></strong></p>
-<h1 id="virtualenvwrapper">virtualenvwrapper</h1>
-<p>鉴于virtualenv不便于对虚拟环境集中管理，所以推荐直接使用virtualenvwrapper。 virtualenvwrapper提供了一系列命令使得和虚拟环境工作变得便利。它把你所有的虚拟环境都放在一个地方。</p>
-<h3 id="安装virtualenvwrapper确保virtualenv已安装">安装virtualenvwrapper(确保virtualenv已安装)</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install virtualenvwrapper</span><br><span class="line">pip install virtualenvwrapper-win　　#Windows使用该命令</span><br></pre></td></tr></table></figure>
-<h3 id="安装完成后在.bashrc写入以下内容">安装完成后，在~/.bashrc写入以下内容</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export WORKON_HOME=~/Envs</span><br><span class="line">source /usr/local/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
-<ol type="1">
-<li>第一行：virtualenvwrapper存放虚拟环境目录</li>
-<li>第二行：virtrualenvwrapper会安装到python的bin目录下，所以该路径是python安装目录下(注意，ubuntu18.04的安装路径为<strong><code>~/.local/bin/</code></strong>目录下，因此，第二行改为<strong><code>source ~/.local/bin/virtualenvwrapper.sh</code></strong>，其他系统如果不一样清自行查找，否则下一条命令在执行时候会报错！)</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc　　　　#读入配置文件，立即生效</span><br></pre></td></tr></table></figure>
-<h3 id="virtualenvwrapper基本使用">virtualenvwrapper基本使用</h3>
-<p>1 创建虚拟环境 <code>mkvirtualenv</code> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkvirtualenv venv</span><br></pre></td></tr></table></figure> 这样会在WORKON_HOME变量指定的目录下新建名为venv的虚拟环境。 若想指定python版本，可通过"--python"指定python解释器 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkvirtualenv --python=/usr/local/python3.5.3/bin/python venv</span><br></pre></td></tr></table></figure> 2 查看当前的虚拟环境目录 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# workon</span><br><span class="line">py2</span><br><span class="line">py3</span><br></pre></td></tr></table></figure> 3 切换到虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# workon py3</span><br><span class="line">(py3) [root@localhost ~]#</span><br></pre></td></tr></table></figure></p>
-<p>4 退出虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(py3) [root@localhost ~]# deactivate</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure> 5 删除虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rmvirtualenv venv</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Pytorch使用笔记</title>
     <url>/2020/08/14/Pytorch%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<blockquote>
@@ -624,6 +586,44 @@ x_{i} &amp; \text { if } \min \leq x_{i} \leq \max \\
       </tags>
   </entry>
   <entry>
+    <title>Python配置虚拟环境</title>
+    <url>/2018/09/16/Python%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<blockquote>
+<p>Python的开发过程中往往会遇到<strong>不同库</strong>存在<strong>不同版本</strong>的问题，例如我使用flask框架开发一个网站，A网站可能会使用<strong>flask 1.0</strong>，B网站可能会使用<strong>flask 2.0</strong>， 那么如何在电脑上进行配置，可以很方便的对开发环境进行<strong><em>隔离</em></strong>呢？这就要用到本文介绍的工具了</p>
+</blockquote>
+<blockquote>
+<p>VirtualEnv可以搭建虚拟且独立的python运行环境,使得单个项目的运行环境与其它项目独立起来。同时也可以用于在一台机器上创建多个独立的python运行环境，<strong><em>VirtualEnvWrapper为前者提供了一些便利的命令行上的封装</em></strong>。</p>
+</blockquote>
+<blockquote>
+<p>Virtualenv是一个非常好的virtual python environment builder，他最大的好处是，可以让每一个python项目单独使用一个环境，而不会影响python系统环境，也不会影响其他项目的环境。</p>
+</blockquote>
+<blockquote>
+<p>Virtualenv可用于创建独立的Python环境，在这些环境里面可以选择不同的Python版本或者不同的Packages，并且可以在没有root权限的情况下在环境里安装新套件，互相不会产生任何的影响。 <a id="more"></a> # virtualenv virtualenv是个采用python开发的包，可以使用pip安装： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure> 在工作目录下创建虚拟环境，注意需要自定义虚拟环境的名字 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">~$virtualenv TestEnv</span><br><span class="line">New python executable in ~/TestEnv/bin/python</span><br><span class="line">Installing setuptools, pip, wheel...done.</span><br></pre></td></tr></table></figure> 默认情况下，虚拟环境中不包括系统的site-packages, 若要使用请添加参数: <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">语法：virtualenv --system-site-packages TestEnv</span><br></pre></td></tr></table></figure> 使用virtualenv默认python版本创建虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">语法：virtualenv --no-site-packages ubuntu_env</span><br></pre></td></tr></table></figure> 该命令在当前目录创建一个env目录(虚拟环境名称，这个文件夹就是保存 Python 虚拟环境)，你会注意到，virtualenv会把python，setuptools和pip给你安装上。</p>
+</blockquote>
+<p><strong><em>这里virtualenv 有些不便，因为virtual的启动、停止脚本都在特定文件夹，可能一段时间后，你可能会有很多个虚拟环境散落在系统各处，你可能忘记它们的名字或者位置。</em></strong></p>
+<h1 id="virtualenvwrapper">virtualenvwrapper</h1>
+<p>鉴于virtualenv不便于对虚拟环境集中管理，所以推荐直接使用virtualenvwrapper。 virtualenvwrapper提供了一系列命令使得和虚拟环境工作变得便利。它把你所有的虚拟环境都放在一个地方。</p>
+<h3 id="安装virtualenvwrapper确保virtualenv已安装">安装virtualenvwrapper(确保virtualenv已安装)</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install virtualenvwrapper</span><br><span class="line">pip install virtualenvwrapper-win　　#Windows使用该命令</span><br></pre></td></tr></table></figure>
+<h3 id="安装完成后在.bashrc写入以下内容">安装完成后，在~/.bashrc写入以下内容</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export WORKON_HOME=~/Envs</span><br><span class="line">source /usr/local/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
+<ol type="1">
+<li>第一行：virtualenvwrapper存放虚拟环境目录</li>
+<li>第二行：virtrualenvwrapper会安装到python的bin目录下，所以该路径是python安装目录下(注意，ubuntu18.04的安装路径为<strong><code>~/.local/bin/</code></strong>目录下，因此，第二行改为<strong><code>source ~/.local/bin/virtualenvwrapper.sh</code></strong>，其他系统如果不一样清自行查找，否则下一条命令在执行时候会报错！)</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc　　　　#读入配置文件，立即生效</span><br></pre></td></tr></table></figure>
+<h3 id="virtualenvwrapper基本使用">virtualenvwrapper基本使用</h3>
+<p>1 创建虚拟环境 <code>mkvirtualenv</code> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkvirtualenv venv</span><br></pre></td></tr></table></figure> 这样会在WORKON_HOME变量指定的目录下新建名为venv的虚拟环境。 若想指定python版本，可通过"--python"指定python解释器 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkvirtualenv --python=/usr/local/python3.5.3/bin/python venv</span><br></pre></td></tr></table></figure> 2 查看当前的虚拟环境目录 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# workon</span><br><span class="line">py2</span><br><span class="line">py3</span><br></pre></td></tr></table></figure> 3 切换到虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# workon py3</span><br><span class="line">(py3) [root@localhost ~]#</span><br></pre></td></tr></table></figure></p>
+<p>4 退出虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(py3) [root@localhost ~]# deactivate</span><br><span class="line">[root@localhost ~]#</span><br></pre></td></tr></table></figure> 5 删除虚拟环境 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rmvirtualenv venv</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Simplify: Python VS Matlab</title>
     <url>/2019/10/20/Simplify-Python-VS-Matlab/</url>
     <content><![CDATA[<h2 id="background">Background</h2>
@@ -648,38 +648,6 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </categories>
       <tags>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tensorboard中的图放到论文中</title>
-    <url>/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/</url>
-    <content><![CDATA[<p>最近写了一篇强化学习用于供水管网的论文，算法的训练过程中用到了Tensorboard(stable-baselines提供了tansorboard的接口)来可视化训练数据，但是，tensorboard的图直接放入到论文中会显得很难看，包括xlabel和ylabel需要重新定义，图片的风格需要修改等等操作直接在tensorboard中很难操作，需要将这些数据导出来，然后使用matplotlib和seaboarn来进行plot，这篇博客记录一下如何将tensorboard中的数据进行导出并画图。</p>
-<a id="more"></a>
-<h2 id="利用tensorboard中的导出数据功能">利用tensorboard中的导出数据功能</h2>
-<p><img src="image-20210109132225126.png" /></p>
-<p>选中左上角的<code>Show data download links</code></p>
-<p>在每张图的右下角选择<code>run to download</code>，然后可以选择<code>csv</code>或者<code>json</code>格式的文件。</p>
-<p>导出CSV文件，经过测试发现，当修改左边平滑之类的参数，导出的数据都是一样的，都是原始的数据。</p>
-<p><img src="image-20210109161242435.png" /></p>
-<h2 id="tensorboard可视化界面中的功能键介绍">Tensorboard可视化界面中的功能键介绍</h2>
-<figure>
-<img src="image-20210109132627928.png" alt="image-20210109132627928" /><figcaption>image-20210109132627928</figcaption>
-</figure>
-<p>第二个：Toggle y-axis log scale：将y轴对数化</p>
-<p>第三个：Fit domain to data：如果拖动了图片等，再重新回到原始位置</p>
-<p>第四个：Download Current Chart as SVG</p>
-<p>Stable-baselines3的tensorboard integration的文档：Stable-baselines3已经集成了tensorboard的记录，默认记录三大块部分：rollout，time，train(这三个文件体现在代码的哪里)。当然，也可以记录更多的数据，包括图片视频，可以在训练一段时间后评估一下agent的效果和状态。</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9zdGFibGUtYmFzZWxpbmVzMy5yZWFkdGhlZG9jcy5pby9lbi9tYXN0ZXIvZ3VpZGUvdGVuc29yYm9hcmQuaHRtbD9oaWdobGlnaHQ9dGVuc29yYm9hcmQ=">https://stable-baselines3.readthedocs.io/en/master/guide/tensorboard.html?highlight=tensorboard<i class="fa fa-external-link-alt"></i></span></p>
-<p>stable-baselines3中关于tensorboard的核心文件在：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RMUi1STS9zdGFibGUtYmFzZWxpbmVzMy9ibG9iLzU5OTMwMzNjNzNkNTZlOGFjMTNmNTk2NDdkNDczNzQ3NjZkMGI2M2Qvc3RhYmxlX2Jhc2VsaW5lczMvY29tbW9uL2xvZ2dlci5weQ==">https://github.com/DLR-RM/stable-baselines3/blob/5993033c73d56e8ac13f59647d47374766d0b63d/stable_baselines3/common/logger.py<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="利用matplotlib画图">利用Matplotlib画图</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 第一幅图片：训练的平均长度</span></span><br><span class="line">fig, ax1 = plt.subplots(<span class="number">1</span>, <span class="number">1</span>)    <span class="comment"># a figure with a 2x1 grid of Axes</span></span><br><span class="line">len_mean = pd.read_csv(<span class="string">"run-PPO_2-tag-rollout_ep_len_mean.csv"</span>)</span><br><span class="line">ax1.plot(len_mean[<span class="string">'Step'</span>], tensorboard_smoothing(len_mean[<span class="string">'Value'</span>], smooth=<span class="number">0.6</span>), color=<span class="string">"#3399FF"</span>)</span><br><span class="line"><span class="comment">#ax1.set_xticks(np.arange(0, 24, step=2))</span></span><br><span class="line">ax1.set_xlabel(<span class="string">"timesteps"</span>)</span><br><span class="line">ax1.set_ylabel(<span class="string">"Average Episode Length(steps)"</span>, color=<span class="string">"#3399FF"</span>)</span><br><span class="line">ax1.set_title(<span class="string">"Average Episode Length"</span>)</span><br><span class="line">plt.show()</span><br><span class="line">fig.savefig(fname=<span class="string">'./figures/ep_len_mean'</span>+<span class="string">'.pdf'</span>, format=<span class="string">'pdf'</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="image-20210109161033044.png" /></p>
-]]></content>
-      <categories>
-        <category>Tensorboard</category>
-      </categories>
-      <tags>
-        <tag>Tensorboard</tag>
       </tags>
   </entry>
   <entry>
@@ -708,6 +676,19 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </tags>
   </entry>
   <entry>
+    <title>hexo-gittalk问题总结</title>
+    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
+<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>经验</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>*args 和 **kwargs</title>
     <url>/2019/02/12/args-%E5%92%8C-kwargs/</url>
     <content><![CDATA[<p>很多Python新手都无法搞清<code>*args</code>与<code>**kwargs</code>这两个魔术变量。那么他们到底是什么呢？让我来告诉你。在实际程序中，我们没有必要非得写成<code>*args</code>与<code>**kwargs</code>这样的形式，你也可以写成<code>*var</code>与<code>**vars</code>。写成<code>*args</code>与<code>**kwargs</code>的形式只是一种惯例。 <a id="more"></a> ## *args的用法 <code>*args</code>与<code>**kwargs</code>主要用于函数的定义。<code>*args</code>与<code>**kwargs</code>允许你将可变数量的参数传递给函数。这里的<strong>可变</strong>意味着你事先是不知道用户可以向你传递多少参数。因此在这种情况下你可以使用这两个关键字。<code>*args</code>用于向函数发送没有关键字的可变长度参数列表。以下是一个例子：</p>
@@ -726,19 +707,6 @@ e^{t} \cos{\left(2 t \right)} &amp; e^{- 2 t} \sin{\left(2 t \right)}\\\
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo-gittalk问题总结</title>
-    <url>/2020/11/18/hexo-gittalk%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>在使用gitalk的时候，遇到了点击初始化gitalk后跳转到首页的问题，经过搜索和试验后发现：新建的文章文件名不能有中文，否则无法编码和转码。</p>
-<p><strong>参考</strong>：<a href="https://blog.tcpsoft.app/2020/02/hexo-with-gitalk/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>经验</tag>
       </tags>
   </entry>
   <entry>
@@ -884,29 +852,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>vs code remote ssh 使用x11转发显示远程图像</title>
-    <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
-    <content><![CDATA[<h2 id="需求">需求</h2>
-<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
-<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
-<a id="more"></a>
-<h2 id="参考链接">参考链接</h2>
-<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
-<h2 id="问题">问题</h2>
-<ul>
-<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
-<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
-<li>上面第二点问题，经过测试，发现，需要在远程虚拟机中设置export DISPLAY=192.168.1.100:0.0，才可以，其中，192.168.1.100是本地开发机器。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>中国学术圈的未来在哪里？</title>
     <url>/2020/12/14/%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E5%9C%88%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%9C%A8%E5%93%AA%E9%87%8C/</url>
     <content><![CDATA[<p>最近遇到了很多烦心事，主要是学术生活上的问题，教授没有学术上的指导，且总是push我们做项目，自动化系的教授都只知道赚钱啊，不，都只知道“骗钱”。今天感觉状态还不错，稍有感想，想在这篇文章中简短地谈论一下，权当我乱说的吧，哈哈哈哈。</p>
@@ -929,6 +874,60 @@ x
 <p>最后，用鲁迅先生的经典《热风》结尾：</p>
 <p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声，有一分热，发一分光，就令萤火虫一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，我便是唯一的光。 倘若有了炬火，出了太阳，我们自然心悦诚服地消失，不但毫无不平，而且还要随喜赞美这炬火或太阳，因为他照亮了人类，连我都在内。</p>
 <p><strong>与君共勉。</strong></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用本地服务器结合github action推送github pages</title>
+    <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
+    <content><![CDATA[<h2 id="需求">需求</h2>
+<p>网上很多人使用github action，借助github的服务器来进行博客的推送，但是，当你博客文章数量较多，且使用了国内的CDN，例如本博客使用了阿里云CDN，本站的解析是国外IP访问的是github仓库的网站，国内用户访问的是阿里云CDN的节点，在使用github action的时候，发现推送速度非常慢，原因是github的服务器在国外，<strong>往阿里云服务器推送的时候速度很慢</strong>。所以，每次更新博客，往往需要10分钟的时间才能推送好。这是不能忍受的。。。</p>
+<a id="more"></a>
+<p>我本地有一台服务器，装了Proxmox来管理虚拟机，且有公网IP，接助GitHub action来连接到我本地推送服务器进行推送</p>
+<h2 id="整个流程如图">整个流程如图：</h2>
+<p><img src="1.svg" /></p>
+<ul>
+<li>本地git pull github仓库中的文件到本地博客开发服务器，进行博客开发。</li>
+<li>博客写完后，git push到github仓库</li>
+<li>github仓库根据仓库中的yaml文件，创建github action，action的功能是连接SSH到Github推送服务器</li>
+<li>Github推送服务器上已经安装好了hexo等博客需要的环境，进行博客推送</li>
+</ul>
+<p>这样操作，全自动的，且速度非常快，整个流程在1分钟左右。</p>
+<h2 id="附上github-action的代码">附上github action的代码：</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Hexo deploy by remote ssh</span><br><span class="line">on: </span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line"></span><br><span class="line">  build:</span><br><span class="line">    name: Build</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">    - name: executing remote ssh commands using password</span><br><span class="line">      uses: appleboy/ssh-action@master</span><br><span class="line">      with:</span><br><span class="line">        host: <span class="variable">$&#123;&#123; secrets.HOST &#125;</span>&#125;</span><br><span class="line">        username: <span class="variable">$&#123;&#123; secrets.USERNAME &#125;</span>&#125;</span><br><span class="line">        password: <span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;</span><br><span class="line">        port: <span class="variable">$&#123;&#123; secrets.PORT &#125;</span>&#125;</span><br><span class="line">        script: <span class="built_in">cd</span> blog;</span><br><span class="line">                git pull https://olixu:<span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;@github.com/olixu/blog.git; </span><br><span class="line">                hexo clean;</span><br><span class="line">                hexo g;</span><br><span class="line">                hexo d;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>健身房计划制定与动作</title>
+    <url>/2020/08/24/%E5%81%A5%E8%BA%AB%E6%88%BF%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
+    <content><![CDATA[<p>这篇文章整理我用到的训练计划和训练动作与健身记录。</p>
+<a id="more"></a>
+<h2 id="手臂超级组">手臂超级组</h2>
+<h3 id="组1">组1</h3>
+<p>杠铃弯举</p>
+<p>窄距杠铃卧推</p>
+<h3 id="组2">组2</h3>
+<p>锤式哑铃弯举</p>
+<p>仰卧杠铃臂屈伸</p>
+<h3 id="组3">组3</h3>
+<p>二头绳索弯举</p>
+<p>三头绳索下压</p>
+<h3 id="组4">组4</h3>
+<p>背后曲臂伸</p>
+<p>哑铃交替弯举</p>
+<h3 id="做法">做法</h3>
+<p>每两个动作（二头屈，三头伸）为一个超级组，每个超级组做3组，每组的两个动作分别做8-12RM。</p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -974,32 +973,6 @@ x
       </tags>
   </entry>
   <entry>
-    <title>使用本地服务器结合github action推送github pages</title>
-    <url>/2020/11/15/%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BB%93%E5%90%88github-action%E6%8E%A8%E9%80%81github-pages/</url>
-    <content><![CDATA[<h2 id="需求">需求</h2>
-<p>网上很多人使用github action，借助github的服务器来进行博客的推送，但是，当你博客文章数量较多，且使用了国内的CDN，例如本博客使用了阿里云CDN，本站的解析是国外IP访问的是github仓库的网站，国内用户访问的是阿里云CDN的节点，在使用github action的时候，发现推送速度非常慢，原因是github的服务器在国外，<strong>往阿里云服务器推送的时候速度很慢</strong>。所以，每次更新博客，往往需要10分钟的时间才能推送好。这是不能忍受的。。。</p>
-<a id="more"></a>
-<p>我本地有一台服务器，装了Proxmox来管理虚拟机，且有公网IP，接助GitHub action来连接到我本地推送服务器进行推送</p>
-<h2 id="整个流程如图">整个流程如图：</h2>
-<p><img src="1.svg" /></p>
-<ul>
-<li>本地git pull github仓库中的文件到本地博客开发服务器，进行博客开发。</li>
-<li>博客写完后，git push到github仓库</li>
-<li>github仓库根据仓库中的yaml文件，创建github action，action的功能是连接SSH到Github推送服务器</li>
-<li>Github推送服务器上已经安装好了hexo等博客需要的环境，进行博客推送</li>
-</ul>
-<p>这样操作，全自动的，且速度非常快，整个流程在1分钟左右。</p>
-<h2 id="附上github-action的代码">附上github action的代码：</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Hexo deploy by remote ssh</span><br><span class="line">on: </span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - master</span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line"></span><br><span class="line">  build:</span><br><span class="line">    name: Build</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    steps:</span><br><span class="line">    - name: executing remote ssh commands using password</span><br><span class="line">      uses: appleboy/ssh-action@master</span><br><span class="line">      with:</span><br><span class="line">        host: <span class="variable">$&#123;&#123; secrets.HOST &#125;</span>&#125;</span><br><span class="line">        username: <span class="variable">$&#123;&#123; secrets.USERNAME &#125;</span>&#125;</span><br><span class="line">        password: <span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;</span><br><span class="line">        port: <span class="variable">$&#123;&#123; secrets.PORT &#125;</span>&#125;</span><br><span class="line">        script: <span class="built_in">cd</span> blog;</span><br><span class="line">                git pull https://olixu:<span class="variable">$&#123;&#123; secrets.PASSWORD &#125;</span>&#125;@github.com/olixu/blog.git; </span><br><span class="line">                hexo clean;</span><br><span class="line">                hexo g;</span><br><span class="line">                hexo d;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用树莓派搭建家庭宠物监控并在B站24小时直播</title>
     <url>/2019/02/07/%E4%BD%BF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E5%AE%B6%E5%BA%AD%E5%AE%A0%E7%89%A9%E7%9B%91%E6%8E%A7%E5%B9%B6%E5%9C%A8B%E7%AB%9924%E5%B0%8F%E6%97%B6%E7%9B%B4%E6%92%AD/</url>
     <content><![CDATA[<p>我家养了一条拉布拉多，名字叫小黑，由于我常年不在家，都是我妈妈在养，每当我想要看看狗子，总是需要在我妈妈在家的时候，和我妈妈视频才能看到，因此，就想做一个本文的这个项目。</p>
@@ -1031,34 +1004,6 @@ x
       </categories>
       <tags>
         <tag>raspberry</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>健身房计划制定与动作</title>
-    <url>/2020/08/24/%E5%81%A5%E8%BA%AB%E6%88%BF%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E4%B8%8E%E5%8A%A8%E4%BD%9C/</url>
-    <content><![CDATA[<p>这篇文章整理我用到的训练计划和训练动作与健身记录。</p>
-<a id="more"></a>
-<h2 id="手臂超级组">手臂超级组</h2>
-<h3 id="组1">组1</h3>
-<p>杠铃弯举</p>
-<p>窄距杠铃卧推</p>
-<h3 id="组2">组2</h3>
-<p>锤式哑铃弯举</p>
-<p>仰卧杠铃臂屈伸</p>
-<h3 id="组3">组3</h3>
-<p>二头绳索弯举</p>
-<p>三头绳索下压</p>
-<h3 id="组4">组4</h3>
-<p>背后曲臂伸</p>
-<p>哑铃交替弯举</p>
-<h3 id="做法">做法</h3>
-<p>每两个动作（二头屈，三头伸）为一个超级组，每个超级组做3组，每组的两个动作分别做8-12RM。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -1101,6 +1046,38 @@ x
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tensorboard中的图放到论文中</title>
+    <url>/2021/01/09/Tensorboard%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%94%BE%E5%88%B0%E8%AE%BA%E6%96%87%E4%B8%AD/</url>
+    <content><![CDATA[<p>最近写了一篇强化学习用于供水管网的论文，算法的训练过程中用到了Tensorboard(stable-baselines提供了tansorboard的接口)来可视化训练数据，但是，tensorboard的图直接放入到论文中会显得很难看，包括xlabel和ylabel需要重新定义，图片的风格需要修改等等操作直接在tensorboard中很难操作，需要将这些数据导出来，然后使用matplotlib和seaboarn来进行plot，这篇博客记录一下如何将tensorboard中的数据进行导出并画图。</p>
+<a id="more"></a>
+<h2 id="利用tensorboard中的导出数据功能">利用tensorboard中的导出数据功能</h2>
+<p><img src="image-20210109132225126.png" /></p>
+<p>选中左上角的<code>Show data download links</code></p>
+<p>在每张图的右下角选择<code>run to download</code>，然后可以选择<code>csv</code>或者<code>json</code>格式的文件。</p>
+<p>导出CSV文件，经过测试发现，当修改左边平滑之类的参数，导出的数据都是一样的，都是原始的数据。</p>
+<p><img src="image-20210109161242435.png" /></p>
+<h2 id="tensorboard可视化界面中的功能键介绍">Tensorboard可视化界面中的功能键介绍</h2>
+<figure>
+<img src="image-20210109132627928.png" alt="image-20210109132627928" /><figcaption>image-20210109132627928</figcaption>
+</figure>
+<p>第二个：Toggle y-axis log scale：将y轴对数化</p>
+<p>第三个：Fit domain to data：如果拖动了图片等，再重新回到原始位置</p>
+<p>第四个：Download Current Chart as SVG</p>
+<p>Stable-baselines3的tensorboard integration的文档：Stable-baselines3已经集成了tensorboard的记录，默认记录三大块部分：rollout，time，train(这三个文件体现在代码的哪里)。当然，也可以记录更多的数据，包括图片视频，可以在训练一段时间后评估一下agent的效果和状态。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9zdGFibGUtYmFzZWxpbmVzMy5yZWFkdGhlZG9jcy5pby9lbi9tYXN0ZXIvZ3VpZGUvdGVuc29yYm9hcmQuaHRtbD9oaWdobGlnaHQ9dGVuc29yYm9hcmQ=">https://stable-baselines3.readthedocs.io/en/master/guide/tensorboard.html?highlight=tensorboard<i class="fa fa-external-link-alt"></i></span></p>
+<p>stable-baselines3中关于tensorboard的核心文件在：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RMUi1STS9zdGFibGUtYmFzZWxpbmVzMy9ibG9iLzU5OTMwMzNjNzNkNTZlOGFjMTNmNTk2NDdkNDczNzQ3NjZkMGI2M2Qvc3RhYmxlX2Jhc2VsaW5lczMvY29tbW9uL2xvZ2dlci5weQ==">https://github.com/DLR-RM/stable-baselines3/blob/5993033c73d56e8ac13f59647d47374766d0b63d/stable_baselines3/common/logger.py<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="利用matplotlib画图">利用Matplotlib画图</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 第一幅图片：训练的平均长度</span></span><br><span class="line">fig, ax1 = plt.subplots(<span class="number">1</span>, <span class="number">1</span>)    <span class="comment"># a figure with a 2x1 grid of Axes</span></span><br><span class="line">len_mean = pd.read_csv(<span class="string">"run-PPO_2-tag-rollout_ep_len_mean.csv"</span>)</span><br><span class="line">ax1.plot(len_mean[<span class="string">'Step'</span>], tensorboard_smoothing(len_mean[<span class="string">'Value'</span>], smooth=<span class="number">0.6</span>), color=<span class="string">"#3399FF"</span>)</span><br><span class="line"><span class="comment">#ax1.set_xticks(np.arange(0, 24, step=2))</span></span><br><span class="line">ax1.set_xlabel(<span class="string">"timesteps"</span>)</span><br><span class="line">ax1.set_ylabel(<span class="string">"Average Episode Length(steps)"</span>, color=<span class="string">"#3399FF"</span>)</span><br><span class="line">ax1.set_title(<span class="string">"Average Episode Length"</span>)</span><br><span class="line">plt.show()</span><br><span class="line">fig.savefig(fname=<span class="string">'./figures/ep_len_mean'</span>+<span class="string">'.pdf'</span>, format=<span class="string">'pdf'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="image-20210109161033044.png" /></p>
+]]></content>
+      <categories>
+        <category>Tensorboard</category>
+      </categories>
+      <tags>
+        <tag>Tensorboard</tag>
       </tags>
   </entry>
   <entry>
@@ -1252,6 +1229,145 @@ x
       </tags>
   </entry>
   <entry>
+    <title>vs code remote ssh 使用x11转发显示远程图像</title>
+    <url>/2020/11/17/vs-code-remote-ssh%E4%BD%BF%E7%94%A8x11%E8%BD%AC%E5%8F%91%E6%98%BE%E7%A4%BA%E8%BF%9C%E7%A8%8B%E5%9B%BE%E5%83%8F/</url>
+    <content><![CDATA[<h2 id="需求">需求</h2>
+<p>本人的开发环境：代码的运行环境一般都是远程主机，本地使用一台台式机或者使用笔记本来进行远程开发，开发环境使用visual studio code，但是，由于是远程，对于输出一些结果图片，比如用到matplotlib之类的库，不是很方便。</p>
+<p>后来了解到visual studio code具有一些插件：remote ssh，remote x11等可以转发x11。记录一下远程转发x11的过程。</p>
+<a id="more"></a>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://blog.csdn.net/zb12138/article/details/107160825/" target="_blank" rel="noopener external nofollow noreferrer"></a></p>
+<h2 id="问题">问题</h2>
+<ul>
+<li>mac系统无法使用，因为插件不支持(之前看过github上库的作者的issue)</li>
+<li>我是双屏，所以开了两个visual studio code，但是每次关闭屏幕后便无法再转发，(具体原因需要再详细进行测试，复现条件需要进一步进行确定)，具体表现：每次输入<code>xeyes</code>来测试时，报错：<code>Error: Can't open display: ReinforcementLearning:12.0</code>，但是另一个visual studio code的窗口却是好的。</li>
+<li>上面第二点问题，经过测试，发现，需要在远程虚拟机中设置export DISPLAY=192.168.1.100:0.0，才可以，其中，192.168.1.100是本地开发机器。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初学数据库-sqlite3 简介</title>
+    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
+</blockquote>
+<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
+<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
+<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
+<h2 id="于是数据库出现了">于是，数据库出现了</h2>
+<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
+<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
+<h2 id="数据库种类">数据库种类</h2>
+<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
+<h3 id="非关系型数据库">2.非关系型数据库</h3>
+<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
+<h2 id="sqlite3">sqlite3</h2>
+<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>华为研发岗位面试经验(已拿offer)</title>
+    <url>/2018/09/30/%E5%8D%8E%E4%B8%BA%E7%A0%94%E5%8F%91%E5%B2%97%E4%BD%8D%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C-%E5%B7%B2%E6%8B%BFoffer/</url>
+    <content><![CDATA[<h2 id="专业面试">专业面试：</h2>
+<ul>
+<li>** 自我介绍：3-5分钟把自己的校园经历简单介绍一下**</li>
+</ul>
+<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第1，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。 <a id="more"></a> - ** 项目经历：在项目里做了哪些工作，算法有没有优化的空间**</p>
+<p><strong>1. 基于四旋翼的自动控制与跟随</strong> 本系统基于STM32F407控制器，通过对超声波模块和摄像头数据的采集分析，实时调整飞行器的飞行姿态，从而达到在无遥控的条件下，满足定高、定点悬停等要求。超声波传感器为飞行器的定高飞行提供了高度反馈，摄像头通过识别地面特征点的坐标为飞行器的定点飞行提供了位置反馈，采用python+树莓派+opencv的方式实现，提高了飞行器定点悬停的速度与精度。 a、程序功能描述 根据题目要求软件部分主要实现四旋翼飞行器姿态的获取与控制，实现飞行器的定高和定点飞行。 1）定高部分实现功能：飞行器高度的获取与控制、目标高度的自动切换。 2）定点部分实现功能：飞行器飞行速度的获取、移动距离的转换与控制。 b、程序设计思路 程序分为初始化部分、起飞油门值设置部分、定高PID调节部分、定点PID调节部分。初始化部分完成时钟、定时器、串行口等片上外设的设置，以及飞行模式的检测与设置；起飞油门设置部分完成片上ADC设置、电压采集数据获取与处理、起飞油门值的映射；定高PID调节部分完成高度误差的计算以及飞行高度的调节；定点PID调节部分完成位置误差的计算以及飞行位置的调节。</p>
+<p><strong>2. 机械加工过程中零件位置的自动识别</strong> 此项目研究自动化生产线加工过程中零件的位置识别问题，设计了一种具有普适性的自动化加工生产线上的零件识别系统，能够识别传感器采集到的图像中出现单个，或多个零件的位置，并且对于识别不同的零件，只需要修改极其少量的代码便可以使用。</p>
+<p><strong>3. 高电压增益变换器</strong> 此项目在基于H桥的Buck-Boost DC-DC变换器的基础上，用多个电容与二极管串联输出 实现了高增益，设计了双电感双开关同步控制Boost变换器，并用数字电路实现了闭环稳压的控制。</p>
+<p><strong>3. 无线充电之共享充电</strong> 此项目研究智能无线充电装置的控制方法，采用服务器-客户端的方式，服务器端可以对每个充电节点实施实时监控，用户能够通过手机直接查看无线充电装置的充电状态并对其进行一定的控制操作，此项目正在准备发表论文和申请实用新型专利，预计今年9月份发表之后可以申请结题</p>
+<p><strong>4. 基于Arduino的微型激光雕刻机</strong> 此项目主要采用Arduino UNO型单片机构成中央处理系统模块，并采用开源的控制系统框架Grbl设计和实现了一个可直接进行雕刻的微型激光雕刻机系统。本系统能在非金属物体表面烧刻出由计算机传输的图案的功能。</p>
+<p><strong>5. 海洋输液柔性管设备用的不间断真空控制系统</strong> 海洋输液用柔性管在塑料包覆的过程中，必须提供一个不间断的、稳定的真空度。当真空泵出现故障或其他方面出现故障导致真空度变化时，该装置必须自动调节，确保真空度变化量&lt;10%,响应时间不大于1秒 海洋输液用柔性管在正常情况下单根长度在1km以上，根据不同的用途，包覆层最多达到20多层，如果在包覆的过程中由于真空突然缺失就会导致当前包覆层报废，由于所用的原材料价格昂贵，所以重新返工会导致大量的浪费（国内有生产商因为真空泵出现问题而出现返工，损失50万元以上），在这种情况下，类似UPS的不间断真空就显得非常重要。当前在国内生产普通塑料管材行业由于单根的长度仅为4-12米，所以没有不间断真空这个装置。此项目正在申请实用新型专利。</p>
+<p><strong>6. 聚苯醚大口径管材挤出设备的温度自动控制装置</strong> 聚苯醚材料对加工温度极其敏感，加工温度窗口很窄，温度过高，严重过塑化，粘度急剧降低，温度过低会造成粘度急剧增大，所以温度的不稳定会严重影响产品的质量，该项目实现了温度控制装置的控制精度为0.5℃以内。此项目正在申请实用新型专利。</p>
+<p><strong>7. Python爬虫</strong> 采集网上的内容并将其自动发布到wordpress上</p>
+<p><strong>8. 远程设备状态监测机器人</strong> 针对目前邮件和短信的成本较高，利用成熟的微信机器人框架：Wxbot，实现了实时监测远程设备的状态，并通过微信传送到我的微信</p>
+<ul>
+<li>** 对华为的了解**</li>
+</ul>
+<p>众所周知华为是一个非常大的平台，经营范围非常广，并且在业内处于领先的地位，主要经营电信网络设备，已经成为行业的老大，并且近些年手机品牌和芯片研究有做的非常厉害，也是业界数一数二的。 华为的氛围相对比较而言更像大学，非常单纯，同事之间相处比较简单，并且公司具有良好的人才培养体系，在华为，员工可以快速成长，有很多学习和锻炼的机会，有机会接触到业界的核心技术和最前沿的技术理论，总之，华为是我向往的公司，希望自己能有机会到那里工作。</p>
+<h2 id="综合面试">综合面试：</h2>
+<ul>
+<li>** 自我介绍：**</li>
+</ul>
+<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第6，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。</p>
+<ul>
+<li>** 想不想加入华为**</li>
+</ul>
+<p>想</p>
+<ul>
+<li>** 成绩怎么样参加过什么级别的比赛**</li>
+</ul>
+<p>国家级</p>
+<ul>
+<li>** 以后想从事哪个方面的工作**</li>
+</ul>
+<p>嵌入式，因为我本科期间做的项目都是基于arm平台的，并且对操作系统非常感兴趣，从高中的时候在同学的介绍下就对linux产生了兴趣，所以将来想从事这方面的工作</p>
+<h1 id="华为面试小结">华为面试小结</h1>
+<p>总的来说，华为面试还是挺简单的，专业面试的时候我分到的那个面试官先生好像什么都不会，很难受。不过最终还是拿到了华为的offer，岗位是操作系统工程师，月薪15k以上，简简单单。 <strong>注意：我拿到华为offer时还是个本科生</strong></p>
+<h1 id="最后附上一张华为的offer">最后附上一张华为的offer</h1>
+<figure>
+<img src="huaweioffer.png" alt="华为offer" /><figcaption>华为offer</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>华为</category>
+      </categories>
+      <tags>
+        <tag>华为 面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用虚拟主机搭建一个验证爬虫代理IP是否有效的服务</title>
+    <url>/2018/10/14/%E5%88%A9%E7%94%A8%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%AA%8C%E8%AF%81%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88%E7%9A%84%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<blockquote>
+<p>经常写爬虫的小伙伴们肯定有自己的代理IP池，我们在验证代理IP是否有效时，往往是利用<code>response=requests.get(ipcheck_url,proxies=proxy)</code>这样的方法去验证，通过访问<code>ipcheck_url</code>，<code>response</code>能返回当前访客的ip地址，通过和代理ip对比一下，若一样，则代理ip有效，若response中的ip和你的电脑ip相同，则代理无效。ipcheck_url我们常常是选择的例如站长工具等之类的工具，这类工具往往访问量大，随时可能会出问题，这篇文章教你自己搭建一个验证有效性的这样一个平台，永不掉线，成本为一年20RMB，具体搭建耗时约在15分钟内。</p>
+</blockquote>
+<h3 id="先放一张效果图">先放一张效果图：</h3>
+<p>当我访问这个网址时，返回了我电脑的ip地址。 <a id="more"></a> <img src="1.png" alt="效果图" /></p>
+<p>我个人搭建的服务在<span class="exturl" data-url="aHR0cDovL2lwY2hlY2suY2hpbmFob3N0aW5nLnRr">http://ipcheck.chinahosting.tk<i class="fa fa-external-link-alt"></i></span>，我搭建的这个仅供大家测试使用，不一定什么时候会关掉呢，大家想要用的还是自己搭建一个吧。</p>
+<h3 id="购买主机">购买主机</h3>
+<p>进入<span class="exturl" data-url="aHR0cHM6Ly9uYmhvc3QuY24=">https://nbhost.cn<i class="fa fa-external-link-alt"></i></span></p>
+<p>选择这个套餐： <img src="2.png" alt="请输入图片描述" /></p>
+<p>然后就是一套购买流程了。 <strong>介绍一下，这个主机我已经用了一年多了，便宜实惠！</strong></p>
+<h3 id="进入cpanel面板">进入Cpanel面板</h3>
+<figure>
+<img src="3.png" alt="请输入图片描述" /><figcaption>请输入图片描述</figcaption>
+</figure>
+<h3 id="进入文件管理器">进入文件管理器</h3>
+<figure>
+<img src="4.png" alt="请输入图片描述" /><figcaption>请输入图片描述</figcaption>
+</figure>
+<h3 id="新建一个文件命名为index.php">新建一个文件,命名为index.php</h3>
+<figure>
+<img src="5.png" alt="请输入图片描述" /><figcaption>请输入图片描述</figcaption>
+</figure>
+<h3 id="写入代码">写入代码</h3>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>                                                                                                                               </span><br><span class="line">$ip = $_SERVER[<span class="string">"REMOTE_ADDR"</span>];</span><br><span class="line"><span class="keyword">echo</span> $ip;</span><br></pre></td></tr></table></figure>
+<h3 id="访问你的域名即可">访问你的域名即可</h3>
+<p><strong><em>搭建出来的服务并发行极强，大家可以自行测试，可以用我搭建的测试下，个人用应该完全没问题的。</em></strong></p>
+]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>爬虫 代理IP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>减肥的科学原理</title>
     <url>/2019/02/20/%E5%87%8F%E8%82%A5%E7%9A%84%E7%A7%91%E5%AD%A6%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h2 id="减肥中的热量单位">减肥中的热量单位</h2>
@@ -1297,70 +1413,6 @@ x
       </categories>
       <tags>
         <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初学数据库-sqlite3 简介</title>
-    <url>/2018/10/28/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>通过最近几天的学习，对数据库终于有了一些认识，现在记录一下。</p>
-</blockquote>
-<h2 id="什么是数据库为何需要使用数据库">什么是数据库，为何需要使用数据库？</h2>
-<p>我们先来想想几个问题： <a id="more"></a> <strong>1.</strong> 如果现在市面上没有数据库，你会怎样管理数据 有的人可能会立马想到，电脑上新建几个txt文件，例如A.TXT, B.TXT, C.TXT。用来存放不同类型的数据。 例如，你正在做一个推销商使用的订单录入系统，你有管理供应商，管理产品目录，管理顾客列表，录入顾客订单这些数据，你现在分别新建了4个txt文件存放这些数据，OK，完全没问题的。你可能会这样存储： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">假设A.txt存储了管理供应商数据，以下是A.txt的具体内容:</span><br><span class="line">id    name    addresss    city        state      zip        country</span><br><span class="line">1     Oliver  beijing     beijing     beijing    000000     china</span><br><span class="line">2     ...     ...         ...         ...        ...        ...</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">.......还有很多行</span><br></pre></td></tr></table></figure></p>
-<p><strong>2.</strong> 在第一问的条件下，如果你想继续对A.txt进行操作，比如查找所有city为beijing的行，这时候，你需要编写大量的代码，先将这些数据读入内存，再用查找算法，例如二分查找，哈希查找，对数据进行查找，至此，你想想看需要做多大的工作量！</p>
-<p><strong>3.</strong> 在第二问的条件下，如果你想继续对A.txt进行操作，比如将数据按照某个字段进行排序，你是否又需要写很多代码呢？</p>
-<h2 id="于是数据库出现了">于是，数据库出现了</h2>
-<p>简单地说，数据库就是将大量重复劳动替你完成了，你很多情况下都无需再编写查找，排序等函数，取而代之的是约定俗称的几条命令。 希望以上的这些可以让你对数据库有个简单的理解。</p>
-<p><strong><em>看到这里，大家可以思考下数据库和excel有什么区别？</em></strong></p>
-<h2 id="数据库种类">数据库种类</h2>
-<p>现在讲的数据库一般就两种，关系型和非关系型 ### 1.关系型数据库 简单来说，关系型数据库就是一张二维表，一张表由很多行组成，每行由很多列不同的字段组成</p>
-<h3 id="非关系型数据库">2.非关系型数据库</h3>
-<p>详情可以谷歌，这里不解释了，因为我也没怎么用过，只用过Mongodb。</p>
-<h2 id="sqlite3">sqlite3</h2>
-<p>SQLite是一个嵌入式SQL数据库引擎。不像大多数其它的SQL数据库，SQLite没有单独服务器。SQLite直接读写磁盘普通文件。一个完整的SQL数据库的多个表，索引，触发器和视图，包含一个单独的磁盘文件。可以把它理解成微小版的Mysql。</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用虚拟主机搭建一个验证爬虫代理IP是否有效的服务</title>
-    <url>/2018/10/14/%E5%88%A9%E7%94%A8%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%AA%8C%E8%AF%81%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88%E7%9A%84%E6%9C%8D%E5%8A%A1/</url>
-    <content><![CDATA[<blockquote>
-<p>经常写爬虫的小伙伴们肯定有自己的代理IP池，我们在验证代理IP是否有效时，往往是利用<code>response=requests.get(ipcheck_url,proxies=proxy)</code>这样的方法去验证，通过访问<code>ipcheck_url</code>，<code>response</code>能返回当前访客的ip地址，通过和代理ip对比一下，若一样，则代理ip有效，若response中的ip和你的电脑ip相同，则代理无效。ipcheck_url我们常常是选择的例如站长工具等之类的工具，这类工具往往访问量大，随时可能会出问题，这篇文章教你自己搭建一个验证有效性的这样一个平台，永不掉线，成本为一年20RMB，具体搭建耗时约在15分钟内。</p>
-</blockquote>
-<h3 id="先放一张效果图">先放一张效果图：</h3>
-<p>当我访问这个网址时，返回了我电脑的ip地址。 <a id="more"></a> <img src="1.png" alt="效果图" /></p>
-<p>我个人搭建的服务在<span class="exturl" data-url="aHR0cDovL2lwY2hlY2suY2hpbmFob3N0aW5nLnRr">http://ipcheck.chinahosting.tk<i class="fa fa-external-link-alt"></i></span>，我搭建的这个仅供大家测试使用，不一定什么时候会关掉呢，大家想要用的还是自己搭建一个吧。</p>
-<h3 id="购买主机">购买主机</h3>
-<p>进入<span class="exturl" data-url="aHR0cHM6Ly9uYmhvc3QuY24=">https://nbhost.cn<i class="fa fa-external-link-alt"></i></span></p>
-<p>选择这个套餐： <img src="2.png" alt="请输入图片描述" /></p>
-<p>然后就是一套购买流程了。 <strong>介绍一下，这个主机我已经用了一年多了，便宜实惠！</strong></p>
-<h3 id="进入cpanel面板">进入Cpanel面板</h3>
-<figure>
-<img src="3.png" alt="请输入图片描述" /><figcaption>请输入图片描述</figcaption>
-</figure>
-<h3 id="进入文件管理器">进入文件管理器</h3>
-<figure>
-<img src="4.png" alt="请输入图片描述" /><figcaption>请输入图片描述</figcaption>
-</figure>
-<h3 id="新建一个文件命名为index.php">新建一个文件,命名为index.php</h3>
-<figure>
-<img src="5.png" alt="请输入图片描述" /><figcaption>请输入图片描述</figcaption>
-</figure>
-<h3 id="写入代码">写入代码</h3>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>                                                                                                                               </span><br><span class="line">$ip = $_SERVER[<span class="string">"REMOTE_ADDR"</span>];</span><br><span class="line"><span class="keyword">echo</span> $ip;</span><br></pre></td></tr></table></figure>
-<h3 id="访问你的域名即可">访问你的域名即可</h3>
-<p><strong><em>搭建出来的服务并发行极强，大家可以自行测试，可以用我搭建的测试下，个人用应该完全没问题的。</em></strong></p>
-]]></content>
-      <categories>
-        <category>爬虫</category>
-      </categories>
-      <tags>
-        <tag>爬虫 代理IP</tag>
       </tags>
   </entry>
   <entry>
@@ -1427,58 +1479,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>华为研发岗位面试经验(已拿offer)</title>
-    <url>/2018/09/30/%E5%8D%8E%E4%B8%BA%E7%A0%94%E5%8F%91%E5%B2%97%E4%BD%8D%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C-%E5%B7%B2%E6%8B%BFoffer/</url>
-    <content><![CDATA[<h2 id="专业面试">专业面试：</h2>
-<ul>
-<li>** 自我介绍：3-5分钟把自己的校园经历简单介绍一下**</li>
-</ul>
-<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第1，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。 <a id="more"></a> - ** 项目经历：在项目里做了哪些工作，算法有没有优化的空间**</p>
-<p><strong>1. 基于四旋翼的自动控制与跟随</strong> 本系统基于STM32F407控制器，通过对超声波模块和摄像头数据的采集分析，实时调整飞行器的飞行姿态，从而达到在无遥控的条件下，满足定高、定点悬停等要求。超声波传感器为飞行器的定高飞行提供了高度反馈，摄像头通过识别地面特征点的坐标为飞行器的定点飞行提供了位置反馈，采用python+树莓派+opencv的方式实现，提高了飞行器定点悬停的速度与精度。 a、程序功能描述 根据题目要求软件部分主要实现四旋翼飞行器姿态的获取与控制，实现飞行器的定高和定点飞行。 1）定高部分实现功能：飞行器高度的获取与控制、目标高度的自动切换。 2）定点部分实现功能：飞行器飞行速度的获取、移动距离的转换与控制。 b、程序设计思路 程序分为初始化部分、起飞油门值设置部分、定高PID调节部分、定点PID调节部分。初始化部分完成时钟、定时器、串行口等片上外设的设置，以及飞行模式的检测与设置；起飞油门设置部分完成片上ADC设置、电压采集数据获取与处理、起飞油门值的映射；定高PID调节部分完成高度误差的计算以及飞行高度的调节；定点PID调节部分完成位置误差的计算以及飞行位置的调节。</p>
-<p><strong>2. 机械加工过程中零件位置的自动识别</strong> 此项目研究自动化生产线加工过程中零件的位置识别问题，设计了一种具有普适性的自动化加工生产线上的零件识别系统，能够识别传感器采集到的图像中出现单个，或多个零件的位置，并且对于识别不同的零件，只需要修改极其少量的代码便可以使用。</p>
-<p><strong>3. 高电压增益变换器</strong> 此项目在基于H桥的Buck-Boost DC-DC变换器的基础上，用多个电容与二极管串联输出 实现了高增益，设计了双电感双开关同步控制Boost变换器，并用数字电路实现了闭环稳压的控制。</p>
-<p><strong>3. 无线充电之共享充电</strong> 此项目研究智能无线充电装置的控制方法，采用服务器-客户端的方式，服务器端可以对每个充电节点实施实时监控，用户能够通过手机直接查看无线充电装置的充电状态并对其进行一定的控制操作，此项目正在准备发表论文和申请实用新型专利，预计今年9月份发表之后可以申请结题</p>
-<p><strong>4. 基于Arduino的微型激光雕刻机</strong> 此项目主要采用Arduino UNO型单片机构成中央处理系统模块，并采用开源的控制系统框架Grbl设计和实现了一个可直接进行雕刻的微型激光雕刻机系统。本系统能在非金属物体表面烧刻出由计算机传输的图案的功能。</p>
-<p><strong>5. 海洋输液柔性管设备用的不间断真空控制系统</strong> 海洋输液用柔性管在塑料包覆的过程中，必须提供一个不间断的、稳定的真空度。当真空泵出现故障或其他方面出现故障导致真空度变化时，该装置必须自动调节，确保真空度变化量&lt;10%,响应时间不大于1秒 海洋输液用柔性管在正常情况下单根长度在1km以上，根据不同的用途，包覆层最多达到20多层，如果在包覆的过程中由于真空突然缺失就会导致当前包覆层报废，由于所用的原材料价格昂贵，所以重新返工会导致大量的浪费（国内有生产商因为真空泵出现问题而出现返工，损失50万元以上），在这种情况下，类似UPS的不间断真空就显得非常重要。当前在国内生产普通塑料管材行业由于单根的长度仅为4-12米，所以没有不间断真空这个装置。此项目正在申请实用新型专利。</p>
-<p><strong>6. 聚苯醚大口径管材挤出设备的温度自动控制装置</strong> 聚苯醚材料对加工温度极其敏感，加工温度窗口很窄，温度过高，严重过塑化，粘度急剧降低，温度过低会造成粘度急剧增大，所以温度的不稳定会严重影响产品的质量，该项目实现了温度控制装置的控制精度为0.5℃以内。此项目正在申请实用新型专利。</p>
-<p><strong>7. Python爬虫</strong> 采集网上的内容并将其自动发布到wordpress上</p>
-<p><strong>8. 远程设备状态监测机器人</strong> 针对目前邮件和短信的成本较高，利用成熟的微信机器人框架：Wxbot，实现了实时监测远程设备的状态，并通过微信传送到我的微信</p>
-<ul>
-<li>** 对华为的了解**</li>
-</ul>
-<p>众所周知华为是一个非常大的平台，经营范围非常广，并且在业内处于领先的地位，主要经营电信网络设备，已经成为行业的老大，并且近些年手机品牌和芯片研究有做的非常厉害，也是业界数一数二的。 华为的氛围相对比较而言更像大学，非常单纯，同事之间相处比较简单，并且公司具有良好的人才培养体系，在华为，员工可以快速成长，有很多学习和锻炼的机会，有机会接触到业界的核心技术和最前沿的技术理论，总之，华为是我向往的公司，希望自己能有机会到那里工作。</p>
-<h2 id="综合面试">综合面试：</h2>
-<ul>
-<li>** 自我介绍：**</li>
-</ul>
-<p>面试官您好，很高兴能有机会来参加面试，我叫周杰伦，来自上海市，现在正在上海交通大学学习。 首先，我在大学期间非常重视专业知识的学习，我平时学习非常用功，在每学年的考试中都始终保持年级前10名的成绩，整个大学期间成绩排名为第6，排名人数95人，获得过1次二等奖学金，1次一等奖学金。 其次，我还非常注重实践经验的积累。在大学期间，我积极参加学校组织的各类活动，如电子设计竞赛，数学建模比赛，大学生创新性实验计划项目，并且利用寒暑假去企业实习，积累了很多实践经验。 我性格乐观开朗，拥有较强的工作组织协调能力，并且能够吃苦耐劳，重视团队精神，我曾担任学院开放实验室的年级负责人，积极组织参加各类活动。</p>
-<ul>
-<li>** 想不想加入华为**</li>
-</ul>
-<p>想</p>
-<ul>
-<li>** 成绩怎么样参加过什么级别的比赛**</li>
-</ul>
-<p>国家级</p>
-<ul>
-<li>** 以后想从事哪个方面的工作**</li>
-</ul>
-<p>嵌入式，因为我本科期间做的项目都是基于arm平台的，并且对操作系统非常感兴趣，从高中的时候在同学的介绍下就对linux产生了兴趣，所以将来想从事这方面的工作</p>
-<h1 id="华为面试小结">华为面试小结</h1>
-<p>总的来说，华为面试还是挺简单的，专业面试的时候我分到的那个面试官先生好像什么都不会，很难受。不过最终还是拿到了华为的offer，岗位是操作系统工程师，月薪15k以上，简简单单。 <strong>注意：我拿到华为offer时还是个本科生</strong></p>
-<h1 id="最后附上一张华为的offer">最后附上一张华为的offer</h1>
-<figure>
-<img src="huaweioffer.png" alt="华为offer" /><figcaption>华为offer</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>华为</category>
-      </categories>
-      <tags>
-        <tag>华为 面试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>基金投资管理系统</title>
     <url>/2020/06/29/%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<p>基金推荐与投资记录系统：如何成为一名合格的韭菜！</p>
@@ -1532,33 +1532,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>常用排序算法之直接插入排序</title>
-    <url>/2018/08/12/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>题目：编写一个C程序，应用直接插入排序算法将序列｛2，5，6，，3，7，8，0，9，12，1｝进行排序，要求从小到大排列，并输出排序后的数列元素。</p>
-<p>算法分析：直接运用直接插入排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertionsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>] = a[i];</span><br><span class="line">        j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; a[<span class="number">0</span>]&lt;a[j])</span><br><span class="line">        &#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j--];</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The original data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    insertsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of insertion sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>数据结构 算法 排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用排序算法之选择排序</title>
-    <url>/2018/09/02/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>题目：编写一个C程序，运用选择排序将序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的数列元素</p>
-<p>算法分析：运用选择排序算法即可</p>
-<p>代码实现： <a id="more"></a> <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,<span class="built_in">min</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)</span><br><span class="line">    &#123; </span><br><span class="line">        <span class="built_in">min</span> = i;</span><br><span class="line">        <span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[j] &lt; a[<span class="built_in">min</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">min</span> = j;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">min</span> != i)</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="built_in">min</span>];</span><br><span class="line">                a[<span class="built_in">min</span>] = a[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    selectsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of selection sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>数据结构 算法 排序</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>强化学习：有限马尔科夫决策过程</title>
     <url>/2019/04/14/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%9A%E6%9C%89%E9%99%90%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/</url>
     <content><![CDATA[<p>本文是reinforcement learning:An introduction书第三章的翻译．</p>
@@ -1586,6 +1559,33 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>常用排序算法之选择排序</title>
+    <url>/2018/09/02/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>题目：编写一个C程序，运用选择排序将序列｛2，5，6，3，7，8，0，9，12，1｝进行排序，要求从小到大排序，并输出排序后的数列元素</p>
+<p>算法分析：运用选择排序算法即可</p>
+<p>代码实现： <a id="more"></a> <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,<span class="built_in">min</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)</span><br><span class="line">    &#123; </span><br><span class="line">        <span class="built_in">min</span> = i;</span><br><span class="line">        <span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[j] &lt; a[<span class="built_in">min</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">min</span> = j;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">min</span> != i)</span><br><span class="line">            &#123;</span><br><span class="line">                a[<span class="number">0</span>] = a[j];</span><br><span class="line">                a[j] = a[<span class="built_in">min</span>];</span><br><span class="line">                a[<span class="built_in">min</span>] = a[<span class="number">0</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The orginal data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    selectsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of selection sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构 算法 排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用排序算法之直接插入排序</title>
+    <url>/2018/08/12/%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>题目：编写一个C程序，应用直接插入排序算法将序列｛2，5，6，，3，7，8，0，9，12，1｝进行排序，要求从小到大排列，并输出排序后的数列元素。</p>
+<p>算法分析：直接运用直接插入排序算法即可 <a id="more"></a> 代码实现： <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertionsort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>] = a[i];</span><br><span class="line">        j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; a[<span class="number">0</span>]&lt;a[j])</span><br><span class="line">        &#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j--];</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = a[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">11</span>] = &#123;<span class="number">-111</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">12</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The original data array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    insertsort(a, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nThe result of insertion sorting for the array is\n"</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>数据结构 算法 排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>折半查找</title>
     <url>/2018/08/26/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/</url>
     <content><![CDATA[<p>有一个数组A[10]，里面存放了10个整数，顺序递增，A[10]＝｛2，3，5，7，8，10，12，15，19，21｝，任意输入一个数字n，用折半查找法找到n位于数组中的位置，如果n不属于数组A，显示错误提示</p>
@@ -1596,28 +1596,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>数据结构 算法 排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>服务器被黑记录</title>
-    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
-<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
-<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
-<a id="more"></a>
-<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
-<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
-<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
-<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
-<p>可以看到一直在被爆破。</p>
-<p><img src="image-20200914140640360.png" /></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1710,6 +1688,28 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>服务器被黑记录</title>
+    <url>/2020/09/13/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E9%BB%91%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="背景及环境">背景及环境</h2>
+<p>实验室服务器，装的Proxmox虚拟机，我开了一台LXC，系统是Debian10，上面搭建了强化学习的环境，我11日晚上将它映射到路由器的公网IP上了，端口是22</p>
+<p>12号凌晨03:25，被黑了，我是在13号早上，发现服务器的htop显示着所有的CPU的核心都是满载，但是我并没有跑什么程序，想着应该是被入侵了，打开SSH尝试连接，发现果然连不上去了。</p>
+<a id="more"></a>
+<h2 id="挂载raw硬盘">挂载RAW硬盘</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">losetup /dev/loop22 vm-108-disk-0.raw</span><br><span class="line">partx -v --add /dev/loop22</span><br><span class="line">mkdir /mnt/123</span><br><span class="line">mount /dev/loop22p1 /mnt/123</span><br></pre></td></tr></table></figure>
+<p>参考连接：https://forum.proxmox.com/threads/how-do-i-mount-a-raw-image.43186/</p>
+<h2 id="访问ssh登录日志">访问SSH登录日志</h2>
+<p>切换到挂载的磁盘中，查看系统日志：<code>last -f var/log/btmp</code></p>
+<p>可以看到一直在被爆破。</p>
+<p><img src="image-20200914140640360.png" /></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>检查强化学习自定义环境是否符合Gym的API</title>
     <url>/2020/08/22/%E6%A3%80%E6%9F%A5%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%8E%AF%E5%A2%83%E6%98%AF%E5%90%A6%E7%AC%A6%E5%90%88Gym%E7%9A%84API/</url>
     <content><![CDATA[<p>虽然Openai Gym给我们提供了很多有趣的环境，但是，针对实际问题，我们一般都需要建立自己的强化学习环境，也就是说，建立一个函数，输入是<code>action</code>，输出是<code>next_state, reward, done, info</code>，建立这样一个环境的时候最好按照Gym的API来设计，这样方便代码的编写与调试，很多网上实现的算法都是按照Gym的环境进行设计的，同时，Gym的API本身设计的就比较合理的。</p>
@@ -1744,19 +1744,6 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>Reinforcement Learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>粒子群算法库-PySwarms的可视化</title>
-    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
-    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
-<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1798,33 +1785,16 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>粒子群算法的Python简单实现</title>
-    <url>/2019/02/14/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E7%9A%84Python%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</url>
-    <content><![CDATA[<h2 id="需要优化的目标函数">需要优化的目标函数</h2>
-<p><span class="math display">\[target = x^2+y^2+z^2\]</span></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">target</span><span class="params">(nparray)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> nparray[<span class="number">0</span>]**<span class="number">2</span> + nparray[<span class="number">1</span>]**<span class="number">2</span> + nparray[<span class="number">2</span>]**<span class="number">2</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="初始化条件">初始化条件</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">N = <span class="number">30</span> <span class="comment">#个体数量</span></span><br><span class="line">D = <span class="number">3</span>  <span class="comment">#目标函数的维数</span></span><br><span class="line">M = <span class="number">1000</span> <span class="comment">#迭代次数</span></span><br><span class="line">c1 = <span class="number">0.5</span> <span class="comment">#加速常数1</span></span><br><span class="line">c2 = <span class="number">0.5</span> <span class="comment">#加速常数2</span></span><br><span class="line">w = <span class="number">0.6</span> <span class="comment">#惯性因子</span></span><br></pre></td></tr></table></figure>
-<h2 id="初始化每个粒子的位置和速度">初始化每个粒子的位置和速度</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">X = np.zeros((N, D))</span><br><span class="line">V = np.zeros((N, D))</span><br><span class="line">y = np.zeros((N, D))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N): <span class="comment">#行</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(D): <span class="comment">#列</span></span><br><span class="line">        X[i][j] = random.random()</span><br><span class="line">        V[i][j] = random.random()</span><br></pre></td></tr></table></figure>
-<h2 id="计算每个粒子的适应度">计算每个粒子的适应度</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">P = np.zeros(N) <span class="comment">#P为个体历史最优解</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">    P[i] = target(X[i])</span><br><span class="line">    y[i] = X[i]</span><br><span class="line">    <span class="comment">#print(target(X[i]))</span></span><br></pre></td></tr></table></figure>
-<h2 id="初始化pgpg为全局最优解">初始化pg，pg为全局最优解</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pg = X[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,N):</span><br><span class="line">    <span class="keyword">if</span> float(target(X[i])) &lt; float(target(pg)):</span><br><span class="line">        pg = X[i]</span><br></pre></td></tr></table></figure>
-<h2 id="算法主要循环">算法主要循环</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> range(M):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        V[i] = w*V[i] + c1*random.random()*(y[i]-X[i]) + c2*random.random()*(pg-X[i])</span><br><span class="line">        X[i] = X[i] + V[i]</span><br><span class="line">        <span class="keyword">if</span> target(X[i])&lt;P[i]:</span><br><span class="line">            P[i] = target(X[i])</span><br><span class="line">            y[i] = X[i]</span><br><span class="line">        <span class="keyword">if</span> P[i]&lt;target(pg):</span><br><span class="line">            pg = y[i]</span><br><span class="line">    <span class="comment">#Pbest[t] = target(pg)</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pg</span><br></pre></td></tr></table></figure>
-<pre><code>array([ 9.74182970e-163, -1.51205792e-162, -5.62277013e-163])</code></pre>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">target(pg)</span><br></pre></td></tr></table></figure>
-<pre><code>0.0</code></pre>
+    <title>粒子群算法库-PySwarms的可视化</title>
+    <url>/2019/02/03/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E5%BA%93-PySwarms%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
+    <content><![CDATA[<p>PYSWARMS是用python编写的一个可扩展的，用于研究粒子群算法(particle swarm optimization[PSO])的工具包。</p>
+<p>它适用于群体智能研究人员，从业者，学生，因为PYSWARMS拥有完善的优秀的接口，非常容易在问题中实施PSO算法。</p>
 ]]></content>
       <categories>
-        <category>优化算法</category>
+        <category>机器学习</category>
       </categories>
       <tags>
-        <tag>优化算法</tag>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1862,6 +1832,36 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>粒子群算法的Python简单实现</title>
+    <url>/2019/02/14/%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%E7%9A%84Python%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<h2 id="需要优化的目标函数">需要优化的目标函数</h2>
+<p><span class="math display">\[target = x^2+y^2+z^2\]</span></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">target</span><span class="params">(nparray)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> nparray[<span class="number">0</span>]**<span class="number">2</span> + nparray[<span class="number">1</span>]**<span class="number">2</span> + nparray[<span class="number">2</span>]**<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="初始化条件">初始化条件</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">N = <span class="number">30</span> <span class="comment">#个体数量</span></span><br><span class="line">D = <span class="number">3</span>  <span class="comment">#目标函数的维数</span></span><br><span class="line">M = <span class="number">1000</span> <span class="comment">#迭代次数</span></span><br><span class="line">c1 = <span class="number">0.5</span> <span class="comment">#加速常数1</span></span><br><span class="line">c2 = <span class="number">0.5</span> <span class="comment">#加速常数2</span></span><br><span class="line">w = <span class="number">0.6</span> <span class="comment">#惯性因子</span></span><br></pre></td></tr></table></figure>
+<h2 id="初始化每个粒子的位置和速度">初始化每个粒子的位置和速度</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">X = np.zeros((N, D))</span><br><span class="line">V = np.zeros((N, D))</span><br><span class="line">y = np.zeros((N, D))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N): <span class="comment">#行</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(D): <span class="comment">#列</span></span><br><span class="line">        X[i][j] = random.random()</span><br><span class="line">        V[i][j] = random.random()</span><br></pre></td></tr></table></figure>
+<h2 id="计算每个粒子的适应度">计算每个粒子的适应度</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">P = np.zeros(N) <span class="comment">#P为个体历史最优解</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">    P[i] = target(X[i])</span><br><span class="line">    y[i] = X[i]</span><br><span class="line">    <span class="comment">#print(target(X[i]))</span></span><br></pre></td></tr></table></figure>
+<h2 id="初始化pgpg为全局最优解">初始化pg，pg为全局最优解</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pg = X[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,N):</span><br><span class="line">    <span class="keyword">if</span> float(target(X[i])) &lt; float(target(pg)):</span><br><span class="line">        pg = X[i]</span><br></pre></td></tr></table></figure>
+<h2 id="算法主要循环">算法主要循环</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> range(M):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line">        V[i] = w*V[i] + c1*random.random()*(y[i]-X[i]) + c2*random.random()*(pg-X[i])</span><br><span class="line">        X[i] = X[i] + V[i]</span><br><span class="line">        <span class="keyword">if</span> target(X[i])&lt;P[i]:</span><br><span class="line">            P[i] = target(X[i])</span><br><span class="line">            y[i] = X[i]</span><br><span class="line">        <span class="keyword">if</span> P[i]&lt;target(pg):</span><br><span class="line">            pg = y[i]</span><br><span class="line">    <span class="comment">#Pbest[t] = target(pg)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pg</span><br></pre></td></tr></table></figure>
+<pre><code>array([ 9.74182970e-163, -1.51205792e-162, -5.62277013e-163])</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">target(pg)</span><br></pre></td></tr></table></figure>
+<pre><code>0.0</code></pre>
+]]></content>
+      <categories>
+        <category>优化算法</category>
+      </categories>
+      <tags>
+        <tag>优化算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Flask速成项目：Flask实现计算机资源的实时监控</title>
     <url>/2018/09/30/Flask%E9%80%9F%E6%88%90%E9%A1%B9%E7%9B%AE%EF%BC%9AFlask%E5%AE%9E%E7%8E%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%B5%84%E6%BA%90%E7%9A%84%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7/</url>
     <content><![CDATA[<blockquote>
@@ -1890,6 +1890,94 @@ Epoch [1000/1000],Loss:10.1089</code></pre>
       </categories>
       <tags>
         <tag>flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PPO算法公式推导</title>
+    <url>/2020/09/07/PPO%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/</url>
+    <content><![CDATA[<p><strong>论文：</strong></p>
+<p>[1] Schulman, J., Levine, S., Moritz, P., Jordan, M. I. &amp; Abbeel, P. Trust Region Policy Optimization. <em>arXiv:1502.05477 [cs]</em> (2017).</p>
+<p>[2] Schulman, J., Wolski, F., Dhariwal, P., Radford, A. &amp; Klimov, O. Proximal Policy Optimization Algorithms. <em>arXiv:1707.06347 [cs]</em> (2017).</p>
+<p>[3] Heess, N. <em>et al.</em> Emergence of Locomotion Behaviours in Rich Environments. <em>arXiv:1707.02286 [cs]</em> (2017).</p>
+<p>第一、二篇是openai的，第三篇是deepmind的</p>
+<p>Trust Region Policy Optimization算法是在2015年由UCB/Openai的John Schulman提出的，基本思想就是在传统的Policy Gradient算法中对梯度的更新增加一个信赖域，来保证梯度更新前后的策略相差不超过一定的阈值，用两个概率分布的KL散度来衡量这个阈值，TRPO算法的表达形式中有一个硬约束，这给求解最优问题带来了困难，而PPO则是在2017年由UCB/Openai的John Schulman提出的，是TRPO的近似算法，将TRPO的软约束转化成目标函数中的一个惩罚项，以此来简化计算，方便实现。</p>
+<a id="more"></a>
+<h2 id="trpo算法推导">TRPO算法推导</h2>
+<h3 id="notation">Notation</h3>
+<p>令<span class="math inline">\(\eta(\pi)\)</span>表示累积折扣回报：</p>
+<p><span class="math inline">\(\eta(\pi)=\mathbb{E}_{s_{0}, a_{0}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} c\left(s_{t}\right)\right]\)</span></p>
+<p>其中，<span class="math inline">\(s_{0} \sim \rho_{0}\left(s_{0}\right), a_{t} \sim \pi\left(a_{t} \mid s_{t}\right), s_{t+1} \sim P\left(s_{t+1} \mid s_{t}, a_{t}\right)\)</span></p>
+<p>state-action值函数的定义：<span class="math inline">\(Q_{\pi}\left(s_{t}, a_{t}\right)=\mathbb{E}_{s_{t+1}, a_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
+<p>价值函数的定义：<span class="math inline">\(V_{\pi}\left(s_{t}\right)=\mathbb{E}_{a_{t}, s_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
+<p>优势函数：<span class="math inline">\(A_{\pi}(s, a)=Q_{\pi}(s, a)-V_{\pi}(s)\)</span></p>
+<p><strong>Lemma1：策略差分定理</strong>：原始策略记为<span class="math inline">\(\pi\)</span>，更新后的策略记为<span class="math inline">\(\tilde{\pi}\)</span>，则更新后的策略的期望折扣回报可以写成更新前策略的期望折扣回报加上一个<span class="math inline">\(\tilde{\pi}\)</span>对<span class="math inline">\(\pi\)</span>的优势函数：</p>
+<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span></p>
+<p>上述等式能够体现TRPO的思想：将新的策略得到的性能函数写成旧策略的性能函数加上一个新策略对旧策略的的优势函数的期望值，若能保证这个期望值是正数，则可以保证新策略的性能函数要优于旧策略的性能函数。</p>
+<p>这个定理由2002年 Kakade &amp; Langford证得：</p>
+<p>因为<span class="math inline">\(A_{\pi}(s, a)=\mathbb{E}_{s^{\prime} \sim P\left(s^{\prime} \mid s, a\right)}\left[r(s)+\gamma V_{\pi}\left(s^{\prime}\right)-V_{\pi}(s)\right]\)</span></p>
+<p><span class="math inline">\(\begin{array}{l} \mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t}\left(r\left(s_{t}\right)+\gamma V_{\pi}\left(s_{t+1}\right)-V_{\pi}\left(s_{t}\right)\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[-V_{\pi}\left(s_{0}\right)+\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\mathbb{E}_{s_{0}}\left[V_{\pi}\left(s_{0}\right)\right]+\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\eta(\pi)+\eta(\tilde{\pi}) \end{array}\)</span></p>
+<p>定义discounted visitation frequencies：<span class="math inline">\(\rho_{\pi}(s)=\left(P\left(s_{0}=s\right)+\gamma P\left(s_{1}=s\right)+\gamma^{2} P\left(s_{2}=s\right)+\ldots\right)\)</span></p>
+<p>定义这个频率的目的主要是换一个角度来表示基于累计折扣回报函数的性能函数，因为<span class="math inline">\(\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span>很难表示。</p>
+<p>当<span class="math inline">\(\gamma\)</span>等于1的时候，显然，这个频率代表着在一个trajectory中状态<span class="math inline">\(s\)</span>出现次数的期望，当reward function只和状态有关而和action无关的时候，那么在这个trajectory中由<span class="math inline">\(s\)</span>贡献的return就只和这个frequency相关了。</p>
+<p>当<span class="math inline">\(\gamma\)</span>小于1的时候，在每个timestep会对reward进行一个discount的处理，所以想使用discounted frequencies来表示return的期望的话，需要在frequency上面做一个discount。</p>
+<p>通过使用discounted visitation frequencies方法，可以将上述级数形式的期望写成如下容易处理的形式</p>
+<p><span class="math display">\[\begin{aligned}
+\eta(\tilde{\pi}) &amp;=\eta(\pi)+\sum_{t=0}^{\infty} \sum_{s} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) \gamma^{t} A_{\pi}(s, a) \\
+&amp;=\eta(\pi)+\sum_{s} \sum_{t=0}^{\infty} \gamma^{t} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a) \\
+&amp;=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)
+\end{aligned}\]</span></p>
+<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
+<p>因为<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>依赖于<span class="math inline">\(\tilde{\pi}\)</span>，而因为<span class="math inline">\(\tilde{\pi}\)</span>是更新后的策略，在<span class="math inline">\(t\)</span>时刻，我们只有更新前的策略，上述优化问题很难求解，所以需要做一个近似：</p>
+<p><span class="math inline">\(L_{\pi}(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\pi}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
+<p>其中，<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>使用的是<span class="math inline">\(\rho_{\pi}\)</span>而不是<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>，因为策略的改变会导致相应的state visitation density的变化，而上面这个式子忽略了这一点，但是，(Kakade &amp; Langford 2002)证明了<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>和<span class="math inline">\(\eta(\pi)\)</span>是一阶近似的：</p>
+<p>对于任意的参数<span class="math inline">\(\theta_0\)</span>，有：</p>
+<p><span class="math inline">\(\begin{aligned} L_{\pi_{\theta_{0}}}\left(\pi_{\theta_{0}}\right) &amp;=\eta\left(\pi_{\theta_{0}}\right) \\ \left.\nabla_{\theta} L_{\pi_{\theta_{0}}}\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} &amp;=\left.\nabla_{\theta} \eta\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} \end{aligned}\)</span></p>
+<p>因此，当对策略进行一步充分小的更新，<span class="math inline">\(\pi_{\theta_{0}} \rightarrow \tilde{\pi}\)</span>，改进<span class="math inline">\(L_{\pi_{\theta_{0}}}\)</span>的同时，也能改进<span class="math inline">\(\eta(\pi_{\theta_{0}})\)</span></p>
+<p>上述过程只说明了一个充分的改进会得到非减的性能指标序列，但是选取步长很重要，选的小了会导致收敛速度慢，选了大了会导致可能的不能得到非减的性能指标序列，因此，(Kakade &amp; Langford)提出了一个policy update的方法：conservative policy iteration(保守策略迭代)，该方法给出了一个显式策略更新的下界：</p>
+<p>令<span class="math inline">\(\pi_{old}\)</span>为当前的策略，<span class="math inline">\(\pi^{\prime}=\arg \max _{\pi^{\prime}} L_{\pi_{\mathrm{old}}}\left(\pi^{\prime}\right)\)</span>，新的策略为<span class="math inline">\(\pi_{new}\)</span>，定义为：</p>
+<p><span class="math display">\[\pi_{\mathrm{new}}(a \mid s)=(1-\alpha) \pi_{\mathrm{old}}(a \mid s)+\alpha \pi^{\prime}(a \mid s)\]</span></p>
+<p>(Kakade &amp; Langford)推导出来的期望折扣累计回报的下界是：</p>
+<p><span class="math inline">\(\begin{aligned} \eta\left(\pi_{\text {new }}\right) &amp; \geq L_{\pi_{\text {old}}}\left(\pi_{\text {new}}\right)-\frac{2 \epsilon \gamma}{(1-\gamma)^{2}} \alpha^{2} \\ &amp; \text { where } \epsilon=\max _{s}\left|\mathbb{E}_{a \sim \pi^{\prime}(a \mid s)}\left[A_{\pi}(s, a)\right]\right| \end{aligned}\)</span></p>
+<p>以上都是(Kakade &amp; Langford 2002)的结论和证明</p>
+<p>其中<span class="math inline">\(\alpha\)</span>并未给出合适的计算方法，TRPO利用两个概率分布之间的KL散度来计算这个<span class="math inline">\(\alpha\)</span></p>
+<p>用概率论中的全变差距离来衡量两个策略之间的差距，<span class="math inline">\(D_{T V}(p \| q)=\frac{1}{2} \sum_{i}\left|p_{i}-q_{i}\right|\)</span></p>
+<p>其中，<span class="math inline">\(p_i\)</span>和<span class="math inline">\(q_i\)</span>是两个策略的离散的概率分布，定义<span class="math inline">\(D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})\)</span>为：</p>
+<p><span class="math display">\[D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})=\max _{s} D_{T V}(\pi(\cdot \mid s) \| \tilde{\pi}(\cdot \mid s))\]</span></p>
+<p>因为全变差距离和KL散度具有关系：<span class="math inline">\(D_{T V}(p \| q)^{2} \leq D_{\mathrm{KL}}(p \| q)\)</span></p>
+<p>所以可以将<span class="math inline">\(\alpha^2\)</span>替换为<span class="math inline">\(D_{T V}(p \| q)^{2}\)</span>，进一步可以替换为<span class="math inline">\(D_{\mathrm{KL}}(p \| q)\)</span></p>
+<p>利用KL divergence来衡量差距，计算方法：</p>
+<p>对于离散分布：<span class="math inline">\(D_{K L}(P \mid Q)=\sum_{i} P(i) \log \frac{P(i)}{Q(i)}\)</span></p>
+<p>对于连续分布：<span class="math inline">\(D_{K L}(P \mid Q)=\int_{-\infty}^{\infty} p(x) \log \frac{p(x)}{q(x)} d x\)</span></p>
+<p><strong>TRPO算法</strong></p>
+<p><img src="image-20200913171805500.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
+<p>策略的单调改进：TRPO算法能够保证策略每次更新都是单调改进的，即值函数<span class="math inline">\(\eta\left(\pi_{0}\right) \leq \eta\left(\pi_{1}\right) \leq \eta\left(\pi_{2}\right) \leq \ldots\)</span></p>
+<p><img src="image-20200913191418918.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
+<h2 id="ppo算法">PPO算法</h2>
+<p>TRPO算法是找到原目标函数的替代函数，并最大化这个替代函数，优化问题的约束是策略参数的更新不能超过一个设定的阈值，优化过程可以写成：</p>
+<p><span class="math inline">\(\begin{array}{ll} \underset{\theta}{\operatorname{maximize}} &amp; \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right] \\ \text { subject to } &amp; \hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right] \leq \delta \end{array}\)</span></p>
+<p>PPO是TRPO的一个改进，或者可以说是一个近似算法，可以将上述的带约束优化问题转化为无约束优化问题，可以写出TRPO的另一个形式：</p>
+<p><span class="math inline">\(\underset{\theta}{\operatorname{maximize}} \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
+<p>令<span class="math inline">\(r_t(\theta)\)</span>表示概率比：<span class="math inline">\(r_{t}(\theta)=\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\mathrm{old}}}\left(a_{t} \mid s_{t}\right)}\)</span>，因此<span class="math inline">\(r(\theta){old}=1\)</span>，</p>
+<p>TRPO最大化一个替代的目标函数：</p>
+<p><span class="math inline">\(L^{C P I}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right]=\hat{\mathbb{E}}_{t}\left[r_{t}(\theta) \hat{A}_{t}\right]\)</span></p>
+<p>如果使用策略迭代进行求解，那么策略的更新的步长可能会很大，<strong>以下是PPO的一个实现：对ration直接进行限制</strong></p>
+<p><span class="math inline">\(L^{C L I P}(\theta)=\hat{\mathbb{E}}_{t}\left[\min \left(r_{t}(\theta) \hat{A}_{t}, \operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\right)\right]\)</span></p>
+<p>上述min中有两项：第一项为<span class="math inline">\(r_{t}(\theta) \hat{A}_{t}\)</span>，第二项为<span class="math inline">\(\operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\)</span></p>
+<p><strong>Clip</strong>：为目标函数限定一个范围，意思就是通过计算概率比<span class="math inline">\(r_t(\theta)\)</span>，设定一个阈值，将其限制在一定的范围内<span class="math inline">\((1-\epsilon, 1+\epsilon)\)</span>，来避免策略网络的权重更新步长过大。</p>
+<p><span class="math inline">\(L^{CLIP}\)</span>是<span class="math inline">\(L^{CPI}\)</span>的一个下界。</p>
+<p><img src="image-20200913162249801.png" alt="image-20200913162249801" style="zoom:50%;" /></p>
+<p>PPO算法的第二种形式：</p>
+<p>以目标函数加入惩罚项的形式：</p>
+<p><span class="math inline">\(L^{K L P E N}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
+<p>其中，<span class="math inline">\(\beta\)</span>不是固定的，需要进行自适应设计，设计方法如下：</p>
+<p>计算两个策略的KL散度：<span class="math inline">\(d=\hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
+<p><span class="math inline">\(\begin{array}{l} -\text { If } d&lt;d_{\operatorname{targ}} / 1.5, \beta \leftarrow \beta / 2 \\ -\text { If } d&gt;d_{\text {targ }} \times 1.5, \beta \leftarrow \beta \times 2 \end{array}\)</span></p>
+]]></content>
+      <categories>
+        <category>Reinforcement Learning</category>
+      </categories>
+      <tags>
+        <tag>Reinforcement Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -3093,94 +3181,6 @@ Alabama
       </categories>
       <tags>
         <tag>Pandas</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PPO算法公式推导</title>
-    <url>/2020/09/07/PPO%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/</url>
-    <content><![CDATA[<p><strong>论文：</strong></p>
-<p>[1] Schulman, J., Levine, S., Moritz, P., Jordan, M. I. &amp; Abbeel, P. Trust Region Policy Optimization. <em>arXiv:1502.05477 [cs]</em> (2017).</p>
-<p>[2] Schulman, J., Wolski, F., Dhariwal, P., Radford, A. &amp; Klimov, O. Proximal Policy Optimization Algorithms. <em>arXiv:1707.06347 [cs]</em> (2017).</p>
-<p>[3] Heess, N. <em>et al.</em> Emergence of Locomotion Behaviours in Rich Environments. <em>arXiv:1707.02286 [cs]</em> (2017).</p>
-<p>第一、二篇是openai的，第三篇是deepmind的</p>
-<p>Trust Region Policy Optimization算法是在2015年由UCB/Openai的John Schulman提出的，基本思想就是在传统的Policy Gradient算法中对梯度的更新增加一个信赖域，来保证梯度更新前后的策略相差不超过一定的阈值，用两个概率分布的KL散度来衡量这个阈值，TRPO算法的表达形式中有一个硬约束，这给求解最优问题带来了困难，而PPO则是在2017年由UCB/Openai的John Schulman提出的，是TRPO的近似算法，将TRPO的软约束转化成目标函数中的一个惩罚项，以此来简化计算，方便实现。</p>
-<a id="more"></a>
-<h2 id="trpo算法推导">TRPO算法推导</h2>
-<h3 id="notation">Notation</h3>
-<p>令<span class="math inline">\(\eta(\pi)\)</span>表示累积折扣回报：</p>
-<p><span class="math inline">\(\eta(\pi)=\mathbb{E}_{s_{0}, a_{0}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} c\left(s_{t}\right)\right]\)</span></p>
-<p>其中，<span class="math inline">\(s_{0} \sim \rho_{0}\left(s_{0}\right), a_{t} \sim \pi\left(a_{t} \mid s_{t}\right), s_{t+1} \sim P\left(s_{t+1} \mid s_{t}, a_{t}\right)\)</span></p>
-<p>state-action值函数的定义：<span class="math inline">\(Q_{\pi}\left(s_{t}, a_{t}\right)=\mathbb{E}_{s_{t+1}, a_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
-<p>价值函数的定义：<span class="math inline">\(V_{\pi}\left(s_{t}\right)=\mathbb{E}_{a_{t}, s_{t+1}, \ldots}\left[\sum_{l=0}^{\infty} \gamma^{l} r\left(s_{t+l}\right)\right]\)</span></p>
-<p>优势函数：<span class="math inline">\(A_{\pi}(s, a)=Q_{\pi}(s, a)-V_{\pi}(s)\)</span></p>
-<p><strong>Lemma1：策略差分定理</strong>：原始策略记为<span class="math inline">\(\pi\)</span>，更新后的策略记为<span class="math inline">\(\tilde{\pi}\)</span>，则更新后的策略的期望折扣回报可以写成更新前策略的期望折扣回报加上一个<span class="math inline">\(\tilde{\pi}\)</span>对<span class="math inline">\(\pi\)</span>的优势函数：</p>
-<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span></p>
-<p>上述等式能够体现TRPO的思想：将新的策略得到的性能函数写成旧策略的性能函数加上一个新策略对旧策略的的优势函数的期望值，若能保证这个期望值是正数，则可以保证新策略的性能函数要优于旧策略的性能函数。</p>
-<p>这个定理由2002年 Kakade &amp; Langford证得：</p>
-<p>因为<span class="math inline">\(A_{\pi}(s, a)=\mathbb{E}_{s^{\prime} \sim P\left(s^{\prime} \mid s, a\right)}\left[r(s)+\gamma V_{\pi}\left(s^{\prime}\right)-V_{\pi}(s)\right]\)</span></p>
-<p><span class="math inline">\(\begin{array}{l} \mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t}\left(r\left(s_{t}\right)+\gamma V_{\pi}\left(s_{t+1}\right)-V_{\pi}\left(s_{t}\right)\right)\right] \\ =\mathbb{E}_{\tau \mid \tilde{\pi}}\left[-V_{\pi}\left(s_{0}\right)+\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\mathbb{E}_{s_{0}}\left[V_{\pi}\left(s_{0}\right)\right]+\mathbb{E}_{\tau \mid \tilde{\pi}}\left[\sum_{t=0}^{\infty} \gamma^{t} r\left(s_{t}\right)\right] \\ =-\eta(\pi)+\eta(\tilde{\pi}) \end{array}\)</span></p>
-<p>定义discounted visitation frequencies：<span class="math inline">\(\rho_{\pi}(s)=\left(P\left(s_{0}=s\right)+\gamma P\left(s_{1}=s\right)+\gamma^{2} P\left(s_{2}=s\right)+\ldots\right)\)</span></p>
-<p>定义这个频率的目的主要是换一个角度来表示基于累计折扣回报函数的性能函数，因为<span class="math inline">\(\mathbb{E}_{s_{0}, a_{0}, s_{1}, a_{1}, \ldots}\left[\sum_{t=0}^{\infty} \gamma^{t} A_{\pi}\left(s_{t}, a_{t}\right)\right]\)</span>很难表示。</p>
-<p>当<span class="math inline">\(\gamma\)</span>等于1的时候，显然，这个频率代表着在一个trajectory中状态<span class="math inline">\(s\)</span>出现次数的期望，当reward function只和状态有关而和action无关的时候，那么在这个trajectory中由<span class="math inline">\(s\)</span>贡献的return就只和这个frequency相关了。</p>
-<p>当<span class="math inline">\(\gamma\)</span>小于1的时候，在每个timestep会对reward进行一个discount的处理，所以想使用discounted frequencies来表示return的期望的话，需要在frequency上面做一个discount。</p>
-<p>通过使用discounted visitation frequencies方法，可以将上述级数形式的期望写成如下容易处理的形式</p>
-<p><span class="math display">\[\begin{aligned}
-\eta(\tilde{\pi}) &amp;=\eta(\pi)+\sum_{t=0}^{\infty} \sum_{s} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) \gamma^{t} A_{\pi}(s, a) \\
-&amp;=\eta(\pi)+\sum_{s} \sum_{t=0}^{\infty} \gamma^{t} P\left(s_{t}=s \mid \tilde{\pi}\right) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a) \\
-&amp;=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)
-\end{aligned}\]</span></p>
-<p><span class="math inline">\(\eta(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\tilde{\pi}}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
-<p>因为<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>依赖于<span class="math inline">\(\tilde{\pi}\)</span>，而因为<span class="math inline">\(\tilde{\pi}\)</span>是更新后的策略，在<span class="math inline">\(t\)</span>时刻，我们只有更新前的策略，上述优化问题很难求解，所以需要做一个近似：</p>
-<p><span class="math inline">\(L_{\pi}(\tilde{\pi})=\eta(\pi)+\sum_{s} \rho_{\pi}(s) \sum_{a} \tilde{\pi}(a \mid s) A_{\pi}(s, a)\)</span></p>
-<p>其中，<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>使用的是<span class="math inline">\(\rho_{\pi}\)</span>而不是<span class="math inline">\(\rho_{\tilde{\pi}}\)</span>，因为策略的改变会导致相应的state visitation density的变化，而上面这个式子忽略了这一点，但是，(Kakade &amp; Langford 2002)证明了<span class="math inline">\(L_{\pi}(\tilde{\pi})\)</span>和<span class="math inline">\(\eta(\pi)\)</span>是一阶近似的：</p>
-<p>对于任意的参数<span class="math inline">\(\theta_0\)</span>，有：</p>
-<p><span class="math inline">\(\begin{aligned} L_{\pi_{\theta_{0}}}\left(\pi_{\theta_{0}}\right) &amp;=\eta\left(\pi_{\theta_{0}}\right) \\ \left.\nabla_{\theta} L_{\pi_{\theta_{0}}}\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} &amp;=\left.\nabla_{\theta} \eta\left(\pi_{\theta}\right)\right|_{\theta=\theta_{0}} \end{aligned}\)</span></p>
-<p>因此，当对策略进行一步充分小的更新，<span class="math inline">\(\pi_{\theta_{0}} \rightarrow \tilde{\pi}\)</span>，改进<span class="math inline">\(L_{\pi_{\theta_{0}}}\)</span>的同时，也能改进<span class="math inline">\(\eta(\pi_{\theta_{0}})\)</span></p>
-<p>上述过程只说明了一个充分的改进会得到非减的性能指标序列，但是选取步长很重要，选的小了会导致收敛速度慢，选了大了会导致可能的不能得到非减的性能指标序列，因此，(Kakade &amp; Langford)提出了一个policy update的方法：conservative policy iteration(保守策略迭代)，该方法给出了一个显式策略更新的下界：</p>
-<p>令<span class="math inline">\(\pi_{old}\)</span>为当前的策略，<span class="math inline">\(\pi^{\prime}=\arg \max _{\pi^{\prime}} L_{\pi_{\mathrm{old}}}\left(\pi^{\prime}\right)\)</span>，新的策略为<span class="math inline">\(\pi_{new}\)</span>，定义为：</p>
-<p><span class="math display">\[\pi_{\mathrm{new}}(a \mid s)=(1-\alpha) \pi_{\mathrm{old}}(a \mid s)+\alpha \pi^{\prime}(a \mid s)\]</span></p>
-<p>(Kakade &amp; Langford)推导出来的期望折扣累计回报的下界是：</p>
-<p><span class="math inline">\(\begin{aligned} \eta\left(\pi_{\text {new }}\right) &amp; \geq L_{\pi_{\text {old}}}\left(\pi_{\text {new}}\right)-\frac{2 \epsilon \gamma}{(1-\gamma)^{2}} \alpha^{2} \\ &amp; \text { where } \epsilon=\max _{s}\left|\mathbb{E}_{a \sim \pi^{\prime}(a \mid s)}\left[A_{\pi}(s, a)\right]\right| \end{aligned}\)</span></p>
-<p>以上都是(Kakade &amp; Langford 2002)的结论和证明</p>
-<p>其中<span class="math inline">\(\alpha\)</span>并未给出合适的计算方法，TRPO利用两个概率分布之间的KL散度来计算这个<span class="math inline">\(\alpha\)</span></p>
-<p>用概率论中的全变差距离来衡量两个策略之间的差距，<span class="math inline">\(D_{T V}(p \| q)=\frac{1}{2} \sum_{i}\left|p_{i}-q_{i}\right|\)</span></p>
-<p>其中，<span class="math inline">\(p_i\)</span>和<span class="math inline">\(q_i\)</span>是两个策略的离散的概率分布，定义<span class="math inline">\(D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})\)</span>为：</p>
-<p><span class="math display">\[D_{\mathrm{TV}}^{\max }(\pi, \tilde{\pi})=\max _{s} D_{T V}(\pi(\cdot \mid s) \| \tilde{\pi}(\cdot \mid s))\]</span></p>
-<p>因为全变差距离和KL散度具有关系：<span class="math inline">\(D_{T V}(p \| q)^{2} \leq D_{\mathrm{KL}}(p \| q)\)</span></p>
-<p>所以可以将<span class="math inline">\(\alpha^2\)</span>替换为<span class="math inline">\(D_{T V}(p \| q)^{2}\)</span>，进一步可以替换为<span class="math inline">\(D_{\mathrm{KL}}(p \| q)\)</span></p>
-<p>利用KL divergence来衡量差距，计算方法：</p>
-<p>对于离散分布：<span class="math inline">\(D_{K L}(P \mid Q)=\sum_{i} P(i) \log \frac{P(i)}{Q(i)}\)</span></p>
-<p>对于连续分布：<span class="math inline">\(D_{K L}(P \mid Q)=\int_{-\infty}^{\infty} p(x) \log \frac{p(x)}{q(x)} d x\)</span></p>
-<p><strong>TRPO算法</strong></p>
-<p><img src="image-20200913171805500.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
-<p>策略的单调改进：TRPO算法能够保证策略每次更新都是单调改进的，即值函数<span class="math inline">\(\eta\left(\pi_{0}\right) \leq \eta\left(\pi_{1}\right) \leq \eta\left(\pi_{2}\right) \leq \ldots\)</span></p>
-<p><img src="image-20200913191418918.png" alt="image-20200913191418918" style="zoom:40%;" /></p>
-<h2 id="ppo算法">PPO算法</h2>
-<p>TRPO算法是找到原目标函数的替代函数，并最大化这个替代函数，优化问题的约束是策略参数的更新不能超过一个设定的阈值，优化过程可以写成：</p>
-<p><span class="math inline">\(\begin{array}{ll} \underset{\theta}{\operatorname{maximize}} &amp; \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right] \\ \text { subject to } &amp; \hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right] \leq \delta \end{array}\)</span></p>
-<p>PPO是TRPO的一个改进，或者可以说是一个近似算法，可以将上述的带约束优化问题转化为无约束优化问题，可以写出TRPO的另一个形式：</p>
-<p><span class="math inline">\(\underset{\theta}{\operatorname{maximize}} \hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
-<p>令<span class="math inline">\(r_t(\theta)\)</span>表示概率比：<span class="math inline">\(r_{t}(\theta)=\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\mathrm{old}}}\left(a_{t} \mid s_{t}\right)}\)</span>，因此<span class="math inline">\(r(\theta){old}=1\)</span>，</p>
-<p>TRPO最大化一个替代的目标函数：</p>
-<p><span class="math inline">\(L^{C P I}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}\right]=\hat{\mathbb{E}}_{t}\left[r_{t}(\theta) \hat{A}_{t}\right]\)</span></p>
-<p>如果使用策略迭代进行求解，那么策略的更新的步长可能会很大，<strong>以下是PPO的一个实现：对ration直接进行限制</strong></p>
-<p><span class="math inline">\(L^{C L I P}(\theta)=\hat{\mathbb{E}}_{t}\left[\min \left(r_{t}(\theta) \hat{A}_{t}, \operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\right)\right]\)</span></p>
-<p>上述min中有两项：第一项为<span class="math inline">\(r_{t}(\theta) \hat{A}_{t}\)</span>，第二项为<span class="math inline">\(\operatorname{clip}\left(r_{t}(\theta), 1-\epsilon, 1+\epsilon\right) \hat{A}_{t}\)</span></p>
-<p><strong>Clip</strong>：为目标函数限定一个范围，意思就是通过计算概率比<span class="math inline">\(r_t(\theta)\)</span>，设定一个阈值，将其限制在一定的范围内<span class="math inline">\((1-\epsilon, 1+\epsilon)\)</span>，来避免策略网络的权重更新步长过大。</p>
-<p><span class="math inline">\(L^{CLIP}\)</span>是<span class="math inline">\(L^{CPI}\)</span>的一个下界。</p>
-<p><img src="image-20200913162249801.png" alt="image-20200913162249801" style="zoom:50%;" /></p>
-<p>PPO算法的第二种形式：</p>
-<p>以目标函数加入惩罚项的形式：</p>
-<p><span class="math inline">\(L^{K L P E N}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} \mid s_{t}\right)}{\pi_{\theta_{\text {old }}}\left(a_{t} \mid s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
-<p>其中，<span class="math inline">\(\beta\)</span>不是固定的，需要进行自适应设计，设计方法如下：</p>
-<p>计算两个策略的KL散度：<span class="math inline">\(d=\hat{\mathbb{E}}_{t}\left[\operatorname{KL}\left[\pi_{\theta_{\text {old }}}\left(\cdot \mid s_{t}\right), \pi_{\theta}\left(\cdot \mid s_{t}\right)\right]\right]\)</span></p>
-<p><span class="math inline">\(\begin{array}{l} -\text { If } d&lt;d_{\operatorname{targ}} / 1.5, \beta \leftarrow \beta / 2 \\ -\text { If } d&gt;d_{\text {targ }} \times 1.5, \beta \leftarrow \beta \times 2 \end{array}\)</span></p>
-]]></content>
-      <categories>
-        <category>Reinforcement Learning</category>
-      </categories>
-      <tags>
-        <tag>Reinforcement Learning</tag>
       </tags>
   </entry>
   <entry>
