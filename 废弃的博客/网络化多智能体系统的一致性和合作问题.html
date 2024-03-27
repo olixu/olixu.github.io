@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/leimu.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/leimu.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/leimu.webp">
+  <link rel="mask-icon" href="/images/leimu.webp" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="B9DN3IrX7m2gTbRqa4D1C1Lluvo_zP2P5KC0wh4-ej4">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.oliverxu.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="文章：《Consensus and Cooperation in Networked Multi-Agent Systems》 期刊：Proceedings of the IEEE 影响因子：10.252(2019年) 发表日期：2005年写，2007年发表 Abstract 这篇文章现在看可以看成是tutorial。 研究了网络化多智能体系统的一致性算法的理论框架，强调连接信息流，网络结构改变的">
+<meta property="og:type" content="website">
+<meta property="og:title" content="网络化多智能体系统的一致性和合作问题">
+<meta property="og:url" content="https://blog.oliverxu.cn/%E5%BA%9F%E5%BC%83%E7%9A%84%E5%8D%9A%E5%AE%A2/%E7%BD%91%E7%BB%9C%E5%8C%96%E5%A4%9A%E6%99%BA%E8%83%BD%E4%BD%93%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7%E5%92%8C%E5%90%88%E4%BD%9C%E9%97%AE%E9%A2%98.html">
+<meta property="og:site_name" content="Oliver xu&#39;s Blog">
+<meta property="og:description" content="文章：《Consensus and Cooperation in Networked Multi-Agent Systems》 期刊：Proceedings of the IEEE 影响因子：10.252(2019年) 发表日期：2005年写，2007年发表 Abstract 这篇文章现在看可以看成是tutorial。 研究了网络化多智能体系统的一致性算法的理论框架，强调连接信息流，网络结构改变的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-02T13:39:50.000Z">
+<meta property="article:modified_time" content="2024-03-27T21:01:24.856Z">
+<meta property="article:author" content="Oliver xu">
+<meta property="article:tag" content="分布式多智能体">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.oliverxu.cn/%E5%BA%9F%E5%BC%83%E7%9A%84%E5%8D%9A%E5%AE%A2/%E7%BD%91%E7%BB%9C%E5%8C%96%E5%A4%9A%E6%99%BA%E8%83%BD%E4%BD%93%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7%E5%92%8C%E5%90%88%E4%BD%9C%E9%97%AE%E9%A2%98">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>网络化多智能体系统的一致性和合作问题 | Oliver xu's Blog
+</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?473560aefa55cb0313599b95a2994bf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss.xml" title="Oliver xu's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Oliver xu's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-album">
+
+    <a href="/album/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content page posts-expand">
+            
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">网络化多智能体系统的一致性和合作问题
+</h1>
+
+<div class="post-meta">
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <p><strong>文章</strong>：《Consensus and Cooperation in Networked
+Multi-Agent Systems》</p>
+<p><strong>期刊</strong>：Proceedings of the IEEE</p>
+<p><strong>影响因子</strong>：10.252(2019年)</p>
+<p><strong>发表日期</strong>：2005年写，2007年发表</p>
+<h2 id="abstract">Abstract</h2>
+<p>这篇文章现在看可以看成是tutorial。</p>
+<p>研究了网络化多智能体系统的一致性算法的理论框架，强调连接信息流，网络结构改变的鲁棒性，时延，和性能保证。</p>
+<p>综述了网络信息一致性和收敛及稳定性分析方法的基本概念，包括矩阵理论，代数图理论，控制理论。</p>
+<p>分析了一致性问题和多种应用的关系，包括synchronization of coupled
+oscillators, flocking , formation control, fast consensus in small world
+networks, markov processed, gossip-based algorithms, load balancing in
+networks, rendezvous in space, distributed sensor fusion in sensor
+networks, belief propagation.</p>
+<h2 id="introduction">Introduction</h2>
+<p>一致性问题在CS和分布式计算中有着很长的历史</p>
+<p>consensus定义：reach an agreement regarding a certain quantity of
+interest that depends on the state of all agents.</p>
+<p>图的拉普拉斯矩阵在分析一致性问题的收敛性中起到了重要作用</p>
+<p>代数连通度：图的拉普拉斯矩阵的最小正特征值，量化了一致性算法的收敛速度</p>
+<h3 id="consensus-in-networks">consensus in networks</h3>
+<p>有向图：<span class="math inline">\(G=(V, E)\)</span></p>
+<p>节点：<span class="math inline">\(V=\{1,2, \ldots, n\}\)</span></p>
+<p>边：<span class="math inline">\(E \subseteq V \times V\)</span></p>
+<p>agent <span class="math inline">\(i\)</span>的邻居：<span
+class="math inline">\(N_{i}=\{j \in V:(i, j) \in E\}\)</span></p>
+<p>一个简单的一致性问题可以用一个<span
+class="math inline">\(n\)</span>维线性系统表示为：</p>
+<p><span class="math display">\[\begin{aligned}
+\dot{x}_{i}(t) &amp;=\sum_{j \in
+N_{i}}\left(x_{j}(t)-x_{i}(t)\right)+b_{i}(t), \quad x_{i}(0)=z_{i}
+\in \mathbb{R}, \quad  b_{i}(t)=0
+\end{aligned}\]</span></p>
+<p>根据拉普拉斯矩阵的定义，上式可以写成:</p>
+<p><span class="math display">\[\dot{x}=-L x\]</span></p>
+<p>其中，<span class="math inline">\(L=\left[l_{i
+j}\right]\)</span>是拉普拉斯矩阵，它的元素定义为：</p>
+<p><span class="math display">\[l_{i j}=\left\{\begin{array}{ll}
+-1, &amp; j \in N_{i} \\
+\left|N_{i}\right|, &amp; j=i
+\end{array}\right.\]</span></p>
+<p><span
+class="math inline">\(\left|N_{i}\right|\)</span>定义为节点<span
+class="math inline">\(i\)</span>的邻居的数量，或者是节点<span
+class="math inline">\(i\)</span>的出度</p>
+<p>根据上述拉普拉斯矩阵的定义，矩阵<span
+class="math inline">\(L\)</span>的行和为0，因为其满足：<span
+class="math inline">\(\sum_{i} l_{i j}=0\)</span>，</p>
+<p>因此，矩阵<span
+class="math inline">\(L\)</span>始终有一个特征值为<span
+class="math inline">\(\lambda_{1}=0\)</span>，对应的特征向量为<span
+class="math inline">\(\mathbf{1}=(1, \ldots, 1)^{T}\)</span>，因为<span
+class="math inline">\(\mathbf{1}\)</span>属于矩阵<span
+class="math inline">\(L\)</span>的零空间(<span class="math inline">\(L
+1=0\)</span>)</p>
+<p>换句话说，给定系统的平衡点定义为满足条件：<span
+class="math inline">\(x^{*}=(\alpha, \ldots, \alpha)^{T}=\alpha
+\mathbf{1}\)</span></p>
+<p>对于一个连通图，平衡点<span class="math inline">\(x^{*}=(\alpha,
+\ldots, \alpha)^{T}\)</span>是全局指数稳定的，满足<span
+class="math inline">\(\alpha=1 / n \sum_{i}
+z_{i}\)</span>，其等于初始状态的平均值</p>
+<p>这样的方法带来的问题：计算<span
+class="math inline">\(f(z)\)</span>对于小网络来说很简单，但是对于大网络比较复杂，例如，当网络包含<span
+class="math inline">\(n=10^{6}\)</span>个节点时，且每个节点只能和<span
+class="math inline">\(\log
+_{10}(n)=6\)</span>个邻居进行通信，在这种条件下，找到初始条件的平均值变得很复杂。</p>
+<h3 id="f-consensus-problem-and-meaning-of-cooperation">f-consensus
+problem and meaning of cooperation</h3>
+<p>无约束和有约束一致性问题：</p>
+<p>无约束问题：所有agent的状态渐进稳定到相同的数值</p>
+<p>有约束问题：所有agent的状态渐进稳定到<span
+class="math inline">\(f(z)\)</span></p>
+<p>有约束问题被称为f-consensus问题</p>
+<p>解决f-consensus问题需要所有agent的合作，因此，cooperation可以被定义为"giving
+consent to providing one's state and following a common protocol that
+serves the group objective"</p>
+<h3 id="iterative-consensus-and-markov-chains">Iterative consensus and
+Markov chains</h3>
+<p><span class="math inline">\(\pi(k+1)=\pi(k) P\)</span></p>
+<p>其中，<span class="math inline">\(P=I-\epsilon
+L\)</span>，是状态转移矩阵，</p>
+<h3 id="applications">Applications</h3>
+<p><strong>耦合振荡器的同步</strong></p>
+<p>考虑耦合振荡器的一般化的Kuramoto模型：</p>
+<p><span class="math display">\[\dot{\theta}_{i}=\kappa \sum_{j \in
+N_{i}} \sin \left(\theta_{j}-\theta_{i}\right)+\omega_{i}\]</span></p>
+<p><strong>Flocking theory</strong></p>
+<p><strong>Fast consensus in small worlds</strong></p>
+<p><strong>Rendezvous in space</strong></p>
+<p><strong>Distributed Sensor fusion in sensor networks</strong></p>
+<p><strong>Distributed formation control</strong></p>
+<h2 id="information-consensus">Information consensus</h2>
+<p>考虑一个多智能体网络，每一个agent的系统动态为<span
+class="math inline">\(\dot{x}_{i}=u_{i}\)</span>，为了在局部通讯下获得一致性，意味着agent的状态渐进收敛到一致性空间：<span
+class="math inline">\(x_{1}=x_{2}=\ldots=x_{n}\)</span></p>
+<p>该一致性空间可以表示为<span class="math inline">\(x=\alpha
+\mathbf{1}\)</span>，其中，<span class="math inline">\(\mathbf{1}=(1,
+\ldots, 1)^{T}\)</span>，且<span class="math inline">\(\alpha \in
+\mathbb{R}\)</span>是所有agent的集体决策</p>
+<p>令<span class="math inline">\(A=\left[a_{i
+j}\right]\)</span>是图<span
+class="math inline">\(G\)</span>的邻接矩阵</p>
+<p>动态图定义：<span class="math inline">\(G(t)=(V,
+E(t))\)</span>，其中的边集合<span
+class="math inline">\(E(t)\)</span>和邻接矩阵<span
+class="math inline">\(A(t)\)</span>和<span
+class="math inline">\(N_i(t)\)</span>是时变的</p>
+<p>线性系统：</p>
+<p><span class="math display">\[\dot{x}_{i}(t)=\sum_{j \in N_{i}} a_{i
+j}\left(x_{j}(t)-x_{i}(t)\right)\]</span></p>
+<p>是一个分布式一致性算法</p>
+<p>上式可以表示为：</p>
+<p><span class="math inline">\(\dot{x}=-L x\)</span></p>
+<p>图的拉普拉斯矩阵为：<span
+class="math inline">\(L=D-A\)</span>，满足平方和(sum-ofsquares,
+sos)性质</p>
+<p>通过定义一个quadratic disagreement function：</p>
+<p><span class="math inline">\(\varphi(x)=\frac{1}{2} x^{T} L
+x\)</span></p>
+<p>线性系统可以表示为：</p>
+<p><span class="math inline">\(\dot{x}=-\nabla \varphi(x)\)</span></p>
+<p>令<span
+class="math inline">\(G\)</span>是一个连通无向图，算法7对于所有的初始状态渐进求解一个平均一致性问题</p>
+<h3
+id="algebraic-connectivity-and-spectral-properties-of-graphs">Algebraic
+Connectivity and Spectral Properties of Graphs</h3>
+<p>拉普拉斯矩阵的谱性质可以用来分析线性一致性算法的收敛性，根据盖尔圆盘定理，<span
+class="math inline">\(L\)</span>的所有的特征值都在以<span
+class="math inline">\(\Delta+0 j\)</span>为圆心的，<span
+class="math inline">\(\Delta=\max _{i}
+d_{i}\)</span>为半径的圆盘中，其中，<span
+class="math inline">\(\Delta\)</span>是图的最大度，对于无向图，<span
+class="math inline">\(L\)</span>是一个对称矩阵，特征值都是实数，<span
+class="math inline">\(L\)</span>的特征值可以按照升序排列：</p>
+<p><span class="math inline">\(0=\lambda_{1} \leq \lambda_{2} \leq
+\cdots \leq \lambda_{n} \leq 2 \Delta\)</span></p>
+<p>拉普拉斯矩阵的最小正特征值被称作图的代数连通度，代数连通度能够用来评价一致性算法的性能/速度</p>
+<h3 id="example">Example</h3>
+<figure>
+<img
+src="C:\Users\oliverxu\AppData\Roaming\Typora\typora-user-images\image-20200902160756854.png"
+alt="image-20200902160756854" />
+<figcaption aria-hidden="true">image-20200902160756854</figcaption>
+</figure>
+<h3 id="convergence-analysis-for-directed-networks">Convergence analysis
+for directed networks</h3>
+<p>算法7的收敛性分析可以等价于证明一致性空间<span
+class="math inline">\(x=\alpha \mathbf{1}, \alpha \in
+\mathbb{R}\)</span>是系统7渐进稳定的平衡点。系统7的稳定性完全由拉普拉斯矩阵的特征值在复平面上的未知决定的。邻接矩阵的特征值和系统7的稳定性分析无关，除非这个网络是<span
+class="math inline">\(k\)</span>-regular的。</p>
+<p>强连接：如果对于一个图任意两个节点<span
+class="math inline">\(s\)</span>, <span
+class="math inline">\(t\)</span>，有一个有向路径连接该两个节点</p>
+<p>谱局部化：令<span
+class="math inline">\(G\)</span>是一个强连通图，有<span
+class="math inline">\(n\)</span>个节点，<span
+class="math inline">\(\operatorname{rank}(L)=n-1\)</span>，且所有的<span
+class="math inline">\(L\)</span>的特征值都有正的实部，当图有<span
+class="math inline">\(c\)</span>个强连通部分，那么<span
+class="math inline">\(\operatorname{rank}(L)=n-c\)</span>，</p>
+<p>平衡有向图：一个有向图<span
+class="math inline">\(G\)</span>，当满足<span
+class="math inline">\(\sum_{j \neq i} a_{i j}=\sum_{j \neq i} a_{j
+i}\)</span>时，被称为平衡有向图</p>
+<p>在一个平衡有向图中，每个节点的入度的权重之和和该节点出度的节点之和相同</p>
+<p><span class="math inline">\(L\)</span>有一个左特征值<span
+class="math inline">\(\lambda=1\)</span>的充要条件是图<span
+class="math inline">\(G\)</span>是一个平衡图</p>
+<h3 id="consensus-in-discrete-time-and-matrix-theory">consensus in
+discrete time and matrix theory</h3>
+<p>离散时间系统，从原来的微分变为差分：</p>
+<p><span class="math inline">\(x_{i}(k+1)=x_{i}(k)+\epsilon \sum_{j \in
+N_{i}} a_{i j}\left(x_{j}(k)-x_{i}(k)\right)\)</span></p>
+<p>在这个算法下的，网络的离散时间collective dynamics可以表示为：</p>
+<p><span class="math inline">\(x(k+1)=\operatorname{Px}(k)\)</span></p>
+<p>其中，<span class="math inline">\(P=I-\epsilon L\)</span>且<span
+class="math inline">\(\epsilon&gt;0\)</span>是步长，一般情况下，<span
+class="math inline">\(P=\exp (-\epsilon
+L)\)</span>，所以上述离散时间系统差分方程是一个特例，只使用一阶邻居，<span
+class="math inline">\(P\)</span>是图<span
+class="math inline">\(G\)</span>的Perron matrix</p>
+<h3 id="performance-of-consensus-algorithms">performance of consensus
+algorithms</h3>
+<p>获得一致性的速度是网络拓扑设计的关键同时也是一致性算法的稳定性分析的关键</p>
+<p><span class="math display">\[\begin{array}{ll}
+\mathrm{CT}: &amp; \dot{\delta}(t)=-L \delta(t) \\
+\mathrm{DT}: &amp; \delta(k+1)=P \delta(k)
+\end{array}\]</span></p>
+<p>再证明<span class="math inline">\(\Phi(\delta)=\delta^{T}
+\delta\)</span>是一个有效的Lyapunov函数</p>
+<p>有向图的代数连通度：令图<span
+class="math inline">\(G\)</span>是一个平衡有向图，且它的拉普拉斯矩阵<span
+class="math inline">\(L\)</span>有一个对称部分<span
+class="math inline">\(L_{s}=\left(L+L^{T}\right) / 2\)</span>，Perron
+matrix <span class="math inline">\(P\)</span>有<span
+class="math inline">\(P_{s}=\left(P+P^{T}\right) / 2\)</span></p>
+<p>然后<span class="math inline">\(\lambda_{2}\)</span>和<span
+class="math inline">\(\mu_{2}\)</span>都满足一定的条件</p>
+<h3 id="alternative-forms-of-consensys-algorithms">Alternative forms of
+consensys algorithms</h3>
+<p>对于只有<span class="math inline">\(0-1\)</span>权重的图<span
+class="math inline">\(G\)</span>来说：</p>
+<p><span class="math display">\[\dot{x}_{i}=\frac{1}{\left|N_{i}\right|}
+\sum_{j \in N_{i}}\left(x_{j}-x_{i}\right)\]</span></p>
+<p>这是一致性算法的特例，其中<span class="math inline">\(a_{i j}=1
+/\left|N_{i}\right|=1 / d_{i}\)</span>，这意味着<span
+class="math inline">\(G^{*}\)</span>的度矩阵是<span
+class="math inline">\(D^{*}=I\)</span>，且它的邻接矩阵是<span
+class="math inline">\(A^{*}=D^{-1}
+A\)</span>，所有的节点拥有非零的度。在图理论中，<span
+class="math inline">\(A^{*}\)</span>是规范化的邻接矩阵</p>
+<p>令<span
+class="math inline">\(Q\)</span>是上述系统动态的关键矩阵，<span
+class="math inline">\(\dot{x}=-Q
+x\)</span>，然后，拉普拉斯矩阵的一个替代的形式是：</p>
+<p><span class="math display">\[Q=I-D^{-1} A\]</span></p>
+<p>迭代一致性算法：</p>
+<p><span class="math display">\[x(k+1)=\left[(1-\epsilon) I+\epsilon
+D^{-1} A\right] x(k)\]</span></p>
+<p>当<span class="math inline">\(\epsilon=1\)</span>时，上式变为：<span
+class="math inline">\(x(k+1)=D^{-1} A
+x(k)\)</span>，但是这个系统对于有向图来说，例如<span
+class="math inline">\(n\)</span>个agent的圈，是不收敛的，因此，<span
+class="math inline">\(\epsilon=1\)</span>这样的离散化是无效的</p>
+<p>Markov过程：<span class="math inline">\(\pi(k+1)=\pi(k)
+P\)</span></p>
+<p>在图理论中和random
+walks的处理相关，而在计算机学科中和gossip-based一致性算法相关</p>
+<p>基于算法22，若图<span
+class="math inline">\(G\)</span>是无向图，那么：</p>
+<p><span class="math display">\[\alpha=\left(\sum_{i} d_{i} x_{i}\right)
+/\left(\sum_{i} d_{i}\right)\]</span></p>
+<p>是不时变的，且能够获得权重平均一致性。</p>
+<p>另一个比较流行的无向图的离散时间一致性算法表示为：</p>
+<p><span
+class="math display">\[x_{i}(k+1)=\frac{1}{1+\left|N_{i}\right|}\left(x_{i}(k)+\sum_{j
+\in N_{i}} x_{j}(k)\right)\]</span></p>
+<p><span class="math display">\[x(k+1)=(I+D)^{-1}(I+A) x(k)\]</span></p>
+<h3 id="weighted-average-consensus">weighted average consensus</h3>
+<p>对于连续时间一致性问题来说，拉普拉斯矩阵的选取依赖于特定的研究应用。</p>
+<h3 id="consensus-under-communication-time-delays">consensus under
+communication time delays</h3>
+<h2 id="consensus-in-switching-networks">Consensus in switching
+networks</h2>
+<h2 id="cooperation-in-networked-control-systems">Cooperation in
+networked control systems</h2>
+<h2 id="simulations">Simulations</h2>
+<h2 id="conclusion">Conclusion</h2>
+
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#consensus-in-networks"><span class="nav-number">2.1.</span> <span class="nav-text">consensus in networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#f-consensus-problem-and-meaning-of-cooperation"><span class="nav-number">2.2.</span> <span class="nav-text">f-consensus
+problem and meaning of cooperation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iterative-consensus-and-markov-chains"><span class="nav-number">2.3.</span> <span class="nav-text">Iterative consensus and
+Markov chains</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#applications"><span class="nav-number">2.4.</span> <span class="nav-text">Applications</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#information-consensus"><span class="nav-number">3.</span> <span class="nav-text">Information consensus</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#algebraic-connectivity-and-spectral-properties-of-graphs"><span class="nav-number">3.1.</span> <span class="nav-text">Algebraic
+Connectivity and Spectral Properties of Graphs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example"><span class="nav-number">3.2.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#convergence-analysis-for-directed-networks"><span class="nav-number">3.3.</span> <span class="nav-text">Convergence analysis
+for directed networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#consensus-in-discrete-time-and-matrix-theory"><span class="nav-number">3.4.</span> <span class="nav-text">consensus in
+discrete time and matrix theory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#performance-of-consensus-algorithms"><span class="nav-number">3.5.</span> <span class="nav-text">performance of consensus
+algorithms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#alternative-forms-of-consensys-algorithms"><span class="nav-number">3.6.</span> <span class="nav-text">Alternative forms of
+consensys algorithms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#weighted-average-consensus"><span class="nav-number">3.7.</span> <span class="nav-text">weighted average consensus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#consensus-under-communication-time-delays"><span class="nav-number">3.8.</span> <span class="nav-text">consensus under
+communication time delays</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#consensus-in-switching-networks"><span class="nav-number">4.</span> <span class="nav-text">Consensus in switching
+networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cooperation-in-networked-control-systems"><span class="nav-number">5.</span> <span class="nav-text">Cooperation in
+networked control systems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#simulations"><span class="nav-number">6.</span> <span class="nav-text">Simulations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conclusion"><span class="nav-number">7.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Oliver xu"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Oliver xu</p>
+  <div class="site-description" itemprop="description">愿中国青年都摆脱冷气，只是向上走</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">90</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29saXh1" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;olixu"><i class="github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjI3MzYwMTcyN0BxcS5jb20=" title="E-Mail → mailto:273601727@qq.com"><i class="envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">苏ICP备17055396号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Oliver xu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">341k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:10</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/js/anime.min.js"></script>
+  <script src="/js/velocity.min.js"></script>
+  <script src="/js/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '/js/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="/css/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('/js/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'e11777414ce827fd8ec2',
+      clientSecret: 'c572c4ca1c0dfdfaf2b4f2195aa903185e2dfeea',
+      repo        : 'blog-comment',
+      owner       : 'olixu',
+      admin       : ['olixu'],
+      id          : '5d55f1369c6affba53692ac10bf2f6fb',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
