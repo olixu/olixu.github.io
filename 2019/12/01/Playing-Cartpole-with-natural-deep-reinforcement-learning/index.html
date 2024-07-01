@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/leimu.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/leimu.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/leimu.webp">
+  <link rel="mask-icon" href="/images/leimu.webp" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="B9DN3IrX7m2gTbRqa4D1C1Lluvo_zP2P5KC0wh4-ej4">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.oliverxu.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Introduction There are two kinds of methods in reinforcement learning, tabular methods and approximate methods. The purpose of RL is to get an optimal policy, which tells you to choose what action A w">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Playing Cartpole with natural deep reinforcement learning">
+<meta property="og:url" content="https://blog.oliverxu.cn/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/index.html">
+<meta property="og:site_name" content="Oliver xu&#39;s Blog">
+<meta property="og:description" content="Introduction There are two kinds of methods in reinforcement learning, tabular methods and approximate methods. The purpose of RL is to get an optimal policy, which tells you to choose what action A w">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.oliverxu.cn/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/dqn_algorithm.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/dqn_policy.png">
+<meta property="article:published_time" content="2019-12-01T16:52:26.000Z">
+<meta property="article:modified_time" content="2024-07-01T21:02:48.920Z">
+<meta property="article:author" content="Oliver xu">
+<meta property="article:tag" content="Reinforcement Learning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.oliverxu.cn/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/dqn_algorithm.png">
+
+<link rel="canonical" href="https://blog.oliverxu.cn/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Playing Cartpole with natural deep reinforcement learning | Oliver xu's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?473560aefa55cb0313599b95a2994bf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss.xml" title="Oliver xu's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Oliver xu's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-album">
+
+    <a href="/album/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.oliverxu.cn/2019/12/01/Playing-Cartpole-with-natural-deep-reinforcement-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Oliver xu">
+      <meta itemprop="description" content="愿中国青年都摆脱冷气，只是向上走">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oliver xu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Playing Cartpole with natural deep reinforcement learning
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-01 16:52:26" itemprop="dateCreated datePublished" datetime="2019-12-01T16:52:26+00:00">2019-12-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-07-01 21:02:48" itemprop="dateModified" datetime="2024-07-01T21:02:48+00:00">2024-07-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Reinforcement-Learning/" itemprop="url" rel="index"><span itemprop="name">Reinforcement Learning</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>12k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>11 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="introduction">Introduction</h2>
+<p>There are two kinds of methods in reinforcement learning,
+<strong>tabular methods</strong> and <strong>approximate
+methods</strong>. The purpose of RL is to get an <strong>optimal
+policy</strong>, which tells you to choose what action <em>A</em> when
+you at state <em>S</em>. If the state and aciton spaces are small
+enough, value fucntion can be represented as arrays, or tables. The
+problem with large state space is not just the memory needed for large
+tables, but the time and data needed to fill them accurately. If the
+state and aciton spaces are too large, due to the limitions of time and
+data, value functions need to be approximated with limited computational
+resources. In this case, out goal instead is to find a good enough
+approximate solution compared to optimal solution. <a id="more"></a> This
+post is some reading notes for <em>Playing Atari with Deep Reinforcement
+learning</em> which published by DeepMind(2013). Instead playing Atari
+games, I play CartPole games whose simulation environment is provided by
+Openai Gym. I implement the algorithm proposed by the DeepMind which
+known as DQN to solve CartPole. Besides, a discrete-q-learing method is
+discussed compared to DQN.</p>
+<p>CartPole is a classic control task which has infinite state space and
+finite action space. It is difficult to solve the problem use tabular
+methods. A neural network can solve this problem to learn successful
+control polcies. The network is trained with a variant of the Q-learning
+algorithm, with stochastic gradient descent to update the weights. To
+alleviate the problems of correlated data and non-stationary
+distributions, we use an experience replay mechanism which randomly
+samples previous transitions, and thereby smooths the training
+distribution over many past behaviors.</p>
+<h2 id="background">Background</h2>
+<p>We consider tasks in which an agent interacts with an environment
+<span class="math inline">\(\epsilon\)</span>, in this case the openai
+gym emulator, in a sequence of actions, observations and rewards. At
+each time-step the agent selects an action <span
+class="math inline">\(a_t\)</span> from the set of legal game actions,
+<span class="math inline">\(A=\)</span>{0, 1}. The action is passed to
+the emulator and it returns a list of next_state, reward, done.</p>
+<p>We consider sequences of actions and observations, <span
+class="math inline">\(s_t=x_1, a_1, x_2,..., a_{t-1},x_t\)</span> and
+learn game strategies that depend opon these sequences. All sequences in
+the emulator are assumed to terminate in a finite number of time-steps.
+This formalism gives rise to a large but finite Markov decision
+process(MDP) in which each sequence is a distinct state. As a result, we
+can apply standard reinforcement learning methods for MDPs, simply by
+using the complete sequence <span class="math inline">\(s_t\)</span> as
+the state representation at time t.</p>
+<p>The goal of the agent is to interact with the agent by selecting
+actions in a way that maximize future rewards. We some following
+definitons:</p>
+<ul>
+<li>We make the standard assumption that future rewards are discounted
+by a factor of <span class="math inline">\(\gamma\)</span> per
+time-step.</li>
+<li>The future discounted return at time <span
+class="math inline">\(t\)</span> as <span
+class="math inline">\(R_t=\Sigma_{t&#39;=t}^{T}\gamma^{t&#39;-t}r_{t&#39;}\)</span>,
+where <span class="math inline">\(T\)</span> is the time step at which
+the game terminates.</li>
+<li>Optimal action-value function <span class="math inline">\(Q^*(s,
+a)\)</span> as the maximum expected return achievable by following any
+strategy, after seeing some sequence <span
+class="math inline">\(s\)</span> and then taking some action <span
+class="math inline">\(a\)</span>, <span class="math inline">\(Q^*(s,
+a)=max_\pi E[R _ t|s _ t=s,a _ t=a,\pi]\)</span>, where <span
+class="math inline">\(\pi\)</span> is a policy mapping sequences to
+actions (or distributions over actions).</li>
+</ul>
+<p>The optimal action-value function obeys an important identity known
+as the <em>Bellman equation</em>. This is based on the following
+intuition: if the optimal value <span class="math inline">\(Q^*(s&#39;,
+a&#39;)\)</span> of the sequence <span
+class="math inline">\(s&#39;\)</span> at the next time-step was known
+for all possible actions <span class="math inline">\(a&#39;\)</span>,
+then the optimal strategy is to select the action <span
+class="math inline">\(a&#39;\)</span> maximizing the expected value of
+<span class="math inline">\(r+\gamma Q^*(s&#39;, a&#39;)\)</span></p>
+<p><span class="math display">\[Q^*(s, a)=E_{s&#39; \in
+\epsilon}[r+\gamma max_{a&#39;}Q^*(s&#39;, a&#39;|s, a)]\]</span></p>
+<p>Such value iteration algorithms converge to the optimal action value
+function, <span class="math inline">\(Q_i \rightarrow Q^*(s, a)\)</span>
+as <span class="math inline">\(i \rightarrow \infty\)</span></p>
+<p>In practice, this basic approach is totally impractical, because the
+action-value function is estimated separately for each sequence, without
+any generalisation. Instead, it is common to use a function approximator
+to estimate the action-value function, <span class="math inline">\(Q(s,
+a; \theta)=Q^*(s, a)\)</span>. In the reinforcement learning community
+this is typically a linear function approximator, but sometimes a
+non-linear function aproximator is used instead, such as a neural
+network. We refer to a neural network function approximator with weights
+<span class="math inline">\(\theta\)</span> as a Q-network. A Q-network
+can be trained by minimizing a sequence of loss functions <span
+class="math inline">\(L_i(\theta_i)\)</span> that changes at each
+iteration i.</p>
+<p><span class="math display">\[L_i(\theta_i)=E_{s,a \in \rho(\cdot)}[(y
+_ i-Q(s,a;\theta _ i))^2]\]</span></p>
+<p>where <span class="math inline">\(y_i=E_{s&#39; \in
+\epsilon}[r+\gamma max_{a&#39;}Q(s&#39;, a&#39;;\theta_{i-1}|s,
+a)]\)</span> is the target for iteration <span
+class="math inline">\(i\)</span> and <span class="math inline">\(\rho(s,
+a)\)</span> is a probability distribution over sequences <span
+class="math inline">\(s\)</span> and aciton <span
+class="math inline">\(a\)</span> that we refer to as the behaviour
+distribution.</p>
+<h2 id="deep-reinforcement-learning">Deep Reinforcement Learning</h2>
+<h3 id="dqn-pseudocode">DQN pseudocode</h3>
+<figure>
+<img src="dqn_algorithm.png" alt="dqn_algorithm" />
+<figcaption aria-hidden="true">dqn_algorithm</figcaption>
+</figure>
+<h2 id="code">Code</h2>
+<h3 id="dqn.py"><code>dqn.py</code></h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math, random</span><br><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">import</span> torch.autograd <span class="keyword">as</span> autograd </span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"><span class="keyword">import</span> GPUtil</span><br><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">action_space = <span class="number">2</span></span><br><span class="line">state_space = <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Replay buffer </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReplayBuffer</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, capacity)</span>:</span></span><br><span class="line">        self.buffer = deque(maxlen=capacity)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, state, action, reward, next_state, done)</span>:</span></span><br><span class="line">        state = np.expand_dims(state, <span class="number">0</span>)</span><br><span class="line">        next_state = np.expand_dims(next_state, <span class="number">0</span>)</span><br><span class="line">            </span><br><span class="line">        self.buffer.append((state, action, reward, next_state, done))</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sample</span><span class="params">(self, batch_size)</span>:</span></span><br><span class="line">        state, action, reward, next_state, done = zip(*random.sample(self.buffer, batch_size))</span><br><span class="line">        <span class="keyword">return</span> np.concatenate(state), action, reward, np.concatenate(next_state), done</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.buffer)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deep Q Network</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DQN</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, num_inputs, num_actions, device)</span>:</span></span><br><span class="line">        super(DQN, self).__init__()</span><br><span class="line">        self.device = device</span><br><span class="line">        self.layers = nn.Sequential(</span><br><span class="line">            nn.Linear(state_space, <span class="number">256</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">256</span>, <span class="number">256</span>),</span><br><span class="line">            nn.ReLU(),</span><br><span class="line">            nn.Linear(<span class="number">256</span>, action_space)</span><br><span class="line">        ).to(self.device)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.layers(x)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">act</span><span class="params">(self, state, epsilon)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> random.random() &gt; epsilon:</span><br><span class="line">            state = torch.FloatTensor(state).to(self.device)</span><br><span class="line">            q_value = self.forward(state)</span><br><span class="line">            action = q_value.max(<span class="number">0</span>)[<span class="number">1</span>].item()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            action = random.randrange(action_space)</span><br><span class="line">        <span class="keyword">return</span> action</span><br><span class="line"></span><br><span class="line"><span class="comment"># Computing TD difference</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_td_loss</span><span class="params">(model, batch_size, gamma, replay_buffer, optimizer, device)</span>:</span></span><br><span class="line">    state, action, reward, next_state, done = replay_buffer.sample(batch_size)</span><br><span class="line"></span><br><span class="line">    state = torch.FloatTensor(state).to(device)</span><br><span class="line">    next_state = torch.FloatTensor(next_state).to(device)</span><br><span class="line">    action = torch.LongTensor(action).to(device)</span><br><span class="line">    reward = torch.FloatTensor(reward).to(device)</span><br><span class="line">    done = torch.FloatTensor(done).to(device)</span><br><span class="line">    q_values = model.forward(state).to(device)</span><br><span class="line">    next_q_values = model.forward(next_state).to(device)</span><br><span class="line">    <span class="comment"># the value corresponding to the (s, a)</span></span><br><span class="line">    q_value = q_values.gather(<span class="number">1</span>, action.unsqueeze(<span class="number">1</span>)).squeeze(<span class="number">1</span>)</span><br><span class="line">    next_q_value = next_q_values.max(<span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">    expected_q_value = reward + gamma * next_q_value * (<span class="number">1</span> - done)</span><br><span class="line">    loss = (q_value - expected_q_value.data).pow(<span class="number">2</span>).mean()</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">50</span>)</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">return</span> loss</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print the size of the model</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_model_size</span><span class="params">()</span>:</span></span><br><span class="line">    para = sum([np.prod(list(p.size())) <span class="keyword">for</span> p <span class="keyword">in</span> model.parameters()])</span><br><span class="line">    print(<span class="string">'Model &#123;&#125; : params: &#123;:4f&#125;M'</span>.format(model._get_name(), para * <span class="number">4</span> / <span class="number">1000</span> / <span class="number">1000</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print GPU usage</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Monitor</span><span class="params">(Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, delay)</span>:</span></span><br><span class="line">        super(Monitor, self).__init__()</span><br><span class="line">        self.stopped = <span class="literal">False</span></span><br><span class="line">        self.delay = delay <span class="comment"># Time between calls to GPUtil</span></span><br><span class="line">        self.start()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> self.stopped:</span><br><span class="line">            GPUtil.showUtilization()</span><br><span class="line">            time.sleep(self.delay)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">stop</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.stopped = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Get the training time cost</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">timeit</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></span><br><span class="line">        start_time = time.time()</span><br><span class="line">        func()</span><br><span class="line">        end_time = time.time()</span><br><span class="line">        print(<span class="string">"The Training is finished. Cost "</span>, end_time-start_time, <span class="string">" S"</span>)</span><br><span class="line">    <span class="keyword">return</span> inner</span><br></pre></td></tr></table></figure>
+<h3 id="traindqn.py"><code>traindqn.py</code></h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> dqn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> torch.utils.tensorboard <span class="keyword">import</span> SummaryWriter</span><br><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line">writer = SummaryWriter()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Gym CartPole environment</span></span><br><span class="line">env = gym.make(<span class="string">"CartPole-v0"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a DQN model using CUDA</span></span><br><span class="line">device = torch.device(<span class="string">"cuda"</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">"cpu"</span>)</span><br><span class="line">model = DQN(env.observation_space.shape[<span class="number">0</span>], env.action_space.n, device)</span><br><span class="line"><span class="keyword">if</span> device == <span class="string">"cuda"</span>:</span><br><span class="line">    print(<span class="string">"Using GPU"</span>)</span><br><span class="line">    model.to(device)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Parameters</span></span><br><span class="line"><span class="comment">## Epsilon greedy exploration</span></span><br><span class="line">epsilon_start = <span class="number">0.9</span></span><br><span class="line">epsilon_final = <span class="number">0.05</span></span><br><span class="line">epsilon_decay = <span class="number">200</span></span><br><span class="line">epsilon_by_episode = <span class="keyword">lambda</span> frame_idx: epsilon_final + (epsilon_start - epsilon_final) * math.exp(<span class="number">-1.</span> * frame_idx / epsilon_decay)</span><br><span class="line"><span class="comment">## gamma</span></span><br><span class="line">gamma = <span class="number">0.99</span></span><br><span class="line"><span class="comment">## Training parameters</span></span><br><span class="line">episodes = <span class="number">1000</span></span><br><span class="line">batch_size = <span class="number">4</span></span><br><span class="line">losses = []</span><br><span class="line">all_rewards = []</span><br><span class="line">episode_reward = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Computing Temporal Difference Loss</span></span><br><span class="line">replay_buffer = ReplayBuffer(<span class="number">5000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a optimizer</span></span><br><span class="line">optimizer = optim.Adam(model.parameters(), lr=<span class="number">0.0001</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Trainning</span></span><br><span class="line"><span class="meta">@timeit</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> gamma, num_frames, batch_size, losses, all_rewards, episode_reward</span><br><span class="line">    state = env.reset()</span><br><span class="line">    <span class="keyword">for</span> episode_idx <span class="keyword">in</span> range(<span class="number">1</span>, episodes + <span class="number">1</span>):</span><br><span class="line">        epsilon = epsilon_by_episode(episode_idx)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> itertools.count():</span><br><span class="line">            action = model.act(state, epsilon)</span><br><span class="line">            <span class="comment">#print(action)</span></span><br><span class="line">            </span><br><span class="line">            next_state, reward, done, _ = env.step(action)</span><br><span class="line">            replay_buffer.push(state, action, reward, next_state, done)</span><br><span class="line">            </span><br><span class="line">            state = next_state</span><br><span class="line">            episode_reward += reward</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> done:</span><br><span class="line">                state = env.reset()</span><br><span class="line">                all_rewards.append(episode_reward)</span><br><span class="line">                print(episode_reward)</span><br><span class="line">                episode_reward = <span class="number">0</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">                </span><br><span class="line">            <span class="keyword">if</span> len(replay_buffer) &gt; batch_size:</span><br><span class="line">                loss = compute_td_loss(model, batch_size, gamma, replay_buffer, optimizer, device)</span><br><span class="line">                losses.append(loss.item())</span><br><span class="line">    <span class="comment">#plot(all_rewards, losses)</span></span><br><span class="line">            </span><br><span class="line">        <span class="comment">#if frame_idx % 200 == 0:</span></span><br><span class="line">            <span class="comment">#plot(frame_idx, all_rewards, losses)</span></span><br><span class="line">    plt.plot(all_rewards)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_policy</span><span class="params">()</span>:</span></span><br><span class="line">    pole_angle = np.random.uniform(-env.observation_space.high[<span class="number">2</span>], env.observation_space.high[<span class="number">2</span>], <span class="number">10000</span>)</span><br><span class="line">    pole_velocity = np.random.uniform(-math.radians(<span class="number">50</span>), math.radians(<span class="number">50</span>), <span class="number">10000</span>)</span><br><span class="line">    action_list = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(pole_angle)):</span><br><span class="line">        state = env.reset()</span><br><span class="line">        state[<span class="number">2</span>] = pole_angle[i]</span><br><span class="line">        state[<span class="number">3</span>] = pole_velocity[i]</span><br><span class="line">        <span class="comment">#print(state, model.act(state, 0))</span></span><br><span class="line">        action = model.act(state, <span class="number">0</span>)</span><br><span class="line">        action_list.append(action)</span><br><span class="line">    colors = &#123;<span class="number">0</span>:<span class="string">'blue'</span>,<span class="number">1</span>:<span class="string">'red'</span>&#125;</span><br><span class="line">    colors = [<span class="string">'blue'</span> <span class="keyword">if</span> i==<span class="number">0</span> <span class="keyword">else</span> <span class="string">'red'</span> <span class="keyword">for</span> i <span class="keyword">in</span> action_list]</span><br><span class="line">    labels = [<span class="string">'Left'</span>,<span class="string">'Right'</span>]</span><br><span class="line">    print(colors)</span><br><span class="line">    <span class="keyword">import</span> matplotlib.patches <span class="keyword">as</span> mpatches</span><br><span class="line">    <span class="keyword">from</span> matplotlib.colors <span class="keyword">import</span> ListedColormap</span><br><span class="line">    fig = plt.figure(<span class="number">5</span>, figsize=[<span class="number">7</span>,<span class="number">7</span>])</span><br><span class="line">    ax = fig.gca()</span><br><span class="line">    plt.set_cmap(<span class="string">'brg'</span>)</span><br><span class="line">    surf = ax.scatter(pole_angle,pole_velocity, c=colors)</span><br><span class="line">    ax.set_xlabel(<span class="string">'pole_angle'</span>)</span><br><span class="line">    ax.set_ylabel(<span class="string">'pole_velocity'</span>)</span><br><span class="line">    ax.set_title(<span class="string">'Policy'</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Instantiate monitor with a 10-second delay between updates</span></span><br><span class="line">monitor = Monitor(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#writer.add_graph(model, torch.Tensor([1.0, 1.0, 1.0, 1.0]).to(device))</span></span><br><span class="line"><span class="comment"># Train here</span></span><br><span class="line">train()</span><br><span class="line">plot_policy()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Close monitor</span></span><br><span class="line">monitor.stop()</span><br></pre></td></tr></table></figure>
+<h2 id="result">Result</h2>
+<p>After training for 1000 episodes, we get the following policy:</p>
+<p><img src="dqn_policy.png" alt="policy" /> ## Code Comments ### How to
+compute TD Loss <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_td_loss</span><span class="params">(model, batch_size, gamma, replay_buffer, optimizer, device)</span>:</span></span><br><span class="line">    state, action, reward, next_state, done = replay_buffer.sample(batch_size)</span><br><span class="line"></span><br><span class="line">    state = torch.FloatTensor(state).to(device)</span><br><span class="line">    next_state = torch.FloatTensor(next_state).to(device)</span><br><span class="line">    action = torch.LongTensor(action).to(device)</span><br><span class="line">    reward = torch.FloatTensor(reward).to(device)</span><br><span class="line">    done = torch.FloatTensor(done).to(device)</span><br><span class="line"></span><br><span class="line">    q_values = model.forward(state).to(device)</span><br><span class="line">    next_q_values = model.forward(next_state).to(device)</span><br><span class="line">    <span class="comment"># the value corresponding to the (s, a)</span></span><br><span class="line">    q_value = q_values.gather(<span class="number">1</span>, action.unsqueeze(<span class="number">1</span>)).squeeze(<span class="number">1</span>)</span><br><span class="line">    next_q_value = next_q_values.max(<span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">    expected_q_value = reward + gamma * next_q_value * (<span class="number">1</span> - done)</span><br><span class="line">    loss = (q_value - expected_q_value.data).pow(<span class="number">2</span>).mean()</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">50</span>)</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">return</span> loss</span><br></pre></td></tr></table></figure> In contrast to TD-Gammon and similar online
+approaches, we utilize a technique known as <em>experience replay</em>
+where we store the agent's experiences at each time-step, <span
+class="math inline">\(e_t=(s_t, a_t, r_t, _{t+1})\)</span> in a data-set
+<span class="math inline">\(D=e_1, e_2, ... ,e_N\)</span>, pooled over
+many episodes into a replay memory.</p>
+<p>Since we have known the pair <span class="math inline">\((s_t,
+a_t)\)</span>, we can get the
+<code>q_value = q_values.gather(1, action.unsqueeze(1)).squeeze(1)</code>.
+Then, we know next_state, compute next_q_value. Choose <span
+class="math inline">\(a&#39;\)</span> which maximize the
+next_q_value.</p>
+<h2 id="reference">Reference</h2>
+<p>[1] Mnih, Volodymyr, et al. "Playing atari with deep reinforcement
+learning." arXiv preprint arXiv:1312.5602 (2013).</p>
+<p>[2]
+https://stackoverflow.com/questions/50999977/what-does-the-gather-function-do-in-pytorch-in-layman-terms</p>
+<p>[3]
+https://stackoverflow.com/questions/57237352/what-does-unsqueeze-do-in-pytorch</p>
+<p>[4]
+https://gist.github.com/ts1829/62b9ae7687d79279b9381bb6808bf6ab#file-mountain-car-v0-q-learning-modified-reward-ipynb</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>If you like my blog, please donate for me.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipayQR.jpg" alt="Oliver xu 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Reinforcement-Learning/" rel="tag"># Reinforcement Learning</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/11/15/Play-with-MountainCar/" rel="prev" title="Play with MountainCar">
+      <i class="fa fa-chevron-left"></i> Play with MountainCar
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/27/Word%E4%B8%8ELatex/" rel="next" title="Word与Latex">
+      Word与Latex <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background"><span class="nav-number">2.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deep-reinforcement-learning"><span class="nav-number">3.</span> <span class="nav-text">Deep Reinforcement Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dqn-pseudocode"><span class="nav-number">3.1.</span> <span class="nav-text">DQN pseudocode</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">4.</span> <span class="nav-text">Code</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dqn.py"><span class="nav-number">4.1.</span> <span class="nav-text">dqn.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#traindqn.py"><span class="nav-number">4.2.</span> <span class="nav-text">traindqn.py</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#result"><span class="nav-number">5.</span> <span class="nav-text">Result</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Oliver xu"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Oliver xu</p>
+  <div class="site-description" itemprop="description">愿中国青年都摆脱冷气，只是向上走</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29saXh1" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;olixu"><i class="github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjI3MzYwMTcyN0BxcS5jb20=" title="E-Mail → mailto:273601727@qq.com"><i class="envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">苏ICP备17055396号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Oliver xu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">345k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:14</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/js/anime.min.js"></script>
+  <script src="/js/velocity.min.js"></script>
+  <script src="/js/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '/js/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="/css/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('/js/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'e11777414ce827fd8ec2',
+      clientSecret: 'c572c4ca1c0dfdfaf2b4f2195aa903185e2dfeea',
+      repo        : 'blog-comment',
+      owner       : 'olixu',
+      admin       : ['olixu'],
+      id          : 'd4dc2d288f672e245fdffddbb0a655e6',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
