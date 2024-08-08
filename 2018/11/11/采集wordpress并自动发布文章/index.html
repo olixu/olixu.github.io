@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/leimu.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/leimu.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/leimu.webp">
+  <link rel="mask-icon" href="/images/leimu.webp" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="B9DN3IrX7m2gTbRqa4D1C1Lluvo_zP2P5KC0wh4-ej4">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.oliverxu.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="这是一篇去年的老文章了，我的博客的域名从xujh.top-&gt;ikeji8.com-&gt;xujh.top，建站程序从wordpress变为了typecho静态博客。最近，我将把之前的文章慢慢迁移过来  最近我的博客新开了，一直在申请Google AdSense， 结果申请一次被拒一次，google发邮件说我的内容太少了， 这就让我很不爽了，虽然被拒绝的原因可能是其他的比如网站建站时间短等">
+<meta property="og:type" content="article">
+<meta property="og:title" content="采集wordpress并自动发布文章">
+<meta property="og:url" content="https://blog.oliverxu.cn/2018/11/11/%E9%87%87%E9%9B%86wordpress%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/index.html">
+<meta property="og:site_name" content="Oliver xu&#39;s Blog">
+<meta property="og:description" content="这是一篇去年的老文章了，我的博客的域名从xujh.top-&gt;ikeji8.com-&gt;xujh.top，建站程序从wordpress变为了typecho静态博客。最近，我将把之前的文章慢慢迁移过来  最近我的博客新开了，一直在申请Google AdSense， 结果申请一次被拒一次，google发邮件说我的内容太少了， 这就让我很不爽了，虽然被拒绝的原因可能是其他的比如网站建站时间短等">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.oliverxu.cn/2018/11/11/%E9%87%87%E9%9B%86wordpress%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/1.jpg">
+<meta property="og:image" content="https://blog.oliverxu.cn/2018/11/11/%E9%87%87%E9%9B%86wordpress%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/2.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2018/11/11/%E9%87%87%E9%9B%86wordpress%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/3.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2018/11/11/%E9%87%87%E9%9B%86wordpress%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/4.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2018/11/11/%E9%87%87%E9%9B%86wordpress%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/5.png">
+<meta property="article:published_time" content="2018-11-11T11:40:53.000Z">
+<meta property="article:modified_time" content="2024-08-08T21:06:06.765Z">
+<meta property="article:author" content="Oliver xu">
+<meta property="article:tag" content="爬虫">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.oliverxu.cn/2018/11/11/%E9%87%87%E9%9B%86wordpress%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/1.jpg">
+
+<link rel="canonical" href="https://blog.oliverxu.cn/2018/11/11/%E9%87%87%E9%9B%86wordpress%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>采集wordpress并自动发布文章 | Oliver xu's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?473560aefa55cb0313599b95a2994bf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss.xml" title="Oliver xu's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Oliver xu's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-album">
+
+    <a href="/album/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.oliverxu.cn/2018/11/11/%E9%87%87%E9%9B%86wordpress%E5%B9%B6%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Oliver xu">
+      <meta itemprop="description" content="愿中国青年都摆脱冷气，只是向上走">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oliver xu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          采集wordpress并自动发布文章
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-11-11 11:40:53" itemprop="dateCreated datePublished" datetime="2018-11-11T11:40:53+00:00">2018-11-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-08 21:06:06" itemprop="dateModified" datetime="2024-08-08T21:06:06+00:00">2024-08-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p><strong><em>这是一篇去年的老文章了，我的博客的域名从xujh.top-&gt;ikeji8.com-&gt;xujh.top，建站程序从wordpress变为了typecho静态博客。最近，我将把之前的文章慢慢迁移过来</em></strong></p>
+</blockquote>
+<p>最近我的博客新开了，一直在申请Google AdSense，
+结果申请一次被拒一次，google发邮件说我的内容太少了，
+这就让我很不爽了，虽然被拒绝的原因可能是其他的比如网站建站时间短等等，但是我还是想瞬间把我的博客的内容给增加上去，再一看，群里那些基友用的都是wordpress建站，OK，造个小爬虫吧！
+虽然网上有自动采集文章的插件，但是你不觉得那个太low了吗！(虽然我的爬虫也很low)
+好了，闲话少说，进入主题。 <a id="more"></a> <img src="1.jpg"
+alt="装逼" /></p>
+<h2
+id="首先需要确定一个目标网站我爬的是xxx大学的博客">首先，需要确定一个目标网站，我爬的是xxx大学的博客。</h2>
+<h2 id="网站分析">网站分析</h2>
+<p>先看看我们要爬取的站点</p>
+<p>首先，这是一个垃圾站点，请让我鄙视一下。</p>
+<p>爬虫运行的步骤：</p>
+<ol type="1">
+<li>爬取所有文章的入口链接和标题</li>
+<li>提取每一篇文章中的需要的内容</li>
+<li>一篇文章爬取结束后将数据写入数据库</li>
+<li>将需要发布的文章自动发布到WP博客中</li>
+</ol>
+<h2 id="开始了are-you-ready">开始了，ARE YOU READY！</h2>
+<p>首先需要找到所有文章链接，我们来分析一下网页的规律</p>
+<p><img src="2.png" alt="页码规律" /> <img src="3.png"
+alt="页码规律2" /></p>
+<p>很明显：第x页就是'www.vpsdx.com/page/' + x</p>
+<p>接下去就一个字：干</p>
+<p>首先，需要定义一个类,
+并且初始化数据库连接：这里我用的是mongodb，只因为他简单，适合我这样的小白。
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">crawl_blog</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        client = MongoClient()</span><br><span class="line">        db = client[<span class="string">'vpsdx'</span>]<span class="comment"># 选择一个数据库</span></span><br><span class="line">        self.blog_collection = db[<span class="string">'blog'</span>]</span><br><span class="line">        self.blog_title = <span class="string">''</span></span><br><span class="line">        self.blog_content = <span class="string">''</span></span><br><span class="line">        self.blog_url = <span class="string">''</span></span><br><span class="line">        self.all_blog_url = []</span><br><span class="line">        self.all_blog_title = []</span><br><span class="line">        self.old_img_urls = []</span><br><span class="line">        self.new_img_urls = []</span><br></pre></td></tr></table></figure> 然后获取所有的文章的入口链接，分析页面采用BeautifulSoup。
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_blog_url</span><span class="params">(self)</span>:</span>     <span class="comment">#得到所有文章的入口链接</span></span><br><span class="line">    <span class="keyword">for</span> count <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">100</span>):</span><br><span class="line">        page = <span class="string">'http://www.vpsdx.com/page/'</span> + str(count)</span><br><span class="line">        page_response = requests.get(page,allow_redirects=<span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">print</span> page_response.status_code</span><br><span class="line">        <span class="keyword">if</span> page_response.status_code != <span class="number">200</span>:</span><br><span class="line">            <span class="keyword">print</span> <span class="string">'网页状态码错误，不为200'</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            soup = BeautifulSoup(page_response.content, <span class="string">'html.parser'</span>)</span><br><span class="line">            article = soup.find_all(name=<span class="string">'article'</span>)</span><br><span class="line">            <span class="keyword">for</span> tag <span class="keyword">in</span> article:</span><br><span class="line">                url = tag.find(name=<span class="string">'a'</span>)</span><br><span class="line">                <span class="keyword">print</span> url.get(<span class="string">'href'</span>)</span><br><span class="line">                self.all_blog_url.append(url.get(<span class="string">'href'</span>))</span><br><span class="line">                <span class="keyword">print</span> url.get(<span class="string">'title'</span>)</span><br><span class="line">                self.all_blog_title.append(url.get(<span class="string">'title'</span>))</span><br><span class="line">                <span class="keyword">print</span> <span class="string">'添加了一篇文章的标题和链接'</span></span><br><span class="line">        <span class="keyword">print</span> count</span><br><span class="line">    self.all_blog_url.reverse()</span><br><span class="line">    self.all_blog_title.reverse()</span><br></pre></td></tr></table></figure></p>
+<figure>
+<img src="4.png" alt="结果图" />
+<figcaption aria-hidden="true">结果图</figcaption>
+</figure>
+<p>主要逻辑，这里就不多说了，太简单了。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">handle_one_page</span><span class="params">(self)</span>:</span>      <span class="comment">#处理每一篇文章</span></span><br><span class="line">    <span class="keyword">for</span> article_url <span class="keyword">in</span> self.all_blog_url:</span><br><span class="line">        <span class="keyword">if</span> self.blog_collection.find_one(&#123;<span class="string">'文章网址'</span>: article_url&#125;):</span><br><span class="line">            <span class="keyword">print</span> <span class="string">u'这个页面已经爬取过了'</span> </span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            index = self.all_blog_url.index(article_url)</span><br><span class="line">            self.blog_url = article_url</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"文章的网址是: &#123;b8c66bcbce874cbcdfdaa03ff0f908635b9ef0379cd01189ad5fe3f67980b247&#125;s"</span> &#123;b8c66bcbce874cbcdfdaa03ff0f908635b9ef0379cd01189ad5fe3f67980b247&#125; self.blog_url</span><br><span class="line">            self.blog_title = self.all_blog_title[index]</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"文章的标题是: &#123;b8c66bcbce874cbcdfdaa03ff0f908635b9ef0379cd01189ad5fe3f67980b247&#125;s"</span> &#123;b8c66bcbce874cbcdfdaa03ff0f908635b9ef0379cd01189ad5fe3f67980b247&#125; self.blog_title            </span><br><span class="line">            self.get_article_content(self.blog_url)</span><br><span class="line">            self.change_url()       <span class="comment">#更改内容中的图片链接</span></span><br><span class="line">            self.blog_content = str(self.blog_content)</span><br><span class="line">            self.publish_article(self.blog_title,self.blog_content)</span><br><span class="line">            <span class="keyword">print</span> <span class="string">'成功发表文章'</span></span><br><span class="line">            post = &#123;</span><br><span class="line">                        <span class="string">'文章标题'</span>: self.blog_title,</span><br><span class="line">                        <span class="string">'文章网址'</span>: self.blog_url,</span><br><span class="line">                        <span class="string">'文章内容'</span>: self.blog_content,</span><br><span class="line">                        <span class="string">'图片旧地址'</span>: self.old_img_urls,</span><br><span class="line">                        <span class="string">'图片新地址'</span>: self.new_img_urls,</span><br><span class="line">                        <span class="string">'获取时间'</span>: datetime.datetime.now()</span><br><span class="line">                &#125;</span><br><span class="line">            self.blog_collection.save(post)</span><br><span class="line">            <span class="keyword">print</span> <span class="string">u'插入数据库成功, 倒计时5s进行下次爬取'</span></span><br><span class="line">            time.sleep(<span class="number">5</span>)</span><br><span class="line">            self.blog_title = <span class="string">''</span></span><br><span class="line">            self.blog_content = <span class="string">''</span></span><br><span class="line">            self.blog_url = <span class="string">''</span></span><br><span class="line">            self.old_img_urls = []</span><br><span class="line">            self.new_img_urls = []</span><br></pre></td></tr></table></figure></p>
+<p>现在我们分析下如何提取文章中的内容，找到我们需要的标签，发现在标签中还有我们不想要的广告，因此，我们需要对其进行处理，处理方法也很简单，把不需要的tag给去除掉就可以。</p>
+<p><img src="5.png" alt="去广告" /> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_article_content</span><span class="params">(self, url)</span>:</span></span><br><span class="line">    self.blog_content = <span class="string">''</span></span><br><span class="line">    browser = webdriver.PhantomJS()</span><br><span class="line">    browser.get(url)</span><br><span class="line">    soup = BeautifulSoup(browser.page_source, <span class="string">'html.parser'</span>)</span><br><span class="line">    article_tag = soup.find(<span class="string">'div'</span>, class_=<span class="string">'entry'</span>)</span><br><span class="line">    all_children_tag = article_tag.find_all(recursive=<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> all_children_tag:</span><br><span class="line">        <span class="keyword">print</span> i.name</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> i[<span class="string">'class'</span>][<span class="number">0</span>] == <span class="string">u'gggpost-above'</span>:</span><br><span class="line">                i.decompose()  </span><br><span class="line">                <span class="keyword">print</span> <span class="string">'检测到广告，正在删除'</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> i[<span class="string">'type'</span>]== <span class="string">u'text/javascript'</span>:</span><br><span class="line">                i.decompose()  </span><br><span class="line">                <span class="keyword">print</span> <span class="string">'检测到广告，正在删除'</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> i[<span class="string">'class'</span>][<span class="number">0</span>] == <span class="string">u'old-message'</span>:</span><br><span class="line">                i.decompose()  </span><br><span class="line">                <span class="keyword">print</span> <span class="string">'检测到广告，正在删除'</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">print</span> <span class="number">50</span>*<span class="string">'*'</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'成功去除广告'</span></span><br><span class="line">    self.blog_content = str(article_tag)</span><br></pre></td></tr></table></figure></p>
+<p>下面这一步也比较重要，每篇文章中有图片链接，基本上很多博客都用了CDN加速，大部分的CDN都提供了防盗链设置，所以，如果直接用原来博客中的链接是行不通的，因为访问图片的时候会需要提供浏览器的refer。所有需要将原文章中的图片下载到本地，并将它上传到自己使用的云存储中，我用的是七牛云。
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">change_url</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.blog_content = BeautifulSoup(str(self.blog_content), <span class="string">'html.parser'</span>)</span><br><span class="line">        <span class="comment">#获取所有具有特定class属性的a标签</span></span><br><span class="line">        a_tag = self.blog_content.find_all(name=<span class="string">'a'</span>, class_=<span class="string">'highslide-image'</span>)</span><br><span class="line">        <span class="keyword">print</span> <span class="number">50</span>*<span class="string">'*'</span></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> a_tag:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="comment">#获取原图的链接并且下载</span></span><br><span class="line">                old_url = a[<span class="string">'href'</span>]</span><br><span class="line">                response = requests.get(old_url)</span><br><span class="line">                index = a_tag.index(a)</span><br><span class="line">                filename = str(index) + <span class="string">'_'</span> + old_url.split(<span class="string">'/'</span>)[<span class="number">-1</span>]</span><br><span class="line">                <span class="keyword">with</span> open(filename, <span class="string">'ab'</span>) <span class="keyword">as</span> f:</span><br><span class="line">                    f.write(response.content)   </span><br><span class="line">                self.old_img_urls.append(old_url)</span><br><span class="line">                new_tag = self.blog_content.new_tag(<span class="string">"img"</span>)</span><br><span class="line">                a.replace_with(new_tag)</span><br><span class="line">                <span class="comment">#将图片上传到七牛云</span></span><br><span class="line">                self.up_load(filename, filename)</span><br><span class="line">                new_tag[<span class="string">'src'</span>] = <span class="string">'你的七牛云域名'</span> + filename</span><br><span class="line">                <span class="keyword">print</span> <span class="string">'成功更换图片的链接'</span></span><br><span class="line">                self.new_img_urls.append(new_tag[<span class="string">'src'</span>])</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="keyword">print</span> <span class="string">'获取图片失败，可能是图片的链接错误，正在跳过'</span></span><br></pre></td></tr></table></figure></p>
+<p>代码写的比较丑，我就不贴出来了。还望各位大胸弟们支持下。</p>
+<p>欢迎学习研究Python的朋友们加入：Python技术交流群：<a
+href="https://shang.qq.com/wpa/qunwpa?idkey=52487b5750a623ff1fa9cbad6ae98a9b030c6e5cd42d55dca65ff1703a24e538">681976114</a></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>If you like my blog, please donate for me.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipayQR.jpg" alt="Oliver xu 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%88%AC%E8%99%AB/" rel="tag"># 爬虫</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/11/04/%E5%88%9D%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93-sqlite3-%E5%88%9B%E5%BB%BA%E7%A4%BA%E4%BE%8B%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="prev" title="初学数据库-sqlite3 创建示例数据库">
+      <i class="fa fa-chevron-left"></i> 初学数据库-sqlite3 创建示例数据库
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/11/14/%E5%8D%95%E5%8F%98%E9%87%8F%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92-Pytorch%E5%AE%9E%E7%8E%B0/" rel="next" title="单变量线性回归--Pytorch实现">
+      单变量线性回归--Pytorch实现 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先需要确定一个目标网站我爬的是xxx大学的博客"><span class="nav-number">1.</span> <span class="nav-text">首先，需要确定一个目标网站，我爬的是xxx大学的博客。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网站分析"><span class="nav-number">2.</span> <span class="nav-text">网站分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始了are-you-ready"><span class="nav-number">3.</span> <span class="nav-text">开始了，ARE YOU READY！</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Oliver xu"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Oliver xu</p>
+  <div class="site-description" itemprop="description">愿中国青年都摆脱冷气，只是向上走</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29saXh1" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;olixu"><i class="github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjI3MzYwMTcyN0BxcS5jb20=" title="E-Mail → mailto:273601727@qq.com"><i class="envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">苏ICP备17055396号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Oliver xu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">345k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:14</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/js/anime.min.js"></script>
+  <script src="/js/velocity.min.js"></script>
+  <script src="/js/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="/css/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('/js/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'e11777414ce827fd8ec2',
+      clientSecret: 'c572c4ca1c0dfdfaf2b4f2195aa903185e2dfeea',
+      repo        : 'blog-comment',
+      owner       : 'olixu',
+      admin       : ['olixu'],
+      id          : '28c735477f0dd7ea842fc555f104b9b7',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
