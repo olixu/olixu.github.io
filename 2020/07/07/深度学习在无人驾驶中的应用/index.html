@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/leimu.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/leimu.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/leimu.webp">
+  <link rel="mask-icon" href="/images/leimu.webp" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="B9DN3IrX7m2gTbRqa4D1C1Lluvo_zP2P5KC0wh4-ej4">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.oliverxu.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="本文主要是对文章《A Survey of Deep Learning Applications to Autonomous Vehicle Control》的整理 期刊：IEEE TRANSACTIONS ON INTELLIGENT TRANSPORTATION SYSTEMS 影响因子：6.3 对于自动驾驶，设计一个满足所有驾驶场景的控制器是一个非常大的挑战因为真实的环境非常复杂且很多场景没有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度学习在无人驾驶中的应用">
+<meta property="og:url" content="https://blog.oliverxu.cn/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9C%A8%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/index.html">
+<meta property="og:site_name" content="Oliver xu&#39;s Blog">
+<meta property="og:description" content="本文主要是对文章《A Survey of Deep Learning Applications to Autonomous Vehicle Control》的整理 期刊：IEEE TRANSACTIONS ON INTELLIGENT TRANSPORTATION SYSTEMS 影响因子：6.3 对于自动驾驶，设计一个满足所有驾驶场景的控制器是一个非常大的挑战因为真实的环境非常复杂且很多场景没有">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.oliverxu.cn/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9C%A8%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/image-20200706211319597.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9C%A8%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/image-20200707102438676.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9C%A8%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/image-20200707102917753.png">
+<meta property="article:published_time" content="2020-07-07T11:58:51.000Z">
+<meta property="article:modified_time" content="2024-10-10T21:06:28.461Z">
+<meta property="article:author" content="Oliver xu">
+<meta property="article:tag" content="Deep Learning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.oliverxu.cn/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9C%A8%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/image-20200706211319597.png">
+
+<link rel="canonical" href="https://blog.oliverxu.cn/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9C%A8%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>深度学习在无人驾驶中的应用 | Oliver xu's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?473560aefa55cb0313599b95a2994bf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss.xml" title="Oliver xu's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Oliver xu's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-album">
+
+    <a href="/album/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.oliverxu.cn/2020/07/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9C%A8%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Oliver xu">
+      <meta itemprop="description" content="愿中国青年都摆脱冷气，只是向上走">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oliver xu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          深度学习在无人驾驶中的应用
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-07 11:58:51" itemprop="dateCreated datePublished" datetime="2020-07-07T11:58:51+00:00">2020-07-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-10-10 21:06:28" itemprop="dateModified" datetime="2024-10-10T21:06:28+00:00">2024-10-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Deep-Learning/" itemprop="url" rel="index"><span itemprop="name">Deep Learning</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本文主要是对文章《A Survey of Deep Learning Applications to
+Autonomous Vehicle Control》的整理</p>
+<p>期刊：IEEE TRANSACTIONS ON INTELLIGENT TRANSPORTATION SYSTEMS</p>
+<p>影响因子：6.3</p>
+<p>对于自动驾驶，设计一个满足所有驾驶场景的控制器是一个非常大的挑战因为真实的环境非常复杂且很多场景没有办法去测试。然而，深度学习方法展现出了很好的前景，对于复杂和非线性控制问题，它不光有非常好的性能，而且学习出来的规则很容易迁移到另一个新的场景中。这篇论文对近年来所有用深度学习方法解决自动驾驶问题的文献做了综述，自动驾驶涉及了多学科的内容和方法，该文主要综述控制问题而非感知问题。分析了优缺点，给出了存在的挑战。
+<a id="more"></a></p>
+<h2 id="introduction">Introduction</h2>
+<ol type="1">
+<li>自动驾驶解决的问题：交通拥挤，污染，安全。</li>
+<li>早期的自动驾驶系统的研究从1980s开始，项目：DARPA Grand
+Challenges。Adaptive Cruise
+Control(ACC)。早期的自动驾驶系统严重依赖高精度的传感器数据，例如激光雷达，控制器是通过rule-based的方法进行设计的，需要在仿真后进行人工调参和现场测试。这个方法的缺点就是需要人工调参，而且调完的参数不具有通用性，不能很容易的迁移到另外新的场景去。而且驾驶问题一般是非线性问题，通常无解析解。</li>
+<li>现阶段，深度学习的方法在自动驾驶上取得了巨大的成功，CNN只需要摄像头的数据作为输入，无需昂贵的雷达传感器，可以无需另外的感知模块，直接做成端到端的结构。</li>
+<li>深度学习的方法可以通过数据去迭代学习，无需人工调参数，可以方便的迁移到另外的场景。</li>
+<li>不同的方法有不同的控制对象，一种控制器的设计是high-level的，例如设计控制对象为车辆的加速度，而底层使用传统控制器进行控制。还有一种是类似于端到端的思想，从观测到的状态直接映射到底层的控制信号。</li>
+</ol>
+<h2 id="review-of-deep-learning">Review of deep learning</h2>
+<h3 id="监督学习">监督学习</h3>
+<p>深度学习的目标是通过训练，更新神经网络中的参数</p>
+<p>优点：</p>
+<ol type="1">
+<li>训练收敛快</li>
+<li>不需要设计rule</li>
+</ol>
+<p>缺点：</p>
+<ol type="1">
+<li>监督学习属于offline的方法，训练的时候，网络的输出不会影响真实系统的状态，但是一旦部署，会影响未来的状态</li>
+<li>若训练的和实际的状态的分布不同，则网络输出的结果会出错。</li>
+<li>如果要训练一个较为通用的控制器，则需要大量不同场景下的数据。</li>
+</ol>
+<h3 id="强化学习">强化学习</h3>
+<p>通过trial and error，训练模型，目标是最大化累计回报。</p>
+<p>优点：</p>
+<ol type="1">
+<li>不要要labelled的数据</li>
+<li>可以很容易的迁移到新的场景</li>
+</ol>
+<p>缺点：</p>
+<ol type="1">
+<li>训练效率非常低</li>
+</ol>
+<p>强化学习算法主要分为三类：value-based，policy gradient 和
+actor-critic。</p>
+<p>value-based：估计价值函数<span
+class="math inline">\(V(s)\)</span>，它代表在一个给定状态的平均价值回报。如果系统状态转移矩阵<span
+class="math inline">\(P\)</span>已知，则可以根据状态转移概率的大小来选择动作。但是对于现实中大部分的场景下，环境模型是未知的，也就是说<span
+class="math inline">\(P\)</span>未知，则状态动作值函数<span
+class="math inline">\(Q(s,a)\)</span>，代表了在一个给定状态<span
+class="math inline">\(s\)</span>下，执行动作<span
+class="math inline">\(a\)</span>的价值，这时，最优策略可以通过例如贪心算法来最大化<span
+class="math inline">\(Q(s,a)\)</span>，</p>
+<p>缺点：</p>
+<ol type="1">
+<li>不能保证学习到的策略是最优的。</li>
+</ol>
+<p>policy
+gradient：不估计价值函数，直接用一个参数化模型对策略进行建模，模型的输入是<span
+class="math inline">\((s_t, a_t)\)</span>，模型的输出是<span
+class="math inline">\(a_t\)</span>，比较类似于一种端到端的思想。</p>
+<p>缺点：</p>
+<ol type="1">
+<li>预测的策略梯度存在较高的方差</li>
+</ol>
+<p>actor-critic：讲价值函数和策略函数结合起来。</p>
+<h3 id="深度学习的数据集和工具">深度学习的数据集和工具</h3>
+<ol type="1">
+<li>自动驾驶数据集：KITTI benchmark suite,Waymo Open, Oxford Robotcar,
+ApolloScape, Udacity, ETH Pedestrian, Caltech Pedestrian.
+更详细的介绍可以参考：H. Yin and C. Berger, “When to use what data set
+for your self-driving car algorithm: An overview of publicly available
+driving datasets,” in Proc. IEEE 20th Int. Conf. Intell. Transp. Syst.
+(ITSC), Oct. 2017,pp. 1–8.</li>
+<li>用于自动驾驶计算的平台：NVIDIA Drive PX2，Altera's Cyclone V。</li>
+</ol>
+<h2 id="deep-learning-application-to-vehicle-control">Deep learning
+application to vehicle control</h2>
+<h3 id="横向控制系统">横向控制系统</h3>
+<ol type="1">
+<li>1989年，Autonomous Land Vehicle in a Neural
+Network(ALVINN)，使用一个前馈神经网络，输入维度：30x32，一个4维的隐含层，输出层维数：30。每个输出的维度各自代表了一个可能的离散的转向动作。该系统利用摄像头的输入和司机转动方向的动作来训练。为了防止对于最近输入的偏差(例如一个网络一直在被训练右转，那它倾向于更多的向右转向)，该系统利用了一个buffer，也就是说讲以前遇到过的情景，放到buffer中，继续训练(有点强化学习中Replay
+Buffer的意思)。<img src="image-20200706211319597.png" /></li>
+<li>各种CNN改进的版本，还有利用LSTM，RNN的，基本上就是换了一个网络结构，原理上和第一个一样，具体各种技术的比较见下图：<img
+src="image-20200706213747814.png" /></li>
+<li>车道变换问题：用DQN解决，上表中的最后一个，<span
+class="math inline">\(Q\)</span>函数由一个包含3个隐含层的前馈神经网络去估计。</li>
+<li>最近的研究趋势：利用更深的网络去训练模型。</li>
+<li>现阶段的研究都是不同的任务设计不同的控制系统，例如横向，纵向，变换车道等各自有一个单独的网络，如何能够训练出一个网络实现多种任务值得研究。</li>
+<li>当前的研究基本上是在仿真环境中，需要实际环境中进行验证。</li>
+</ol>
+<h3 id="纵向控制系统">纵向控制系统</h3>
+<p>大多用强化学习解决。</p>
+<p>缺点：</p>
+<ol type="1">
+<li>费时间，所以出现了将深度学习和强化学习结合的方法。</li>
+</ol>
+<p><img src="image-20200707102438676.png" /></p>
+<h3 id="横向纵向控制系统仿真">横向纵向控制系统仿真</h3>
+<p>对于自动驾驶的汽车，需要同时控制横向和纵向的状态。</p>
+<p><img src="image-20200707102917753.png" /></p>
+<h2 id="challenges">Challenges</h2>
+<p>虽然取得了很多进展，但是离商用还是有很大差距。如果需要大规模商用，还是要克服很多挑战。</p>
+<h3 id="计算资源">计算资源</h3>
+<ol type="1">
+<li>训练需要大量的数据和时间，尤其是对于强化学习算法，会造成可能的实时性差的问题，现在有通过将监督学习和强化学习相互结合的方法，监督学习提高训练效率，强化学习提高适应性，然而，获取各种场景下的训练数据不现实也比较困难，所以各个车企合作共享数据可能是一个最快的办法，但是这显然不现实。</li>
+<li>训练的数据需要多样性，对于不同场景，都需要有大量的数据，否则，训练出来的模型不精确或对于某些场景过拟合。</li>
+<li>连续状态和连续动作会导致计算复杂度增大，维数爆炸。</li>
+<li>可以使用多个learner来降低训练时间。</li>
+<li>进化算法来寻优。</li>
+<li>删除无用的训练数据。</li>
+</ol>
+<h3 id="网络结构">网络结构</h3>
+<ol type="1">
+<li>选择网络结构非常困难，更少的神经元会导致系统性能下降，更多的神经元会导致训练数据过拟合因此通用性较差，且计算时间增加。</li>
+<li>网络参数的选择没有通用的方法，一般都是通过试错或者启发式算法，但是这样计算时间会增加。</li>
+<li>解决方法：在一个方法集上或者使用基于模型的方法进行训练。Coordinate
+Descent，Grid Search，Random Search。</li>
+</ol>
+<h3 id="目标设计">目标设计</h3>
+<ol type="1">
+<li>对于强化学习算法来说，Reward函数比较难设计。</li>
+<li>通常一个agent在一个时刻需要执行多个action，所以对于横向和纵向同时控制，当获得了一个reward，你很难知道到底是哪个action的结果。解决方法：Hybrid
+Reward
+Architecture，就是将Reward分解出来，对于各个模块各自学习独立的价值函数。</li>
+</ol>
+<h3 id="适应性和通用性">适应性和通用性</h3>
+<ol type="1">
+<li>对于不同的环境，需要找到一个可通用的算法。</li>
+<li>Dropout技术，随机选择一些神经元并且只更新其他未选择的神经元。</li>
+</ol>
+<h3 id="校验和验证">校验和验证</h3>
+<ol type="1">
+<li>验证算法的性能需要大量的资金支持并且不要政府政策的支持，且需要花费大量的时间。</li>
+<li>尽管仿真有很多种优势，模型的误差是一个非常关键的问题。</li>
+<li>要确保验证数据中有"bad"场景。</li>
+</ol>
+<h3 id="安全问题">安全问题</h3>
+<ol type="1">
+<li>解释性较差。不能确保安全。</li>
+<li>安全问题还要考虑到周围车辆的状态。</li>
+<li>安全必须要再真实世界中保证。</li>
+<li>有方法将控制器结构分为两部分，一部分是可学习部分，另一部分是不可学习部分，其中不可学习部分就是做一个安全的限制。</li>
+<li>也有将传统控制器和强化学习相结合的方法，来确保稳定性和鲁棒性，见文献：
+X. Xiong, J. Wang, F. Zhang, and K. Li, “Combining deep reinforcement
+learning and safety based control for autonomous driving,” 2016,
+arXiv:1612.00147. [Online]. Available:
+https://arxiv.org/abs/1612.00147</li>
+<li>需要对系统输入恶意输入测试来确保网络的安全。</li>
+</ol>
+<h2 id="conclusion-remarks">Conclusion Remarks</h2>
+<h3 id="论文中对我有用的内容">论文中对我有用的内容</h3>
+<p>论文最后一部分综述了当前存在的挑战，大多是深度学习问题的共性问题，对于无人驾驶，不具有代表性，像安全问题，利用深度学习做控制饱受控制届的批评，但是在某些场合，深度学习做控制的确取得了较大的成果，但是在某些安全限制条件较高的场景，例如自动驾驶，如何来确保深度学习算法的稳定性和安全性是一个亟待解决的问题。控制领域中的稳定性分析，鲁棒性分析都需要非常精确的模型才能分析，但是自动驾驶显然是一个非线性的，且得到精确模型的一个任务，所以有没有其他方法来分析这个稳定性和鲁棒性，还是说像文章说所提到的一篇文献，对安全问题在控制器中进行限制，深度学习控制器若不在这个安全限制中，则才去进一步措施，这样不用从控制领域的角度分析稳定性。</p>
+<h3 id="其他参考资料">其他参考资料</h3>
+<p>文章中写的几篇文献：</p>
+<ol type="1">
+<li>H. Yin and C. Berger, “When to use what data set for your
+self-driving car algorithm: An overview of publicly available driving
+datasets,” in Proc. IEEE 20th Int. Conf. Intell. Transp. Syst. (ITSC),
+Oct. 2017,pp. 1–8.</li>
+<li>X. Xiong, J. Wang, F. Zhang, and K. Li, “Combining deep
+reinforcement learning and safety based control for autonomous driving,”
+2016, arXiv:1612.00147. [Online]. Available:
+https://arxiv.org/abs/1612.00147</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>If you like my blog, please donate for me.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipayQR.jpg" alt="Oliver xu 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/29/%E5%9F%BA%E9%87%91%E6%8A%95%E8%B5%84%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" rel="prev" title="基金投资管理系统">
+      <i class="fa fa-chevron-left"></i> 基金投资管理系统
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/01/PolicyGradient%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" rel="next" title="PolicyGradient公式推导">
+      PolicyGradient公式推导 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#review-of-deep-learning"><span class="nav-number">2.</span> <span class="nav-text">Review of deep learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#监督学习"><span class="nav-number">2.1.</span> <span class="nav-text">监督学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强化学习"><span class="nav-number">2.2.</span> <span class="nav-text">强化学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习的数据集和工具"><span class="nav-number">2.3.</span> <span class="nav-text">深度学习的数据集和工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deep-learning-application-to-vehicle-control"><span class="nav-number">3.</span> <span class="nav-text">Deep learning
+application to vehicle control</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#横向控制系统"><span class="nav-number">3.1.</span> <span class="nav-text">横向控制系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#纵向控制系统"><span class="nav-number">3.2.</span> <span class="nav-text">纵向控制系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#横向纵向控制系统仿真"><span class="nav-number">3.3.</span> <span class="nav-text">横向纵向控制系统仿真</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#challenges"><span class="nav-number">4.</span> <span class="nav-text">Challenges</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算资源"><span class="nav-number">4.1.</span> <span class="nav-text">计算资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络结构"><span class="nav-number">4.2.</span> <span class="nav-text">网络结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标设计"><span class="nav-number">4.3.</span> <span class="nav-text">目标设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适应性和通用性"><span class="nav-number">4.4.</span> <span class="nav-text">适应性和通用性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#校验和验证"><span class="nav-number">4.5.</span> <span class="nav-text">校验和验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安全问题"><span class="nav-number">4.6.</span> <span class="nav-text">安全问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conclusion-remarks"><span class="nav-number">5.</span> <span class="nav-text">Conclusion Remarks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#论文中对我有用的内容"><span class="nav-number">5.1.</span> <span class="nav-text">论文中对我有用的内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他参考资料"><span class="nav-number">5.2.</span> <span class="nav-text">其他参考资料</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Oliver xu"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Oliver xu</p>
+  <div class="site-description" itemprop="description">愿中国青年都摆脱冷气，只是向上走</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29saXh1" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;olixu"><i class="github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjI3MzYwMTcyN0BxcS5jb20=" title="E-Mail → mailto:273601727@qq.com"><i class="envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">苏ICP备17055396号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Oliver xu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">345k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:14</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/js/anime.min.js"></script>
+  <script src="/js/velocity.min.js"></script>
+  <script src="/js/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '/js/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="/css/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('/js/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'e11777414ce827fd8ec2',
+      clientSecret: 'c572c4ca1c0dfdfaf2b4f2195aa903185e2dfeea',
+      repo        : 'blog-comment',
+      owner       : 'olixu',
+      admin       : ['olixu'],
+      id          : '6c3859804854fde4f87ba7e724e52650',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>

@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/leimu.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/leimu.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/leimu.webp">
+  <link rel="mask-icon" href="/images/leimu.webp" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="B9DN3IrX7m2gTbRqa4D1C1Lluvo_zP2P5KC0wh4-ej4">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.oliverxu.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="最近在看《Guided policy search》这篇文章，其中，用到了Importance Sampling，KL divergence等技术，虽然这些之前都用过，但是没有系统的整理过一些文档出来，《Guided policy search》这篇文章是13年的，但是TRPO和PPO等一些算法用到的技术，在这篇文章里基本都有用到了。初步感觉这篇文章还是比较经典的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重要性采样及KL散度分析与不同实现方法">
+<meta property="og:url" content="https://blog.oliverxu.cn/2021/08/18/%E9%87%8D%E8%A6%81%E6%80%A7%E9%87%87%E6%A0%B7%E5%8F%8AKL%E6%95%A3%E5%BA%A6%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:site_name" content="Oliver xu&#39;s Blog">
+<meta property="og:description" content="最近在看《Guided policy search》这篇文章，其中，用到了Importance Sampling，KL divergence等技术，虽然这些之前都用过，但是没有系统的整理过一些文档出来，《Guided policy search》这篇文章是13年的，但是TRPO和PPO等一些算法用到的技术，在这篇文章里基本都有用到了。初步感觉这篇文章还是比较经典的。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/08/18/%E9%87%8D%E8%A6%81%E6%80%A7%E9%87%87%E6%A0%B7%E5%8F%8AKL%E6%95%A3%E5%BA%A6%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E7%8E%B0/image-20210818164510370.png">
+<meta property="article:published_time" content="2021-08-18T12:32:48.000Z">
+<meta property="article:modified_time" content="2024-10-10T21:06:28.469Z">
+<meta property="article:author" content="Oliver xu">
+<meta property="article:tag" content="Reinforcement Learning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.oliverxu.cn/2021/08/18/%E9%87%8D%E8%A6%81%E6%80%A7%E9%87%87%E6%A0%B7%E5%8F%8AKL%E6%95%A3%E5%BA%A6%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E7%8E%B0/image-20210818164510370.png">
+
+<link rel="canonical" href="https://blog.oliverxu.cn/2021/08/18/%E9%87%8D%E8%A6%81%E6%80%A7%E9%87%87%E6%A0%B7%E5%8F%8AKL%E6%95%A3%E5%BA%A6%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E7%8E%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>重要性采样及KL散度分析与不同实现方法 | Oliver xu's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?473560aefa55cb0313599b95a2994bf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss.xml" title="Oliver xu's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Oliver xu's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-album">
+
+    <a href="/album/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.oliverxu.cn/2021/08/18/%E9%87%8D%E8%A6%81%E6%80%A7%E9%87%87%E6%A0%B7%E5%8F%8AKL%E6%95%A3%E5%BA%A6%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Oliver xu">
+      <meta itemprop="description" content="愿中国青年都摆脱冷气，只是向上走">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oliver xu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          重要性采样及KL散度分析与不同实现方法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-18 12:32:48" itemprop="dateCreated datePublished" datetime="2021-08-18T12:32:48+00:00">2021-08-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-10-10 21:06:28" itemprop="dateModified" datetime="2024-10-10T21:06:28+00:00">2024-10-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Reinforcement-Learning/" itemprop="url" rel="index"><span itemprop="name">Reinforcement Learning</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>最近在看《Guided policy search》这篇文章，其中，用到了Importance
+Sampling，KL
+divergence等技术，虽然这些之前都用过，但是没有系统的整理过一些文档出来，《Guided
+policy
+search》这篇文章是13年的，但是TRPO和PPO等一些算法用到的技术，在这篇文章里基本都有用到了。初步感觉这篇文章还是比较经典的。</p>
+</blockquote>
+<a id="more"></a>
+<p>这篇文章里举的例子都是以强化学习的连续动作空间中的policy来举例的。</p>
+<h2 id="产生两个策略用于验证">产生两个策略用于验证：</h2>
+<p>因为我的研究方向是强化学习，所以举的例子用的也是强化学习中的连续空间的Policy来说明。以PPO算法为例，一般来说，当使用Actor-Critic网络的结构时，actor的输入是State，输出是action对应维度的正态分布的均值<span
+class="math inline">\(\mu\)</span>。然后根据这个均值和计算出来的方差，可以计算出对应的分布。使用Pytorch来实现。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> norm</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">from</span> torch.distributions <span class="keyword">import</span> MultivariateNormal</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构造两个分布作为p(x)和q(x)，为了简单分析，action的维度设置为1</span></span><br><span class="line">px = MultivariateNormal(torch.zeros(<span class="number">1</span>), torch.eye(<span class="number">1</span>))</span><br><span class="line">qx = MultivariateNormal(torch.tensor([<span class="number">0.5</span>]), torch.tensor([[<span class="number">2.0</span>]]))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 画出两个分布的概率密度函数</span></span><br><span class="line"><span class="comment">## 这里使用matplotlib来画出概率密度函数的图像，使用scipy.stats.norm这一个包，主要原理是：正态分布有其对应的概率密度公式，直接根据xaxis的数据，来计算出对应的概率密度的数值，而不需要进行采样之类的操作。</span></span><br><span class="line">x_axis = np.arange(<span class="number">-20</span>, <span class="number">20</span>, <span class="number">0.01</span>)</span><br><span class="line">px_mean = <span class="number">0</span></span><br><span class="line">px_std = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">qx_mean = <span class="number">0.5</span></span><br><span class="line">qx_std = <span class="number">2.0</span></span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = plt.subplot(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">l1, = ax.plot(x_axis, norm.pdf(x_axis, px_mean, px_std))</span><br><span class="line">l2, = ax.plot(x_axis, norm.pdf(x_axis, qx_mean, qx_std))</span><br><span class="line">plt.legend([l1, l2], [<span class="string">'p(x)'</span>, <span class="string">'q(x)'</span>])</span><br><span class="line">plt.savefig(<span class="string">"pdf.pdf"</span>)</span><br></pre></td></tr></table></figure>
+<p>函数参考：</p>
+<ol type="1">
+<li><strong>Pytorch MultivariateNormal</strong>:<a
+href="https://pytorch.org/docs/stable/distributions.html">https://pytorch.org/docs/stable/distributions.html</a></li>
+</ol>
+<p>Creates a multivariate normal (also called Gaussian) distribution
+parameterized by a mean vector and a covariance matrix.</p>
+<ol start="2" type="1">
+<li><strong>PPO构造actor可以参考</strong>：<a
+href="https://github.com/nikhilbarhate99/PPO-PyTorch/blob/master/PPO.py">https://github.com/nikhilbarhate99/PPO-PyTorch/blob/master/PPO.py</a></li>
+</ol>
+<p><img src="image-20210818164510370.png" /></p>
+<h2 id="importance-sampling原理">Importance Sampling原理</h2>
+<p>考虑这样一个情况，你想要计算一个函数<span
+class="math inline">\(f(x)\)</span>​在某个分布<span
+class="math inline">\(x \sim
+p(x)\)</span>​下的期望，根据连续概率密度函数的期望公式，可以得到：</p>
+<p><span class="math display">\[E[f(x)] = \int f(x)p(x)dx \approx
+\frac{1}{n} \Sigma_if(x_i)\]</span></p>
+<p>如果用Monte
+Carlo方法来计算这个期望的话，相当于对这个分布进行不断采样(对<span
+class="math inline">\(x\)</span>)，然后根据期望公式计算相应的期望。但是，当<span
+class="math inline">\(p(x)\)</span>​是一个比较难以采样的分布（有没有具体的例子来描述一下，到底在什么情况会出现难以采样的分布？什么样子的分布是难以采样的分布？）如何通过一些已知的和一些简单的分布的采样来估计出这个难以采样的分布对应的期望。</p>
+<p>对应的解决方法就是Importance Sampling技术，该技术“Importance Sampling
+has been successfully used to accelerate stochastic optimization in many
+convex problems.《Biased Importance Sampling for Deep Neural Network
+Training》”。</p>
+<p><span class="math display">\[E[f(x)]=\int f(x) p(x) d x=\int f(x)
+\frac{p(x)}{q(x)} q(x) d x \approx \frac{1}{n} \sum_{i}
+f\left(x_{i}\right)
+\frac{p\left(x_{i}\right)}{q\left(x_{i}\right)}\]</span></p>
+<p><span class="math inline">\(x\)</span>是从分布<span
+class="math inline">\(q(x)\)</span>采样得到的，<span
+class="math inline">\(\frac{p(x)}{q(x)}\)</span>被称为sampling
+ratio或者是sampling weight。其作用是"a correction weight to offset the
+probability sampling from a different distribution"。</p>
+<p>这篇知乎<a
+href="https://zhuanlan.zhihu.com/p/41217212">https://zhuanlan.zhihu.com/p/41217212</a>给出了一个重要性采样的Demo，是用来求曲线的面积为例子，对于难以直接求解析解的曲线的积分，无法直接求出其积分，往往采用估计的方式，即在被积区间中进行采样，利用微积分的分段，求和，取极限的思想来近似逼近曲线的积分或者说面积。</p>
+<p>如果采样是均匀的，可以得到一种估计，但是，这种估计方式会随着采样数的增大而越来越精确，另一方面：当采样数量是一定的时候，有没有什么办法来提高积分计算的准确度，减少计算的方差。这篇知乎中给出的这个例子很有趣。很明显，在概率密度函数大的地方，其函数值对积分的影响作用也大，这时候，在该区域加大采样的数量，可以相应的提高计算的准确度。</p>
+<h2 id="importance-sampling实现">Importance Sampling实现</h2>
+<p>在使用off-policy算法时，主要有两个策略（不考虑TD3这种），一个是Behavior
+policy，另一个是Target Policy</p>
+<ul>
+<li>Behavior policy：更新次数快，用于产生学习过程中所需要的episode</li>
+<li>Target policy：更新过程慢，通常在behavior
+policy更新到一定程度后，再将behavior policy的参数传输到Target
+policy</li>
+</ul>
+<p>或者换句话说其实有两个behavior
+policy，只不过一个更新慢，一个更新快，当然当迭代到一定次数后，其理想状态都是收敛到最优值。使用Importance
+Sampling的技术可以通过Behavior policy去估计Target
+policy的期望的Return。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fx</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>/(<span class="number">1</span>+np.exp(-x))</span><br><span class="line">    <span class="comment">#return x</span></span><br><span class="line"></span><br><span class="line">px = MultivariateNormal(torch.tensor([<span class="number">3.2</span>], dtype=torch.float32), torch.tensor([[<span class="number">1.0</span>]], dtype=torch.float32))</span><br><span class="line">qx = MultivariateNormal(torch.tensor([<span class="number">3.0</span>], dtype=torch.float32), torch.tensor([[<span class="number">1.0</span>]], dtype=torch.float32))</span><br><span class="line">x_axis = np.arange(<span class="number">-20</span>, <span class="number">20</span>, <span class="number">0.01</span>)</span><br><span class="line">px_mean = <span class="number">4</span></span><br><span class="line">px_std = <span class="number">1</span></span><br><span class="line">qx_mean = <span class="number">1</span></span><br><span class="line">qx_std = <span class="number">4</span></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = plt.subplot(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">l1, = ax.plot(x_axis, norm.pdf(x_axis, px_mean, px_std))</span><br><span class="line">l2, = ax.plot(x_axis, norm.pdf(x_axis, qx_mean, qx_std))</span><br><span class="line">plt.legend([l1, l2], [<span class="string">'p(x)'</span>, <span class="string">'q(x)'</span>])</span><br><span class="line">plt.savefig(<span class="string">"pdf1.pdf"</span>)</span><br><span class="line"></span><br><span class="line">n = <span class="number">10000</span></span><br><span class="line">s = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    <span class="comment">#pdb.set_trace()</span></span><br><span class="line">    x_i = px.sample()</span><br><span class="line">    s += fx(x_i)</span><br><span class="line">print(<span class="string">"Simulation Value"</span>, s/n)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用IS技术对q(x)进行采样</span></span><br><span class="line">s = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    x_i = qx.sample()</span><br><span class="line">    s += fx(x_i) * (px.log_prob(x_i) / qx.log_prob(x_i))</span><br><span class="line">print(<span class="string">"IS results: "</span>, s/n)</span><br><span class="line">pdb.set_trace()</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Simulation Value tensor([0.9414])</span><br><span class="line">IS results:  tensor([0.9398])</span><br></pre></td></tr></table></figure>
+<p>Question：RL（例如PPO）中IS是怎么使用的fx定义的是什么？</p>
+<p>Answer：fx定义的是Advantage，最终目标函数求的是Advantage的均值，最大化其均值。</p>
+<p>可以参考：<a
+href="https://zhuanlan.zhihu.com/p/388707220">https://zhuanlan.zhihu.com/p/388707220</a></p>
+<h2 id="kl-divergence原理">KL divergence原理</h2>
+<h3 id="信息量化的准则">信息量化的准则：</h3>
+<ul>
+<li>非常可能发生的事件信息量要比较少，并且极端情况下，确保能够发生的事件应该没有信息量。</li>
+<li>较不可能发生的事件具有更高的信息量。</li>
+<li>独立事件应具有增量的信息。例如，投掷的硬币两次正面朝上传递的信息量，应该是投掷一次硬币正面朝上的信息量的两倍。</li>
+</ul>
+<h3 id="一个事件xx的自信息">一个事件<span
+class="math inline">\(X=x\)</span>的自信息：</h3>
+<p><span class="math inline">\(I(x)=-logP(x)\)</span></p>
+<p><span class="math inline">\(log\)</span>自然对数，底数为<span
+class="math inline">\(e\)</span>​，直观上看，当该事件发生的概率越大，则越习以为常，也就是说上述定义的自信息的数值就越小。</p>
+<h3 id="熵entropy的定义">熵(Entropy)的定义</h3>
+<p>在信息论中是对信息量的度量，在物理学与热力学中是对混乱度的度量。</p>
+<p>香农熵给出了事件所属的整个分布欧的不确定性总量量化：</p>
+<p><span class="math inline">\(H(x)=E_{x \sim p}[I(x)]=-E_{x \sim
+p}[logP(x)]=-\Sigma_xP(x)logP(x)\)</span>​​​</p>
+<h3 id="相对熵kl散度">相对熵（KL散度）</h3>
+<p>对于一个随机变量<span
+class="math inline">\(x\)</span>​​​，有两个分布<span
+class="math inline">\(P(x)\)</span>​​​和<span
+class="math inline">\(Q(x)\)</span>​​​，可以使用KL散度来度量两个分布之间的差异，需要注意的是，这里是<span
+class="math inline">\(Q\)</span>​​​相对于<span
+class="math inline">\(P\)</span>​​​的分布：</p>
+<p><span class="math inline">\(D_{KL}(P||Q) = E_{x \sim P}[log
+\frac{P(x)}{Q(x)}] = E_{x \sim P}[logP(x)-logQ(x)] = \Sigma_x P(x)
+\times (logP(x)-logQ(x))\)</span>​​</p>
+<h2 id="kl-divergence实现">KL divergence实现</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">px = MultivariateNormal(torch.tensor([<span class="number">5.0</span>], dtype=torch.float32), torch.tensor([[<span class="number">1.0</span>]], dtype=torch.float32))</span><br><span class="line">qx = MultivariateNormal(torch.tensor([<span class="number">2.0</span>], dtype=torch.float32), torch.tensor([[<span class="number">1.0</span>]], dtype=torch.float32))</span><br><span class="line">kl_div = kl_divergence(px, qx)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensor(4.5000)</span><br></pre></td></tr></table></figure>
+<p>参考资料：<a
+href="https://pytorch.org/docs/stable/distributions.html">https://pytorch.org/docs/stable/distributions.html</a></p>
+<p>TORCH.DISTRIBUTIONS：这个模块参考的是TensorFlow
+Distribution包，主要有两种方法来进行反向传播（直接对随机样本进行反向传播是不可行的，所以具体来说，TRPO和PPO算法论文中提到的两种替代函数的计算方法）：一个是Score
+function，还有一个是Pathwise derivative。</p>
+<ul>
+<li>Score function：</li>
+<li>Pathwise derivative：</li>
+</ul>
+<p><code>torch.distributions.kl.kl_divergence(p, q)</code></p>
+<p>验证：对于单维的高斯分布，其KL散度的推导可以参考：<a
+href="https://zhuanlan.zhihu.com/p/22464760">https://zhuanlan.zhihu.com/p/22464760</a>，其最终表达式为：</p>
+<p><span class="math inline">\(\int p_{1}(x) \log
+\frac{p_{1}(x)}{p_{2}(x)} d x=\log
+\frac{\sigma_{2}}{\sigma_{1}}+\frac{\sigma_{1}^{2}+\left(\mu_{1}-\mu_{2}\right)^{2}}{2
+\sigma_{2}^{2}}-\frac{1}{2}\)</span></p>
+<p>对上述方针结果的分析可以发现，两者的结果一样，但是torch.distributions.kl.kl_divergence的源码及其计算的原理后续还需要写一篇文章继续深入分析一下。</p>
+<h2 id="参考文献">参考文献：</h2>
+<p><a
+href="https://zhuanlan.zhihu.com/p/143105854">https://zhuanlan.zhihu.com/p/143105854</a></p>
+<p><a
+href="https://towardsdatascience.com/light-on-math-machine-learning-intuitive-guide-to-understanding-kl-divergence-2b382ca2b2a8">https://towardsdatascience.com/light-on-math-machine-learning-intuitive-guide-to-understanding-kl-divergence-2b382ca2b2a8</a></p>
+<p><a
+href="https://zhuanlan.zhihu.com/p/150693309">https://zhuanlan.zhihu.com/p/150693309</a></p>
+<p>​</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>If you like my blog, please donate for me.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipayQR.jpg" alt="Oliver xu 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Reinforcement-Learning/" rel="tag"># Reinforcement Learning</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/08/05/%E8%A5%BF%E8%97%8F%E9%AA%91%E8%A1%8C/" rel="prev" title="拉萨骑行至珠峰大本营">
+      <i class="fa fa-chevron-left"></i> 拉萨骑行至珠峰大本营
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/08/26/2021%E5%B9%B4%E4%B8%8A%E5%8D%8A%E5%B9%B4%E5%81%A5%E8%BA%AB%E6%80%BB%E7%BB%93/" rel="next" title="2021年上半年健身总结">
+      2021年上半年健身总结 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#产生两个策略用于验证"><span class="nav-number">1.</span> <span class="nav-text">产生两个策略用于验证：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#importance-sampling原理"><span class="nav-number">2.</span> <span class="nav-text">Importance Sampling原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#importance-sampling实现"><span class="nav-number">3.</span> <span class="nav-text">Importance Sampling实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kl-divergence原理"><span class="nav-number">4.</span> <span class="nav-text">KL divergence原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#信息量化的准则"><span class="nav-number">4.1.</span> <span class="nav-text">信息量化的准则：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个事件xx的自信息"><span class="nav-number">4.2.</span> <span class="nav-text">一个事件\(X&#x3D;x\)的自信息：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#熵entropy的定义"><span class="nav-number">4.3.</span> <span class="nav-text">熵(Entropy)的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相对熵kl散度"><span class="nav-number">4.4.</span> <span class="nav-text">相对熵（KL散度）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kl-divergence实现"><span class="nav-number">5.</span> <span class="nav-text">KL divergence实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">6.</span> <span class="nav-text">参考文献：</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Oliver xu"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Oliver xu</p>
+  <div class="site-description" itemprop="description">愿中国青年都摆脱冷气，只是向上走</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29saXh1" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;olixu"><i class="github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjI3MzYwMTcyN0BxcS5jb20=" title="E-Mail → mailto:273601727@qq.com"><i class="envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">苏ICP备17055396号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Oliver xu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">345k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:14</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/js/anime.min.js"></script>
+  <script src="/js/velocity.min.js"></script>
+  <script src="/js/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '/js/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="/css/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('/js/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'e11777414ce827fd8ec2',
+      clientSecret: 'c572c4ca1c0dfdfaf2b4f2195aa903185e2dfeea',
+      repo        : 'blog-comment',
+      owner       : 'olixu',
+      admin       : ['olixu'],
+      id          : '12e6eb77578060ee25d6ecc2cf2daa8d',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
