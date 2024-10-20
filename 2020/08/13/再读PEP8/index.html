@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/leimu.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/leimu.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/leimu.webp">
+  <link rel="mask-icon" href="/images/leimu.webp" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="B9DN3IrX7m2gTbRqa4D1C1Lluvo_zP2P5KC0wh4-ej4">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.oliverxu.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="上次读PEP8还是很多年前的事情了，现在重新读一下，看看有没有新的收获  简介 本文档给出了构成主要Python发行版中标准库的Python代码的编码约定。 很多项目有自己的编码规定，优先权更高。  代码的可读性非常重要 代码规范可以在项目中获得一致性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="再读PEP8">
+<meta property="og:url" content="https://blog.oliverxu.cn/2020/08/13/%E5%86%8D%E8%AF%BBPEP8/index.html">
+<meta property="og:site_name" content="Oliver xu&#39;s Blog">
+<meta property="og:description" content="上次读PEP8还是很多年前的事情了，现在重新读一下，看看有没有新的收获  简介 本文档给出了构成主要Python发行版中标准库的Python代码的编码约定。 很多项目有自己的编码规定，优先权更高。  代码的可读性非常重要 代码规范可以在项目中获得一致性">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-13T19:07:50.000Z">
+<meta property="article:modified_time" content="2024-10-20T21:06:36.086Z">
+<meta property="article:author" content="Oliver xu">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.oliverxu.cn/2020/08/13/%E5%86%8D%E8%AF%BBPEP8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>再读PEP8 | Oliver xu's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?473560aefa55cb0313599b95a2994bf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss.xml" title="Oliver xu's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Oliver xu's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-album">
+
+    <a href="/album/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.oliverxu.cn/2020/08/13/%E5%86%8D%E8%AF%BBPEP8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Oliver xu">
+      <meta itemprop="description" content="愿中国青年都摆脱冷气，只是向上走">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oliver xu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          再读PEP8
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-13 19:07:50" itemprop="dateCreated datePublished" datetime="2020-08-13T19:07:50+00:00">2020-08-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-10-20 21:06:36" itemprop="dateModified" datetime="2024-10-20T21:06:36+00:00">2024-10-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>上次读PEP8还是很多年前的事情了，现在重新读一下，看看有没有新的收获</p>
+</blockquote>
+<h2 id="简介">简介</h2>
+<p>本文档给出了构成主要Python发行版中标准库的Python代码的编码约定。</p>
+<p>很多项目有自己的编码规定，优先权更高。</p>
+<ul>
+<li>代码的可读性非常重要</li>
+<li>代码规范可以在项目中获得一致性</li>
+</ul>
+<a id="more"></a>
+<h2 id="代码布局">代码布局</h2>
+<h3 id="缩进">缩进</h3>
+<ul>
+<li><p>每层缩进使用4个空格</p></li>
+<li><p>连续行应该使用python的隐式行连接或者使用悬挂缩进，若使用悬挂缩进需要注意上下对齐</p></li>
+<li><p>在多行结构中，右括号应该在列表最后一行的非空字符的下方</p></li>
+</ul>
+<h3 id="每行最大长度">每行最大长度</h3>
+<ul>
+<li><p>每行最多79个字符</p></li>
+<li><p>利用<code>\</code>换行</p></li>
+</ul>
+<h3 id="在操作符之前还是之后换行">在操作符之前还是之后换行？</h3>
+<ul>
+<li>在操作符之前换行，这样可以很清楚的看出来哪些被<code>+ - * /</code>了</li>
+</ul>
+<h3 id="空行">空行</h3>
+<ul>
+<li>在<code>class</code>之前使用两行空行，类中定义的method使用一行空行</li>
+</ul>
+<h3 id="源文件编码">源文件编码</h3>
+<ul>
+<li>UTF-8</li>
+</ul>
+<h3 id="导入包">导入包</h3>
+<ul>
+<li>导入包不能写在同一行</li>
+<li>导入包的顺序：标准库，相关的第三方库，本地库</li>
+<li>绝对导入的方式更具有可读性，例如：<code>import mypkg.sibling</code></li>
+<li>不过在处理非常复杂的包导入的过程中，可以使用相对导入，例如：<code>from . import sibling</code></li>
+<li>避免使用<code>from &lt;module import *&gt;</code></li>
+</ul>
+<h3 id="模块级别的内置属性">模块级别的内置属性</h3>
+<ul>
+<li><code>__all__, __author__, __version__</code>之类的模块级别的内置属性，需要写在模块文档后，<code>import</code>语句之前</li>
+</ul>
+<h2 id="字符串引号">字符串引号</h2>
+<ul>
+<li>单引号或双引号都可以</li>
+</ul>
+<h2 id="表达式和语句中的空格">表达式和语句中的空格</h2>
+<h3 id="避免不必要的空格">避免不必要的空格</h3>
+<ul>
+<li>紧接在括号和大括号里面的空格</li>
+<li>在逗号和后括号之间</li>
+<li>在逗号，分号，冒号前的</li>
+<li>切片操作中，两边都不需要空格</li>
+<li>函数调用的左括号前</li>
+<li>紧接在索引或切片之前</li>
+<li>赋值操作符两边只能各一个空格，对齐</li>
+</ul>
+<h3 id="其它建议">其它建议</h3>
+<ul>
+<li>避免尾随空格</li>
+<li>始终在<code>+=, -= ==, &lt;, &gt;, !=, &lt;&gt;, &lt;=, &gt;=, in, not in, is, is not, and, or, not</code>两边使用一个空格</li>
+<li>如果使用不同优先级的操作符，在优先级最低的操作符的两边附上空格，例如正确写法：<code>hypot2 = x*x + y*y</code></li>
+<li>函数注释注意冒号的空格，例如正确写法：<code>def munge(input: AnyStr): ...</code>和<code>def munge() -&gt; PosInt: ...</code></li>
+<li>当用于指示函数关键字参数和未注释的的函数参数的默认值的时候，不要在<code>=</code>两边使用空格</li>
+<li>当将函数参数和默认值结合使用时，在<code>=</code>两边使用空格，例如正确写法：<code>def munge(sep: AnyStr = None): ...</code>和<code>def munge(input: AnyStr, sep: AnyStr = None, limit=1000): ...</code></li>
+<li>不建议将多行语句写在同一行</li>
+</ul>
+<h2 id="什么时候使用逗号">什么时候使用逗号</h2>
+<h2 id="注释">注释</h2>
+<ul>
+<li>块注释：</li>
+<li>行注释：至少有两个空格与语句隔开，<code>#</code>后面跟一个空格，并且注释首字母大写</li>
+<li>文档字符串：一个注释来描述该方法的功能，位于<code>def</code>语句后面</li>
+</ul>
+<h2 id="命名规范">命名规范</h2>
+<h3 id="需要避免的命名方式">需要避免的命名方式</h3>
+<ul>
+<li>以<code>l</code>或<code>O</code>或<code>I</code>作为单个字符变量名</li>
+<li>如果想用<code>l</code>的话，可以使用<code>L</code>替代</li>
+</ul>
+<h3 id="包和模块的名字">包和模块的名字</h3>
+<ul>
+<li>模块需要使用简短的，全小写的名字，可以使用下划线</li>
+<li>包需要使用简短的，全小写的名字，不能使用下划线</li>
+</ul>
+<h3 id="类的名字">类的名字</h3>
+<ul>
+<li>需要使用<code>CapWords</code>的约定</li>
+</ul>
+<h3 id="异常名字">异常名字</h3>
+<ul>
+<li>异常本身也是一个类，所以需要遵循类的命名方式</li>
+<li>异常名需要以<code>Error</code>为后缀</li>
+</ul>
+<h3 id="全局变量名字">全局变量名字</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="函数名和变量名">函数名和变量名</h3>
+<ul>
+<li>函数名应该是小写的，必要时可以使用下划线</li>
+<li>变量名应该遵循函数名的命名方式</li>
+</ul>
+<h3 id="函数和方法的参数">函数和方法的参数</h3>
+<ul>
+<li>使用<code>self</code>作为实例方法的第一个参数</li>
+<li>使用<code>self</code>作为类方法的第一个参数</li>
+<li>如果函数参数的名称与保留的关键字冲突，则可以在其后加上一个下划线，例如<code>class_</code>要比<code>clss</code>更好</li>
+</ul>
+<h3 id="方法名称和实例变量">方法名称和实例变量</h3>
+<ul>
+<li>对于非公共方法，在其前面加上一个下划线</li>
+</ul>
+<h3 id="常量">常量</h3>
+<ul>
+<li>常量通常是在模块级别定义，使用全大写字母和下划线，例如：<code>MAX_OVERFLOW</code>和<code>total</code></li>
+</ul>
+<h2 id="编程建议">编程建议</h2>
+<ul>
+<li>和<code>None</code>作比较的话，需要使用<code>is</code>和<code>is not</code>，不能使用<code>==</code></li>
+<li>使用<code>is not</code>而不是<code>not ... is</code></li>
+<li>如果你的意思是<code>if x is not none</code>，不能写成<code>if x</code></li>
+<li>使用<code>def</code>语句而不是赋值语句来将一个lambda表达式直接绑定到一个标识符：正确的方式：<code>def f(x): return 2*x</code></li>
+<li>对于<code>try</code>语句，尽量限制<code>try</code>中的代码量，来避免其掩盖错误</li>
+<li>返回值：要么函数中所有的<code>return</code>都有返回值，要么都没有返回值，如果任意一个返回语句保持一致，那么任意没有返回值的返回语句应该明确指出<code>return None</code></li>
+<li>使用<code>''.startwith()</code>和<code>''.endwith()</code>而不是字符串切片方法来检查前缀和后缀</li>
+<li>用<code>isinstance()</code>来判断某个实例是否是对象的实例</li>
+<li>对于序列（字符串，列表，元组），注意到空序列是<code>false</code>，可以用来判断序列是否是空：<code>if not seq:</code>,
+<code>if seq:</code></li>
+<li>不能使用<code>==</code>来和True或False判断，正确的方式：<code>if greeting:</code></li>
+<li><code>try ... finally ...</code>中不要使用<code>return</code></li>
+<li>掌握函数注释方法和变量注释方法</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>If you like my blog, please donate for me.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipayQR.jpg" alt="Oliver xu 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/08/08/Proxmox%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" rel="prev" title="实验室服务器安装Proxmox">
+      <i class="fa fa-chevron-left"></i> 实验室服务器安装Proxmox
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/14/Pytorch%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" rel="next" title="Pytorch使用笔记">
+      Pytorch使用笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码布局"><span class="nav-number">2.</span> <span class="nav-text">代码布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缩进"><span class="nav-number">2.1.</span> <span class="nav-text">缩进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每行最大长度"><span class="nav-number">2.2.</span> <span class="nav-text">每行最大长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在操作符之前还是之后换行"><span class="nav-number">2.3.</span> <span class="nav-text">在操作符之前还是之后换行？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空行"><span class="nav-number">2.4.</span> <span class="nav-text">空行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源文件编码"><span class="nav-number">2.5.</span> <span class="nav-text">源文件编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入包"><span class="nav-number">2.6.</span> <span class="nav-text">导入包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块级别的内置属性"><span class="nav-number">2.7.</span> <span class="nav-text">模块级别的内置属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串引号"><span class="nav-number">3.</span> <span class="nav-text">字符串引号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表达式和语句中的空格"><span class="nav-number">4.</span> <span class="nav-text">表达式和语句中的空格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#避免不必要的空格"><span class="nav-number">4.1.</span> <span class="nav-text">避免不必要的空格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它建议"><span class="nav-number">4.2.</span> <span class="nav-text">其它建议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么时候使用逗号"><span class="nav-number">5.</span> <span class="nav-text">什么时候使用逗号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">6.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名规范"><span class="nav-number">7.</span> <span class="nav-text">命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#需要避免的命名方式"><span class="nav-number">7.1.</span> <span class="nav-text">需要避免的命名方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包和模块的名字"><span class="nav-number">7.2.</span> <span class="nav-text">包和模块的名字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的名字"><span class="nav-number">7.3.</span> <span class="nav-text">类的名字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常名字"><span class="nav-number">7.4.</span> <span class="nav-text">异常名字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局变量名字"><span class="nav-number">7.5.</span> <span class="nav-text">全局变量名字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数名和变量名"><span class="nav-number">7.6.</span> <span class="nav-text">函数名和变量名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数和方法的参数"><span class="nav-number">7.7.</span> <span class="nav-text">函数和方法的参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法名称和实例变量"><span class="nav-number">7.8.</span> <span class="nav-text">方法名称和实例变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量"><span class="nav-number">7.9.</span> <span class="nav-text">常量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程建议"><span class="nav-number">8.</span> <span class="nav-text">编程建议</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Oliver xu"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Oliver xu</p>
+  <div class="site-description" itemprop="description">愿中国青年都摆脱冷气，只是向上走</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29saXh1" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;olixu"><i class="github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjI3MzYwMTcyN0BxcS5jb20=" title="E-Mail → mailto:273601727@qq.com"><i class="envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">苏ICP备17055396号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Oliver xu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">345k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:14</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/js/anime.min.js"></script>
+  <script src="/js/velocity.min.js"></script>
+  <script src="/js/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '/js/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="/css/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('/js/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'e11777414ce827fd8ec2',
+      clientSecret: 'c572c4ca1c0dfdfaf2b4f2195aa903185e2dfeea',
+      repo        : 'blog-comment',
+      owner       : 'olixu',
+      admin       : ['olixu'],
+      id          : '11da306d45cfe1fe64f111b621460c4b',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
