@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/leimu.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/leimu.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/leimu.webp">
+  <link rel="mask-icon" href="/images/leimu.webp" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="B9DN3IrX7m2gTbRqa4D1C1Lluvo_zP2P5KC0wh4-ej4">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.oliverxu.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="大佬们写的包，我们只需要pip install就能安装了，但是，其实人人都能发布包到pypi。 本教程将指导您如何打包一个简单的Python项目。它将向您展示如何添加必要的文件和结构来创建包，如何构建包以及如何将其上载到Python包索引。  一个简单的项目 本教程使用名为example_pkg_xujhtop的简单项目。 要在本地创建此项目，请创建以下文件结构： 123&#x2F;example_pkg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="发布自己的Python包到pypi">
+<meta property="og:url" content="https://blog.oliverxu.cn/2018/10/07/%E5%8F%91%E5%B8%83%E8%87%AA%E5%B7%B1%E7%9A%84Python%E5%8C%85%E5%88%B0pypi/index.html">
+<meta property="og:site_name" content="Oliver xu&#39;s Blog">
+<meta property="og:description" content="大佬们写的包，我们只需要pip install就能安装了，但是，其实人人都能发布包到pypi。 本教程将指导您如何打包一个简单的Python项目。它将向您展示如何添加必要的文件和结构来创建包，如何构建包以及如何将其上载到Python包索引。  一个简单的项目 本教程使用名为example_pkg_xujhtop的简单项目。 要在本地创建此项目，请创建以下文件结构： 123&#x2F;example_pkg">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-10-07T11:36:00.000Z">
+<meta property="article:modified_time" content="2024-10-24T21:06:54.466Z">
+<meta property="article:author" content="Oliver xu">
+<meta property="article:tag" content="python pypi">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.oliverxu.cn/2018/10/07/%E5%8F%91%E5%B8%83%E8%87%AA%E5%B7%B1%E7%9A%84Python%E5%8C%85%E5%88%B0pypi/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>发布自己的Python包到pypi | Oliver xu's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?473560aefa55cb0313599b95a2994bf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss.xml" title="Oliver xu's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Oliver xu's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-album">
+
+    <a href="/album/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.oliverxu.cn/2018/10/07/%E5%8F%91%E5%B8%83%E8%87%AA%E5%B7%B1%E7%9A%84Python%E5%8C%85%E5%88%B0pypi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Oliver xu">
+      <meta itemprop="description" content="愿中国青年都摆脱冷气，只是向上走">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oliver xu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          发布自己的Python包到pypi
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-10-07 11:36:00" itemprop="dateCreated datePublished" datetime="2018-10-07T11:36:00+00:00">2018-10-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-10-24 21:06:54" itemprop="dateModified" datetime="2024-10-24T21:06:54+00:00">2024-10-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>大佬们写的包，我们只需要<strong><code>pip install</code></strong>就能安装了，但是，其实人人都能发布包到pypi。
+本教程将指导您如何打包一个简单的Python项目。它将向您展示如何添加必要的文件和结构来创建包，如何构建包以及如何将其上载到Python包索引。</p>
+</blockquote>
+<h2 id="一个简单的项目">一个简单的项目</h2>
+<p>本教程使用名为<strong><code>example_pkg_xujhtop</code></strong>的简单项目。</p>
+<p>要在本地创建此项目，请创建以下文件结构： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/example_pkg_xujhtop</span><br><span class="line">  /example_pkg_xujhtop</span><br><span class="line">    __init__.py</span><br></pre></td></tr></table></figure> <a id="more"></a>
+创建此结构后，您将需要在顶级文件夹中运行本教程中的所有命令 -
+因此请务必使用<strong><code>cd example_pkg_xujhtop</code></strong>
+。</p>
+<p>您还应该编辑<strong><code>example_pkg_xujhtop/__init__.py</code></strong>并将以下代码放在其中：
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name = "example_pkg_xujhtop"</span><br></pre></td></tr></table></figure> 这只是为了您可以在本教程后面验证它是否正确安装。</p>
+<h2 id="创建包文件">创建包文件</h2>
+<p>现在，您将创建一些文件来打包此项目并准备分发。 创建下面列出的新文件 -
+您将在以下步骤中向其添加内容。 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/example_pkg_xujhtop</span><br><span class="line">  /example_pkg_xujhtop</span><br><span class="line">    __init__.py</span><br><span class="line">  setup.py</span><br><span class="line">  LICENSE</span><br><span class="line">  README.md</span><br></pre></td></tr></table></figure></p>
+<h2 id="创建setup.py">创建setup.py¶</h2>
+<p><strong><code>setup.py</code></strong>是<strong><code>setuptools</code></strong>的构建脚本。
+它告诉<strong><code>setuptools</code></strong>你的包（例如名称和版本）以及要包含的代码文件。</p>
+<p>打开<strong><code>setup.py</code></strong>并输入以下内容，您可以根据需要个性化值：
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import setuptools</span><br><span class="line"></span><br><span class="line">with open ( "README.md" , "r" ) as fh :</span><br><span class="line">    long_description = fh . read ()</span><br><span class="line"></span><br><span class="line">setuptools . setup (</span><br><span class="line">    name = "example_pkg_xujhtop" ,</span><br><span class="line">    version = "0.0.1" ,</span><br><span class="line">    author = "Example Author" ,</span><br><span class="line">    author_email = "author@example.com" ,</span><br><span class="line">    description = "A small example package" ,</span><br><span class="line">    long_description = long_description ,</span><br><span class="line">    long_description_content_type = "text/markdown" ,</span><br><span class="line">    url = "https://github.com/pypa/sampleproject" ,</span><br><span class="line">    packages = setuptools . find_packages (),</span><br><span class="line">    classifiers = [</span><br><span class="line">        "Programming Language :: Python :: 3" ,</span><br><span class="line">        "License :: OSI Approved :: MIT License" ,</span><br><span class="line">        "Operating System :: OS Independent" ,</span><br><span class="line">    ],</span><br><span class="line">)</span><br></pre></td></tr></table></figure> setup()有几个参数。 此示例包使用相对最小的集：</p>
+<ul>
+<li>name是包的名称。 只要包含字母，数字， _和- ， _可以是任何名称。
+它也不能在pypi.org上使用。</li>
+<li>version是包版本见 PEP 440有关版本的更多详细信息。</li>
+<li>author和author_email用于标识包的作者。</li>
+<li>description是包的简短的一句话摘要。</li>
+<li>long_description是包的详细描述。 这显示在Python Package
+Index的包详细信息包中。
+在这种情况下，从README.md加载长描述，这是一种常见模式。</li>
+<li>long_description_content_type告诉索引用于长描述的标记类型。
+在这种情况下，它是Markdown。</li>
+<li>url是项目主页的URL。
+对于许多项目，这只是一个指向GitHub，GitLab，Bitbucket或类似代码托管服务的链接。</li>
+<li>packages是应包含在分发包中的所有Python 导入包的列表。
+我们可以使用find_packages()自动发现所有包和子包，而不是手动列出每个包。
+在这种情况下，包列表将是example_pkg_xujhtop，因为它是唯一存在的包。</li>
+<li>classifiers告诉索引并提供有关包的其他元数据。
+在这种情况下，该软件包仅与Python
+3兼容，根据MIT许可证进行许可，并且与操作系统无关。
+您应始终至少包含您的软件包所使用的Python版本，软件包可用的许可证以及您的软件包将使用的操作系统。
+有关分类器的完整列表，请参阅https://pypi.org/classifiers/ 。</li>
+</ul>
+<h2 id="创建readme.md">创建README.md¶</h2>
+<p>打开README.md并输入以下内容。 如果您愿意，可以自定义此项。 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> # Example Package</span><br><span class="line"></span><br><span class="line">This is a simple example package. You can use</span><br><span class="line">[<span class="string"> Github-flavored Markdown </span>](<span class="link"> https://guides.github.com/features/mastering-markdown/ </span>)</span><br><span class="line">to write your content.</span><br></pre></td></tr></table></figure>
+## 创建许可证</p>
+<p>上传到Python Package Index的每个包都包含许可证，这一点很重要。
+这告诉用户安装您的软件包可以使用您的软件包的条款。
+有关选择许可证的帮助，请参阅https://choosealicense.com/ 。
+选择许可证后，打开LICENSE并输入许可证文本。
+例如，如果您选择了MIT许可证： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Copyright (c) 2018 The Python Packaging Authority</span><br><span class="line"></span><br><span class="line">Permission is hereby granted, free of charge, to any person obtaining a copy</span><br><span class="line">of this software and associated documentation files (the &quot;Software&quot;), to deal</span><br><span class="line">in the Software without restriction, including without limitation the rights</span><br><span class="line">to use, copy, modify, merge, publish, distribute, sublicense, and&#x2F;or sell</span><br><span class="line">copies of the Software, and to permit persons to whom the Software is</span><br><span class="line">furnished to do so, subject to the following conditions:</span><br><span class="line"></span><br><span class="line">The above copyright notice and this permission notice shall be included in all</span><br><span class="line">copies or substantial portions of the Software.</span><br><span class="line"></span><br><span class="line">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span><br><span class="line">IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span><br><span class="line">FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span><br><span class="line">AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span><br><span class="line">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span><br><span class="line">OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span><br><span class="line">SOFTWARE.</span><br></pre></td></tr></table></figure></p>
+<h2 id="生成分发档案">生成分发档案</h2>
+<p>下一步是为包生成分发包 。
+这些是上传到包索引的档案，可以通过pip安装。</p>
+<p>确保安装了最新版本的setuptools和wheel ： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m pip install --user --upgrade setuptools wheel</span><br></pre></td></tr></table></figure></p>
+<p>现在从setup.py所在的同一目录运行此命令： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 setup.py sdist bdist_wheel</span><br></pre></td></tr></table></figure>
+此命令应输出大量文本，一旦完成，应在dist目录中生成两个文件：
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dist/</span><br><span class="line">  example_pkg_xujhtop-0.0.1-py2-none-any.whl</span><br><span class="line">  example_pkg_xujhtop-0.0.1.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>tar.gz文件是源存档，而.whl文件是构建的分发 。
+较新的pip版本优先安装构建的发行版，但如果需要，将回退到源代码存档。
+您应该始终上传源存档并为项目兼容的平台提供构建的存档。
+在这种情况下，我们的示例包在任何平台上都与Python兼容，因此只需要一个构建的发行版。</p>
+<h2 id="上传分发档案">上传分发档案</h2>
+<p>最后，是时候将您的包上传到Python Package Index了！</p>
+<p>您需要做的第一件事是在Test PyPI上注册一个帐户。 Test
+PyPI是用于测试和实验的包索引的单独实例。
+这对于像我们不一定想要上传到真实索引的本教程那样很棒。
+要注册帐户，请访问https://test.pypi.org/account/register/并完成该页面上的步骤。
+在您上传任何软件包之前，您还需要验证您的电子邮件地址。 有关Test
+PyPI的更多详细信息，请参阅使用TestPyPI 。</p>
+<p>现在您已注册，您可以使用twine上传分发包。 你需要安装Twine： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m pip install --user --upgrade twine</span><br></pre></td></tr></table></figure>
+安装完成后，运行Twine上传dist下的所有档案： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">twine upload --repository-url https://test.pypi.org/legacy/ dist/*</span><br></pre></td></tr></table></figure>
+系统将提示您输入使用Test PyPI注册的用户名和密码。
+命令完成后，您应该看到与此类似的输出： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Uploading distributions to https://test.pypi.org/legacy/</span><br><span class="line">Enter your username: [ your username ]</span><br><span class="line">Enter your password:</span><br><span class="line">Uploading example_pkg_xujhtop-0.0.1-py3-none-any.whl</span><br><span class="line">100 % | █████████████████████ | 4 .65k/4.65k [ 00 :01&lt; 00 :00, 2 .88kB/s ]</span><br><span class="line">Uploading example_pkg_xujhtop-0.0.1.tar.gz</span><br><span class="line">100 % | █████████████████████ | 4 .25k/4.25k [ 00 :01&lt; 00 :00, 3 .05kB/s ]</span><br></pre></td></tr></table></figure>
+注意:如果您收到错误消息<strong><code>The user '[your username]' isn't allowed to upload to project 'example-pkg'</code></strong>
+，则需要为您的包选择一个唯一的名称。
+一个不错的选择是<strong><code>example_pkg_xujhtop</code></strong> 。
+更新<strong><code>setup.py</code></strong>的<strong><code>name</code></strong>参数，删除<strong><code>dist</code></strong>文件夹，然后重新生成存档
+。</p>
+<p>上传后，您的包应该可以在TestPyPI上查看，例如，
+<strong><code>https：//test.pypi.org/project/example-pkg</code></strong></p>
+<h2 id="安装新上传的软件包">安装新上传的软件包</h2>
+<p>您可以使用pip来安装包并验证它是否有效。 创建一个新的virtualenv
+（请参阅安装包以获取详细说明）并从TestPyPI安装包： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m pip install --index-url https://test.pypi.org/simple/ example_pkg_xujhtop</span><br></pre></td></tr></table></figure>
+注意:如果在预览步骤中使用了不同的包名称，请将上面命令中的example_pkg_xujhtop替换example_pkg_xujhtop包名称。</p>
+<p>pip应该从Test PyPI安装包，输出应该如下所示： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Collecting example_pkg_xujhtop</span><br><span class="line">  Downloading https://test-files.pythonhosted.org/packages/.../example_pkg_xujhtop-0.0.1-py3-none-any.whl</span><br><span class="line">Installing collected packages: example-pkg</span><br><span class="line">Successfully installed example-pkg-0.0.1</span><br></pre></td></tr></table></figure>
+您可以通过导入模块并引用之前放在<strong><code>__init__.py</code></strong>的<strong><code>name</code></strong>属性来测试它是否已正确安装。</p>
+<p>运行Python解释器（确保你仍然在你的virtualenv中）： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python</span><br></pre></td></tr></table></figure>
+然后导入模块并打印出<strong><code>name</code></strong>属性。
+无论您在<strong><code>setup.py</code></strong>给出的分发包名称是什么，这都应该是相同的，因为您的导入包是<strong><code>example_pkg_xujhtop</code></strong>
+。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span> <span class="keyword">import</span> example_pkg_xujhtop</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span> example_pkg_xujhtop . name</span><br><span class="line"><span class="string">'example_pkg_xujhtop'</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="后续步骤">后续步骤</h2>
+<p>恭喜，您已经打包并分发了一个Python项目！ ✨</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>If you like my blog, please donate for me.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipayQR.jpg" alt="Oliver xu 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python-pypi/" rel="tag"># python pypi</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/09/30/Flask%E9%80%9F%E6%88%90%E9%A1%B9%E7%9B%AE%EF%BC%9AFlask%E5%AE%9E%E7%8E%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%B5%84%E6%BA%90%E7%9A%84%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7/" rel="prev" title="Flask速成项目：Flask实现计算机资源的实时监控">
+      <i class="fa fa-chevron-left"></i> Flask速成项目：Flask实现计算机资源的实时监控
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/10/14/%E5%88%A9%E7%94%A8%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%AA%8C%E8%AF%81%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86IP%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88%E7%9A%84%E6%9C%8D%E5%8A%A1/" rel="next" title="利用虚拟主机搭建一个验证爬虫代理IP是否有效的服务">
+      利用虚拟主机搭建一个验证爬虫代理IP是否有效的服务 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一个简单的项目"><span class="nav-number">1.</span> <span class="nav-text">一个简单的项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建包文件"><span class="nav-number">2.</span> <span class="nav-text">创建包文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建setup.py"><span class="nav-number">3.</span> <span class="nav-text">创建setup.py¶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建readme.md"><span class="nav-number">4.</span> <span class="nav-text">创建README.md¶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成分发档案"><span class="nav-number">5.</span> <span class="nav-text">生成分发档案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传分发档案"><span class="nav-number">6.</span> <span class="nav-text">上传分发档案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装新上传的软件包"><span class="nav-number">7.</span> <span class="nav-text">安装新上传的软件包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后续步骤"><span class="nav-number">8.</span> <span class="nav-text">后续步骤</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Oliver xu"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Oliver xu</p>
+  <div class="site-description" itemprop="description">愿中国青年都摆脱冷气，只是向上走</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29saXh1" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;olixu"><i class="github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjI3MzYwMTcyN0BxcS5jb20=" title="E-Mail → mailto:273601727@qq.com"><i class="envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">苏ICP备17055396号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Oliver xu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">345k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:14</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/js/anime.min.js"></script>
+  <script src="/js/velocity.min.js"></script>
+  <script src="/js/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="/css/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('/js/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'e11777414ce827fd8ec2',
+      clientSecret: 'c572c4ca1c0dfdfaf2b4f2195aa903185e2dfeea',
+      repo        : 'blog-comment',
+      owner       : 'olixu',
+      admin       : ['olixu'],
+      id          : 'f649389fe1629569e36e52b2e1915466',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>

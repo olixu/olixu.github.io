@@ -1,0 +1,3152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/leimu.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/leimu.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/leimu.webp">
+  <link rel="mask-icon" href="/images/leimu.webp" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="B9DN3IrX7m2gTbRqa4D1C1Lluvo_zP2P5KC0wh4-ej4">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.oliverxu.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="123import pandas as pdreviews &#x3D; pd.read_csv(&quot;data&#x2F;wine-reviews&#x2F;winemag-data-130k-v2.csv&quot;, index_col&#x3D;0)pd.set_option(&quot;display.max_rows&quot;, 5) 能够选择一张表中的某些数据是一个极其重要的操作，如果你连这个都不会的话，后面的处理根本就不可能实现了。 Python语言自">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pandas系列教程(二): 索引，选择， 赋值">
+<meta property="og:url" content="https://blog.oliverxu.cn/2018/11/30/Pandas%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-%E4%BA%8C-%E7%B4%A2%E5%BC%95%EF%BC%8C%E9%80%89%E6%8B%A9%EF%BC%8C-%E8%B5%8B%E5%80%BC/index.html">
+<meta property="og:site_name" content="Oliver xu&#39;s Blog">
+<meta property="og:description" content="123import pandas as pdreviews &#x3D; pd.read_csv(&quot;data&#x2F;wine-reviews&#x2F;winemag-data-130k-v2.csv&quot;, index_col&#x3D;0)pd.set_option(&quot;display.max_rows&quot;, 5) 能够选择一张表中的某些数据是一个极其重要的操作，如果你连这个都不会的话，后面的处理根本就不可能实现了。 Python语言自">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-11-30T22:22:58.000Z">
+<meta property="article:modified_time" content="2024-10-24T21:06:54.430Z">
+<meta property="article:author" content="Oliver xu">
+<meta property="article:tag" content="Pandas">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.oliverxu.cn/2018/11/30/Pandas%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-%E4%BA%8C-%E7%B4%A2%E5%BC%95%EF%BC%8C%E9%80%89%E6%8B%A9%EF%BC%8C-%E8%B5%8B%E5%80%BC/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Pandas系列教程(二): 索引，选择， 赋值 | Oliver xu's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?473560aefa55cb0313599b95a2994bf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss.xml" title="Oliver xu's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Oliver xu's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-album">
+
+    <a href="/album/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.oliverxu.cn/2018/11/30/Pandas%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-%E4%BA%8C-%E7%B4%A2%E5%BC%95%EF%BC%8C%E9%80%89%E6%8B%A9%EF%BC%8C-%E8%B5%8B%E5%80%BC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Oliver xu">
+      <meta itemprop="description" content="愿中国青年都摆脱冷气，只是向上走">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oliver xu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Pandas系列教程(二): 索引，选择， 赋值
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-11-30 22:22:58" itemprop="dateCreated datePublished" datetime="2018-11-30T22:22:58+00:00">2018-11-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-10-24 21:06:54" itemprop="dateModified" datetime="2024-10-24T21:06:54+00:00">2024-10-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Pandas/" itemprop="url" rel="index"><span itemprop="name">Pandas</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>12k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>11 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">reviews = pd.read_csv(<span class="string">"data/wine-reviews/winemag-data-130k-v2.csv"</span>, index_col=<span class="number">0</span>)</span><br><span class="line">pd.set_option(<span class="string">"display.max_rows"</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<p>能够选择一张表中的某些数据是一个极其重要的操作，如果你连这个都不会的话，后面的处理根本就不可能实现了。</p>
+<h2
+id="python语言自带的索引切片方法">Python语言自带的索引，切片方法</h2>
+<p>原生的Python提供了很多优秀的方法来索引数据，pandas继承了这些方法，考虑这个DataFrame</p>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+country
+</th>
+<th>
+description
+</th>
+<th>
+designation
+</th>
+<th>
+points
+</th>
+<th>
+price
+</th>
+<th>
+province
+</th>
+<th>
+region_1
+</th>
+<th>
+region_2
+</th>
+<th>
+taster_name
+</th>
+<th>
+taster_twitter_handle
+</th>
+<th>
+title
+</th>
+<th>
+variety
+</th>
+<th>
+winery
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+Italy
+</td>
+<td>
+Aromas include tropical fruit, broom, brimston...
+</td>
+<td>
+Vulkà Bianco
+</td>
+<td>
+87
+</td>
+<td>
+NaN
+</td>
+<td>
+Sicily &amp; Sardinia
+</td>
+<td>
+Etna
+</td>
+<td>
+NaN
+</td>
+<td>
+Kerin O’Keefe
+</td>
+<td>
+<span class="citation" data-cites="kerinokeefe">@kerinokeefe</span>
+</td>
+<td>
+Nicosia 2013 Vulkà Bianco (Etna)
+</td>
+<td>
+White Blend
+</td>
+<td>
+Nicosia
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+Portugal
+</td>
+<td>
+This is ripe and fruity, a wine that is smooth...
+</td>
+<td>
+Avidagos
+</td>
+<td>
+87
+</td>
+<td>
+15.0
+</td>
+<td>
+Douro
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+Quinta dos Avidagos 2011 Avidagos Red (Douro)
+</td>
+<td>
+Portuguese Red
+</td>
+<td>
+Quinta dos Avidagos
+</td>
+</tr>
+<tr>
+<th>
+...
+</th>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+</tr>
+<tr>
+<th>
+129969
+</th>
+<td>
+France
+</td>
+<td>
+A dry style of Pinot Gris, this is crisp with ...
+</td>
+<td>
+NaN
+</td>
+<td>
+90
+</td>
+<td>
+32.0
+</td>
+<td>
+Alsace
+</td>
+<td>
+Alsace
+</td>
+<td>
+NaN
+</td>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+Domaine Marcel Deiss 2012 Pinot Gris (Alsace)
+</td>
+<td>
+Pinot Gris
+</td>
+<td>
+Domaine Marcel Deiss
+</td>
+</tr>
+<tr>
+<th>
+129970
+</th>
+<td>
+France
+</td>
+<td>
+Big, rich and off-dry, this is powered by inte...
+</td>
+<td>
+Lieu-dit Harth Cuvée Caroline
+</td>
+<td>
+90
+</td>
+<td>
+21.0
+</td>
+<td>
+Alsace
+</td>
+<td>
+Alsace
+</td>
+<td>
+NaN
+</td>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+Domaine Schoffit 2012 Lieu-dit Harth Cuvée Car...
+</td>
+<td>
+Gewürztraminer
+</td>
+<td>
+Domaine Schoffit
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+129971 rows × 13 columns
+</p>
+</div>
+<p>在Python中，我们可以通过将其作为属性访问来访问对象的属性。
+例如，book对象可能有title属性，我们可以通过调用book.title来访问它。
+pandas DataFrame中的列以相同的方式工作。</p>
+<p>因此，要访问我们评论的国家/地区属性，我们可以使用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.country</span><br></pre></td></tr></table></figure>
+<pre><code>0            Italy
+1         Portugal
+            ...   
+129969      France
+129970      France
+Name: country, Length: 129971, dtype: object</code></pre>
+<p>如果我们在Python中有一个dict对象，我们可以使用索引（[]）运算符访问它的值。
+同样，我们可以对pandas DataFrame列执行相同的操作。 它“正常”：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews[<span class="string">'country'</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>0            Italy
+1         Portugal
+            ...   
+129969      France
+129970      France
+Name: country, Length: 129971, dtype: object</code></pre>
+<p>这是从pandas DataFrame中选择特定列的两种方法。
+它们中的任何一个没有说谁比谁更好，操作
+[]确实具有可以处理其中包含保留字符的列名的优点（例如，如果我们有一个country
+providence列，索引中有空格或者其他字符，那么很显然，第一种方法就失效了）。</p>
+<p>Pandas的Series看起来就像一个特殊的字典，我们可以获取其中一个明确的值：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews[<span class="string">'country'</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>&#39;Italy&#39;</code></pre>
+<h2 id="基于索引来选择数据">基于索引来选择数据</h2>
+<p>上面的两种方法非常好，因为他使得操作就像在处理原生的Python一样，而pandas也有其自己特殊的方法，loc和iloc，当涉及到一些高级操作时，你可能会用到这些方法。</p>
+<p>上面的两种方法都是得到列的值，如果我们对某一行感兴趣呢？这个时候有两种方法，一种是iloc方法，另一种方法是loc方法。loc是指location的意思，iloc中的i是指integer。这两者的区别如下：</p>
+<ul>
+<li>loc works on labels in the index.</li>
+<li>iloc works on the positions in the index (so it only takes
+integers).</li>
+</ul>
+<p>也就是说loc是根据index来索引，比如下边的df定义了一个index，那么loc就根据这个index来索引对应的行。iloc并不是根据index来索引，而是根据行号来索引，行号从0开始，逐次加1。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.iloc[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>country                                                    Italy
+description    Aromas include tropical fruit, broom, brimston...
+                                     ...                        
+variety                                              White Blend
+winery                                                   Nicosia
+Name: 0, Length: 13, dtype: object</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.iloc[:, <span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>0            Italy
+1         Portugal
+            ...   
+129969      France
+129970      France
+Name: country, Length: 129971, dtype: object</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.iloc[:<span class="number">3</span>, <span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>0       Italy
+1    Portugal
+2          US
+Name: country, dtype: object</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.iloc[<span class="number">1</span>:<span class="number">3</span>, <span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>1    Portugal
+2          US
+Name: country, dtype: object</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.iloc[[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], <span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>0       Italy
+1    Portugal
+2          US
+Name: country, dtype: object</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.iloc[<span class="number">-5</span>:]</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+country
+</th>
+<th>
+description
+</th>
+<th>
+designation
+</th>
+<th>
+points
+</th>
+<th>
+price
+</th>
+<th>
+province
+</th>
+<th>
+region_1
+</th>
+<th>
+region_2
+</th>
+<th>
+taster_name
+</th>
+<th>
+taster_twitter_handle
+</th>
+<th>
+title
+</th>
+<th>
+variety
+</th>
+<th>
+winery
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+129966
+</th>
+<td>
+Germany
+</td>
+<td>
+Notes of honeysuckle and cantaloupe sweeten th...
+</td>
+<td>
+Brauneberger Juffer-Sonnenuhr Spätlese
+</td>
+<td>
+90
+</td>
+<td>
+28.0
+</td>
+<td>
+Mosel
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+Anna Lee C. Iijima
+</td>
+<td>
+NaN
+</td>
+<td>
+Dr. H. Thanisch (Erben Müller-Burggraef) 2013 ...
+</td>
+<td>
+Riesling
+</td>
+<td>
+Dr. H. Thanisch (Erben Müller-Burggraef)
+</td>
+</tr>
+<tr>
+<th>
+129967
+</th>
+<td>
+US
+</td>
+<td>
+Citation is given as much as a decade of bottl...
+</td>
+<td>
+NaN
+</td>
+<td>
+90
+</td>
+<td>
+75.0
+</td>
+<td>
+Oregon
+</td>
+<td>
+Oregon
+</td>
+<td>
+Oregon Other
+</td>
+<td>
+Paul Gregutt
+</td>
+<td>
+<span class="citation" data-cites="paulgwine">@paulgwine</span>
+</td>
+<td>
+Citation 2004 Pinot Noir (Oregon)
+</td>
+<td>
+Pinot Noir
+</td>
+<td>
+Citation
+</td>
+</tr>
+<tr>
+<th>
+129968
+</th>
+<td>
+France
+</td>
+<td>
+Well-drained gravel soil gives this wine its c...
+</td>
+<td>
+Kritt
+</td>
+<td>
+90
+</td>
+<td>
+30.0
+</td>
+<td>
+Alsace
+</td>
+<td>
+Alsace
+</td>
+<td>
+NaN
+</td>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+Domaine Gresser 2013 Kritt Gewurztraminer (Als...
+</td>
+<td>
+Gewürztraminer
+</td>
+<td>
+Domaine Gresser
+</td>
+</tr>
+<tr>
+<th>
+129969
+</th>
+<td>
+France
+</td>
+<td>
+A dry style of Pinot Gris, this is crisp with ...
+</td>
+<td>
+NaN
+</td>
+<td>
+90
+</td>
+<td>
+32.0
+</td>
+<td>
+Alsace
+</td>
+<td>
+Alsace
+</td>
+<td>
+NaN
+</td>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+Domaine Marcel Deiss 2012 Pinot Gris (Alsace)
+</td>
+<td>
+Pinot Gris
+</td>
+<td>
+Domaine Marcel Deiss
+</td>
+</tr>
+<tr>
+<th>
+129970
+</th>
+<td>
+France
+</td>
+<td>
+Big, rich and off-dry, this is powered by inte...
+</td>
+<td>
+Lieu-dit Harth Cuvée Caroline
+</td>
+<td>
+90
+</td>
+<td>
+21.0
+</td>
+<td>
+Alsace
+</td>
+<td>
+Alsace
+</td>
+<td>
+NaN
+</td>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+Domaine Schoffit 2012 Lieu-dit Harth Cuvée Car...
+</td>
+<td>
+Gewürztraminer
+</td>
+<td>
+Domaine Schoffit
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="根据标签来索引">根据标签来索引</h2>
+<p>不是根据数据的位置，而是根据数据的索引，举例来说，如果我们想要reviews的第一个元素：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.loc[<span class="number">0</span>, <span class="string">'country'</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>&#39;Italy&#39;</code></pre>
+<p>iloc在概念上比loc更简单，因为它忽略了数据集的索引。
+当我们使用iloc时，我们将数据集视为一个大矩阵（列表列表），我们必须按位置索引。
+相比之下，loc使用索引中的信息来完成其工作。
+由于您的数据集通常具有有意义的索引，因此使用loc通常更容易。
+例如，这是一个使用loc更容易的操作：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.loc[:, [<span class="string">'taster_name'</span>, <span class="string">'taster_twitter_handle'</span>, <span class="string">'points'</span>]]</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+taster_name
+</th>
+<th>
+taster_twitter_handle
+</th>
+<th>
+points
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+Kerin O’Keefe
+</td>
+<td>
+<span class="citation" data-cites="kerinokeefe">@kerinokeefe</span>
+</td>
+<td>
+87
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+87
+</td>
+</tr>
+<tr>
+<th>
+...
+</th>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+</tr>
+<tr>
+<th>
+129969
+</th>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+90
+</td>
+</tr>
+<tr>
+<th>
+129970
+</th>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+90
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+129971 rows × 3 columns
+</p>
+</div>
+<p>在loc和iloc之间选择或转换时，有一个值得记住的“问题”，即两种方法使用略有不同的索引方案。</p>
+<p>iloc使用Python
+stdlib索引方案，其中包含范围的第一个元素，排除最后一个元素。因此0:10将选择条目0，...，9。同时，loc包含索引。因此0:10将选择条目0，...，10。</p>
+<p>为什么要改变？请记住，loc可以索引任何stdlib类型：例如，字符串。如果我们有一个带有索引值Apples，...，Potatoes，...的DataFrame，并且我们想要选择“苹果和土豆之间的所有字母水果选择”，那么索引df会更加方便。
+loc ['Apples'：'Potatoes']比索引像df.loc
+['Apples'，'Potatoet]（t在字母表中的s之后）。</p>
+<p>当DataFrame索引是简单的数字列表时，例如，这尤其令人困惑。
+0，...，1000。在这种情况下，df.iloc [0：1000]将返回1000个条目，而df.loc
+[0：1000]将返回1001个条目！要使用loc获取1000个元素，您需要降低一个并请求df.iloc
+[0：999]。</p>
+<p>否则，使用loc的语义与iloc的语义相同。</p>
+<h2 id="操纵索引">操纵索引</h2>
+<p>基于标签的选择从索引中的标签获得其权力。
+关键的是，我们使用的索引不是一成不变的。
+我们可以以我们认为合适的任何方式操纵索引。</p>
+<p>set_index方法可用于完成工作。
+以下是set_index到title字段时会发生的情况：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.set_index(<span class="string">"title"</span>)</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+country
+</th>
+<th>
+description
+</th>
+<th>
+designation
+</th>
+<th>
+points
+</th>
+<th>
+price
+</th>
+<th>
+province
+</th>
+<th>
+region_1
+</th>
+<th>
+region_2
+</th>
+<th>
+taster_name
+</th>
+<th>
+taster_twitter_handle
+</th>
+<th>
+variety
+</th>
+<th>
+winery
+</th>
+</tr>
+<tr>
+<th>
+title
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+Nicosia 2013 Vulkà Bianco (Etna)
+</th>
+<td>
+Italy
+</td>
+<td>
+Aromas include tropical fruit, broom, brimston...
+</td>
+<td>
+Vulkà Bianco
+</td>
+<td>
+87
+</td>
+<td>
+NaN
+</td>
+<td>
+Sicily &amp; Sardinia
+</td>
+<td>
+Etna
+</td>
+<td>
+NaN
+</td>
+<td>
+Kerin O’Keefe
+</td>
+<td>
+<span class="citation" data-cites="kerinokeefe">@kerinokeefe</span>
+</td>
+<td>
+White Blend
+</td>
+<td>
+Nicosia
+</td>
+</tr>
+<tr>
+<th>
+Quinta dos Avidagos 2011 Avidagos Red (Douro)
+</th>
+<td>
+Portugal
+</td>
+<td>
+This is ripe and fruity, a wine that is smooth...
+</td>
+<td>
+Avidagos
+</td>
+<td>
+87
+</td>
+<td>
+15.0
+</td>
+<td>
+Douro
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+Portuguese Red
+</td>
+<td>
+Quinta dos Avidagos
+</td>
+</tr>
+<tr>
+<th>
+...
+</th>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+</tr>
+<tr>
+<th>
+Domaine Marcel Deiss 2012 Pinot Gris (Alsace)
+</th>
+<td>
+France
+</td>
+<td>
+A dry style of Pinot Gris, this is crisp with ...
+</td>
+<td>
+NaN
+</td>
+<td>
+90
+</td>
+<td>
+32.0
+</td>
+<td>
+Alsace
+</td>
+<td>
+Alsace
+</td>
+<td>
+NaN
+</td>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+Pinot Gris
+</td>
+<td>
+Domaine Marcel Deiss
+</td>
+</tr>
+<tr>
+<th>
+Domaine Schoffit 2012 Lieu-dit Harth Cuvée Caroline Gewurztraminer
+(Alsace)
+</th>
+<td>
+France
+</td>
+<td>
+Big, rich and off-dry, this is powered by inte...
+</td>
+<td>
+Lieu-dit Harth Cuvée Caroline
+</td>
+<td>
+90
+</td>
+<td>
+21.0
+</td>
+<td>
+Alsace
+</td>
+<td>
+Alsace
+</td>
+<td>
+NaN
+</td>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+Gewürztraminer
+</td>
+<td>
+Domaine Schoffit
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+129971 rows × 12 columns
+</p>
+</div>
+<p>如果您可以为数据集提供比当前数据集更好的索引，则执行set_index非常有用。</p>
+<h2 id="条件选择">条件选择</h2>
+<p>到目前为止，我们一直使用DataFrame本身的结构属性索引各种数据。
+但是，为了对数据做有趣的事情，我们经常需要根据条件提出问题。</p>
+<p>例如，假设我们特别关注意大利生产的优质葡萄酒。</p>
+<p>我们可以先询问每种葡萄酒是否为意大利葡萄酒：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.country == <span class="string">'Italy'</span></span><br></pre></td></tr></table></figure>
+<pre><code>0          True
+1         False
+          ...  
+129969    False
+129970    False
+Name: country, Length: 129971, dtype: bool</code></pre>
+<p>此操作根据每条记录的国家/地区生成一系列真/假布尔值。
+然后可以在loc内部使用此结果来选择相关数据：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.loc[reviews.country == <span class="string">'Italy'</span>]</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+country
+</th>
+<th>
+description
+</th>
+<th>
+designation
+</th>
+<th>
+points
+</th>
+<th>
+price
+</th>
+<th>
+province
+</th>
+<th>
+region_1
+</th>
+<th>
+region_2
+</th>
+<th>
+taster_name
+</th>
+<th>
+taster_twitter_handle
+</th>
+<th>
+title
+</th>
+<th>
+variety
+</th>
+<th>
+winery
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+Italy
+</td>
+<td>
+Aromas include tropical fruit, broom, brimston...
+</td>
+<td>
+Vulkà Bianco
+</td>
+<td>
+87
+</td>
+<td>
+NaN
+</td>
+<td>
+Sicily &amp; Sardinia
+</td>
+<td>
+Etna
+</td>
+<td>
+NaN
+</td>
+<td>
+Kerin O’Keefe
+</td>
+<td>
+<span class="citation" data-cites="kerinokeefe">@kerinokeefe</span>
+</td>
+<td>
+Nicosia 2013 Vulkà Bianco (Etna)
+</td>
+<td>
+White Blend
+</td>
+<td>
+Nicosia
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+Italy
+</td>
+<td>
+Here's a bright, informal red that opens with ...
+</td>
+<td>
+Belsito
+</td>
+<td>
+87
+</td>
+<td>
+16.0
+</td>
+<td>
+Sicily &amp; Sardinia
+</td>
+<td>
+Vittoria
+</td>
+<td>
+NaN
+</td>
+<td>
+Kerin O’Keefe
+</td>
+<td>
+<span class="citation" data-cites="kerinokeefe">@kerinokeefe</span>
+</td>
+<td>
+Terre di Giurfo 2013 Belsito Frappato (Vittoria)
+</td>
+<td>
+Frappato
+</td>
+<td>
+Terre di Giurfo
+</td>
+</tr>
+<tr>
+<th>
+...
+</th>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+</tr>
+<tr>
+<th>
+129961
+</th>
+<td>
+Italy
+</td>
+<td>
+Intense aromas of wild cherry, baking spice, t...
+</td>
+<td>
+NaN
+</td>
+<td>
+90
+</td>
+<td>
+30.0
+</td>
+<td>
+Sicily &amp; Sardinia
+</td>
+<td>
+Sicilia
+</td>
+<td>
+NaN
+</td>
+<td>
+Kerin O’Keefe
+</td>
+<td>
+<span class="citation" data-cites="kerinokeefe">@kerinokeefe</span>
+</td>
+<td>
+COS 2013 Frappato (Sicilia)
+</td>
+<td>
+Frappato
+</td>
+<td>
+COS
+</td>
+</tr>
+<tr>
+<th>
+129962
+</th>
+<td>
+Italy
+</td>
+<td>
+Blackberry, cassis, grilled herb and toasted a...
+</td>
+<td>
+Sàgana Tenuta San Giacomo
+</td>
+<td>
+90
+</td>
+<td>
+40.0
+</td>
+<td>
+Sicily &amp; Sardinia
+</td>
+<td>
+Sicilia
+</td>
+<td>
+NaN
+</td>
+<td>
+Kerin O’Keefe
+</td>
+<td>
+<span class="citation" data-cites="kerinokeefe">@kerinokeefe</span>
+</td>
+<td>
+Cusumano 2012 Sàgana Tenuta San Giacomo Nero d...
+</td>
+<td>
+Nero d'Avola
+</td>
+<td>
+Cusumano
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+19540 rows × 13 columns
+</p>
+</div>
+<p>这个DataFrame有大约20,000行。 原来有~130,000。
+这意味着大约15％的葡萄酒来自意大利。</p>
+<p>我们还想知道哪些比平均水平更好。
+葡萄酒的评分为80至100分，因此这可能意味着葡萄酒至少累积90分。</p>
+<p>我们可以使用＆符号（＆）将两个问题放在一起：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.loc[(reviews.country == <span class="string">'Italy'</span>) &amp; (reviews.points &gt;= <span class="number">90</span>)]</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+country
+</th>
+<th>
+description
+</th>
+<th>
+designation
+</th>
+<th>
+points
+</th>
+<th>
+price
+</th>
+<th>
+province
+</th>
+<th>
+region_1
+</th>
+<th>
+region_2
+</th>
+<th>
+taster_name
+</th>
+<th>
+taster_twitter_handle
+</th>
+<th>
+title
+</th>
+<th>
+variety
+</th>
+<th>
+winery
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+120
+</th>
+<td>
+Italy
+</td>
+<td>
+Slightly backward, particularly given the vint...
+</td>
+<td>
+Bricco Rocche Prapó
+</td>
+<td>
+92
+</td>
+<td>
+70.0
+</td>
+<td>
+Piedmont
+</td>
+<td>
+Barolo
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+Ceretto 2003 Bricco Rocche Prapó (Barolo)
+</td>
+<td>
+Nebbiolo
+</td>
+<td>
+Ceretto
+</td>
+</tr>
+<tr>
+<th>
+130
+</th>
+<td>
+Italy
+</td>
+<td>
+At the first it was quite muted and subdued, b...
+</td>
+<td>
+Bricco Rocche Brunate
+</td>
+<td>
+91
+</td>
+<td>
+70.0
+</td>
+<td>
+Piedmont
+</td>
+<td>
+Barolo
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+Ceretto 2003 Bricco Rocche Brunate (Barolo)
+</td>
+<td>
+Nebbiolo
+</td>
+<td>
+Ceretto
+</td>
+</tr>
+<tr>
+<th>
+...
+</th>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+</tr>
+<tr>
+<th>
+129961
+</th>
+<td>
+Italy
+</td>
+<td>
+Intense aromas of wild cherry, baking spice, t...
+</td>
+<td>
+NaN
+</td>
+<td>
+90
+</td>
+<td>
+30.0
+</td>
+<td>
+Sicily &amp; Sardinia
+</td>
+<td>
+Sicilia
+</td>
+<td>
+NaN
+</td>
+<td>
+Kerin O’Keefe
+</td>
+<td>
+<span class="citation" data-cites="kerinokeefe">@kerinokeefe</span>
+</td>
+<td>
+COS 2013 Frappato (Sicilia)
+</td>
+<td>
+Frappato
+</td>
+<td>
+COS
+</td>
+</tr>
+<tr>
+<th>
+129962
+</th>
+<td>
+Italy
+</td>
+<td>
+Blackberry, cassis, grilled herb and toasted a...
+</td>
+<td>
+Sàgana Tenuta San Giacomo
+</td>
+<td>
+90
+</td>
+<td>
+40.0
+</td>
+<td>
+Sicily &amp; Sardinia
+</td>
+<td>
+Sicilia
+</td>
+<td>
+NaN
+</td>
+<td>
+Kerin O’Keefe
+</td>
+<td>
+<span class="citation" data-cites="kerinokeefe">@kerinokeefe</span>
+</td>
+<td>
+Cusumano 2012 Sàgana Tenuta San Giacomo Nero d...
+</td>
+<td>
+Nero d'Avola
+</td>
+<td>
+Cusumano
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+6648 rows × 13 columns
+</p>
+</div>
+<p>假设我们将购买任何在意大利制造或评级高于平均水平的葡萄酒。
+为此，我们使用管道（|）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.loc[(reviews.country == <span class="string">'Italy'</span>) | (reviews.points &gt;= <span class="number">90</span>)]</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+country
+</th>
+<th>
+description
+</th>
+<th>
+designation
+</th>
+<th>
+points
+</th>
+<th>
+price
+</th>
+<th>
+province
+</th>
+<th>
+region_1
+</th>
+<th>
+region_2
+</th>
+<th>
+taster_name
+</th>
+<th>
+taster_twitter_handle
+</th>
+<th>
+title
+</th>
+<th>
+variety
+</th>
+<th>
+winery
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+Italy
+</td>
+<td>
+Aromas include tropical fruit, broom, brimston...
+</td>
+<td>
+Vulkà Bianco
+</td>
+<td>
+87
+</td>
+<td>
+NaN
+</td>
+<td>
+Sicily &amp; Sardinia
+</td>
+<td>
+Etna
+</td>
+<td>
+NaN
+</td>
+<td>
+Kerin O’Keefe
+</td>
+<td>
+<span class="citation" data-cites="kerinokeefe">@kerinokeefe</span>
+</td>
+<td>
+Nicosia 2013 Vulkà Bianco (Etna)
+</td>
+<td>
+White Blend
+</td>
+<td>
+Nicosia
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+Italy
+</td>
+<td>
+Here's a bright, informal red that opens with ...
+</td>
+<td>
+Belsito
+</td>
+<td>
+87
+</td>
+<td>
+16.0
+</td>
+<td>
+Sicily &amp; Sardinia
+</td>
+<td>
+Vittoria
+</td>
+<td>
+NaN
+</td>
+<td>
+Kerin O’Keefe
+</td>
+<td>
+<span class="citation" data-cites="kerinokeefe">@kerinokeefe</span>
+</td>
+<td>
+Terre di Giurfo 2013 Belsito Frappato (Vittoria)
+</td>
+<td>
+Frappato
+</td>
+<td>
+Terre di Giurfo
+</td>
+</tr>
+<tr>
+<th>
+...
+</th>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+</tr>
+<tr>
+<th>
+129969
+</th>
+<td>
+France
+</td>
+<td>
+A dry style of Pinot Gris, this is crisp with ...
+</td>
+<td>
+NaN
+</td>
+<td>
+90
+</td>
+<td>
+32.0
+</td>
+<td>
+Alsace
+</td>
+<td>
+Alsace
+</td>
+<td>
+NaN
+</td>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+Domaine Marcel Deiss 2012 Pinot Gris (Alsace)
+</td>
+<td>
+Pinot Gris
+</td>
+<td>
+Domaine Marcel Deiss
+</td>
+</tr>
+<tr>
+<th>
+129970
+</th>
+<td>
+France
+</td>
+<td>
+Big, rich and off-dry, this is powered by inte...
+</td>
+<td>
+Lieu-dit Harth Cuvée Caroline
+</td>
+<td>
+90
+</td>
+<td>
+21.0
+</td>
+<td>
+Alsace
+</td>
+<td>
+Alsace
+</td>
+<td>
+NaN
+</td>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+Domaine Schoffit 2012 Lieu-dit Harth Cuvée Car...
+</td>
+<td>
+Gewürztraminer
+</td>
+<td>
+Domaine Schoffit
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+61937 rows × 13 columns
+</p>
+</div>
+<p>pandas附带了一些预先建立的条件选择器，其中两个我们将在这里重点介绍。
+第一个是isin。 isin允许您选择值“在...中”的数据列表。
+例如，以下是我们如何使用它来选择仅来自意大利或法国的葡萄酒：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.loc[reviews.country.isin([<span class="string">'Italy'</span>, <span class="string">'France'</span>])]</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+country
+</th>
+<th>
+description
+</th>
+<th>
+designation
+</th>
+<th>
+points
+</th>
+<th>
+price
+</th>
+<th>
+province
+</th>
+<th>
+region_1
+</th>
+<th>
+region_2
+</th>
+<th>
+taster_name
+</th>
+<th>
+taster_twitter_handle
+</th>
+<th>
+title
+</th>
+<th>
+variety
+</th>
+<th>
+winery
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+Italy
+</td>
+<td>
+Aromas include tropical fruit, broom, brimston...
+</td>
+<td>
+Vulkà Bianco
+</td>
+<td>
+87
+</td>
+<td>
+NaN
+</td>
+<td>
+Sicily &amp; Sardinia
+</td>
+<td>
+Etna
+</td>
+<td>
+NaN
+</td>
+<td>
+Kerin O’Keefe
+</td>
+<td>
+<span class="citation" data-cites="kerinokeefe">@kerinokeefe</span>
+</td>
+<td>
+Nicosia 2013 Vulkà Bianco (Etna)
+</td>
+<td>
+White Blend
+</td>
+<td>
+Nicosia
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+Italy
+</td>
+<td>
+Here's a bright, informal red that opens with ...
+</td>
+<td>
+Belsito
+</td>
+<td>
+87
+</td>
+<td>
+16.0
+</td>
+<td>
+Sicily &amp; Sardinia
+</td>
+<td>
+Vittoria
+</td>
+<td>
+NaN
+</td>
+<td>
+Kerin O’Keefe
+</td>
+<td>
+<span class="citation" data-cites="kerinokeefe">@kerinokeefe</span>
+</td>
+<td>
+Terre di Giurfo 2013 Belsito Frappato (Vittoria)
+</td>
+<td>
+Frappato
+</td>
+<td>
+Terre di Giurfo
+</td>
+</tr>
+<tr>
+<th>
+...
+</th>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+</tr>
+<tr>
+<th>
+129969
+</th>
+<td>
+France
+</td>
+<td>
+A dry style of Pinot Gris, this is crisp with ...
+</td>
+<td>
+NaN
+</td>
+<td>
+90
+</td>
+<td>
+32.0
+</td>
+<td>
+Alsace
+</td>
+<td>
+Alsace
+</td>
+<td>
+NaN
+</td>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+Domaine Marcel Deiss 2012 Pinot Gris (Alsace)
+</td>
+<td>
+Pinot Gris
+</td>
+<td>
+Domaine Marcel Deiss
+</td>
+</tr>
+<tr>
+<th>
+129970
+</th>
+<td>
+France
+</td>
+<td>
+Big, rich and off-dry, this is powered by inte...
+</td>
+<td>
+Lieu-dit Harth Cuvée Caroline
+</td>
+<td>
+90
+</td>
+<td>
+21.0
+</td>
+<td>
+Alsace
+</td>
+<td>
+Alsace
+</td>
+<td>
+NaN
+</td>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+Domaine Schoffit 2012 Lieu-dit Harth Cuvée Car...
+</td>
+<td>
+Gewürztraminer
+</td>
+<td>
+Domaine Schoffit
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+41633 rows × 13 columns
+</p>
+</div>
+<p>第二个是isnull（和它的伴侣notnull）。
+这些方法可以突出显示非空（NaN）的值。
+例如，要过滤掉数据集中缺少价格标签的葡萄酒，我们将采取以下措施：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.loc[reviews.price.notnull()]</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+country
+</th>
+<th>
+description
+</th>
+<th>
+designation
+</th>
+<th>
+points
+</th>
+<th>
+price
+</th>
+<th>
+province
+</th>
+<th>
+region_1
+</th>
+<th>
+region_2
+</th>
+<th>
+taster_name
+</th>
+<th>
+taster_twitter_handle
+</th>
+<th>
+title
+</th>
+<th>
+variety
+</th>
+<th>
+winery
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+1
+</th>
+<td>
+Portugal
+</td>
+<td>
+This is ripe and fruity, a wine that is smooth...
+</td>
+<td>
+Avidagos
+</td>
+<td>
+87
+</td>
+<td>
+15.0
+</td>
+<td>
+Douro
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+Quinta dos Avidagos 2011 Avidagos Red (Douro)
+</td>
+<td>
+Portuguese Red
+</td>
+<td>
+Quinta dos Avidagos
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+US
+</td>
+<td>
+Tart and snappy, the flavors of lime flesh and...
+</td>
+<td>
+NaN
+</td>
+<td>
+87
+</td>
+<td>
+14.0
+</td>
+<td>
+Oregon
+</td>
+<td>
+Willamette Valley
+</td>
+<td>
+Willamette Valley
+</td>
+<td>
+Paul Gregutt
+</td>
+<td>
+<span class="citation" data-cites="paulgwine">@paulgwine</span>
+</td>
+<td>
+Rainstorm 2013 Pinot Gris (Willamette Valley)
+</td>
+<td>
+Pinot Gris
+</td>
+<td>
+Rainstorm
+</td>
+</tr>
+<tr>
+<th>
+...
+</th>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+</tr>
+<tr>
+<th>
+129969
+</th>
+<td>
+France
+</td>
+<td>
+A dry style of Pinot Gris, this is crisp with ...
+</td>
+<td>
+NaN
+</td>
+<td>
+90
+</td>
+<td>
+32.0
+</td>
+<td>
+Alsace
+</td>
+<td>
+Alsace
+</td>
+<td>
+NaN
+</td>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+Domaine Marcel Deiss 2012 Pinot Gris (Alsace)
+</td>
+<td>
+Pinot Gris
+</td>
+<td>
+Domaine Marcel Deiss
+</td>
+</tr>
+<tr>
+<th>
+129970
+</th>
+<td>
+France
+</td>
+<td>
+Big, rich and off-dry, this is powered by inte...
+</td>
+<td>
+Lieu-dit Harth Cuvée Caroline
+</td>
+<td>
+90
+</td>
+<td>
+21.0
+</td>
+<td>
+Alsace
+</td>
+<td>
+Alsace
+</td>
+<td>
+NaN
+</td>
+<td>
+Roger Voss
+</td>
+<td>
+<span class="citation" data-cites="vossroger">@vossroger</span>
+</td>
+<td>
+Domaine Schoffit 2012 Lieu-dit Harth Cuvée Car...
+</td>
+<td>
+Gewürztraminer
+</td>
+<td>
+Domaine Schoffit
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+120975 rows × 13 columns
+</p>
+</div>
+<h2 id="赋值">赋值</h2>
+<p>另一方面，将数据分配给DataFrame很容易。 您可以指定一个常量值：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reviews[<span class="string">'critic'</span>] = <span class="string">'everyone'</span></span><br><span class="line">reviews[<span class="string">'critic'</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>0         everyone
+1         everyone
+            ...   
+129969    everyone
+129970    everyone
+Name: critic, Length: 129971, dtype: object</code></pre>
+<p>或者使用可迭代的值：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reviews[<span class="string">'index_backwards'</span>] = range(len(reviews), <span class="number">0</span>, <span class="number">-1</span>)</span><br><span class="line">reviews[<span class="string">'index_backwards'</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>0         129971
+1         129970
+           ...  
+129969         2
+129970         1
+Name: index_backwards, Length: 129971, dtype: int64</code></pre>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>If you like my blog, please donate for me.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipayQR.jpg" alt="Oliver xu 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Pandas/" rel="tag"># Pandas</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/11/25/Pandas%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-%E4%B8%80-%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%92%8C%E8%AF%BB%E5%86%99/" rel="prev" title="Pandas系列教程(一)：创建和读写">
+      <i class="fa fa-chevron-left"></i> Pandas系列教程(一)：创建和读写
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/02/01/%E5%85%89%E7%BA%A4%E6%B5%8B%E6%B8%A9WEB%E7%B3%BB%E7%BB%9F/" rel="next" title="光纤测温WEB系统">
+      光纤测温WEB系统 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#python语言自带的索引切片方法"><span class="nav-number">1.</span> <span class="nav-text">Python语言自带的索引，切片方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于索引来选择数据"><span class="nav-number">2.</span> <span class="nav-text">基于索引来选择数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据标签来索引"><span class="nav-number">3.</span> <span class="nav-text">根据标签来索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操纵索引"><span class="nav-number">4.</span> <span class="nav-text">操纵索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件选择"><span class="nav-number">5.</span> <span class="nav-text">条件选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#赋值"><span class="nav-number">6.</span> <span class="nav-text">赋值</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Oliver xu"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Oliver xu</p>
+  <div class="site-description" itemprop="description">愿中国青年都摆脱冷气，只是向上走</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29saXh1" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;olixu"><i class="github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjI3MzYwMTcyN0BxcS5jb20=" title="E-Mail → mailto:273601727@qq.com"><i class="envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">苏ICP备17055396号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Oliver xu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">345k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:14</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/js/anime.min.js"></script>
+  <script src="/js/velocity.min.js"></script>
+  <script src="/js/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="/css/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('/js/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'e11777414ce827fd8ec2',
+      clientSecret: 'c572c4ca1c0dfdfaf2b4f2195aa903185e2dfeea',
+      repo        : 'blog-comment',
+      owner       : 'olixu',
+      admin       : ['olixu'],
+      id          : 'f468a10f5736f91b1cf05582cb4dfd21',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>

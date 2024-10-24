@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/leimu.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/leimu.webp">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/leimu.webp">
+  <link rel="mask-icon" href="/images/leimu.webp" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="B9DN3IrX7m2gTbRqa4D1C1Lluvo_zP2P5KC0wh4-ej4">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.oliverxu.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="本文主要是对《Learning-Based model predictive control: Toward Safe Learning in Control》文章中Section5中所引用的文章的笔记和理解，以及safe reinforcement learning一个简单的综述和分析。 介绍safe reinforcement learning不同的思路和方法（以2021TAC文章为例） 综述">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Safe learning框架综述">
+<meta property="og:url" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/index.html">
+<meta property="og:site_name" content="Oliver xu&#39;s Blog">
+<meta property="og:description" content="本文主要是对《Learning-Based model predictive control: Toward Safe Learning in Control》文章中Section5中所引用的文章的笔记和理解，以及safe reinforcement learning一个简单的综述和分析。 介绍safe reinforcement learning不同的思路和方法（以2021TAC文章为例） 综述">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210327223701918.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210328111538059.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210328113053070.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210328113455728.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210327224614946.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210327224811698.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210328104816123.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210328115257894.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210328115323947.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210326205307401.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210326205459769.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210326202622180.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210326202634687.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210326204935247.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210328105619902.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210328105633641.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210328105727399.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210328105736622.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210326203103352.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210326203127118.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210326204137816.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210326203737343.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210328121429998.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210328121437265.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210328121751382.png">
+<meta property="og:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210328122648481.png">
+<meta property="article:published_time" content="2021-03-22T20:40:00.000Z">
+<meta property="article:modified_time" content="2024-10-24T21:06:54.438Z">
+<meta property="article:author" content="Oliver xu">
+<meta property="article:tag" content="MPC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/image-20210327223701918.png">
+
+<link rel="canonical" href="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Safe learning框架综述 | Oliver xu's Blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?473560aefa55cb0313599b95a2994bf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss.xml" title="Oliver xu's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Oliver xu's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-album">
+
+    <a href="/album/" rel="section"><i class="fa fa-images fa-fw"></i>相册</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.oliverxu.cn/2021/03/22/safe_learning%E7%BB%BC%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Oliver xu">
+      <meta itemprop="description" content="愿中国青年都摆脱冷气，只是向上走">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oliver xu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Safe learning框架综述
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-22 20:40:00" itemprop="dateCreated datePublished" datetime="2021-03-22T20:40:00+00:00">2021-03-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-10-24 21:06:54" itemprop="dateModified" datetime="2024-10-24T21:06:54+00:00">2024-10-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MPC/" itemprop="url" rel="index"><span itemprop="name">MPC</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本文主要是对《Learning-Based model predictive control: Toward Safe
+Learning in Control》文章中Section5中所引用的文章的笔记和理解，以及safe
+reinforcement learning一个简单的综述和分析。</p>
+<h2
+id="介绍safe-reinforcement-learning不同的思路和方法以2021tac文章为例">介绍safe
+reinforcement learning不同的思路和方法（以2021TAC文章为例）</h2>
+<p>综述文章《Learning-based model predictive control: Toward Safe
+Learning in Control》，文中主要对三个方向进行阐述和介绍：1. learning the
+system dynamics 2. Learning the controller design 3. MPC for safe
+learning. 其中，前两个都是很常规的操作，对于第三个，结合当前很火的safe
+reinforcement
+learning，文中列举了几个工作。这篇文章主要是ETH的实验室的人做的工作，其引用了很多自己实验室的工作。</p>
+<p>通常基于学习的控制算法，例如强化学习，已经在高维度的控制问题中取得了巨大进展，但是由于系统物理约束的存在，大部分的工作都不能保证安全性，尤其是在迭代学习的过程中，为了解决这个问题，2011年的一篇文章《Guaranteed
+safe online learning of a bounded
+system》提出了一个安全性框架，通过在必要的时候使用一个基于模型的控制器来进行控制，否则使用一个基于学习的控制器进行控制，来最优化损失函数。</p>
+<a id="more"></a>
+<p>MPC可以和《A predictive safety filter for learning-based control of
+constrained dynamical systems》中提出的safety
+filter结合，来将一个safety-critical动态系统变为一个安全系统，并且各种基于学习的控制器都可以直接结合使用。传统的MPC算法是同时考虑约束和cost
+function，也即一对tradeoff，尤其对于随机系统来说，约束满足的话，cost
+function可能高，约束不满足的话，cost
+function会降低，所以，需要对约束满足和cost
+function优化分开考虑，利用MPC算法来满足约束，利用基于学习的方法来优化performance。MPC控制器通常是对真正的随机最优控制问题的粗略近似。为了解决上述问题，可以考虑使用基于学习的控制器，例如随机策略搜索，和近似动态规划。</p>
+<h3
+id="年guaranteed-safe-online-learning-of-a-bounded-system">2011年：《Guaranteed
+safe online learning of a bounded system》</h3>
+<p>很多基于学习的控制方法，以强化学习为代表，取得了很大的进展，能够用于处理复杂且高维度的问题，但是这些方法大多数不能保证在物理条件限制下的安全限制，尤其是在学习迭代的过程中。为了解决这个问题，safety框架在控制理论中出现。即这篇文章，应该是最早的将safe-learning问题的文章。</p>
+<p>机器学习方法被广泛用于自动机器人中，然而很多结果都只是通过精确性和收敛率来描述系统的性能，而很少有工作来分析其保证稳定性和鲁棒性的理论分析。因此，许多机器学习算法都被限制应用在对安全性要求不高的场景下。为了解决这个问题，可以使用reachability
+analysis，该技术可以用来计算状态空间的区域，也被称作可达集。在这个集合中的点，尽管受到扰动的作用，仍然可以保证其是安全的在未来的一段时间内。这篇文章展示了如何利用可达性分析来结合机器学习算法，应用到一个实际的场景中：一个飞行机器人尝试学习地面小车的动态系统，使用摄像头且视场有限。</p>
+<p>所提出的算法使用Reachability analysis方法</p>
+<p><img src="image-20210327223701918.png" /></p>
+<h3
+id="年safe-reinforcement-learning-via-online-shielding">2017年：《Safe
+reinforcement learning via online shielding》</h3>
+<p><img src="image-20210328111538059.png" /></p>
+<p>这篇文章提出了确保safety的两种模式，主要是根据shield作用的位置来进行区分，第一种是shield在learning
+agent计算控制量之前起作用，给出一个安全action的列表；第二种是在learning
+agent计算出控制量之后，验证该action是否是安全的，然后将不安全的action进行修正。</p>
+<p>这篇文章对safe reinforcement
+learning的定义：在训练和执行的时候满足逻辑安全的条件下来学习一个最优控制器。</p>
+<p>给出一个例子：</p>
+<p><img src="image-20210328113053070.png" /></p>
+<p>对于一个热水存储水箱，学习一个能量消耗高效的控制器，来保持水达到一个指定的温度以上。能量消耗和水位有着相关的关系，但是这个关系是未知的。水箱可以出水，可以进水，水箱的容积有一定限制，约束用逻辑化的表示可以表达为：</p>
+<p><img src="image-20210328113455728.png" /></p>
+<p>第一第二个约束是对水位的物理约束，第三个第四个约束阀门开了或关了以后，需要保持连续两个时间步长。</p>
+<p>shield方法的构造主要还是通过形式化验证的方法。</p>
+<h3
+id="年safe-exploration-of-nonlinear-dynamical-systems-a-predictive-safety-filter-for-reinforcement-learning">2018年：《Safe
+exploration of nonlinear dynamical systems: a predictive safety filter
+for reinforcement learning》</h3>
+<p><img src="image-20210327224614946.png" /></p>
+<p><img src="image-20210327224811698.png" /></p>
+<h3 id="年an-online-approach-to-active-set-invariance">2018年：《An
+online approach to active set invariance 》</h3>
+<p>传统的保证系统安全的方法需要离线计算一个viable
+set，很难计算同时消耗资源大，这篇文章针对线性系统，结合MPC设计了一个最优backup策略，对安全的定义："a
+system being safe is commonly defined as this system never leaving the
+safety set."。</p>
+<p>一个很自然的问题是“什么是最好的backup控制率”，这篇文章考虑的是使用MPC来对<span
+class="math inline">\(x_t\)</span>以后的一段时域进行求最优控制率。</p>
+<p><img src="image-20210328104816123.png" /></p>
+<p>算法：对于给定的线性系统</p>
+<p>1.根据系统动态，利用最优控制计算出一个ellipsoidal集合</p>
+<p>2.利用MPC求解一个近似的最优化问题。</p>
+<h3
+id="年probabilistic-model-predictive-safety-certification-for-learning-based-control">2019年：《Probabilistic
+model predictive safety certification for learning-based control》</h3>
+<p>这篇文章提出了一个probabilistic model predictive safety
+certification(PMPSC)，可以和任何RL算法进行结合，并且可以提供可证明的安全保证。稳定性的证明是通过一个stochastic
+tube来连接当前系统的状态和一个状态终端集，对于无界的扰动来说，一个形式可以允许递归可行解。通过设计了一个设计步骤，使用贝叶斯推理和最新的概率不变集和的成果。最后使用了一个数值车的例子的仿真来展示RL算法可以和文中提出的框架进行结合从而获得安全性的证明。</p>
+<p><img src="image-20210328115257894.png" /></p>
+<h3
+id="年a-predictive-safety-filter-for-learning-based-control-of-constrained-nonlinear-dynamical-systems">2021年：《A
+predictive safety filter for learning-based control of constrained
+nonlinear dynamical systems》</h3>
+<p>这篇文章提出了大多数RL算法不支持状态和输入约束的考虑，而该文提出了一种解决该问题的算法，利用一个预测安全滤波器，其可以将一个有约束的动态系统转化为一个无约束的安全系统，然后可以使用任何RL算法来进行求解。该预测滤波器输入一个控制输入同时基于当前的状态，决定该输入能否被安全用于实际系统中，否则，它必须进行一定的修正来满足安全性条件。安全性是通过连续更新安全策略来满足的，主要采用的是MPC算法来更新这个安全策略，使用一个数据驱动的系统模型，同时考虑状态和输入的独立的不确定性。</p>
+<p>Learning-based
+MPC算法尝试将两者的优势结合起来，见2020年的那篇综述，然而，设计这样的算法很有挑战性，通常很保守，同时需要很多的专家知识，同时，该方法只能局限于model-based方法中。另外，在每一个时间步长中，都需要求解一个有限时域的最优控制问题来近似可能无限时域的控制问题。</p>
+<p>概念：这篇文章提出了一个model predictive
+control的变种算法：predictive safety
+filter。其可将很非线性和安全要求高的动态系统转变为安全系统，然后应用任何RL算法进行应用，且不需要任何safety
+certificates。相比于MPC算法，PSF验证RL控制器的输出是否是安全的，否则，将其进行很小的修改来维持安全操作在未来的所有时刻。这意味着，PSF只需要保证系统是安全的，而并不需要利用特定的目标函数来控制它。然后问题就转变为了寻找一个安全滤波器，而不是寻找一个期望的控制器，对于寻找这样的控制器来说，需要考虑目标函数和约束，很复杂。</p>
+<p>贡献：</p>
+<ol type="1">
+<li>本文针对系统动态是概率模型这一问题，从数据中推理出来的，这篇文章提出了一个predictive
+safety filter，构建在NMPC概念之上。主要方法是通过搜索safe backup
+trajectory，为了确保对将来所有时刻的安全性，对于backup
+trajectory的搜索过程允许修改RL的输入。由于MPC的效果往往比一些非优化的算法好，例如基于Lyapunov函数或者滑膜控制器在线解决一个近似最优控制问题。</li>
+<li>PSF算法提供了一个隐含的状态和输入对的表示，近似估计其最大的容许控制集合和输入集合，使用有限时域的MPC方法。</li>
+</ol>
+<p><img src="image-20210328115323947.png" /></p>
+<h2
+id="介绍仿真环境所研究的问题确定自己需要研究的问题">介绍仿真环境（所研究的问题），确定自己需要研究的问题</h2>
+<p>找研究方向最重要的就是找到需要研究的对象，经过对很多篇文章的阅读，整理一下他们使用的仿真环境及系统表达</p>
+<h3
+id="年jeremy的一篇会议guaranteed-safe-online-learning-of-a-bounded-system">2011年Jeremy的一篇会议《Guaranteed
+safe online learning of a bounded system》</h3>
+<p>这篇文章考虑的是一个无人机和一个地面小车的问题，使用一个无人机来跟踪一个地面的目标。</p>
+<p><img src="image-20210326205307401.png" /></p>
+<p>无人机可以看作是一个观测器，观测器的采样间隔固定</p>
+<p><img src="image-20210326205459769.png" /></p>
+<p>地面小车的系统动态未知，通过控制天上观测器来跟踪地面小车的动态，同时，保证地面小车始终在观测器的视场范围内。</p>
+<h3
+id="年发表在cdc上的a-probabilistic-approach-to-model-predictive-control">2013年发表在CDC上的《A
+probabilistic approach to model predictive control》：</h3>
+<p>该文章考虑的是一个双积分器，表示一个质点在一个二维平面上的运动轨迹，是一个线性系统，同时考虑随机扰动，该系统的状态有4维，其中，<span
+class="math inline">\(x_1\)</span>， <span
+class="math inline">\(x_2\)</span>分别表示系统在二维平面上的<span
+class="math inline">\(x,
+y\)</span>坐标，控制系统的目标是将系统的状态控制到平衡点，也就是<span
+class="math inline">\((0, 0)\)</span>附近。</p>
+<p>同时考虑系统的约束，状态约束和输入约束</p>
+<p><img src="image-20210326202622180.png" /></p>
+<p><img src="image-20210326202634687.png" /></p>
+<h3
+id="年谷歌发在arxiv上的a-lyapunov-based-approach-to-safe-reinforcement-learning">2018年谷歌发在arxiv上的《A
+lyapunov-based approach to safe reinforcement learning》</h3>
+<p>这篇文章仿真的是一个stochastic 2D grid-world motion planning
+problem。
+一个智能体（机器人小车）从一个安全区域出发，同时它的目标是到达一个给定的目标地点。在每一个时刻，智能体可以向四个不同的方向进行移动，由于传感器和控制器的噪声，会存在一个概率，随机的向一个邻居的状态进行移动。考虑到燃料消耗，每一个阶段所消耗的燃料都是为1，到达目标地点的回报是1000。因此，我们想让智能体尽可能在短步骤就能到达目标地点。在初始点到目标点的路程中，有一定数量的障碍物，由于安全的限制，智能体无法通过，因此，智能体的目标是以最可能段的时间到达目标点，同时遇到障碍的次数不超过一个特定的数值。</p>
+<p><img src="image-20210326204935247.png" /></p>
+<p>使用一个25x25大小的grid-world，其中一共有625个状态。</p>
+<h3 id="年cdcan-online-approach-to-active-set-invariance">2018年CDC《An
+online approach to active set invariance》</h3>
+<p><img src="image-20210328105619902.png" /></p>
+<p><img src="image-20210328105633641.png" /></p>
+<p><img src="image-20210328105727399.png" /></p>
+<p><img src="image-20210328105736622.png" /></p>
+<h3
+id="年发表在tac上的probabilistic-model-predictive-safety-certification-for-learning-base-control">2021年发表在TAC上的《Probabilistic
+model predictive safety certification for learning-base control》</h3>
+<p>这篇文章考虑的是一个自动驾驶场景，将一个自动驾驶的车跟踪的一个给定的轨迹，同时，考虑道路的约束，也就是系统状态的约束，系统动态可以表示为：</p>
+<p><img src="image-20210326203103352.png" /></p>
+<p>考虑系统输入的约束，</p>
+<p><img src="image-20210326203127118.png" /></p>
+<h3
+id="年发表在arxiv上的a-predictive-safety-filter-for-learning-based-control-of-constrained-nonlinear-dynamical-systems">2021年发表在arxiv上的《A
+predictive safety filter for learning-based control of constrained
+nonlinear dynamical systems》</h3>
+<p>这篇文章第一个仿真例子考虑的是传统控制问题swinging up
+一个倒立摆，从一个向下的起始位置，考虑输入的约束，同时为了安全的限制，需要将向上位置的角度限制在一定的范围内。其transition模型是通过线性贝叶斯回归来获得的。考虑高斯测量噪声，</p>
+<p><img src="image-20210326204137816.png" /></p>
+<p>第二个数值仿真例子是AscTec Hummingbrid drone，无人机环境，使用Bullet
+Physics SDK进行仿真，</p>
+<p><img src="image-20210326203737343.png" /></p>
+<p>使用一个两层的控制结构进行控制，底层是采用PD控制器，顶层采用提出的控制器进行控制，其状态是10维的，输入是3维的，同时考虑其高度和速度位置的约束。</p>
+<p>最终的控制目标是将无人机从一个给定的初始位置控制到降落位置，是一个三维坐标给定点。使用贝叶斯回归方法，同时基于高斯先验知识及高斯噪声。</p>
+<h3
+id="wabersich-2018年发表在cdc上的文章linear-model-predictive-safety-certification-for-learning-based-control">Wabersich
+2018年发表在CDC上的文章《Linear model predictive safety certification
+for learning-based control》</h3>
+<p>这篇文章考虑的是一个简单的控制问题，其中，系统动态部分未知，并通过数据的方法得到了一个存在误差的近似模型，使用该近似模型和LQR设计方法，最终的控制目标是将系统的状态控制到。</p>
+<p><span class="math inline">\(x(k+1)=\left(\begin{array}{cc} 1 &amp;
+0.1 \\ -0.23 &amp; 0.78 \end{array}\right) x(k)+\left(\begin{array}{c} 0
+\\ 0.1 \end{array}\right) u(k)+w(k)\)</span></p>
+<p><img src="image-20210328121429998.png" /></p>
+<p><img src="image-20210328121437265.png" /></p>
+<h3
+id="yang-yongliang2020年发表在neural-networks-and-learning-systems上的文章safe-intermittent-reinforcement-learning-with-static-and-dynamic-event-generators">Yang
+Yongliang2020年发表在Neural networks and learning systems上的文章《Safe
+Intermittent Reinforcement learning with static and dynamic event
+generators》</h3>
+<p><span class="math inline">\(\dot{x}=\left[\begin{array}{c} x_{2} \\
+-x_{1}+0.5\left(1-x_{2}^{2}\right) x_{2}
+\end{array}\right]+\left[\begin{array}{c} 0 \\ x_{1} \end{array}\right]
+u, \quad t \geq 0\)</span></p>
+<p><img src="image-20210328121751382.png" /></p>
+<p><img src="image-20210328122648481.png" /></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>If you like my blog, please donate for me.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipayQR.jpg" alt="Oliver xu 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/MPC/" rel="tag"># MPC</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/18/MPC%E7%AC%94%E8%AE%B0%E5%92%8C%E7%90%86%E8%A7%A3/" rel="prev" title="MPC笔记和理解">
+      <i class="fa fa-chevron-left"></i> MPC笔记和理解
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/04/29/%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87%E6%92%B0%E5%86%99%E4%B8%8E%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AF%AD%E6%96%99%E5%BA%93/" rel="next" title="科研论文撰写与自定义语料库">
+      科研论文撰写与自定义语料库 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍safe-reinforcement-learning不同的思路和方法以2021tac文章为例"><span class="nav-number">1.</span> <span class="nav-text">介绍safe
+reinforcement learning不同的思路和方法（以2021TAC文章为例）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#年guaranteed-safe-online-learning-of-a-bounded-system"><span class="nav-number">1.1.</span> <span class="nav-text">2011年：《Guaranteed
+safe online learning of a bounded system》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#年safe-reinforcement-learning-via-online-shielding"><span class="nav-number">1.2.</span> <span class="nav-text">2017年：《Safe
+reinforcement learning via online shielding》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#年safe-exploration-of-nonlinear-dynamical-systems-a-predictive-safety-filter-for-reinforcement-learning"><span class="nav-number">1.3.</span> <span class="nav-text">2018年：《Safe
+exploration of nonlinear dynamical systems: a predictive safety filter
+for reinforcement learning》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#年an-online-approach-to-active-set-invariance"><span class="nav-number">1.4.</span> <span class="nav-text">2018年：《An
+online approach to active set invariance 》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#年probabilistic-model-predictive-safety-certification-for-learning-based-control"><span class="nav-number">1.5.</span> <span class="nav-text">2019年：《Probabilistic
+model predictive safety certification for learning-based control》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#年a-predictive-safety-filter-for-learning-based-control-of-constrained-nonlinear-dynamical-systems"><span class="nav-number">1.6.</span> <span class="nav-text">2021年：《A
+predictive safety filter for learning-based control of constrained
+nonlinear dynamical systems》</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍仿真环境所研究的问题确定自己需要研究的问题"><span class="nav-number">2.</span> <span class="nav-text">介绍仿真环境（所研究的问题），确定自己需要研究的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#年jeremy的一篇会议guaranteed-safe-online-learning-of-a-bounded-system"><span class="nav-number">2.1.</span> <span class="nav-text">2011年Jeremy的一篇会议《Guaranteed
+safe online learning of a bounded system》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#年发表在cdc上的a-probabilistic-approach-to-model-predictive-control"><span class="nav-number">2.2.</span> <span class="nav-text">2013年发表在CDC上的《A
+probabilistic approach to model predictive control》：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#年谷歌发在arxiv上的a-lyapunov-based-approach-to-safe-reinforcement-learning"><span class="nav-number">2.3.</span> <span class="nav-text">2018年谷歌发在arxiv上的《A
+lyapunov-based approach to safe reinforcement learning》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#年cdcan-online-approach-to-active-set-invariance"><span class="nav-number">2.4.</span> <span class="nav-text">2018年CDC《An
+online approach to active set invariance》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#年发表在tac上的probabilistic-model-predictive-safety-certification-for-learning-base-control"><span class="nav-number">2.5.</span> <span class="nav-text">2021年发表在TAC上的《Probabilistic
+model predictive safety certification for learning-base control》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#年发表在arxiv上的a-predictive-safety-filter-for-learning-based-control-of-constrained-nonlinear-dynamical-systems"><span class="nav-number">2.6.</span> <span class="nav-text">2021年发表在arxiv上的《A
+predictive safety filter for learning-based control of constrained
+nonlinear dynamical systems》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wabersich-2018年发表在cdc上的文章linear-model-predictive-safety-certification-for-learning-based-control"><span class="nav-number">2.7.</span> <span class="nav-text">Wabersich
+2018年发表在CDC上的文章《Linear model predictive safety certification
+for learning-based control》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yang-yongliang2020年发表在neural-networks-and-learning-systems上的文章safe-intermittent-reinforcement-learning-with-static-and-dynamic-event-generators"><span class="nav-number">2.8.</span> <span class="nav-text">Yang
+Yongliang2020年发表在Neural networks and learning systems上的文章《Safe
+Intermittent Reinforcement learning with static and dynamic event
+generators》</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Oliver xu"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Oliver xu</p>
+  <div class="site-description" itemprop="description">愿中国青年都摆脱冷气，只是向上走</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29saXh1" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;olixu"><i class="github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOjI3MzYwMTcyN0BxcS5jb20=" title="E-Mail → mailto:273601727@qq.com"><i class="envelope fa-fw"></i>E-Mail</span>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">苏ICP备17055396号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Oliver xu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">345k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:14</span>
+</div>
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0Lm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/js/anime.min.js"></script>
+  <script src="/js/velocity.min.js"></script>
+  <script src="/js/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '/js/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="/css/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('/js/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'e11777414ce827fd8ec2',
+      clientSecret: 'c572c4ca1c0dfdfaf2b4f2195aa903185e2dfeea',
+      repo        : 'blog-comment',
+      owner       : 'olixu',
+      admin       : ['olixu'],
+      id          : '0437a7d6ccc20a02d191e1650dfe688c',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
